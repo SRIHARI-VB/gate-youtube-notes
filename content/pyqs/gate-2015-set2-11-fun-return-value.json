@@ -1,0 +1,15 @@
+{
+ "id": "gate-2015-set2-11-fun-return-value",
+ "year": "2015",
+ "paper": "GATE CSE 2015 Set 2",
+ "question_ref": "Q.11 on GATE Overflow (numbered 45 in ExamSIDE's 2015 Set 2 year page; both indexes were read and the disagreement is recorded rather than resolved)",
+ "type": "NAT",
+ "topic": "linear-tree-and-nested-recursion",
+ "text": "Consider the following C function. int fun(int n) { int x=1, k; if (n==1) return x; for (k=1; k<n; ++k) x = x + fun(k) * fun (n-k); return x; } The return value of fun(5) is _______.",
+ "answer": "51",
+ "solution": "Each activation loops k from 1 to n-1 and adds fun(k)*fun(n-k), so fun(n) = 1 + sum over k of fun(k)fun(n-k), with fun(1) = 1. Evaluate bottom-up because only smaller arguments are needed: fun(1) = 1; fun(2) = 1 + 1 = 2; fun(3) = 1 + 1x2 + 2x1 = 5; fun(4) = 1 + 1x5 + 2x2 + 5x1 = 15; fun(5) = 1 + 1x15 + 2x5 + 5x2 + 15x1 = 51. Expanding the call tree by hand is unnecessary and error-prone: every value is a function of the ones already computed.",
+ "source_url": "https://gateoverflow.in/8060/gate-cse-2015-set-2-question-11",
+ "source_label": "GATE Overflow question page - GATE CSE 2015 Set 2 Q.11 with several answers giving 51; gateqa and trygateai corroborate",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers tabulate fun(1)..fun(5) = 1, 2, 5, 15, 51 and one gives the closed recurrence with the summation; gateqa records the answer as 51. The official key was not fetched, so the record stays SOURCED. ExamSIDE's year page numbers this question 45 while GATE Overflow numbers it 11, and both numbers are recorded."
+}

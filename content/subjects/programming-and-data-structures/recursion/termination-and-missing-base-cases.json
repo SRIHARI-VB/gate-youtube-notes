@@ -1,0 +1,116 @@
+{
+ "id": "termination-and-missing-base-cases",
+ "title": "Termination and the Missing Base Case",
+ "priority": "P1",
+ "order": 573,
+ "unit": "Recursion",
+ "quickIdea": "A recursion terminates only when its base case is reachable. Integer division can stall at a fixed point, and a fixed point that is not the base case is an infinite recursion.",
+ "remember": [
+  "GATE CSE 2019 Q.26: void convert(int n) { if (n < 0) printf(\"%d\", n); else { convert(n/2); printf(\"%d\", n%2); } } called with a positive n prints nothing and never terminates, because 0/2 is 0 and the argument sticks at 0 while the test asks for n < 0.",
+  "Change one character - n < 0 to n <= 0 - and the recursion does terminate: it prints 0101 for 5, the binary digits with a leading 0 because the base case prints the 0 itself. That one character is the whole question.",
+  "Because the printf sits after the recursive call, no digit is printed before the recursion is abandoned. An option that says 'prints the binary representation but does not terminate' is therefore wrong.",
+  "The C standard sets no limit on recursion depth, so the honest answer to 'what happens' is about the abstract program: it never returns. On a real machine the stack is exhausted first, which is a runtime failure, not a compile-time error.",
+  "The termination argument to write in an exam is a decreasing measure: exhibit a non-negative quantity that strictly falls on every call. For n/2 from n >= 0 the measure is n, but it stops falling at 0, which is exactly the failure.",
+  "Two independent reasons for non-termination: no base case at all, and a base case the arguments cannot reach. GATE has used both."
+ ],
+ "example": {
+  "prompt": "Trace convert(5) with the 2019 code and say what is printed.",
+  "work": "convert(5) calls convert(2), which calls convert(1), which calls convert(0), which calls convert(0) again. Every call is inside the else branch, so every printf is still waiting behind its recursive call and none has run.",
+  "answer": "Nothing is printed, and the call chain never returns."
+ },
+ "gateAngle": "This is the topic's cleanest conceptual question and it comes from a real paper. The distractors are all about what would have been printed if the base case worked, so the marks go to the reader who checks the condition before tracing the digits.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2019 Q.26: with the condition n < 0 and a positive argument, what does convert do?",
+   "answer": "It prints nothing and does not terminate.",
+   "why": "The argument reaches 0 and stays there; the base case asks for a negative value."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "If the first line of the same function were if (n <= 0) printf(\"%d\", n); what would convert(5) print?",
+   "answer": "0101 - the binary digits with a leading zero, because the base case itself prints the 0.",
+   "why": "With n <= 0 the base case is reached at n = 0 and prints 0, and the three frames above it then print the remainders 1, 0 and 1 on the unwinding. The digits are right but the extra 0 is printed, which is why the option 'prints the binary representation' in the paper is not an exact description of either version."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Give a measure that proves the halving recursion terminates, and say why it fails for convert.",
+   "answer": "For a function that recurses on n/2 with base case n == 1 and n >= 1, the measure is floor(log2 n), which falls by at least 1 each call and is 0 at the base. For convert the base case is n < 0, but n/2 never leaves the non-negative integers, so the measure never reaches the required condition.",
+   "why": "Termination arguments are asked as 'why' questions, and the answer is always a decreasing quantity plus a reachable floor."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A function recurses on n-2 with base case n == 0. Which inputs terminate?",
+   "answer": "The even ones. An odd n walks 1, -1, -3, ... and never meets 0.",
+   "why": "The same shape as the 2019 question with subtraction instead of division: the step and the base case must agree on parity."
+  }
+ ],
+ "trap": {
+  "what": "Believing that halving an integer always reaches zero, or that a negative test will eventually fire.",
+  "why": "Integer division by 2 is a floor operation with a fixed point at 0. From 0 the argument cannot change, so a base case expressed as a strict inequality against 0 is never satisfied.",
+  "counterexample": "0/2 == 0 in C, so convert(0) calls convert(0). The condition n < 0 is false for every value the argument ever takes."
+ },
+ "check": {
+  "question": "void down(int n) { if (n == 1) return; down(n - 1); } Does down(0) terminate?",
+  "answer": "No - it recurses through 0, -1, -2, ... and never meets 1.",
+  "explanation": "The base case is reachable only from above. Passing an input smaller than the base case turns a terminating function into an infinite one, which is the same lesson as the 2019 paper question in the opposite direction."
+ },
+ "pyqIds": [
+  "gate-2019-26-convert-missing-base-case"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "recursion-anatomy-base-and-recursive-case"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the base case that is never reached, worked on the 2019 convert question"
+  },
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the requirement that the recursive step approach the base case"
+  }
+ ],
+ "sourceLine": "The never-reached base case and its trace: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). The requirement that every recursive step approach the base case: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). The 2019 Q.26 answer and the n <= 0 contrast are recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

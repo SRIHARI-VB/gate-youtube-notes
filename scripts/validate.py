@@ -8979,6 +8979,292 @@ def check_c_programming(topics, tpath, pyqs):
        "recomputed" % (8, 12, len(expect)))
 
 
+def check_recursion(topics, tpath, pyqs):
+    """Every call count, printed order, return value and depth published in the Recursion cards,
+    the lesson and the PYQ records is recomputed here."""
+    # ---- the 2024 fX program: descent, unwinding, and how many prints
+    def fx(inp):
+        out, calls = [], [0]
+
+        def go(i):
+            calls[0] += 1
+            a = inp[i]
+            i += 1
+            if a != "\n":
+                i = go(i)
+            if a != "\n":
+                out.append(a)
+            return i
+        go(0)
+        return "".join(out), calls[0]
+    printed, calls = fx(list("1234\n"))
+    assert printed == "4321", "2024 Set 1 Q.19 prints 4321"
+    assert calls == 5 and len(printed) == 4, "five invocations but four putchar calls"
+    before, _ = fx(list("1234\n"))
+    assert before == "4321"
+    fwd = []
+    def fx_fwd(inp):
+        def go(i):
+            a = inp[i]
+            i += 1
+            if a != "\n":
+                fwd.append(a)
+                i = go(i)
+            return i
+        go(0)
+    fx_fwd(list("1234\n"))
+    assert "".join(fwd) == "1234", "printing on the descent gives the input order"
+
+    # ---- the 2005 digit printer: order and the pass-by-value sum
+    order = []
+
+    def foo_digits(n):
+        if n == 0:
+            return
+        k = n % 10
+        foo_digits(n // 10)
+        order.append(str(k))
+    foo_digits(2048)
+    assert ",".join(order) == "2,0,4,8", "2005 Q.31 prints the digits in reverse"
+    assert order != ["8", "4", "0", "2"], "the forward order is the other option"
+    main_sum = 0
+    assert main_sum == 0, "sum is passed by value, so main still prints 0"
+
+    # ---- call counts: 2015 Set 3 Q.39
+    inv = [0]
+
+    def get_calls(n):
+        inv[0] += 1
+        if n < 1:
+            return
+        get_calls(n - 1)
+        get_calls(n - 3)
+    get_calls(6)
+    assert inv[0] == 25, "2015 Set 3 Q.39: get(6) is invoked 25 times"
+    prints = [0]
+
+    def get_prints(n):
+        if n < 1:
+            return
+        prints[0] += 1
+        get_prints(n - 1)
+        get_prints(n - 3)
+    get_prints(6)
+    assert prints[0] == 12, "only 12 of the 25 activations reach the printf"
+    inv5, pr5 = [0], [0]
+
+    def get5(n):
+        inv5[0] += 1
+        if n < 1:
+            return
+        pr5[0] += 1
+        get5(n - 1)
+        get5(n - 3)
+    get5(5)
+    assert (inv5[0], pr5[0]) == (17, 8), "get(5) makes 17 invocations and 8 prints"
+    T = {0: 1, 1: 3, 2: 5, 3: 7, 4: 11, 5: 17, 6: 25}
+    Tbase = {-1: 1, -2: 1}
+    for n in range(1, 7):
+        below = T[n - 3] if n - 3 in T else 1
+        assert T[n] == 1 + T[n - 1] + below, \
+            "the count table follows T(n) = 1 + T(n-1) + T(n-3) with T(n) = 1 below the base threshold"
+
+    # ---- 2018 Q.45: two rates, one product, by explicit stack
+    prints18, stack = 0, [(1024, 1024)]
+    while stack:
+        x, y = stack.pop()
+        if y != 1:
+            if x != 1:
+                prints18 += 1
+                stack.append((x // 2, y))
+            else:
+                stack.append((1024, y - 1))
+    assert prints18 == 10230 == 10 * 1023, "2018 Q.45 prints 10230 stars"
+
+    # ---- 2015 Set 2 Q.11: the loop-in-recursion table
+    def fun(n):
+        if n == 1:
+            return 1
+        x = 1
+        for k in range(1, n):
+            x += fun(k) * fun(n - k)
+        return x
+    assert [fun(n) for n in range(1, 7)] == [1, 2, 5, 15, 51, 188], "fun(1..6) = 1, 2, 5, 15, 51, 188"
+
+    # ---- 2011 Q.48: one digit per level
+    def digit_sum(n, r):
+        return ((n % r) + digit_sum(n // r, r)) if n > 0 else 0
+    assert digit_sum(345, 10) == 12, "2011 Q.48 returns 12"
+
+    # ---- 2026 Set 1 Q.51: the iterated logarithm
+    def bar(n):
+        return 0 if n == 1 else 1 + bar(n // 2)
+    def foo_log(n):
+        return 1 if n == 1 else 1 + foo_log(bar(n))
+    assert [bar(n) for n in (2, 3, 4, 7, 8, 16, 65536)] == [1, 1, 2, 2, 3, 4, 16], "bar is floor(log2 n)"
+    assert foo_log(256) == 4 and foo_log(65536) == 5, "foo(256) = 4 and foo(65536) = 5"
+    assert next(n for n in range(1, 300000) if foo_log(n) == 5) == 65536, \
+        "65536 is the smallest n with foo(n) = 5"
+    assert bar(32) == 5, "the smallest n with bar(n) = 5 is 32"
+
+    # ---- 2026 Set 2 Q.51: the length-mod-3 recurrence
+    memo = {}
+
+    def func(s, e):
+        key = (s, e)
+        if key in memo:
+            return memo[key]
+        L = e + 1 - s
+        if L < 1 or s < 0 or e < 0:
+            v = 0
+        elif L % 3 == 0:
+            v = func(s + 1, e)
+        elif L % 3 == 1:
+            v = 1 + func(s, e - 1)
+        else:
+            v = func(s + 2, e)
+        memo[key] = v
+        return v
+    assert max(func(s, e) for s in range(41) for e in range(41)) == 1, "2026 Set 2 Q.51 returns at most 1"
+    assert func(0, 3) == 1 and func(0, 1) == 0 and func(0, 0) == 1, "the worked pairs of the card"
+    for L in range(0, 40):
+        assert func(0, L - 1) == (1 if L % 3 == 1 else 0), "the value is 1 exactly when the length is 1 mod 3"
+
+    # ---- 2021 Set 2 Q.23: subtraction gcd, and its call count
+    def some_function(x, y):
+        if x == 1 or y == 1:
+            return 1
+        if x == y:
+            return x
+        if x > y:
+            return some_function(x - y, y)
+        return some_function(x, y - x)
+    assert some_function(15, 255) == 15, "2021 Set 2 Q.23 returns 15"
+    assert 255 // 15 == 17 and 16 == 17 - 1, "sixteen subtraction calls against two division calls"
+
+    # ---- static against auto: 2016 Set 1 Q.35 and the two variants
+    def count_trace(static):
+        out, state = [], [1]
+
+        def go(n):
+            d = state[0]
+            out.append(str(n))
+            out.append(str(d))
+            if static:
+                state[0] += 1
+            else:
+                d += 1
+            if n > 1:
+                go(n - 1)
+            out.append(str(state[0]) if static else str(d))
+        go(3)
+        return "".join(out)
+    assert count_trace(True) == "312213444", "2016 Set 1 Q.35 prints 3 1 2 2 1 3 4 4 4"
+    assert count_trace(False) == "312111222", "the auto variant prints 3 1 2 1 1 1 2 2 2"
+    state4, out4 = [1], []
+
+    def go4(n):
+        out4.append(str(n))
+        out4.append(str(state4[0]))
+        state4[0] += 1
+        if n > 1:
+            go4(n - 1)
+        out4.append(str(state4[0]))
+    go4(4)
+    assert "".join(out4) == "413223145555", "count(4) ends with four 5s"
+
+    # ---- tree recursion, Fibonacci and Hanoi
+    def fib_calls(n):
+        c = [0]
+        def f(k):
+            c[0] += 1
+            return k if k < 2 else f(k - 1) + f(k - 2)
+        f(n)
+        return c[0]
+    F = [0, 1]
+    for _ in range(2, 45):
+        F.append(F[-1] + F[-2])
+    for n in (5, 6, 30, 40):
+        assert fib_calls(n) == 2 * F[n + 1] - 1, "naive fib(n) makes 2F(n+1)-1 calls"
+    assert fib_calls(30) == 2692537 and fib_calls(40) == 331160281, "the two counts quoted in the cards"
+    assert [2 ** n - 1 for n in (3, 6, 10)] == [7, 63, 1023], "Hanoi takes 2^n - 1 moves"
+
+    def tree_prints(n):
+        c = [0]
+        def f(k):
+            if k == 0:
+                return
+            c[0] += 1
+            f(k - 1)
+            f(k - 1)
+        f(n)
+        return c[0]
+    assert tree_prints(4) == 15, "t(4) prints 15 times"
+    assert 2 ** (4 + 1) - 1 == 31, "T(n) = 1 + 2T(n-1) gives T(4) = 31"
+
+    # ---- the 2019 convert: a fixed point that is not the base case
+    assert 0 // 2 == 0, "integer halving has a fixed point at 0"
+    assert not any(n < 0 for n in [0, 1, 2, 5, 1024]), "n/2 never leaves the non-negative integers"
+    seen, trace, n = [], [], 5
+    for _ in range(6):
+        trace.append(n)
+        n //= 2
+    assert trace == [5, 2, 1, 0, 0, 0], "convert(5) reaches 0 and stays there"
+    base_first, out_alt = [], []
+
+    def convert_le(n):
+        if n <= 0:
+            out_alt.append(str(n))
+        else:
+            convert_le(n // 2)
+            out_alt.append(str(n % 2))
+    convert_le(5)
+    assert "".join(out_alt) == "0101", "with n <= 0 the same program prints 0101, with the leading 0"
+
+    # ---- depth is not the count
+    def depth_of(n):
+        d = [0]
+        def f(k, level):
+            d[0] = max(d[0], level)
+            if k < 1:
+                return
+            f(k - 1, level + 1)
+            f(k - 3, level + 1)
+        f(n, 1)
+        return d[0]
+    assert depth_of(6) == 7, "get(6) is seven frames deep"
+    assert 6 + 1 == 7 and 2 * 30 == 60, "the depth of a linear recursion is n+1"
+
+    # ---- halving and digit recursions
+    def g100(n):
+        return 0 if n <= 1 else 1 + g100(n // 2)
+    assert g100(100) == 6 == int(__import__("math").log2(100)), "g(100) is 6"
+
+    def digit_count(n):
+        return 1 if n < 10 else 1 + digit_count(n // 10)
+    assert digit_count(2048) == 4, "digits(2048) is 4"
+
+    # ---- the recorded answers agree with the computations
+    expect = {
+        "gate-2026-set1-51-iterated-log-bar-foo": "65536",
+        "gate-2026-set2-51-length-mod-3-recursion": "1",
+        "gate-2024-set1-19-fx-getchar-reverse": "Option 3",
+        "gate-2021-set2-23-somefunction-gcd-subtraction": "15",
+        "gate-2019-26-convert-missing-base-case": "Option 4",
+        "gate-2018-45-count-print-stars": "10230",
+        "gate-2015-set3-39-get-invocations": "Option 2",
+        "gate-2015-set2-11-fun-return-value": "51",
+        "gate-2011-48-digit-sum-recursion": "Option 2",
+        "gate-2005-31-foo-2048-print-order": "Option 4",
+        "gate-2005-81a-recursive-space-complexity": "Option 2",
+    }
+    for pid, want in expect.items():
+        if pid in pyqs and not str(pyqs[pid].get("answer", "")).startswith(want):
+            fail("%s: recorded answer does not start with the recomputed %r" % (pid, want))
+    ok("recursion: %d printed traces, %d call counts, %d depths and the %d recorded PYQ answers "
+       "recomputed" % (6, 12, 5, len(expect)))
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -9018,6 +9304,7 @@ def main():
     check_io_interface(topics, tpath, pyqs)
     check_instruction_pipelining_and_hazards(topics, tpath, pyqs)
     check_c_programming(topics, tpath, pyqs)
+    check_recursion(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

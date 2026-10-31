@@ -1,0 +1,119 @@
+{
+ "id": "descent-and-unwinding-order",
+ "title": "Descent and Unwinding: What the Print Order Depends On",
+ "priority": "P1",
+ "order": 575,
+ "unit": "Recursion",
+ "quickIdea": "A statement before the recursive call runs on the way down; a statement after it runs on the way back up. Move the print across the call and the output reverses.",
+ "remember": [
+  "Work done before the recursive call happens in call order, outermost first. Work done after it happens in the reverse order, deepest frame first, because the deepest call is the first to return.",
+  "GATE CSE 2024 Set 1 Q.19: fX reads one character into a local, recurses, then calls putchar. Input 1234 followed by a newline gives 4321 - the frame that read '1' returns last and prints last.",
+  "The character survives because each frame has its own a. If a were a single shared object, every frame would print the last character read.",
+  "GATE CSE 2005 Q.31: foo(2048) prints 2, 0, 4, 8 - the digits of 2048 in reverse, because the printf follows the recursive call - and then main prints sum, which is still 0 because the additions happened in copies of the parameter.",
+  "Reading the same program with the print before the call gives the forward order: 8, 4, 0, 2 for 2048 and 1234 for the 2024 question. Both orders appear as options, so the position of one line is the question.",
+  "The same binary-printing function appears in GATE IT 2008 Q.82 and Q.83 with input 173, giving 10101101; those are GATE IT papers, not GATE CSE, and are not recorded as CSE previous-year questions here."
+ ],
+ "example": {
+  "prompt": "void fX(void) { char a; if ((a = getchar()) != '\\n') fX(); if (a != '\\n') putchar(a); } with input 1234 followed by newline. What is printed?",
+  "work": "Five calls: the first four read '1', '2', '3', '4' and each makes another call before printing; the fifth reads the newline, fails both tests and returns. Then '4' prints, then '3', then '2', then '1'.",
+  "answer": "4321, and the program terminates normally."
+ },
+ "gateAngle": "Output-order questions are the most common recursion question in GATE CSE. The reliable method is to draw the frames in a column and mark, in each frame, which statements have run: the descent column fills top to bottom, the unwinding column bottom to top.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2024 Set 1 Q.19: what does the fX program print for the input 1234?",
+   "answer": "4321.",
+   "why": "putchar runs after the recursive call, so the deepest frame that still holds a character prints first."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "In the same program, move the putchar before the recursive call. What is printed for 1234?",
+   "answer": "1234.",
+   "why": "Printing on the descent gives the input order, which is exactly the option GATE offers as a distractor in the 2024 question."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the 2005 program print 2, 0, 4, 8 and then 0, rather than 8, 4, 0, 2 and 14?",
+   "answer": "The digits are printed after the recursive call, so they come out in reverse; and sum is passed by value, so the caller's sum is never updated and main prints 0.",
+   "why": "The question tests two independent facts at once, and both wrong answers come from getting one of them right."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "int g(int n) { if (n == 0) return 0; printf(\"%d\", n); return g(n - 1); } What does g(3) print?",
+   "answer": "321.",
+   "why": "Here the print is before the call, so it runs on the descent: 3, then 2, then 1, then the base case returns without printing."
+  }
+ ],
+ "trap": {
+  "what": "Expecting a value computed in a callee to be visible in the caller after the call.",
+  "why": "C passes arguments by value, so a callee that assigns to its parameter is writing to a copy. The caller's variable is untouched, however deep the recursion went.",
+  "counterexample": "In GATE CSE 2005 Q.31, foo(a, sum) accumulates 8 + 4 + 0 + 2 in its own copies of sum, and main still prints 0."
+ },
+ "check": {
+  "question": "void h(int n) { if (n == 0) return; h(n - 1); printf(\"%d\", n); } What does h(3) print?",
+  "answer": "123.",
+  "explanation": "The printf follows the recursive call, so it runs on the unwinding: the frame with n = 1 returns first and prints 1, then 2, then 3."
+ },
+ "pyqIds": [
+  "gate-2024-set1-19-fx-getchar-reverse",
+  "gate-2005-31-foo-2048-print-order"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "recursion-anatomy-base-and-recursive-case",
+  "call-by-value-and-the-activation-record"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "descent against unwinding, and the two 2008-style variants of the same binary printer"
+  },
+  {
+   "kind": "text",
+   "title": "C Recursion",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the frame-by-frame return path that makes the reversed order possible"
+  }
+ ],
+ "sourceLine": "The descent-and-unwinding rule and the worked traces: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). The return path of the stack: GeeksforGeeks 'C Recursion' (English, read in part). Both PYQ outputs, 4321 and 2, 0, 4, 8, 0, are recomputed in scripts/validate.py.",
+ "visual": "programming-and-data-structures/recursion/call-stack-descent-and-unwinding",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

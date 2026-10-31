@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 7,
-    "topics": 373,
-    "pyqs": 303,
+    "topics": 385,
+    "pyqs": 314,
     "videos": 39,
     "playlists": 3
   },
@@ -5584,6 +5584,183 @@
       "pyqs": [],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "recursion-anatomy-base-and-recursive-case",
+      "title": "Recursion: the Base Case and the Recursive Case",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-anatomy-base-and-recursive-case.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "termination-and-missing-base-cases",
+      "title": "Termination and the Missing Base Case",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/termination-and-missing-base-cases.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-26-convert-missing-base-case"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "call-stack-activation-records-and-depth",
+      "title": "The Call Stack, Activation Records and Depth",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/call-stack-activation-records-and-depth.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-81a-recursive-space-complexity"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "descent-and-unwinding-order",
+      "title": "Descent and Unwinding: What the Print Order Depends On",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/descent-and-unwinding-order.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-19-fx-getchar-reverse",
+        "gate-2005-31-foo-2048-print-order"
+      ],
+      "visual": "programming-and-data-structures/recursion/call-stack-descent-and-unwinding",
+      "variations": 4
+    },
+    {
+      "topic": "counting-invocations-in-a-call-tree",
+      "title": "Counting Invocations in a Call Tree",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/counting-invocations-in-a-call-tree.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set3-39-get-invocations",
+        "gate-2018-45-count-print-stars"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "linear-tree-and-nested-recursion",
+      "title": "Linear, Tree and Nested Recursion",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/recursion/linear-tree-and-nested-recursion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set2-11-fun-return-value"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "recursion-depth-and-logarithmic-recursion",
+      "title": "Halving Recursions and the Logarithm",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-depth-and-logarithmic-recursion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set1-51-iterated-log-bar-foo",
+        "gate-2021-set2-23-somefunction-gcd-subtraction"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "tail-head-and-indirect-recursion",
+      "title": "Tail, Head and Indirect Recursion",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/tail-head-and-indirect-recursion.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "static-and-global-state-across-calls",
+      "title": "Static and Global State Across Calls",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/static-and-global-state-across-calls.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-35-static-local-in-recursion"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "tail-call-elimination-and-iteration",
+      "title": "Tail-Call Elimination and Rewriting Recursion as a Loop",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/tail-call-elimination-and-iteration.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "recursion-on-arrays-strings-and-digits",
+      "title": "Recursion over Arrays, Strings and Digits",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/recursion-on-arrays-strings-and-digits.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-48-digit-sum-recursion"
+      ],
+      "visual": null,
+      "variations": 4
+    },
+    {
+      "topic": "deriving-a-recurrence-from-code",
+      "title": "Deriving a Recurrence from the Code",
+      "subject": "programming-and-data-structures",
+      "group": "recursion",
+      "unit": "Recursion",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-51-length-mod-3-recursion"
+      ],
+      "visual": null,
+      "variations": 4
     }
   ]
 }

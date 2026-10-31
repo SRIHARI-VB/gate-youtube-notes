@@ -1,0 +1,117 @@
+{
+ "id": "static-and-global-state-across-calls",
+ "title": "Static and Global State Across Calls",
+ "priority": "P2",
+ "order": 580,
+ "unit": "Recursion",
+ "quickIdea": "A static local is one object shared by every call of the function, so a recursive function can see the writes of its own earlier calls - and on the way back up it sees the final value, not the value it started with.",
+ "remember": [
+  "A static local is initialised once, before the first call, and keeps its value between calls and across the recursion. An auto local is a fresh object in every frame.",
+  "GATE CSE 2016 Set 1 Q.35: count(3) with static int d = 1 prints 3 1 2 2 1 3 4 4 4. The descent prints n and d for n = 3, 2, 1, and the three 4s come from the unwinding, where every frame reads the same final d.",
+  "A global variable behaves the same way for this purpose: one object, visible to every frame, so a global counter counts all the calls rather than the calls of one frame.",
+  "Because the shared object is written on the descent, a read on the unwinding sees the last value written, not the value at the time that frame was created.",
+  "Make d an auto local and the same program prints 3 1 2 1 1 1 2 2 2 - the value each frame would have had if it owned its own copy, which is one of the paper's options.",
+  "The alternative design is to pass the accumulator as a parameter or to return it; then every frame is independent and the output order becomes the only thing that differs."
+ ],
+ "example": {
+  "prompt": "void count(int n) { static int d = 1; printf(\"%d\", n); printf(\"%d\", d); d++; if (n > 1) count(n-1); printf(\"%d\", d); } What does count(3) print?",
+  "work": "count(3) prints 3 and 1, then d becomes 2, then calls count(2), which prints 2 and 2 and raises d to 3, then count(1) prints 1 and 3 and raises d to 4 and returns after printing 4. The two outer frames then each print the same d, now 4.",
+  "answer": "3 1 2 2 1 3 4 4 4."
+ },
+ "gateAngle": "This is the standard way GATE combines recursion with storage duration: the recursion supplies the order, the static variable supplies the shared value. Both wrong answers in 2016 Set 1 Q.35 come from treating d as an auto local.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2016 Set 1 Q.35: what does count(3) print?",
+   "answer": "3 1 2 2 1 3 4 4 4.",
+   "why": "The static d is one object; the unwinding reads its final value three times."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "What would the same program print if d were declared auto instead of static?",
+   "answer": "3 1 2 1 1 1 2 2 2.",
+   "why": "Each frame now has its own d, which is 1 on entry and 2 after the increment, so every unwinding print is 2."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does count(4) end with four 5s rather than one?",
+   "answer": "Because d is incremented on every activation: four activations raise it from 1 to 5, and each of the four frames prints the same shared object after its call returns. The full output is 4 1 3 2 2 3 1 4 5 5 5 5.",
+   "why": "The number of trailing repeats equals the number of activations that reach the print after the call, which is the depth of the recursion."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A global counter is incremented at the top of a recursive function. What does it hold when the call returns?",
+   "answer": "The total number of activations, including the base-case ones, because every frame increments the same object.",
+   "why": "This is the cheapest way to answer 'how many calls' in practice, and it is why the recurrence and the counter agree."
+  }
+ ],
+ "trap": {
+  "what": "Assuming each frame owns a copy of a static local.",
+  "why": "static changes the storage duration, not the scope. The name is still local to the function, but the object is created once and shared by every call, so a write in one frame is visible in all the others.",
+  "counterexample": "In count(3) the three trailing 4s are impossible if each frame had its own d: they are the same object read three times."
+ },
+ "check": {
+  "question": "void f(int n) { static int c = 0; c++; if (n > 1) f(n-1); printf(\"%d\", c); } What does f(3) print?",
+  "answer": "333.",
+  "explanation": "Three activations raise the shared c to 3 before any of them prints; all three then print the same object, which holds 3."
+ },
+ "pyqIds": [
+  "gate-2016-set1-35-static-local-in-recursion"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "storage-classes-auto-static-extern-register",
+  "descent-and-unwinding-order"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the static variable followed across recursive calls, and the trace that shows it is one object"
+  },
+  {
+   "kind": "text",
+   "title": "C Recursion",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the frame-local lifetime of ordinary locals, which is what static is being contrasted with"
+  }
+ ],
+ "sourceLine": "Following a static variable across recursive calls: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Frame-local storage for auto variables: GeeksforGeeks 'C Recursion' (English, read in part). The GATE CSE 2016 Set 1 Q.35 output, the auto-local variant and the count(4) trace are recomputed in scripts/validate.py. The 2016 question record itself lives with the Programming in C topic, where it was first verified, and is linked from here rather than duplicated.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "id": "recursion-on-arrays-strings-and-digits",
+ "title": "Recursion over Arrays, Strings and Digits",
+ "priority": "P2",
+ "order": 582,
+ "unit": "Recursion",
+ "quickIdea": "Recursion over a sequence shrinks the sequence: one element per level, and the base case is the empty or one-element remainder.",
+ "remember": [
+  "On an array, pass the index (or the pointer) and advance it in the recursive call; the base case is index == length, or a pointer past the last element.",
+  "On a string, the NUL terminator is the natural base case. A recursion that reads a character and prints it after the call reverses the string, which is the mechanism of GATE CSE 2024 Set 1 Q.19.",
+  "On an integer, n/10 and n%10 peel one decimal digit per level. GATE CSE 2011 Q.48 adds the digits: foo(345, 10) = 5 + 4 + 3 + 0 = 12. GATE CSE 2005 Q.31 prints them in reverse with the printf after the call.",
+  "An array parameter decays to a pointer, so sizeof inside the function gives the pointer's size, not the array's. The length must be passed as a second parameter or the array must be NUL-terminated.",
+  "The depth equals the number of elements, so recursion over a long string or a large array is a stack risk; when only the order of the output matters, a loop is the safer form.",
+  "Recursion over a sequence is linear recursion: one call per element, so time and space are both O(n)."
+ ],
+ "example": {
+  "prompt": "unsigned int foo(unsigned int n, unsigned int r) { if (n > 0) return (n % r) + foo(n / r, r); else return 0; } What is foo(345, 10)?",
+  "work": "Each level adds the last digit and recurses on the number without it: 5 + foo(34,10) = 5 + 4 + foo(3,10) = 5 + 4 + 3 + foo(0,10) = 5 + 4 + 3 + 0.",
+  "answer": "12, the sum of the decimal digits of 345."
+ },
+ "gateAngle": "Sequence recursions are where the position of the print statement and the pass-by-value rule meet: 2005 Q.31 asks for both at once, and 2024 Set 1 Q.19 asks for the order alone. Both are answered by drawing the frames and marking which statement has run.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2011 Q.48: the value of foo(345, 10).",
+   "answer": "12.",
+   "why": "One digit per level, added on the way back up."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "Write a recursive strlen for a NUL-terminated string and say what the base case is.",
+   "answer": "int len(const char *s) { return *s == '\\0' ? 0 : 1 + len(s + 1); } - the base case is the NUL character, and the depth equals the length of the string.",
+   "why": "The array and string form of the same linear recursion, with the length never needing to be passed."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why can a recursive function not find an array's length with sizeof?",
+   "answer": "Because a parameter declared int a[] is adjusted to int *a, so sizeof(a) inside the function is the size of a pointer. The array's size is known only where the array itself is in scope.",
+   "why": "The trap behind every 'recursion over an array' question that hands the callee an array and no length."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "In GATE CSE 2005 Q.31, what would be printed if the printf came before the recursive call?",
+   "answer": "8, 4, 0, 2 followed by 0 from main.",
+   "why": "The digits would come out on the descent, in the order they are peeled off, and main's sum would still be 0."
+  }
+ ],
+ "trap": {
+  "what": "Using sizeof inside a recursive function to bound the recursion over an array.",
+  "why": "The array parameter is a pointer, so sizeof gives 8 (on a 64-bit machine) or 4, not the number of elements. The recursion then walks off the end of the array or stops early, and the bound depends on the pointer size rather than the data.",
+  "counterexample": "void show(int a[]) { for (int i = 0; i < sizeof(a)/sizeof(a[0]); i++) printf(\"%d\", a[i]); } prints two elements on a 64-bit machine whatever the caller's array holds."
+ },
+ "check": {
+  "question": "int digits(int n) { return n < 10 ? 1 : 1 + digits(n / 10); } What is digits(2048), and how deep does it recurse?",
+  "answer": "4, with four activations.",
+  "explanation": "2048 -> 204 -> 20 -> 2 -> base case: four calls, one per decimal digit, and the count of digits is the depth."
+ },
+ "pyqIds": [
+  "gate-2011-48-digit-sum-recursion"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "pointer-arithmetic-and-array-decay",
+  "strings-nul-termination",
+  "descent-and-unwinding-order"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the digit-sum recursion and the print-after-call order on a sequence"
+  },
+  {
+   "kind": "text",
+   "title": "C Recursion",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the frame-per-element structure of a recursion over a sequence, and its stack cost"
+  }
+ ],
+ "sourceLine": "The digit-sum recursion and the descent/unwinding order over a sequence: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Frame-per-element recursion and its stack cost: GeeksforGeeks 'C Recursion' (English, read in part). foo(345,10) = 12 and the digit counts are recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "gate-2018-45-count-print-stars",
+ "year": "2018",
+ "paper": "GATE CSE 2018",
+ "question_ref": "Q.45 of the GATE CSE 2018 paper (Q.45 on GATE Overflow)",
+ "type": "NAT",
+ "topic": "counting-invocations-in-a-call-tree",
+ "text": "Consider the following program written in pseudo-code. Assume that x and y are integers. Count (x, y) { if (y != 1 ) { if (x != 1) { print(\"*\"); Count (x/2, y); } else { y = y-1; Count (1024, y); } } } The number of times that the print statement is executed by the call Count(1024, 1024) is _____",
+ "answer": "10230",
+ "solution": "For a fixed y the first branch keeps halving x: 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2 and then 1, and the star is printed on each of the ten calls that still have x != 1. When x reaches 1 the second branch decrements y and restarts from 1024. So each value of y from 1024 down to 2 contributes exactly ten stars, and there are 1023 such values: 10 x 1023 = 10230. The recursion also terminates, because y is 1 on the last level and the outer test fails.",
+ "source_url": "https://gateoverflow.in/204120/gate-cse-2018-question-45",
+ "source_label": "GATE Overflow question page - GATE CSE 2018 Q.45 with ten answers agreeing on 10230; Testbook's copy states it was asked in the GATE CS 2018 official paper",
+ "verification": "SOURCED",
+ "answer_evidence": "The accepted answers compute 10 stars per value of y times 1023 values; one gives the closed form log2(1024) x (1024 - 1) = 10230. The official key was not fetched, so the record stays SOURCED. The count was reproduced here by an explicit stack simulation, which also confirms that the recursion terminates."
+}

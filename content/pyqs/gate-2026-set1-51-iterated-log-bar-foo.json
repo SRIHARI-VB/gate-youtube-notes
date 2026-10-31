@@ -1,0 +1,16 @@
+{
+ "id": "gate-2026-set1-51-iterated-log-bar-foo",
+ "year": "2026",
+ "paper": "GATE CSE 2026 Set 1",
+ "question_ref": "Q.51 on GATE Overflow (a two-mark numerical question in the 2026 Set 1 paper)",
+ "type": "NAT",
+ "marks": "2",
+ "topic": "recursion-depth-and-logarithmic-recursion",
+ "text": "Consider the recursive functions represented by the following code segment: int bar(int n) { if (n == 1) return 0; else return 1 + bar(n/2); } int foo(int n) { if (n == 1) return 1; else return 1 + foo(bar(n)); } The smallest positive integer n for which foo(n) returns 5 is _____. (answer in integer) Note: Ignore syntax errors (if any) in the function.",
+ "answer": "65536",
+ "solution": "bar(n) is 0 at n = 1 and otherwise adds one after halving, so bar(n) = floor(log2 n): bar(2) = 1, bar(4) = 2, bar(16) = 4, bar(65536) = 16. foo(1) = 1, and for n > 1 foo(n) = 1 + foo(bar(n)). So each application of foo spends one halving and the chain must reach 1 in exactly four steps: foo(65536) = 1 + foo(16) = 2 + foo(4) = 3 + foo(2) = 4 + foo(1) = 5. Nothing smaller works: foo(256) = 1 + foo(8) = 2 + foo(3) = 3 + foo(1) = 4, because 2^16 = 65536 is the smallest n whose fourth iterated base-2 logarithm is 1.",
+ "source_url": "https://gateoverflow.in/523029/gate-cse-2026-set-1-question-51",
+ "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.51 with the accepted answer (65536); corroborated by ExamSIDE's 2026 Set 1 page and by pyqbox",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow accepted answer derives bar(n) = floor(log2 n) and concludes n = 2^16 = 65536; ExamSIDE's year page states 'Correct answer is 65536'. The official 2026 paper and key were not fetched this run, so the record stays SOURCED. The code as printed tests n == 1 in foo while one GATE Overflow answer transcribes it as n == 0; the 65536 answer is consistent with the printed version, which is what is recorded here."
+}

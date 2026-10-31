@@ -1,0 +1,21 @@
+{
+ "id": "gate-2011-48-digit-sum-recursion",
+ "year": "2011",
+ "paper": "GATE CSE 2011",
+ "question_ref": "Q.48 of the GATE CSE 2011 paper (Q.48 on GATE Overflow)",
+ "type": "MCQ",
+ "topic": "recursion-on-arrays-strings-and-digits",
+ "text": "Consider the following recursive C function that takes two arguments. unsigned int foo(unsigned int n, unsigned int r) { if (n>0) return ((n%r) + foo(n/r, r)); else return 0; } What is the return value of the function foo when it is called as foo(345, 10)?",
+ "options": [
+  "345",
+  "12",
+  "5",
+  "3"
+ ],
+ "answer": "Option 2 - 12",
+ "solution": "The call adds n%r and then recurses on n/r, so with r = 10 it adds the last decimal digit and drops it, one digit per level: foo(345,10) = 5 + foo(34,10) = 5 + 4 + foo(3,10) = 5 + 4 + 3 + foo(0,10) = 12. The base case at n = 0 returns 0, so the sum is the digit sum 3 + 4 + 5 = 12. The parameter r is not the radix of a conversion but the divisor, which is why the answer is a sum and not the number itself.",
+ "source_url": "https://gateoverflow.in/2154/gate-cse-2011-question-48",
+ "source_label": "GATE Overflow question page - GATE CSE 2011 Q.48 with the accepted answer (12)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers give 12 and identify the function as the sum of the decimal digits of 345. The official key was not fetched, so the record stays SOURCED. The value is recomputed in scripts/validate.py."
+}

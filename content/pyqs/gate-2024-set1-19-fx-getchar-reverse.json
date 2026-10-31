@@ -1,0 +1,22 @@
+{
+ "id": "gate-2024-set1-19-fx-getchar-reverse",
+ "year": "2024",
+ "paper": "GATE CSE 2024 Set 1",
+ "question_ref": "Q.19 of the GATE CSE 2024 Set 1 paper as numbered by ExamSIDE and gateiit; the same question is filed as 'Question 9' in GATE Overflow's 2024 Set 1 index",
+ "type": "MCQ",
+ "marks": "1",
+ "topic": "descent-and-unwinding-order",
+ "text": "Consider the following C program: #include <stdio.h> void fX(); int main(){ fX(); return 0; } void fX(){ char a; if ((a = getchar()) != '\\n') fX(); if (a != '\\n') putchar(a); } Assume that the input to the program from the command line is 1234 followed by a newline character. Which one of the following statements is CORRECT?",
+ "options": [
+  "The program will not terminate",
+  "The program will terminate with no output",
+  "The program will terminate with 4321 as output",
+  "The program will terminate with 1234 as output"
+ ],
+ "answer": "Option 3 - the program will terminate with 4321 as output",
+ "solution": "Each call reads one character into its own local a and then recurses, so the calls nest five deep: '1', '2', '3', '4', then the call that reads the newline. That fifth call fails both tests and returns without printing. The frame that read '4' now runs its second if and prints '4', then the frame that read '3' prints '3', and so on, so the output is 4321. The local a of each frame still holds its character, which is exactly why the order reverses.",
+ "source_url": "https://gateoverflow.in/422833/gate-cse-2024-set-1-question-9",
+ "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 (filed as Question 9) with the accepted answer 4321; ExamSIDE, gateiit and trygateai all give option C with the same trace",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answer states that the characters are printed in reverse order as the recursion unwinds; gateiit labels the answer 'C (official GATE 2024 final answer key)'. The official key itself was not fetched this run, so the record stays SOURCED. The question number differs between indexes and both are recorded rather than one being chosen silently."
+}

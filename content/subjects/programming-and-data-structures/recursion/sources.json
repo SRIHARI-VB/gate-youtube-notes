@@ -1,0 +1,138 @@
+{
+ "subject": "programming-and-data-structures",
+ "topic": "recursion",
+ "retrieved_at": "2026-10-31",
+ "chosen": [
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the direct/indirect split and the tail, head, tree and nested shapes with their stated time and space costs",
+   "id": "gfg-gate-recursion-notes",
+   "why": "the only source read this run that names all five recursion shapes in one place with a stated time and space cost for each, which is the enumeration the taxonomy card and the linear/tree card are built on"
+  },
+  {
+   "kind": "encyclopaedia",
+   "title": "Recursion (computer science)",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "base case and recursive case, the induction analogy, the call stack and the textbook examples",
+   "id": "wikipedia-recursion-cs",
+   "why": "the cleanest statement of the base case and recursive case as a definition, with the induction analogy that turns 'is this recursion correct' into an induction argument, and the binary-search example that motivates the halving card"
+  },
+  {
+   "kind": "encyclopaedia",
+   "title": "Tail call",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Tail_call",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "tail position, frame reuse, and the reduction of stack space from O(n) to O(1)",
+   "id": "wikipedia-tail-call",
+   "why": "the only source read that defines tail position precisely and states that frame reuse reduces O(n) stack to O(1) while remaining an implementation choice rather than a language guarantee, which is the whole content of the tail-call card"
+  },
+  {
+   "kind": "text",
+   "title": "C Recursion",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "stack frames pushed and popped, the fixed stack region, stack overflow, and the recursion-versus-iteration costs",
+   "id": "gfg-c-recursion",
+   "why": "the only source read that describes the frame push and pop cycle, the fixed stack region and stack overflow as one mechanism, which the depth and space cards depend on"
+  },
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "descent against unwinding, a base case that is never reached, counting invocations, and static state across calls",
+   "id": "knowledgegate-basic-recursion-mcqs",
+   "why": "the only source read that separates descent from unwinding as a rule and works it through GATE questions, including a base case that is never reached and static state followed across calls; three cards draw their trap fields from it"
+  },
+  {
+   "kind": "text",
+   "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the naive-Fibonacci call count 2F(n+1)-1, the 2^n-1 Hanoi moves, and the distinction between the number of calls and the stack depth",
+   "id": "careercraftlabs-hindi-pds-ch01",
+   "why": "the only GATE-framed source that gives the 2F(n+1)-1 Fibonacci call count, the 2^n-1 Hanoi move count and the rule that stack depth is the height of the recursion tree and not the number of calls; it is also the only readable non-English source, and its four translated sentences are marked as translated on the cards that use them"
+  }
+ ],
+ "rejected": [
+  {
+   "id": "youtube-lectures-any-channel",
+   "kind": "video",
+   "why": "no video transcript was readable this run: the YouTube watch page answered with a 402-byte consent/error body and no caption track, so the NPTEL Programming-in-C lectures, the GO Classes recursion lectures, the Knowledge Gate C module and every Hindi channel tried supplied no sentence; videoRefs is empty on all twelve cards"
+  },
+  {
+   "id": "nptel-course-transcripts",
+   "kind": "course",
+   "why": "nptel.ac.in answered 502 to this sandbox and no NPTEL recursion lecture transcript was fetched this run, so nothing rests on one; the archive host answered but no transcript PDF was located"
+  },
+  {
+   "id": "tutorialinhindi-c-recursion",
+   "kind": "text",
+   "why": "read and rejected as a teaching source: a beginner Hindi tutorial with the direct/indirect split and a syntax skeleton, no GATE framing, no call counting and no cost analysis; the CareerCraft Labs chapter covers the same ground with the GATE questions in view"
+  },
+  {
+   "id": "notesmedia-recursion-in-hindi",
+   "kind": "text",
+   "why": "read and rejected: a one-page Hindi summary of the same base-case/recursive-case material with no worked trace and no GATE question"
+  },
+  {
+   "id": "urhoba-c-recursion-hindi",
+   "kind": "text",
+   "why": "readable Hindi page with a useful stack-overflow warning, but generic programming advice, no GATE framing and no call-count or complexity treatment"
+  },
+  {
+   "id": "coddykit-recursion-hindi",
+   "kind": "course",
+   "why": "readable Hindi beginner lesson on descent and unwinding, correct but at the level of a first factorial program; the same point is made with a GATE question by the Knowledge Gate AI set"
+  },
+  {
+   "id": "gate-it-2008-82-83-and-gate-it-2005-57",
+   "kind": "question-set",
+   "why": "the f(173) binary-print pair and the f(20,1) trace are attractive recursion questions but they are GATE IT papers, not GATE CSE, so they are not recorded as PYQs here; the same facts are taught from GATE CSE 2024 Set 1 Q.19 and GATE CSE 2011 Q.48"
+  },
+  {
+   "id": "gate-2013-42-reference-recursion",
+   "kind": "question",
+   "why": "GATE CSE 2013 Q.42 (f(p,p) with a reference parameter) is a recursion question whose official answer was 'marks to all', because the program has undefined behaviour at the multiplication; recording a single answer would misrepresent it, so it is left out of the PYQ set"
+  },
+  {
+   "id": "examside-pyqbox-gateqa-testbook-aggregators",
+   "kind": "question-index",
+   "why": "used to locate questions and to corroborate answers, never as the source of a card; their numbering disagrees with GATE Overflow's (the 2024 Set 1 fX question is Q.19 on ExamSIDE and gateiit but 'Question 9' in the GATE Overflow 2024 Set 1 index, and the 2015 Set 2 fun(5) question is Q.11 on GATE Overflow but numbered 45 in ExamSIDE's year page), and every disagreement is recorded in the PYQ record rather than resolved"
+  },
+  {
+   "id": "testbook-hindi-mcq-banks",
+   "kind": "question-set",
+   "why": "practice questions drawn from other examinations rather than GATE CSE previous-year papers"
+  }
+ ],
+ "standard_refs": [
+  "Kernighan and Ritchie, The C Programming Language, 2nd edition, section 4.10 (recursion) - cited, not fetched this run",
+  "CLRS, Introduction to Algorithms, 4th edition, chapter 4 (recurrences and the recursion tree) - cited, not fetched this run",
+  "Rosen, Discrete Mathematics and Its Applications, chapter 5 (recursive definitions and structural induction) - cited, not fetched this run",
+  "GATE Overflow question pages for the eleven recorded PYQs, each carrying an accepted answer"
+ ],
+ "language_note": "One of the six chosen sources is Hindi (Devanagari), read in part and translated: the CareerCraft Labs chapter. Every card, caption, check and label published here is English, and each card that uses a sentence from that chapter names the translation in its source line. No card is a translation of a lecture, because no lecture transcript was readable this run."
+}

@@ -3,7 +3,7 @@
  "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "programming-and-data-structures",
-  "last_topic": "programming-in-c",
+  "last_topic": "recursion",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -1001,10 +1001,33 @@
     {
      "slug": "recursion",
      "name": "Recursion",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "12 cards covering 12 enumerated subtopics (the anatomy of a base case and a recursive case, termination and missing base cases, the call stack and depth, descent against unwinding, counting invocations, linear/tree/nested recursion, halving recursions and the logarithm, the tail/head/indirect taxonomy, static and global state across calls, tail-call elimination and the loop rewrite, recursion over arrays/strings/digits, and deriving a recurrence from code), 11 newly verified PYQs from GATE CSE 2005 to 2026 plus one GATE CSE 2016 question linked from the Programming in C topic, and 1 p5.js lesson. Partial because five gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "gfg-gate-recursion-notes",
+        "wikipedia-recursion-cs",
+        "wikipedia-tail-call",
+        "gfg-c-recursion",
+        "knowledgegate-basic-recursion-mcqs",
+        "careercraftlabs-hindi-pds-ch01"
+       ],
+       "cards": 12,
+       "pyqs": 11,
+       "lesson": "programming-and-data-structures/recursion/call-stack-descent-and-unwinding",
+       "note": "Sources chosen on merit across two languages: GeeksforGeeks 'Recursion Notes for GATE Exam' (English) for the taxonomy and the stated costs, GeeksforGeeks 'C Recursion' (English) for frames and stack overflow, Wikipedia 'Recursion (computer science)' (English) for the base/recursive case and the induction analogy, Wikipedia 'Tail call' (English) for tail position and frame reuse, Knowledge Gate AI 'Basic Recursion MCQs' (English) for descent against unwinding, counting invocations and static state, and the CareerCraft Labs Hindi chapter (Devanagari, read in part, translated) for the 2F(n+1)-1 call count, the 2^n-1 Hanoi moves and the rule that stack depth is the height of the recursion tree rather than the number of calls. Ten candidates were rejected with reasons in sources.json, including every video in every language (no caption track was retrievable), the NPTEL transcripts (host unreachable, nothing fetched), three Hindi beginner tutorials and one Hindi course page (correct but no GATE framing), the GATE IT 2005 and 2008 recursion questions (not CSE papers) and GATE CSE 2013 Q.42 (marks to all for undefined behaviour)."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the YouTube watch page returned a 402-byte consent/error body with no caption track, so videoRefs is empty on all twelve cards and no lecture in any language (English, Hindi, Tamil, Telugu, Bengali) supplied a sentence",
+      "no NPTEL recursion lecture was read: nptel.ac.in answered 502 to the sandbox and no transcript PDF was located on the archive host, so nothing rests on an NPTEL source",
+      "GATE CSE 2013 Q.42 (the f(p,p) reference-parameter recursion) is excluded because the official answer was marks to all for undefined behaviour; recording a single answer would misrepresent it, and the sequence-point rule it turns on belongs to the operator-precedence card in the Programming in C topic",
+      "no marks field is recorded on ten of the eleven PYQs: only the 2026 Set 1 and 2024 Set 1 questions carry a marks figure read from a paper index, because the official papers and keys were not fetched",
+      "question numbering is inconsistent between indexes for two questions (the 2024 Set 1 fX question is Q.19 on ExamSIDE and gateiit but 'Question 9' in GATE Overflow's 2024 index; the 2015 Set 2 fun(5) question is Q.11 on GATE Overflow but 45 in ExamSIDE's year page); both numbers are recorded in the PYQ record rather than resolved",
+      "GATE CSE 2008's recursion questions, and the other recursion items GATE Overflow lists for 2010 to 2023, were not individually read or recomputed this run; only the eleven recorded PYQs were verified"
+     ]
     },
     {
      "slug": "arrays-stacks-queues",

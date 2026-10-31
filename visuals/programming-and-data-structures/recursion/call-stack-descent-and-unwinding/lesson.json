@@ -1,0 +1,20 @@
+{
+  "slug": "call-stack-descent-and-unwinding",
+  "topic": "descent-and-unwinding-order",
+  "engine": "p5.js",
+  "steps": 8,
+  "example": {
+    "program": "void fX(){ char a; if ((a = getchar()) != '\\n') fX(); if (a != '\\n') putchar(a); }",
+    "input": "1234 followed by a newline",
+    "frames": 5,
+    "characters": ["1", "2", "3", "4", "\\n"],
+    "output": "4321",
+    "calls": 5,
+    "prints": 4,
+    "quick_check": {
+      "question": "If putchar were called before the recursive call, what would the same program print for 1234?",
+      "answer": "1234",
+      "note": "printing on the descent gives the input order; printing after the call reverses it"
+    }
+  }
+}

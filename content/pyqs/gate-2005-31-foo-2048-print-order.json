@@ -1,0 +1,21 @@
+{
+ "id": "gate-2005-31-foo-2048-print-order",
+ "year": "2005",
+ "paper": "GATE CSE 2005",
+ "question_ref": "Q.31 of the GATE CSE 2005 paper (Q.31 on GATE Overflow)",
+ "type": "MCQ",
+ "topic": "descent-and-unwinding-order",
+ "text": "Consider the following C-program: void foo (int n, int sum) { int k = 0, j = 0; if (n == 0) return; k = n % 10; j = n/10; sum = sum + k; foo (j, sum); printf (\"%d,\",k); } int main() { int a = 2048, sum = 0; foo(a, sum); printf(\"%d\\n\", sum); } What does the above program print?",
+ "options": [
+  "8, 4, 0, 2, 14",
+  "8, 4, 0, 2, 0",
+  "2, 0, 4, 8, 14",
+  "2, 0, 4, 8, 0"
+ ],
+ "answer": "Option 4 - 2, 0, 4, 8, 0",
+ "solution": "The printf is after the recursive call, so the digits come out on the unwinding: the deepest call that prints is the one that held k = 2, then 0, then 4, then 8. That gives 2, 0, 4, 8, and then main prints its own sum. The additions happened in copies of the parameter, because C passes everything by value, so main's sum is still 0. The first two options print the digits in the wrong order and the third assumes the callee's sum reaches main.",
+ "source_url": "https://gateoverflow.in/1367/gate-cse-2005-question-31",
+ "source_label": "GATE Overflow question page - GATE CSE 2005 Q.31 with the accepted answer (option 4)",
+ "verification": "SOURCED",
+ "answer_evidence": "The GATE Overflow answers give option D and explain both halves: the post-call printf reverses the digits, and pass by value keeps main's sum at 0. The official key was not fetched, so the record stays SOURCED. The trace is reproduced in scripts/validate.py."
+}

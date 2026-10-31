@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call Stack: Descent and Unwinding - Recursion visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Call Stack: Descent and Unwinding</h1>
+  <div class="objective"><strong>Objective.</strong> See why a recursion that prints after its recursive call reverses the input. Each call reads one character into its own local, the frames pile up, and the characters come out in the opposite order as the frames are popped. This is GATE CSE 2024 Set 1 Q.19, and the same mechanism produces the reversed digits of GATE CSE 2005 Q.31.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>The program is five lines long. <code>fX</code> declares a local <code>a</code>, reads one character into it, and if that character is not a newline it calls <code>fX</code> again. After the call returns, a second test prints <code>a</code> unless it is the newline.</p>
+  <p>On the input 1234 followed by a newline, five calls are made. The first reads '1', the second '2', the third '3', the fourth '4', and the fifth reads the newline. The fifth call fails both tests, so it returns without printing and its frame is popped. Now the fourth call resumes: its own <code>a</code> still holds '4', so it prints 4. Then the third prints 3, the second prints 2 and the first prints 1. The output is 4321.</p>
+  <p>Two facts do the work. First, each activation has its own <code>a</code>: the character is stored in the frame, not in one shared place, so every frame can print a different character on the way out. Second, statements after a recursive call run in the reverse order of the calls, because the deepest call returns first. Nothing about the function is clever; the order is entirely a consequence of where the <code>putchar</code> sits.</p>
+  <p>Move the <code>putchar</code> before the recursive call and the same five calls print 1234. That is exactly the pair of options the paper offers, and it is why the question is worth two lines of reasoning rather than a full trace.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That the printed order depends on how the recursion was written rather than on where the print statement sits. It depends only on the position: before the call gives the input order, after the call gives the reverse. A second misconception is that the newline call prints something - it prints nothing, which is why the program makes five calls but only four prints, and why the output is 4321 rather than something longer.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>In the same program, if <code>putchar(a)</code> were called before the recursive call, what would be printed for the input 1234?</p><details><summary>Answer</summary><p><strong>1234.</strong> The first call reads '1' and prints it before recursing, so the characters come out in the order they were read. The recursion is identical - five calls, five frames - and only the position of the print has changed.</p></details></div>
+
+  <p class="small">Topic: Recursion (Programming and Data Structures), subtopic descent and unwinding. The program and the paper answer: GATE Overflow question page for GATE CSE 2024 Set 1 Q.19 (English, read in part). The rule that work before the call runs on the descent and work after it runs on the unwinding: Knowledge Gate AI "Basic Recursion MCQs" (English, read in part). The frame-per-call picture: GeeksforGeeks "C Recursion" (English, read in part). The counts of five calls and four prints, and the 4321 output, are recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

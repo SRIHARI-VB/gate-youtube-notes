@@ -1,0 +1,127 @@
+{
+ "id": "call-stack-activation-records-and-depth",
+ "title": "The Call Stack, Activation Records and Depth",
+ "priority": "P1",
+ "order": 574,
+ "unit": "Recursion",
+ "quickIdea": "Every live call owns one frame. The stack is as deep as the recursion tree is tall, not as busy as it is: a function that makes a million calls one level deep uses a constant number of frames.",
+ "remember": [
+  "Each call pushes an activation record holding its parameters, its locals, the return address and saved registers; the record is popped when that call returns.",
+  "The space a recursion uses is the maximum number of frames alive at once, times the frame size. For a linear recursion that is O(n); for naive Fibonacci, which makes exponentially many calls, it is still O(n), because the two branches run one after the other.",
+  "GATE CSE 2005 Q.81(a) is exactly this question. In foo(n) the loop calls foo(i) for i = 0..n-1, one after another, so the deepest chain is foo(n), foo(n-1), ..., foo(0): n+1 frames, answer O(n).",
+  "The number of calls and the depth are different numbers. get(6) in GATE CSE 2015 Set 3 Q.39 is invoked 25 times, but no more than 7 frames are ever alive, because each branch finishes before its sibling starts.",
+  "A frame's locals keep their values while the frame is alive, which is what makes the reversed output of GATE CSE 2024 Set 1 Q.19 possible: each frame still holds its own character.",
+  "The stack region is fixed at run time. Deep or unbounded recursion exhausts it and the program aborts; that is a runtime event, not a compile-time error, and the C standard says nothing about when it happens."
+ ],
+ "example": {
+  "prompt": "double foo(int n) { int i; double sum; if (n == 0) return 1.0; sum = 0.0; for (i = 0; i < n; i++) sum += foo(i); return sum; } What is the space complexity of foo?",
+  "work": "foo(n) calls foo(n-1) first; that call returns before foo(n-2) begins, so siblings are never alive together. The deepest chain is n+1 frames. Each frame holds one int, one double and the return address, a constant number of objects.",
+  "answer": "O(n) space, although the number of calls is exponential in n."
+ },
+ "gateAngle": "Space questions are phrased as 'the space complexity of the above code'. Answer with the depth, not the call count, and say so explicitly: 2005 Q.81(a) offers O(1), O(n), O(n!) and n^n, and only O(n) follows from the maximum depth.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2005 Q.81(a): the space complexity of the recursive foo above.",
+   "answer": "O(n).",
+   "why": "Sequential sibling calls give a depth of n+1 frames whatever the number of calls."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "What is the space complexity of the naive recursive Fibonacci int fib(int n) { return n < 2 ? n : fib(n-1) + fib(n-2); }?",
+   "answer": "O(n): the two calls are sequential, so the stack holds at most n frames even though 2F(n+1)-1 calls are made.",
+   "why": "The same separation as 2005 Q.81(a), with the count and the depth differing by an exponential factor."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does a recursion with two calls per level not need twice the stack of a recursion with one?",
+   "answer": "Because the calls are made one after the other. The first returns and its frame is popped before the second is pushed, so the peak is the depth of a single path, not the width of the tree.",
+   "why": "The intuition that a wider tree costs more stack is the most common wrong answer on space questions."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A function recurses on n/2 with a base case at n <= 1. How many frames are alive at the deepest point?",
+   "answer": "floor(log2 n) + 1, which is O(log n).",
+   "why": "Halving gives logarithmic depth, and depth is what the stack measures."
+  }
+ ],
+ "trap": {
+  "what": "Reading the number of recursive calls as the stack depth.",
+  "why": "The stack holds the frames on one root-to-leaf path at a time. Branches that run sequentially share the same frames, so a call tree with millions of nodes can be only a few dozen levels tall.",
+  "counterexample": "fib(30) makes 2 692 537 calls with the formula 2F(31)-1, and its stack is never deeper than 30 frames."
+ },
+ "check": {
+  "question": "void get(int n) { if (n < 1) return; get(n-1); get(n-3); } How many frames are alive at most during get(6)?",
+  "answer": "Seven - the chain get(6), get(5), get(4), get(3), get(2), get(1), get(0).",
+  "explanation": "The first recursive call always drives straight down to a base case before any second call is made, so the deepest path is the decreasing chain, and its length is n+1."
+ },
+ "pyqIds": [
+  "gate-2005-81a-recursive-space-complexity"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "call-by-value-and-the-activation-record",
+  "recursion-anatomy-base-and-recursive-case"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C Recursion",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/c/c-recursion/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "frames pushed and popped, the fixed stack region and stack overflow"
+  },
+  {
+   "kind": "text",
+   "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the statement that stack depth is the height of the recursion tree, not the number of calls - translated from Hindi"
+  },
+  {
+   "kind": "encyclopaedia",
+   "title": "Tail call",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Tail_call",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "that a frame can be replaced rather than stacked when the call is the last action"
+  }
+ ],
+ "sourceLine": "Frames, the fixed stack region and stack overflow: GeeksforGeeks 'C Recursion' (English, read in part). The rule that depth is the height of the recursion tree and not the number of calls: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). Frame reuse for tail calls: Wikipedia 'Tail call' (English, read in part). The 2005 Q.81(a) verdict, the 25 calls of get(6) and the 2 692 537 calls of fib(30) are recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

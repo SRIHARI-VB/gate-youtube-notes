@@ -1,0 +1,109 @@
+{
+ "id": "tail-call-elimination-and-iteration",
+ "title": "Tail-Call Elimination and Rewriting Recursion as a Loop",
+ "priority": "P2",
+ "order": 581,
+ "unit": "Recursion",
+ "quickIdea": "A tail call needs no frame of its own, so a tail-recursive function can be rewritten as a loop with constant stack - but in C that is a compiler's choice, not a language guarantee.",
+ "remember": [
+  "In a tail call the caller has nothing left to do, so the callee can return straight to the caller's caller and the frame can be replaced instead of stacked.",
+  "Tail-call elimination reduces stack space from O(n) to O(1) for a linear recursion: the same work with a constant number of frames.",
+  "In C it is an optimisation, not a promise. A compiler may do it at one optimisation level and not at another, and the standard requires nothing; a GATE answer that assumes constant stack for a tail-recursive C function is an assumption about the compiler.",
+  "The mechanical rewrite: parameters become loop variables, the base case becomes the loop condition, the recursive call becomes a back edge. factorial(n, acc) becomes a for loop over acc.",
+  "Recursion and iteration are equally powerful: any recursion can be simulated with an explicit stack, and any loop can be written as a recursion. The differences are constant factors, stack space and readability.",
+  "Choose recursion when the structure is a tree or a divide-and-conquer split; choose iteration when the structure is a sequence and the stack would only be carrying a counter."
+ ],
+ "example": {
+  "prompt": "Rewrite int fact(int n) { return n <= 1 ? 1 : n * fact(n-1); } as a tail-recursive function and then as a loop.",
+  "work": "Carry the product in a parameter: int fact2(int n, int acc) { return n <= 1 ? acc : fact2(n-1, acc*n); }. The call is now the last action, so the frame can be reused. The loop is int acc = 1; for (int i = 2; i <= n; i++) acc *= i; - the parameter became the accumulator and the base case became the loop bound.",
+  "answer": "fact2(n, 1) with the accumulator, and a single for loop; both use O(1) stack, while the original uses O(n)."
+ },
+ "gateAngle": "GATE asks for space complexity, not for compiler behaviour, so the safe answer for a recursion whose frames still hold work is O(n) - as in GATE CSE 2005 Q.81(a), where every frame adds to sum after the call returns. Only a genuine tail call can honestly be called O(1), and only with a note that it depends on the compiler.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "The recursive foo of GATE CSE 2005 Q.81(a) adds to sum after each call. Why is its space not O(1) even though the calls look like a loop?",
+   "answer": "Because each frame is still holding a partial sum and a return address when the next call is made; the additions happen on the unwinding, so the frames cannot be reused.",
+   "why": "The distinction between a loop-shaped recursion and a tail call, tested through the space complexity."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is return n * fact(n-1) not a tail call?",
+   "answer": "Because the multiplication happens after the call returns: the frame must stay alive to perform it. A tail call returns the callee's result unchanged.",
+   "why": "The single most common misreading of 'the call is the last thing in the function'."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A tail-recursive function is compiled without optimisation. What is its space complexity?",
+   "answer": "O(n) in practice, because the frames are stacked; the O(1) figure requires tail-call elimination.",
+   "why": "GATE has never required the compiler-dependent answer, and this variation is exactly why."
+  }
+ ],
+ "trap": {
+  "what": "Assuming the C compiler always eliminates tail calls, and answering O(1) stack for any recursive function.",
+  "why": "C has no such guarantee. Optimisation level, calling convention and whether the call is really in tail position all change the outcome, and a paper that wanted O(1) would have to say so.",
+  "counterexample": "gcc compiles fact2 without elimination at -O0, so fact2(100000) overflows the stack even though the call is in tail position."
+ },
+ "check": {
+  "question": "int s(int n, int acc) { return n == 0 ? acc : s(n-1, acc+n); } How many frames are alive at the deepest point, and how many would be if the addition were written after the call?",
+  "answer": "One frame if the compiler eliminates the tail call, otherwise n+1; and n+1 in both cases for the version that adds after the call.",
+  "explanation": "Only a call in tail position can reuse its frame, and only when the compiler chooses to do so."
+ },
+ "pyqIds": [],
+ "videoRefs": [],
+ "prereqs": [
+  "tail-head-and-indirect-recursion",
+  "call-stack-activation-records-and-depth"
+ ],
+ "sources": [
+  {
+   "kind": "encyclopaedia",
+   "title": "Tail call",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Tail_call",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "tail position, frame replacement, the O(n) to O(1) reduction and the fact that languages differ on whether it is required"
+  },
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the stated O(n) space of tail recursion as taught for the exam, and the recursion-versus-iteration comparison"
+  }
+ ],
+ "sourceLine": "Tail position, frame reuse and the O(n) to O(1) reduction, with the note that not every language requires it: Wikipedia 'Tail call' (English, read in part). The exam-facing costs of tail recursion and the recursion-versus-iteration comparison: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part).",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

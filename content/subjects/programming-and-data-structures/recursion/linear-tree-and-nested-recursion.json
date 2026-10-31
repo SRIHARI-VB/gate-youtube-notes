@@ -1,0 +1,117 @@
+{
+ "id": "linear-tree-and-nested-recursion",
+ "title": "Linear, Tree and Nested Recursion",
+ "priority": "P1",
+ "order": 577,
+ "unit": "Recursion",
+ "quickIdea": "One call per level is linear recursion; two or more is tree recursion, whose cost grows exponentially while its depth stays small.",
+ "remember": [
+  "Linear (single) recursion makes at most one recursive call per activation: factorial, sum, digit printing. Time O(n), space O(n).",
+  "Tree (multiple) recursion makes two or more calls per activation: naive Fibonacci, and the get(n-1)/get(n-3) pair of GATE CSE 2015 Set 3 Q.39. The call tree has exponentially many nodes but its depth is still linear.",
+  "Naive fib(n) makes 2F(n+1) - 1 calls: 15 for n = 5, 25 for n = 6, 2 692 537 for n = 30. Inside fib(6) the value fib(3) is recomputed three separate times; memoisation removes that repetition and makes the work linear.",
+  "Nested recursion passes a recursive call as an argument, as in Ackermann's function; its depth is not bounded by the input in any simple way, and GATE uses it only as a reading exercise.",
+  "GATE CSE 2015 Set 2 Q.11 is tree recursion with a loop: fun(n) = 1 + sum over k of fun(k) x fun(n-k), with fun(1) = 1. The values are 1, 2, 5, 15, 51 for n = 1 to 5 - and fun(6) is 188.",
+  "Towers of Hanoi is tree recursion with the recurrence T(n) = 2T(n-1) + 1, that is 2^n - 1 moves: 7 for three discs and 1023 for ten."
+ ],
+ "example": {
+  "prompt": "int fun(int n) { int x = 1, k; if (n == 1) return x; for (k = 1; k < n; ++k) x = x + fun(k) * fun(n-k); return x; } What is fun(5)?",
+  "work": "fun(n) = 1 + sum of fun(k)fun(n-k) for k = 1..n-1. Bottom-up: fun(1) = 1; fun(2) = 1 + 1 = 2; fun(3) = 1 + 1x2 + 2x1 = 5; fun(4) = 1 + 1x5 + 2x2 + 5x1 = 15; fun(5) = 1 + 1x15 + 2x5 + 5x2 + 15x1 = 51.",
+  "answer": "51."
+ },
+ "gateAngle": "GATE's tree-recursion questions are answered by tabulation, not by drawing the tree. When the recursion has a loop inside it, the recurrence has a sum inside it, and the sum is over values already computed.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2015 Set 2 Q.11: the return value of fun(5).",
+   "answer": "51.",
+   "why": "A tree recursion whose children are all smaller arguments, evaluated bottom-up."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "With the same fun, what is fun(6)?",
+   "answer": "188: 1 + 1x51 + 2x15 + 5x5 + 15x2 + 51x1 = 188.",
+   "why": "The same table extended by one row, which is what a variation of this question would ask."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is naive Fibonacci exponential in time but linear in space?",
+   "answer": "Because it recomputes the same subproblems in different branches (exponential number of calls), but the two calls of one activation are made one after the other, so the stack only ever holds one root-to-leaf path.",
+   "why": "The separation of time and space is the point GATE tests when it asks for one and not the other."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "How many moves does the Tower of Hanoi take for six discs, and how many frames deep is the recursion?",
+   "answer": "2^6 - 1 = 63 moves, and 7 frames deep.",
+   "why": "The move count is exponential while the depth is linear, the same pair of facts as Fibonacci."
+  }
+ ],
+ "trap": {
+  "what": "Assuming that a recursion with a small depth is therefore cheap.",
+  "why": "Depth controls space; the branching factor controls time. Two calls per level gives 2^n nodes at depth n, so a recursion only thirty frames deep can make millions of calls.",
+  "counterexample": "fib(30) is 30 frames deep and makes 2 692 537 calls; fib(40) is 40 frames deep and makes over 300 million."
+ },
+ "check": {
+  "question": "void t(int n) { if (n == 0) return; t(n-1); t(n-1); printf(\"%d\", n); } How many digits does t(4) print?",
+  "answer": "15.",
+  "explanation": "There are 15 activations with n >= 1 (the internal nodes of a complete binary tree of depth 4), and each prints once; the 16 calls with n = 0 return without printing."
+ },
+ "pyqIds": [
+  "gate-2015-set2-11-fun-return-value"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "counting-invocations-in-a-call-tree",
+  "recursion-anatomy-base-and-recursive-case"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the tail, head, tree and nested shapes with their stated time and space costs"
+  },
+  {
+   "kind": "text",
+   "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the Fibonacci call count and the Hanoi move count, and the warning that the naive version is exponential - translated from Hindi"
+  }
+ ],
+ "sourceLine": "The taxonomy of recursion shapes with their costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). The 2F(n+1)-1 call count, the 2^n-1 Hanoi moves and the memoisation argument: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). fun(5) = 51, fun(6) = 188, the Fibonacci counts and the Hanoi counts are recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

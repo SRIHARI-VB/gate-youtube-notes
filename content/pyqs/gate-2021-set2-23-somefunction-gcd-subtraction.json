@@ -1,0 +1,15 @@
+{
+ "id": "gate-2021-set2-23-somefunction-gcd-subtraction",
+ "year": "2021",
+ "paper": "GATE CSE 2021 Set 2",
+ "question_ref": "Q.23 on GATE Overflow (a numerical question in the 2021 Set 2 paper)",
+ "type": "NAT",
+ "topic": "recursion-depth-and-logarithmic-recursion",
+ "text": "Consider the following ANSI C function: int SomeFunction (int x, int y) { if ((x==1) || (y==1)) return 1; if (x==y) return x; if (x > y) return SomeFunction(x-y, y); if (y > x) return SomeFunction (x, y-x); } The value returned by SomeFunction(15, 255) is __________",
+ "answer": "15",
+ "solution": "The function subtracts the smaller argument from the larger until the two are equal and returns that common value, which is the greatest common divisor by repeated subtraction. Starting from (15, 255) the second argument falls by 15 at a time: (15,240), (15,225), ... , (15,15). Sixteen calls are made, the sixteenth reaches x == y and returns 15. Since 255 = 15 x 17, the subtraction never skips past 15.",
+ "source_url": "https://gateoverflow.in/357517/gate-cse-2021-set-2-question-23",
+ "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.23 with six answers all giving 15",
+ "verification": "SOURCED",
+ "answer_evidence": "Every answer on the page identifies the function as Euclid's algorithm by repeated subtraction and returns gcd(15, 255) = 15; one counts the sixteen calls explicitly. The official key was not fetched, so the record stays SOURCED. This is the linear-depth twin of the halving recursion in the same card: the same gcd by division would need only a logarithmic number of calls."
+}

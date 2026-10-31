@@ -1,0 +1,16 @@
+{
+ "id": "gate-2026-set2-51-length-mod-3-recursion",
+ "year": "2026",
+ "paper": "GATE CSE 2026 Set 2",
+ "question_ref": "Q.51 on GATE Overflow (a two-mark numerical question in the 2026 Set 2 paper)",
+ "type": "NAT",
+ "marks": "2",
+ "topic": "deriving-a-recurrence-from-code",
+ "text": "Consider the following ANSI-C function. int func(int start, int end){ int length=end+1-start; if((length<1)||(start<0)||(end<0)){ return(0); } if(length%3==0){ return(func(start+1, end)); }else if(length%3==1){ return(1+func(start, end-1)); }else { return(func(start+2, end)); } } The maximum possible value that can be returned from this function is _____. (answer in integer) Note: Ignore syntax errors (if any) in the function.",
+ "answer": "1",
+ "solution": "Only the middle branch adds anything, and it adds exactly 1. Write F(L) for the value returned when the length is L and the parameters are legal: L mod 3 = 0 returns F(L-1); L mod 3 = 1 returns 1 + F(L-1); L mod 3 = 2 returns F(L-2). So F(0) = 0, F(1) = 1, F(2) = F(0) = 0, F(3) = F(2) = 0, F(4) = 1 + F(3) = 1, F(5) = F(3) = 0, F(6) = F(5) = 0, F(7) = 1 + F(6) = 1. The value is 1 when the starting length is 1 mod 3 and 0 otherwise, and the 1 is collected only once because the branch after it always moves to a length that is 0 or 2 mod 3. Hence the maximum over every legal pair is 1, reached for example by func(0, 3), where the length is 4.",
+ "source_url": "https://gateoverflow.in/523095/gate-cse-2026-set-2-question-51",
+ "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.51 with the accepted answer (1), four independent answers agreeing",
+ "verification": "SOURCED",
+ "answer_evidence": "Several GATE Overflow answers reduce the function to 'return 1 if length mod 3 == 1, else 0' and give the answer 1, one of them working func(0,3) step by step; pyqbox lists the same question. The official 2026 key was not fetched, so the record stays SOURCED. The value 1 was also confirmed here by exhaustive evaluation over all start and end in 0..40."
+}

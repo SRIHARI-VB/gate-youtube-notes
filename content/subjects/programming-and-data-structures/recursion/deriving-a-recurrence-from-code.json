@@ -1,0 +1,117 @@
+{
+ "id": "deriving-a-recurrence-from-code",
+ "title": "Deriving a Recurrence from the Code",
+ "priority": "P2",
+ "order": 583,
+ "unit": "Recursion",
+ "quickIdea": "Write what one activation costs and how many smaller activations it starts. That equation answers both the count question and the complexity question.",
+ "remember": [
+  "Read the code as an equation: each branch of an if-chain is one line of the recurrence, and the base branch gives the boundary value.",
+  "GATE CSE 2026 Set 2 Q.51: func(start, end) sets length = end+1-start and then maps length mod 3 to 0 -> length-1, 1 -> length-1 plus one, 2 -> length-2. The returned value is 1 exactly when the starting length is 1 mod 3 and 0 otherwise, so the maximum over all legal arguments is 1.",
+  "A recurrence for a call count keeps a +1 for every activation; a recurrence for time keeps the work done in one activation, which may be O(1) or O(n). Writing one and solving the other is the classic error.",
+  "When two parameters move at different rates the recurrence is two-dimensional. In GATE CSE 2018 Q.45 x halves (ten levels) while y decrements (1023 values), and the answer is the product 10 x 1023.",
+  "Once the recurrence is right, either tabulate it - small arguments, exam-friendly arithmetic - or solve it with substitution or a recursion tree. The Master theorem applies only to the divide-and-conquer shape T(n) = aT(n/b) + f(n).",
+  "Every GATE recursion question of the last five years is answered by one of three moves: trace the order, count the activations, or evaluate the recurrence bottom-up."
+ ],
+ "example": {
+  "prompt": "int func(int start, int end) { int length = end+1-start; if ((length<1) || (start<0) || (end<0)) return 0; if (length%3==0) return func(start+1, end); else if (length%3==1) return 1 + func(start, end-1); else return func(start+2, end); } What is the largest value func can return?",
+  "work": "Write F(L) for the value when the length is L: F(0) = 0, F(1) = 1, F(2) = F(0) = 0, F(3) = F(2) = 0, F(4) = 1 + F(3) = 1, F(5) = F(3) = 0, F(6) = F(5) = 0, F(7) = 1 + F(6) = 1. After a 1 is collected the length moves to a value that is 0 or 2 mod 3, so a second 1 is never collected.",
+  "answer": "1, for example from func(0, 3)."
+ },
+ "gateAngle": "2026 Set 2 Q.51 is a recurrence question disguised as a trace: the three branches are three lines of a one-variable recurrence, and the answer follows from the table. Recognising that the length, not start or end, is the state is the whole difficulty.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2026 Set 2 Q.51: the maximum value returned by func.",
+   "answer": "1.",
+   "why": "The single increment can be collected only once, because the branch after it changes the length mod 3 to 0 or 2."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "For the same func, what does func(0, 0) return, and why?",
+   "answer": "1: the length is 1, so the middle branch runs and returns 1 + func(0, -1), and that call returns 0 because end < 0.",
+   "why": "Shows that the base case can fire through the start < 0 or end < 0 test as well as through the length test."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why does the call-count recurrence for GATE CSE 2015 Set 3 Q.39 add 1 per activation while its time complexity is exponential?",
+   "answer": "Because the count and the cost measure different things. The count is the number of nodes in the call tree, which is 25 for n = 6; the cost is that same count multiplied by the constant work per activation, so both grow at the same rate here - exponential in n for large n.",
+   "why": "The two recurrences coincide for this function, which is why it is easy to confuse them; they diverge when one activation does O(n) work."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "A function recurses on n-1 and n-2 and prints once per activation. Write its recurrence and give the value for n = 5.",
+   "answer": "T(n) = 1 + T(n-1) + T(n-2) with T(0) = T(1) = 1, so T(2) = 3, T(3) = 5, T(4) = 9 and T(5) = 15.",
+   "why": "The same tabulation on the Fibonacci-shaped recurrence, which is the most likely twist on the 2015 question."
+  }
+ ],
+ "trap": {
+  "what": "Deriving the recurrence from the arguments as written rather than from the quantity the code actually recurses on.",
+  "why": "In 2026 Set 2 Q.51 the code passes start+1, end-1 or start+2, but the state that drives the recursion is the length end+1-start. A recurrence written in start and end is two-dimensional and hides the one-line pattern.",
+  "counterexample": "Writing F(start, end) for the 2026 Set 2 question gives three coupled branches; writing F(length) gives F(0)=0, F(1)=1, F(2)=F(0), which solves it in four lines."
+ },
+ "check": {
+  "question": "void p(int n) { if (n == 0) return; p(n-1); p(n-1); } Write the number of activations T(n) and give T(4).",
+  "answer": "T(0) = 1 and T(n) = 1 + 2T(n-1), so T(4) = 31.",
+  "explanation": "Each level doubles the calls below it and adds itself: T(1) = 3, T(2) = 7, T(3) = 15, T(4) = 31, which is 2^(n+1) - 1."
+ },
+ "pyqIds": [
+  "gate-2026-set2-51-length-mod-3-recursion"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "counting-invocations-in-a-call-tree",
+  "recursion-depth-and-logarithmic-recursion"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the instruction to build the call tree and read the redundancy from it, which is the counting method in the card - translated from Hindi"
+  },
+  {
+   "kind": "encyclopaedia",
+   "title": "Recursion (computer science)",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the divide-and-conquer recurrence shape and the memoisation that turns it linear"
+  }
+ ],
+ "sourceLine": "Building the recursion tree and reading the cost from it: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). The divide-and-conquer shape and memoisation: Wikipedia 'Recursion (computer science)' (English, read in part). The func table, the maximum of 1 and the T(5) = 15 variation are recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

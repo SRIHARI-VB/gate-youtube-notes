@@ -1,5 +1,133 @@
 # Run report
 
+## Run 8 - Recursion
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Recursion** (`recursion`), the second topic of the GATE 2027
+Programming and Data Structures line: *"Programming in C. Recursion. Arrays, stacks, queues, linked lists,
+trees, binary search trees, binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on `programming-and-data-structures/programming-in-c`, and the
+first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, no topic is
+`blocked`, and the twenty `partial` topics earlier in the cycle were left alone because the cycle takes its
+second pass over `partial` topics only after a full pass finds no `not_started` topic left. The next topic,
+`arrays-stacks-queues`, was deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+Twelve, because the syllabus names the topic in one word and the enumeration therefore comes from the
+standard treatment (Kernighan and Ritchie section 4.10, CLRS chapter 4, Rosen chapter 5), the GATE question
+record from 2005 to 2026, and the shapes the sources teach: the anatomy of a base case and a recursive case
+with its two obligations; termination and the base case that cannot be reached; the call stack, activation
+records and depth as against the number of calls; descent against unwinding and what the position of a
+statement decides; counting invocations in a call tree; linear, tree and nested recursion with their costs;
+halving recursions and the logarithm; the tail, head and indirect taxonomy; static and global state shared
+across calls; tail-call elimination and the rewrite to a loop; recursion over arrays, strings and digits; and
+deriving a recurrence from the code.
+
+### Sources chosen, on merit
+
+Six sources, in two languages, none of them a video:
+
+- **GeeksforGeeks, "Recursion Notes for GATE Exam"** (English, read in part). The direct/indirect split and
+  the tail, head, tree and nested shapes with a stated time and space cost for each. Carries the taxonomy
+  card and the linear/tree card.
+- **GeeksforGeeks, "C Recursion"** (English, read in part). Frames pushed and popped, the fixed stack region,
+  stack overflow, and the recursion-versus-iteration cost comparison. Carries the depth card and part of the
+  sequence card.
+- **Wikipedia, "Recursion (computer science)"** (English, read in part). The base case and recursive case as a
+  definition, the induction analogy, and the binary-search and merge-sort examples. Carries the anatomy card
+  and the halving card.
+- **Wikipedia, "Tail call"** (English, read in part). Tail position defined precisely, frame replacement, and
+  the reduction of stack space from O(n) to O(1) with the warning that it is not required of every language.
+  Carries the tail-call card.
+- **Knowledge Gate AI, "Basic Recursion MCQs: 12 Solved C Questions"** (English, read in part). Descent against
+  unwinding as a rule, a base case that is never reached, counting invocations, and static state followed
+  across calls. Three cards take their trap fields from it.
+- **CareerCraft Labs, "C mein Programming, tatha Punaraavartan"** (Hindi, Devanagari, read in part, translated).
+  The only GATE-framed source with the 2F(n+1)-1 Fibonacci call count, the 2^n-1 Hanoi move count and the rule
+  that stack depth is the height of the recursion tree rather than the number of calls. Four translated
+  sentences appear, each marked as translated on the card that uses it.
+
+Rejected with reasons in `sources.json`: every video in every language (the YouTube watch page returned a
+402-byte consent/error body and no caption track, so no lecture supplied a sentence); the NPTEL transcripts
+(host answered 502, nothing fetched, so nothing rests on them); three Hindi beginner tutorials and one Hindi
+course page (correct, but no GATE framing, no call counting and no cost analysis); the GATE IT 2005 Q.57 and
+GATE IT 2008 Q.82-83 recursion questions, which are attractive but are not GATE CSE papers and are therefore
+not recorded as PYQs; GATE CSE 2013 Q.42, whose official answer was marks to all for undefined behaviour; and
+the answer aggregators, which corroborate but disagree on numbering.
+
+### Content
+
+Twelve cards under `content/subjects/programming-and-data-structures/recursion/`: the anatomy of a base case
+and a recursive case; termination and missing base cases; the call stack, activation records and depth;
+descent and unwinding; counting invocations in a call tree; linear, tree and nested recursion; halving
+recursions and the logarithm; tail, head and indirect recursion; static and global state across calls;
+tail-call elimination and the loop rewrite; recursion over arrays, strings and digits; and deriving a
+recurrence from code.
+
+Eleven PYQ records were added under `content/pyqs/`, from GATE CSE 2005 to GATE CSE 2026, each with its year,
+question reference and source URL: 2026 Set 1 Q.51 (65536), 2026 Set 2 Q.51 (1), 2024 Set 1 Q.19 (4321),
+2021 Set 2 Q.23 (15), 2019 Q.26 (option 4), 2018 Q.45 (10230), 2015 Set 3 Q.39 (25), 2015 Set 2 Q.11 (51),
+2011 Q.48 (12), 2005 Q.31 (2, 0, 4, 8, 0) and 2005 Q.81(a) (O(n)). The GATE CSE 2016 Set 1 Q.35 static-local
+question was already verified with the Programming in C topic and is linked from the static-state card rather
+than duplicated. Every card carries variations labelled `VERIFIED PYQ`, `ORIGINAL PYQ-STYLE QUESTION`,
+`CONCEPTUAL PRACTICE QUESTION` or `PREDICTED VARIATION`, a trap with a counterexample, and a quick check with
+its answer.
+
+### Visual lesson
+
+`visuals/programming-and-data-structures/recursion/call-stack-descent-and-unwinding` - eight steps on GATE
+CSE 2024 Set 1 Q.19: read one character per call, push four frames each holding its own character, let the
+fifth call read the newline and return, then pop the frames one at a time printing 4, 3, 2, 1, and finally
+show that moving the `putchar` before the call gives 1234 instead. It reuses the frozen harness
+(`visuals/lesson.css`, `visuals/lesson.js`) with play, pause, previous, next, restart, speed and a step
+counter, and carries a static explanation, a misconception and a quick check outside the canvas.
+
+### Mathematics
+
+`scripts/validate.py` gained `check_recursion()`. It re-executes the fX program to confirm 4321 with five
+invocations and four prints, and the same program with the print moved to confirm 1234; the 2005 digit printer
+to confirm 2, 0, 4, 8 and that main still prints 0; get(6) and get(5) for both invocations and prints (25 and
+12, 17 and 8) and the whole count table against T(n) = 1 + T(n-1) + T(n-3); the 2018 star count by explicit
+stack simulation (10230 = 10 x 1023); fun(1..6) = 1, 2, 5, 15, 51, 188; the digit sum 12; bar as floor(log2 n)
+with 65536 confirmed as the smallest n with foo(n) = 5 by search to 300000; the length-mod-3 function
+exhaustively over all start and end in 0..40 and its closed form for every length to 39; the subtraction gcd
+and its sixteen calls; the static and auto traces of the 2016 question and the count(4) trace; the Fibonacci
+call counts 2F(n+1)-1 including 2 692 537 and 331 160 281; the Hanoi counts; the tree-recursion print count and
+T(4) = 31; the fixed point of integer halving and the 0101 of the n <= 0 variant; the depth of get(6) as seven
+frames; and every recorded PYQ answer.
+
+### Validation performed
+
+`python3 scripts/build-index.py` then `python3 scripts/validate.py`: **42 checks passed, 8 warnings, 0
+failures.** The warnings are the pre-existing ones (seven `OFFICIAL_KEY` records with no answer evidence, two
+videos referenced by no card). `node tests/visual-lessons.js` passed on all 37 lessons, including the new one
+at 8 steps. No frozen UI file was touched: `src/styles/design-tokens.css`, the shell layout,
+`src/app/routes.js`, the navigation labels, the shared component classes and the lesson harness are unchanged,
+and the new lesson reuses them.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: the YouTube watch page returned a consent/error body with no caption
+   track, so `videoRefs` is empty on all twelve cards and no lecture in any language supplied a sentence.
+2. No NPTEL recursion lecture was read: `nptel.ac.in` answered 502 to the sandbox and no transcript PDF was
+   located on the archive host.
+3. GATE CSE 2013 Q.42 is excluded: its official answer was marks to all for undefined behaviour, so no single
+   answer can be recorded honestly; the sequence-point rule it turns on sits on the Programming in C card.
+4. Ten of the eleven PYQs carry no marks field, because the official papers and keys were not fetched; only
+   the 2026 Set 1 and 2024 Set 1 questions have a marks figure read from a paper index.
+5. Numbering disagrees between indexes for two questions and both numbers are recorded rather than one being
+   chosen silently: the 2024 Set 1 fX question is Q.19 on ExamSIDE and gateiit but "Question 9" in GATE
+   Overflow's 2024 index, and the 2015 Set 2 fun(5) question is Q.11 on GATE Overflow but 45 in ExamSIDE's
+   year page.
+6. The other recursion items GATE Overflow lists for 2010 to 2023 were not individually read or recomputed this
+   run; only the eleven recorded PYQs were verified.
+
+The next topic in the cycle is `programming-and-data-structures/arrays-stacks-queues`.
+
 ## Run 7 - Combinational Circuits
 
 ### The topic, and why it was next

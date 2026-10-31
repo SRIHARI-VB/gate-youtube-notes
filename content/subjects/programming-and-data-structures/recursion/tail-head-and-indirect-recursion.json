@@ -1,0 +1,109 @@
+{
+ "id": "tail-head-and-indirect-recursion",
+ "title": "Tail, Head and Indirect Recursion",
+ "priority": "P2",
+ "order": 579,
+ "unit": "Recursion",
+ "quickIdea": "Name the shape before you answer: tail (the call is the last action), head (the call comes first), tree (several calls), nested (a call inside an argument), indirect (a cycle of functions).",
+ "remember": [
+  "Tail recursion: the recursive call is the last operation and its result is returned unchanged, so nothing remains to be done when it returns.",
+  "Head recursion: the call comes first and the work happens on the unwinding - the digit and character printers of the previous cards are head recursions, which is exactly why they reverse the output.",
+  "Tree recursion: more than one call per activation. Nested recursion: a recursive call appears as an argument of another call, as in Ackermann's function.",
+  "Indirect (mutual) recursion: f calls g and g calls f. Termination then needs an argument that decreases across the whole cycle, not inside one function, and a compiler cannot as easily turn the cycle into a loop.",
+  "The costs the standard treatment states: tail and head recursion are O(n) time and O(n) space; tree recursion is O(2^n) time with O(n) space.",
+  "The shape decides both what GATE can ask - the order of the output, the count of the calls - and what an optimiser can do with the code."
+ ],
+ "example": {
+  "prompt": "Classify each of these: (a) int f(int n) { return n == 0 ? 1 : n * f(n-1); } (b) int g(int n, int acc) { return n == 0 ? acc : g(n-1, acc*n); } (c) void h(int n) { if (n == 0) return; h(n-1); printf(\"%d\", n); }",
+  "work": "(a) has the multiplication after the call, so work remains on the return: head-style linear recursion, not a tail call. (b) returns the result of the call unchanged and carries the accumulator in a parameter: a tail call. (c) prints after the call, so the work happens on the unwinding: head recursion.",
+  "answer": "(a) linear recursion with work on the unwind, (b) tail recursion, (c) head recursion."
+ },
+ "gateAngle": "No GATE CSE question of the last decade asks 'what kind of recursion is this'; the shape is tested through its consequences, as an output order (2024 Set 1 Q.19) or a call count (2015 Set 3 Q.39). Learn the names because they make those consequences predictable, not because they are asked directly.",
+ "variations": [
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "In fun(k) * fun(n-k) from GATE CSE 2015 Set 2 Q.11, which shape is the recursion, and what does that predict about its cost?",
+   "answer": "Tree recursion with a branching factor that grows with n; the call count is exponential in n, which is why the question is answered by tabulation rather than by expansion.",
+   "why": "Connects the taxonomy to the cost, which is what the paper actually tests."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why can a head recursion not be rewritten as a loop by simply moving the statement?",
+   "answer": "Because the work depends on the frame that is still alive: the print of frame k must happen after the whole subtree below it. A loop would have to carry that pending work in an explicit stack.",
+   "why": "This is the reason tail-call elimination works only for tail calls, and the reason recursion is worth having at all."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "Two functions f and g call each other, with f(n) = g(n-1) and g(n) = f(n-1), base f(0) = 0. Does f(5) terminate?",
+   "answer": "Yes: the argument decreases by 1 on every call of either function, so the cycle reaches the base case after five steps.",
+   "why": "Mutual recursion terminates on a measure that falls across the cycle, not necessarily inside one function."
+  }
+ ],
+ "trap": {
+  "what": "Calling any recursion with a statement after the call 'tail recursion'.",
+  "why": "Tail position means nothing is left to do with the result. A printf after the call, or a multiplication by the returned value, leaves work in the frame, so the frame cannot be discarded.",
+  "counterexample": "int f(int n) { if (n == 0) return 1; printf(\"%d\", n); return n * f(n-1); } looks like it ends with a call but the multiplication follows it, so it is not a tail call."
+ },
+ "check": {
+  "question": "Which of these is a tail call? int a(int n) { return n == 0 ? 0 : 1 + a(n-1); } or int b(int n, int s) { return n == 0 ? s : b(n-1, s+n); }",
+  "answer": "Only b.",
+  "explanation": "In a the returned value is 1 plus the result of the call, so the addition happens after the call returns; in b the result of the call is returned unchanged."
+ },
+ "pyqIds": [],
+ "videoRefs": [],
+ "prereqs": [
+  "recursion-anatomy-base-and-recursive-case",
+  "descent-and-unwinding-order"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the tail, head, tree and nested definitions with their stated complexities"
+  },
+  {
+   "kind": "encyclopaedia",
+   "title": "Tail call",
+   "channel": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Tail_call",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the definition of tail position, which is what separates a tail call from a call at the end of the text"
+  }
+ ],
+ "sourceLine": "The five recursion shapes and their costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). Tail position and the fact that a call need not be the last statement to be a tail call: Wikipedia 'Tail call' (English, read in part).",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "id": "counting-invocations-in-a-call-tree",
+ "title": "Counting Invocations in a Call Tree",
+ "priority": "P1",
+ "order": 576,
+ "unit": "Recursion",
+ "quickIdea": "Write the recurrence the code implies, then tabulate from the base cases upward. Counting calls by expanding the tree by hand is how marks are lost.",
+ "remember": [
+  "If a function makes two recursive calls on n-1 and n-3, the number of activations satisfies T(n) = 1 + T(n-1) + T(n-3) for n >= 1, with T(n) = 1 for every n below the threshold, because a call that returns immediately is still an invocation.",
+  "GATE CSE 2015 Set 3 Q.39: the table is T(0..6) = 1, 3, 5, 7, 11, 17, 25, so get(6) is invoked 25 times. Only 12 of those activations reach the printf, because the 13 calls with n < 1 return at the first line.",
+  "'How many times is the function invoked' includes the call from main; 'how many recursive calls are made' is one less. GATE's options are usually one apart for exactly this reason.",
+  "GATE CSE 2018 Q.45: Count(1024,1024) halves x ten times for each of the 1023 values of y, so the print runs 10 x 1023 = 10230 times. Two parameters moving at different rates give a product, not a sequence.",
+  "A call-count recurrence and a time-complexity recurrence are not the same object: the count keeps a +1 for every activation, the complexity keeps the work done in one activation.",
+  "Tabulate bottom-up whenever the arguments only decrease. Each entry needs only entries already computed, and the exam arithmetic stays small."
+ ],
+ "example": {
+  "prompt": "void get(int n) { if (n < 1) return; get(n-1); get(n-3); printf(\"%d\", n); } How many times is get invoked by get(6), and how many digits are printed?",
+  "work": "T(n) = 1 + T(n-1) + T(n-3) for n >= 1 and T(n) = 1 below it: T(0)=1, T(1)=3, T(2)=5, T(3)=7, T(4)=11, T(5)=17, T(6)=25. Of the 25 activations, the 13 with n < 1 print nothing, so 25 - 13 = 12 digits are printed.",
+  "answer": "25 invocations and 12 printed digits."
+ },
+ "gateAngle": "Both counting questions of this decade are tabulation questions: 2015 Set 3 Q.39 is a one-dimensional table and 2018 Q.45 is a product of two rates. Neither needs the tree drawn.",
+ "variations": [
+  {
+   "label": "VERIFIED PYQ",
+   "question": "GATE CSE 2015 Set 3 Q.39: how many times is get invoked by get(6)?",
+   "answer": "25.",
+   "why": "The recurrence counts the base calls too, and adds one for the call from main."
+  },
+  {
+   "label": "ORIGINAL PYQ-STYLE QUESTION",
+   "question": "For the same get function, how many invocations does get(5) make, and how many digits does it print?",
+   "answer": "17 invocations and 8 printed digits.",
+   "why": "T(5) = 17 by the same table; the calls with n < 1 among those 17 are 9, leaving 8 prints."
+  },
+  {
+   "label": "CONCEPTUAL PRACTICE QUESTION",
+   "question": "Why is a call with n = 0 counted as an invocation in the 2015 question?",
+   "answer": "Because the function is entered: the return happens inside the function, after the frame is created. The question asks how many times get is invoked, not how many times it prints.",
+   "why": "This is the distinction between the 25 of 2015 Q.39 and the 12 prints of the same program."
+  },
+  {
+   "label": "PREDICTED VARIATION",
+   "question": "Count(x, y) halves x and decrements y as in GATE CSE 2018 Q.45. If the initial call were Count(1024, 512), how many stars are printed?",
+   "answer": "5110: ten stars for each y from 512 down to 2, that is 511 values.",
+   "why": "The same product of a logarithmic rate and a linear rate, with one of the numbers changed."
+  }
+ ],
+ "trap": {
+  "what": "Counting only the leaf calls, or only the calls that print, when the question asks for invocations.",
+  "why": "A recursion's activation count includes every frame created, and the base-case frames are created too. The number that prints is smaller by exactly the number of base calls.",
+  "counterexample": "In get(6) the invocation count is 25 but the printf runs 12 times; an answer of 12 or of 13 comes from counting one class of frame only."
+ },
+ "check": {
+  "question": "void f(int n) { if (n == 0) return; f(n-1); f(n-1); } How many invocations does f(3) make?",
+  "answer": "15.",
+  "explanation": "T(n) = 1 + 2T(n-1) with T(0) = 1, so T(3) = 1 + 2(1 + 2(1 + 2 x 1)) = 15. The call tree is a complete binary tree of depth 3: 8 leaves and 7 internal nodes."
+ },
+ "pyqIds": [
+  "gate-2015-set3-39-get-invocations",
+  "gate-2018-45-count-print-stars"
+ ],
+ "videoRefs": [],
+ "prereqs": [
+  "recursion-anatomy-base-and-recursive-case",
+  "call-stack-activation-records-and-depth"
+ ],
+ "sources": [
+  {
+   "kind": "text",
+   "title": "C mein Programming, tatha Punaraavartan - chapter notes (Devanagari)",
+   "channel": "CareerCraft Labs",
+   "url": "https://careercraftlabs.org/hi/read/gate-pds-ch01",
+   "language": "hi",
+   "transcript": "PARTIAL",
+   "translated": true,
+   "note": "the call count of the naive Fibonacci as 2F(n+1)-1, the pattern that makes counting-by-table natural - translated from Hindi"
+  },
+  {
+   "kind": "text",
+   "title": "Basic Recursion MCQs: 12 Solved C Questions with Step-by-Step Explanations",
+   "channel": "Knowledge Gate AI",
+   "url": "https://www.knowledgegate.ai/blog/basic-recursion-mcqs-solved-questions-with-explanations",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "counting every recursive invocation, and the warning against counting one of two calls"
+  },
+  {
+   "kind": "text",
+   "title": "Recursion Notes for GATE Exam",
+   "channel": "GeeksforGeeks",
+   "url": "https://www.geeksforgeeks.org/dsa/recursion-notes-for-gate-exam/",
+   "language": "en",
+   "transcript": "PARTIAL",
+   "translated": false,
+   "note": "the tree-recursion cost that these counts measure"
+  }
+ ],
+ "sourceLine": "Counting calls from the recurrence, with the Fibonacci count 2F(n+1)-1: CareerCraft Labs 'C mein Programming, tatha Punaraavartan' (translated from Hindi, read in part). The invocation-counting method: Knowledge Gate AI 'Basic Recursion MCQs' (English, read in part). Tree recursion costs: GeeksforGeeks 'Recursion Notes for GATE Exam' (English, read in part). Every count in this card, including 25, 12, 10230 and 15, is recomputed in scripts/validate.py.",
+ "links": {
+  "mock": {
+   "subject": "programming-data-structures",
+   "unit_slug": "recursion-and-call-stack",
+   "unit_name": "Recursion and the Call Stack",
+   "unit_number": 2,
+   "question_count": 40,
+   "subtopics": [
+    {
+     "label": "Base case and termination",
+     "questions": 10
+    },
+    {
+     "label": "Call stack and depth",
+     "questions": 10
+    },
+    {
+     "label": "Order of output",
+     "questions": 10
+    },
+    {
+     "label": "Counting calls",
+     "questions": 10
+    }
+   ],
+   "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/recursion-and-call-stack/gate_ds_mock_2_2026-10-31.html"
+  }
+ }
+}
