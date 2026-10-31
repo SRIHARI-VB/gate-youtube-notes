@@ -100,15 +100,18 @@
       "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
     },
     "visual": {
-      "slug": "sequential-circuits",
-      "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
-      "level": "topic-level",
+      "slug": "fsm-state-minimisation",
+      "title": "FSM State Minimisation: Equivalent States, Partition Refinement and the Minimum-State Machine",
+      "level": "subtopic-level",
       "covers": [
-        "the FSM design flow: diagram, table, assignment, excitation, minimisation",
-        "unused encodings, don't-cares and the lock-out check; self-starting machines"
+        "state equivalence over every input string",
+        "the output partition P0 and the refinement pass",
+        "stabilising the partition and reading the reduced table",
+        "Moore against Mealy state counts",
+        "the flip-flop count after reduction"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/fsm-state-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

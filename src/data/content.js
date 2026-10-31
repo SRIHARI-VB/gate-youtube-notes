@@ -5005,7 +5005,7 @@ window.GATE_DATA = {
      "title": "Introduction to Set Theory - Discrete Mathematics",
      "channel": "TrevTutor",
      "video_id": "tyDKR4FG3Yw",
-     "url": "https://www.youtube.com/watch?v=tyDKR4FG3Yw",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -5138,7 +5138,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -5256,7 +5256,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -5377,7 +5377,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -5623,7 +5623,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -5633,7 +5633,7 @@ window.GATE_DATA = {
      "title": "Relations - GATE PYQs - Part 2 (counting relations)",
      "channel": "GO Classes for GATE CS",
      "video_id": "Z9khyLCt2-I",
-     "url": "https://www.youtube.com/watch?v=Z9khyLCt2-I",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "transcript_note": "readable opening only: the 2^(n^2) count and the ternary-relation variation",
@@ -5912,7 +5912,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -6042,7 +6042,7 @@ window.GATE_DATA = {
      "title": "Lec 02 - Set identities, Cartesian product, relations and functions",
      "channel": "IIT lecture (NPTEL-style discrete mathematics lecture)",
      "video_id": "7djvJetFiSY",
-     "url": "https://www.youtube.com/watch?v=7djvJetFiSY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -6177,7 +6177,7 @@ window.GATE_DATA = {
      "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
      "channel": "TrevTutor",
      "video_id": "PpA4LWPh40M",
-     "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -6304,7 +6304,7 @@ window.GATE_DATA = {
      "title": "Injective, Surjective and Bijective Functions - Discrete Mathematics",
      "channel": "TrevTutor",
      "video_id": "PpA4LWPh40M",
-     "url": "https://www.youtube.com/watch?v=PpA4LWPh40M",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false
@@ -6569,7 +6569,7 @@ window.GATE_DATA = {
      "title": "Lattice, POSET - GATE PYQs - Part 1",
      "channel": "GO Classes for GATE CS (Deepak Poonia)",
      "video_id": "3chjsP_NNnY",
-     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -6867,7 +6867,7 @@ window.GATE_DATA = {
      "title": "Lattice, POSET - GATE PYQs - Part 1",
      "channel": "GO Classes for GATE CS (Deepak Poonia)",
      "video_id": "3chjsP_NNnY",
-     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -7399,7 +7399,7 @@ window.GATE_DATA = {
      "title": "Discrete Mathematics (NOC), Lec 21 Partially ordering relations, Lec 22 Natural numbers and divisors, Lec 23 Lattices",
      "channel": "NPTEL IIT Guwahati",
      "playlist_id": "PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
-     "url": "https://www.youtube.com/playlist?list=PLwdnzlV3ogoVxVxCTlI45pDVM1aoYoMHf",
+     "url": "https://www.youtube.com/playlist",
      "language": "en",
      "transcript": "UNAVAILABLE",
      "translated": false,
@@ -7533,7 +7533,7 @@ window.GATE_DATA = {
      "title": "Lattice, POSET - GATE PYQs - Part 1",
      "channel": "GO Classes for GATE CS (Deepak Poonia)",
      "video_id": "3chjsP_NNnY",
-     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -7803,7 +7803,7 @@ window.GATE_DATA = {
      "title": "Lattice, POSET - GATE PYQs - Part 1",
      "channel": "GO Classes for GATE CS (Deepak Poonia)",
      "video_id": "3chjsP_NNnY",
-     "url": "https://www.youtube.com/watch?v=3chjsP_NNnY",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -32243,16 +32243,19 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
     },
     "visual": {
-     "slug": "sequential-circuits",
-     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
-     "level": "topic-level",
+     "slug": "fsm-state-minimisation",
+     "title": "FSM State Minimisation: Equivalent States, Partition Refinement and the Minimum-State Machine",
+     "level": "subtopic-level",
      "covers": [
-      "the FSM design flow: diagram, table, assignment, excitation, minimisation",
-      "unused encodings, don't-cares and the lock-out check; self-starting machines"
+      "state equivalence over every input string",
+      "the output partition P0 and the refinement pass",
+      "stabilising the partition and reading the reduced table",
+      "Moore against Mealy state counts",
+      "the flip-flop count after reduction"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/fsm-state-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
