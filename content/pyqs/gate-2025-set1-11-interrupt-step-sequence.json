@@ -1,0 +1,22 @@
+{
+  "id": "gate-2025-set1-11-interrupt-step-sequence",
+  "year": "2025",
+  "paper": "GATE CS 2025 Set 1",
+  "question_ref": "Q.11 (indexed as Question 1 on GATE Overflow)",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "the-interrupt-cycle-microoperations",
+  "text": "Suppose a program is running on a non-pipelined single processor computer system. The computer is connected to an external device that can interrupt the processor asynchronously. The processor needs to execute the interrupt service routine (ISR) to serve this interrupt. The following steps (not necessarily in order) are taken by the processor when the interrupt arrives: (i) The processor saves the content of the program counter. (ii) The program counter is loaded with the start address of the ISR. (iii) The processor finishes the present instruction. Which ONE of the following is the CORRECT sequence of steps?",
+  "options": [
+    "(iii), (i), (ii)",
+    "(i), (iii), (ii)",
+    "(i), (ii), (iii)",
+    "(iii), (ii), (i)"
+  ],
+  "answer": "Option (A) - (iii), (i), (ii)",
+  "solution": "The interrupt is asynchronous, so it is recognised only at an instruction boundary: the present instruction finishes first (iii). The return address must then be preserved before the program counter is overwritten, so the PC is saved (i). Only then is the PC loaded with the service routine's start address (ii). Option (D) loads the PC before saving it, which would lose the return address.",
+  "source_url": "https://gateoverflow.in/460080/gate-cse-2025-set-1-question-1",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2025 Set 1, indexed there as Question 1, answer (A)",
+  "verification": "SOURCED",
+  "answer_evidence": "Four answers on the page agree on (A): 'finishes the current executing instruction, CPU pushes the PC content on stack, the PC is updated with the new ISR address'. One commenter records having marked (D) and correcting to (A). GATE Overflow numbers the question 1 while other sites number it 11, so both references are recorded."
+}

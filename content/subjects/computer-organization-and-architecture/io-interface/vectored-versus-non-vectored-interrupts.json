@@ -1,0 +1,91 @@
+{
+  "id": "vectored-versus-non-vectored-interrupts",
+  "title": "Vectored Against Non-Vectored Interrupts",
+  "priority": "P1",
+  "order": 538,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "In a vectored interrupt the device supplies the address of its own service routine during the acknowledge cycle. In a non-vectored one every interrupt goes to the same fixed address, and software has to work out which device asked before the right routine can start.",
+  "remember": [
+    "Vectored: the interrupting device (or the priority encoder in front of it) puts a vector - the entry address, or a code that indexes a vector table - on the bus during acknowledge. The CPU jumps straight to the right routine.",
+    "Non-vectored: one fixed entry address for all devices; the handler must identify the source, typically by reading status registers, before dispatching.",
+    "The extra identification step is why a non-vectored interrupt usually takes longer to start the service routine - exactly statement S1 of GATE CSE 2026 Set 2 Q.18.",
+    "A vector table is an array of entry addresses at a fixed place in memory; the vector is an index into it, not necessarily the address itself.",
+    "Vectored does not mean 'no hardware priority': with several devices on one request line something must still choose which vector is placed on the bus."
+  ],
+  "example": {
+    "prompt": "Eight devices share one interrupt request line. Compare the time to reach the right service routine in the vectored and non-vectored schemes.",
+    "work": "Vectored: the acknowledge cycle returns the winning device's vector, and the CPU jumps through the table - one acknowledge plus one jump, independent of the number of devices. Non-vectored: control goes to the common entry, which reads status registers until it finds the device that asked - one read per device in the worst case, so up to 8 reads before the routine even starts.",
+    "answer": "Vectored costs a constant dispatch; non-vectored costs a search whose length grows with the number of devices."
+  },
+  "gateAngle": "2026 Set 2 Q.18 puts both halves of the mechanism in one question: S1 (non-vectored is slower to start the routine) is true, and S2 (daisy chaining means the CPU polls each device) is false. The same pair appears as a true/false statement in 2020 Q.3 and as a false option in 2024 Set 1 Q.15, so the distinction is worth learning as a pair.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 2 Q.18: S1 says a non-vectored interrupt usually takes longer to start the service routine; S2 says a daisy chain makes the CPU poll every device. Which are true?",
+      "answer": "S1 true, S2 false.",
+      "why": "The non-vectored handler must identify the device before it can dispatch; the daisy chain identifies the device in hardware by passing the acknowledge along the chain, with no CPU polling at all."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A machine has vectored interrupts but a single request line shared by 16 devices. Is anything still needed to make the vector meaningful?",
+      "answer": "Yes - arbitration. Only one device may put its vector on the bus, so a priority chain or encoder decides which requesting device wins the acknowledge before the vector is read.",
+      "why": "It separates 'which device is served first' (priority) from 'how the routine is found' (vector)."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A non-vectored machine has only two devices. Is the dispatch penalty large, and does the answer change with 64 devices?",
+      "answer": "With two devices the search is at most two status reads, so the penalty is small. With 64 it is up to 64 reads per interrupt, which is why larger systems move to vectored interrupts with a priority encoder.",
+      "why": "The penalty is a function of the device count, which is why the scheme matters more as systems grow."
+    }
+  ],
+  "trap": {
+    "what": "Treating 'vectored' and 'daisy chained' as the same mechanism, or thinking a daisy chain means software polling.",
+    "why": "Vectored/non-vectored is about how the routine's address is found. Daisy chain is about which of several simultaneous requests is acknowledged first, and it is pure hardware - the acknowledge signal is passed along the wire.",
+    "counterexample": "In a daisy chain, the CPU never reads a status register to find the source; the first requesting device in the chain intercepts the acknowledge and places its vector. Software polling would be the opposite: no chain, and a status read per device."
+  },
+  "check": {
+    "question": "Which mechanism starts the service routine sooner - vectored or non-vectored - and what is the reason in one sentence?",
+    "answer": "Vectored, because the device hands over the entry point during acknowledge instead of the CPU having to identify the source first.",
+    "explanation": "The saving is the identification step, and it grows with the number of devices on the request line."
+  },
+  "pyqIds": [
+    "gate-2026-set2-18-vectored-and-daisy-chain-statements"
+  ],
+  "prereqs": [
+    "the-interrupt-cycle-microoperations"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    }
+  ],
+  "sourceLine": "Vectored against non-vectored interrupts, the vector table, and the extra identification step in the non-vectored case: DSWallah Learn, romanised Hindi, translated (read in part). Interrupts as exceptions carrying the cause, with priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The interrupt sequence the vector feeds: NPTEL IIT Guwahati Lecture 34 (English, read in part).",
+  "videoRefs": []
+}

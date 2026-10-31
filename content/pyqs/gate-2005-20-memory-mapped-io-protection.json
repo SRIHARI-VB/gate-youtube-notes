@@ -1,0 +1,22 @@
+{
+  "id": "gate-2005-20-memory-mapped-io-protection",
+  "year": "2005",
+  "paper": "GATE CS 2005",
+  "question_ref": "Q.20",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "memory-mapped-and-isolated-io",
+  "text": "Normally user programs are prevented from handling I/O directly by I/O instructions in them. For CPUs having explicit I/O instructions, such I/O protection is ensured by having the I/O instructions privileged. In a CPU with memory mapped I/O, there is no explicit I/O instruction. Which one of the following is true for a CPU with memory mapped I/O?",
+  "options": [
+    "I/O protection is ensured by operating system routine(s)",
+    "I/O protection is ensured by a hardware trap",
+    "I/O protection is ensured during system configuration",
+    "I/O protection is not possible"
+  ],
+  "answer": "Option (A) - I/O protection is ensured by operating system routine(s)",
+  "solution": "With memory-mapped I/O the device registers are ordinary addresses, so the same address-translation and protection machinery that guards kernel memory covers them. A user program that stores to a device address faults, and legitimate access happens only inside a system call, that is inside an operating system routine. 'Hardware trap' describes the mechanism by which the fault is delivered, not the policy that makes I/O safe, and 'protection is not possible' is simply false.",
+  "source_url": "https://gateoverflow.in/1356/gate-cse-2005-question-20",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2005 Q.20, answer (A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The best answer on the page (56 votes) states option (A): 'user applications are not allowed to perform I/O in user mode - all I/O requests are handled through system calls that must be performed in kernel mode'. One answer argues for option (B) on the grounds that a hardware trap is raised for a device address range; the page's accepted answer and the reasoning above prefer (A), and the dissent is recorded rather than suppressed."
+}

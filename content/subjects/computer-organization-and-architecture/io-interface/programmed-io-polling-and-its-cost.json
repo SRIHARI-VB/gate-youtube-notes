@@ -1,0 +1,90 @@
+{
+  "id": "programmed-io-polling-and-its-cost",
+  "title": "Programmed I/O: The Polling Loop and What It Costs",
+  "priority": "P1",
+  "order": 535,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "In programmed I/O the CPU moves every word itself and sits in a loop asking the status register whether the device is ready. The cost is the waiting, and it is a simple product: polls per second times the time each poll takes.",
+  "remember": [
+    "Per word the CPU does: read the status register, test the ready bit, read the data register, store the word to memory. The device never touches memory.",
+    "The wait is busy waiting: the CPU is executing the loop, so the time is spent, not saved.",
+    "Polling cost per second = (polls per second) x (time per poll). As a fraction of the second, that is the CPU utilisation the device consumes.",
+    "Cost per second including the transfer = polls per second x time per poll + events per second x time per event.",
+    "Programmed I/O is the right choice for a rarely-ready slow device only when the wait is genuinely short or the CPU has nothing else to do; otherwise it is pure waste."
+  ],
+  "example": {
+    "prompt": "A keyboard is used at 1 keystroke per second. The system polls it every 10 ms and each poll costs 100 us; when a keystroke is found, 200 us more are spent processing it. What fraction of a second does polling consume?",
+    "work": "Polls per second = 1 s / 10 ms = 100. Polling time = 100 x 100 us = 10,000 us = 10 ms. Processing happens once per second, because there is one keystroke: 200 us. Total = 10,200 us = 0.0102 s.",
+    "answer": "0.0102 of each second, that is 1.02% of the CPU, for a device that produces one character per second."
+  },
+  "gateAngle": "This is the numerator of GATE CSE 2023 Q.34. The exam keeps the arithmetic deliberately simple and hides the difficulty in the counting: how many polls in a second, and how many times the processing cost is paid. The other classic use is a comparison against the interrupt scheme on the same device.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.34: the polling fraction is 0.0102 and the interrupt fraction is 0.001 for the same keyboard. What is their ratio?",
+      "answer": "10.2.",
+      "why": "0.0102 / 0.001 = 10.2; the interrupt scheme spends a tenth of the time because it pays only per event."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same keyboard, but polled every 1 ms instead of every 10 ms. What is the polling fraction now, and what does it tell you?",
+      "answer": "1000 polls x 100 us = 100,000 us = 0.1 s, plus 200 us for the keystroke: 0.1002. Polling ten times more often costs ten times more CPU for exactly the same one character per second.",
+      "why": "It shows that polling cost is set by the poll rate, not by the data rate - the defect the interrupt scheme removes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A device produces one byte every 100 us and the CPU polls it every 100 us with a 20 us poll. Is polling reasonable here?",
+      "answer": "No: 20 us out of every 100 us is 20% of the CPU, and the device is producing data at exactly the rate the CPU is checking, so the CPU is spending a fifth of its life on a device that is never idle. An interrupt, or DMA, is clearly better.",
+      "why": "Polling looks acceptable only when the poll interval is long compared with the event interval."
+    }
+  ],
+  "trap": {
+    "what": "Charging the per-event processing time on every poll instead of once per event.",
+    "why": "Processing happens only when a poll actually finds data. With one keystroke per second and 100 polls per second, 99 polls find nothing and pay only the poll cost.",
+    "counterexample": "Using 200 us per poll gives 100 x 300 us = 30 ms, three times the correct 10.2 ms. The ratio against the interrupt scheme then comes out at 30 instead of 10.2."
+  },
+  "check": {
+    "question": "A system polls 100 times per second at 50 us per poll and nothing else is spent. What fraction of the CPU does polling take?",
+    "answer": "100 x 50 us = 5000 us = 5 ms, so 0.005 of the CPU, or 0.5%.",
+    "explanation": "Multiply, then convert to a fraction of one second. The same arithmetic with 100 us per poll gives 1%."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "io-interface-why-it-exists-and-its-registers",
+    "memory-mapped-and-isolated-io"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+  ],
+  "sourceLine": "Programmed I/O as a status-check loop in which the processor is busy doing nothing: NPTEL IIT Guwahati Lecture 34 (English, read in part). Polling as the CPU repeatedly checking status bits, and the busy-wait criticism: Auburn ELEC 5200 Chapter 6 (English, read in part). The three-technique comparison with polling as busy waiting: DSWallah Learn, romanised Hindi, translated (read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "gate-2004-68-dma-hard-disk-processor-time",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "Q.68 (indexed as Q.20 on some question sites)",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+  "text": "A hard disk with a transfer rate of 10 Mbytes/second is constantly transferring data to memory using DMA. The processor runs at 600 MHz, and takes 300 and 900 clock cycles to initiate and complete DMA transfer respectively. If the size of the transfer is 20 Kbytes, what is the percentage of processor time consumed for the transfer operation?",
+  "options": [
+    "5.0%",
+    "1.0%",
+    "0.5%",
+    "0.1%"
+  ],
+  "answer": "Option (D) - 0.1%",
+  "solution": "The transfer of 20 KB at 10 MB/s takes 20 KB / 10 MB/s = 2 ms = 2000 us. The processor is busy only at the two ends: 300 + 900 = 1200 cycles at 600 MHz, which is 1200 / (600 x 10^6) s = 2 us. The fraction is 2 / (2000 + 2) = 0.000999, about 0.1%. The transfer rate and the clock rate cancel, which is why the answer does not depend on them once the ratio is formed.",
+  "source_url": "https://gateoverflow.in/1062/gate-cse-2004-question-68",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2004 Q.68, answer (D)",
+  "verification": "SOURCED",
+  "answer_evidence": "Several independent answers on the page reach 0.1%: one computes 2 us of CPU time against 2000 us of transfer and gets (2/2000) x 100 = 0.0999%, another uses 1200 cycles against 1,200,000 cycles of transfer time. One answer on the same page reaches 0.2% by treating the 1200 cycles as time rather than as cycles; the majority and the recomputation here give 0.1%, and the disagreement is recorded. The question is numbered Q.68 by GATE Overflow and Q.20 by the sites that list it under Operating Systems, so both references are given."
+}

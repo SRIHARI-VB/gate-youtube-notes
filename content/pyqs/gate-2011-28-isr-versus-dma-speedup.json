@@ -1,0 +1,22 @@
+{
+  "id": "gate-2011-28-isr-versus-dma-speedup",
+  "year": "2011",
+  "paper": "GATE CS 2011",
+  "question_ref": "Q.28",
+  "type": "MCQ",
+  "marks": "2",
+  "topic": "dma-controller-registers-and-the-transfer-sequence",
+  "text": "On a non-pipelined sequential processor, a program segment, which is a part of the interrupt service routine, is given to transfer 500 bytes from an I/O device to memory: initialize the address register; initialize the count to 500; LOOP: load a byte from device; store in memory at the address given by the address register; increment the address register; decrement the count; if count != 0 go to LOOP. Each statement is equivalent to a machine instruction which takes one clock cycle if it is a non-load/store instruction; load and store instructions take two clock cycles. The designer also has the option of using a DMA controller: it requires 20 clock cycles for initialization and other overheads, and each DMA transfer cycle takes two clock cycles to transfer one byte. What is the approximate speedup when the DMA controller based design is used in place of the interrupt driven program based input-output?",
+  "options": [
+    "3.4",
+    "4.4",
+    "5.1",
+    "6.7"
+  ],
+  "answer": "Option (A) - 3.4",
+  "solution": "Interrupt-driven: the two initialisations cost 1 cycle each, and each of the 500 iterations costs 2 (load) + 2 (store) + 1 (increment) + 1 (decrement) + 1 (branch) = 7 cycles, so 2 + 500 x 7 = 3502 cycles. DMA: 20 + 500 x 2 = 1020 cycles. Speedup = 3502 / 1020 = 3.43, that is 3.4.",
+  "source_url": "https://gateoverflow.in/2130/gate-cse-2011-question-28",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2011 Q.28, answer (A) 3.4",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page tabulates the per-statement cycle counts and computes 3502 / 1020 = 3.4, answer (A); an independent solution page and the electrical4u answer key for GATE CS 2011 Q.28 both give (A) 3.4. Recomputed here: 2 + 3500 = 3502 and 20 + 1000 = 1020, ratio 3.433."
+}

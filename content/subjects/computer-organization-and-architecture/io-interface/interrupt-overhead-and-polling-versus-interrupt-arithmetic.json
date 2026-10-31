@@ -1,0 +1,92 @@
+{
+  "id": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+  "title": "Polling Against Interrupts: The Overhead Fraction and Its Ratio",
+  "priority": "P2",
+  "order": 540,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "Compare the two schemes by the fraction of a second each spends on I/O. Polling pays on every poll whether or not there is data; interrupts pay only per event. The ratio of those two fractions is the speed-up the interrupt buys.",
+  "remember": [
+    "Polling fraction T1 = (polls per second x time per poll) + (events per second x time per event), all divided by one second.",
+    "Interrupt fraction T2 = events per second x time per interrupt, divided by one second.",
+    "Ratio = T1 / T2. Because both are fractions of the same second, the division cancels the second and the ratio is a pure number.",
+    "The 2023 figures: 100 polls x 100 us + 1 x 200 us = 10,200 us for polling, against 1 x 1 ms = 1000 us for interrupts, giving 10.2.",
+    "Polling wins only when events arrive faster than the poll interval, that is when the device is almost always ready; interrupts win when events are rare or unpredictable."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2023 Q.34, as arithmetic: keyboard at 1 keystroke per second, polled every 10 ms at 100 us per poll, with 200 us of processing per keystroke; the interrupt scheme spends 1 ms per keystroke. Find T1/T2.",
+    "work": "T1: 100 polls x 100 us = 10,000 us, plus one keystroke's 200 us = 10,200 us = 0.0102 s. T2: one interrupt x 1 ms = 1000 us = 0.001 s. Ratio = 0.0102 / 0.001 = 10.2.",
+    "answer": "10.2, to one decimal place."
+  },
+  "gateAngle": "This is the only arithmetic pattern in the topic that is not about DMA, and it is easy marks: the exam supplies every number and asks only for the count of events per second. The two errors it punishes are charging the processing time per poll, and forgetting that the ratio is of fractions of a second rather than of raw times.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.34, as stated above: the ratio T1/T2.",
+      "answer": "10.2.",
+      "why": "Ten polls' worth of checking costs ten times the single interrupt, and the extra 200 us of processing narrows it slightly from 10 to 10.2."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same setup, but the keyboard is used at 10 keystrokes per second. What happens to the ratio?",
+      "answer": "T1 = 10,000 us of polling + 10 x 200 us = 12,000 us; T2 = 10 x 1000 us = 10,000 us; ratio = 1.2. As the event rate rises the interrupt loses its advantage, because both schemes now pay per event.",
+      "why": "It shows the crossover and why the answer is not a constant of the machine."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can the ratio be computed from microseconds alone, without converting to seconds?",
+      "answer": "Because both T1 and T2 are divided by the same one second, so the divisor cancels in the ratio. The conversion matters only if the question asks for a fraction, as the 2023 question's definition does, and even then the ratio is unaffected.",
+      "why": "It is the standard shortcut and it is safe only when both sides are measured over the same interval."
+    }
+  ],
+  "trap": {
+    "what": "Adding the per-event processing time to every poll, or reporting the ratio as the fraction itself.",
+    "why": "Processing happens once per event, not once per poll, and T1 and T2 are fractions of a second, not times. Reporting 10.2 ms as the answer confuses the ratio with T1.",
+    "counterexample": "Per-poll processing gives T1 = 100 x 300 us = 30,000 us and a ratio of 30 - three times the correct 10.2. Reporting T1 alone gives 0.0102, which is a fraction and not a ratio."
+  },
+  "check": {
+    "question": "A device raises 200 interrupts per second and each costs 50 us; the alternative polls 500 times per second at 30 us. Which is cheaper, and by how much?",
+    "answer": "1000 polls x 100 us = 100,000 us = 0.1 s, plus 200 us for the keystroke: 0.1002 s. The interrupt side is unchanged at 0.001 s, so the ratio is 100.2.",
+    "explanation": "Both are costs per second, so the ratio is direct; polling loses because it checks 500 times for 200 events."
+  },
+  "pyqIds": [
+    "gate-2023-34-polling-versus-interrupt-overhead-ratio"
+  ],
+  "prereqs": [
+    "programmed-io-polling-and-its-cost",
+    "interrupt-driven-io-the-handshake"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+  ],
+  "sourceLine": "Busy waiting as the defect of programmed I/O and the interrupt as its removal: NPTEL IIT Guwahati Lecture 34 (English, read in part). The polling-against-interrupt comparison and its efficiency claim: DSWallah Learn, romanised Hindi, translated (read in part). Polling cost, mode-switch cost of an interrupt, and priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

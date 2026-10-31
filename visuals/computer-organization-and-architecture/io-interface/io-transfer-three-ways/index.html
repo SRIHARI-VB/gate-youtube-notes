@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One block, three ways - I/O Interface visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>One Block, Three Ways: Programmed I/O, Interrupts and DMA on the Same Scale</h1>
+  <div class="objective"><strong>Objective.</strong> Move the same 500 bytes from a device into memory three times and watch what the CPU is doing during the transfer. In programmed I/O it is in a status loop for the whole 100,000 cycles. In interrupt-driven I/O it is free between bytes but pays a 7-cycle service routine for every one, 3502 cycles in all. In DMA it programmes three registers in 20 cycles, leaves the bus, and is interrupted once at the end, 1020 cycles in all. The three numbers are what every GATE question in this topic is built on.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Take 500 bytes and a device that produces one byte every 200 cycles. The transfer therefore spans 500 x 200 = 100,000 cycles of device time, and no transfer scheme can shorten that: the device is the slow party. What the schemes change is the CPU's share of those 100,000 cycles.</p>
+  <p>Programmed I/O puts the CPU inside a status loop for the whole span, so its share is 100,000 cycles and almost all of it is waiting. Interrupt-driven I/O removes the waiting: the interface watches the device and interrupts when a byte is ready, so the CPU is free between bytes. Its share is 2 + 500 x 7 = 3502 cycles, because the service routine still loads the byte, stores it, increments the address, decrements the count and branches. DMA removes the per-byte work: the CPU writes the start address, the count of 500 and a control word - 20 cycles - and then leaves the bus, so its share is 20 cycles plus one completion interrupt, with 1000 cycles of bus time (2 per byte) taken from the CPU by the controller.</p>
+  <p>The comparison the exam asks for is therefore 100,000 against 3502 against 1020, and the speed-up of DMA over the interrupt routine is 3502 / 1020 = 3.43, the 3.4 of GATE CSE 2011 Q.28. The two DMA modes differ only in how the 1000 cycles of bus time are shared: cycle stealing takes one byte's worth at a time and hands the bus back, so the CPU is slowed but keeps running; burst holds the bus for the whole block, so throughput is highest and the CPU is stalled throughout.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>Two errors dominate this topic. The first is to think DMA means the CPU is idle: it is not idle, it is running other work, and it is still interrupted once per block - the transfer is not free, it is merely out of the CPU's instruction stream. The second is to read cycle stealing as stopping the CPU: one cycle is stolen, then the bus is handed back, so the CPU loses a fraction of its cycles rather than the whole block. Burst is the mode that stalls the CPU for the block, and it is the one with the higher throughput.</p></div>
+  <div class="card ok"><div class="label">Quick check</div><p>The same 500-byte block, but the service routine is optimised to 5 cycles per byte and the DMA controller still needs 20 cycles of setup and 2 per byte. What is the speed-up now, and what does the change tell you?</p><details><summary>Answer</summary><p><strong>2 + 500 x 5 = 2502 cycles against 1020, a speed-up of 2.45.</strong> The speed-up falls because DMA's advantage is the per-byte work the CPU no longer does: the cheaper the service routine becomes, the less there is for DMA to remove, while the 20-cycle setup stays fixed. It is the reason DMA pays off for blocks and not for single bytes.</p></details></div>
+  <p class="small">Topic: I/O Interface - Interrupt and DMA (Computer Organization and Architecture), subtopics programmed I/O, interrupt-driven I/O, the DMA controller and its cycle-stealing and burst modes. The three transfer modes and the removal of the processor from the data path: NPTEL IIT Guwahati Lectures 33-35 (English, read in part). Cycle stealing against burst, with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). Bus request and grant, bus mastership and the DMA/cache interaction: Auburn ELEC 5200 Chapter 6 (English, read in part). The 7-cycle loop, the 20-cycle setup and the 2 cycles per byte are the figures of GATE CSE 2011 Q.28; the 200 cycles per byte device time is this lesson's stated assumption. Every number shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

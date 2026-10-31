@@ -1,0 +1,22 @@
+{
+  "id": "gate-2026-set2-18-vectored-and-daisy-chain-statements",
+  "year": "2026",
+  "paper": "GATE CS 2026 Set 2",
+  "question_ref": "Q.18",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "vectored-versus-non-vectored-interrupts",
+  "text": "Consider the following two statements about interrupt handling mechanisms in a CPU. S1: In non-vectored interrupt mechanism, it usually takes more time to start the Interrupt Service Routine (ISR) when compared to that in a vectored interrupt mechanism. S2: In daisy-chain interrupt mechanism, the CPU polls all the input devices individually to determine the source of the interrupt. Which one of the following options is correct with respect to S1 and S2?",
+  "options": [
+    "Both S1 and S2 are true",
+    "Both S1 and S2 are false",
+    "S1 is true and S2 is false",
+    "S1 is false and S2 is true"
+  ],
+  "answer": "Option (C) - S1 is true and S2 is false",
+  "solution": "In a vectored interrupt the interrupting device supplies its own vector during the acknowledge cycle, so the CPU jumps straight to the right routine. In a non-vectored interrupt every device lands on one fixed entry point, and the handler must identify the source - typically by reading status registers - before the right routine can begin, so starting the ISR takes longer: S1 is true. A daisy chain resolves the source in hardware by passing the acknowledge signal along the chain until the requesting device intercepts it; the CPU reads no status registers at all, so S2 is false.",
+  "source_url": "https://gateiit.in/gate-cse/pyq/2026-s2/q18",
+  "source_label": "GATE CSE 2026 Session 2 Q.18 solution page (states the answer as option C)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page gives (C) and states it as the value in the GATE 2026 final answer key; that attribution is the page's claim, not checked against the key document here. Two further solution pages for the same question (iaeacademy, trygateai) independently give (C) with the same reasoning, which is the reasoning reproduced in the card."
+}

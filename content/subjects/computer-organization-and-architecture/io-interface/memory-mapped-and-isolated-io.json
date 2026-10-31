@@ -1,0 +1,92 @@
+{
+  "id": "memory-mapped-and-isolated-io",
+  "title": "Memory-Mapped Against Isolated I/O, and How Protection Survives",
+  "priority": "P1",
+  "order": 534,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "Where the interface registers live decides the instruction set. Memory-mapped I/O puts them in the ordinary address space, so plain load and store reach them. Isolated (port-mapped) I/O gives them a separate space reached only by special instructions such as IN and OUT.",
+  "remember": [
+    "Memory-mapped: one address space for memory and registers; the decoder, not the instruction, decides which is which; ordinary load/store instructions; no new instruction in the ISA.",
+    "Isolated: a second address space with its own read/write control lines; needs privileged IN/OUT style instructions.",
+    "Protection in memory-mapped I/O comes from the same address translation and protection that guards kernel memory, so all device access is routed through operating-system routines.",
+    "Protection in isolated I/O comes from making the I/O instructions privileged, so a user-mode program traps if it tries one.",
+    "Memory-mapped I/O spends address space on registers; isolated I/O keeps the whole memory space but costs extra instruction encoding and extra control lines."
+  ],
+  "example": {
+    "prompt": "A CPU has a 16-bit address bus and 8-bit ports. Compare the cost of giving the interfaces 256 bytes of memory-mapped space against using isolated I/O with an 8-bit port address.",
+    "work": "Memory-mapped: the 64 KB space is 65,536 bytes, of which 256 go to registers, leaving 65,280 bytes of memory. Isolated: all 65,536 bytes stay memory, and the 8-bit port address gives 256 ports on a separate space, reached by IN/OUT.",
+    "answer": "Memory-mapped costs 256 bytes of memory space and no instruction; isolated costs no memory space but needs privileged I/O instructions and separate I/O read/write lines."
+  },
+  "gateAngle": "GATE CSE 2005 Q.20 asks what protects I/O in a memory-mapped machine, and the wrong option 'I/O protection is not possible' is the trap: because there is no I/O instruction, the protection cannot be an instruction-level privilege test, so it is the operating system plus address protection. The question is really about where the check can live.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2005 Q.20: in a CPU with memory-mapped I/O and no explicit I/O instruction, how is I/O protection ensured?",
+      "answer": "By operating-system routines: the device registers are ordinary addresses, so the address protection of the machine covers them and user code must enter the kernel to touch them.",
+      "why": "The option 'hardware trap' is attractive but the trap on a protected address is exactly the mechanism the OS protection uses; the answer that names the policy, not the wire, is the one the key accepts."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does memory-mapped I/O let a machine have a smaller instruction set?",
+      "answer": "Because the load and store instructions already exist. No IN or OUT opcode, no separate I/O address field and no separate I/O read/write control lines are needed; only the address decoder knows that some addresses are registers.",
+      "why": "It is the standard argument for memory-mapped I/O in RISC designs such as ARM."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A 32-bit machine with memory-mapped I/O maps a device at 0xF0000000. What must the operating system do so that a user program cannot write there directly?",
+      "answer": "Mark that page as kernel-only in the page table. A user store then faults, the kernel handles the fault as an illegal access, and legitimate device access happens only inside a system call.",
+      "why": "It is the memory-mapped counterpart of making IN/OUT privileged."
+    }
+  ],
+  "trap": {
+    "what": "Concluding that memory-mapped I/O cannot be protected because there is no I/O instruction to make privileged.",
+    "why": "Privilege does not have to attach to an opcode. It can attach to an address: the same protection bits that stop a user program writing kernel data stop it writing a device register.",
+    "counterexample": "Take the same machine twice. With isolated I/O, user code running OUT traps because the instruction is privileged. With memory-mapped I/O, user code storing to 0xF0000000 traps because the page is not mapped for user mode. Both trap; only the thing being checked differs."
+  },
+  "check": {
+    "question": "In a memory-mapped machine, which instruction sends a byte to a device, and what makes the access an I/O access rather than a memory access?",
+    "answer": "An ordinary store instruction; the address decoder recognises the device range and routes the cycle to the interface instead of memory.",
+    "explanation": "Nothing in the instruction marks it as I/O - only the address does. That is why protection must be address-based."
+  },
+  "pyqIds": [
+    "gate-2005-20-memory-mapped-io-protection"
+  ],
+  "prereqs": [
+    "io-interface-why-it-exists-and-its-registers",
+    "direct-addressing"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 33 - Input-Output Primitives",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec33.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: the module's eight objectives, the need for an I/O module between the bus and the peripherals, the three transfer modes named as programmed I/O, interrupt driven I/O and DMA, and the device controller's role"
+    }
+  ],
+  "sourceLine": "Memory-mapped against I/O-instruction register mapping, with the note that the operating system's address translation makes the registers kernel-only: Auburn ELEC 5200 Chapter 6 (English, read in part). Memory-mapped against isolated I/O with the x86 and ARM examples: DSWallah Learn, romanised Hindi, translated (read in part). The need for an I/O module and the addressing of devices: NPTEL IIT Guwahati Lecture 33 (English, read in part).",
+  "videoRefs": []
+}

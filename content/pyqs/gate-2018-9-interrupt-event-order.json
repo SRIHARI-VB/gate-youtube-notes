@@ -1,0 +1,22 @@
+{
+  "id": "gate-2018-9-interrupt-event-order",
+  "year": "2018",
+  "paper": "GATE CS 2018",
+  "question_ref": "Q.9",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "the-interrupt-cycle-microoperations",
+  "text": "The following are some events that occur after a device controller issues an interrupt while process L is under execution. (P) The processor pushes the process status of L onto the control stack. (Q) The processor finishes the execution of the current instruction. (R) The processor executes the interrupt service routine. (S) The processor pops the process status of L from the control stack. (T) The processor loads the new PC value based on the interrupt. Which of the following is the correct order in which the events above occur?",
+  "options": [
+    "QPTRS",
+    "PTRSQ",
+    "TRPQS",
+    "QTPRS"
+  ],
+  "answer": "Option (A) - QPTRS",
+  "solution": "An asynchronous interrupt is recognised only at an instruction boundary, so the current instruction finishes first (Q). The interrupted process's state must be safe before control moves, so its status is pushed (P). Only then is the PC loaded with the service routine's entry point (T), which is what the routine executes from (R). When the routine ends, the saved status is popped and the process resumes (S).",
+  "source_url": "https://gateoverflow.in/204083/gate-cse-2018-question-9",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2018 Q.9, answer (A) QPTRS",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives the order Q, P, T, R, S - option (A) - and the reasoning quoted there is that 'the process execution is completed then the interrupt is serviced'. A comment asks whether the current instruction must always be completed first, and is answered by pointing at non-maskable interrupts as the exception; that qualification is recorded on the card rather than ignored."
+}

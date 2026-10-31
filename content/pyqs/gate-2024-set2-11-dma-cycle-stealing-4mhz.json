@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set2-11-dma-cycle-stealing-4mhz",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.11",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+  "text": "Consider a computer with a 4 MHz processor. Its DMA controller can transfer 8 bytes in 1 cycle from a device to main memory through cycle stealing at regular intervals. Which one of the following is the data transfer rate (in bits per second) of the DMA controller if 1% of the processor cycles are used for DMA?",
+  "options": [
+    "2,56,000",
+    "3,200",
+    "25,60,000",
+    "32,000"
+  ],
+  "answer": "Option (C) - 25,60,000 bits per second",
+  "solution": "A 4 MHz processor completes 4 x 10^6 cycles per second; 1% of them is 40,000 stolen cycles. Each stolen cycle moves 8 bytes = 64 bits, so the rate is 40,000 x 64 = 2,560,000 bits per second, written 25,60,000 in Indian digit grouping. Option (A) is ten times smaller and would need only 0.1% of the cycles; leaving the answer in bytes gives 3,20,000, which is not an option.",
+  "source_url": "https://iaeacademy.in/study/computer-organization-architecture/io-interrupts-dma/cs-2024-2-q11",
+  "source_label": "GATE 2024 CS2 Q.11 solution page (states the answer as option C and attributes it to the GATE 2024 CS2 answer key)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page gives (C) 25,60,000 with the full multiplication, and states that the official GATE 2024 CS2 key gives C - that attribution is the page's claim and was not checked against the key document itself. The GATE CSE 2024 Set 2 question set that indexes the question also records C. Recomputed here: 4,000,000 x 0.01 x 64 = 2,560,000."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "gate-2022-17-bulk-transfer-highest-throughput",
+  "year": "2022",
+  "paper": "GATE CS 2022",
+  "question_ref": "Q.17",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "comparing-the-three-modes-and-dma-cache-coherence",
+  "text": "Which one of the following facilitates transfer of bulk data from hard disk to main memory with the highest throughput?",
+  "options": [
+    "DMA based I/O transfer",
+    "Interrupt driven I/O transfer",
+    "Polling based I/O transfer",
+    "Programmed I/O transfer"
+  ],
+  "answer": "Option (A) - DMA based I/O transfer",
+  "solution": "Both polling and interrupt-driven transfer put the processor in the data path, so the rate is limited by how fast the processor can execute the status check or the service routine, not by the bus. DMA takes the processor out of the data path: the controller moves the block at bus speed and interrupts once at the end, which is why it gives the highest throughput for a block.",
+  "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+  "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2022 Q.17 (1 mark)",
+  "verification": "SOURCED",
+  "answer_evidence": "The question is published with its four options on the ExamSIDE I/O Interface page, and the DMA answer is stated on the GATE CSE 2022 question set that indexes it. The reasoning is independently the one given by the NPTEL DMA lecture read this run: DMA removes the processor from the data path, so the transfer rate is no longer bounded by the processor."
+}

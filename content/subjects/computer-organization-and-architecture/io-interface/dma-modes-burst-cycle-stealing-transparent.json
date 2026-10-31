@@ -1,0 +1,107 @@
+{
+  "id": "dma-modes-burst-cycle-stealing-transparent",
+  "title": "The Three DMA Modes: Burst, Cycle Stealing, Transparent",
+  "priority": "P1",
+  "order": 542,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "The modes differ in how the bus is shared. Burst takes it for the whole block, cycle stealing takes one cycle at a time, and transparent takes only cycles the CPU was not using anyway.",
+  "remember": [
+    "Burst (block) mode: the controller keeps the bus until the whole block is moved. Highest throughput, and the CPU is stalled for the duration.",
+    "Cycle stealing: the controller takes one bus cycle, transfers one word, and releases the bus, repeating at intervals. The CPU is slowed by the fraction of cycles stolen, not stopped.",
+    "Transparent mode: the controller uses only cycles in which the CPU is not using the bus. No slowdown at all, but the transfer may take arbitrarily long and can starve.",
+    "Cycle stealing is the mode that makes DMA compatible with a CPU that must keep running; burst is the mode that maximises throughput - which is why 2024 Set 1 Q.15's claim that burst has higher throughput is true.",
+    "The choice is a straight trade: throughput against how much CPU time the transfer is allowed to take away."
+  ],
+  "example": {
+    "prompt": "A controller can move 8 bytes per bus cycle. It is allowed 1% of the cycles of a 4 MHz processor. What is the transfer rate in cycle stealing mode?",
+    "work": "Stolen cycles per second = 4,000,000 x 0.01 = 40,000. Each carries 8 bytes = 64 bits. Rate = 40,000 x 64 = 2,560,000 bits per second.",
+    "answer": "2,560,000 bits per second, that is 25,60,000 - option (C) of GATE CSE 2024 Set 2 Q.11."
+  },
+  "gateAngle": "The modes appear as statement questions (2024 Set 1 Q.15) and as a throughput calculation (2024 Set 2 Q.11, 2021 Set 2 Q.20). The one-mark form is always the same trade stated in words: which mode blocks the CPU least, which moves data fastest, and whether one word or a block moves per stolen cycle.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 1 Q.15: which statement is false - one word per stolen cycle, burst has higher throughput than cycle stealing, programmed I/O has better CPU utilisation than interrupt-driven I/O, or vectored interrupts start the routine faster?",
+      "answer": "The third: programmed I/O does not have better CPU utilisation; its busy waiting is the worst of the three.",
+      "why": "The other three are the standard statements of the three modes and of vectored interrupts."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2022 Q.17: which mechanism gives the highest throughput for bulk data from a hard disk to memory?",
+      "answer": "DMA-based transfer.",
+      "why": "The CPU leaves the data path entirely, so the block moves at bus speed rather than at the speed of a service routine."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A system must never stall the CPU for more than one cycle at a time. Which mode is admissible, and what does it cost?",
+      "answer": "Cycle stealing: one stolen cycle at a time, so the CPU is slowed by the stolen fraction but never stopped. The cost is throughput - the block takes longer than in burst mode, and the device may overrun if it cannot wait.",
+      "why": "It is the reason interactive machines use cycle stealing while disk controllers often use burst."
+    }
+  ],
+  "trap": {
+    "what": "Believing cycle stealing stops the CPU for the whole transfer, or that transparent mode is always the best choice.",
+    "why": "Cycle stealing interrupts the CPU one cycle at a time, so the CPU keeps running, only slower. Transparent mode never slows the CPU but can starve the device, so it is unsuitable for a device with a deadline.",
+    "counterexample": "Move 1 MB in transparent mode on a machine that is 100% busy: the controller gets no cycle at all and the transfer never completes, while the CPU is at full speed. That is the worst possible outcome for the device."
+  },
+  "check": {
+    "question": "Which mode gives the highest throughput, which gives the least disturbance to the CPU, and which is in between?",
+    "answer": "Burst gives the highest throughput, transparent the least disturbance, and cycle stealing sits between them.",
+    "explanation": "Throughput and CPU disturbance pull in opposite directions, and the three modes are the three points on that line."
+  },
+  "pyqIds": [
+    "gate-2024-set1-15-false-statement-dma-modes",
+    "gate-2022-17-bulk-transfer-highest-throughput"
+  ],
+  "prereqs": [
+    "dma-controller-registers-and-the-transfer-sequence"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "System Buses & DMA (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    }
+  ],
+  "sourceLine": "Cycle stealing, burst and transparent modes stated with their trade-offs, and the one-interrupt-per-block correction: DSWallah Learn, romanised Hindi, translated (read in part). DMA operation with every-nth-cycle transfers against continuous transfers, and bus mastership: Auburn ELEC 5200 Chapter 6 (English, read in part). Why DMA is needed for a block at all: NPTEL IIT Guwahati Lecture 35 (English, read in part).",
+  "videoRefs": [],
+  "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface",
+      "title": "I/O Interface: Interrupt and DMA",
+      "level": "topic-level",
+      "covers": [
+        "programmed I/O keeps the CPU in the status loop for the whole transfer",
+        "interrupt-driven I/O removes the wait and keeps the per-byte service routine",
+        "DMA removes the per-byte work, with cycle stealing and burst as the two sharing modes"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface/index.html"
+    }
+  }
+}

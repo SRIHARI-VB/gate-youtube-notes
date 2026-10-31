@@ -1,0 +1,94 @@
+{
+  "id": "dma-throughput-and-cycle-stealing-arithmetic",
+  "title": "DMA Arithmetic: Transfer Rate, Stolen Cycles and CPU Overhead",
+  "priority": "P2",
+  "order": 543,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "In cycle stealing the rate is simply the cycles stolen per second times the data carried by each stolen cycle, and the cycles stolen per second are the clock rate times the fraction given to DMA. The CPU overhead is its own cycles over the whole transfer time.",
+  "remember": [
+    "Transfer rate = clock frequency x (fraction of cycles given to DMA) x (bits per stolen cycle). Convert bytes to bits by multiplying by 8.",
+    "2024 Set 2: 4 MHz, 8 bytes per cycle, 1% -> 40,000 cycles/s x 64 bits = 2,560,000 bps.",
+    "2021 Set 2: 2 MHz, 8 bits per cycle, 0.5% -> 10,000 cycles/s x 8 bits = 80,000 bps.",
+    "CPU overhead fraction = (CPU cycles spent on the transfer) / (CPU time + transfer time), with both expressed in the same unit.",
+    "2004: 20 KB at 10 MB/s takes 2000 us; the CPU's 1200 cycles at 600 MHz take 2 us; 2 / 2002 is about 0.1%."
+  ],
+  "example": {
+    "prompt": "A hard disk transfers 20 KB to memory by DMA at 10 MB/s. The CPU runs at 600 MHz and spends 300 cycles to initiate and 900 cycles to complete the transfer. What percentage of processor time is consumed?",
+    "work": "Transfer time = 20 KB / 10 MB/s = 2 ms = 2000 us. CPU time = (300 + 900) / 600 MHz = 1200 / 600,000,000 s = 2 us. Fraction = 2 / (2000 + 2) = 0.000999, that is about 0.1%.",
+    "answer": "0.1% - option (D) of GATE CSE 2004 Q.68."
+  },
+  "gateAngle": "Every DMA numeric in the topic is one of two shapes: a rate from a stolen-cycle percentage (2024 Set 2, 2021 Set 2) or an overhead fraction from cycle counts (2004 Q.68). Both are unit conversions in disguise, and both are worth practising until the conversion is automatic.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2021 Set 2 Q.20: a 2 MHz processor, one 8-bit character per stolen cycle, 0.5% of cycles used by DMA. What is the transfer rate?",
+      "answer": "80,000 bits per second.",
+      "why": "2,000,000 x 0.005 = 10,000 stolen cycles per second, each carrying 8 bits."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 2 Q.11: a 4 MHz processor, 8 bytes per stolen cycle, 1% of cycles used by DMA. What is the transfer rate?",
+      "answer": "25,60,000 bits per second, option (C).",
+      "why": "40,000 stolen cycles x 64 bits; the option 2,56,000 is ten times too small and comes from reading 1% as 0.1%."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The 2024 machine, but the controller can take 2% of the cycles and moves 4 bytes per cycle. What is the rate?",
+      "answer": "4,000,000 x 0.02 = 80,000 stolen cycles, x 32 bits = 2,560,000 bps - the same rate from a different combination.",
+      "why": "It shows that the rate depends on the product, not on either factor alone."
+    }
+  ],
+  "trap": {
+    "what": "Leaving the answer in bytes per second, or mixing megahertz with a percentage expressed as a fraction of 100.",
+    "why": "The question asks for bits per second, so bytes must be multiplied by 8; and 1% is 0.01, not 1. Both slips are anticipated by the distractors.",
+    "counterexample": "For 2024 Set 2, bytes per second gives 320,000, which is not an option; using 0.1% instead of 1% gives 2,56,000, which is option (A) and is ten times too small."
+  },
+  "check": {
+    "question": "A 10 MHz processor gives 2% of its cycles to a controller moving 4 bytes per stolen cycle. What is the transfer rate?",
+    "answer": "10,000,000 x 0.02 = 200,000 stolen cycles, x 32 bits = 6,400,000 bits per second.",
+    "explanation": "Two multiplications: frequency by fraction, then cycles by bits per cycle."
+  },
+  "pyqIds": [
+    "gate-2021-set2-20-dma-cycle-stealing-transfer-rate",
+    "gate-2024-set2-11-dma-cycle-stealing-4mhz",
+    "gate-2004-68-dma-hard-disk-processor-time"
+  ],
+  "prereqs": [
+    "dma-modes-burst-cycle-stealing-transparent",
+    "dma-controller-registers-and-the-transfer-sequence"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Interface (Interrupt and DMA Mode)",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    },
+    {
+      "kind": "text",
+      "title": "System Buses & DMA (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    }
+  ],
+  "sourceLine": "DMA transfer and the need for it: NPTEL IIT Guwahati Lecture 35 (English, read in part). The DMA total-time expression as bus request time plus transfer time plus bus release time, which is where the overhead accounting comes from: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English, read in full article). Cycle stealing against burst with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). All three PYQ figures are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

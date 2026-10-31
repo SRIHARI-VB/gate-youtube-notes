@@ -1,0 +1,22 @@
+{
+  "id": "gate-2011-11-highest-priority-interrupt-source",
+  "year": "2011",
+  "paper": "GATE CS 2011",
+  "question_ref": "Q.11",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "interrupt-priority-daisy-chain-and-polling",
+  "text": "A computer handles several interrupt sources of which the following are relevant for this question: interrupt from a CPU temperature sensor (raises an interrupt if the CPU temperature is too high); interrupt from a mouse (raises an interrupt if the mouse is moved or a button is pressed); interrupt from a keyboard (raises an interrupt when a key is pressed or released); interrupt from a hard disk (raises an interrupt when a disk read is completed). Which one of these will be handled at the HIGHEST priority?",
+  "options": [
+    "Interrupt from Hard Disk",
+    "Interrupt from Mouse",
+    "Interrupt from Keyboard",
+    "Interrupt from CPU temperature sensor"
+  ],
+  "answer": "Option (D) - interrupt from the CPU temperature sensor",
+  "solution": "Priority is assigned by the consequence of delay. A request whose delay can destroy hardware must be heard first, so the temperature sensor outranks every data device. Among the data devices, the ordering that the accepted answer gives is by transfer rate and by the risk of losing buffered data: hard disk above mouse, mouse above keyboard. The reasoning is the standard one - 'higher priority interrupt levels are assigned to requests which, if delayed or interrupted, could have serious consequences'.",
+  "source_url": "https://gateoverflow.in/2113/gate-cse-2011-question-11",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2011 Q.11, answer (D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives (D) and states the priority order CPU temperature sensor > hard disk > mouse > keyboard. One commenter notes that on real x86 hardware APIC interrupt priorities are programmable and no general claim about keyboard against mouse can be made; that objection does not disturb the answer, which turns on the temperature sensor being non-deferrable."
+}

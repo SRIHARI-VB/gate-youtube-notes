@@ -1,0 +1,83 @@
+{
+  "id": "io-interface-why-it-exists-and-its-registers",
+  "title": "Why an I/O Interface Exists, and the Three Registers It Exposes",
+  "priority": "P1",
+  "order": 533,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "A peripheral cannot hang off the system bus directly: it is slower, it speaks a different data format, and it needs its own control. An interface unit sits in between and shows the CPU exactly three things - a data register, a status register and a control register.",
+  "remember": [
+    "Three reasons an interface is needed: the peripheral is far slower than the bus and the CPU, its data format and word length differ, and its control logic is device-specific and cannot be built into the CPU.",
+    "The interface exposes three register types: data (the word in transit), status (ready, busy, error bits) and control (what the device should do next).",
+    "The CPU never touches the device. It reads and writes the interface's registers; the interface does the timing on the device side.",
+    "The status register is the single point that both schemes read: a polling loop reads it, and an interrupt is raised when a bit in it becomes 1.",
+    "An interface for one device is called a device controller; one I/O module may front several controllers."
+  ],
+  "example": {
+    "prompt": "A keyboard interface has a 1-bit READY status flag and a 1-byte data register. Describe the three registers and the two ways the CPU can learn that a key was pressed.",
+    "work": "Status: bit 0 = READY, bit 1 = OVERRUN. Data: the last scan code. Control: bit 0 = interrupt enable, bit 1 = clear buffer. Way 1 (polling): the CPU reads the status register in a loop and branches when bit 0 is 1. Way 2 (interrupt): with control bit 0 set, the interface raises its interrupt request line when READY becomes 1, and the CPU runs the keyboard service routine instead of asking.",
+    "answer": "Same three registers in both schemes; the difference is only who initiates - the CPU asking, or the interface signalling."
+  },
+  "gateAngle": "GATE uses the register triple as the vocabulary of the whole topic: 2020 Q.3 calls polling 'the CPU periodically checks the status bits', and every interrupt question assumes the interface is what raises the request. A question that asks 'how does the CPU know the device is ready' is answered by naming the status register and then the scheme.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a slow printer not be wired straight onto the system bus that the CPU uses to read memory?",
+      "answer": "Because the bus protocol assumes a device that answers within the bus cycle. The printer needs milliseconds, so a direct connection would either stall the bus for that whole time or return garbage. The interface buffers a byte and holds the bus conversation short, while the printer takes as long as it likes on the other side.",
+      "why": "It separates the two clocks - bus timing and device timing - which is the interface's first job."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "An interface has an 8-bit status register in which bit 7 is BUSY and bit 6 is ERROR. A polling routine tests only bit 7. Which failure can it miss?",
+      "answer": "It can miss an error condition reported in bit 6, and it will keep transferring into a device that has already failed. The loop must test ERROR before or together with BUSY.",
+      "why": "It is the standard reason a real polling loop tests a mask rather than one bit."
+    }
+  ],
+  "trap": {
+    "what": "Saying the CPU 'reads the device' or 'writes to the printer'.",
+    "why": "The CPU only ever reads and writes the interface's registers. The device side of the interface runs on the device's own timing, and that separation is the entire point of having an interface.",
+    "counterexample": "A disk controller buffers a whole 512-byte sector. The CPU reads one word at a time from the controller's data register while the disk is still filling the buffer, so the CPU's reads and the disk's writes are never the same event."
+  },
+  "check": {
+    "question": "A polling loop wants to know whether the device has data. Which register does it read, and which register does it write to start the device?",
+    "answer": "It reads the status register and writes the control register (the data register carries the word itself).",
+    "explanation": "Status for 'can I transfer', control for 'please do this', data for the payload. Confusing status with data is the usual slip."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "instruction-format-and-fields"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 33 - Input-Output Primitives",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec33.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: the module's eight objectives, the need for an I/O module between the bus and the peripherals, the three transfer modes named as programmed I/O, interrupt driven I/O and DMA, and the device controller's role"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+  ],
+  "sourceLine": "The interface unit as the resolver of the CPU-peripheral differences and the three transfer modes: NPTEL IIT Guwahati Lecture 33 (English, read in part). The three-register view and the polling/interrupt distinction stated over it: DSWallah Learn, romanised Hindi, translated (read in part). Command, status and data registers and register mapping: Auburn ELEC 5200 Chapter 6 (English, read in part).",
+  "videoRefs": []
+}

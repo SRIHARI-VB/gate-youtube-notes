@@ -2844,3 +2844,121 @@ navigation label and no shared component class changed.
 
 The cycle pointer now sits on `computer-organization-and-architecture/memory-hierarchy-and-cache`. The next
 topic in syllabus order is `computer-organization-and-architecture/io-interface`, which is `not_started`.
+
+## Run: Computer Organization and Architecture - I/O Interface: Interrupt and DMA (2026-10-31)
+
+### The topic, and why it was next
+
+**Computer Organization and Architecture > I/O Interface: Interrupt and DMA** (`io-interface`), the fifth
+topic of the GATE 2027 COA line: *"Instruction set and addressing modes. Design of arithmetic and logic
+unit (ALU). Design of control unit - hardwired and microprogrammed. Memory interfacing and hierarchy:
+performance, cache memory mapping. I/O interface (interrupt and DMA). Instruction pipelining, pipeline
+hazards."*
+
+The cycle pointer was left by the previous run on
+`computer-organization-and-architecture/memory-hierarchy-and-cache`, and the first topic strictly after it in
+the enumerated syllabus order whose status is not `covered` is this one, which was `not_started`. Nothing
+was skipped: no topic sits between the pointer and this one, no topic is `blocked`, and the `partial` topics
+earlier in the cycle were left alone because the cycle takes its second pass over `partial` topics only
+after a full pass finds no `not_started` topic left. `instruction-pipelining-and-hazards`, the next topic
+after this one, is `not_started` and was deliberately not touched.
+
+### Subtopics enumerated before any source was chosen
+
+Thirteen, from the standard treatment (Stallings ch. 7, which the NPTEL lectures themselves set for this
+module, and Hamacher ch. 4), from the shape of the question record, and from the syllabus phrase itself,
+which names only "interrupt and DMA" and therefore leaves the interface and the three transfer modes to be
+enumerated: why an I/O interface exists and the data/status/control register triple; memory-mapped against
+isolated I/O and how protection survives in each; programmed I/O with the polling loop and its cost;
+interrupt-driven I/O with the request/acknowledge handshake; the interrupt cycle and its micro-operations
+with the save-before-jump ordering; vectored against non-vectored interrupts and the vector table; interrupt
+priority by software polling, daisy chain and parallel encoder, with maskable against non-maskable; the
+polling-against-interrupt overhead fraction and its ratio; the DMA controller's registers and its transfer
+sequence with bus request and grant; the three DMA modes, burst, cycle stealing and transparent; DMA rate
+and CPU-overhead arithmetic; the count register as a cap of 2^n units per bus acquisition; and the three
+modes compared, with the DMA/cache coherence caveat.
+
+### Sources chosen, on merit
+
+Eight sources were read, and no single one covers the topic:
+
+- **NPTEL IIT Guwahati, Computer Organization and Architecture - A Pedagogical Aspect, Lecture 33 -
+  Input-Output Primitives** (English, read in part). The need for an I/O module between the bus and the
+  peripherals, the device controller, and the three transfer modes named before any of them is taught.
+- **The same course, Lecture 34 - Interrupt Driven I/O** (English, read in part). Why programmed I/O wastes
+  the CPU in a status-check loop, and the read-command / interface-interrupts-the-CPU sequence.
+- **The same course, Lecture 35 - DMA Transfer** (English, read in part). Why per-word CPU involvement caps
+  the transfer - the CPU cannot carry a kilobyte through eight to sixteen registers - and the statement that
+  DMA removes the processor from the data path.
+- **DSWallah Learn, "I/O Organization & Interrupts"** (romanised Hindi, **translated**, read in part). The
+  only readable source that states the whole interrupt vocabulary - maskable, non-maskable, vectored,
+  non-vectored, vector table - in one place, together with the three misconceptions GATE exploits.
+- **DSWallah Learn, "System Buses & DMA"** (romanised Hindi, **translated**, read in part). The only
+  readable source that names all three DMA modes with each one's cost to the CPU, and it corrects the common
+  "DMA interrupts per byte" error.
+- **Auburn University, ELEC 5200/6200, Chapter 6 - Memory and Other I/O Topics** (English, read in part).
+  Command, status and data registers; memory-mapped against I/O-instruction mapping; polling; priority
+  interrupts; DMA organisation and operation; bus mastership; and the DMA/cache and DMA/virtual-memory
+  consequences that no GATE-oriented source mentions.
+- **GeeksforGeeks, "I/O Interface (Interrupt and DMA Mode)"** (English, read in full). Used for one thing
+  only, the DMA total-time expression as request time plus transfer time plus release time, and treated as a
+  secondary source throughout.
+- **IARE, Computer Organization lecture notes** (English, read in part). The register-transfer form of the
+  interrupt cycle and the HOLD/HLDA names, which the NPTEL transcripts describe only in words.
+
+Ten candidates were rejected with reasons in `sources.json`. The two most painful: the **NPTEL IIT Kharagpur
+Computer Organization lectures 24, 25 and 26**, which are exactly Programmed I/O, Interrupt Driven I/O and
+DMA, and the **NPTEL Computer Architecture and Organization lectures 44-50**, which cover I/O organisation,
+data transfer techniques, interrupt handling twice, DMA and a set of I/O transfer exercises. Both were
+readable only as lecture indexes, so nothing is claimed from either. Also rejected: Anshul Kumar's IIT Delhi
+I/O subsystem lectures (index only), a Hindi DMA lecture behind a login, a Hindi YouTube DMA lecture with no
+caption track, a GATE Overflow COA digest, the ISRO and GATE IT questions that the question indexes mix in
+with the CSE ones, and the five question-index sites, which were used to locate questions but never as answer
+sources where an accepted-answer page existed.
+
+### What was created
+
+Thirteen cards, one per enumerated subtopic; fifteen verified PYQs spanning 1996 to 2026 (1996, 2004, 2005,
+2011 twice, 2016 Set 1, 2018, 2020, 2021 Set 2, 2022, 2023, 2024 Set 1, 2024 Set 2, 2025 Set 1, 2026 Set 2);
+one p5.js lesson (`io-transfer-three-ways`, eight steps, one 500-byte block moved three ways on one scale);
+a `sources.json` ledger with eight chosen and ten rejected candidates; a new recomputation block
+`check_io_interface()` in `scripts/validate.py`; and the syllabus and ledger entries.
+`content/syllabus.json` now marks the topic `cards` instead of `planned`, and `content/coverage.json` records
+the run, the status, the gaps and the moved cycle pointer.
+
+### Validation
+
+`python3 scripts/build-index.py` indexed 3 playlists, 39 videos, 347 cards and 275 PYQs.
+`python3 scripts/validate.py` reported 39 checks passed, 8 warnings, 0 failures; all eight warnings are
+pre-existing. `node tests/visual-lessons.js` passed on all 34 lessons. The new `check_io_interface()` block
+recomputes the 500-byte span, the 3502 and 1020 cycle counts, the 3.43 speed-up, the 2023 ratio 10.2 with
+its 100.2 variant, the 2024 and 2021 cycle-stealing rates, the 2004 overhead, the 2016 count-register answer
+with its 455 trap and its 8-acquisition variant, the memory-mapped address-space arithmetic, the daisy-chain
+position test, the two save-before-jump orderings and the agreement of the two mode orderings, and it also
+checks the lesson's own figures against the same constants. One drafting error was caught before delivery and
+corrected: a card's quick check said a 1 ms poll interval gives a ratio of 102, when 1000 polls of 100 us plus
+200 us against 1 ms gives 100.2. No frozen file was touched: no design token, no shell layout, no route, no
+navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript backs any card: the three NPTEL lectures are transcripts of lecture notes, not of
+   captions, and the two best-matched video sequences could not be read at all, so `videoRefs` is empty on
+   all thirteen cards.
+2. DMA/cache coherence and DMA against virtual memory rest on the Auburn course deck alone; no GATE-oriented
+   source read this run mentions either.
+3. Every PYQ answer is `SOURCED`. No official answer key document was opened, and three of the fifteen
+   (2021 Set 2 Q.20, 2024 Set 1 Q.15, 2022 Q.17) rest on question-bank pages rather than on an
+   accepted-answer discussion.
+4. Three parts of the topic have cards but no PYQ evidence: the transparent DMA mode, interrupt latency as a
+   number, and bus arbitration (BR/BG against HOLD/HLDA).
+5. Two numbering disagreements and one answer disagreement are recorded rather than resolved: GATE CSE 2004
+   Q.68 is Q.20 on some indexes, GATE CSE 2023 Q.34 is Q.24 on GATE Overflow, GATE CSE 2025 Set 1 Q.11 is
+   Q.1 on GATE Overflow, and one answer on the 2004 page reaches 0.2% where the accepted answer and the
+   recomputation give 0.1%.
+
+### Next
+
+The cycle pointer now sits on `computer-organization-and-architecture/io-interface`. The next topic in
+syllabus order is `computer-organization-and-architecture/instruction-pipelining-and-hazards`, which is
+`not_started`.

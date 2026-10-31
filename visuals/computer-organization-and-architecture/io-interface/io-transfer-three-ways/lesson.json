@@ -1,0 +1,27 @@
+{
+  "slug": "io-transfer-three-ways",
+  "topic": "io-interface",
+  "engine": "p5.js",
+  "steps": 8,
+  "subtopics": [
+    "programmed I/O: the CPU busy in a status loop for the whole transfer",
+    "interrupt-driven I/O: the wait removed, the per-byte service routine kept",
+    "DMA: the CPU out of the data path, with cycle stealing and burst as the two ways to share the bus",
+    "the arithmetic that compares the three schemes on one 500-byte block"
+  ],
+  "example": {
+    "bytes": 500,
+    "device_cycles_per_byte": 200,
+    "device_time_cycles": 100000,
+    "isr_cycles_per_byte": 7,
+    "isr_init_cycles": 2,
+    "isr_total_cycles": 3502,
+    "dma_init_cycles": 20,
+    "dma_cycles_per_byte": 2,
+    "dma_transfer_cycles": 1000,
+    "dma_total_cycles": 1020,
+    "speedup": 3.43,
+    "polling_cpu_cycles": 100000,
+    "note": "The device time of 200 cycles per byte is this lesson's stated assumption; the 7 and 2 cycle figures are the loop of GATE CSE 2011 Q.28, and the 20 and 2 are that question's DMA figures. Every number here is recomputed in scripts/validate.py."
+  }
+}

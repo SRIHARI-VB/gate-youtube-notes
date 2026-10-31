@@ -1,0 +1,92 @@
+{
+  "id": "dma-controller-registers-and-the-transfer-sequence",
+  "title": "The DMA Controller: Registers, Bus Request and the Transfer Sequence",
+  "priority": "P1",
+  "order": 541,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "DMA puts a second bus master in the machine. The CPU programs a start address, a count and a mode, then steps off the bus; the controller moves the block itself, and interrupts once at the end.",
+  "remember": [
+    "Three registers: the memory address register (where in memory), the count register (how many units), and the control/status register (direction, unit size, mode, interrupt enable).",
+    "Sequence: CPU programs the registers, the controller asserts a bus request, the CPU finishes its current bus cycle and grants the bus, the controller transfers while incrementing the address and decrementing the count, and on reaching zero it releases the bus and raises one completion interrupt.",
+    "Only one bus master exists at any instant, so the CPU is off the bus while the controller holds it.",
+    "The CPU is out of the data path: no load and no store per word, which is exactly the cost interrupt-driven I/O could not avoid.",
+    "The controller executes no instructions. It is an address register, a counter, a bus requester and a small state machine."
+  ],
+  "example": {
+    "prompt": "The same 500-byte transfer as the interrupt-driven card: the DMA controller needs 20 cycles to initialise and 2 cycles per byte. What does the transfer cost, and what is the speed-up?",
+    "work": "DMA: 20 + 500 x 2 = 1020 cycles. Interrupt-driven: 2 + 500 x 7 = 3502 cycles. Speed-up = 3502 / 1020 = 3.43.",
+    "answer": "1020 cycles against 3502, a speed-up of about 3.4 - the answer to GATE CSE 2011 Q.28."
+  },
+  "gateAngle": "GATE asks for the sequence (what the CPU does, what the controller does, when the interrupt comes) and for the registers' roles in the count-register question (2016 Set 1 Q.31). It also tests the exclusivity of bus mastership, which is statement IV of 2020 Q.3.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2011 Q.28: with the figures above, what is the approximate speed-up of DMA over the interrupt-driven routine?",
+      "answer": "3.4.",
+      "why": "3502 / 1020 = 3.433; the speed-up comes almost entirely from dropping the 5 cycles per byte that the CPU spent on loop bookkeeping."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A DMA controller is programmed with a start address, a count of 4096 and a direction bit, then started. Describe what the CPU does during the transfer and what it does at the end.",
+      "answer": "During the transfer the CPU runs other work except for the bus cycles the controller takes; at the end the controller raises one interrupt, and the CPU's handler checks the status register for errors and marks the buffer complete.",
+      "why": "It is the shape of every real DMA driver, and it is what 'DMA needs no CPU' gets wrong."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why must the controller's address register be a memory address rather than a device address?",
+      "answer": "Because the controller drives the memory bus itself: it places the address on the address lines and the data on the data lines for a memory write or read. The device side is already connected to the controller.",
+      "why": "It fixes the direction of the data path: device to controller to memory, with the CPU absent."
+    }
+  ],
+  "trap": {
+    "what": "Saying the DMA controller is a processor that runs a program, or that the CPU and the DMA controller can both be bus masters at the same time.",
+    "why": "The controller has no instruction set; it counts and addresses. And a bus has one master at a time, otherwise two drivers would fight over the same lines - statement IV of 2020 Q.3 is false for exactly this reason.",
+    "counterexample": "A controller with an address register and a 16-bit counter cannot add, branch or compare; give it a block of 100 words and it performs 100 identical read-write pairs with no decision anywhere."
+  },
+  "check": {
+    "question": "What happens, in order, when the count register of a DMA controller reaches zero?",
+    "answer": "The controller stops transferring, releases the bus so the CPU becomes master again, and raises a completion interrupt; the CPU's handler then reads the status register.",
+    "explanation": "One interrupt per block, not per word - the opposite of the interrupt-driven scheme."
+  },
+  "pyqIds": [
+    "gate-2011-28-isr-versus-dma-speedup"
+  ],
+  "prereqs": [
+    "interrupt-driven-io-the-handshake",
+    "memory-hierarchy-levels-and-the-cost-speed-trade"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "text",
+      "title": "Computer Organization lecture notes, I/O and interrupt sections",
+      "channel": "Institute of Aeronautical Engineering, Computer Organization lecture notes",
+      "url": "https://www.iare.ac.in/sites/default/files/FINAL_IARE_CO_ECE_LECTURE_NOTES_upload.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O sections: why peripherals cannot be attached to the system bus directly, the interrupt cycle as a branch-and-save-return-address operation with its register transfers, the IEN flip-flop and ION/IOF, and the DMA HOLD/HLDA handshake"
+    }
+  ],
+  "sourceLine": "DMA as the removal of the processor from the data path, and the design objectives of a DMA module: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA organisation and operation - CPU programmes the registers, bus request and grant, the controller transfers until complete, cache and virtual-memory interactions: Auburn ELEC 5200 Chapter 6 (English, read in part). The HOLD/HLDA handshake in which the CPU releases the bus: IARE Computer Organization notes (English, read in part).",
+  "videoRefs": []
+}

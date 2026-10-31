@@ -1,0 +1,92 @@
+{
+  "id": "dma-count-register-chunking",
+  "title": "One Bus Acquisition Is Only 2^n Units: The Count-Register Limit",
+  "priority": "P2",
+  "order": 544,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "A DMA transfer is bounded by the width of its count register: an n-bit counter can count 2^n units, so a bigger file needs several bus acquisitions, each with its own setup and completion overhead.",
+  "remember": [
+    "Capacity per acquisition = 2^n units, where n is the count-register width and the unit is the byte when memory is byte addressable.",
+    "Number of acquisitions = ceil(file size / capacity per acquisition). The ceiling is what the question is really testing.",
+    "Each acquisition costs its own initialisation and its own completion interrupt, so chunking also multiplies the CPU overhead.",
+    "2016 Set 1: a 16-bit counter gives 65,536 bytes = 64 KB per acquisition; 29,154 KB needs 455.53, so 456 acquisitions.",
+    "A wider counter, or a chained mode in which the controller reloads itself, reduces the number of acquisitions but never below one."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2016 Set 1 Q.31: the DMA controller's data count register is 16 bits, the file is 29,154 KB, and memory is byte addressable. What is the minimum number of times the controller must take the bus?",
+    "work": "Per acquisition: 2^16 = 65,536 bytes = 64 KB. 29,154 / 64 = 455.53..., so 455 acquisitions move 29,120 KB and leave 34 KB, which needs one more.",
+    "answer": "456 acquisitions."
+  },
+  "gateAngle": "This is the one question in the topic where the answer is a ceiling rather than a product. GATE supplies a file size that is deliberately not a multiple of the capacity, so the rounding decides the marks: 455 is the trap, 456 the answer.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2016 Set 1 Q.31, as above.",
+      "answer": "456.",
+      "why": "29154 / 64 = 455.53; the fraction is a partially filled final acquisition, not a discardable remainder."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same file, but the count register is 20 bits and memory is 4-byte word addressable. How many acquisitions now?",
+      "answer": "The counter counts 2^20 = 1,048,576 words of 4 bytes = 4 MB per acquisition, and the file is 29,154 KB, about 28.5 MB, so 8 acquisitions are needed.",
+      "why": "It forces the unit to be worked out before the division: the counter counts words here, not bytes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does the number of acquisitions matter beyond the arithmetic?",
+      "answer": "Because each acquisition pays setup cycles and a completion interrupt, so a file needing 456 acquisitions also needs 456 interruptions of the CPU - part of the reason real controllers offer chained or scatter-gather modes.",
+      "why": "It links the count-register width to CPU overhead, which is the point of the question in a real machine."
+    }
+  ],
+  "trap": {
+    "what": "Rounding the quotient down, or treating the count register's capacity as 2^n - 1 bytes rather than 2^n.",
+    "why": "A partially filled final transfer is still a transfer, so the quotient must be rounded up. And an n-bit counter holds values 0 to 2^n - 1, which is 2^n distinct counts, so the capacity is 2^n units.",
+    "counterexample": "Rounding down gives 455 acquisitions and moves 29,120 KB, leaving 34 KB of the file in the disk controller's buffer. Using 65,535 bytes per acquisition gives 456 either way here, but 65,536 is the correct capacity."
+  },
+  "check": {
+    "question": "An 8-bit count register, byte-addressable memory, and a 1 KB file. How many bus acquisitions?",
+    "answer": "2^8 = 256 bytes per acquisition; 1024 / 256 = 4, exactly, so 4 acquisitions.",
+    "explanation": "When the division is exact there is no partially filled acquisition and the ceiling changes nothing."
+  },
+  "pyqIds": [
+    "gate-2016-set1-31-dma-count-register-bus-acquisitions"
+  ],
+  "prereqs": [
+    "dma-controller-registers-and-the-transfer-sequence",
+    "dma-throughput-and-cycle-stealing-arithmetic"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Interface (Interrupt and DMA Mode)",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    }
+  ],
+  "sourceLine": "The DMA module's registers, including the count register, and its design issues: NPTEL IIT Guwahati Lecture 35 (English, read in part). CPU sets the start address and length, and the controller transfers until complete: Auburn ELEC 5200 Chapter 6 (English, read in part). The DMA transfer sequence: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English). The 456 figure is recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

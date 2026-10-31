@@ -1,0 +1,16 @@
+{
+  "id": "gate-2021-set2-20-dma-cycle-stealing-transfer-rate",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 2",
+  "question_ref": "Q.20",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+  "text": "Consider a computer system with DMA support. The DMA module is transferring one 8-bit character in one CPU cycle from a device to memory through cycle stealing at regular intervals. Consider a 2 MHz processor. If 0.5% processor cycles are used for DMA, the data transfer rate of the device is ______ bits per second.",
+  "answer": "80000",
+  "solution": "A 2 MHz processor completes 2 x 10^6 cycles per second, of which 0.5% are stolen: 10,000 cycles per second. Each stolen cycle carries one 8-bit character, so the rate is 10,000 x 8 = 80,000 bits per second.",
+  "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+  "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2021 Set 2 Q.20 (1 mark, numerical answer)",
+  "verification": "SOURCED",
+  "answer_evidence": "The question is listed on the ExamSIDE I/O Interface page and its numerical answer 80000 is published on the GATE CSE 2021 Set 2 question set that indexes it. Recomputed here: 2,000,000 x 0.005 x 8 = 80,000. No official key document was opened for this question, so the label is SOURCED and not OFFICIAL_KEY."
+}

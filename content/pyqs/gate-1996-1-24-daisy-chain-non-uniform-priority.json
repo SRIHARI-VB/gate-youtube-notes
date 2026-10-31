@@ -1,0 +1,22 @@
+{
+  "id": "gate-1996-1-24-daisy-chain-non-uniform-priority",
+  "year": "1996",
+  "paper": "GATE CS 1996",
+  "question_ref": "Q.1.24",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "interrupt-priority-daisy-chain-and-polling",
+  "text": "For the daisy chain scheme of connecting I/O devices, which of the following statements is true?",
+  "options": [
+    "It gives non-uniform priority to various devices",
+    "It gives uniform priority to all devices",
+    "It is only useful for connecting slow devices to a processor device",
+    "It requires a separate interrupt pin on the processor for each device"
+  ],
+  "answer": "Option (A) - it gives non-uniform priority to various devices",
+  "solution": "In a daisy chain the interrupt-acknowledge signal is wired from device to device. The first device in the chain that is requesting service intercepts the acknowledge, blocks it from the devices further down, and places its own vector on the bus. Priority therefore depends on physical position, so it is non-uniform. All devices share one request line and one acknowledge line, so no separate interrupt pin per device is needed; and the scheme is used for fast as well as slow devices (FireWire is a daisy-chained fast bus), so the 'slow devices only' option fails.",
+  "source_url": "https://gateoverflow.in/2728/gate-cse-1996-question-1-24",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 1996 Q.1.24, answer (A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page states the priority order is positional - 'the device with the highest priority is placed in the first position' - and that the interrupt pin is common to all devices, so the answer is (A). A comment on the page argues for the 'slow devices only' option; the accepted answer rejects it, and the reasoning is reproduced here rather than hidden."
+}

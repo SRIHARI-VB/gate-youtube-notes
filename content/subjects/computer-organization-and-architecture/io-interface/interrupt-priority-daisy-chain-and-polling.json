@@ -1,0 +1,93 @@
+{
+  "id": "interrupt-priority-daisy-chain-and-polling",
+  "title": "Interrupt Priority: Software Polling, Daisy Chain, Parallel Encoder",
+  "priority": "P2",
+  "order": 539,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "When several devices can interrupt at once, something must choose. Three standard answers: software polling of status bits, a daisy chain that passes the acknowledge along a wire, and a parallel priority encoder with one request bit per device.",
+  "remember": [
+    "Daisy chain: one common request line, one acknowledge line wired from device to device; the first device in the chain that is requesting blocks the acknowledge and takes the interrupt, so priority is positional and non-uniform.",
+    "Software polling: the CPU reads the devices' status registers in a fixed order, so priority is the order written in the program.",
+    "Parallel (encoded) priority: each device has its own request bit and a priority encoder produces the winning device's identity, which is the fastest and the most hardware.",
+    "Maskable interrupts can be disabled by software (a bit in the control register or the status word); non-maskable ones, such as power failure or an overheating CPU, cannot, because they report conditions that cannot wait.",
+    "Highest priority goes to requests that are most damaging to delay: in GATE CSE 2011 Q.11, the CPU temperature sensor outranks the disk, the mouse and the keyboard."
+  ],
+  "example": {
+    "prompt": "Devices A, B and C are chained in that order, A nearest the CPU. A and C request at the same time. Who is served, and what does C do meanwhile?",
+    "work": "The acknowledge signal reaches A first. A is requesting, so it blocks the signal from passing to B and C, and places its own vector on the bus. C's request line stays asserted but its acknowledge never arrives, so C waits until A's routine finishes and the CPU acknowledges again.",
+    "answer": "A is served first, unconditionally, because priority here is position in the chain - C waits even though its data may be more urgent."
+  },
+  "gateAngle": "Three questions rotate around this card: 1996 Q.1.24 (daisy chain gives non-uniform priority), 2011 Q.11 (which source deserves the highest priority) and 2020 Q.3 (daisy chaining assigns priorities - true; vectored interrupts need polling - false). All three are one-mark statement questions, so the value is in the vocabulary, not the arithmetic.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1996 Q.1.24: for the daisy chain scheme, which statement is true - non-uniform priority, uniform priority, only for slow devices, or a separate interrupt pin per device?",
+      "answer": "It gives non-uniform priority to the various devices.",
+      "why": "The chain makes priority depend on position, and all devices share one request pin, so the other three options fail."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2020 Q.3: which of the four statements are true - daisy chaining assigns priorities; a vectored interrupt needs CPU polling; polling checks status bits periodically; CPU and DMA can both be bus masters at once?",
+      "answer": "The first and the third only.",
+      "why": "A vectored interrupt delivers the vector, so no polling is needed, and bus mastership is exclusive, so the CPU and the controller cannot both be masters."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is a non-maskable interrupt needed at all, if the mask bit already lets software choose which devices to hear?",
+      "answer": "Because the mask is under software control, and the condition that matters most - power failing, the CPU overheating - must be heard even when software is in the middle of a section with interrupts disabled. A non-maskable line bypasses the mask.",
+      "why": "It is the reasoning behind 2011 Q.11's answer."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a daisy chain gives all devices equal priority, or that polling and daisy chaining are the same mechanism.",
+    "why": "The chain is an ordering, so it is non-uniform by construction: the device nearest the CPU wins. And polling is the CPU reading status registers, while the chain resolves the choice in hardware without the CPU reading anything.",
+    "counterexample": "Swap two devices in the chain and the winner of a simultaneous request changes, though no software changed at all - that alone shows priority is positional, not uniform."
+  },
+  "check": {
+    "question": "Two devices request at the same instant. In a parallel priority encoder system, who is served, and how is that different from the daisy chain?",
+    "answer": "The encoder's highest-priority requesting input wins, decided by the encoder's wiring, not by position on a wire; the daisy chain's winner depends on physical position in the chain.",
+    "explanation": "Both give fixed non-uniform priority, but the encoder resolves it in one gate delay and also supplies the device identity."
+  },
+  "pyqIds": [
+    "gate-1996-1-24-daisy-chain-non-uniform-priority",
+    "gate-2011-11-highest-priority-interrupt-source",
+    "gate-2020-3-interrupt-statements-daisy-vectored-polling"
+  ],
+  "prereqs": [
+    "vectored-versus-non-vectored-interrupts"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "System Buses & DMA (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+  ],
+  "sourceLine": "Daisy chain as positional priority with the acknowledge passed along the chain, plus bus arbitration and the BR/BG handshake: DSWallah Learn, romanised Hindi, translated (read in part, two lessons). Priority interrupts, with the note that a higher-priority device can interrupt a lower-priority handler: Auburn ELEC 5200 Chapter 6 (English, read in part). Maskable against non-maskable and the four interrupt types: DSWallah Learn, romanised Hindi, translated (read in part).",
+  "videoRefs": []
+}

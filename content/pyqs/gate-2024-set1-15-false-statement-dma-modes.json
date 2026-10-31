@@ -1,0 +1,22 @@
+{
+  "id": "gate-2024-set1-15-false-statement-dma-modes",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 1",
+  "question_ref": "Q.15",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "dma-modes-burst-cycle-stealing-transparent",
+  "text": "Which one of the following statements is FALSE?",
+  "options": [
+    "In the cycle stealing mode of DMA, one word of data is transferred between an I/O device and main memory in a stolen cycle",
+    "For bulk data transfer, the burst mode of DMA has a higher throughput than the cycle stealing mode",
+    "Programmed I/O mechanism has a better CPU utilization than the interrupt driven I/O mechanism",
+    "The CPU can start executing an interrupt service routine faster with vectored interrupts than with non-vectored interrupts"
+  ],
+  "answer": "Option (C) - programmed I/O has a better CPU utilisation than interrupt-driven I/O",
+  "solution": "Programmed I/O keeps the processor in a status-check loop while the device is not ready; that busy waiting is exactly what interrupt-driven I/O removes, so interrupt-driven I/O has the better utilisation and the statement is false. The other three are true: cycle stealing moves one word per stolen cycle, burst mode holds the bus for the whole block and so has the higher throughput, and a vectored interrupt reaches its service routine sooner because the device supplies the entry point.",
+  "source_url": "https://www.geeksforgeeks.org/questions/which-one-of-the-following-statements-is-false-22/",
+  "source_label": "GeeksforGeeks question page - GATE CS 2024 Set 1, COA, I/O Interface (DMA/Interrupt mode), question 55",
+  "verification": "SOURCED",
+  "answer_evidence": "The question and its four options are published on the GeeksforGeeks page, and the GATE CSE 2024 Set 1 question set that indexes it records (C) as the answer. Recomputed here: 2022 Q.17 and the NPTEL interrupt lecture both establish that programmed I/O is the worst of the three on CPU utilisation, so (C) is the false statement."
+}

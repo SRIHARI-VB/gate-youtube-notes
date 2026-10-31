@@ -188,7 +188,7 @@
     {
      "slug": "io-interface",
      "name": "I/O Interface: Interrupt and DMA",
-     "material": "planned"
+     "material": "cards"
     },
     {
      "slug": "instruction-pipelining-and-hazards",

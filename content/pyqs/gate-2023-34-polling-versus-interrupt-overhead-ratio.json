@@ -1,0 +1,16 @@
+{
+  "id": "gate-2023-34-polling-versus-interrupt-overhead-ratio",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.34 (indexed as Q.24 on GATE Overflow)",
+  "type": "NAT",
+  "marks": "1",
+  "topic": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+  "text": "A keyboard connected to a computer is used at a rate of 1 keystroke per second. The computer system polls the keyboard every 10 ms to check for a keystroke and consumes 100 us for each poll. If it is determined after polling that a key has been pressed, the system consumes an additional 200 us to process the keystroke. Let T1 denote the fraction of a second spent in polling and processing a keystroke. In an alternative implementation, the system uses interrupts instead of polling. An interrupt is raised for every keystroke. It takes a total of 1 ms for servicing an interrupt and processing a keystroke. Let T2 denote the fraction of a second spent in servicing the interrupt and processing a keystroke. The ratio T1/T2 is ______ (rounded off to one decimal place).",
+  "answer": "10.2",
+  "solution": "Over one second there is one keystroke and 1000/10 = 100 polls. Polling costs 100 x 100 us = 10,000 us, and processing the single keystroke adds 200 us once, so T1 = 10,200 us = 0.0102 s. Interrupts: one interrupt of 1 ms, so T2 = 1000 us = 0.001 s. Ratio = 0.0102 / 0.001 = 10.2.",
+  "source_url": "https://gateoverflow.in/399287/gate-cse-2023-question-24",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2023 Q.34, indexed there as Question 24, answer 10.2",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page computes 10 ms of polling plus 0.2 ms of processing against 1 ms and gives 10.2; two independent solution pages for GATE 2023 CS Q.34 also give 10.2, and one states it as the value in the GATE 2023 final answer key - that claim is theirs, not checked against the key document here. GATE Overflow numbers the question 24 while the other sites number it 34, so both references are recorded."
+}

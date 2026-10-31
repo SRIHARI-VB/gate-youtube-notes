@@ -1,0 +1,93 @@
+{
+  "id": "the-interrupt-cycle-microoperations",
+  "title": "The Interrupt Cycle: What Is Saved, In What Order",
+  "priority": "P1",
+  "order": 537,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "An interrupt is honoured only at an instruction boundary. The hardware then finishes the current instruction, saves the return address and status, loads the service routine's entry point, and the routine ends by restoring exactly what was saved.",
+  "remember": [
+    "Order: finish the present instruction, save the program counter (and status) on the control stack, load the PC with the service routine's start address, execute the routine, pop the status and restore the PC, resume.",
+    "Save before jump: if the PC is overwritten first, the return address is lost and the interrupted program cannot be resumed.",
+    "In register-transfer form the save is MBR <- PC; MAR <- SP; PC <- vector address; Memory <- MBR, followed by decrementing the stack pointer.",
+    "The interrupt is asynchronous, so the boundary is the end of an instruction; an exception caused by the instruction itself is a different mechanism and is taken during that instruction.",
+    "The service routine ends with a return-from-interrupt instruction, which restores the saved status as well as the PC."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2018 Q.9 lists five events: P push the process status onto the control stack, Q finish the current instruction, R execute the service routine, S pop the status, T load the new PC. Give the order.",
+    "work": "Q first, because the interrupt is taken only at an instruction boundary. P next, because the state must be safe before control moves. T then points the PC at the routine. R runs it. S restores the state so the interrupted process resumes.",
+    "answer": "Q, P, T, R, S - option QPTRS."
+  },
+  "gateAngle": "The order is a recurring one-mark question: 2018 Q.9 as a five-event ordering, and 2025 Set 1 Q.11 as a three-step ordering. Both test the same single idea, that the state is saved before the PC is redirected. A third form asks for the register-transfer micro-operations of the interrupt cycle.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 1 Q.11: of (i) save the program counter, (ii) load the PC with the service routine's start address, (iii) finish the present instruction - which order is correct?",
+      "answer": "(iii), (i), (ii): finish, save, then load.",
+      "why": "Same save-before-jump constraint as 2018 Q.9, with the stack push abstracted away to 'save the program counter'."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A machine saves only the program counter on an interrupt and not the status register. Which bug appears?",
+      "answer": "The interrupted program resumes with the flags left over from the service routine, so a conditional branch after the return can take the wrong path. The condition codes must be saved with the PC.",
+      "why": "It is the reason the saved unit is 'process status', not just 'return address'."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can an asynchronous interrupt not be taken in the middle of an instruction, while a page fault can?",
+      "answer": "An asynchronous request has no relationship to what the instruction is doing, so the cheapest safe point is the boundary. A page fault is caused by the instruction itself: the instruction cannot complete, so it is restarted after the fault is serviced.",
+      "why": "It separates interrupts from exceptions, which GATE distinguishes in wording."
+    }
+  ],
+  "trap": {
+    "what": "Putting 'load the new PC value' before 'save the process status'.",
+    "why": "Once the PC holds the routine's address, the address to return to exists nowhere. The save must come first; this is the single ordering constraint the questions are built on.",
+    "counterexample": "Sequence T, P, R, S would push the routine's own address onto the stack, and the return would jump back into the interrupt routine instead of the interrupted program."
+  },
+  "check": {
+    "question": "On a non-pipelined CPU, an interrupt arrives while instruction 7 is executing. Which instruction is the last one of the interrupted program to complete, and what does the stack hold afterwards?",
+    "answer": "Instruction 7 completes; the stack holds the address of instruction 8 together with the saved status.",
+    "explanation": "The return address is the next instruction, because the PC has already been incremented past the one that finished."
+  },
+  "pyqIds": [
+    "gate-2018-9-interrupt-event-order",
+    "gate-2025-set1-11-interrupt-step-sequence"
+  ],
+  "prereqs": [
+    "interrupt-driven-io-the-handshake",
+    "instruction-cycle-as-micro-operation-sequence"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Computer Organization lecture notes, I/O and interrupt sections",
+      "channel": "Institute of Aeronautical Engineering, Computer Organization lecture notes",
+      "url": "https://www.iare.ac.in/sites/default/files/FINAL_IARE_CO_ECE_LECTURE_NOTES_upload.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O sections: why peripherals cannot be attached to the system bus directly, the interrupt cycle as a branch-and-save-return-address operation with its register transfers, the IEN flip-flop and ION/IOF, and the DMA HOLD/HLDA handshake"
+    },
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    }
+  ],
+  "sourceLine": "The five-step handling sequence, the vector table and what is saved: DSWallah Learn, romanised Hindi, translated (read in part). The interrupt cycle as a branch-and-save-return-address operation with its register transfers: IARE Computer Organization notes (English, read in part). The need for interrupt-driven I/O stated over the same cycle: NPTEL IIT Guwahati Lecture 34 (English, read in part). Both PYQ orderings are recomputed in scripts/validate.py.",
+  "videoRefs": []
+}

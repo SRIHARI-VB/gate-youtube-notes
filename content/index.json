@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 6,
-    "topics": 334,
-    "pyqs": 260,
+    "topics": 347,
+    "pyqs": 275,
     "videos": 39,
     "playlists": 3
   },
@@ -5000,6 +5000,202 @@
       ],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "io-interface-why-it-exists-and-its-registers",
+      "title": "Why an I/O Interface Exists, and the Three Registers It Exposes",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "memory-mapped-and-isolated-io",
+      "title": "Memory-Mapped Against Isolated I/O, and How Protection Survives",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2005-20-memory-mapped-io-protection"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "programmed-io-polling-and-its-cost",
+      "title": "Programmed I/O: The Polling Loop and What It Costs",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "interrupt-driven-io-the-handshake",
+      "title": "Interrupt-Driven I/O: Who Signals Whom, and In What Order",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "the-interrupt-cycle-microoperations",
+      "title": "The Interrupt Cycle: What Is Saved, In What Order",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2018-9-interrupt-event-order",
+        "gate-2025-set1-11-interrupt-step-sequence"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "vectored-versus-non-vectored-interrupts",
+      "title": "Vectored Against Non-Vectored Interrupts",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set2-18-vectored-and-daisy-chain-statements"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "interrupt-priority-daisy-chain-and-polling",
+      "title": "Interrupt Priority: Software Polling, Daisy Chain, Parallel Encoder",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1996-1-24-daisy-chain-non-uniform-priority",
+        "gate-2011-11-highest-priority-interrupt-source",
+        "gate-2020-3-interrupt-statements-daisy-vectored-polling"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+      "title": "Polling Against Interrupts: The Overhead Fraction and Its Ratio",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-34-polling-versus-interrupt-overhead-ratio"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "dma-controller-registers-and-the-transfer-sequence",
+      "title": "The DMA Controller: Registers, Bus Request and the Transfer Sequence",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2011-28-isr-versus-dma-speedup"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "dma-modes-burst-cycle-stealing-transparent",
+      "title": "The Three DMA Modes: Burst, Cycle Stealing, Transparent",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set1-15-false-statement-dma-modes",
+        "gate-2022-17-bulk-transfer-highest-throughput"
+      ],
+      "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+      "variations": 3
+    },
+    {
+      "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+      "title": "DMA Arithmetic: Transfer Rate, Stolen Cycles and CPU Overhead",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set2-20-dma-cycle-stealing-transfer-rate",
+        "gate-2024-set2-11-dma-cycle-stealing-4mhz",
+        "gate-2004-68-dma-hard-disk-processor-time"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "dma-count-register-chunking",
+      "title": "One Bus Acquisition Is Only 2^n Units: The Count-Register Limit",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set1-31-dma-count-register-bus-acquisitions"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "comparing-the-three-modes-and-dma-cache-coherence",
+      "title": "The Three Modes Side by Side, and What DMA Does to a Cache",
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "unit": "I/O Interface: Interrupt and DMA",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-17-bulk-transfer-highest-throughput",
+        "gate-2024-set1-15-false-statement-dma-modes"
+      ],
+      "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+      "variations": 3
     }
   ]
 }

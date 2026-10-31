@@ -1,0 +1,119 @@
+{
+  "id": "comparing-the-three-modes-and-dma-cache-coherence",
+  "title": "The Three Modes Side by Side, and What DMA Does to a Cache",
+  "priority": "P2",
+  "order": 545,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "Programmed I/O wastes the CPU in the wait, interrupt-driven I/O removes the wait but pays per word, DMA removes the per-word CPU work and pays a small setup. The price of DMA is a second bus master and a cache that can go stale.",
+  "remember": [
+    "Bulk throughput: DMA highest, then interrupt-driven, then programmed I/O - the ordering of GATE CSE 2022 Q.17.",
+    "CPU utilisation, best first: DMA, interrupt-driven, programmed I/O. Programmed I/O is worst, not best, which is the false statement of 2024 Set 1 Q.15.",
+    "Programmed I/O remains the simplest and is adequate for a rarely-ready slow device when the wait is short.",
+    "DMA needs a bus arbiter, a second master, a completion interrupt, and cache maintenance.",
+    "Cache coherence: if the controller writes memory while a cached copy exists, the cached copy is stale; if a dirty cached block is not written back before the controller reads memory, the controller reads stale data. Either flush the block, or use a non-cacheable buffer."
+  ],
+  "example": {
+    "prompt": "A 500-byte block must move from a device to memory. Compare the three schemes on the figures already established: programmed I/O polling the device per byte, the interrupt routine at 7 cycles per byte plus 2, and DMA at 20 cycles plus 2 per byte.",
+    "work": "Interrupt-driven: 2 + 500 x 7 = 3502 cycles. DMA: 20 + 500 x 2 = 1020 cycles. Programmed I/O pays the same per-byte loop as the interrupt routine plus the polling wait, so it is worse than 3502 cycles in CPU time.",
+    "answer": "DMA at 1020 cycles, interrupt-driven at 3502, programmed I/O above that - the ordering the exam tests."
+  },
+  "gateAngle": "The comparison is asked as a single statement question more often than any other form in this topic: 2022 Q.17 (highest throughput), 2024 Set 1 Q.15 (which comparison is false). The cache-coherence caveat is not yet a verified GATE CSE question here, so it is taught as the reason DMA is not free.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2022 Q.17: which facilitates bulk transfer from hard disk to memory with the highest throughput?",
+      "answer": "DMA-based I/O transfer.",
+      "why": "Interrupt-driven and programmed I/O both put the CPU in the data path, so the rate is capped by the service routine rather than by the bus."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A device produces one byte every 10 ms. Which scheme is appropriate, and why not DMA?",
+      "answer": "Interrupt-driven I/O, or even polling if the CPU has nothing else to do. DMA is inappropriate because its setup and completion overhead would exceed the cost of the single byte.",
+      "why": "DMA's fixed cost is only worth paying when many units move per setup."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A DMA controller writes a block into a region that is currently cached with write-back policy. What can go wrong, and what are the two fixes?",
+      "answer": "The cached copy becomes stale, so a later read returns the old data. Fixes: flush or invalidate the affected cache blocks around the transfer, or map the buffer as non-cacheable.",
+      "why": "It is the standard DMA/cache interaction, and it is why device drivers call cache-maintenance routines."
+    }
+  ],
+  "trap": {
+    "what": "Treating DMA as strictly better than the other two modes in every case, or forgetting that a DMA write can invalidate a cache line.",
+    "why": "DMA's setup, arbitration and completion interrupt are fixed costs that a single-byte transfer cannot amortise; and a second bus master writing memory behind the cache's back breaks the assumption that memory and cache agree.",
+    "counterexample": "One byte from a slow sensor: DMA pays 20 cycles of setup for 2 cycles of transfer, while a single interrupt costs about 7. The fixed cost dominates, so DMA is the wrong tool."
+  },
+  "check": {
+    "question": "Rank the three schemes by CPU utilisation, best first, and state the single reason for the ranking.",
+    "answer": "DMA, then interrupt-driven, then programmed I/O - the ranking follows how much per-word work the CPU still does, from none to all of it plus the waiting.",
+    "explanation": "Utilisation is about what the CPU is free to do; DMA leaves it free for everything except setup and completion."
+  },
+  "pyqIds": [
+    "gate-2022-17-bulk-transfer-highest-throughput",
+    "gate-2024-set1-15-false-statement-dma-modes"
+  ],
+  "prereqs": [
+    "dma-modes-burst-cycle-stealing-transparent",
+    "write-through-write-back-and-dirty-bits",
+    "programmed-io-polling-and-its-cost"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Interface (Interrupt and DMA Mode)",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    }
+  ],
+  "sourceLine": "The three transfer modes and why DMA removes the processor from the data path: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA/cache interaction, with the stale-copy and dirty-block cases and the flush-or-non-cacheable remedies, plus DMA/virtual-memory paging: Auburn ELEC 5200 Chapter 6 (English, read in part). The three modes compared with the one-interrupt-per-block rule: DSWallah Learn, romanised Hindi, translated (read in part). The DMA total-time expression: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English).",
+  "videoRefs": [],
+  "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface",
+      "title": "I/O Interface: Interrupt and DMA",
+      "level": "topic-level",
+      "covers": [
+        "programmed I/O keeps the CPU in the status loop for the whole transfer",
+        "interrupt-driven I/O removes the wait and keeps the per-byte service routine",
+        "DMA removes the per-byte work, with cycle stealing and burst as the two sharing modes"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface/index.html"
+    }
+  }
+}

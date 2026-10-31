@@ -316,7 +316,7 @@ window.GATE_DATA = {
      {
       "slug": "io-interface",
       "name": "I/O Interface: Interrupt and DMA",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "instruction-pipelining-and-hazards",
@@ -39864,6 +39864,1273 @@ window.GATE_DATA = {
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
    "path": "subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interleaving-high-and-low-order.json"
+  },
+  {
+   "id": "io-interface-why-it-exists-and-its-registers",
+   "title": "Why an I/O Interface Exists, and the Three Registers It Exposes",
+   "priority": "P1",
+   "order": 533,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "A peripheral cannot hang off the system bus directly: it is slower, it speaks a different data format, and it needs its own control. An interface unit sits in between and shows the CPU exactly three things - a data register, a status register and a control register.",
+   "remember": [
+    "Three reasons an interface is needed: the peripheral is far slower than the bus and the CPU, its data format and word length differ, and its control logic is device-specific and cannot be built into the CPU.",
+    "The interface exposes three register types: data (the word in transit), status (ready, busy, error bits) and control (what the device should do next).",
+    "The CPU never touches the device. It reads and writes the interface's registers; the interface does the timing on the device side.",
+    "The status register is the single point that both schemes read: a polling loop reads it, and an interrupt is raised when a bit in it becomes 1.",
+    "An interface for one device is called a device controller; one I/O module may front several controllers."
+   ],
+   "example": {
+    "prompt": "A keyboard interface has a 1-bit READY status flag and a 1-byte data register. Describe the three registers and the two ways the CPU can learn that a key was pressed.",
+    "work": "Status: bit 0 = READY, bit 1 = OVERRUN. Data: the last scan code. Control: bit 0 = interrupt enable, bit 1 = clear buffer. Way 1 (polling): the CPU reads the status register in a loop and branches when bit 0 is 1. Way 2 (interrupt): with control bit 0 set, the interface raises its interrupt request line when READY becomes 1, and the CPU runs the keyboard service routine instead of asking.",
+    "answer": "Same three registers in both schemes; the difference is only who initiates - the CPU asking, or the interface signalling."
+   },
+   "gateAngle": "GATE uses the register triple as the vocabulary of the whole topic: 2020 Q.3 calls polling 'the CPU periodically checks the status bits', and every interrupt question assumes the interface is what raises the request. A question that asks 'how does the CPU know the device is ready' is answered by naming the status register and then the scheme.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a slow printer not be wired straight onto the system bus that the CPU uses to read memory?",
+     "answer": "Because the bus protocol assumes a device that answers within the bus cycle. The printer needs milliseconds, so a direct connection would either stall the bus for that whole time or return garbage. The interface buffers a byte and holds the bus conversation short, while the printer takes as long as it likes on the other side.",
+     "why": "It separates the two clocks - bus timing and device timing - which is the interface's first job."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "An interface has an 8-bit status register in which bit 7 is BUSY and bit 6 is ERROR. A polling routine tests only bit 7. Which failure can it miss?",
+     "answer": "It can miss an error condition reported in bit 6, and it will keep transferring into a device that has already failed. The loop must test ERROR before or together with BUSY.",
+     "why": "It is the standard reason a real polling loop tests a mask rather than one bit."
+    }
+   ],
+   "trap": {
+    "what": "Saying the CPU 'reads the device' or 'writes to the printer'.",
+    "why": "The CPU only ever reads and writes the interface's registers. The device side of the interface runs on the device's own timing, and that separation is the entire point of having an interface.",
+    "counterexample": "A disk controller buffers a whole 512-byte sector. The CPU reads one word at a time from the controller's data register while the disk is still filling the buffer, so the CPU's reads and the disk's writes are never the same event."
+   },
+   "check": {
+    "question": "A polling loop wants to know whether the device has data. Which register does it read, and which register does it write to start the device?",
+    "answer": "It reads the status register and writes the control register (the data register carries the word itself).",
+    "explanation": "Status for 'can I transfer', control for 'please do this', data for the payload. Confusing status with data is the usual slip."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "instruction-format-and-fields"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 33 - Input-Output Primitives",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec33.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: the module's eight objectives, the need for an I/O module between the bus and the peripherals, the three transfer modes named as programmed I/O, interrupt driven I/O and DMA, and the device controller's role"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+   ],
+   "sourceLine": "The interface unit as the resolver of the CPU-peripheral differences and the three transfer modes: NPTEL IIT Guwahati Lecture 33 (English, read in part). The three-register view and the polling/interrupt distinction stated over it: DSWallah Learn, romanised Hindi, translated (read in part). Command, status and data registers and register mapping: Auburn ELEC 5200 Chapter 6 (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json"
+  },
+  {
+   "id": "memory-mapped-and-isolated-io",
+   "title": "Memory-Mapped Against Isolated I/O, and How Protection Survives",
+   "priority": "P1",
+   "order": 534,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "Where the interface registers live decides the instruction set. Memory-mapped I/O puts them in the ordinary address space, so plain load and store reach them. Isolated (port-mapped) I/O gives them a separate space reached only by special instructions such as IN and OUT.",
+   "remember": [
+    "Memory-mapped: one address space for memory and registers; the decoder, not the instruction, decides which is which; ordinary load/store instructions; no new instruction in the ISA.",
+    "Isolated: a second address space with its own read/write control lines; needs privileged IN/OUT style instructions.",
+    "Protection in memory-mapped I/O comes from the same address translation and protection that guards kernel memory, so all device access is routed through operating-system routines.",
+    "Protection in isolated I/O comes from making the I/O instructions privileged, so a user-mode program traps if it tries one.",
+    "Memory-mapped I/O spends address space on registers; isolated I/O keeps the whole memory space but costs extra instruction encoding and extra control lines."
+   ],
+   "example": {
+    "prompt": "A CPU has a 16-bit address bus and 8-bit ports. Compare the cost of giving the interfaces 256 bytes of memory-mapped space against using isolated I/O with an 8-bit port address.",
+    "work": "Memory-mapped: the 64 KB space is 65,536 bytes, of which 256 go to registers, leaving 65,280 bytes of memory. Isolated: all 65,536 bytes stay memory, and the 8-bit port address gives 256 ports on a separate space, reached by IN/OUT.",
+    "answer": "Memory-mapped costs 256 bytes of memory space and no instruction; isolated costs no memory space but needs privileged I/O instructions and separate I/O read/write lines."
+   },
+   "gateAngle": "GATE CSE 2005 Q.20 asks what protects I/O in a memory-mapped machine, and the wrong option 'I/O protection is not possible' is the trap: because there is no I/O instruction, the protection cannot be an instruction-level privilege test, so it is the operating system plus address protection. The question is really about where the check can live.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2005 Q.20: in a CPU with memory-mapped I/O and no explicit I/O instruction, how is I/O protection ensured?",
+     "answer": "By operating-system routines: the device registers are ordinary addresses, so the address protection of the machine covers them and user code must enter the kernel to touch them.",
+     "why": "The option 'hardware trap' is attractive but the trap on a protected address is exactly the mechanism the OS protection uses; the answer that names the policy, not the wire, is the one the key accepts."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does memory-mapped I/O let a machine have a smaller instruction set?",
+     "answer": "Because the load and store instructions already exist. No IN or OUT opcode, no separate I/O address field and no separate I/O read/write control lines are needed; only the address decoder knows that some addresses are registers.",
+     "why": "It is the standard argument for memory-mapped I/O in RISC designs such as ARM."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A 32-bit machine with memory-mapped I/O maps a device at 0xF0000000. What must the operating system do so that a user program cannot write there directly?",
+     "answer": "Mark that page as kernel-only in the page table. A user store then faults, the kernel handles the fault as an illegal access, and legitimate device access happens only inside a system call.",
+     "why": "It is the memory-mapped counterpart of making IN/OUT privileged."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that memory-mapped I/O cannot be protected because there is no I/O instruction to make privileged.",
+    "why": "Privilege does not have to attach to an opcode. It can attach to an address: the same protection bits that stop a user program writing kernel data stop it writing a device register.",
+    "counterexample": "Take the same machine twice. With isolated I/O, user code running OUT traps because the instruction is privileged. With memory-mapped I/O, user code storing to 0xF0000000 traps because the page is not mapped for user mode. Both trap; only the thing being checked differs."
+   },
+   "check": {
+    "question": "In a memory-mapped machine, which instruction sends a byte to a device, and what makes the access an I/O access rather than a memory access?",
+    "answer": "An ordinary store instruction; the address decoder recognises the device range and routes the cycle to the interface instead of memory.",
+    "explanation": "Nothing in the instruction marks it as I/O - only the address does. That is why protection must be address-based."
+   },
+   "pyqIds": [
+    "gate-2005-20-memory-mapped-io-protection"
+   ],
+   "prereqs": [
+    "io-interface-why-it-exists-and-its-registers",
+    "direct-addressing"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 33 - Input-Output Primitives",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec33.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: the module's eight objectives, the need for an I/O module between the bus and the peripherals, the three transfer modes named as programmed I/O, interrupt driven I/O and DMA, and the device controller's role"
+    }
+   ],
+   "sourceLine": "Memory-mapped against I/O-instruction register mapping, with the note that the operating system's address translation makes the registers kernel-only: Auburn ELEC 5200 Chapter 6 (English, read in part). Memory-mapped against isolated I/O with the x86 and ARM examples: DSWallah Learn, romanised Hindi, translated (read in part). The need for an I/O module and the addressing of devices: NPTEL IIT Guwahati Lecture 33 (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json"
+  },
+  {
+   "id": "programmed-io-polling-and-its-cost",
+   "title": "Programmed I/O: The Polling Loop and What It Costs",
+   "priority": "P1",
+   "order": 535,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "In programmed I/O the CPU moves every word itself and sits in a loop asking the status register whether the device is ready. The cost is the waiting, and it is a simple product: polls per second times the time each poll takes.",
+   "remember": [
+    "Per word the CPU does: read the status register, test the ready bit, read the data register, store the word to memory. The device never touches memory.",
+    "The wait is busy waiting: the CPU is executing the loop, so the time is spent, not saved.",
+    "Polling cost per second = (polls per second) x (time per poll). As a fraction of the second, that is the CPU utilisation the device consumes.",
+    "Cost per second including the transfer = polls per second x time per poll + events per second x time per event.",
+    "Programmed I/O is the right choice for a rarely-ready slow device only when the wait is genuinely short or the CPU has nothing else to do; otherwise it is pure waste."
+   ],
+   "example": {
+    "prompt": "A keyboard is used at 1 keystroke per second. The system polls it every 10 ms and each poll costs 100 us; when a keystroke is found, 200 us more are spent processing it. What fraction of a second does polling consume?",
+    "work": "Polls per second = 1 s / 10 ms = 100. Polling time = 100 x 100 us = 10,000 us = 10 ms. Processing happens once per second, because there is one keystroke: 200 us. Total = 10,200 us = 0.0102 s.",
+    "answer": "0.0102 of each second, that is 1.02% of the CPU, for a device that produces one character per second."
+   },
+   "gateAngle": "This is the numerator of GATE CSE 2023 Q.34. The exam keeps the arithmetic deliberately simple and hides the difficulty in the counting: how many polls in a second, and how many times the processing cost is paid. The other classic use is a comparison against the interrupt scheme on the same device.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.34: the polling fraction is 0.0102 and the interrupt fraction is 0.001 for the same keyboard. What is their ratio?",
+     "answer": "10.2.",
+     "why": "0.0102 / 0.001 = 10.2; the interrupt scheme spends a tenth of the time because it pays only per event."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same keyboard, but polled every 1 ms instead of every 10 ms. What is the polling fraction now, and what does it tell you?",
+     "answer": "1000 polls x 100 us = 100,000 us = 0.1 s, plus 200 us for the keystroke: 0.1002. Polling ten times more often costs ten times more CPU for exactly the same one character per second.",
+     "why": "It shows that polling cost is set by the poll rate, not by the data rate - the defect the interrupt scheme removes."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A device produces one byte every 100 us and the CPU polls it every 100 us with a 20 us poll. Is polling reasonable here?",
+     "answer": "No: 20 us out of every 100 us is 20% of the CPU, and the device is producing data at exactly the rate the CPU is checking, so the CPU is spending a fifth of its life on a device that is never idle. An interrupt, or DMA, is clearly better.",
+     "why": "Polling looks acceptable only when the poll interval is long compared with the event interval."
+    }
+   ],
+   "trap": {
+    "what": "Charging the per-event processing time on every poll instead of once per event.",
+    "why": "Processing happens only when a poll actually finds data. With one keystroke per second and 100 polls per second, 99 polls find nothing and pay only the poll cost.",
+    "counterexample": "Using 200 us per poll gives 100 x 300 us = 30 ms, three times the correct 10.2 ms. The ratio against the interrupt scheme then comes out at 30 instead of 10.2."
+   },
+   "check": {
+    "question": "A system polls 100 times per second at 50 us per poll and nothing else is spent. What fraction of the CPU does polling take?",
+    "answer": "100 x 50 us = 5000 us = 5 ms, so 0.005 of the CPU, or 0.5%.",
+    "explanation": "Multiply, then convert to a fraction of one second. The same arithmetic with 100 us per poll gives 1%."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "io-interface-why-it-exists-and-its-registers",
+    "memory-mapped-and-isolated-io"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 34 - Interrupt Driven I/O",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+   ],
+   "sourceLine": "Programmed I/O as a status-check loop in which the processor is busy doing nothing: NPTEL IIT Guwahati Lecture 34 (English, read in part). Polling as the CPU repeatedly checking status bits, and the busy-wait criticism: Auburn ELEC 5200 Chapter 6 (English, read in part). The three-technique comparison with polling as busy waiting: DSWallah Learn, romanised Hindi, translated (read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json"
+  },
+  {
+   "id": "interrupt-driven-io-the-handshake",
+   "title": "Interrupt-Driven I/O: Who Signals Whom, and In What Order",
+   "priority": "P1",
+   "order": 536,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "Instead of the CPU asking, the interface tells: when the device is ready the interface raises an interrupt request, the CPU finishes the instruction it is on and branches to that device's service routine. The waiting disappears; the per-word work does not.",
+   "remember": [
+    "Sequence: the CPU issues the read or write command and returns to other work; the interface watches the device; when data is ready the interface raises its interrupt request; the CPU acknowledges, finishes the current instruction, saves its state and enters the service routine; the routine moves the word and acknowledges the device; control returns.",
+    "What is gained is the wait, not the work: the CPU still executes the load and store for every word, so the cost is one interrupt and one service routine per word.",
+    "The interface needs a request line, an acknowledge line, and an enable (mask) bit so the device can be silenced while its handler runs.",
+    "Because interrupts are asynchronous, they are taken at instruction boundaries, never half way through an instruction.",
+    "Several devices sharing one request line is the normal case, which is why priority resolution (daisy chain, polling, encoder) is part of the mechanism rather than an optional extra."
+   ],
+   "example": {
+    "prompt": "A 500-byte block is moved by an interrupt-driven routine whose loop is: load a byte from the device, store it to memory, increment the address, decrement the count, branch if non-zero. Load and store take 2 cycles, the other three statements 1 cycle each, and the two initialisations 1 cycle each. What does the transfer cost?",
+    "work": "Per byte: 2 + 2 + 1 + 1 + 1 = 7 cycles. For 500 bytes: 3500 cycles. Plus the two initialisations: 3502 cycles. That is the CPU time for the block, and it is paid whether the device is fast or slow.",
+    "answer": "3502 cycles - the same figure GATE CSE 2011 Q.28 uses as the interrupt-driven side of its speedup."
+   },
+   "gateAngle": "GATE asks two things here. Conceptually, what the interrupt scheme removes (the wait) and what it does not (the per-word transfer), which is the basis of 2024 Set 1 Q.15 and 2022 Q.17. Quantitatively, the cycle count of the service loop, which is 2011 Q.28.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.15 asks which statement is false. Why is 'programmed I/O has better CPU utilisation than interrupt-driven I/O' the false one?",
+     "answer": "Because programmed I/O keeps the CPU in a status-check loop while the device is not ready, which is exactly the waste interrupt-driven I/O removes. Interrupt-driven I/O is better, not worse, on CPU utilisation.",
+     "why": "The other three statements - one word per stolen cycle in cycle stealing, higher throughput in burst mode, faster ISR start with vectored interrupts - are all true."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A device delivers a byte every 1 ms and each interrupt costs 100 us to service. Is interrupt-driven I/O a good fit, and what is the CPU cost?",
+     "answer": "Yes: 1000 interrupts per second x 100 us = 100,000 us = 0.1 s, so 10% of the CPU. That is acceptable, and it is paid only because the device really is producing data.",
+     "why": "The cost now tracks the data rate rather than the poll rate."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same device delivers 500 bytes as one block. What does interrupt-driven I/O cost now, and what does that suggest?",
+     "answer": "500 interrupts x 100 us = 50 ms, that is 0.05 s of CPU for one block. When the block is large the per-word interrupt becomes the bottleneck, which is precisely the case DMA exists for.",
+     "why": "It shows the crossover: interrupt-driven for rare small transfers, DMA for blocks."
+    }
+   ],
+   "trap": {
+    "what": "Saying that in interrupt-driven I/O the data goes from the device to memory without the CPU.",
+    "why": "The CPU still reads the data register and stores to memory for every word. Only the waiting is eliminated. The path through the CPU is what makes the scheme unusable for blocks.",
+    "counterexample": "500 bytes under interrupt-driven I/O costs 3502 cycles of CPU time (2011 Q.28). If the CPU were out of the path the figure would be near zero, and the speedup against DMA would be meaningless."
+   },
+   "check": {
+    "question": "What exactly does the interface do between the CPU's command and the interrupt it raises?",
+    "answer": "It monitors the device on the device's own timing, buffers the data, and raises the request when the status condition the CPU asked for becomes true.",
+    "explanation": "That monitoring is the work the CPU used to do in a polling loop; the interface now does it in hardware."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "programmed-io-polling-and-its-cost",
+    "io-interface-why-it-exists-and-its-registers"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 34 - Interrupt Driven I/O",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+   ],
+   "sourceLine": "The read-command / interface-interrupts-the-CPU sequence and the removal of busy waiting: NPTEL IIT Guwahati Lecture 34 (English, read in part). Priority interrupts, the interrupt as an asynchronous exception taken between instructions, and the warning that interrupts cost a mode switch: Auburn ELEC 5200 Chapter 6 (English, read in part). The five-step handling sequence and what is saved: DSWallah Learn, romanised Hindi, translated (read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json"
+  },
+  {
+   "id": "the-interrupt-cycle-microoperations",
+   "title": "The Interrupt Cycle: What Is Saved, In What Order",
+   "priority": "P1",
+   "order": 537,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "An interrupt is honoured only at an instruction boundary. The hardware then finishes the current instruction, saves the return address and status, loads the service routine's entry point, and the routine ends by restoring exactly what was saved.",
+   "remember": [
+    "Order: finish the present instruction, save the program counter (and status) on the control stack, load the PC with the service routine's start address, execute the routine, pop the status and restore the PC, resume.",
+    "Save before jump: if the PC is overwritten first, the return address is lost and the interrupted program cannot be resumed.",
+    "In register-transfer form the save is MBR <- PC; MAR <- SP; PC <- vector address; Memory <- MBR, followed by decrementing the stack pointer.",
+    "The interrupt is asynchronous, so the boundary is the end of an instruction; an exception caused by the instruction itself is a different mechanism and is taken during that instruction.",
+    "The service routine ends with a return-from-interrupt instruction, which restores the saved status as well as the PC."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2018 Q.9 lists five events: P push the process status onto the control stack, Q finish the current instruction, R execute the service routine, S pop the status, T load the new PC. Give the order.",
+    "work": "Q first, because the interrupt is taken only at an instruction boundary. P next, because the state must be safe before control moves. T then points the PC at the routine. R runs it. S restores the state so the interrupted process resumes.",
+    "answer": "Q, P, T, R, S - option QPTRS."
+   },
+   "gateAngle": "The order is a recurring one-mark question: 2018 Q.9 as a five-event ordering, and 2025 Set 1 Q.11 as a three-step ordering. Both test the same single idea, that the state is saved before the PC is redirected. A third form asks for the register-transfer micro-operations of the interrupt cycle.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 1 Q.11: of (i) save the program counter, (ii) load the PC with the service routine's start address, (iii) finish the present instruction - which order is correct?",
+     "answer": "(iii), (i), (ii): finish, save, then load.",
+     "why": "Same save-before-jump constraint as 2018 Q.9, with the stack push abstracted away to 'save the program counter'."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A machine saves only the program counter on an interrupt and not the status register. Which bug appears?",
+     "answer": "The interrupted program resumes with the flags left over from the service routine, so a conditional branch after the return can take the wrong path. The condition codes must be saved with the PC.",
+     "why": "It is the reason the saved unit is 'process status', not just 'return address'."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can an asynchronous interrupt not be taken in the middle of an instruction, while a page fault can?",
+     "answer": "An asynchronous request has no relationship to what the instruction is doing, so the cheapest safe point is the boundary. A page fault is caused by the instruction itself: the instruction cannot complete, so it is restarted after the fault is serviced.",
+     "why": "It separates interrupts from exceptions, which GATE distinguishes in wording."
+    }
+   ],
+   "trap": {
+    "what": "Putting 'load the new PC value' before 'save the process status'.",
+    "why": "Once the PC holds the routine's address, the address to return to exists nowhere. The save must come first; this is the single ordering constraint the questions are built on.",
+    "counterexample": "Sequence T, P, R, S would push the routine's own address onto the stack, and the return would jump back into the interrupt routine instead of the interrupted program."
+   },
+   "check": {
+    "question": "On a non-pipelined CPU, an interrupt arrives while instruction 7 is executing. Which instruction is the last one of the interrupted program to complete, and what does the stack hold afterwards?",
+    "answer": "Instruction 7 completes; the stack holds the address of instruction 8 together with the saved status.",
+    "explanation": "The return address is the next instruction, because the PC has already been incremented past the one that finished."
+   },
+   "pyqIds": [
+    "gate-2018-9-interrupt-event-order",
+    "gate-2025-set1-11-interrupt-step-sequence"
+   ],
+   "prereqs": [
+    "interrupt-driven-io-the-handshake",
+    "instruction-cycle-as-micro-operation-sequence"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Computer Organization lecture notes, I/O and interrupt sections",
+     "channel": "Institute of Aeronautical Engineering, Computer Organization lecture notes",
+     "url": "https://www.iare.ac.in/sites/default/files/FINAL_IARE_CO_ECE_LECTURE_NOTES_upload.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O sections: why peripherals cannot be attached to the system bus directly, the interrupt cycle as a branch-and-save-return-address operation with its register transfers, the IEN flip-flop and ION/IOF, and the DMA HOLD/HLDA handshake"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 34 - Interrupt Driven I/O",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    }
+   ],
+   "sourceLine": "The five-step handling sequence, the vector table and what is saved: DSWallah Learn, romanised Hindi, translated (read in part). The interrupt cycle as a branch-and-save-return-address operation with its register transfers: IARE Computer Organization notes (English, read in part). The need for interrupt-driven I/O stated over the same cycle: NPTEL IIT Guwahati Lecture 34 (English, read in part). Both PYQ orderings are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json"
+  },
+  {
+   "id": "vectored-versus-non-vectored-interrupts",
+   "title": "Vectored Against Non-Vectored Interrupts",
+   "priority": "P1",
+   "order": 538,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "In a vectored interrupt the device supplies the address of its own service routine during the acknowledge cycle. In a non-vectored one every interrupt goes to the same fixed address, and software has to work out which device asked before the right routine can start.",
+   "remember": [
+    "Vectored: the interrupting device (or the priority encoder in front of it) puts a vector - the entry address, or a code that indexes a vector table - on the bus during acknowledge. The CPU jumps straight to the right routine.",
+    "Non-vectored: one fixed entry address for all devices; the handler must identify the source, typically by reading status registers, before dispatching.",
+    "The extra identification step is why a non-vectored interrupt usually takes longer to start the service routine - exactly statement S1 of GATE CSE 2026 Set 2 Q.18.",
+    "A vector table is an array of entry addresses at a fixed place in memory; the vector is an index into it, not necessarily the address itself.",
+    "Vectored does not mean 'no hardware priority': with several devices on one request line something must still choose which vector is placed on the bus."
+   ],
+   "example": {
+    "prompt": "Eight devices share one interrupt request line. Compare the time to reach the right service routine in the vectored and non-vectored schemes.",
+    "work": "Vectored: the acknowledge cycle returns the winning device's vector, and the CPU jumps through the table - one acknowledge plus one jump, independent of the number of devices. Non-vectored: control goes to the common entry, which reads status registers until it finds the device that asked - one read per device in the worst case, so up to 8 reads before the routine even starts.",
+    "answer": "Vectored costs a constant dispatch; non-vectored costs a search whose length grows with the number of devices."
+   },
+   "gateAngle": "2026 Set 2 Q.18 puts both halves of the mechanism in one question: S1 (non-vectored is slower to start the routine) is true, and S2 (daisy chaining means the CPU polls each device) is false. The same pair appears as a true/false statement in 2020 Q.3 and as a false option in 2024 Set 1 Q.15, so the distinction is worth learning as a pair.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 2 Q.18: S1 says a non-vectored interrupt usually takes longer to start the service routine; S2 says a daisy chain makes the CPU poll every device. Which are true?",
+     "answer": "S1 true, S2 false.",
+     "why": "The non-vectored handler must identify the device before it can dispatch; the daisy chain identifies the device in hardware by passing the acknowledge along the chain, with no CPU polling at all."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A machine has vectored interrupts but a single request line shared by 16 devices. Is anything still needed to make the vector meaningful?",
+     "answer": "Yes - arbitration. Only one device may put its vector on the bus, so a priority chain or encoder decides which requesting device wins the acknowledge before the vector is read.",
+     "why": "It separates 'which device is served first' (priority) from 'how the routine is found' (vector)."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A non-vectored machine has only two devices. Is the dispatch penalty large, and does the answer change with 64 devices?",
+     "answer": "With two devices the search is at most two status reads, so the penalty is small. With 64 it is up to 64 reads per interrupt, which is why larger systems move to vectored interrupts with a priority encoder.",
+     "why": "The penalty is a function of the device count, which is why the scheme matters more as systems grow."
+    }
+   ],
+   "trap": {
+    "what": "Treating 'vectored' and 'daisy chained' as the same mechanism, or thinking a daisy chain means software polling.",
+    "why": "Vectored/non-vectored is about how the routine's address is found. Daisy chain is about which of several simultaneous requests is acknowledged first, and it is pure hardware - the acknowledge signal is passed along the wire.",
+    "counterexample": "In a daisy chain, the CPU never reads a status register to find the source; the first requesting device in the chain intercepts the acknowledge and places its vector. Software polling would be the opposite: no chain, and a status read per device."
+   },
+   "check": {
+    "question": "Which mechanism starts the service routine sooner - vectored or non-vectored - and what is the reason in one sentence?",
+    "answer": "Vectored, because the device hands over the entry point during acknowledge instead of the CPU having to identify the source first.",
+    "explanation": "The saving is the identification step, and it grows with the number of devices on the request line."
+   },
+   "pyqIds": [
+    "gate-2026-set2-18-vectored-and-daisy-chain-statements"
+   ],
+   "prereqs": [
+    "the-interrupt-cycle-microoperations"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 34 - Interrupt Driven I/O",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    }
+   ],
+   "sourceLine": "Vectored against non-vectored interrupts, the vector table, and the extra identification step in the non-vectored case: DSWallah Learn, romanised Hindi, translated (read in part). Interrupts as exceptions carrying the cause, with priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The interrupt sequence the vector feeds: NPTEL IIT Guwahati Lecture 34 (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json"
+  },
+  {
+   "id": "interrupt-priority-daisy-chain-and-polling",
+   "title": "Interrupt Priority: Software Polling, Daisy Chain, Parallel Encoder",
+   "priority": "P2",
+   "order": 539,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "When several devices can interrupt at once, something must choose. Three standard answers: software polling of status bits, a daisy chain that passes the acknowledge along a wire, and a parallel priority encoder with one request bit per device.",
+   "remember": [
+    "Daisy chain: one common request line, one acknowledge line wired from device to device; the first device in the chain that is requesting blocks the acknowledge and takes the interrupt, so priority is positional and non-uniform.",
+    "Software polling: the CPU reads the devices' status registers in a fixed order, so priority is the order written in the program.",
+    "Parallel (encoded) priority: each device has its own request bit and a priority encoder produces the winning device's identity, which is the fastest and the most hardware.",
+    "Maskable interrupts can be disabled by software (a bit in the control register or the status word); non-maskable ones, such as power failure or an overheating CPU, cannot, because they report conditions that cannot wait.",
+    "Highest priority goes to requests that are most damaging to delay: in GATE CSE 2011 Q.11, the CPU temperature sensor outranks the disk, the mouse and the keyboard."
+   ],
+   "example": {
+    "prompt": "Devices A, B and C are chained in that order, A nearest the CPU. A and C request at the same time. Who is served, and what does C do meanwhile?",
+    "work": "The acknowledge signal reaches A first. A is requesting, so it blocks the signal from passing to B and C, and places its own vector on the bus. C's request line stays asserted but its acknowledge never arrives, so C waits until A's routine finishes and the CPU acknowledges again.",
+    "answer": "A is served first, unconditionally, because priority here is position in the chain - C waits even though its data may be more urgent."
+   },
+   "gateAngle": "Three questions rotate around this card: 1996 Q.1.24 (daisy chain gives non-uniform priority), 2011 Q.11 (which source deserves the highest priority) and 2020 Q.3 (daisy chaining assigns priorities - true; vectored interrupts need polling - false). All three are one-mark statement questions, so the value is in the vocabulary, not the arithmetic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1996 Q.1.24: for the daisy chain scheme, which statement is true - non-uniform priority, uniform priority, only for slow devices, or a separate interrupt pin per device?",
+     "answer": "It gives non-uniform priority to the various devices.",
+     "why": "The chain makes priority depend on position, and all devices share one request pin, so the other three options fail."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2020 Q.3: which of the four statements are true - daisy chaining assigns priorities; a vectored interrupt needs CPU polling; polling checks status bits periodically; CPU and DMA can both be bus masters at once?",
+     "answer": "The first and the third only.",
+     "why": "A vectored interrupt delivers the vector, so no polling is needed, and bus mastership is exclusive, so the CPU and the controller cannot both be masters."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is a non-maskable interrupt needed at all, if the mask bit already lets software choose which devices to hear?",
+     "answer": "Because the mask is under software control, and the condition that matters most - power failing, the CPU overheating - must be heard even when software is in the middle of a section with interrupts disabled. A non-maskable line bypasses the mask.",
+     "why": "It is the reasoning behind 2011 Q.11's answer."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a daisy chain gives all devices equal priority, or that polling and daisy chaining are the same mechanism.",
+    "why": "The chain is an ordering, so it is non-uniform by construction: the device nearest the CPU wins. And polling is the CPU reading status registers, while the chain resolves the choice in hardware without the CPU reading anything.",
+    "counterexample": "Swap two devices in the chain and the winner of a simultaneous request changes, though no software changed at all - that alone shows priority is positional, not uniform."
+   },
+   "check": {
+    "question": "Two devices request at the same instant. In a parallel priority encoder system, who is served, and how is that different from the daisy chain?",
+    "answer": "The encoder's highest-priority requesting input wins, decided by the encoder's wiring, not by position on a wire; the daisy chain's winner depends on physical position in the chain.",
+    "explanation": "Both give fixed non-uniform priority, but the encoder resolves it in one gate delay and also supplies the device identity."
+   },
+   "pyqIds": [
+    "gate-1996-1-24-daisy-chain-non-uniform-priority",
+    "gate-2011-11-highest-priority-interrupt-source",
+    "gate-2020-3-interrupt-statements-daisy-vectored-polling"
+   ],
+   "prereqs": [
+    "vectored-versus-non-vectored-interrupts"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "System Buses & DMA (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+   ],
+   "sourceLine": "Daisy chain as positional priority with the acknowledge passed along the chain, plus bus arbitration and the BR/BG handshake: DSWallah Learn, romanised Hindi, translated (read in part, two lessons). Priority interrupts, with the note that a higher-priority device can interrupt a lower-priority handler: Auburn ELEC 5200 Chapter 6 (English, read in part). Maskable against non-maskable and the four interrupt types: DSWallah Learn, romanised Hindi, translated (read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json"
+  },
+  {
+   "id": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+   "title": "Polling Against Interrupts: The Overhead Fraction and Its Ratio",
+   "priority": "P2",
+   "order": 540,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "Compare the two schemes by the fraction of a second each spends on I/O. Polling pays on every poll whether or not there is data; interrupts pay only per event. The ratio of those two fractions is the speed-up the interrupt buys.",
+   "remember": [
+    "Polling fraction T1 = (polls per second x time per poll) + (events per second x time per event), all divided by one second.",
+    "Interrupt fraction T2 = events per second x time per interrupt, divided by one second.",
+    "Ratio = T1 / T2. Because both are fractions of the same second, the division cancels the second and the ratio is a pure number.",
+    "The 2023 figures: 100 polls x 100 us + 1 x 200 us = 10,200 us for polling, against 1 x 1 ms = 1000 us for interrupts, giving 10.2.",
+    "Polling wins only when events arrive faster than the poll interval, that is when the device is almost always ready; interrupts win when events are rare or unpredictable."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2023 Q.34, as arithmetic: keyboard at 1 keystroke per second, polled every 10 ms at 100 us per poll, with 200 us of processing per keystroke; the interrupt scheme spends 1 ms per keystroke. Find T1/T2.",
+    "work": "T1: 100 polls x 100 us = 10,000 us, plus one keystroke's 200 us = 10,200 us = 0.0102 s. T2: one interrupt x 1 ms = 1000 us = 0.001 s. Ratio = 0.0102 / 0.001 = 10.2.",
+    "answer": "10.2, to one decimal place."
+   },
+   "gateAngle": "This is the only arithmetic pattern in the topic that is not about DMA, and it is easy marks: the exam supplies every number and asks only for the count of events per second. The two errors it punishes are charging the processing time per poll, and forgetting that the ratio is of fractions of a second rather than of raw times.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.34, as stated above: the ratio T1/T2.",
+     "answer": "10.2.",
+     "why": "Ten polls' worth of checking costs ten times the single interrupt, and the extra 200 us of processing narrows it slightly from 10 to 10.2."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same setup, but the keyboard is used at 10 keystrokes per second. What happens to the ratio?",
+     "answer": "T1 = 10,000 us of polling + 10 x 200 us = 12,000 us; T2 = 10 x 1000 us = 10,000 us; ratio = 1.2. As the event rate rises the interrupt loses its advantage, because both schemes now pay per event.",
+     "why": "It shows the crossover and why the answer is not a constant of the machine."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can the ratio be computed from microseconds alone, without converting to seconds?",
+     "answer": "Because both T1 and T2 are divided by the same one second, so the divisor cancels in the ratio. The conversion matters only if the question asks for a fraction, as the 2023 question's definition does, and even then the ratio is unaffected.",
+     "why": "It is the standard shortcut and it is safe only when both sides are measured over the same interval."
+    }
+   ],
+   "trap": {
+    "what": "Adding the per-event processing time to every poll, or reporting the ratio as the fraction itself.",
+    "why": "Processing happens once per event, not once per poll, and T1 and T2 are fractions of a second, not times. Reporting 10.2 ms as the answer confuses the ratio with T1.",
+    "counterexample": "Per-poll processing gives T1 = 100 x 300 us = 30,000 us and a ratio of 30 - three times the correct 10.2. Reporting T1 alone gives 0.0102, which is a fraction and not a ratio."
+   },
+   "check": {
+    "question": "A device raises 200 interrupts per second and each costs 50 us; the alternative polls 500 times per second at 30 us. Which is cheaper, and by how much?",
+    "answer": "1000 polls x 100 us = 100,000 us = 0.1 s, plus 200 us for the keystroke: 0.1002 s. The interrupt side is unchanged at 0.001 s, so the ratio is 100.2.",
+    "explanation": "Both are costs per second, so the ratio is direct; polling loses because it checks 500 times for 200 events."
+   },
+   "pyqIds": [
+    "gate-2023-34-polling-versus-interrupt-overhead-ratio"
+   ],
+   "prereqs": [
+    "programmed-io-polling-and-its-cost",
+    "interrupt-driven-io-the-handshake"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 34 - Interrupt Driven I/O",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+   ],
+   "sourceLine": "Busy waiting as the defect of programmed I/O and the interrupt as its removal: NPTEL IIT Guwahati Lecture 34 (English, read in part). The polling-against-interrupt comparison and its efficiency claim: DSWallah Learn, romanised Hindi, translated (read in part). Polling cost, mode-switch cost of an interrupt, and priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json"
+  },
+  {
+   "id": "dma-controller-registers-and-the-transfer-sequence",
+   "title": "The DMA Controller: Registers, Bus Request and the Transfer Sequence",
+   "priority": "P1",
+   "order": 541,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "DMA puts a second bus master in the machine. The CPU programs a start address, a count and a mode, then steps off the bus; the controller moves the block itself, and interrupts once at the end.",
+   "remember": [
+    "Three registers: the memory address register (where in memory), the count register (how many units), and the control/status register (direction, unit size, mode, interrupt enable).",
+    "Sequence: CPU programs the registers, the controller asserts a bus request, the CPU finishes its current bus cycle and grants the bus, the controller transfers while incrementing the address and decrementing the count, and on reaching zero it releases the bus and raises one completion interrupt.",
+    "Only one bus master exists at any instant, so the CPU is off the bus while the controller holds it.",
+    "The CPU is out of the data path: no load and no store per word, which is exactly the cost interrupt-driven I/O could not avoid.",
+    "The controller executes no instructions. It is an address register, a counter, a bus requester and a small state machine."
+   ],
+   "example": {
+    "prompt": "The same 500-byte transfer as the interrupt-driven card: the DMA controller needs 20 cycles to initialise and 2 cycles per byte. What does the transfer cost, and what is the speed-up?",
+    "work": "DMA: 20 + 500 x 2 = 1020 cycles. Interrupt-driven: 2 + 500 x 7 = 3502 cycles. Speed-up = 3502 / 1020 = 3.43.",
+    "answer": "1020 cycles against 3502, a speed-up of about 3.4 - the answer to GATE CSE 2011 Q.28."
+   },
+   "gateAngle": "GATE asks for the sequence (what the CPU does, what the controller does, when the interrupt comes) and for the registers' roles in the count-register question (2016 Set 1 Q.31). It also tests the exclusivity of bus mastership, which is statement IV of 2020 Q.3.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2011 Q.28: with the figures above, what is the approximate speed-up of DMA over the interrupt-driven routine?",
+     "answer": "3.4.",
+     "why": "3502 / 1020 = 3.433; the speed-up comes almost entirely from dropping the 5 cycles per byte that the CPU spent on loop bookkeeping."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A DMA controller is programmed with a start address, a count of 4096 and a direction bit, then started. Describe what the CPU does during the transfer and what it does at the end.",
+     "answer": "During the transfer the CPU runs other work except for the bus cycles the controller takes; at the end the controller raises one interrupt, and the CPU's handler checks the status register for errors and marks the buffer complete.",
+     "why": "It is the shape of every real DMA driver, and it is what 'DMA needs no CPU' gets wrong."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why must the controller's address register be a memory address rather than a device address?",
+     "answer": "Because the controller drives the memory bus itself: it places the address on the address lines and the data on the data lines for a memory write or read. The device side is already connected to the controller.",
+     "why": "It fixes the direction of the data path: device to controller to memory, with the CPU absent."
+    }
+   ],
+   "trap": {
+    "what": "Saying the DMA controller is a processor that runs a program, or that the CPU and the DMA controller can both be bus masters at the same time.",
+    "why": "The controller has no instruction set; it counts and addresses. And a bus has one master at a time, otherwise two drivers would fight over the same lines - statement IV of 2020 Q.3 is false for exactly this reason.",
+    "counterexample": "A controller with an address register and a 16-bit counter cannot add, branch or compare; give it a block of 100 words and it performs 100 identical read-write pairs with no decision anywhere."
+   },
+   "check": {
+    "question": "What happens, in order, when the count register of a DMA controller reaches zero?",
+    "answer": "The controller stops transferring, releases the bus so the CPU becomes master again, and raises a completion interrupt; the CPU's handler then reads the status register.",
+    "explanation": "One interrupt per block, not per word - the opposite of the interrupt-driven scheme."
+   },
+   "pyqIds": [
+    "gate-2011-28-isr-versus-dma-speedup"
+   ],
+   "prereqs": [
+    "interrupt-driven-io-the-handshake",
+    "memory-hierarchy-levels-and-the-cost-speed-trade"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 35 - DMA Transfer",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "text",
+     "title": "Computer Organization lecture notes, I/O and interrupt sections",
+     "channel": "Institute of Aeronautical Engineering, Computer Organization lecture notes",
+     "url": "https://www.iare.ac.in/sites/default/files/FINAL_IARE_CO_ECE_LECTURE_NOTES_upload.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O sections: why peripherals cannot be attached to the system bus directly, the interrupt cycle as a branch-and-save-return-address operation with its register transfers, the IEN flip-flop and ION/IOF, and the DMA HOLD/HLDA handshake"
+    }
+   ],
+   "sourceLine": "DMA as the removal of the processor from the data path, and the design objectives of a DMA module: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA organisation and operation - CPU programmes the registers, bus request and grant, the controller transfers until complete, cache and virtual-memory interactions: Auburn ELEC 5200 Chapter 6 (English, read in part). The HOLD/HLDA handshake in which the CPU releases the bus: IARE Computer Organization notes (English, read in part).",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json"
+  },
+  {
+   "id": "dma-modes-burst-cycle-stealing-transparent",
+   "title": "The Three DMA Modes: Burst, Cycle Stealing, Transparent",
+   "priority": "P1",
+   "order": 542,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "The modes differ in how the bus is shared. Burst takes it for the whole block, cycle stealing takes one cycle at a time, and transparent takes only cycles the CPU was not using anyway.",
+   "remember": [
+    "Burst (block) mode: the controller keeps the bus until the whole block is moved. Highest throughput, and the CPU is stalled for the duration.",
+    "Cycle stealing: the controller takes one bus cycle, transfers one word, and releases the bus, repeating at intervals. The CPU is slowed by the fraction of cycles stolen, not stopped.",
+    "Transparent mode: the controller uses only cycles in which the CPU is not using the bus. No slowdown at all, but the transfer may take arbitrarily long and can starve.",
+    "Cycle stealing is the mode that makes DMA compatible with a CPU that must keep running; burst is the mode that maximises throughput - which is why 2024 Set 1 Q.15's claim that burst has higher throughput is true.",
+    "The choice is a straight trade: throughput against how much CPU time the transfer is allowed to take away."
+   ],
+   "example": {
+    "prompt": "A controller can move 8 bytes per bus cycle. It is allowed 1% of the cycles of a 4 MHz processor. What is the transfer rate in cycle stealing mode?",
+    "work": "Stolen cycles per second = 4,000,000 x 0.01 = 40,000. Each carries 8 bytes = 64 bits. Rate = 40,000 x 64 = 2,560,000 bits per second.",
+    "answer": "2,560,000 bits per second, that is 25,60,000 - option (C) of GATE CSE 2024 Set 2 Q.11."
+   },
+   "gateAngle": "The modes appear as statement questions (2024 Set 1 Q.15) and as a throughput calculation (2024 Set 2 Q.11, 2021 Set 2 Q.20). The one-mark form is always the same trade stated in words: which mode blocks the CPU least, which moves data fastest, and whether one word or a block moves per stolen cycle.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 1 Q.15: which statement is false - one word per stolen cycle, burst has higher throughput than cycle stealing, programmed I/O has better CPU utilisation than interrupt-driven I/O, or vectored interrupts start the routine faster?",
+     "answer": "The third: programmed I/O does not have better CPU utilisation; its busy waiting is the worst of the three.",
+     "why": "The other three are the standard statements of the three modes and of vectored interrupts."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2022 Q.17: which mechanism gives the highest throughput for bulk data from a hard disk to memory?",
+     "answer": "DMA-based transfer.",
+     "why": "The CPU leaves the data path entirely, so the block moves at bus speed rather than at the speed of a service routine."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A system must never stall the CPU for more than one cycle at a time. Which mode is admissible, and what does it cost?",
+     "answer": "Cycle stealing: one stolen cycle at a time, so the CPU is slowed by the stolen fraction but never stopped. The cost is throughput - the block takes longer than in burst mode, and the device may overrun if it cannot wait.",
+     "why": "It is the reason interactive machines use cycle stealing while disk controllers often use burst."
+    }
+   ],
+   "trap": {
+    "what": "Believing cycle stealing stops the CPU for the whole transfer, or that transparent mode is always the best choice.",
+    "why": "Cycle stealing interrupts the CPU one cycle at a time, so the CPU keeps running, only slower. Transparent mode never slows the CPU but can starve the device, so it is unsuitable for a device with a deadline.",
+    "counterexample": "Move 1 MB in transparent mode on a machine that is 100% busy: the controller gets no cycle at all and the transfer never completes, while the CPU is at full speed. That is the worst possible outcome for the device."
+   },
+   "check": {
+    "question": "Which mode gives the highest throughput, which gives the least disturbance to the CPU, and which is in between?",
+    "answer": "Burst gives the highest throughput, transparent the least disturbance, and cycle stealing sits between them.",
+    "explanation": "Throughput and CPU disturbance pull in opposite directions, and the three modes are the three points on that line."
+   },
+   "pyqIds": [
+    "gate-2024-set1-15-false-statement-dma-modes",
+    "gate-2022-17-bulk-transfer-highest-throughput"
+   ],
+   "prereqs": [
+    "dma-controller-registers-and-the-transfer-sequence"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "System Buses & DMA (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 35 - DMA Transfer",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    }
+   ],
+   "sourceLine": "Cycle stealing, burst and transparent modes stated with their trade-offs, and the one-interrupt-per-block correction: DSWallah Learn, romanised Hindi, translated (read in part). DMA operation with every-nth-cycle transfers against continuous transfers, and bus mastership: Auburn ELEC 5200 Chapter 6 (English, read in part). Why DMA is needed for a block at all: NPTEL IIT Guwahati Lecture 35 (English, read in part).",
+   "videoRefs": [],
+   "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+   "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+     "slug": "io-interface",
+     "title": "I/O Interface: Interrupt and DMA",
+     "level": "topic-level",
+     "covers": [
+      "programmed I/O keeps the CPU in the status loop for the whole transfer",
+      "interrupt-driven I/O removes the wait and keeps the per-byte service routine",
+      "DMA removes the per-byte work, with cycle stealing and burst as the two sharing modes"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/io-interface/index.html"
+    }
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json"
+  },
+  {
+   "id": "dma-throughput-and-cycle-stealing-arithmetic",
+   "title": "DMA Arithmetic: Transfer Rate, Stolen Cycles and CPU Overhead",
+   "priority": "P2",
+   "order": 543,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "In cycle stealing the rate is simply the cycles stolen per second times the data carried by each stolen cycle, and the cycles stolen per second are the clock rate times the fraction given to DMA. The CPU overhead is its own cycles over the whole transfer time.",
+   "remember": [
+    "Transfer rate = clock frequency x (fraction of cycles given to DMA) x (bits per stolen cycle). Convert bytes to bits by multiplying by 8.",
+    "2024 Set 2: 4 MHz, 8 bytes per cycle, 1% -> 40,000 cycles/s x 64 bits = 2,560,000 bps.",
+    "2021 Set 2: 2 MHz, 8 bits per cycle, 0.5% -> 10,000 cycles/s x 8 bits = 80,000 bps.",
+    "CPU overhead fraction = (CPU cycles spent on the transfer) / (CPU time + transfer time), with both expressed in the same unit.",
+    "2004: 20 KB at 10 MB/s takes 2000 us; the CPU's 1200 cycles at 600 MHz take 2 us; 2 / 2002 is about 0.1%."
+   ],
+   "example": {
+    "prompt": "A hard disk transfers 20 KB to memory by DMA at 10 MB/s. The CPU runs at 600 MHz and spends 300 cycles to initiate and 900 cycles to complete the transfer. What percentage of processor time is consumed?",
+    "work": "Transfer time = 20 KB / 10 MB/s = 2 ms = 2000 us. CPU time = (300 + 900) / 600 MHz = 1200 / 600,000,000 s = 2 us. Fraction = 2 / (2000 + 2) = 0.000999, that is about 0.1%.",
+    "answer": "0.1% - option (D) of GATE CSE 2004 Q.68."
+   },
+   "gateAngle": "Every DMA numeric in the topic is one of two shapes: a rate from a stolen-cycle percentage (2024 Set 2, 2021 Set 2) or an overhead fraction from cycle counts (2004 Q.68). Both are unit conversions in disguise, and both are worth practising until the conversion is automatic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.20: a 2 MHz processor, one 8-bit character per stolen cycle, 0.5% of cycles used by DMA. What is the transfer rate?",
+     "answer": "80,000 bits per second.",
+     "why": "2,000,000 x 0.005 = 10,000 stolen cycles per second, each carrying 8 bits."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 2 Q.11: a 4 MHz processor, 8 bytes per stolen cycle, 1% of cycles used by DMA. What is the transfer rate?",
+     "answer": "25,60,000 bits per second, option (C).",
+     "why": "40,000 stolen cycles x 64 bits; the option 2,56,000 is ten times too small and comes from reading 1% as 0.1%."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The 2024 machine, but the controller can take 2% of the cycles and moves 4 bytes per cycle. What is the rate?",
+     "answer": "4,000,000 x 0.02 = 80,000 stolen cycles, x 32 bits = 2,560,000 bps - the same rate from a different combination.",
+     "why": "It shows that the rate depends on the product, not on either factor alone."
+    }
+   ],
+   "trap": {
+    "what": "Leaving the answer in bytes per second, or mixing megahertz with a percentage expressed as a fraction of 100.",
+    "why": "The question asks for bits per second, so bytes must be multiplied by 8; and 1% is 0.01, not 1. Both slips are anticipated by the distractors.",
+    "counterexample": "For 2024 Set 2, bytes per second gives 320,000, which is not an option; using 0.1% instead of 1% gives 2,56,000, which is option (A) and is ten times too small."
+   },
+   "check": {
+    "question": "A 10 MHz processor gives 2% of its cycles to a controller moving 4 bytes per stolen cycle. What is the transfer rate?",
+    "answer": "10,000,000 x 0.02 = 200,000 stolen cycles, x 32 bits = 6,400,000 bits per second.",
+    "explanation": "Two multiplications: frequency by fraction, then cycles by bits per cycle."
+   },
+   "pyqIds": [
+    "gate-2021-set2-20-dma-cycle-stealing-transfer-rate",
+    "gate-2024-set2-11-dma-cycle-stealing-4mhz",
+    "gate-2004-68-dma-hard-disk-processor-time"
+   ],
+   "prereqs": [
+    "dma-modes-burst-cycle-stealing-transparent",
+    "dma-controller-registers-and-the-transfer-sequence"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 35 - DMA Transfer",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Interface (Interrupt and DMA Mode)",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    },
+    {
+     "kind": "text",
+     "title": "System Buses & DMA (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: address/data/control bus widths, bus arbitration with daisy chain and the BR/BG handshake, the DMA steps, and the cycle-stealing / burst / transparent modes with the one-interrupt-per-block correction; translated from romanised Hindi into English"
+    }
+   ],
+   "sourceLine": "DMA transfer and the need for it: NPTEL IIT Guwahati Lecture 35 (English, read in part). The DMA total-time expression as bus request time plus transfer time plus bus release time, which is where the overhead accounting comes from: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English, read in full article). Cycle stealing against burst with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). All three PYQ figures are recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json"
+  },
+  {
+   "id": "dma-count-register-chunking",
+   "title": "One Bus Acquisition Is Only 2^n Units: The Count-Register Limit",
+   "priority": "P2",
+   "order": 544,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "A DMA transfer is bounded by the width of its count register: an n-bit counter can count 2^n units, so a bigger file needs several bus acquisitions, each with its own setup and completion overhead.",
+   "remember": [
+    "Capacity per acquisition = 2^n units, where n is the count-register width and the unit is the byte when memory is byte addressable.",
+    "Number of acquisitions = ceil(file size / capacity per acquisition). The ceiling is what the question is really testing.",
+    "Each acquisition costs its own initialisation and its own completion interrupt, so chunking also multiplies the CPU overhead.",
+    "2016 Set 1: a 16-bit counter gives 65,536 bytes = 64 KB per acquisition; 29,154 KB needs 455.53, so 456 acquisitions.",
+    "A wider counter, or a chained mode in which the controller reloads itself, reduces the number of acquisitions but never below one."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2016 Set 1 Q.31: the DMA controller's data count register is 16 bits, the file is 29,154 KB, and memory is byte addressable. What is the minimum number of times the controller must take the bus?",
+    "work": "Per acquisition: 2^16 = 65,536 bytes = 64 KB. 29,154 / 64 = 455.53..., so 455 acquisitions move 29,120 KB and leave 34 KB, which needs one more.",
+    "answer": "456 acquisitions."
+   },
+   "gateAngle": "This is the one question in the topic where the answer is a ceiling rather than a product. GATE supplies a file size that is deliberately not a multiple of the capacity, so the rounding decides the marks: 455 is the trap, 456 the answer.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 1 Q.31, as above.",
+     "answer": "456.",
+     "why": "29154 / 64 = 455.53; the fraction is a partially filled final acquisition, not a discardable remainder."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same file, but the count register is 20 bits and memory is 4-byte word addressable. How many acquisitions now?",
+     "answer": "The counter counts 2^20 = 1,048,576 words of 4 bytes = 4 MB per acquisition, and the file is 29,154 KB, about 28.5 MB, so 8 acquisitions are needed.",
+     "why": "It forces the unit to be worked out before the division: the counter counts words here, not bytes."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does the number of acquisitions matter beyond the arithmetic?",
+     "answer": "Because each acquisition pays setup cycles and a completion interrupt, so a file needing 456 acquisitions also needs 456 interruptions of the CPU - part of the reason real controllers offer chained or scatter-gather modes.",
+     "why": "It links the count-register width to CPU overhead, which is the point of the question in a real machine."
+    }
+   ],
+   "trap": {
+    "what": "Rounding the quotient down, or treating the count register's capacity as 2^n - 1 bytes rather than 2^n.",
+    "why": "A partially filled final transfer is still a transfer, so the quotient must be rounded up. And an n-bit counter holds values 0 to 2^n - 1, which is 2^n distinct counts, so the capacity is 2^n units.",
+    "counterexample": "Rounding down gives 455 acquisitions and moves 29,120 KB, leaving 34 KB of the file in the disk controller's buffer. Using 65,535 bytes per acquisition gives 456 either way here, but 65,536 is the correct capacity."
+   },
+   "check": {
+    "question": "An 8-bit count register, byte-addressable memory, and a 1 KB file. How many bus acquisitions?",
+    "answer": "2^8 = 256 bytes per acquisition; 1024 / 256 = 4, exactly, so 4 acquisitions.",
+    "explanation": "When the division is exact there is no partially filled acquisition and the ceiling changes nothing."
+   },
+   "pyqIds": [
+    "gate-2016-set1-31-dma-count-register-bus-acquisitions"
+   ],
+   "prereqs": [
+    "dma-controller-registers-and-the-transfer-sequence",
+    "dma-throughput-and-cycle-stealing-arithmetic"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 35 - DMA Transfer",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Interface (Interrupt and DMA Mode)",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    }
+   ],
+   "sourceLine": "The DMA module's registers, including the count register, and its design issues: NPTEL IIT Guwahati Lecture 35 (English, read in part). CPU sets the start address and length, and the controller transfers until complete: Auburn ELEC 5200 Chapter 6 (English, read in part). The DMA transfer sequence: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English). The 456 figure is recomputed in scripts/validate.py.",
+   "videoRefs": [],
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json"
+  },
+  {
+   "id": "comparing-the-three-modes-and-dma-cache-coherence",
+   "title": "The Three Modes Side by Side, and What DMA Does to a Cache",
+   "priority": "P2",
+   "order": 545,
+   "unit": "I/O Interface: Interrupt and DMA",
+   "quickIdea": "Programmed I/O wastes the CPU in the wait, interrupt-driven I/O removes the wait but pays per word, DMA removes the per-word CPU work and pays a small setup. The price of DMA is a second bus master and a cache that can go stale.",
+   "remember": [
+    "Bulk throughput: DMA highest, then interrupt-driven, then programmed I/O - the ordering of GATE CSE 2022 Q.17.",
+    "CPU utilisation, best first: DMA, interrupt-driven, programmed I/O. Programmed I/O is worst, not best, which is the false statement of 2024 Set 1 Q.15.",
+    "Programmed I/O remains the simplest and is adequate for a rarely-ready slow device when the wait is short.",
+    "DMA needs a bus arbiter, a second master, a completion interrupt, and cache maintenance.",
+    "Cache coherence: if the controller writes memory while a cached copy exists, the cached copy is stale; if a dirty cached block is not written back before the controller reads memory, the controller reads stale data. Either flush the block, or use a non-cacheable buffer."
+   ],
+   "example": {
+    "prompt": "A 500-byte block must move from a device to memory. Compare the three schemes on the figures already established: programmed I/O polling the device per byte, the interrupt routine at 7 cycles per byte plus 2, and DMA at 20 cycles plus 2 per byte.",
+    "work": "Interrupt-driven: 2 + 500 x 7 = 3502 cycles. DMA: 20 + 500 x 2 = 1020 cycles. Programmed I/O pays the same per-byte loop as the interrupt routine plus the polling wait, so it is worse than 3502 cycles in CPU time.",
+    "answer": "DMA at 1020 cycles, interrupt-driven at 3502, programmed I/O above that - the ordering the exam tests."
+   },
+   "gateAngle": "The comparison is asked as a single statement question more often than any other form in this topic: 2022 Q.17 (highest throughput), 2024 Set 1 Q.15 (which comparison is false). The cache-coherence caveat is not yet a verified GATE CSE question here, so it is taught as the reason DMA is not free.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2022 Q.17: which facilitates bulk transfer from hard disk to memory with the highest throughput?",
+     "answer": "DMA-based I/O transfer.",
+     "why": "Interrupt-driven and programmed I/O both put the CPU in the data path, so the rate is capped by the service routine rather than by the bus."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A device produces one byte every 10 ms. Which scheme is appropriate, and why not DMA?",
+     "answer": "Interrupt-driven I/O, or even polling if the CPU has nothing else to do. DMA is inappropriate because its setup and completion overhead would exceed the cost of the single byte.",
+     "why": "DMA's fixed cost is only worth paying when many units move per setup."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A DMA controller writes a block into a region that is currently cached with write-back policy. What can go wrong, and what are the two fixes?",
+     "answer": "The cached copy becomes stale, so a later read returns the old data. Fixes: flush or invalidate the affected cache blocks around the transfer, or map the buffer as non-cacheable.",
+     "why": "It is the standard DMA/cache interaction, and it is why device drivers call cache-maintenance routines."
+    }
+   ],
+   "trap": {
+    "what": "Treating DMA as strictly better than the other two modes in every case, or forgetting that a DMA write can invalidate a cache line.",
+    "why": "DMA's setup, arbitration and completion interrupt are fixed costs that a single-byte transfer cannot amortise; and a second bus master writing memory behind the cache's back breaks the assumption that memory and cache agree.",
+    "counterexample": "One byte from a slow sensor: DMA pays 20 cycles of setup for 2 cycles of transfer, while a single interrupt costs about 7. The fixed cost dominates, so DMA is the wrong tool."
+   },
+   "check": {
+    "question": "Rank the three schemes by CPU utilisation, best first, and state the single reason for the ranking.",
+    "answer": "DMA, then interrupt-driven, then programmed I/O - the ranking follows how much per-word work the CPU still does, from none to all of it plus the waiting.",
+    "explanation": "Utilisation is about what the CPU is free to do; DMA leaves it free for everything except setup and completion."
+   },
+   "pyqIds": [
+    "gate-2022-17-bulk-transfer-highest-throughput",
+    "gate-2024-set1-15-false-statement-dma-modes"
+   ],
+   "prereqs": [
+    "dma-modes-burst-cycle-stealing-transparent",
+    "write-through-write-back-and-dirty-bits",
+    "programmed-io-polling-and-its-cost"
+   ],
+   "sources": [
+    {
+     "kind": "lecture-transcript",
+     "title": "Lecture 35 - DMA Transfer",
+     "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+     "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the opening: why per-word CPU involvement caps the transfer rate, the statement that DMA removes the processor from the data path, and the three design objectives of a DMA module"
+    },
+    {
+     "kind": "text",
+     "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+     "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+     "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Interface (Interrupt and DMA Mode)",
+     "channel": "GeeksforGeeks",
+     "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read the whole article: the interface unit as the resolver of CPU-peripheral differences, the three modes with their steps, and the DMA total-time expression as bus request time plus transfer time plus bus release time"
+    },
+    {
+     "kind": "text",
+     "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+     "channel": "DSWallah Learn (Hinglish study lesson)",
+     "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    }
+   ],
+   "sourceLine": "The three transfer modes and why DMA removes the processor from the data path: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA/cache interaction, with the stale-copy and dirty-block cases and the flush-or-non-cacheable remedies, plus DMA/virtual-memory paging: Auburn ELEC 5200 Chapter 6 (English, read in part). The three modes compared with the one-interrupt-per-block rule: DSWallah Learn, romanised Hindi, translated (read in part). The DMA total-time expression: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English).",
+   "videoRefs": [],
+   "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+   "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+     "slug": "io-interface",
+     "title": "I/O Interface: Interrupt and DMA",
+     "level": "topic-level",
+     "covers": [
+      "programmed I/O keeps the CPU in the status loop for the whole transfer",
+      "interrupt-driven I/O removes the wait and keeps the per-byte service routine",
+      "DMA removes the per-byte work, with cycle stealing and burst as the two sharing modes"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/io-interface/index.html"
+    }
+   },
+   "subject": "computer-organization-and-architecture",
+   "topic": "io-interface",
+   "path": "subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json"
   }
  ],
  "pyqs": [
@@ -40080,6 +41347,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 1996 Q.1.23 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page states that the worst case is when pairs of 01 and 10 occur frequently and gives option A. Recomputed here: with q(-1) = 0, a 16-bit alternating multiplier has 7 pairs reading 01 and 8 reading 10, so 15 arithmetic operations, and the all-ones multiplier has 1."
+  },
+  {
+   "id": "gate-1996-1-24-daisy-chain-non-uniform-priority",
+   "year": "1996",
+   "paper": "GATE CS 1996",
+   "question_ref": "Q.1.24",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "interrupt-priority-daisy-chain-and-polling",
+   "text": "For the daisy chain scheme of connecting I/O devices, which of the following statements is true?",
+   "options": [
+    "It gives non-uniform priority to various devices",
+    "It gives uniform priority to all devices",
+    "It is only useful for connecting slow devices to a processor device",
+    "It requires a separate interrupt pin on the processor for each device"
+   ],
+   "answer": "Option (A) - it gives non-uniform priority to various devices",
+   "solution": "In a daisy chain the interrupt-acknowledge signal is wired from device to device. The first device in the chain that is requesting service intercepts the acknowledge, blocks it from the devices further down, and places its own vector on the bus. Priority therefore depends on physical position, so it is non-uniform. All devices share one request line and one acknowledge line, so no separate interrupt pin per device is needed; and the scheme is used for fast as well as slow devices (FireWire is a daisy-chained fast bus), so the 'slow devices only' option fails.",
+   "source_url": "https://gateoverflow.in/2728/gate-cse-1996-question-1-24",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 1996 Q.1.24, answer (A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page states the priority order is positional - 'the device with the highest priority is placed in the first position' - and that the interrupt pin is common to all devices, so the answer is (A). A comment on the page argues for the 'slow devices only' option; the accepted answer rejects it, and the reasoning is reproduced here rather than hidden."
   },
   {
    "id": "gate-1996-1-7-false-statement-systems",
@@ -40888,6 +42177,28 @@ window.GATE_DATA = {
    "answer_evidence": "The GATE Overflow accepted answer gives x + y + 13 = 26, y = 3 and x = 10, hence 1024 words; Electrical4U's solution page for the 2004 paper also records answer (A). The official key was not opened this run, so the record stays SOURCED. Every figure is recomputed in scripts/validate.py."
   },
   {
+   "id": "gate-2004-68-dma-hard-disk-processor-time",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "Q.68 (indexed as Q.20 on some question sites)",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+   "text": "A hard disk with a transfer rate of 10 Mbytes/second is constantly transferring data to memory using DMA. The processor runs at 600 MHz, and takes 300 and 900 clock cycles to initiate and complete DMA transfer respectively. If the size of the transfer is 20 Kbytes, what is the percentage of processor time consumed for the transfer operation?",
+   "options": [
+    "5.0%",
+    "1.0%",
+    "0.5%",
+    "0.1%"
+   ],
+   "answer": "Option (D) - 0.1%",
+   "solution": "The transfer of 20 KB at 10 MB/s takes 20 KB / 10 MB/s = 2 ms = 2000 us. The processor is busy only at the two ends: 300 + 900 = 1200 cycles at 600 MHz, which is 1200 / (600 x 10^6) s = 2 us. The fraction is 2 / (2000 + 2) = 0.000999, about 0.1%. The transfer rate and the clock rate cancel, which is why the answer does not depend on them once the ratio is formed.",
+   "source_url": "https://gateoverflow.in/1062/gate-cse-2004-question-68",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2004 Q.68, answer (D)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several independent answers on the page reach 0.1%: one computes 2 us of CPU time against 2000 us of transfer and gets (2/2000) x 100 = 0.0999%, another uses 1200 cycles against 1,200,000 cycles of transfer time. One answer on the same page reaches 0.2% by treating the 1200 cycles as time rather than as cycles; the majority and the recomputation here give 0.1%, and the disagreement is recorded. The question is numbered Q.68 by GATE Overflow and Q.20 by the sites that list it under Operating Systems, so both references are given."
+  },
+  {
    "id": "gate-2004-73-complete-lattice",
    "year": "2004",
    "paper": "GATE CS 2004",
@@ -40992,6 +42303,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2004 Q.23 (also ISRO 2007 Q.32), with the published analysis of each option",
    "verification": "SOURCED",
    "answer_evidence": "The page's accepted analysis eliminates (A) and (C) for using an implication under the existential, and (B) for claiming everyone is a girl, leaving (D)."
+  },
+  {
+   "id": "gate-2005-20-memory-mapped-io-protection",
+   "year": "2005",
+   "paper": "GATE CS 2005",
+   "question_ref": "Q.20",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "memory-mapped-and-isolated-io",
+   "text": "Normally user programs are prevented from handling I/O directly by I/O instructions in them. For CPUs having explicit I/O instructions, such I/O protection is ensured by having the I/O instructions privileged. In a CPU with memory mapped I/O, there is no explicit I/O instruction. Which one of the following is true for a CPU with memory mapped I/O?",
+   "options": [
+    "I/O protection is ensured by operating system routine(s)",
+    "I/O protection is ensured by a hardware trap",
+    "I/O protection is ensured during system configuration",
+    "I/O protection is not possible"
+   ],
+   "answer": "Option (A) - I/O protection is ensured by operating system routine(s)",
+   "solution": "With memory-mapped I/O the device registers are ordinary addresses, so the same address-translation and protection machinery that guards kernel memory covers them. A user program that stores to a device address faults, and legitimate access happens only inside a system call, that is inside an operating system routine. 'Hardware trap' describes the mechanism by which the fault is delivered, not the policy that makes I/O safe, and 'protection is not possible' is simply false.",
+   "source_url": "https://gateoverflow.in/1356/gate-cse-2005-question-20",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2005 Q.20, answer (A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The best answer on the page (56 votes) states option (A): 'user applications are not allowed to perform I/O in user mode - all I/O requests are handled through system calls that must be performed in kernel mode'. One answer argues for option (B) on the grounds that a hardware trap is raised for a device address range; the page's accepted answer and the reasoning above prefer (A), and the dissent is recorded rather than suppressed."
   },
   {
    "id": "gate-2005-46-upper-triangular-group",
@@ -41311,6 +42644,28 @@ window.GATE_DATA = {
    "answer_evidence": "The GATE Overflow accepted answer reduces each set to its last four distinct accesses and concludes 216; a second answer traces the set table line by line with the same result. The official key was not opened this run. The full sequence is simulated in scripts/validate.py."
   },
   {
+   "id": "gate-2011-11-highest-priority-interrupt-source",
+   "year": "2011",
+   "paper": "GATE CS 2011",
+   "question_ref": "Q.11",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "interrupt-priority-daisy-chain-and-polling",
+   "text": "A computer handles several interrupt sources of which the following are relevant for this question: interrupt from a CPU temperature sensor (raises an interrupt if the CPU temperature is too high); interrupt from a mouse (raises an interrupt if the mouse is moved or a button is pressed); interrupt from a keyboard (raises an interrupt when a key is pressed or released); interrupt from a hard disk (raises an interrupt when a disk read is completed). Which one of these will be handled at the HIGHEST priority?",
+   "options": [
+    "Interrupt from Hard Disk",
+    "Interrupt from Mouse",
+    "Interrupt from Keyboard",
+    "Interrupt from CPU temperature sensor"
+   ],
+   "answer": "Option (D) - interrupt from the CPU temperature sensor",
+   "solution": "Priority is assigned by the consequence of delay. A request whose delay can destroy hardware must be heard first, so the temperature sensor outranks every data device. Among the data devices, the ordering that the accepted answer gives is by transfer rate and by the risk of losing buffered data: hard disk above mouse, mouse above keyboard. The reasoning is the standard one - 'higher priority interrupt levels are assigned to requests which, if delayed or interrupted, could have serious consequences'.",
+   "source_url": "https://gateoverflow.in/2113/gate-cse-2011-question-11",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2011 Q.11, answer (D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives (D) and states the priority order CPU temperature sensor > hard disk > mouse > keyboard. One commenter notes that on real x86 hardware APIC interrupt priorities are programmable and no general claim about keyboard against mouse can be made; that objection does not disturb the answer, which turns on the temperature sensor being non-deferrable."
+  },
+  {
    "id": "gate-2011-15-mod-258-flip-flops",
    "year": "2011",
    "paper": "GATE CS 2011",
@@ -41329,6 +42684,28 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/2117/gate-cse-2011-question-15",
    "source_label": "GATE Overflow discussion of GATE CS 2011 Q.15 (accepted answer 9)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2011-28-isr-versus-dma-speedup",
+   "year": "2011",
+   "paper": "GATE CS 2011",
+   "question_ref": "Q.28",
+   "type": "MCQ",
+   "marks": "2",
+   "topic": "dma-controller-registers-and-the-transfer-sequence",
+   "text": "On a non-pipelined sequential processor, a program segment, which is a part of the interrupt service routine, is given to transfer 500 bytes from an I/O device to memory: initialize the address register; initialize the count to 500; LOOP: load a byte from device; store in memory at the address given by the address register; increment the address register; decrement the count; if count != 0 go to LOOP. Each statement is equivalent to a machine instruction which takes one clock cycle if it is a non-load/store instruction; load and store instructions take two clock cycles. The designer also has the option of using a DMA controller: it requires 20 clock cycles for initialization and other overheads, and each DMA transfer cycle takes two clock cycles to transfer one byte. What is the approximate speedup when the DMA controller based design is used in place of the interrupt driven program based input-output?",
+   "options": [
+    "3.4",
+    "4.4",
+    "5.1",
+    "6.7"
+   ],
+   "answer": "Option (A) - 3.4",
+   "solution": "Interrupt-driven: the two initialisations cost 1 cycle each, and each of the 500 iterations costs 2 (load) + 2 (store) + 1 (increment) + 1 (decrement) + 1 (branch) = 7 cycles, so 2 + 500 x 7 = 3502 cycles. DMA: 20 + 500 x 2 = 1020 cycles. Speedup = 3502 / 1020 = 3.43, that is 3.4.",
+   "source_url": "https://gateoverflow.in/2130/gate-cse-2011-question-28",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2011 Q.28, answer (A) 3.4",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page tabulates the per-statement cycle counts and computes 3502 / 1020 = 3.4, answer (A); an independent solution page and the electrical4u answer key for GATE CS 2011 Q.28 both give (A) 3.4. Recomputed here: 2 + 3500 = 3502 and 20 + 1000 = 1020, ratio 3.433."
   },
   {
    "id": "gate-2011-33-mean-median-mode-invariance-and-sd-scaling",
@@ -42419,6 +43796,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer substitutes h = x - 4 to reach the standard limit, and a second answer applies L'Hopital's rule to the same conclusion. Both routes were re-derived and the value is recomputed numerically in scripts/validate.py. The official key was not fetched and no marks field is recorded."
   },
   {
+   "id": "gate-2016-set1-31-dma-count-register-bus-acquisitions",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.31",
+   "type": "NAT",
+   "marks": "2",
+   "topic": "dma-count-register-chunking",
+   "text": "The size of the data count register of a DMA controller is 16 bits. The processor needs to transfer a file of 29,154 kilobytes from disk to main memory. The memory is byte addressable. The minimum number of times the DMA controller needs to get the control of the system bus from the processor to transfer the file from the disk to main memory is ______.",
+   "answer": "456",
+   "solution": "A 16-bit count register can count 2^16 = 65,536 units, and the unit is a byte because memory is byte addressable, so one bus acquisition moves at most 64 KB. 29,154 / 64 = 455.53..., so 455 acquisitions move 29,120 KB and 34 KB remain; that remainder needs a 456th acquisition. The minimum number is therefore 456.",
+   "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+   "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2016 Set 1 Q.31 (2 marks, numerical answer)",
+   "verification": "SOURCED",
+   "answer_evidence": "The question text and the numerical answer 456 are published on the ExamSIDE I/O Interface question page; an independent solution page for GATE 2016 CS Set 1 works the same division and states 456 as the answer. Recomputed here: 2^16 = 65536 bytes = 64 KB, ceil(29154 / 64) = ceil(455.53) = 456."
+  },
+  {
    "id": "gate-2016-set1-q7-16bit-pattern",
    "year": "2016",
    "paper": "GATE CS 2016 Set 1",
@@ -42893,6 +44286,28 @@ window.GATE_DATA = {
    "answer_evidence": "The GATE Overflow accepted answer derives P - N + log2 K; several answers on the same page show that writing the block offset as W instead of M produces option D and is the intended trap. The official key was not opened this run, so the record stays SOURCED. The identity is recomputed symbolically and numerically in scripts/validate.py."
   },
   {
+   "id": "gate-2018-9-interrupt-event-order",
+   "year": "2018",
+   "paper": "GATE CS 2018",
+   "question_ref": "Q.9",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "the-interrupt-cycle-microoperations",
+   "text": "The following are some events that occur after a device controller issues an interrupt while process L is under execution. (P) The processor pushes the process status of L onto the control stack. (Q) The processor finishes the execution of the current instruction. (R) The processor executes the interrupt service routine. (S) The processor pops the process status of L from the control stack. (T) The processor loads the new PC value based on the interrupt. Which of the following is the correct order in which the events above occur?",
+   "options": [
+    "QPTRS",
+    "PTRSQ",
+    "TRPQS",
+    "QTPRS"
+   ],
+   "answer": "Option (A) - QPTRS",
+   "solution": "An asynchronous interrupt is recognised only at an instruction boundary, so the current instruction finishes first (Q). The interrupted process's state must be safe before control moves, so its status is pushed (P). Only then is the PC loaded with the service routine's entry point (T), which is what the routine executes from (R). When the routine ends, the saved status is popped and the process resumes (S).",
+   "source_url": "https://gateoverflow.in/204083/gate-cse-2018-question-9",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2018 Q.9, answer (A) QPTRS",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives the order Q, P, T, R, S - option (A) - and the reasoning quoted there is that 'the process execution is completed then the interrupt is serviced'. A comment asks whether the current instruction must always be completed first, and is answered by pointing at non-maskable interrupts as the exception; that qualification is recorded on the card rather than ignored."
+  },
+  {
    "id": "gate-2018-model-size-upper-bound",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -43095,6 +44510,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2020 Q.27 with the accepted answer (options II and III)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Statements II and III are correct', option C."
+  },
+  {
+   "id": "gate-2020-3-interrupt-statements-daisy-vectored-polling",
+   "year": "2020",
+   "paper": "GATE CS 2020",
+   "question_ref": "Q.3",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "interrupt-priority-daisy-chain-and-polling",
+   "text": "Consider the following statements. I. Daisy chaining is used to assign priorities in attending interrupts. II. When a device raises a vectored interrupt, the CPU does polling to identify the source of interrupt. III. In polling, the CPU periodically checks the status bits to know if any device needs its attention. IV. During DMA, both the CPU and DMA controller can be bus masters at the same time. Which of the above statements is/are TRUE?",
+   "options": [
+    "I and II only",
+    "I and IV only",
+    "I and III only",
+    "III only"
+   ],
+   "answer": "Option (C) - I and III only",
+   "solution": "I is true: the daisy chain orders devices physically and the acknowledge signal gives the nearest requesting device priority. II is false: a vectored interrupt delivers the device's own vector during acknowledge, so no polling is needed - polling belongs to the non-vectored case. III is true: it is the definition of polling. IV is false: bus mastership is exclusive, so while the controller holds the bus the CPU is not a master.",
+   "source_url": "https://gateoverflow.in/333228/gate-cse-2020-question-3",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2020 Q.3, answer (C) I and III only",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page gives (C) and justifies each statement; two independent solution pages for the same question also give (C). The page's discussion includes the case of several simultaneous vectored requests, where some arbitration is still needed - which is why the card separates priority resolution from vectoring."
   },
   {
    "id": "gate-2020-4-alu-microop-order",
@@ -43373,6 +44810,22 @@ window.GATE_DATA = {
    "answer_evidence": "Correct Option: B"
   },
   {
+   "id": "gate-2021-set2-20-dma-cycle-stealing-transfer-rate",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 2",
+   "question_ref": "Q.20",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+   "text": "Consider a computer system with DMA support. The DMA module is transferring one 8-bit character in one CPU cycle from a device to memory through cycle stealing at regular intervals. Consider a 2 MHz processor. If 0.5% processor cycles are used for DMA, the data transfer rate of the device is ______ bits per second.",
+   "answer": "80000",
+   "solution": "A 2 MHz processor completes 2 x 10^6 cycles per second, of which 0.5% are stolen: 10,000 cycles per second. Each stolen cycle carries one 8-bit character, so the rate is 10,000 x 8 = 80,000 bits per second.",
+   "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+   "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2021 Set 2 Q.20 (1 mark, numerical answer)",
+   "verification": "SOURCED",
+   "answer_evidence": "The question is listed on the ExamSIDE I/O Interface page and its numerical answer 80000 is published on the GATE CSE 2021 Set 2 question set that indexes it. Recomputed here: 2,000,000 x 0.005 x 8 = 80,000. No official key document was opened for this question, so the label is SOURCED and not OFFICIAL_KEY."
+  },
+  {
    "id": "gate-2021-set2-22-standard-deviation-of-binomial-count",
    "year": "2021",
    "paper": "GATE CS 2021 Set 2",
@@ -43452,6 +44905,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2022 Q.10 with the accepted answer (both statements correct)",
    "verification": "SOURCED",
    "answer_evidence": "Accepted answer: 'Both statements are correct', option C; corroborated by the GeeksforGeeks GATE CSE engineering-mathematics answer key and by the GateAI PYQ page, which both record option C as the official answer."
+  },
+  {
+   "id": "gate-2022-17-bulk-transfer-highest-throughput",
+   "year": "2022",
+   "paper": "GATE CS 2022",
+   "question_ref": "Q.17",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "comparing-the-three-modes-and-dma-cache-coherence",
+   "text": "Which one of the following facilitates transfer of bulk data from hard disk to main memory with the highest throughput?",
+   "options": [
+    "DMA based I/O transfer",
+    "Interrupt driven I/O transfer",
+    "Polling based I/O transfer",
+    "Programmed I/O transfer"
+   ],
+   "answer": "Option (A) - DMA based I/O transfer",
+   "solution": "Both polling and interrupt-driven transfer put the processor in the data path, so the rate is limited by how fast the processor can execute the status check or the service routine, not by the bus. DMA takes the processor out of the data path: the controller moves the block at bus speed and interrupts once at the end, which is why it gives the highest throughput for a block.",
+   "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+   "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2022 Q.17 (1 mark)",
+   "verification": "SOURCED",
+   "answer_evidence": "The question is published with its four options on the ExamSIDE I/O Interface page, and the DMA answer is stated on the GATE CSE 2022 question set that indexes it. The reasoning is independently the one given by the NPTEL DMA lecture read this run: DMA removes the processor from the data path, so the transfer rate is no longer bounded by the processor."
   },
   {
    "id": "gate-2022-24-sqrt-over-exponential",
@@ -43693,6 +45168,22 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer expands the function into minterms 0, 1, 3, 4 and 5 with the select order B, A, C and concludes 11011100, option C; several other answers agree and one notes that X3 must be 1, which eliminates options A and B. Recomputed here: A' + A'C' + AB'C = A' + AB'C and its minterms over (B,A,C) are 0, 1, 3, 4, 5."
   },
   {
+   "id": "gate-2023-34-polling-versus-interrupt-overhead-ratio",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.34 (indexed as Q.24 on GATE Overflow)",
+   "type": "NAT",
+   "marks": "1",
+   "topic": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+   "text": "A keyboard connected to a computer is used at a rate of 1 keystroke per second. The computer system polls the keyboard every 10 ms to check for a keystroke and consumes 100 us for each poll. If it is determined after polling that a key has been pressed, the system consumes an additional 200 us to process the keystroke. Let T1 denote the fraction of a second spent in polling and processing a keystroke. In an alternative implementation, the system uses interrupts instead of polling. An interrupt is raised for every keystroke. It takes a total of 1 ms for servicing an interrupt and processing a keystroke. Let T2 denote the fraction of a second spent in servicing the interrupt and processing a keystroke. The ratio T1/T2 is ______ (rounded off to one decimal place).",
+   "answer": "10.2",
+   "solution": "Over one second there is one keystroke and 1000/10 = 100 polls. Polling costs 100 x 100 us = 10,000 us, and processing the single keystroke adds 200 us once, so T1 = 10,200 us = 0.0102 s. Interrupts: one interrupt of 1 ms, so T2 = 1000 us = 0.001 s. Ratio = 0.0102 / 0.001 = 10.2.",
+   "source_url": "https://gateoverflow.in/399287/gate-cse-2023-question-24",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2023 Q.34, indexed there as Question 24, answer 10.2",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page computes 10 ms of polling plus 0.2 ms of processing against 1 ms and gives 10.2; two independent solution pages for GATE 2023 CS Q.34 also give 10.2, and one states it as the value in the GATE 2023 final answer key - that claim is theirs, not checked against the key document here. GATE Overflow numbers the question 24 while the other sites number it 34, so both references are recorded."
+  },
+  {
    "id": "gate-2023-41-symmetric-difference-group",
    "year": "2023",
    "paper": "GATE CS 2023",
@@ -43887,6 +45378,28 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer partitions the real line at the three crossings and evaluates the one-sided derivatives at each, and two further answers reach the same set. The slope pairs are recomputed in scripts/validate.py. The official key was not fetched, so this rests on the accepted GATE Overflow answer, and no marks field is recorded."
   },
   {
+   "id": "gate-2024-set1-15-false-statement-dma-modes",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 1",
+   "question_ref": "Q.15",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "dma-modes-burst-cycle-stealing-transparent",
+   "text": "Which one of the following statements is FALSE?",
+   "options": [
+    "In the cycle stealing mode of DMA, one word of data is transferred between an I/O device and main memory in a stolen cycle",
+    "For bulk data transfer, the burst mode of DMA has a higher throughput than the cycle stealing mode",
+    "Programmed I/O mechanism has a better CPU utilization than the interrupt driven I/O mechanism",
+    "The CPU can start executing an interrupt service routine faster with vectored interrupts than with non-vectored interrupts"
+   ],
+   "answer": "Option (C) - programmed I/O has a better CPU utilisation than interrupt-driven I/O",
+   "solution": "Programmed I/O keeps the processor in a status-check loop while the device is not ready; that busy waiting is exactly what interrupt-driven I/O removes, so interrupt-driven I/O has the better utilisation and the statement is false. The other three are true: cycle stealing moves one word per stolen cycle, burst mode holds the bus for the whole block and so has the higher throughput, and a vectored interrupt reaches its service routine sooner because the device supplies the entry point.",
+   "source_url": "https://www.geeksforgeeks.org/questions/which-one-of-the-following-statements-is-false-22/",
+   "source_label": "GeeksforGeeks question page - GATE CS 2024 Set 1, COA, I/O Interface (DMA/Interrupt mode), question 55",
+   "verification": "SOURCED",
+   "answer_evidence": "The question and its four options are published on the GeeksforGeeks page, and the GATE CSE 2024 Set 1 question set that indexes it records (C) as the answer. Recomputed here: 2022 Q.17 and the NPTEL interrupt lecture both establish that programmed I/O is the worst of the three on CPU utilisation, so (C) is the false statement."
+  },
+  {
    "id": "gate-2024-set1-2-product-of-eigenvalues",
    "year": "2024",
    "paper": "GATE CS 2024 Set 1",
@@ -44026,6 +45539,28 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/422789/gate-cse-2024-set-1-question-53",
    "source_label": "GATE Overflow question page, GATE CSE 2024 Set 1 Question 53, accepted answer",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2024-set2-11-dma-cycle-stealing-4mhz",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.11",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+   "text": "Consider a computer with a 4 MHz processor. Its DMA controller can transfer 8 bytes in 1 cycle from a device to main memory through cycle stealing at regular intervals. Which one of the following is the data transfer rate (in bits per second) of the DMA controller if 1% of the processor cycles are used for DMA?",
+   "options": [
+    "2,56,000",
+    "3,200",
+    "25,60,000",
+    "32,000"
+   ],
+   "answer": "Option (C) - 25,60,000 bits per second",
+   "solution": "A 4 MHz processor completes 4 x 10^6 cycles per second; 1% of them is 40,000 stolen cycles. Each stolen cycle moves 8 bytes = 64 bits, so the rate is 40,000 x 64 = 2,560,000 bits per second, written 25,60,000 in Indian digit grouping. Option (A) is ten times smaller and would need only 0.1% of the cycles; leaving the answer in bytes gives 3,20,000, which is not an option.",
+   "source_url": "https://iaeacademy.in/study/computer-organization-architecture/io-interrupts-dma/cs-2024-2-q11",
+   "source_label": "GATE 2024 CS2 Q.11 solution page (states the answer as option C and attributes it to the GATE 2024 CS2 answer key)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page gives (C) 25,60,000 with the full multiplication, and states that the official GATE 2024 CS2 key gives C - that attribution is the page's claim and was not checked against the key document itself. The GATE CSE 2024 Set 2 question set that indexes the question also records C. Recomputed here: 4,000,000 x 0.01 x 64 = 2,560,000."
   },
   {
    "id": "gate-2024-set2-24-total-orders",
@@ -44269,6 +45804,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Question 27 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer gives '(B) 20' from '32 - (6 + 6) = 20'. Corroborated by iaeacademy, which cites the official GATE 2025 CS1 key (IIT Roorkee) as option B, and by GateAI, which records the official answer as 20. The question is numbered Q.27 on GATE Overflow and Q.37 in the paper listing."
+  },
+  {
+   "id": "gate-2025-set1-11-interrupt-step-sequence",
+   "year": "2025",
+   "paper": "GATE CS 2025 Set 1",
+   "question_ref": "Q.11 (indexed as Question 1 on GATE Overflow)",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "the-interrupt-cycle-microoperations",
+   "text": "Suppose a program is running on a non-pipelined single processor computer system. The computer is connected to an external device that can interrupt the processor asynchronously. The processor needs to execute the interrupt service routine (ISR) to serve this interrupt. The following steps (not necessarily in order) are taken by the processor when the interrupt arrives: (i) The processor saves the content of the program counter. (ii) The program counter is loaded with the start address of the ISR. (iii) The processor finishes the present instruction. Which ONE of the following is the CORRECT sequence of steps?",
+   "options": [
+    "(iii), (i), (ii)",
+    "(i), (iii), (ii)",
+    "(i), (ii), (iii)",
+    "(iii), (ii), (i)"
+   ],
+   "answer": "Option (A) - (iii), (i), (ii)",
+   "solution": "The interrupt is asynchronous, so it is recognised only at an instruction boundary: the present instruction finishes first (iii). The return address must then be preserved before the program counter is overwritten, so the PC is saved (i). Only then is the PC loaded with the service routine's start address (ii). Option (D) loads the PC before saving it, which would lose the return address.",
+   "source_url": "https://gateoverflow.in/460080/gate-cse-2025-set-1-question-1",
+   "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2025 Set 1, indexed there as Question 1, answer (A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Four answers on the page agree on (A): 'finishes the current executing instruction, CPU pushes the PC content on stack, the PC is updated with the new ISR address'. One commenter records having marked (D) and correcting to (A). GATE Overflow numbers the question 1 while other sites number it 11, so both references are recorded."
   },
   {
    "id": "gate-2025-set1-13-k-system",
@@ -44765,6 +46322,28 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 2 Q.17 with the accepted answer (A, C)",
    "verification": "SOURCED",
    "answer_evidence": "Two independent answers on the question page compute 4 and state 'Answer : (A,C)', and the same value is obtained here by direct evaluation and by the odd-term argument."
+  },
+  {
+   "id": "gate-2026-set2-18-vectored-and-daisy-chain-statements",
+   "year": "2026",
+   "paper": "GATE CS 2026 Set 2",
+   "question_ref": "Q.18",
+   "type": "MCQ",
+   "marks": "1",
+   "topic": "vectored-versus-non-vectored-interrupts",
+   "text": "Consider the following two statements about interrupt handling mechanisms in a CPU. S1: In non-vectored interrupt mechanism, it usually takes more time to start the Interrupt Service Routine (ISR) when compared to that in a vectored interrupt mechanism. S2: In daisy-chain interrupt mechanism, the CPU polls all the input devices individually to determine the source of the interrupt. Which one of the following options is correct with respect to S1 and S2?",
+   "options": [
+    "Both S1 and S2 are true",
+    "Both S1 and S2 are false",
+    "S1 is true and S2 is false",
+    "S1 is false and S2 is true"
+   ],
+   "answer": "Option (C) - S1 is true and S2 is false",
+   "solution": "In a vectored interrupt the interrupting device supplies its own vector during the acknowledge cycle, so the CPU jumps straight to the right routine. In a non-vectored interrupt every device lands on one fixed entry point, and the handler must identify the source - typically by reading status registers - before the right routine can begin, so starting the ISR takes longer: S1 is true. A daisy chain resolves the source in hardware by passing the acknowledge signal along the chain until the requesting device intercepts it; the CPU reads no status registers at all, so S2 is false.",
+   "source_url": "https://gateiit.in/gate-cse/pyq/2026-s2/q18",
+   "source_label": "GATE CSE 2026 Session 2 Q.18 solution page (states the answer as option C)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page gives (C) and states it as the value in the GATE 2026 final answer key; that attribution is the page's claim, not checked against the key document here. Two further solution pages for the same question (iaeacademy, trygateai) independently give (C) with the same reasoning, which is the reasoning reproduced in the card."
   },
   {
    "id": "gate-2026-set2-31-product-ab",

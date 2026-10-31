@@ -1,0 +1,198 @@
+{
+  "subject": "computer-organization-and-architecture",
+  "topic": "io-interface",
+  "retrieved_at": "2026-10-31",
+  "chosen": [
+    {
+      "id": "nptel-iitg-lec33-io-primitives",
+      "kind": "lecture-transcript",
+      "title": "Lecture 33 - Input-Output Primitives",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec33.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "need for an I/O module",
+        "the three transfer modes",
+        "device controller",
+        "I/O instructions and device addressing"
+      ],
+      "why": "the only readable lecture that sets up the whole topic - why an interface exists, what a device controller is, and the three modes named before any of them is taught"
+    },
+    {
+      "id": "nptel-iitg-lec34-interrupt-io",
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "why programmed I/O wastes the CPU",
+        "the interrupt-driven sequence",
+        "control signals for interrupt-driven I/O"
+      ],
+      "why": "states the programmed-I/O defect and the interrupt remedy in the same lecture, which is the comparison the cards are built on"
+    },
+    {
+      "id": "nptel-iitg-lec35-dma",
+      "kind": "lecture-transcript",
+      "title": "Lecture 35 - DMA Transfer",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec35.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "need for DMA",
+        "DMA design issues",
+        "removal of the processor from the data path"
+      ],
+      "why": "the clearest statement found of why DMA exists: the CPU cannot carry 1 KB through 8-16 registers, so the transfer must bypass it"
+    },
+    {
+      "id": "dswallah-io-organization",
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "three techniques compared",
+        "interrupt handling sequence",
+        "maskable and non-maskable",
+        "vectored and non-vectored",
+        "vector table",
+        "memory-mapped against isolated I/O"
+      ],
+      "why": "the only source read this run that states the whole interrupt vocabulary - maskable, non-maskable, vectored, non-vectored, vector table - in one place, and it lists the misconceptions GATE exploits"
+    },
+    {
+      "id": "dswallah-system-buses-dma",
+      "kind": "text",
+      "title": "System Buses & DMA (romanised Hindi)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/system-buses/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "covers": [
+        "bus arbitration",
+        "daisy chain priority",
+        "BR/BG handshake",
+        "DMA steps",
+        "cycle stealing, burst and transparent modes"
+      ],
+      "why": "the only readable source that names all three DMA modes and states each one's cost to the CPU, and it corrects the common 'DMA interrupts per byte' error"
+    },
+    {
+      "id": "auburn-elec5200-ch6",
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "command, status and data registers",
+        "memory-mapped against I/O-instruction mapping",
+        "polling",
+        "priority interrupts",
+        "DMA organisation and operation",
+        "bus mastership",
+        "DMA/cache and DMA/virtual-memory interaction"
+      ],
+      "why": "a university course deck read in part; it is the only source that covers the DMA/cache coherence and DMA/page-chunking consequences, which no GATE-oriented source mentions"
+    },
+    {
+      "id": "geeksforgeeks-io-interface",
+      "kind": "text",
+      "title": "I/O Interface (Interrupt and DMA Mode)",
+      "channel": "GeeksforGeeks",
+      "url": "https://www.geeksforgeeks.org/computer-organization-architecture/io-interface-interrupt-dma-mode/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "interface unit",
+        "three modes with steps",
+        "DMA total time = request + transfer + release"
+      ],
+      "why": "read in full as a cross-check on the mode definitions; used for the DMA total-time expression and nothing else, since it is a secondary source"
+    },
+    {
+      "id": "iare-co-notes",
+      "kind": "text",
+      "title": "Computer Organization lecture notes (I/O and interrupt sections)",
+      "channel": "Institute of Aeronautical Engineering, Computer Organization lecture notes",
+      "url": "https://www.iare.ac.in/sites/default/files/FINAL_IARE_CO_ECE_LECTURE_NOTES_upload.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "covers": [
+        "why peripherals cannot join the system bus",
+        "interrupt cycle register transfers",
+        "IEN flip-flop",
+        "HOLD/HLDA"
+      ],
+      "why": "gives the register-transfer form of the interrupt cycle and the HOLD/HLDA names, which the NPTEL transcripts only describe in words"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "nptel-106106092-lec24-26",
+      "kind": "video-lectures",
+      "why": "NPTEL IIT Kharagpur Computer Organization lectures 24, 25 and 26 are exactly Programmed I/O, Interrupt Driven I/O and DMA, but only the lecture index was reachable; no transcript or notes text was retrievable, so nothing could be read and nothing is claimed from them"
+    },
+    {
+      "id": "nptel-106105163-lec44-50",
+      "kind": "video-lectures",
+      "why": "NPTEL Computer Architecture and Organization lectures 44-50 cover I/O organisation, data transfer techniques, interrupt handling twice and DMA, plus a set of I/O transfer exercises - the best-matched sequence found - but only the index page was readable"
+    },
+    {
+      "id": "iitd-106102062-lec33-37",
+      "kind": "video-lectures",
+      "why": "Anshul Kumar's IIT Delhi I/O subsystem lectures (33-37) are a strong candidate for the interface/bus angle, but again only titles were readable"
+    },
+    {
+      "id": "unacademy-dma-hindi",
+      "kind": "video-lecture",
+      "why": "a 12-minute Hindi lesson on the DMA controller and its modes; the page shows only the course index and the lesson is behind a login, so no content could be read"
+    },
+    {
+      "id": "youtube-1mfKJqqqB3k",
+      "kind": "video",
+      "why": "a Hindi DMA lecture found by search; no caption track was retrievable, so it could not be read and is not cited"
+    },
+    {
+      "id": "gateoverflow-coa-digest",
+      "kind": "revision-digest",
+      "why": "an aggregation of COA question links with no teaching of its own; used only to locate questions"
+    },
+    {
+      "id": "isro-2011-2013-2018-io-questions",
+      "kind": "question-set",
+      "why": "the memory-mapped I/O, cycle-stealing slowdown and DMA-mode questions on these pages are ISRO CSE papers, not GATE CSE; excluded from the PYQ set even though three of them are well formed"
+    },
+    {
+      "id": "gate-it-2006-dma-modes",
+      "kind": "question",
+      "why": "the 'highest I/O bandwidth' question on DMA modes is from the GATE IT 2006 paper, not GATE CSE, so it is not published as a CSE PYQ"
+    },
+    {
+      "id": "pyqbox-examside-edurev",
+      "kind": "question-index",
+      "why": "indexes used to enumerate the topic's questions and their year/paper references; not used as answer sources wherever an accepted-answer page existed"
+    },
+    {
+      "id": "trygateai-gateiit-iaeacademy",
+      "kind": "solution-sites",
+      "why": "third-party solution pages used only for 2021 Set 2, 2024 Set 1, 2024 Set 2, 2025 Set 1 and 2026 Set 2, where GATE Overflow had no accepted-answer page opened; their 'official key' claims are recorded as their claim, and every answer used from them was recomputed here"
+    }
+  ],
+  "standard_refs": [
+    "Stallings, Computer Organization and Architecture: Designing for Performance, ch. 7 (sections 7.1-7.5), the reference the NPTEL lectures themselves set for this module",
+    "Hamacher, Vranesic and Zaky, Computer Organization, ch. 4, for the interrupt cycle and the DMA bus-request/grant protocol",
+    "Patterson and Hennessy, Computer Organization and Design, ch. 6, for memory-mapped I/O and DMA/cache coherence",
+    "Official GATE CSE 2027 syllabus, Computer Organization and Architecture line: 'I/O interface (interrupt and DMA)'"
+  ]
+}

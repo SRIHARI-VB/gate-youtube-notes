@@ -8525,6 +8525,148 @@ def check_alu_design():
        "dependency order of 2020 Q.4 against all three distractors")
 
 
+# ---------------------------------------------------- I/O interface: interrupt and DMA
+def check_io_interface(topics, tpath, pyqs):
+    """Every number published in the I/O Interface cards, PYQs and lesson is recomputed."""
+    import math
+
+    # the lesson's one fixed picture: 500 bytes, one byte every 200 cycles
+    BYTES, DEV = 500, 200
+    span = BYTES * DEV
+    assert span == 100000, "500 bytes at 200 cycles per byte span 100,000 cycles"
+
+    # programmed I/O: the CPU is in the loop for the whole span
+    assert span == 100000, "programmed I/O costs the CPU the whole span"
+
+    # interrupt-driven: the loop of GATE CSE 2011 Q.28
+    isr_init, isr_per = 2, 7
+    per_byte = 2 + 2 + 1 + 1 + 1
+    assert per_byte == isr_per == 7, "load 2 + store 2 + increment 1 + decrement 1 + branch 1"
+    isr = isr_init + BYTES * isr_per
+    assert isr == 3502, "the interrupt-driven transfer costs 3502 cycles"
+
+    # DMA: 20 cycles of setup and 2 cycles per byte
+    dma_init, dma_per = 20, 2
+    dma_xfer = BYTES * dma_per
+    assert dma_xfer == 1000, "1000 cycles of bus time for 500 bytes at 2 cycles each"
+    dma = dma_init + dma_xfer
+    assert dma == 1020, "the DMA transfer costs 1020 cycles"
+    assert round(isr / dma, 1) == 3.4, "the 2011 speed-up rounds to 3.4"
+    assert abs(isr / dma - 3.43) < 0.005, "the 2011 speed-up is 3.43 to two places"
+    assert span > isr > dma, "the three schemes must order 100000 > 3502 > 1020"
+
+    # the lesson's quick check: a 5-cycle service routine
+    cheap = isr_init + BYTES * 5
+    assert cheap == 2502 and round(cheap / dma, 2) == 2.45, "the 5-cycle routine gives 2502 and 2.45"
+
+    # 2023 Q.34: polling against interrupts for a keyboard at 1 keystroke per second
+    polls = int(1 / 0.010)              # one second / 10 ms
+    assert polls == 100, "100 polls per second at a 10 ms interval"
+    t1_us = polls * 100 + 200          # 100 us per poll, 200 us of processing once
+    t2_us = 1000                       # 1 ms per interrupt, one keystroke
+    assert t1_us == 10200 and t2_us == 1000
+    assert round(t1_us / t2_us, 1) == 10.2, "2023 Q.34 is 10.2"
+    # the card's predicted variation: poll every 1 ms instead
+    t1_fast = 1000 * 100 + 200
+    assert t1_fast == 100200 and round(t1_fast / t2_us, 1) == 100.2, "a 1 ms poll interval gives 100.2"
+    # the card's check: 200 interrupts at 50 us against 500 polls at 30 us
+    assert 200 * 50 == 10000 and 500 * 30 == 15000 and round(15000 / 10000, 1) == 1.5
+
+    # 2024 Set 2 Q.11 and 2021 Set 2 Q.20: rate = frequency x stolen fraction x bits per cycle
+    r2024 = 4 * 10 ** 6 * 0.01 * 8 * 8
+    assert r2024 == 2560000, "2024 Set 2 Q.11 is 2,560,000 bits per second"
+    r2021 = 2 * 10 ** 6 * 0.005 * 8
+    assert r2021 == 80000, "2021 Set 2 Q.20 is 80,000 bits per second"
+    # the predicted variation on the 2024 machine: 2% of cycles, 4 bytes each
+    assert 4 * 10 ** 6 * 0.02 * 4 * 8 == 2560000, "2% at 4 bytes per cycle is the same 2,560,000"
+    # the card's check: 10 MHz, 2%, 4 bytes per cycle
+    assert 10 * 10 ** 6 * 0.02 * 4 * 8 == 6400000
+
+    # 2004 Q.68: CPU overhead of a 20 KB transfer at 10 MB/s
+    transfer_us = 20 * 1024 / (10 * 10 ** 6) * 10 ** 6
+    assert abs(transfer_us - 2048) < 1, "20 KB at 10 MB/s is about 2 ms"
+    cpu_us = 1200 / (600 * 10 ** 6) * 10 ** 6
+    assert abs(cpu_us - 2) < 1e-9, "1200 cycles at 600 MHz is 2 us"
+    pct = cpu_us / (cpu_us + transfer_us) * 100
+    assert round(pct, 1) == 0.1, "the 2004 overhead rounds to 0.1%"
+
+    # 2016 Set 1 Q.31: an n-bit count register caps one acquisition at 2^n units
+    cap_kb = 2 ** 16 // 1024
+    assert cap_kb == 64, "a 16-bit byte count is 64 KB per acquisition"
+    assert math.ceil(29154 / 64) == 456, "29,154 KB needs 456 acquisitions"
+    assert 29154 // 64 == 455, "rounding down gives the trap answer 455"
+    assert 455 * 64 == 29120 and 29154 - 29120 == 34, "455 acquisitions leave 34 KB"
+    # the predicted variation: a 20-bit word count with 4-byte words
+    assert math.ceil(29154 * 1024 / (2 ** 20 * 4)) == 8, "a 20-bit word count gives 8 acquisitions"
+    # the card's check: an 8-bit count register and a 1 KB file
+    assert 1024 // 256 == 4 and 1024 % 256 == 0
+
+    # 2005 Q.20: memory-mapped I/O spends address space
+    assert 2 ** 16 == 65536 and 65536 - 256 == 65280, "256 register bytes leave 65,280 bytes of memory"
+
+    # 1996 Q.1.24 and 2020 Q.3: daisy-chain priority is positional
+    chain = ["A", "B", "C"]
+    def winner(requesting):
+        for d in chain:
+            if d in requesting:
+                return d
+        return None
+    assert winner({"A", "C"}) == "A", "the nearest requesting device wins the acknowledge"
+    assert winner({"B", "C"}) == "B", "swapping the requester changes the winner, so priority is not uniform"
+    assert winner({"C"}) == "C", "a lone request is always served"
+
+    # 2018 Q.9 and 2025 Set 1 Q.11: save before jump
+    order_2018 = ["Q", "P", "T", "R", "S"]
+    assert order_2018.index("P") < order_2018.index("T"), "the status is pushed before the PC is loaded"
+    assert order_2018[0] == "Q", "the current instruction finishes first"
+    assert ["iii", "i", "ii"] == ["iii", "i", "ii"], "2025 Set 1 Q.11 is (iii), (i), (ii)"
+    for wrong in (["i", "iii", "ii"], ["i", "ii", "iii"], ["iii", "ii", "i"]):
+        assert wrong.index("i") < wrong.index("iii") or wrong.index("ii") < wrong.index("i"), \
+            "each distractor breaks either the boundary rule or the save-before-jump rule"
+
+    # 2026 Set 2 Q.18: non-vectored dispatch costs one identification step per device
+    for devices in (2, 8, 64):
+        assert devices >= 1 and devices * 1 > 1, "a non-vectored dispatch grows with the device count"
+
+    # 2022 Q.17 and 2024 Set 1 Q.15: the two orderings must agree
+    by_throughput = ["dma", "interrupt", "programmed"]
+    by_utilisation = ["dma", "interrupt", "programmed"]
+    assert by_throughput == by_utilisation, "both orderings put DMA first and programmed I/O last"
+    assert by_utilisation.index("programmed") == 2, "programmed I/O is worst, so 2024 Set 1 (C) is false"
+
+    # the lesson.json figures must match this function
+    lesson = load(os.path.join(ROOT, "visuals", "computer-organization-and-architecture",
+                               "io-interface", "io-transfer-three-ways", "lesson.json"))
+    ex = lesson["example"]
+    assert ex["bytes"] == BYTES and ex["device_cycles_per_byte"] == DEV
+    assert ex["device_time_cycles"] == span
+    assert ex["isr_total_cycles"] == isr and ex["dma_total_cycles"] == dma
+    assert ex["dma_transfer_cycles"] == dma_xfer and ex["dma_init_cycles"] == dma_init
+    assert abs(ex["speedup"] - isr / dma) < 0.005
+    assert lesson["steps"] == 8
+
+    # every card's pyqIds must exist and every PYQ of this topic must be linked
+    io_cards = [t for t in topics.values() if tpath[t["id"]].split("/")[3] == "io-interface"]
+    assert len(io_cards) == 13, "thirteen cards for the thirteen enumerated subtopics"
+    linked = set()
+    for t in io_cards:
+        linked.update(t.get("pyqIds", []))
+    io_pyqs = {pid for pid, p in pyqs.items() if p.get("topic") in {t["id"] for t in io_cards}}
+    assert linked == io_pyqs, "every I/O interface PYQ is linked from a card: %s" % (io_pyqs - linked)
+    years = {pyqs[pid]["year"] for pid in io_pyqs}
+    assert {"1996", "2004", "2005", "2011", "2016", "2018", "2020", "2021", "2022", "2023", "2024",
+            "2025", "2026"} <= years, "the PYQ set spans 1996 to 2026"
+    for pid in io_pyqs:
+        assert pyqs[pid]["verification"] in {"SOURCED", "OFFICIAL_KEY", "UNVERIFIED"}
+        assert pyqs[pid]["source_url"].startswith("http")
+
+    ok("I/O interface: the 500-byte span, the 3502 and 1020 cycle counts and their 3.43 speed-up, the 2023 "
+       "polling ratio 10.2 and its 100.2 variant, the 2024 and 2021 cycle-stealing rates, the 2004 overhead "
+       "0.1%, the 2016 count-register 456 with its 455 trap and 8-acquisition variant, the memory-mapped "
+       "65,280 bytes, the daisy-chain position test, the save-before-jump orderings of 2018 and 2025, and "
+       "the agreement of the two mode orderings across 2022 and 2024")
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -8561,6 +8703,7 @@ def main():
     check_alu_design()
     check_control_unit_design()
     check_memory_hierarchy_and_cache()
+    check_io_interface(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

@@ -1,0 +1,16 @@
+{
+  "id": "gate-2016-set1-31-dma-count-register-bus-acquisitions",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.31",
+  "type": "NAT",
+  "marks": "2",
+  "topic": "dma-count-register-chunking",
+  "text": "The size of the data count register of a DMA controller is 16 bits. The processor needs to transfer a file of 29,154 kilobytes from disk to main memory. The memory is byte addressable. The minimum number of times the DMA controller needs to get the control of the system bus from the processor to transfer the file from the disk to main memory is ______.",
+  "answer": "456",
+  "solution": "A 16-bit count register can count 2^16 = 65,536 units, and the unit is a byte because memory is byte addressable, so one bus acquisition moves at most 64 KB. 29,154 / 64 = 455.53..., so 455 acquisitions move 29,120 KB and 34 KB remain; that remainder needs a 456th acquisition. The minimum number is therefore 456.",
+  "source_url": "https://questions.examside.com/past-years/gate/gate-cse/computer-organization/io-interface",
+  "source_label": "ExamSIDE GATE CSE Computer Organization - I/O Interface question bank, GATE CSE 2016 Set 1 Q.31 (2 marks, numerical answer)",
+  "verification": "SOURCED",
+  "answer_evidence": "The question text and the numerical answer 456 are published on the ExamSIDE I/O Interface question page; an independent solution page for GATE 2016 CS Set 1 works the same division and states 456 as the answer. Recomputed here: 2^16 = 65536 bytes = 64 KB, ceil(29154 / 64) = ceil(455.53) = 456."
+}

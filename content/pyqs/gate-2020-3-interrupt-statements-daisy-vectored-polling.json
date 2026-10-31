@@ -1,0 +1,22 @@
+{
+  "id": "gate-2020-3-interrupt-statements-daisy-vectored-polling",
+  "year": "2020",
+  "paper": "GATE CS 2020",
+  "question_ref": "Q.3",
+  "type": "MCQ",
+  "marks": "1",
+  "topic": "interrupt-priority-daisy-chain-and-polling",
+  "text": "Consider the following statements. I. Daisy chaining is used to assign priorities in attending interrupts. II. When a device raises a vectored interrupt, the CPU does polling to identify the source of interrupt. III. In polling, the CPU periodically checks the status bits to know if any device needs its attention. IV. During DMA, both the CPU and DMA controller can be bus masters at the same time. Which of the above statements is/are TRUE?",
+  "options": [
+    "I and II only",
+    "I and IV only",
+    "I and III only",
+    "III only"
+  ],
+  "answer": "Option (C) - I and III only",
+  "solution": "I is true: the daisy chain orders devices physically and the acknowledge signal gives the nearest requesting device priority. II is false: a vectored interrupt delivers the device's own vector during acknowledge, so no polling is needed - polling belongs to the non-vectored case. III is true: it is the definition of polling. IV is false: bus mastership is exclusive, so while the controller holds the bus the CPU is not a master.",
+  "source_url": "https://gateoverflow.in/333228/gate-cse-2020-question-3",
+  "source_label": "GATE Overflow question page with the accepted answer - GATE CSE 2020 Q.3, answer (C) I and III only",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page gives (C) and justifies each statement; two independent solution pages for the same question also give (C). The page's discussion includes the case of several simultaneous vectored requests, where some arbitration is still needed - which is why the card separates priority resolution from vectoring."
+}

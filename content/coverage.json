@@ -3,7 +3,7 @@
  "updated_at": "2026-10-31",
  "cycle": {
   "last_subject": "computer-organization-and-architecture",
-  "last_topic": "memory-hierarchy-and-cache",
+  "last_topic": "io-interface",
   "updated_at": "2026-10-31"
  },
  "subjects": [
@@ -898,10 +898,34 @@
     {
      "slug": "io-interface",
      "name": "I/O Interface: Interrupt and DMA",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "13 cards, one per enumerated subtopic (why an interface exists and its three registers; memory-mapped against isolated I/O and protection; programmed I/O and its polling cost; the interrupt-driven handshake; the interrupt cycle and its micro-operations; vectored against non-vectored interrupts; interrupt priority by polling, daisy chain and encoder; the polling-against-interrupt overhead ratio; the DMA controller and its transfer sequence; burst, cycle stealing and transparent modes; DMA rate and overhead arithmetic; count-register chunking; the three modes compared with the DMA/cache caveat), 15 verified PYQs spanning 1996 to 2026 and 1 p5.js lesson. Partial because the gaps named below remain: no GATE-oriented source readable this run covers DMA/cache coherence, and every PYQ answer is SOURCED rather than checked against an official key.",
+     "runs": [
+      {
+       "date": "2026-10-31",
+       "sources": [
+        "nptel-iitg-lec33-io-primitives",
+        "nptel-iitg-lec34-interrupt-io",
+        "nptel-iitg-lec35-dma",
+        "dswallah-io-organization",
+        "dswallah-system-buses-dma",
+        "auburn-elec5200-ch6",
+        "geeksforgeeks-io-interface",
+        "iare-co-notes"
+       ],
+       "cards": 13,
+       "pyqs": 15,
+       "lesson": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
+       "note": "Sources chosen on merit: three NPTEL IIT Guwahati lecture transcripts (English, each read in its opening) for the primitives, the interrupt-driven scheme and DMA; two DSWallah Learn Hinglish lessons, translated, for the interrupt vocabulary and the three DMA modes; an Auburn university deck read in part for the DMA/cache and DMA/page consequences; GeeksforGeeks read in full only for the DMA total-time expression; IARE notes read in part for the interrupt-cycle register transfers and the HOLD/HLDA names. Ten candidates were rejected with reasons in sources.json, including the NPTEL Kharagpur and IIT Delhi I/O lecture sequences, which matched the topic best but were readable only as lecture indexes."
+      }
+     ],
+     "gaps": [
+      "no GATE-oriented source read this run treats DMA/cache coherence or DMA against virtual memory; those two points rest on the Auburn course deck alone, so the card says so",
+      "every PYQ answer is SOURCED: no official answer key document was opened, and three of the fifteen (2021 Set 2 Q.20, 2024 Set 1 Q.15, 2022 Q.17) rest on question-bank pages rather than an accepted-answer discussion",
+      "the NPTEL IIT Kharagpur (106106092, lectures 24-26) and IIT Delhi (106102062, lectures 33-37) I/O sequences are the best-matched lectures for this topic and neither was readable, so no video transcript backs any card and videoRefs is empty on all thirteen",
+      "no GATE CSE question on the transparent DMA mode, on interrupt latency as a number, or on bus arbitration (BR/BG against HOLD/HLDA) was verified, so those parts of the topic have cards but no PYQ evidence",
+      "the 2004 Q.68 numbering is recorded both as Q.68 (GATE Overflow) and Q.20 (question indexes), and one answer on that page reaches 0.2% instead of 0.1%; the disagreement is recorded, not resolved"
+     ]
     },
     {
      "slug": "instruction-pipelining-and-hazards",

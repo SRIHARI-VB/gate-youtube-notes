@@ -1,0 +1,90 @@
+{
+  "id": "interrupt-driven-io-the-handshake",
+  "title": "Interrupt-Driven I/O: Who Signals Whom, and In What Order",
+  "priority": "P1",
+  "order": 536,
+  "unit": "I/O Interface: Interrupt and DMA",
+  "quickIdea": "Instead of the CPU asking, the interface tells: when the device is ready the interface raises an interrupt request, the CPU finishes the instruction it is on and branches to that device's service routine. The waiting disappears; the per-word work does not.",
+  "remember": [
+    "Sequence: the CPU issues the read or write command and returns to other work; the interface watches the device; when data is ready the interface raises its interrupt request; the CPU acknowledges, finishes the current instruction, saves its state and enters the service routine; the routine moves the word and acknowledges the device; control returns.",
+    "What is gained is the wait, not the work: the CPU still executes the load and store for every word, so the cost is one interrupt and one service routine per word.",
+    "The interface needs a request line, an acknowledge line, and an enable (mask) bit so the device can be silenced while its handler runs.",
+    "Because interrupts are asynchronous, they are taken at instruction boundaries, never half way through an instruction.",
+    "Several devices sharing one request line is the normal case, which is why priority resolution (daisy chain, polling, encoder) is part of the mechanism rather than an optional extra."
+  ],
+  "example": {
+    "prompt": "A 500-byte block is moved by an interrupt-driven routine whose loop is: load a byte from the device, store it to memory, increment the address, decrement the count, branch if non-zero. Load and store take 2 cycles, the other three statements 1 cycle each, and the two initialisations 1 cycle each. What does the transfer cost?",
+    "work": "Per byte: 2 + 2 + 1 + 1 + 1 = 7 cycles. For 500 bytes: 3500 cycles. Plus the two initialisations: 3502 cycles. That is the CPU time for the block, and it is paid whether the device is fast or slow.",
+    "answer": "3502 cycles - the same figure GATE CSE 2011 Q.28 uses as the interrupt-driven side of its speedup."
+  },
+  "gateAngle": "GATE asks two things here. Conceptually, what the interrupt scheme removes (the wait) and what it does not (the per-word transfer), which is the basis of 2024 Set 1 Q.15 and 2022 Q.17. Quantitatively, the cycle count of the service loop, which is 2011 Q.28.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 1 Q.15 asks which statement is false. Why is 'programmed I/O has better CPU utilisation than interrupt-driven I/O' the false one?",
+      "answer": "Because programmed I/O keeps the CPU in a status-check loop while the device is not ready, which is exactly the waste interrupt-driven I/O removes. Interrupt-driven I/O is better, not worse, on CPU utilisation.",
+      "why": "The other three statements - one word per stolen cycle in cycle stealing, higher throughput in burst mode, faster ISR start with vectored interrupts - are all true."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A device delivers a byte every 1 ms and each interrupt costs 100 us to service. Is interrupt-driven I/O a good fit, and what is the CPU cost?",
+      "answer": "Yes: 1000 interrupts per second x 100 us = 100,000 us = 0.1 s, so 10% of the CPU. That is acceptable, and it is paid only because the device really is producing data.",
+      "why": "The cost now tracks the data rate rather than the poll rate."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same device delivers 500 bytes as one block. What does interrupt-driven I/O cost now, and what does that suggest?",
+      "answer": "500 interrupts x 100 us = 50 ms, that is 0.05 s of CPU for one block. When the block is large the per-word interrupt becomes the bottleneck, which is precisely the case DMA exists for.",
+      "why": "It shows the crossover: interrupt-driven for rare small transfers, DMA for blocks."
+    }
+  ],
+  "trap": {
+    "what": "Saying that in interrupt-driven I/O the data goes from the device to memory without the CPU.",
+    "why": "The CPU still reads the data register and stores to memory for every word. Only the waiting is eliminated. The path through the CPU is what makes the scheme unusable for blocks.",
+    "counterexample": "500 bytes under interrupt-driven I/O costs 3502 cycles of CPU time (2011 Q.28). If the CPU were out of the path the figure would be near zero, and the speedup against DMA would be meaningless."
+  },
+  "check": {
+    "question": "What exactly does the interface do between the CPU's command and the interrupt it raises?",
+    "answer": "It monitors the device on the device's own timing, buffers the data, and raises the request when the status condition the CPU asked for becomes true.",
+    "explanation": "That monitoring is the work the CPU used to do in a polling loop; the interface now does it in hardware."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "programmed-io-polling-and-its-cost",
+    "io-interface-why-it-exists-and-its-registers"
+  ],
+  "sources": [
+    {
+      "kind": "lecture-transcript",
+      "title": "Lecture 34 - Interrupt Driven I/O",
+      "channel": "NPTEL, Computer Organization and Architecture - A Pedagogical Aspect (IIT Guwahati)",
+      "url": "http://www.digimat.in/nptel/courses/video/106103180/lec34.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the opening: why programmed I/O wastes CPU in a status-check loop, the read-command / I/O-module-interrupts-the-CPU sequence, and the three objectives of the interrupt unit"
+    },
+    {
+      "kind": "text",
+      "title": "I/O Organization & Interrupts (romanised Hindi lesson)",
+      "channel": "DSWallah Learn (Hinglish study lesson)",
+      "url": "https://www.dswallah.com/learn/computer-architecture/input-output-organization/",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "read the lesson body: the three techniques compared, the interrupt handling sequence with what is saved, maskable against non-maskable and vectored against non-vectored, the vector table, and memory-mapped against isolated I/O; translated from romanised Hindi into English"
+    },
+    {
+      "kind": "text",
+      "title": "Chapter 6 - Memory and Other I/O Topics (slide deck)",
+      "channel": "Auburn University, ELEC 5200/6200 Computer Architecture",
+      "url": "https://www.eng.auburn.edu/~nelsovp/courses/elec5200_6200/Chapter6%20Memory%20IO.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read the I/O part of the deck: command/status/data registers, memory-mapped against I/O-instruction register mapping, polling, priority interrupts, DMA organisation and operation with bus request and grant, bus mastership, and the DMA/cache and DMA/virtual-memory interactions"
+    }
+  ],
+  "sourceLine": "The read-command / interface-interrupts-the-CPU sequence and the removal of busy waiting: NPTEL IIT Guwahati Lecture 34 (English, read in part). Priority interrupts, the interrupt as an asynchronous exception taken between instructions, and the warning that interrupts cost a mode switch: Auburn ELEC 5200 Chapter 6 (English, read in part). The five-step handling sequence and what is saved: DSWallah Learn, romanised Hindi, translated (read in part).",
+  "videoRefs": []
+}
