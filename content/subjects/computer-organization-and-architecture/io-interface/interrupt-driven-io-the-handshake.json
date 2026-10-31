@@ -86,5 +86,17 @@
     }
   ],
   "sourceLine": "The read-command / interface-interrupts-the-CPU sequence and the removal of busy waiting: NPTEL IIT Guwahati Lecture 34 (English, read in part). Priority interrupts, the interrupt as an asynchronous exception taken between instructions, and the warning that interrupts cost a mode switch: Auburn ELEC 5200 Chapter 6 (English, read in part). The five-step handling sequence and what is saved: DSWallah Learn, romanised Hindi, translated (read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "interrupt-driven I/O: the request line, the service routine, the per-word copy"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

@@ -79,5 +79,18 @@
     }
   ],
   "sourceLine": "The interface unit as the resolver of the CPU-peripheral differences and the three transfer modes: NPTEL IIT Guwahati Lecture 33 (English, read in part). The three-register view and the polling/interrupt distinction stated over it: DSWallah Learn, romanised Hindi, translated (read in part). Command, status and data registers and register mapping: Auburn ELEC 5200 Chapter 6 (English, read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "a device is not a memory: it holds one item and may not be ready",
+        "data, status and control registers; a port is a name, a register is the thing named"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

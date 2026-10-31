@@ -89,5 +89,18 @@
     }
   ],
   "sourceLine": "Daisy chain as positional priority with the acknowledge passed along the chain, plus bus arbitration and the BR/BG handshake: DSWallah Learn, romanised Hindi, translated (read in part, two lessons). Priority interrupts, with the note that a higher-priority device can interrupt a lower-priority handler: Auburn ELEC 5200 Chapter 6 (English, read in part). Maskable against non-maskable and the four interrupt types: DSWallah Learn, romanised Hindi, translated (read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "daisy chaining as hardware ranking, software polling as software ranking",
+        "maskable against non-maskable, and why maskability is not priority"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

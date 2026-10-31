@@ -89,5 +89,17 @@
     }
   ],
   "sourceLine": "The five-step handling sequence, the vector table and what is saved: DSWallah Learn, romanised Hindi, translated (read in part). The interrupt cycle as a branch-and-save-return-address operation with its register transfers: IARE Computer Organization notes (English, read in part). The need for interrupt-driven I/O stated over the same cycle: NPTEL IIT Guwahati Lecture 34 (English, read in part). Both PYQ orderings are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "the five interrupt events Q, P, T, R, S and why the save precedes the jump"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

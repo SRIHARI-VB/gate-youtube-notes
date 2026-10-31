@@ -88,5 +88,17 @@
     }
   ],
   "sourceLine": "The DMA module's registers, including the count register, and its design issues: NPTEL IIT Guwahati Lecture 35 (English, read in part). CPU sets the start address and length, and the controller transfers until complete: Auburn ELEC 5200 Chapter 6 (English, read in part). The DMA transfer sequence: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English). The 456 figure is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "a count register of n bits covers 2^n units, so a transfer count is a ceiling"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

@@ -88,5 +88,18 @@
     }
   ],
   "sourceLine": "Busy waiting as the defect of programmed I/O and the interrupt as its removal: NPTEL IIT Guwahati Lecture 34 (English, read in part). The polling-against-interrupt comparison and its efficiency claim: DSWallah Learn, romanised Hindi, translated (read in part). Polling cost, mode-switch cost of an interrupt, and priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "interrupt gain = programmed interval / interrupt overhead, and the 1000-against-1024 convention",
+        "counting both sides of a software loop against a DMA path"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

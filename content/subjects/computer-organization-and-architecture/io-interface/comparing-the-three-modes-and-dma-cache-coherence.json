@@ -105,15 +105,13 @@
   "links": {
     "mapped_at": "2026-10-31",
     "visual": {
-      "slug": "io-interface",
-      "title": "I/O Interface: Interrupt and DMA",
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
       "level": "topic-level",
       "covers": [
-        "programmed I/O keeps the CPU in the status loop for the whole transfer",
-        "interrupt-driven I/O removes the wait and keeps the per-byte service routine",
-        "DMA removes the per-byte work, with cycle stealing and burst as the two sharing modes"
+        "when DMA is the wrong answer: setup plus completion against n times the per-byte cost"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
     }
   }
 }

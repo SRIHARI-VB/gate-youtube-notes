@@ -11478,202 +11478,501 @@
         "visual: gate-visual-explainer/topics.json slug=memory-interfacing-and-interleaving; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
       ],
       "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "io-interface-why-it-exists-and-its-registers",
+      "title": "Why an I/O Interface Exists, and the Three Registers It Exposes",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "memory-mapped-and-isolated-io",
+      "title": "Memory-Mapped Against Isolated I/O, and How Protection Survives",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "programmed-io-polling-and-its-cost",
+      "title": "Programmed I/O: The Polling Loop and What It Costs",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "interrupt-driven-io-the-handshake",
+      "title": "Interrupt-Driven I/O: Who Signals Whom, and In What Order",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "the-interrupt-cycle-microoperations",
+      "title": "The Interrupt Cycle: What Is Saved, In What Order",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "vectored-versus-non-vectored-interrupts",
+      "title": "Vectored Against Non-Vectored Interrupts",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "interrupt-priority-daisy-chain-and-polling",
+      "title": "Interrupt Priority: Software Polling, Daisy Chain, Parallel Encoder",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "interrupt-overhead-and-polling-versus-interrupt-arithmetic",
+      "title": "Polling Against Interrupts: The Overhead Fraction and Its Ratio",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "dma-controller-registers-and-the-transfer-sequence",
+      "title": "The DMA Controller: Registers, Bus Request and the Transfer Sequence",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "dma-modes-burst-cycle-stealing-transparent",
+      "title": "The Three DMA Modes: Burst, Cycle Stealing, Transparent",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "dma-throughput-and-cycle-stealing-arithmetic",
+      "title": "DMA Arithmetic: Transfer Rate, Stolen Cycles and CPU Overhead",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "dma-count-register-chunking",
+      "title": "One Bus Acquisition Is Only 2^n Units: The Count-Register Limit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "io-interface",
+      "topic": "comparing-the-three-modes-and-dma-cache-coherence",
+      "title": "The Three Modes Side by Side, and What DMA Does to a Cache",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
+      "transcript_status": "not stated",
+      "visual": {
+        "slug": "io-interface-interrupts-dma",
+        "title": "I/O Interface, Interrupts and DMA",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
+        "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
+        "visual url: topics/io-interface-interrupts-dma/index.html",
+        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+      ],
+      "row_verdict": "VISUAL_ONLY"
     }
   ],
   "gaps": [
     {
       "kind": "notes",
-      "placement": "algorithms › asymptotic-analysis",
+      "placement": "algorithms \u203a asymptotic-analysis",
       "detail": "mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8"
     },
     {
       "kind": "notes",
-      "placement": "algorithms › dynamic-programming",
+      "placement": "algorithms \u203a dynamic-programming",
       "detail": "mock unit \"Dynamic Programming\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: 0-1-knapsack 12, all-pairs-shortest-paths-floyd-warshall 12, longest-common-subsequence 12, matrix-chain-multiplication 14"
     },
     {
       "kind": "notes",
-      "placement": "algorithms › greedy-algorithms",
+      "placement": "algorithms \u203a greedy-algorithms",
       "detail": "mock unit \"Greedy Algorithms\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: activity-selection-interval-scheduling 13, fractional-knapsack 13, huffman-coding 12, optimal-merge-patterns 12"
     },
     {
       "kind": "notes",
-      "placement": "algorithms › sorting-divide-conquer",
+      "placement": "algorithms \u203a sorting-divide-conquer",
       "detail": "mock unit \"Divide and Conquer & Sorting\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: inversion-counting 12, linear-time-sorts-counting-radix 12, merge-sort-quick-sort 14, selection-kth-element 12"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › bottom-up-parsing",
-      "detail": "mock unit \"Syntax Analysis: Bottom-Up Parsing\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: lr0-items-parsing 14, lr1-and-lalr1-parsers 13, operator-precedence-parsing 11, slr1-parsing-conflicts 12"
+      "placement": "compiler-design \u203a bottom-up-parsing",
+      "detail": "mock unit \"Syntax Analysis: Bottom-Up Parsing\" (unit_number 3, 75 questions) serves no notes card; the 25 questions added on 2026-10-31 group as LR(0) items & parsing 7, SLR(1) parsing & conflicts 6, LR(1) and LALR(1) parsers 6, Operator-precedence parsing 6; the earlier 50 records carry no subtopic_label. Paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-10-31.html"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › lexical-analysis",
+      "placement": "compiler-design \u203a lexical-analysis",
       "detail": "mock unit \"Lexical Analysis\" (unit_number 1, 75 questions) serves no notes card; subtopic groups: input-buffering-lookahead 16, lex-input-structure 16, regular-expressions-to-lexers 21, tokens-lexemes-patterns 22"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › runtime-code-optimization",
+      "placement": "compiler-design \u203a runtime-code-optimization",
       "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: activation-records-call-stack 12, basic-blocks-and-flow-graphs 13, data-flow-analysis-liveness 12, local-and-loop-optimizations 13"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › sdt-intermediate-code",
+      "placement": "compiler-design \u203a sdt-intermediate-code",
       "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: s-attributed-vs-l-attributed-definitions 13, syntax-trees-dags 12, three-address-code-quadruples-triples 14, type-checking 11"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › top-down-parsing",
+      "placement": "compiler-design \u203a top-down-parsing",
       "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: first-and-follow-sets 21, left-recursion-and-factoring 18, ll1-parsing-tables 18, recursive-descent-parsers 18"
     },
     {
       "kind": "notes",
-      "placement": "computer-architecture › cache-memory",
+      "placement": "computer-architecture \u203a cache-memory",
       "detail": "mock unit \"Memory Hierarchy & Cache Memory\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: cache-hit-miss-penalty 14, direct-associative-setassociative-mapping 14, replacement-algorithms 11, write-policies-write-through-back 11"
     },
     {
       "kind": "notes",
-      "placement": "computer-architecture › memory-management-unit",
+      "placement": "computer-architecture \u203a memory-management-unit",
       "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: dram-sram-organization 13, effective-access-time 11, paging-tlb-hit-ratio 17, segmentation 9"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › data-link-mac",
+      "placement": "computer-networks \u203a data-link-mac",
       "detail": "mock unit \"Data Link Protocols & MAC\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: csma-cd-csma-ca-backoff 10, ethernet-standards-switches-bridges 10, go-back-n-selective-repeat-efficiency 10, pure-and-slotted-aloha 10, stop-and-wait-arq 10"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › ipv4-subnetting",
+      "placement": "computer-networks \u203a ipv4-subnetting",
       "detail": "mock unit \"Network Layer: IP Addressing & Subnetting\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: classful-vs-classless-cidr 12, ipv4-header-format-fragmentation 14, ipv6-basics-differences 11, subnet-masking-supernetting 13"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › network-fundamentals-framing",
+      "placement": "computer-networks \u203a network-fundamentals-framing",
       "detail": "mock unit \"Layering, Physical & Framing\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: error-detection-crc-checksum-hamming 13, framing-bit-byte-stuffing 12, osi-and-tcp-ip-models 13, transmission-delays-bandwidth-delay-product 12"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › routing-protocols",
+      "placement": "computer-networks \u203a routing-protocols",
       "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: arp-rarp-icmp-dhcp-nat 11, bgp-and-path-vector 11, distance-vector-routing-count-to-infinity 14, link-state-routing-ospf-dijkstra 14"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › transport-layer",
+      "placement": "computer-networks \u203a transport-layer",
       "detail": "mock unit \"Transport Layer: TCP, UDP & Congestion\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: congestion-control-slow-start-aimd 12, flow-control-sliding-window 12, tcp-header-three-way-handshake-connection-close 14, udp-datagram-simplicity 12"
     },
     {
       "kind": "notes",
-      "placement": "databases › er-relational-algebra",
+      "placement": "databases \u203a er-relational-algebra",
       "detail": "mock unit \"ER Models & Relational Algebra\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: er-diagrams-cardinality-weak-entities 12, relational-algebra-select-project-join-division 16, relational-model-constraints 12, tuple-and-domain-relational-calculus 10"
     },
     {
       "kind": "notes",
-      "placement": "databases › normalization",
+      "placement": "databases \u203a normalization",
       "detail": "mock unit \"Database Normalization\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: 1nf-2nf-3nf-bcnf 10, closure-of-attribute-sets-keys 10, functional-dependencies-armstrong-axioms 10, lossless-join-dependency-preservation 10, multivalued-dependencies-4nf 10"
     },
     {
       "kind": "notes",
-      "placement": "databases › sql-querying",
+      "placement": "databases \u203a sql-querying",
       "detail": "mock unit \"SQL & Advanced Querying\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: aggregate-functions-group-by-having 10, ddl-dml-dcl 10, joins-outer-joins 10, nested-and-correlated-subqueries 10, views-triggers-constraints 10"
     },
     {
       "kind": "notes",
-      "placement": "databases › transactions-concurrency",
+      "placement": "databases \u203a transactions-concurrency",
       "detail": "mock unit \"Transactions & Concurrency Control\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: acid-properties 10, recoverability-cascadeless 10, schedules-serializability-conflict-view 10, timestamp-ordering-and-deadlocks 10, two-phase-locking-2pl-strict-rigorous 10"
     },
     {
       "kind": "notes",
-      "placement": "digital-logic › combinational-circuits",
+      "placement": "digital-logic \u203a combinational-circuits",
       "detail": "mock unit \"Combinational Circuit Design\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: adders-subtractors 10, code-converters 10, decoders-encoders 10, hazard-and-glitches 10, multiplexers-demultiplexers 10"
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › induction-recursion",
+      "placement": "discrete-mathematics \u203a induction-recursion",
       "detail": "mock unit \"Mathematical Induction & Recursion\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: proof-techniques-and-errors 12, structural-induction 12, weak-strong-induction 14, well-ordering-principle 12"
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › proof-techniques",
+      "placement": "discrete-mathematics \u203a proof-techniques",
       "detail": "mock unit \"Logic & Proof Techniques\" (unit_number 16, 75 questions) serves no notes card; subtopic groups: biconditional-iff-proofs 8, counterexamples 17, direct-contradiction-contrapositive 37, necessity-vs-sufficiency 13"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › deadlocks",
+      "placement": "operating-systems \u203a deadlocks",
       "detail": "mock unit \"Deadlocks\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: deadlock-detection-recovery 17, deadlock-prevention-avoidance-bankers 23, four-conditions-resource-allocation-graph 20, starvation-vs-deadlock 15"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › memory-paging",
+      "placement": "operating-systems \u203a memory-paging",
       "detail": "mock unit \"Memory Management & Paging\" (unit_number 4, 75 questions) serves no notes card; subtopic groups: contiguous-allocation-first-best-worst-fit 19, inverted-page-tables 18, paging-page-table-structures 20, segmentation-paged-segmentation 18"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › process-scheduling",
+      "placement": "operating-systems \u203a process-scheduling",
       "detail": "mock unit \"Process Management & CPU Scheduling\" (unit_number 1, 75 questions) serves no notes card; subtopic groups: fcfs-sjf-srtf-roundrobin-priority-multilevel 20, preemptive-nonpreemptive-scheduling 17, process-states-pcb 20, threads-user-vs-kernel 18"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › storage-file-systems",
+      "placement": "operating-systems \u203a storage-file-systems",
       "detail": "mock unit \"File Systems & Disk Scheduling\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: access-control-protection 10, disk-scheduling-fcfs-sstf-scan-cscan-look 14, file-allocation-methods-indexed-linked 14, free-space-management 12"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › synchronization-ipc",
+      "placement": "operating-systems \u203a synchronization-ipc",
       "detail": "mock unit \"Inter-Process Communication & Synchronization\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: classic-problems-dining-philosophers-producer-consumer 19, critical-section-problem-peterson 18, hardware-primitives-test-and-set 18, semaphores-binary-counting 20"
     },
     {
       "kind": "notes",
-      "placement": "operating-systems › virtual-memory",
+      "placement": "operating-systems \u203a virtual-memory",
       "detail": "mock unit \"Virtual Memory & Page Replacement\" (unit_number 5, 75 questions) serves no notes card; subtopic groups: Belady's anomaly 16, Demand paging & page-fault rate 21, FIFO, OPT & LRU replacement 19, Thrashing & the working-set model 19"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › c-programming-core",
+      "placement": "programming-data-structures \u203a c-programming-core",
       "detail": "mock unit \"C Programming Foundations\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: control-structures 12, data-types-operators 14, functions-and-parameter-passing 12, recursion-stack-execution 12"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › heaps-priority-queues",
+      "placement": "programming-data-structures \u203a heaps-priority-queues",
       "detail": "mock unit \"Heaps & Priority Queues\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: min-max-heaps 13, heapify-and-build-heap 13 (labels \"Heapify & bottom-up build\" 7 and \"Heapify & build-heap\" 6), heap-sort 12 (labels \"Heap-sort\" 6 and \"Heap sort\" 6), priority-queue-applications 12 (labels \"Priority queues & their applications\" 6 and \"Priority queue applications\" 6)"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › linear-data-structures",
+      "placement": "programming-data-structures \u203a linear-data-structures",
       "detail": "mock unit \"Linear Data Structures\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: arrays-multidimensional 13, queues-circular-queues-deques 12, singly-doubly-circular-linked-lists 12, stacks-applications-infix-postfix 13"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › pointers-memory",
+      "placement": "programming-data-structures \u203a pointers-memory",
       "detail": "mock unit \"Pointers, Memory & Preprocessors\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: dynamic-memory-allocation 12, macro-expansion-scope-lifetime 12, pointer-arithmetic 14, pointers-to-functions 12"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › search-trees",
+      "placement": "programming-data-structures \u203a search-trees",
       "detail": "mock unit \"Binary Search Trees & Balanced Trees\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: avl-trees-rotations 12, b-trees-b-plus-trees 12, bst-insertion-deletion 14, trie-basics 12"
     },
     {
       "kind": "notes",
-      "placement": "programming-data-structures › trees-traversals",
+      "placement": "programming-data-structures \u203a trees-traversals",
       "detail": "mock unit \"Binary Trees & Tree Traversals\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: binary-tree-properties 14, expression-trees 12, threaded-binary-trees 12, tree-traversals-inorder-pre-post 12"
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › cfl-grammars",
+      "placement": "theory-of-computation \u203a cfl-grammars",
       "detail": "mock unit \"Grammars & Context-Free Languages\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: ambiguity-in-grammars 18, cfg-derivation-trees 20, closure-properties-cfl 18, cnf-gnf-normal-forms 19"
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › pushdown-automata",
+      "placement": "theory-of-computation \u203a pushdown-automata",
       "detail": "mock unit \"Pushdown Automata\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: acceptance-empty-store-vs-final-state 17, deterministic-pda 21, equivalence-with-cfg 19, nondeterministic-pda 18"
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › regular-languages-fa",
+      "placement": "theory-of-computation \u203a regular-languages-fa",
       "detail": "mock unit \"Regular Languages & Finite Automata\" (unit_number 1, 100 questions) serves no notes card; subtopic groups: dfa-construction-minimization 32, nfa-to-dfa-subset-construction 22, pumping-lemma-for-regular 22, regular-expressions 24"
     },
     {
       "kind": "notes",
-      "placement": "theory-of-computation › turing-machines-decidability",
+      "placement": "theory-of-computation \u203a turing-machines-decidability",
       "detail": "mock unit \"Turing Machines & Decidability\" (unit_number 4, 75 questions) serves no notes card; subtopic groups: chomsky-hierarchy-summary 15, halting-problem-undecidability 15, recursive-vs-recursively-enumerable 15, rices-theorem-reductions 15, standard-turing-machine-models 15"
     },
     {
@@ -11734,7 +12033,7 @@
     {
       "kind": "notes",
       "placement": "lesson counting-spanning-trees",
-      "detail": "published lesson \"Counting spanning trees: enumeration, deletion-contraction, Pruefer codes and the Matrix-Tree theorem\" (PUBLISHED) serves no notes card; closest existing card is discrete-mathematics › graphs › paths-cycles-and-components, which touches spanning trees only through the n-1 edge count"
+      "detail": "published lesson \"Counting spanning trees: enumeration, deletion-contraction, Pruefer codes and the Matrix-Tree theorem\" (PUBLISHED) serves no notes card; closest existing card is discrete-mathematics \u203a graphs \u203a paths-cycles-and-components, which touches spanning trees only through the n-1 edge count"
     },
     {
       "kind": "notes",
@@ -11845,11 +12144,6 @@
       "kind": "notes",
       "placement": "lesson integrity-constraints-keys-and-null",
       "detail": "published lesson \"Integrity constraints: keys, foreign keys and NULL\" (PUBLISHED) serves no notes card"
-    },
-    {
-      "kind": "notes",
-      "placement": "lesson io-interface-interrupts-dma",
-      "detail": "published lesson \"I/O interface, interrupts and DMA\" (PUBLISHED) serves no notes card"
     },
     {
       "kind": "notes",
@@ -11998,22 +12292,22 @@
     },
     {
       "kind": "visual",
-      "placement": "digital-logic › boolean-algebra-and-minimization › xor-and-xnor-algebra",
+      "placement": "digital-logic \u203a boolean-algebra-and-minimization \u203a xor-and-xnor-algebra",
       "detail": "no published lesson covers XOR/XNOR algebra; boolean-algebra-and-minimisation (PUBLISHED) never introduces XOR, and no mock unit matches"
     },
     {
       "kind": "visual",
-      "placement": "digital-logic › boolean-algebra-and-minimization › five-variable-karnaugh-map",
+      "placement": "digital-logic \u203a boolean-algebra-and-minimization \u203a five-variable-karnaugh-map",
       "detail": "no published lesson covers the five-variable map; boolean-algebra-and-minimisation stops at four variables and then switches to Quine-McCluskey, and no mock unit matches"
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › graphs › graph-isomorphism",
+      "placement": "discrete-mathematics \u203a graphs \u203a graph-isomorphism",
       "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 25 questions) holds an Isomorphism group of 5 questions and no notes card covers graph isomorphism; the only isomorphism cards are group isomorphism under monoids-and-groups"
     },
     {
       "kind": "notes",
-      "placement": "discrete-mathematics › graphs › graph-representations",
+      "placement": "discrete-mathematics \u203a graphs \u203a graph-representations",
       "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 25 questions) holds a Graph representations group of 4 questions; graph-vocabulary-and-degree-sum mentions the adjacency matrix only in passing, so the coverage is partial at best"
     },
     {
@@ -12028,52 +12322,52 @@
     },
     {
       "kind": "notes",
-      "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache",
+      "placement": "computer-organization-and-architecture \u203a memory-hierarchy-and-cache",
       "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, unit_slug memory-management-unit, 50 questions, papers gate_co_mock_4_2026-10-30.html) serves no notes card; subtopic_label groups: DRAM & SRAM organization 13, Paging & TLB hit ratio 17, Effective access time 11, Segmentation 9"
     },
     {
       "kind": "mock",
-      "placement": "computer-organization-and-architecture › instruction-set-and-addressing-modes",
+      "placement": "computer-organization-and-architecture \u203a instruction-set-and-addressing-modes",
       "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only. Unit 1 is the missing unit, per the syllabus order in content/syllabus.json"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › runtime-environments",
+      "placement": "compiler-design \u203a runtime-environments",
       "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions, group activation-records-call-stack 12) also exercises"
     },
     {
       "kind": "notes",
-      "placement": "computer-networks › application-layer-security",
+      "placement": "computer-networks \u203a application-layer-security",
       "detail": "mock unit \"Application Layer & Network Security\" (unit_number 6, 25 questions) serves no notes card; subtopic groups: DNS hierarchy & resolution 6, Digital signatures & firewalls 5, HTTP, HTTPS, SMTP & FTP 7, Symmetric, asymmetric & RSA 7"
     },
     {
       "kind": "visual",
-      "placement": "digital-logic › computer-arithmetic › fixed-point-fraction-multiplication",
+      "placement": "digital-logic \u203a computer-arithmetic \u203a fixed-point-fraction-multiplication",
       "detail": "no published lesson covers multiplication in Q format: arithmetic-algorithms-booth-division-cla never mentions float or Q format, and number-representation-and-arithmetic stops at layout, bias and rounding; no mock unit covers computer arithmetic"
     },
     {
       "kind": "visual",
-      "placement": "digital-logic › computer-arithmetic › floating-point-multiplication-and-division",
+      "placement": "digital-logic \u203a computer-arithmetic \u203a floating-point-multiplication-and-division",
       "detail": "no published lesson covers floating-point multiplication or division: number-representation-and-arithmetic stops at decode, denormals and rounding, arithmetic-algorithms-booth-division-cla is fixed-point only; no mock unit covers computer arithmetic"
     },
     {
       "kind": "notes",
-      "placement": "compiler-design › target-code-generation",
+      "placement": "compiler-design \u203a target-code-generation",
       "detail": "visual lesson target-code-generation (PUBLISHED, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no compiler-design subject (6 subjects, 319 cards). The lesson covers instruction selection from a DAG, Sethi-Ullman minimum registers, liveness, interference-graph colouring, spilling and peephole optimisation. The mocks already hold compiler-design unit runtime-code-optimization (50 questions)."
     },
     {
       "kind": "visual",
-      "placement": "computer-organization-and-architecture › alu-design › comparison-and-slt",
+      "placement": "computer-organization-and-architecture \u203a alu-design \u203a comparison-and-slt",
       "detail": "no published lesson covers comparison or slt; alu-and-control-unit-design stops at subtraction (A + not B + 1) and the four flags. Extend topics/alu-and-control-unit-design rather than add a lesson."
     },
     {
       "kind": "visual",
-      "placement": "computer-organization-and-architecture › alu-design › shifter-and-barrel-shift",
+      "placement": "computer-organization-and-architecture \u203a alu-design \u203a shifter-and-barrel-shift",
       "detail": "no published lesson covers the shifter or barrel shift; neither transcript.md nor the syllabus-coverage microtopics of alu-and-control-unit-design mention it. Extend topics/alu-and-control-unit-design with a barrel-shift scene."
     },
     {
       "kind": "notes",
-      "placement": "computer-organization-and-architecture › pipelining",
+      "placement": "computer-organization-and-architecture \u203a pipelining",
       "detail": "mock unit \"Instruction Pipelining\" (unit_number 5, 25 questions) serves no notes card; subtopic groups: pipeline-stages-throughput 7, structural-hazards 6, data-hazards-forwarding 6, control-hazards-branch-penalty 6; paper computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
     },
     {
@@ -12083,8 +12377,13 @@
     },
     {
       "kind": "mock",
-      "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache › memory-interfacing-chips-and-chip-select",
+      "placement": "computer-organization-and-architecture \u203a memory-hierarchy-and-cache \u203a memory-interfacing-chips-and-chip-select",
       "detail": "no computer-architecture unit holds a chip-interfacing, chip-select or decoder question; the nearest group is DRAM & SRAM organization in memory-management-unit, which covers the SRAM/DRAM split and one low-order-interleaving item (CO-U4-Q33) only"
+    },
+    {
+      "kind": "mock",
+      "placement": "computer-organization-and-architecture \u203a io-interface",
+      "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit and 5 pipelining, and no I/O group. Create computer-architecture/io-interface/ as unit 6, 25 questions at 15 MCQ / 5 MSQ / 5 NAT across the lesson's nine subtopics (registers, memory-mapped vs isolated, programmed I/O, interrupt cycle, vectored, priority, DMA handshake, DMA modes, throughput arithmetic)"
     }
   ]
 }

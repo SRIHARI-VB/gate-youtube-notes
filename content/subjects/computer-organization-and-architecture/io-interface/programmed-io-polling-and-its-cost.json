@@ -86,5 +86,18 @@
     }
   ],
   "sourceLine": "Programmed I/O as a status-check loop in which the processor is busy doing nothing: NPTEL IIT Guwahati Lecture 34 (English, read in part). Polling as the CPU repeatedly checking status bits, and the busy-wait criticism: Auburn ELEC 5200 Chapter 6 (English, read in part). The three-technique comparison with polling as busy waiting: DSWallah Learn, romanised Hindi, translated (read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "programmed I/O: the ask-again loop and 100 per cent CPU occupancy",
+        "polling cost scales with the poll rate, not the event rate"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

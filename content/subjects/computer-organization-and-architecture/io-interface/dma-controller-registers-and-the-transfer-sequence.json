@@ -88,5 +88,18 @@
     }
   ],
   "sourceLine": "DMA as the removal of the processor from the data path, and the design objectives of a DMA module: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA organisation and operation - CPU programmes the registers, bus request and grant, the controller transfers until complete, cache and virtual-memory interactions: Auburn ELEC 5200 Chapter 6 (English, read in part). The HOLD/HLDA handshake in which the CPU releases the bus: IARE Computer Organization notes (English, read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "DMA address, count and control registers",
+        "the BR/BG handshake and exclusive bus mastership"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

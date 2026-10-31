@@ -88,5 +88,19 @@
     }
   ],
   "sourceLine": "Memory-mapped against I/O-instruction register mapping, with the note that the operating system's address translation makes the registers kernel-only: Auburn ELEC 5200 Chapter 6 (English, read in part). Memory-mapped against isolated I/O with the x86 and ARM examples: DSWallah Learn, romanised Hindi, translated (read in part). The need for an I/O module and the addressing of devices: NPTEL IIT Guwahati Lecture 33 (English, read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "memory-mapped I/O: registers inside the address space, reached by load and store",
+        "isolated (port-mapped) I/O: a separate space, IN and OUT, one M/IO control line",
+        "the address budget 2^k - p, worked at 16 bits and 256 ports giving 65280"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

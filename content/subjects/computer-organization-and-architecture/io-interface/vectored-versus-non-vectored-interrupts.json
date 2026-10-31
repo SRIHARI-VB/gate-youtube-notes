@@ -87,5 +87,17 @@
     }
   ],
   "sourceLine": "Vectored against non-vectored interrupts, the vector table, and the extra identification step in the non-vectored case: DSWallah Learn, romanised Hindi, translated (read in part). Interrupts as exceptions carrying the cause, with priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The interrupt sequence the vector feeds: NPTEL IIT Guwahati Lecture 34 (English, read in part).",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "vectored against non-vectored: who supplies the new program counter"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }

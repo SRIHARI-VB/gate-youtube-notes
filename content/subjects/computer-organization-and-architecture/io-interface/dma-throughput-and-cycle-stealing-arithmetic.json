@@ -90,5 +90,19 @@
     }
   ],
   "sourceLine": "DMA transfer and the need for it: NPTEL IIT Guwahati Lecture 35 (English, read in part). The DMA total-time expression as bus request time plus transfer time plus bus release time, which is where the overhead accounting comes from: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English, read in full article). Cycle stealing against burst with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). All three PYQ figures are recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "mapped_at": "2026-10-31",
+    "visual": {
+      "slug": "io-interface-interrupts-dma",
+      "title": "I/O Interface, Interrupts and DMA",
+      "level": "topic-level",
+      "covers": [
+        "throughput = clock rate x stolen fraction x bits per stolen cycle",
+        "CPU fraction = cost per event / interval between events, licensed only while cost < interval",
+        "disk cycle stealing: 40 ns over 152.588 ns = 26.2 per cent, and the whole-cycle 25"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    }
+  }
 }
