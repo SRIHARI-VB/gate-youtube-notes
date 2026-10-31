@@ -61,5 +61,45 @@
     "question": "In a 40-instruction program the EX unit takes 2 cycles for 10 instructions and 1 cycle for the rest. How many stall cycles does EX cause?",
     "answer": "10 cycles: each of the 10 long instructions costs one extra cycle.",
     "explanation": "ceil(2) - 1 = 1 per long instruction, and the other 30 take one cycle so cost nothing."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "a structural hazard is a collision over hardware, not over a register",
+        "two repairs: duplicate the resource, or stall",
+        "a unit taking t cycles costs ceil(t) - 1 extra cycles per instruction"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

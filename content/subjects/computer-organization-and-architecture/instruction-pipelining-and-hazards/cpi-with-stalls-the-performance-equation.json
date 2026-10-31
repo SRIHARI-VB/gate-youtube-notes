@@ -62,5 +62,44 @@
     "question": "A 5-stage pipeline has ideal CPI 1. Twenty percent of instructions stall 2 cycles for data hazards and 20 percent stall 3 cycles for control hazards, at the same clock as the non-pipelined machine whose CPI is 6. What is the speed-up?",
     "answer": "3.0: pipelined CPI = 1 + 0.4 + 0.6 = 2, and 6/2 = 3.",
     "explanation": "This is GATE CSE 2024 Set 2 Q.58 in words; the fractions are multiplied by the stall each class causes and added to the base cycle."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "CPI = 1 + sum of (fraction x stalls), checked against simulation",
+        "speedup = (CPI_non x T_non) / (CPI_pipe x T_pipe); the CPI ratio alone is wrong when the clock changes"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

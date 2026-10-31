@@ -62,5 +62,44 @@
     "answer": "10 cycles: I1 finishes at cycle 5, I3 at cycle 7, and I6 runs from cycle 6 to cycle 10.",
     "explanation": "I4 and I5 are fetched in cycles 4 and 5 and cancelled when I3's EX stage in cycle 5 decides the branch; I6 is fetched in cycle 6 and its WB is cycle 10."
   },
-  "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty"
+  "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "branch penalty = resolution stage - 1",
+        "a deeper pipeline has a smaller beat and a larger branch penalty"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+  }
 }

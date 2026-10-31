@@ -62,5 +62,46 @@
     "question": "I1: ADD R1, R2, R3; I2: MUL R7, R1, R3; I3: ADD R3, R2, R4. Name every dependence on R3.",
     "answer": "I1 writes and I2 reads R3: RAW. I2 reads and I3 writes R3: WAR. I1 writes and I3 writes: WAW.",
     "explanation": "One register, three accesses in the order write, read, write: the first pair is RAW, the second WAR, the outer pair WAW."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "read-after-write as the true dependence; a value flows",
+        "write-after-read as an anti-dependence; a name is reused",
+        "write-after-write as an output dependence; two writers",
+        "in an in-order five-stage pipeline only RAW causes a stall"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

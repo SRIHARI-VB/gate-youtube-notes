@@ -61,5 +61,44 @@
     "question": "A pipeline's cycle time falls from 5 ns to 4 ns with no change in CPI. What is the throughput increase?",
     "answer": "25 percent: 1/4 against 1/5 is a ratio of 5/4.",
     "explanation": "The rate rises by the ratio of the old period to the new one, 5/4, which is a 25 percent increase - not the 20 percent by which the period fell."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "throughput change is a ratio of periods and is independent of n",
+        "latency against throughput; only the second improves"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

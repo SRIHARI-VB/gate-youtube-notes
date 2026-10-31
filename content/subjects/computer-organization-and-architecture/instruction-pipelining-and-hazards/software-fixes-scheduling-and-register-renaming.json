@@ -62,5 +62,43 @@
     "question": "Two instructions write the same register in program order. Name the dependence, say whether it stalls an in-order pipeline, and say what removes it in an out-of-order one.",
     "answer": "WAW, an output dependence; it does not stall an in-order pipeline; register renaming removes it out of order.",
     "explanation": "In order, the first write completes before the second begins, so the final value is correct; out of order the second could finish first, and renaming gives each write its own physical register."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "register renaming removes WAR and WAW and never RAW"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

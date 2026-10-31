@@ -9206,41 +9206,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "graph-theory-fundamentals",
      "unit_name": "Graph Theory Fundamentals",
      "unit_number": 9,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Degree sum & handshaking lemma",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Graph representations",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Walks, trails, paths & circuits",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Complete & bipartite graphs",
-       "questions": 3
+       "questions": 7
       },
       {
        "label": "Graph connectivity",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Isomorphism",
-       "questions": 5
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9327,41 +9327,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "graph-theory-fundamentals",
      "unit_name": "Graph Theory Fundamentals",
      "unit_number": 9,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Degree sum & handshaking lemma",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Graph representations",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Walks, trails, paths & circuits",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Complete & bipartite graphs",
-       "questions": 3
+       "questions": 7
       },
       {
        "label": "Graph connectivity",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Isomorphism",
-       "questions": 5
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9450,41 +9450,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "graph-theory-fundamentals",
      "unit_name": "Graph Theory Fundamentals",
      "unit_number": 9,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Degree sum & handshaking lemma",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Graph representations",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Walks, trails, paths & circuits",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Complete & bipartite graphs",
-       "questions": 3
+       "questions": 7
       },
       {
        "label": "Graph connectivity",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Isomorphism",
-       "questions": 5
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9570,41 +9570,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "graph-theory-fundamentals",
      "unit_name": "Graph Theory Fundamentals",
      "unit_number": 9,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Degree sum & handshaking lemma",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Graph representations",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Walks, trails, paths & circuits",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Complete & bipartite graphs",
-       "questions": 3
+       "questions": 7
       },
       {
        "label": "Graph connectivity",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Isomorphism",
-       "questions": 5
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9692,7 +9692,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "graph-theory-fundamentals",
+     "unit_name": "Graph Theory Fundamentals",
+     "unit_number": 9,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Degree sum & handshaking lemma",
+       "questions": 8
+      },
+      {
+       "label": "Graph representations",
+       "questions": 8
+      },
+      {
+       "label": "Walks, trails, paths & circuits",
+       "questions": 10
+      },
+      {
+       "label": "Complete & bipartite graphs",
+       "questions": 7
+      },
+      {
+       "label": "Graph connectivity",
+       "questions": 8
+      },
+      {
+       "label": "Isomorphism",
+       "questions": 9
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -9783,41 +9817,41 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
     },
-    "mapped_at": "2026-10-30",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "graph-theory-fundamentals",
      "unit_name": "Graph Theory Fundamentals",
      "unit_number": 9,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Degree sum & handshaking lemma",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Graph representations",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Walks, trails, paths & circuits",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Complete & bipartite graphs",
-       "questions": 3
+       "questions": 7
       },
       {
        "label": "Graph connectivity",
-       "questions": 4
+       "questions": 8
       },
       {
        "label": "Isomorphism",
-       "questions": 5
+       "questions": 9
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -41329,6 +41363,46 @@ window.GATE_DATA = {
     "answer": "4 + 20 - 1 = 23 cycles, and the first instruction finishes at the end of cycle 4.",
     "explanation": "The fill is k - 1 = 3 cycles before the second instruction can start leaving, so the total is n + k - 1 and the first completion is at cycle k."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "latency against throughput; only the second improves",
+      "the cycle diagram read by rows, columns and diagonals",
+      "k + n - 1 cycles for n instructions, checked by simulation"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json"
@@ -41398,6 +41472,46 @@ window.GATE_DATA = {
     "answer": "9 ns, so 1/9 GHz, about 111.1 MHz.",
     "explanation": "The slowest stage is 8 ns and one latch delay is added once: 8 + 1 = 9 ns. The frequency is the reciprocal of the period."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "clock period = largest stage delay + one latch delay, not k latches",
+      "an unbalanced pipeline idles its fast stages; adding a stage can hurt",
+      "splitting the bottleneck stage lowers the beat; splitting a fast stage does not"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json"
@@ -41466,6 +41580,45 @@ window.GATE_DATA = {
     "answer": "900/99 = 9.09 and efficiency 9.09/10 = 0.909.",
     "explanation": "Cycles = 10 + 90 - 1 = 99, unpipelined work = 90 x 10 = 900 stage-slots, so S = 900/99 = 9.09; dividing by k gives the fraction of the ideal gain realised."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "ideal speedup k n / (k + n - 1), bounded by k and approached as n grows",
+      "the first instruction is not faster; n = 1 gives speedup exactly 1"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json"
@@ -41533,6 +41686,45 @@ window.GATE_DATA = {
     "question": "A pipeline's cycle time falls from 5 ns to 4 ns with no change in CPI. What is the throughput increase?",
     "answer": "25 percent: 1/4 against 1/5 is a ratio of 5/4.",
     "explanation": "The rate rises by the ratio of the old period to the new one, 5/4, which is a 25 percent increase - not the 20 percent by which the period fell."
+   },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "throughput change is a ratio of periods and is independent of n",
+      "latency against throughput; only the second improves"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41603,6 +41795,45 @@ window.GATE_DATA = {
     "answer": "3.0: pipelined CPI = 1 + 0.4 + 0.6 = 2, and 6/2 = 3.",
     "explanation": "This is GATE CSE 2024 Set 2 Q.58 in words; the fractions are multiplied by the stall each class causes and added to the base cycle."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "CPI = 1 + sum of (fraction x stalls), checked against simulation",
+      "speedup = (CPI_non x T_non) / (CPI_pipe x T_pipe); the CPI ratio alone is wrong when the clock changes"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json"
@@ -41670,6 +41901,46 @@ window.GATE_DATA = {
     "question": "In a 40-instruction program the EX unit takes 2 cycles for 10 instructions and 1 cycle for the rest. How many stall cycles does EX cause?",
     "answer": "10 cycles: each of the 10 long instructions costs one extra cycle.",
     "explanation": "ceil(2) - 1 = 1 per long instruction, and the other 30 take one cycle so cost nothing."
+   },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "a structural hazard is a collision over hardware, not over a register",
+      "two repairs: duplicate the resource, or stall",
+      "a unit taking t cycles costs ceil(t) - 1 extra cycles per instruction"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41740,6 +42011,47 @@ window.GATE_DATA = {
     "answer": "I1 writes and I2 reads R3: RAW. I2 reads and I3 writes R3: WAR. I1 writes and I3 writes: WAW.",
     "explanation": "One register, three accesses in the order write, read, write: the first pair is RAW, the second WAR, the outer pair WAW."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "read-after-write as the true dependence; a value flows",
+      "write-after-read as an anti-dependence; a name is reused",
+      "write-after-write as an output dependence; two writers",
+      "in an in-order five-stage pipeline only RAW causes a stall"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json"
@@ -41807,6 +42119,46 @@ window.GATE_DATA = {
     "question": "A sequence has 5 RAW pairs of which one is a load-use pair, and the pipeline has full forwarding. How many stall cycles does the sequence need?",
     "answer": "1 cycle, from the load-use pair alone.",
     "explanation": "The four ALU-to-ALU pairs are covered by the EX/MEM path at zero cost; only the load-use pair pays its unavoidable single cycle."
+   },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "forwarding paths EX/MEM -> EX and MEM/WB -> EX",
+      "an arithmetic producer needs zero stalls with forwarding",
+      "a load followed by its consumer needs exactly one stall, always"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -41877,6 +42229,45 @@ window.GATE_DATA = {
     "explanation": "The base pipeline is k + n - 1 = 24; each bubble is one more column, so the stalls are added, not multiplied."
    },
    "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "a load followed by its consumer needs exactly one stall, always",
+      "the stall gap depends on which stage reads the registers"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json"
@@ -41945,6 +42336,44 @@ window.GATE_DATA = {
     "question": "Two instructions write the same register in program order. Name the dependence, say whether it stalls an in-order pipeline, and say what removes it in an out-of-order one.",
     "answer": "WAW, an output dependence; it does not stall an in-order pipeline; register renaming removes it out of order.",
     "explanation": "In order, the first write completes before the second begins, so the final value is correct; out of order the second could finish first, and renaming gives each write its own physical register."
+   },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "register renaming removes WAR and WAW and never RAW"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
@@ -42015,6 +42444,45 @@ window.GATE_DATA = {
     "explanation": "I4 and I5 are fetched in cycles 4 and 5 and cancelled when I3's EX stage in cycle 5 decides the branch; I6 is fetched in cycle 6 and its WB is cycle 10."
    },
    "visual": "computer-organization-and-architecture/instruction-pipelining-and-hazards/load-use-bubble-and-branch-penalty",
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "branch penalty = resolution stage - 1",
+      "a deeper pipeline has a smaller beat and a larger branch penalty"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json"
@@ -42083,6 +42551,44 @@ window.GATE_DATA = {
     "answer": "1 + 0.4 x 0.25 x 3 = 1.30.",
     "explanation": "The expected stall per branch is (1 - 0.75) x 3 = 0.75 cycles, and 40 percent of instructions are branches, so 0.3 cycles are added to the base cycle."
    },
+   "links": {
+    "visual": {
+     "slug": "pipelining-and-hazards",
+     "title": "Pipelining and Hazards",
+     "level": "topic-level",
+     "covers": [
+      "a predictor turns the penalty into (1 - accuracy) x penalty"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "pipelining",
+     "unit_name": "Instruction Pipelining",
+     "unit_number": 5,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Pipeline stages & throughput",
+       "questions": 7
+      },
+      {
+       "label": "Structural hazards",
+       "questions": 6
+      },
+      {
+       "label": "Data hazards & forwarding",
+       "questions": 6
+      },
+      {
+       "label": "Control hazards & branch penalty",
+       "questions": 6
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
+   },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",
    "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json"
@@ -42148,6 +42654,9 @@ window.GATE_DATA = {
     "question": "A 3-wide superscalar machine issues 3 instructions per cycle in the steady state. What is its CPI, and what limits it in practice?",
     "answer": "A CPI of 1/3 in the ideal case, limited in practice by dependences, branch penalties and the number of functional units.",
     "explanation": "CPI and IPC are reciprocals; the ideal 3 per cycle is an upper bound that real programs approach only in long independent stretches."
+   },
+   "links": {
+    "mapped_at": "2026-10-31"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-pipelining-and-hazards",

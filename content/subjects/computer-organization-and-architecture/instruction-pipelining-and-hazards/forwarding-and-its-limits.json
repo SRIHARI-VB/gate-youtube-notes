@@ -61,5 +61,45 @@
     "question": "A sequence has 5 RAW pairs of which one is a load-use pair, and the pipeline has full forwarding. How many stall cycles does the sequence need?",
     "answer": "1 cycle, from the load-use pair alone.",
     "explanation": "The four ALU-to-ALU pairs are covered by the EX/MEM path at zero cost; only the load-use pair pays its unavoidable single cycle."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "forwarding paths EX/MEM -> EX and MEM/WB -> EX",
+        "an arithmetic producer needs zero stalls with forwarding",
+        "a load followed by its consumer needs exactly one stall, always"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }

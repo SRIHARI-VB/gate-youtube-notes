@@ -2630,7 +2630,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/graph-vocabulary-and-degree-sum.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label; paper from runs[] run 10 file discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html; matching subtopic_label = Degree sum & handshaking lemma"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Degree sum & handshaking lemma"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -2638,7 +2638,7 @@
         "unit_slug": "graph-theory-fundamentals",
         "unit_name": "Graph Theory Fundamentals",
         "unit_number": 9,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Degree sum & handshaking lemma",
           "Graph representations",
@@ -2669,7 +2669,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/paths-cycles-and-components.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label; paper from runs[] run 10 file discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html; matching subtopic_label = Walks, trails, paths & circuits"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Walks, trails, paths & circuits"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -2677,7 +2677,7 @@
         "unit_slug": "graph-theory-fundamentals",
         "unit_name": "Graph Theory Fundamentals",
         "unit_number": 9,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Degree sum & handshaking lemma",
           "Graph representations",
@@ -2708,7 +2708,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/cut-vertices-bridges-and-blocks.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label; paper from runs[] run 10 file discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html; matching subtopic_label = Graph connectivity"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Graph connectivity"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -2716,7 +2716,7 @@
         "unit_slug": "graph-theory-fundamentals",
         "unit_name": "Graph Theory Fundamentals",
         "unit_number": 9,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Degree sum & handshaking lemma",
           "Graph representations",
@@ -2747,7 +2747,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/vertex-and-edge-connectivity.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label; paper from runs[] run 10 file discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html; matching subtopic_label = Graph connectivity"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Graph connectivity"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -2755,7 +2755,7 @@
         "unit_slug": "graph-theory-fundamentals",
         "unit_name": "Graph Theory Fundamentals",
         "unit_number": 9,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Degree sum & handshaking lemma",
           "Graph representations",
@@ -2785,9 +2785,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/graphs-connectivity/index.html"
+        "visual url: topics/graphs-connectivity/index.html",
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Walks, trails, paths & circuits"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "graph-theory-fundamentals",
+        "unit_name": "Graph Theory Fundamentals",
+        "unit_number": 9,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Degree sum & handshaking lemma",
+          "Graph representations",
+          "Walks, trails, paths & circuits",
+          "Complete & bipartite graphs",
+          "Graph connectivity",
+          "Isomorphism"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -2808,7 +2825,7 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/bipartite-graphs-and-odd-cycles.json",
         "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/graphs-connectivity/index.html",
-        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label; paper from runs[] run 10 file discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-30.html; matching subtopic_label = Complete & bipartite graphs"
+        "mock: gate-cse-mocks/discrete-mathematics/question-bank/master_bank.json questions[] filtered on unit_number = 9, grouped by subtopic_label (6 groups, 50 records); paper from runs[] run 11 -> discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html; matching subtopic_label = Complete & bipartite graphs"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -2816,7 +2833,7 @@
         "unit_slug": "graph-theory-fundamentals",
         "unit_name": "Graph Theory Fundamentals",
         "unit_number": 9,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Degree sum & handshaking lemma",
           "Graph representations",
@@ -11777,6 +11794,453 @@
         "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
       ],
       "row_verdict": "VISUAL_ONLY"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "pipeline-idea-and-the-space-time-diagram",
+      "title": "The Pipeline Idea, and Reading the Space-Time Diagram",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Pipeline stages & throughput",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "pipeline-registers-and-the-clock-period",
+      "title": "Pipeline Registers, and Why the Clock Period Is the Slowest Stage",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Pipeline stages & throughput",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "ideal-timing-and-speedup-formula",
+      "title": "Ideal Timing and the Speed-up Formula",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Pipeline stages & throughput",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "throughput-efficiency-and-the-clock-rate-trade",
+      "title": "Throughput, Efficiency and the Clock-rate Trade",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/throughput-efficiency-and-the-clock-rate-trade.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/throughput-efficiency-and-the-clock-rate-trade.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Pipeline stages & throughput",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "cpi-with-stalls-the-performance-equation",
+      "title": "CPI with Stalls: the Performance Equation GATE Actually Marks",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Pipeline stages & throughput",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "structural-hazards",
+      "title": "Structural Hazards: When Two Instructions Want One Unit",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/structural-hazards.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/structural-hazards.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Structural hazards",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "data-hazard-types-raw-war-waw",
+      "title": "Data Hazards: RAW, WAR and WAW, and Which Ones Actually Stall",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Data hazards & forwarding",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "forwarding-and-its-limits",
+      "title": "Forwarding: What It Fixes, What It Cannot, and What It Costs",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/forwarding-and-its-limits.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/forwarding-and-its-limits.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Data hazards & forwarding",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "stalls-interlocks-and-bubbles",
+      "title": "Stalls, Interlocks and Bubbles: Counting the Cycles",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Data hazards & forwarding",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "software-fixes-scheduling-and-register-renaming",
+      "title": "Software Fixes: Scheduling and Register Renaming",
+      "priority": "P2",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/software-fixes-scheduling-and-register-renaming.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/software-fixes-scheduling-and-register-renaming.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Data hazards & forwarding",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "control-hazards-and-the-branch-penalty",
+      "title": "Control Hazards and the Branch Penalty",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Control hazards & branch penalty",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "branch-prediction-and-its-payoff",
+      "title": "Branch Prediction and Its Payoff",
+      "priority": "P1",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json",
+      "transcript_status": "not stated",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "pipelining",
+        "unit_name": "Instruction Pipelining",
+        "unit_number": 5,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Pipeline stages & throughput",
+          "Structural hazards",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty"
+        ],
+        "verdict": "MOCK_READY"
+      },
+      "visual": {
+        "slug": "pipelining-and-hazards",
+        "title": "Pipelining and Hazards",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      },
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] filtered on unit_number = 5, grouped by subtopic_label (4 groups, 25 records); paper from runs[] last entry -> computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html; matching subtopic_label = Control hazards & branch penalty",
+        "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
+      ],
+      "row_verdict": "BOTH"
+    },
+    {
+      "subject": "computer-organization-and-architecture",
+      "group": "instruction-pipelining-and-hazards",
+      "topic": "superscalar-and-ilp-beyond-one-per-cycle",
+      "title": "Superscalar Issue and ILP: Beyond One Instruction per Cycle",
+      "priority": "P3",
+      "path": "subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json",
+      "transcript_status": "not stated",
+      "evidence": [
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/superscalar-and-ilp-beyond-one-per-cycle.json",
+        "mock: unit 5 (pipelining) holds no ILP or superscalar group; the four groups are Pipeline stages & throughput, Structural hazards, Data hazards & forwarding, Control hazards & branch penalty",
+        "visual: no published lesson covers superscalar issue, ILP, VLIW or out-of-order execution; pipelining-and-hazards stops at the branch penalty and CPI"
+      ],
+      "row_verdict": "NEITHER"
     }
   ],
   "gaps": [
@@ -12197,11 +12661,6 @@
     },
     {
       "kind": "notes",
-      "placement": "lesson pipelining-and-hazards",
-      "detail": "published lesson \"Pipelining and hazards\" (PUBLISHED) serves no notes card"
-    },
-    {
-      "kind": "notes",
       "placement": "lesson pointers-in-c",
       "detail": "published lesson \"Pointers in C\" (PUBLISHED) serves no notes card"
     },
@@ -12303,12 +12762,12 @@
     {
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › graph-isomorphism",
-      "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 25 questions) holds an Isomorphism group of 5 questions and no notes card covers graph isomorphism; the only isomorphism cards are group isomorphism under monoids-and-groups"
+      "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 50 questions) holds an Isomorphism group of 9 questions and no notes card covers graph isomorphism; the only isomorphism cards are group isomorphism under monoids-and-groups"
     },
     {
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › graph-representations",
-      "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 25 questions) holds a Graph representations group of 4 questions; graph-vocabulary-and-degree-sum mentions the adjacency matrix only in passing, so the coverage is partial at best"
+      "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 50 questions) holds a Graph representations group of 8 questions on adjacency and incidence matrices; graph-vocabulary-and-degree-sum mentions the adjacency matrix only in passing, so the coverage is partial at best. The published lesson graph-representations already covers the same ground, so the card is the only thing missing"
     },
     {
       "kind": "notes",
@@ -12367,11 +12826,6 @@
     },
     {
       "kind": "notes",
-      "placement": "computer-organization-and-architecture › pipelining",
-      "detail": "mock unit \"Instruction Pipelining\" (unit_number 5, 25 questions) serves no notes card; subtopic groups: pipeline-stages-throughput 7, structural-hazards 6, data-hazards-forwarding 6, control-hazards-branch-penalty 6; paper computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
-    },
-    {
-      "kind": "notes",
       "placement": "lesson closure-and-decision-properties",
       "detail": "published lesson \"Closure and decision properties of regular and context-free languages, and the two pumping lemmas\" (PUBLISHED) serves no notes card"
     },
@@ -12389,6 +12843,21 @@
       "kind": "notes",
       "placement": "databases › normalization › multivalued-dependencies-and-4nf",
       "detail": "visual lesson \"multivalued-dependencies-and-4nf\" (published 2026-10-31, topic-level) and mock unit \"Database Normalization\" subtopic \"Multivalued dependencies & 4NF\" serve no notes card; the notes repo holds no databases subject, so the 4NF/MVD material has nowhere to be revised from"
+    },
+    {
+      "kind": "mock",
+      "placement": "computer-organization-and-architecture › instruction-pipelining-and-hazards › superscalar-and-ilp-beyond-one-per-cycle",
+      "detail": "the card has no mock coverage: computer-architecture/question-bank/master_bank.json unit 5 (pipelining, 25 questions) holds the groups Pipeline stages & throughput, Structural hazards, Data hazards & forwarding, Control hazards & branch penalty and no ILP or superscalar group. Add a \"Superscalar issue & ILP\" group to computer-architecture/pipelining/ (unit 5 is at 25 of the 50-question cap)"
+    },
+    {
+      "kind": "visual",
+      "placement": "computer-organization-and-architecture › instruction-pipelining-and-hazards › superscalar-and-ilp-beyond-one-per-cycle",
+      "detail": "no published lesson covers superscalar issue width, ILP, VLIW or out-of-order execution; pipelining-and-hazards stops at the branch penalty and the CPI equation. Extend topics/pipelining-and-hazards with an ILP scene set rather than starting a new lesson, then regenerate captions with node tools/gen-captions.mjs pipelining-and-hazards"
+    },
+    {
+      "kind": "notes",
+      "placement": "lesson type-checking-and-type-systems",
+      "detail": "lesson type-checking-and-type-systems (PUBLISHED 2026-10-31; syllabus-coverage.json places it at Compiler Design › \"Analysis: semantic analysis (type checking)\" › Type checking and type systems, 12 subtopics, 35 microtopics) serves no notes card: the notes carry no compiler-design subject at all. The card it needs is compiler-design › type-checking-and-type-systems"
     }
   ]
 }

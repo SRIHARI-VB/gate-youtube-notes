@@ -61,5 +61,44 @@
     "question": "A 10-stage pipeline runs a program of 90 instructions with no stalls. What is the speed-up over the unpipelined machine at the same clock, and what is the efficiency?",
     "answer": "900/99 = 9.09 and efficiency 9.09/10 = 0.909.",
     "explanation": "Cycles = 10 + 90 - 1 = 99, unpipelined work = 90 x 10 = 900 stage-slots, so S = 900/99 = 9.09; dividing by k gives the fraction of the ideal gain realised."
+  },
+  "links": {
+    "visual": {
+      "slug": "pipelining-and-hazards",
+      "title": "Pipelining and Hazards",
+      "level": "topic-level",
+      "covers": [
+        "ideal speedup k n / (k + n - 1), bounded by k and approached as n grows",
+        "the first instruction is not faster; n = 1 gives speedup exactly 1"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/pipelining-and-hazards/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "pipelining",
+      "unit_name": "Instruction Pipelining",
+      "unit_number": 5,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Pipeline stages & throughput",
+          "questions": 7
+        },
+        {
+          "label": "Structural hazards",
+          "questions": 6
+        },
+        {
+          "label": "Data hazards & forwarding",
+          "questions": 6
+        },
+        {
+          "label": "Control hazards & branch penalty",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html"
+    },
+    "mapped_at": "2026-10-31"
   }
 }
