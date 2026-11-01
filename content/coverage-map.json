@@ -14147,7 +14147,7 @@
     {
       "kind": "mock",
       "placement": "databases › file-organization-and-indexing",
-      "detail": "mock unit \"Indexing, B-Trees & Storage\" (unit_number 5, unit_slug indexing-storage, 25 questions, added 2026-11-01 as run 8) serves no notes card: the notes repo holds no databases subject at all. Its subtopic groups are b-trees-and-b-plus-trees-order-capacity 8, primary-secondary-clustering-indexes 6, dense-vs-sparse-indexing 6, static-and-dynamic-hashing 5. Recommendation: add a Databases playlist under content/playlists/ and write the first cards under content/subjects/databases/file-organization-and-indexing/."
+      "detail": "mock unit \"Indexing, B-Trees & Storage\" (unit_number 5, unit_slug indexing-storage, 50 questions, at the 50-question cap, MOCK_CAPPED; run 16 dated 2026-11-01, paper databases/indexing-storage/gate_db_mock_5_2026-11-01.html) serves no notes card: the notes repo holds no databases subject at all. Its subtopic groups are b-trees-and-b-plus-trees-order-capacity 15, primary-secondary-clustering-indexes 12, dense-vs-sparse-indexing 12, static-and-dynamic-hashing 11. The unit closes at the cap, so the next Databases run advances to Unit 1, ER Models & Relational Algebra. Recommendation: add a Databases playlist under content/playlists/ and write the first cards under content/subjects/databases/file-organization-and-indexing/."
     },
     {
       "kind": "mock",
@@ -14198,6 +14198,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › context-free-grammars-and-pda",
       "detail": "published lesson \"The Chomsky Hierarchy as One Object: Four Grammar Types, Five Classes and Their Witnesses\" (slug chomsky-hierarchy, PUBLISHED 2026-11-01, topics/chomsky-hierarchy/, 10 scenes) serves no notes card: content/index.json map[] holds no theory-of-computation subject at all. Its transcript covers the four rule shapes, the automaton each one buys, the strictness witnesses for REG/CFL/CSL/REC/RE, the closure table and the decidability table. Write content/subjects/theory-of-computation/context-free-grammars-and-pda/chomsky-hierarchy-grammar-types.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › ip-support-protocols",
+      "detail": "published lesson \"IP Support Protocols: ARP, DHCP and ICMP\" (PUBLISHED, 2026-11-01, topic-level, slug ip-support-protocols-arp-dhcp-icmp) serves no notes card; the notes repo holds no computer-networks subject at all. Checked against topics/ip-support-protocols-arp-dhcp-icmp/transcript.md scenes 1-10, it genuinely covers ARP request broadcast against unicast reply and the 28-octet header, the prefix test that picks the next hop, gratuitous/proxy/spoofed ARP and IPv6 neighbour discovery, DHCP DORA with its two client broadcasts, the T1/T2 lease timers and the relay agent's giaddr, ICMP types and codes with the quoted datagram, the five RFC 1122 suppression rules, and ping and traceroute on one header. Recommendation: write content/subjects/computer-networks/ip-support-protocols/arp-dhcp-icmp.json and link lesson slug ip-support-protocols-arp-dhcp-icmp."
     }
   ]
 }
