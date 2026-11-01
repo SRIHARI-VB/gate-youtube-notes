@@ -4672,7 +4672,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/boolean-algebra-postulates-and-duality.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'Boolean identities & duality'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'Boolean identities & duality'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4681,7 +4681,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
@@ -4710,7 +4710,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/boolean-theorems-absorption-and-consensus.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'Boolean identities & duality'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'Boolean identities & duality'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4719,7 +4719,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
@@ -4762,7 +4762,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/canonical-forms-minterms-and-maxterms.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'Minterms & maxterms'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'Minterms & maxterms'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4771,7 +4771,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
@@ -4822,7 +4822,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-map-layout-and-gray-code.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'K-map simplification'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'K-map simplification'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4831,7 +4831,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
@@ -4860,7 +4860,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/karnaugh-grouping-and-reading-a-term.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'K-map simplification'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'K-map simplification'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4869,7 +4869,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
@@ -4942,7 +4942,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/pos-minimization-on-the-map.json",
         "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
         "visual url: topics/boolean-algebra-and-minimisation/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (25 records, 4 groups); card matched on label 'SOP & POS forms'",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit=11 (50 records, 4 groups); card matched on label 'SOP & POS forms'",
         "mock url: runs[] last entry for unit 11 -> https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
       ],
       "row_verdict": "BOTH",
@@ -4951,7 +4951,7 @@
         "unit_slug": "boolean-algebra",
         "unit_name": "Boolean Algebra & Switching Logic",
         "unit_number": 11,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Boolean identities & duality",
           "SOP & POS forms",
