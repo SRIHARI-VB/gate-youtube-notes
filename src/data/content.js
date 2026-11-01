@@ -27701,23 +27701,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
@@ -27824,23 +27824,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
@@ -28038,23 +28038,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
@@ -28250,23 +28250,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
@@ -28374,23 +28374,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
@@ -28726,23 +28726,23 @@ window.GATE_DATA = {
      "unit_slug": "boolean-algebra",
      "unit_name": "Boolean Algebra & Switching Logic",
      "unit_number": 11,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Boolean identities & duality",
-       "questions": 6
+       "questions": 13
       },
       {
        "label": "SOP & POS forms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "Minterms & maxterms",
-       "questions": 6
+       "questions": 12
       },
       {
        "label": "K-map simplification",
-       "questions": 7
+       "questions": 13
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
