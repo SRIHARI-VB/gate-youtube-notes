@@ -90,7 +90,7 @@
   "sourceLine": "The DMA module's registers, including the count register, and its design issues: NPTEL IIT Guwahati Lecture 35 (English, read in part). CPU sets the start address and length, and the controller transfers until complete: Auburn ELEC 5200 Chapter 6 (English, read in part). The DMA transfer sequence: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English). The 456 figure is recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-01",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -99,6 +99,32 @@
         "a count register of n bits covers 2^n units, so a transfer count is a ceiling"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "io-interfaces",
+      "unit_name": "I/O Interface & Storage",
+      "unit_number": 6,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Programmed I/O & interrupts",
+          "questions": 6
+        },
+        {
+          "label": "DMA controller",
+          "questions": 6
+        },
+        {
+          "label": "Secondary storage disks",
+          "questions": 7
+        },
+        {
+          "label": "RAID levels",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
     }
   }
 }

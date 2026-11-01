@@ -3670,9 +3670,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3693,7 +3707,7 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) holds no subtopic_label group on memory-mapped versus isolated I/O, so no mock mapping is asserted"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -3716,9 +3730,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3739,9 +3767,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3762,9 +3804,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3785,9 +3841,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3808,9 +3878,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3831,9 +3915,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3854,9 +3952,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3877,9 +3989,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3900,9 +4026,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3923,9 +4063,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3946,9 +4100,23 @@
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html",
-        "mock: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit, 5 pipelining only - no I/O unit"
+        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json unit_slug=io-interfaces (unit 6, 25 records) grouped by subtopic_label: Programmed I/O & interrupts 6, DMA controller 6, Secondary storage disks 7, RAID levels 6; paper from runs[] run 9 file computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Programmed I/O & interrupts",
+          "DMA controller",
+          "Secondary storage disks",
+          "RAID levels"
+        ],
+        "verdict": "MOCK_READY"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -13313,6 +13481,16 @@
   "gaps": [
     {
       "kind": "notes",
+      "placement": "computer-organization-and-architecture › io-interface › secondary-storage-disks",
+      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 25 questions) carries 7 questions on Secondary storage disks (disk access time, rotational latency, cylinders, transfer rate) but no notes card covers them; the io-interface topic holds 13 cards and none on secondary storage. Write content/subjects/computer-organization-and-architecture/io-interface/secondary-storage-disks.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture › io-interface › raid-levels",
+      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 25 questions) carries 6 questions on RAID levels (RAID 0/1/4/5/6, parity, usable capacity, MTTF) but no notes card covers them. Write content/subjects/computer-organization-and-architecture/io-interface/raid-levels.json"
+    },
+    {
+      "kind": "notes",
       "placement": "algorithms › asymptotic-analysis",
       "detail": "mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8"
     },
@@ -13875,11 +14053,6 @@
       "kind": "mock",
       "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache › memory-interfacing-chips-and-chip-select",
       "detail": "no computer-architecture unit holds a chip-interfacing, chip-select or decoder question; the nearest group is DRAM & SRAM organization in memory-management-unit, which covers the SRAM/DRAM split and one low-order-interleaving item (CO-U4-Q33) only"
-    },
-    {
-      "kind": "mock",
-      "placement": "computer-organization-and-architecture › io-interface",
-      "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit and 5 pipelining, and no I/O group. Create computer-architecture/io-interface/ as unit 6, 25 questions at 15 MCQ / 5 MSQ / 5 NAT across the lesson's nine subtopics (registers, memory-mapped vs isolated, programmed I/O, interrupt cycle, vectored, priority, DMA handshake, DMA modes, throughput arithmetic)"
     },
     {
       "kind": "notes",

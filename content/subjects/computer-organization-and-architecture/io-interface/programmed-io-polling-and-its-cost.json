@@ -88,7 +88,7 @@
   "sourceLine": "Programmed I/O as a status-check loop in which the processor is busy doing nothing: NPTEL IIT Guwahati Lecture 34 (English, read in part). Polling as the CPU repeatedly checking status bits, and the busy-wait criticism: Auburn ELEC 5200 Chapter 6 (English, read in part). The three-technique comparison with polling as busy waiting: DSWallah Learn, romanised Hindi, translated (read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-01",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -98,6 +98,32 @@
         "polling cost scales with the poll rate, not the event rate"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "io-interfaces",
+      "unit_name": "I/O Interface & Storage",
+      "unit_number": 6,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Programmed I/O & interrupts",
+          "questions": 6
+        },
+        {
+          "label": "DMA controller",
+          "questions": 6
+        },
+        {
+          "label": "Secondary storage disks",
+          "questions": 7
+        },
+        {
+          "label": "RAID levels",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
     }
   }
 }

@@ -91,7 +91,7 @@
   "videoRefs": [],
   "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-01",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -100,6 +100,32 @@
         "burst, cycle stealing and transparent as three schedules"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "io-interfaces",
+      "unit_name": "I/O Interface & Storage",
+      "unit_number": 6,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Programmed I/O & interrupts",
+          "questions": 6
+        },
+        {
+          "label": "DMA controller",
+          "questions": 6
+        },
+        {
+          "label": "Secondary storage disks",
+          "questions": 7
+        },
+        {
+          "label": "RAID levels",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
     }
   }
 }

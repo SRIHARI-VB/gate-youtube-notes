@@ -89,7 +89,7 @@
   "sourceLine": "Vectored against non-vectored interrupts, the vector table, and the extra identification step in the non-vectored case: DSWallah Learn, romanised Hindi, translated (read in part). Interrupts as exceptions carrying the cause, with priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The interrupt sequence the vector feeds: NPTEL IIT Guwahati Lecture 34 (English, read in part).",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-01",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -98,6 +98,32 @@
         "vectored against non-vectored: who supplies the new program counter"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "io-interfaces",
+      "unit_name": "I/O Interface & Storage",
+      "unit_number": 6,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Programmed I/O & interrupts",
+          "questions": 6
+        },
+        {
+          "label": "DMA controller",
+          "questions": 6
+        },
+        {
+          "label": "Secondary storage disks",
+          "questions": 7
+        },
+        {
+          "label": "RAID levels",
+          "questions": 6
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
     }
   }
 }
