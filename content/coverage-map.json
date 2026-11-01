@@ -14117,7 +14117,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › shortest-paths",
-      "detail": "mock unit \"Graph Algorithms: Shortest Paths\" (unit_number 6, 25 questions, Set 1 of 2) serves no notes card: content/index.json holds no algorithms subject at all; subtopic groups: Dijkstra's algorithm 7, Bellman–Ford algorithm 6, Shortest paths in a DAG 6, Transitive closure & Floyd–Warshall 6. The lesson graph-traversals-mst-shortest-paths already covers Dijkstra, Bellman-Ford, DAG shortest paths and Floyd-Warshall, so only the notes are missing."
+      "detail": "mock unit \"Graph Algorithms: Shortest Paths\" (unit_number 6, unit_slug shortest-paths, 50 questions, Set 2 of 2 added 2026-11-01 as run 12, paper algorithms/shortest-paths/gate_algo_mock_6_2026-11-01.html) serves no notes card: content/index.json map[] holds no algorithms subject at all; subtopic groups: Dijkstra's algorithm 14, Bellman–Ford algorithm 6, Shortest paths in a DAG 6, Transitive closure & Floyd–Warshall 6, BellmanFord algorithm 6, DAG shortest paths 6, Transitive closure  FloydWarshall 6 (the unit carries two spellings of the Bellman-Ford and the Floyd-Warshall label). The lesson graph-traversals-mst-shortest-paths already covers Dijkstra, Bellman-Ford, DAG shortest paths and Floyd-Warshall, so only the notes are missing. Unit is at the 50-question cap (MOCK_CAPPED); the rotation advances to hashing (unit 7)."
     },
     {
       "kind": "notes",
@@ -14193,6 +14193,11 @@
       "kind": "notes",
       "placement": "lesson multidimensional-arrays-and-decay",
       "detail": "published lesson \"Multidimensional Arrays in C: Array-of-Arrays Types, Decay and the Pointer-to-Array\" (PUBLISHED 2026-11-01, topics/multidimensional-arrays-and-decay/) serves no notes card: content/index.json has no card for multidimensional arrays, the pointer-to-array, the parameter adjustment or row/column-major address arithmetic. Its nearest overlap is programming-and-data-structures › programming-in-c › pointer-arithmetic-and-array-decay (array decay, sizeof, pointer scaling) at topic level only, and that card already carries the dedicated lesson pointers-in-c. Its mock counterpart is programming-data-structures unit linear-data-structures, group \"Arrays & multidimensional arrays\" (13 questions), which also has no card. New card belongs at programming-and-data-structures › programming-in-c › multidimensional-arrays."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › context-free-grammars-and-pda",
+      "detail": "published lesson \"The Chomsky Hierarchy as One Object: Four Grammar Types, Five Classes and Their Witnesses\" (slug chomsky-hierarchy, PUBLISHED 2026-11-01, topics/chomsky-hierarchy/, 10 scenes) serves no notes card: content/index.json map[] holds no theory-of-computation subject at all. Its transcript covers the four rule shapes, the automaton each one buys, the strictness witnesses for REG/CFL/CSL/REC/RE, the closure table and the decidability table. Write content/subjects/theory-of-computation/context-free-grammars-and-pda/chomsky-hierarchy-grammar-types.json"
     }
   ]
 }
