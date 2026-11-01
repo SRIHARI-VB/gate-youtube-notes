@@ -13224,26 +13224,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13254,7 +13254,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13347,26 +13347,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13377,7 +13377,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13470,26 +13470,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13500,7 +13500,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13594,26 +13594,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13625,7 +13625,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13719,26 +13719,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13749,7 +13749,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13841,26 +13841,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13868,7 +13868,7 @@ window.GATE_DATA = {
      "level": "topic-level",
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -13961,26 +13961,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -13991,7 +13991,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14073,26 +14073,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14103,7 +14103,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14198,26 +14198,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14228,7 +14228,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14319,26 +14319,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14349,7 +14349,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",
@@ -14440,26 +14440,26 @@ window.GATE_DATA = {
      "unit_slug": "eigenvalues-eigenvectors",
      "unit_name": "Linear Algebra: Eigenvalues & Vectors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "cayley-hamilton-theorem",
-       "questions": 10
+       "questions": 14
       },
       {
        "label": "characteristic-equations",
-       "questions": 12
+       "questions": 20
       },
       {
        "label": "diagonalization",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "eigenvalue-properties",
-       "questions": 16
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
     "visual": {
      "slug": "matrices-systems-and-eigenvalues",
@@ -14470,7 +14470,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "eigenvalues-and-eigenvectors",

@@ -9621,7 +9621,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9639,8 +9639,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-and-eigenvector-definition.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9659,7 +9659,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9677,8 +9677,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/characteristic-equation-and-roots.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9697,7 +9697,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9715,8 +9715,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenspace-and-computing-eigenvectors.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9735,7 +9735,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9753,8 +9753,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalue-properties-of-matrix-functions.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9773,7 +9773,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9791,8 +9791,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/algebraic-and-geometric-multiplicity.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9811,7 +9811,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9829,8 +9829,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/diagonalisability-criterion.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9849,7 +9849,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9867,8 +9867,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/symmetric-matrices-and-orthogonal-eigenvectors.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9887,7 +9887,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9905,8 +9905,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/complex-eigenvalues-of-real-matrices.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9925,7 +9925,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9943,8 +9943,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/eigenvalues-of-special-structured-matrices.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -9963,7 +9963,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -9981,8 +9981,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -10001,7 +10001,7 @@
     "unit_slug": "eigenvalues-eigenvectors",
     "unit_name": "Linear Algebra: Eigenvalues & Vectors",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "cayley-hamilton-theorem",
      "characteristic-equations",
@@ -10019,8 +10019,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
-    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (50 records)",
-    "mock url: runs[] last entry for eigenvalues-eigenvectors -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-10-27.html",
+    "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
+    "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
     "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/matrices-systems-and-eigenvalues/index.html"
    ],
@@ -13219,188 +13219,188 @@
  "gaps": [
   {
    "kind": "notes",
-   "placement": "algorithms › asymptotic-analysis",
+   "placement": "algorithms \u203a asymptotic-analysis",
    "detail": "mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8"
   },
   {
    "kind": "notes",
-   "placement": "algorithms › dynamic-programming",
+   "placement": "algorithms \u203a dynamic-programming",
    "detail": "mock unit \"Dynamic Programming\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: 0-1-knapsack 12, all-pairs-shortest-paths-floyd-warshall 12, longest-common-subsequence 12, matrix-chain-multiplication 14"
   },
   {
    "kind": "notes",
-   "placement": "algorithms › greedy-algorithms",
+   "placement": "algorithms \u203a greedy-algorithms",
    "detail": "mock unit \"Greedy Algorithms\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: activity-selection-interval-scheduling 13, fractional-knapsack 13, huffman-coding 12, optimal-merge-patterns 12"
   },
   {
    "kind": "notes",
-   "placement": "algorithms › sorting-divide-conquer",
+   "placement": "algorithms \u203a sorting-divide-conquer",
    "detail": "mock unit \"Divide and Conquer & Sorting\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: inversion-counting 12, linear-time-sorts-counting-radix 12, merge-sort-quick-sort 14, selection-kth-element 12"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › bottom-up-parsing",
+   "placement": "compiler-design \u203a bottom-up-parsing",
    "detail": "mock unit \"Syntax Analysis: Bottom-Up Parsing\" (unit_number 3, 75 questions) serves no notes card; the 25 questions added on 2026-10-31 group as LR(0) items & parsing 7, SLR(1) parsing & conflicts 6, LR(1) and LALR(1) parsers 6, Operator-precedence parsing 6; the earlier 50 records carry no subtopic_label. Paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-10-31.html"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › lexical-analysis",
+   "placement": "compiler-design \u203a lexical-analysis",
    "detail": "mock unit \"Lexical Analysis\" (unit_number 1, 75 questions) serves no notes card; subtopic groups: input-buffering-lookahead 16, lex-input-structure 16, regular-expressions-to-lexers 21, tokens-lexemes-patterns 22"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › runtime-code-optimization",
+   "placement": "compiler-design \u203a runtime-code-optimization",
    "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: activation-records-call-stack 12, basic-blocks-and-flow-graphs 13, data-flow-analysis-liveness 12, local-and-loop-optimizations 13"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › sdt-intermediate-code",
+   "placement": "compiler-design \u203a sdt-intermediate-code",
    "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: s-attributed-vs-l-attributed-definitions 13, syntax-trees-dags 12, three-address-code-quadruples-triples 14, type-checking 11"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › top-down-parsing",
+   "placement": "compiler-design \u203a top-down-parsing",
    "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: first-and-follow-sets 21, left-recursion-and-factoring 18, ll1-parsing-tables 18, recursive-descent-parsers 18"
   },
   {
    "kind": "notes",
-   "placement": "computer-architecture › cache-memory",
+   "placement": "computer-architecture \u203a cache-memory",
    "detail": "mock unit \"Memory Hierarchy & Cache Memory\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: cache-hit-miss-penalty 14, direct-associative-setassociative-mapping 14, replacement-algorithms 11, write-policies-write-through-back 11"
   },
   {
    "kind": "notes",
-   "placement": "computer-architecture › memory-management-unit",
+   "placement": "computer-architecture \u203a memory-management-unit",
    "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: dram-sram-organization 13, effective-access-time 11, paging-tlb-hit-ratio 17, segmentation 9"
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › ipv4-subnetting",
+   "placement": "computer-networks \u203a ipv4-subnetting",
    "detail": "mock unit \"Network Layer: IP Addressing & Subnetting\" (unit_number 3) now holds 75 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: IPv4 header & fragmentation 19, Classful vs classless & CIDR 19, Subnet masking & supernetting 19, IPv6 basics & differences 18; latest paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-11-01.html (runs[] run 15); the rotation advances to unit 4, Network Layer: Routing & Protocols"
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › network-fundamentals-framing",
+   "placement": "computer-networks \u203a network-fundamentals-framing",
    "detail": "mock unit \"Layering, Physical & Framing\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: error-detection-crc-checksum-hamming 13, framing-bit-byte-stuffing 12, osi-and-tcp-ip-models 13, transmission-delays-bandwidth-delay-product 12"
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › routing-protocols",
+   "placement": "computer-networks \u203a routing-protocols",
    "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: arp-rarp-icmp-dhcp-nat 11, bgp-and-path-vector 11, distance-vector-routing-count-to-infinity 14, link-state-routing-ospf-dijkstra 14"
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › transport-layer",
+   "placement": "computer-networks \u203a transport-layer",
    "detail": "mock unit \"Transport Layer: TCP, UDP & Congestion\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: congestion-control-slow-start-aimd 12, flow-control-sliding-window 12, tcp-header-three-way-handshake-connection-close 14, udp-datagram-simplicity 12"
   },
   {
    "kind": "notes",
-   "placement": "databases › er-relational-algebra",
+   "placement": "databases \u203a er-relational-algebra",
    "detail": "mock unit \"ER Models & Relational Algebra\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: er-diagrams-cardinality-weak-entities 12, relational-algebra-select-project-join-division 16, relational-model-constraints 12, tuple-and-domain-relational-calculus 10"
   },
   {
    "kind": "notes",
-   "placement": "databases › normalization",
+   "placement": "databases \u203a normalization",
    "detail": "mock unit \"Database Normalization\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: 1nf-2nf-3nf-bcnf 10, closure-of-attribute-sets-keys 10, functional-dependencies-armstrong-axioms 10, lossless-join-dependency-preservation 10, multivalued-dependencies-4nf 10"
   },
   {
    "kind": "notes",
-   "placement": "databases › sql-querying",
+   "placement": "databases \u203a sql-querying",
    "detail": "mock unit \"SQL & Advanced Querying\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: aggregate-functions-group-by-having 10, ddl-dml-dcl 10, joins-outer-joins 10, nested-and-correlated-subqueries 10, views-triggers-constraints 10"
   },
   {
    "kind": "notes",
-   "placement": "databases › transactions-concurrency",
+   "placement": "databases \u203a transactions-concurrency",
    "detail": "mock unit \"Transactions & Concurrency Control\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: acid-properties 10, recoverability-cascadeless 10, schedules-serializability-conflict-view 10, timestamp-ordering-and-deadlocks 10, two-phase-locking-2pl-strict-rigorous 10"
   },
   {
    "kind": "notes",
-   "placement": "digital-logic › combinational-circuits",
+   "placement": "digital-logic \u203a combinational-circuits",
    "detail": "mock unit \"Combinational Circuit Design\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: adders-subtractors 10, code-converters 10, decoders-encoders 10, hazard-and-glitches 10, multiplexers-demultiplexers 10"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › induction-recursion",
+   "placement": "discrete-mathematics \u203a induction-recursion",
    "detail": "mock unit \"Mathematical Induction & Recursion\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: proof-techniques-and-errors 12, structural-induction 12, weak-strong-induction 14, well-ordering-principle 12"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › proof-techniques",
+   "placement": "discrete-mathematics \u203a proof-techniques",
    "detail": "mock unit \"Logic & Proof Techniques\" (unit_number 16, 75 questions) serves no notes card; subtopic groups: biconditional-iff-proofs 8, counterexamples 17, direct-contradiction-contrapositive 37, necessity-vs-sufficiency 13"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › deadlocks",
+   "placement": "operating-systems \u203a deadlocks",
    "detail": "mock unit \"Deadlocks\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: deadlock-detection-recovery 17, deadlock-prevention-avoidance-bankers 23, four-conditions-resource-allocation-graph 20, starvation-vs-deadlock 15"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › memory-paging",
+   "placement": "operating-systems \u203a memory-paging",
    "detail": "mock unit \"Memory Management & Paging\" (unit_number 4, 75 questions) serves no notes card; subtopic groups: contiguous-allocation-first-best-worst-fit 19, inverted-page-tables 18, paging-page-table-structures 20, segmentation-paged-segmentation 18"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › process-scheduling",
+   "placement": "operating-systems \u203a process-scheduling",
    "detail": "mock unit \"Process Management & CPU Scheduling\" (unit_number 1, 75 questions) serves no notes card; subtopic groups: fcfs-sjf-srtf-roundrobin-priority-multilevel 20, preemptive-nonpreemptive-scheduling 17, process-states-pcb 20, threads-user-vs-kernel 18"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › storage-file-systems",
+   "placement": "operating-systems \u203a storage-file-systems",
    "detail": "mock unit \"File Systems & Disk Scheduling\" (unit_number 6) now holds 75 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no operating-systems subject exists in the notes repo; the 25 questions added on 2026-11-01 group as Access control & protection 5, Disk scheduling: FCFS, SSTF, SCAN, C-SCAN, LOOK 7, File allocation: indexed & linked 7, Free-space management 6; the earlier 50 records carry no subtopic_label and group by subtopic slug as access-control-protection 11, disk-scheduling-fcfs-sstf-scan-cscan-look 13, file-allocation-methods-indexed-linked 14, free-space-management 12; latest paper operating-systems/storage-file-systems/gate_os_mock_6_2026-11-01.html (runs[] run 18); the next Operating Systems run advances one unit from storage-file-systems by the README rule (index_of(storage-file-systems) = 5 + 1) mod 6 = 0 -> unit 1, Process Management & CPU Scheduling"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › synchronization-ipc",
+   "placement": "operating-systems \u203a synchronization-ipc",
    "detail": "mock unit \"Inter-Process Communication & Synchronization\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: classic-problems-dining-philosophers-producer-consumer 19, critical-section-problem-peterson 18, hardware-primitives-test-and-set 18, semaphores-binary-counting 20"
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › virtual-memory",
+   "placement": "operating-systems \u203a virtual-memory",
    "detail": "mock unit \"Virtual Memory & Page Replacement\" (unit_number 5, 75 questions) serves no notes card; subtopic groups: Belady's anomaly 16, Demand paging & page-fault rate 21, FIFO, OPT & LRU replacement 19, Thrashing & the working-set model 19"
   },
   {
    "kind": "notes",
-   "placement": "programming-data-structures › heaps-priority-queues",
+   "placement": "programming-data-structures \u203a heaps-priority-queues",
    "detail": "mock unit \"Heaps & Priority Queues\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: min-max-heaps 13, heapify-and-build-heap 13 (labels \"Heapify & bottom-up build\" 7 and \"Heapify & build-heap\" 6), heap-sort 12 (labels \"Heap-sort\" 6 and \"Heap sort\" 6), priority-queue-applications 12 (labels \"Priority queues & their applications\" 6 and \"Priority queue applications\" 6)"
   },
   {
    "kind": "notes",
-   "placement": "programming-data-structures › linear-data-structures",
+   "placement": "programming-data-structures \u203a linear-data-structures",
    "detail": "mock unit \"Linear Data Structures\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: arrays-multidimensional 13, queues-circular-queues-deques 12, singly-doubly-circular-linked-lists 12, stacks-applications-infix-postfix 13"
   },
   {
    "kind": "notes",
-   "placement": "programming-data-structures › pointers-memory",
+   "placement": "programming-data-structures \u203a pointers-memory",
    "detail": "mock unit \"Pointers, Memory & Preprocessors\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: dynamic-memory-allocation 12, macro-expansion-scope-lifetime 12, pointer-arithmetic 14, pointers-to-functions 12"
   },
   {
    "kind": "notes",
-   "placement": "programming-data-structures › search-trees",
+   "placement": "programming-data-structures \u203a search-trees",
    "detail": "mock unit \"Binary Search Trees & Balanced Trees\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: avl-trees-rotations 12, b-trees-b-plus-trees 12, bst-insertion-deletion 14, trie-basics 12"
   },
   {
    "kind": "notes",
-   "placement": "programming-data-structures › trees-traversals",
+   "placement": "programming-data-structures \u203a trees-traversals",
    "detail": "mock unit \"Binary Trees & Tree Traversals\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: binary-tree-properties 14, expression-trees 12, threaded-binary-trees 12, tree-traversals-inorder-pre-post 12"
   },
   {
    "kind": "notes",
-   "placement": "theory-of-computation › cfl-grammars",
+   "placement": "theory-of-computation \u203a cfl-grammars",
    "detail": "mock unit \"Grammars & Context-Free Languages\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: ambiguity-in-grammars 18, cfg-derivation-trees 20, closure-properties-cfl 18, cnf-gnf-normal-forms 19"
   },
   {
    "kind": "notes",
-   "placement": "theory-of-computation › pushdown-automata",
+   "placement": "theory-of-computation \u203a pushdown-automata",
    "detail": "mock unit \"Pushdown Automata\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: acceptance-empty-store-vs-final-state 17, deterministic-pda 21, equivalence-with-cfg 19, nondeterministic-pda 18"
   },
   {
    "kind": "notes",
-   "placement": "theory-of-computation › regular-languages-fa",
+   "placement": "theory-of-computation \u203a regular-languages-fa",
    "detail": "mock unit \"Regular Languages & Finite Automata\" (unit_number 1, 100 questions) serves no notes card; subtopic groups: dfa-construction-minimization 32, nfa-to-dfa-subset-construction 22, pumping-lemma-for-regular 22, regular-expressions 24"
   },
   {
    "kind": "notes",
-   "placement": "theory-of-computation › turing-machines-decidability",
-   "detail": "mock unit \"Turing Machines & Decidability\" (unit_number 4, 100 questions) serves no notes card; no theory-of-computation subject exists in the notes repo. Subtopic groups: Chomsky hierarchy summary 19, Halting problem & undecidability 21, Recursive vs recursively enumerable 20, Rice’s theorem & reductions 20, Standard TM models & variants 20. The 25 questions added on 2026-11-01 lift the unit past the 50-question cap (MOCK_CAPPED); paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-11-01.html"
+   "placement": "theory-of-computation \u203a turing-machines-decidability",
+   "detail": "mock unit \"Turing Machines & Decidability\" (unit_number 4, 100 questions) serves no notes card; no theory-of-computation subject exists in the notes repo. Subtopic groups: Chomsky hierarchy summary 19, Halting problem & undecidability 21, Recursive vs recursively enumerable 20, Rice\u2019s theorem & reductions 20, Standard TM models & variants 20. The 25 questions added on 2026-11-01 lift the unit past the 50-question cap (MOCK_CAPPED); paper theory-of-computation/turing-machines-decidability/gate_toc_mock_4_2026-11-01.html"
   },
   {
    "kind": "notes",
@@ -13460,7 +13460,7 @@
   {
    "kind": "notes",
    "placement": "lesson counting-spanning-trees",
-   "detail": "published lesson \"Counting spanning trees: enumeration, deletion-contraction, Pruefer codes and the Matrix-Tree theorem\" (PUBLISHED) serves no notes card; closest existing card is discrete-mathematics › graphs › paths-cycles-and-components, which touches spanning trees only through the n-1 edge count"
+   "detail": "published lesson \"Counting spanning trees: enumeration, deletion-contraction, Pruefer codes and the Matrix-Tree theorem\" (PUBLISHED) serves no notes card; closest existing card is discrete-mathematics \u203a graphs \u203a paths-cycles-and-components, which touches spanning trees only through the n-1 edge count"
   },
   {
    "kind": "notes",
@@ -13714,22 +13714,22 @@
   },
   {
    "kind": "visual",
-   "placement": "digital-logic › boolean-algebra-and-minimization › xor-and-xnor-algebra",
+   "placement": "digital-logic \u203a boolean-algebra-and-minimization \u203a xor-and-xnor-algebra",
    "detail": "no published lesson covers XOR/XNOR algebra; boolean-algebra-and-minimisation (PUBLISHED) never introduces XOR, and no mock unit matches"
   },
   {
    "kind": "visual",
-   "placement": "digital-logic › boolean-algebra-and-minimization › five-variable-karnaugh-map",
+   "placement": "digital-logic \u203a boolean-algebra-and-minimization \u203a five-variable-karnaugh-map",
    "detail": "no published lesson covers the five-variable map; boolean-algebra-and-minimisation stops at four variables and then switches to Quine-McCluskey, and no mock unit matches"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › graphs › graph-isomorphism",
+   "placement": "discrete-mathematics \u203a graphs \u203a graph-isomorphism",
    "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 50 questions) holds an Isomorphism group of 9 questions and no notes card covers graph isomorphism; the only isomorphism cards are group isomorphism under monoids-and-groups"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › graphs › graph-representations",
+   "placement": "discrete-mathematics \u203a graphs \u203a graph-representations",
    "detail": "mock unit \"Graph Theory Fundamentals\" (unit_number 9, 50 questions) holds a Graph representations group of 8 questions on adjacency and incidence matrices; graph-vocabulary-and-degree-sum mentions the adjacency matrix only in passing, so the coverage is partial at best. The published lesson graph-representations already covers the same ground, so the card is the only thing missing"
   },
   {
@@ -13744,42 +13744,42 @@
   },
   {
    "kind": "notes",
-   "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache",
+   "placement": "computer-organization-and-architecture \u203a memory-hierarchy-and-cache",
    "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, unit_slug memory-management-unit, 50 questions, papers gate_co_mock_4_2026-10-30.html) serves no notes card; subtopic_label groups: DRAM & SRAM organization 13, Paging & TLB hit ratio 17, Effective access time 11, Segmentation 9"
   },
   {
    "kind": "mock",
-   "placement": "computer-organization-and-architecture › instruction-set-and-addressing-modes",
+   "placement": "computer-organization-and-architecture \u203a instruction-set-and-addressing-modes",
    "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2, 3 and 4 only. Unit 1 is the missing unit, per the syllabus order in content/syllabus.json"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › runtime-environments",
+   "placement": "compiler-design \u203a runtime-environments",
    "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions, group activation-records-call-stack 12) also exercises"
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › application-layer-security",
+   "placement": "computer-networks \u203a application-layer-security",
    "detail": "mock unit \"Application Layer & Network Security\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: DNS hierarchy & resolution 12, HTTP, HTTPS, SMTP & FTP 14, Symmetric, asymmetric & RSA 7, Digital signatures & firewalls 5, Symmetric & asymmetric cryptography, RSA 7, Digital signatures, certificates & firewalls 5; the unit is at the 50-question cap"
   },
   {
    "kind": "visual",
-   "placement": "digital-logic › computer-arithmetic › fixed-point-fraction-multiplication",
+   "placement": "digital-logic \u203a computer-arithmetic \u203a fixed-point-fraction-multiplication",
    "detail": "no published lesson covers multiplication in Q format: arithmetic-algorithms-booth-division-cla never mentions float or Q format, and number-representation-and-arithmetic stops at layout, bias and rounding; no mock unit covers computer arithmetic"
   },
   {
    "kind": "notes",
-   "placement": "compiler-design › target-code-generation",
+   "placement": "compiler-design \u203a target-code-generation",
    "detail": "visual lesson target-code-generation (PUBLISHED, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no compiler-design subject (6 subjects, 319 cards). The lesson covers instruction selection from a DAG, Sethi-Ullman minimum registers, liveness, interference-graph colouring, spilling and peephole optimisation. The mocks already hold compiler-design unit runtime-code-optimization (50 questions)."
   },
   {
    "kind": "visual",
-   "placement": "computer-organization-and-architecture › alu-design › comparison-and-slt",
+   "placement": "computer-organization-and-architecture \u203a alu-design \u203a comparison-and-slt",
    "detail": "no published lesson covers comparison or slt; alu-and-control-unit-design stops at subtraction (A + not B + 1) and the four flags. Extend topics/alu-and-control-unit-design rather than add a lesson."
   },
   {
    "kind": "visual",
-   "placement": "computer-organization-and-architecture › alu-design › shifter-and-barrel-shift",
+   "placement": "computer-organization-and-architecture \u203a alu-design \u203a shifter-and-barrel-shift",
    "detail": "no published lesson covers the shifter or barrel shift; neither transcript.md nor the syllabus-coverage microtopics of alu-and-control-unit-design mention it. Extend topics/alu-and-control-unit-design with a barrel-shift scene."
   },
   {
@@ -13789,98 +13789,103 @@
   },
   {
    "kind": "mock",
-   "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache › memory-interfacing-chips-and-chip-select",
+   "placement": "computer-organization-and-architecture \u203a memory-hierarchy-and-cache \u203a memory-interfacing-chips-and-chip-select",
    "detail": "no computer-architecture unit holds a chip-interfacing, chip-select or decoder question; the nearest group is DRAM & SRAM organization in memory-management-unit, which covers the SRAM/DRAM split and one low-order-interleaving item (CO-U4-Q33) only"
   },
   {
    "kind": "mock",
-   "placement": "computer-organization-and-architecture › io-interface",
+   "placement": "computer-organization-and-architecture \u203a io-interface",
    "detail": "the 13 notes cards of this topic have no mock unit: computer-architecture/question-bank/master_bank.json holds units 2 datapath-control-unit, 3 cache-memory, 4 memory-management-unit and 5 pipelining, and no I/O group. Create computer-architecture/io-interface/ as unit 6, 25 questions at 15 MCQ / 5 MSQ / 5 NAT across the lesson's nine subtopics (registers, memory-mapped vs isolated, programmed I/O, interrupt cycle, vectored, priority, DMA handshake, DMA modes, throughput arithmetic)"
   },
   {
    "kind": "notes",
-   "placement": "databases › normalization › multivalued-dependencies-and-4nf",
+   "placement": "databases \u203a normalization \u203a multivalued-dependencies-and-4nf",
    "detail": "visual lesson \"multivalued-dependencies-and-4nf\" (published 2026-10-31, topic-level) and mock unit \"Database Normalization\" subtopic \"Multivalued dependencies & 4NF\" serve no notes card; the notes repo holds no databases subject, so the 4NF/MVD material has nowhere to be revised from"
   },
   {
    "kind": "mock",
-   "placement": "computer-organization-and-architecture › instruction-pipelining-and-hazards › superscalar-and-ilp-beyond-one-per-cycle",
+   "placement": "computer-organization-and-architecture \u203a instruction-pipelining-and-hazards \u203a superscalar-and-ilp-beyond-one-per-cycle",
    "detail": "the card has no mock coverage: computer-architecture/question-bank/master_bank.json unit 5 (pipelining, 25 questions) holds the groups Pipeline stages & throughput, Structural hazards, Data hazards & forwarding, Control hazards & branch penalty and no ILP or superscalar group. Add a \"Superscalar issue & ILP\" group to computer-architecture/pipelining/ (unit 5 is at 25 of the 50-question cap)"
   },
   {
    "kind": "visual",
-   "placement": "computer-organization-and-architecture › instruction-pipelining-and-hazards › superscalar-and-ilp-beyond-one-per-cycle",
+   "placement": "computer-organization-and-architecture \u203a instruction-pipelining-and-hazards \u203a superscalar-and-ilp-beyond-one-per-cycle",
    "detail": "no published lesson covers superscalar issue width, ILP, VLIW or out-of-order execution; pipelining-and-hazards stops at the branch penalty and the CPI equation. Extend topics/pipelining-and-hazards with an ILP scene set rather than starting a new lesson, then regenerate captions with node tools/gen-captions.mjs pipelining-and-hazards"
   },
   {
    "kind": "notes",
    "placement": "lesson type-checking-and-type-systems",
-   "detail": "lesson type-checking-and-type-systems (PUBLISHED 2026-10-31; syllabus-coverage.json places it at Compiler Design › \"Analysis: semantic analysis (type checking)\" › Type checking and type systems, 12 subtopics, 35 microtopics) serves no notes card: the notes carry no compiler-design subject at all. The card it needs is compiler-design › type-checking-and-type-systems"
+   "detail": "lesson type-checking-and-type-systems (PUBLISHED 2026-10-31; syllabus-coverage.json places it at Compiler Design \u203a \"Analysis: semantic analysis (type checking)\" \u203a Type checking and type systems, 12 subtopics, 35 microtopics) serves no notes card: the notes carry no compiler-design subject at all. The card it needs is compiler-design \u203a type-checking-and-type-systems"
   },
   {
    "kind": "notes",
-   "placement": "algorithms › asymptotic-analysis",
+   "placement": "algorithms \u203a asymptotic-analysis",
    "detail": "lesson best-average-worst-and-amortised-analysis (Algorithms, Section 5 analysis, PUBLISHED) serves no notes card: content/syllabus.json lists the algorithms subject, but content/index.json map[] holds 0 algorithms cards. Write the notes topic before mapping it."
   },
   {
    "kind": "notes",
-   "placement": "algorithms › graph-algorithms-traversals-mst",
+   "placement": "algorithms \u203a graph-algorithms-traversals-mst",
    "detail": "mock unit \"Graph Algorithms: Traversals & Spanning Trees\" (unit_number 5, 50 questions, at the 50-question cap) serves no notes card; content/index.json map[] holds 0 algorithms cards. Subtopic groups: bfs-dfs-edge-classification 14, kruskals-disjoint-set-union 12, prims-algorithm 12, topological-sort 12. Lesson graph-traversals-mst-shortest-paths covers edge classification, topological order and Prim/Kruskal at topic level but still has no card to sit on. Paper algorithms/graph-algorithms-traversals-mst/gate_algo_mock_5_2026-10-31.html"
   },
   {
    "kind": "mock",
-   "placement": "programming-and-data-structures › programming-in-c › strings-nul-termination",
+   "placement": "programming-and-data-structures \u203a programming-in-c \u203a strings-nul-termination",
    "detail": "no PDS unit holds a string or NUL-termination group; nearest is linear-data-structures \"Arrays & multidimensional arrays\" (13), and all six PDS units sit at the 50-question cap, so the fix is a new unit programming-data-structures/strings-and-structs."
   },
   {
    "kind": "mock",
-   "placement": "programming-and-data-structures › programming-in-c › structures-unions-and-padding",
+   "placement": "programming-and-data-structures \u203a programming-in-c \u203a structures-unions-and-padding",
    "detail": "no PDS unit holds a struct layout, padding or union group; structs appear only inside pointers-memory pointer-arithmetic stems (sizeof(struct ...)). All six PDS units are at the 50-question cap; the fix is the same new unit programming-data-structures/strings-and-structs."
   },
   {
    "kind": "notes",
-   "placement": "computer-networks › data-link-mac",
+   "placement": "computer-networks \u203a data-link-mac",
    "detail": "no computer-networks card exists in the notes repo at all; the mock unit \"Data Link Protocols & MAC\" (unit_number 2) now holds 75 questions (groups: CSMA/CD, CSMA/CA & backoff 10; Ethernet, switches & bridges 10; Go-back-N & selective repeat 10; Pure & slotted ALOHA 10; Stop-and-wait ARQ 10; csma-cd-csma-ca-backoff 5; ethernet-standards-switches-bridges 5; go-back-n-selective-repeat-efficiency 5; pure-and-slotted-aloha 5; stop-and-wait-arq 5), last paper computer-networks/data-link-mac/gate_cn_mock_2_2026-10-31.html, and the PUBLISHED lesson sliding-window-arq-protocols serves its ARQ subtopics (stop-and-wait and its efficiency, sender and receiver windows, Go-Back-N retransmission, Selective Repeat retransmission) with no notes card to link to"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › graphs › trees-and-spanning-trees",
+   "placement": "discrete-mathematics \u203a graphs \u203a trees-and-spanning-trees",
    "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Trees & spanning trees group of 10 questions and no notes card covers trees; lesson graphs-connectivity covers trees and spanning trees at topic level and counting-spanning-trees is a dedicated lesson, so the notes card is the missing piece"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › graphs › network-flows",
+   "placement": "discrete-mathematics \u203a graphs \u203a network-flows",
    "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Network flows group of 10 questions (max-flow min-cut, flow value computation) and no notes card covers network flows; no published visual lesson covers it either"
   },
   {
    "kind": "notes",
-   "placement": "discrete-mathematics › graphs › planarity-and-eulers-formula",
+   "placement": "discrete-mathematics \u203a graphs \u203a planarity-and-eulers-formula",
    "detail": "mock unit \"Graph Theory Advanced\" (unit_number 10, 50 questions) holds a Planarity & Euler's formula group of 10 questions (Euler's formula, m <= 3n-6, m <= 2n-4, K5 and K(3,3) non-planarity) and no notes card covers planarity; lesson matching-and-colouring covers planarity basics at topic level, so the notes card is the missing piece"
   },
   {
    "kind": "notes",
-   "placement": "algorithms › shortest-paths",
-   "detail": "mock unit \"Graph Algorithms: Shortest Paths\" (unit_number 6, 25 questions, Set 1 of 2) serves no notes card: content/index.json holds no algorithms subject at all; subtopic groups: Dijkstra's algorithm 7, Bellman–Ford algorithm 6, Shortest paths in a DAG 6, Transitive closure & Floyd–Warshall 6. The lesson graph-traversals-mst-shortest-paths already covers Dijkstra, Bellman-Ford, DAG shortest paths and Floyd-Warshall, so only the notes are missing."
+   "placement": "algorithms \u203a shortest-paths",
+   "detail": "mock unit \"Graph Algorithms: Shortest Paths\" (unit_number 6, 25 questions, Set 1 of 2) serves no notes card: content/index.json holds no algorithms subject at all; subtopic groups: Dijkstra's algorithm 7, Bellman\u2013Ford algorithm 6, Shortest paths in a DAG 6, Transitive closure & Floyd\u2013Warshall 6. The lesson graph-traversals-mst-shortest-paths already covers Dijkstra, Bellman-Ford, DAG shortest paths and Floyd-Warshall, so only the notes are missing."
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › concurrency › readers-writers-and-dining-philosophers",
-   "detail": "published lesson \"Readers–Writers and Dining Philosophers\" (PUBLISHED 2026-11-01, 10 scenes) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers the readers–writers readcount/rmutex/wsem solution, writer preference via readTry, and the dining philosophers deadlock with the asymmetric-ordering and waiter repairs."
+   "placement": "operating-systems \u203a concurrency \u203a readers-writers-and-dining-philosophers",
+   "detail": "published lesson \"Readers\u2013Writers and Dining Philosophers\" (PUBLISHED 2026-11-01, 10 scenes) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers the readers\u2013writers readcount/rmutex/wsem solution, writer preference via readTry, and the dining philosophers deadlock with the asymmetric-ordering and waiter repairs."
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › concurrency › atomic-instructions-and-locks",
+   "placement": "operating-systems \u203a concurrency \u203a atomic-instructions-and-locks",
    "detail": "published lesson \"Atomic instructions and the locks built from them\" (PUBLISHED 2026-11-01, 10 scenes, topics/atomic-instructions-and-locks/) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers why a lock needs one indivisible read-modify-write, test-and-set and swap and compare-and-swap and fetch-and-add with their locks, the GATE 2012 fetch-and-add loop and its defect, starvation in the plain lock and the waiting array, the ticket lock, and test-and-test-and-set. The mock side already holds it: operating-systems unit 2, subtopic slug hardware-primitives-test-and-set (18 questions, grouped by subtopic)."
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › concurrency › counting-semaphores-and-the-bounded-buffer",
-   "detail": "published lesson \"counting semaphores and the bounded buffer\" (PUBLISHED 2026-11-01, 10 scenes, topics/counting-semaphores-and-the-bounded-buffer/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems › concurrency › counting-semaphores-and-the-bounded-buffer. Its transcript covers the counter's arithmetic, P and V with queued blocking, the closed forms for the final value and the blocked count, the three-counter bounded buffer with empty, full and mutex, maximum occupancy and maximum blocked processes, and the order of the waits and signals."
+   "placement": "operating-systems \u203a concurrency \u203a counting-semaphores-and-the-bounded-buffer",
+   "detail": "published lesson \"counting semaphores and the bounded buffer\" (PUBLISHED 2026-11-01, 10 scenes, topics/counting-semaphores-and-the-bounded-buffer/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems \u203a concurrency \u203a counting-semaphores-and-the-bounded-buffer. Its transcript covers the counter's arithmetic, P and V with queued blocking, the closed forms for the final value and the blocked count, the three-counter bounded buffer with empty, full and mutex, maximum occupancy and maximum blocked processes, and the order of the waits and signals."
   },
   {
    "kind": "notes",
-   "placement": "operating-systems › concurrency › monitors-and-condition-variables",
-   "detail": "published lesson \"monitors and condition variables\" (PUBLISHED 2026-11-01, 10 scenes, topics/monitors-and-condition-variables/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems › concurrency › monitors-and-condition-variables. Its transcript covers the four parts of a monitor, wait as three indivisible steps, signal has no memory, Hoare against Mesa, the while rule measured over every interleaving, signal against broadcast, and the monitor built from mutex, next and x_sem counters."
+   "placement": "operating-systems \u203a concurrency \u203a monitors-and-condition-variables",
+   "detail": "published lesson \"monitors and condition variables\" (PUBLISHED 2026-11-01, 10 scenes, topics/monitors-and-condition-variables/) serves no notes card: content/index.json holds no operating-systems subject at all, so this is a notes gap at operating-systems \u203a concurrency \u203a monitors-and-condition-variables. Its transcript covers the four parts of a monitor, wait as three indivisible steps, signal has no memory, Hoare against Mesa, the while rule measured over every interleaving, signal against broadcast, and the monitor built from mutex, next and x_sem counters."
+  },
+  {
+   "kind": "notes",
+   "placement": "operating-systems \u203a concurrency \u203a barriers-and-their-implementations",
+   "detail": "published lesson \"Barriers and Their Implementations\" (PUBLISHED 2026-11-01, 10 scenes, topics/barriers-and-their-implementations/) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers what a barrier is and the two gates, the GATE CSE 2006 barrier read as three blocks, the deadlock on two invocations in immediate succession, the four candidate repairs executed, the naive count == n barrier, the sense-reversing centralized barrier, the two-phase arrival/departure semaphore barrier, and the counts (n-1 spinning, 2n-1 counter maximum, 2n under option D). The mock side already holds the family: operating-systems unit 2, subtopic slug semaphores-binary-counting (20 questions) and hardware-primitives-test-and-set (18)."
   }
  ]
 }
