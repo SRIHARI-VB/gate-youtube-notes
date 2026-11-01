@@ -6389,7 +6389,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6408,8 +6408,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6427,7 +6427,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6446,8 +6446,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6465,7 +6465,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6484,8 +6484,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6503,7 +6503,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6522,8 +6522,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6541,7 +6541,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6560,8 +6560,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6579,7 +6579,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6598,8 +6598,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6617,7 +6617,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
@@ -6636,8 +6636,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (50 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-10-28.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -14274,6 +14274,11 @@
       "kind": "mock",
       "placement": "digital-logic › computer-arithmetic › fixed-point-fraction-multiplication",
       "detail": "notes card has no matching mock subtopic: the number-systems unit (75 questions) groups base conversions, one's & two's complement, range & overflow and IEEE 754 only. The unit is already at 75, above the 50-question cap, so a Q-format fraction group has no home in it."
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › file-systems › journaling-write-ahead-log",
+      "detail": "gate-visual-explainer lesson journaling-file-systems (topics/journaling-file-systems, PUBLISHED) teaches the write-ahead log, the commit record, the three commit orders and recovery, but gate-youtube-notes holds no Operating Systems subject at all, so the lesson serves no card. Write content/subjects/operating-systems/file-systems/journaling-write-ahead-log.json"
     }
   ]
 }
