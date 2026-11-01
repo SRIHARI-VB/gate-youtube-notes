@@ -13527,7 +13527,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › sdt-intermediate-code",
-      "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: s-attributed-vs-l-attributed-definitions 13, syntax-trees-dags 12, three-address-code-quadruples-triples 14, type-checking 11"
+      "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, 75 questions) serves no notes card; the 25 questions added 2026-11-01 group as S-attributed vs L-attributed definitions 7, Syntax trees & DAGs 6, Three-address code, quadruples & triples 6, Type checking 6, and the 50 records from 2026-10-28 and 2026-10-29 carry no subtopic_label. Paper: compiler-design/sdt-intermediate-code/gate_cd_mock_4_2026-11-01.html"
     },
     {
       "kind": "notes",
@@ -14173,6 +14173,11 @@
       "kind": "notes",
       "placement": "algorithms › asymptotic-complexity",
       "detail": "visual lesson \"space-complexity-and-auxiliary-space\" (PUBLISHED 2026-11-01, 10 scenes, syllabus-coverage subtopics \"space as a peak rather than a total\" and \"total space against auxiliary space\") serves no notes card: content/index.json map[] holds no algorithms card at all, and content/syllabus.json lists the topic algorithms/asymptotic-complexity with no material processed. Its genuine overlap is the recursion stack and recursion depth, which notes already hold at programming-and-data-structures › recursion › call-stack-activation-records-and-depth (that card keeps the dedicated recursion lesson as its visual)."
+    },
+    {
+      "kind": "visual",
+      "placement": "programming-and-data-structures › trees › avl-trees-and-rotations",
+      "detail": "visual lesson \"avl-trees-and-rotations\" (PUBLISHED 2026-11-01, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no trees group — programming-and-data-structures holds only programming-in-c and recursion. It covers the height convention and the balance factor, the four rotation cases LL/RR/LR/RL, one repair per insertion against many per deletion, and N(h) = N(h-1) + N(h-2) + 1 with the row 1, 2, 4, 7, 12, 20, 33, 54, 88; the mock unit \"Binary Search Trees & Balanced Trees\" (unit_number 5) already carries avl-trees-rotations 12."
     }
   ]
 }
