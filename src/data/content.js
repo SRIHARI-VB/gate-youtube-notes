@@ -8126,7 +8126,7 @@ window.GATE_DATA = {
      "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
      "channel": "Pradeep Giri Academy (Hindi)",
      "video_id": "UP2SX1aLJ60",
-     "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -10481,7 +10481,7 @@ window.GATE_DATA = {
      "kind": "video",
      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
      "channel": "ashish singh lectures (Vikram Sir)",
-     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -10601,7 +10601,7 @@ window.GATE_DATA = {
      "kind": "video",
      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
      "channel": "ashish singh lectures (Vikram Sir)",
-     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -10733,7 +10733,7 @@ window.GATE_DATA = {
      "kind": "video",
      "title": "Mega OneShot | Ch - Aavyuh tatha Sarnik (Matrices And Determinants) | 12th Maths Hindi Medium",
      "channel": "ashish singh lectures (Vikram Sir)",
-     "url": "https://www.youtube.com/watch?v=m-yjFO_-VFk",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -13404,7 +13404,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -13414,7 +13414,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
      "channel": "GanitAnk (Hindi engineering mathematics)",
-     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -13528,7 +13528,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -13538,7 +13538,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
      "channel": "GanitAnk (Hindi engineering mathematics)",
-     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -13652,7 +13652,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -13662,7 +13662,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Linear Algebra subject notes and revision notes",
      "channel": "GATE Overflow",
-     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -13776,7 +13776,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -13786,7 +13786,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Linear Algebra subject notes and revision notes",
      "channel": "GATE Overflow",
-     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -13898,7 +13898,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -13908,7 +13908,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
      "channel": "GanitAnk (Hindi engineering mathematics)",
-     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -14022,7 +14022,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14032,7 +14032,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Linear Algebra subject notes and revision notes",
      "channel": "GATE Overflow",
-     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -14144,7 +14144,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14259,7 +14259,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14269,7 +14269,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Linear Algebra subject notes and revision notes",
      "channel": "GATE Overflow",
-     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -14380,7 +14380,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14390,7 +14390,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Linear Algebra subject notes and revision notes",
      "channel": "GATE Overflow",
-     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+     "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -14492,7 +14492,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lecture 46: Eigenvalues and Eigenvectors",
      "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-     "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14502,7 +14502,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Eigen Value Eigen Vector | Engineering Mathematics ONESHOT (Hindi)",
      "channel": "GanitAnk (Hindi engineering mathematics)",
-     "url": "https://www.youtube.com/watch?v=qeZ7oW-Jrnc",
+     "url": "https://www.youtube.com/watch",
      "language": "hi",
      "transcript": "PARTIAL",
      "translated": true,
@@ -14742,7 +14742,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lec23: Matrix Decomposition - LU Method",
      "channel": "Engineering Wing (machine learning lecture series)",
-     "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -14752,7 +14752,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Factorization of Matrix With Solved Example",
      "channel": "The Double Vibe (Asma Mushtak)",
-     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -15009,7 +15009,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
      "channel": "Dheeraj Mishra (IIT Bombay)",
-     "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -15233,7 +15233,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Factorization of Matrix With Solved Example",
      "channel": "The Double Vibe (Asma Mushtak)",
-     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -15243,7 +15243,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "Lec23: Matrix Decomposition - LU Method",
      "channel": "Engineering Wing (machine learning lecture series)",
-     "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -15691,7 +15691,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Factorization of Matrix With Solved Example",
      "channel": "The Double Vibe (Asma Mushtak)",
-     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -15918,7 +15918,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Factorization of Matrix With Solved Example",
      "channel": "The Double Vibe (Asma Mushtak)",
-     "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "FULL",
      "translated": false,
@@ -15928,7 +15928,7 @@ window.GATE_DATA = {
      "kind": "lecture",
      "title": "LU Decomposition | GATE Data Science and AI 2024 | Linear Algebra",
      "channel": "Dheeraj Mishra (IIT Bombay)",
-     "url": "https://www.youtube.com/watch?v=I7Hd_qHusR0",
+     "url": "https://www.youtube.com/watch",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -16067,26 +16067,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16097,7 +16097,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16172,26 +16172,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16202,7 +16202,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16295,26 +16295,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16325,7 +16325,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16421,26 +16421,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16451,7 +16451,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16543,26 +16543,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16573,7 +16573,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16666,26 +16666,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16696,7 +16696,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16790,26 +16790,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -16820,7 +16820,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -16905,26 +16905,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17029,26 +17029,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17059,7 +17059,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -17152,26 +17152,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17182,7 +17182,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -17277,26 +17277,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "calculus-limits-extrema-and-integration",
@@ -17307,7 +17307,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -19147,26 +19147,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19179,7 +19179,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19274,26 +19274,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19306,7 +19306,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19392,26 +19392,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19424,7 +19424,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19500,26 +19500,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19533,7 +19533,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19617,26 +19617,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19648,7 +19648,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19733,26 +19733,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19765,7 +19765,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19852,26 +19852,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -19885,7 +19885,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -19970,26 +19970,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -20002,7 +20002,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -20077,26 +20077,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -20109,7 +20109,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -20194,26 +20194,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -20225,7 +20225,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -20299,26 +20299,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -20331,7 +20331,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -20418,26 +20418,26 @@ window.GATE_DATA = {
      "unit_slug": "calculus-limits-derivatives",
      "unit_name": "Calculus: Limits, Continuity & Differentiability",
      "unit_number": 3,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "continuity-analysis",
-       "questions": 12
+       "label": "Indeterminate forms & L'Hôpital",
+       "questions": 21
       },
       {
-       "label": "indeterminate-forms-lhopital",
-       "questions": 14
+       "label": "Continuity analysis",
+       "questions": 18
       },
       {
-       "label": "mean-value-theorems",
-       "questions": 12
+       "label": "Mean value theorems",
+       "questions": 18
       },
       {
-       "label": "partial-derivatives",
-       "questions": 12
+       "label": "Partial derivatives",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
      "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -20449,7 +20449,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "mean-value-theorem",
@@ -28112,7 +28112,7 @@ window.GATE_DATA = {
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
-     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "url": "https://gateoverflow.in/subject/digital-logic",
      "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
     }
    ],

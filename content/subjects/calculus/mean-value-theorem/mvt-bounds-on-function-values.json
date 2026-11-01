@@ -78,26 +78,26 @@
       "unit_slug": "calculus-limits-derivatives",
       "unit_name": "Calculus: Limits, Continuity & Differentiability",
       "unit_number": 3,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
-          "label": "continuity-analysis",
-          "questions": 12
+          "label": "Indeterminate forms & L'Hôpital",
+          "questions": 21
         },
         {
-          "label": "indeterminate-forms-lhopital",
-          "questions": 14
+          "label": "Continuity analysis",
+          "questions": 18
         },
         {
-          "label": "mean-value-theorems",
-          "questions": 12
+          "label": "Mean value theorems",
+          "questions": 18
         },
         {
-          "label": "partial-derivatives",
-          "questions": 12
+          "label": "Partial derivatives",
+          "questions": 18
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-10-27.html"
+      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-limits-derivatives/gate_em_mock_3_2026-11-01.html"
     },
     "visual": {
       "slug": "mean-value-theorems-rolle-and-lagrange",
@@ -110,6 +110,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/mean-value-theorems-rolle-and-lagrange/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }
