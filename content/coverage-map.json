@@ -13517,7 +13517,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › lexical-analysis",
-      "detail": "mock unit \"Lexical Analysis\" (unit_number 1, 75 questions) serves no notes card; subtopic groups: input-buffering-lookahead 16, lex-input-structure 16, regular-expressions-to-lexers 21, tokens-lexemes-patterns 22"
+      "detail": "mock unit \"Lexical Analysis\" (unit_number 1, 100 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Subtopic groups: Tokens, lexemes & patterns 29, Regular expressions to lexers 28, Lex input structure 23, Input buffering & lookahead 20. Latest paper compiler-design/lexical-analysis/gate_cd_mock_1_2026-11-01.html (run 16, 2026-11-01)."
     },
     {
       "kind": "notes",
@@ -14178,6 +14178,11 @@
       "kind": "visual",
       "placement": "programming-and-data-structures › trees › avl-trees-and-rotations",
       "detail": "visual lesson \"avl-trees-and-rotations\" (PUBLISHED 2026-11-01, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no trees group — programming-and-data-structures holds only programming-in-c and recursion. It covers the height convention and the balance factor, the four rotation cases LL/RR/LR/RL, one repair per insertion against many per deletion, and N(h) = N(h-1) + N(h-2) + 1 with the row 1, 2, 4, 7, 12, 20, 33, 54, 88; the mock unit \"Binary Search Trees & Balanced Trees\" (unit_number 5) already carries avl-trees-rotations 12."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-and-data-structures › trees › red-black-deletion",
+      "detail": "visual lesson \"red-black-deletion\" (PUBLISHED 2026-11-01; syllabus-coverage.json places it at Programming and Data Structures › Section 4: trees, binary search trees › Red-black deletion, 10 subtopics and 33 microtopics) serves no notes card: content/index.json has no algorithms or programming-and-data-structures trees group. Checked against topics/red-black-deletion/transcript.md, the lesson covers the splice and successor, the extra black as bookkeeping, case 1 (red sibling), case 2 (both nephews black), case 3 (near nephew red), case 4 (far nephew red), the black-height that can fall at the root, and the measured three-rotation bound. The card it needs is programming-and-data-structures › trees › red-black-deletion"
     }
   ]
 }
