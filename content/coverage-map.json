@@ -13821,8 +13821,8 @@
     },
     {
       "kind": "notes",
-      "placement": "lesson hashing",
-      "detail": "published lesson \"Hashing: hash functions and collision resolution\" (PUBLISHED) serves no notes card"
+      "placement": "algorithms › searching-sorting-hashing",
+      "detail": "published lesson \"hashing\" (\"Hashing: hash functions and collision resolution\", Algorithms › Searching and sorting, PUBLISHED) serves no notes card: content/index.json holds no hashing group under any subject, and content/syllabus.json lists algorithms › searching-sorting-hashing as \"planned\" with no cards. Recommendation: write the first hashing cards under content/subjects/algorithms/searching-sorting-hashing/."
     },
     {
       "kind": "notes",
@@ -14148,6 +14148,11 @@
       "kind": "mock",
       "placement": "databases › file-organization-and-indexing",
       "detail": "mock unit \"Indexing, B-Trees & Storage\" (unit_number 5, unit_slug indexing-storage, 25 questions, added 2026-11-01 as run 8) serves no notes card: the notes repo holds no databases subject at all. Its subtopic groups are b-trees-and-b-plus-trees-order-capacity 8, primary-secondary-clustering-indexes 6, dense-vs-sparse-indexing 6, static-and-dynamic-hashing 5. Recommendation: add a Databases playlist under content/playlists/ and write the first cards under content/subjects/databases/file-organization-and-indexing/."
+    },
+    {
+      "kind": "mock",
+      "placement": "algorithms › searching-sorting-hashing",
+      "detail": "mock unit \"Hashing & Hash Tables\" (unit_number 7, unit_slug hashing, 50 questions, Set 2 of 2 added 2026-11-01 as run 14, paper programming-data-structures/hashing/gate_ds_mock_7_2026-11-01.html) serves no notes card: content/index.json holds no hashing group under any subject. Its subtopic_label groups are Hash functions 13, Load factor & rehashing 12, Open addressing: linear, quadratic & double 7, Open addressing: linear, quadratic, double 7, Collision resolution: chaining 6, Collision resolution by chaining 5. The unit is at the 50-question cap (MOCK_CAPPED), so the next Programming and Data Structures run advances to programming-data-structures/c-programming-core. Recommendation: write the first hashing cards under content/subjects/algorithms/searching-sorting-hashing/ (planned in content/syllabus.json), which also serves the published lesson hashing."
     },
     {
       "kind": "notes",
