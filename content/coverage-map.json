@@ -13667,7 +13667,7 @@
     {
       "kind": "notes",
       "placement": "operating-systems › deadlocks",
-      "detail": "mock unit \"Deadlocks\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: deadlock-detection-recovery 17, deadlock-prevention-avoidance-bankers 23, four-conditions-resource-allocation-graph 20, starvation-vs-deadlock 15"
+      "detail": "mock unit \"Deadlocks\" (unit_number 3, unit_slug deadlocks, 100 questions in the bank, above the 50-question cap so MOCK_CAPPED; last paper operating-systems/deadlocks/gate_os_mock_3_2026-11-02.html) serves no notes card: content/index.json has no operating-systems subject at all. The 75 records added before 2026-11-02 carry only a subtopic slug: deadlock-detection-recovery 17, deadlock-prevention-avoidance-bankers 23, four-conditions-resource-allocation-graph 20, starvation-vs-deadlock 15. The 25 records added 2026-11-02 (run 21) carry subtopic_label: Detection & recovery 6, Four conditions & RAG 5, Prevention, avoidance & Banker's 7, Starvation vs deadlock 7. Write content/subjects/operating-systems/deadlocks/<subtopic>.json before this unit can map to a card."
     },
     {
       "kind": "notes",
@@ -14318,6 +14318,11 @@
       "kind": "notes",
       "placement": "algorithms › complexity-np-complete",
       "detail": "mock unit \"Complexity Theory & NP-Completeness\" (unit_number 7, unit_slug complexity-np-complete, 25 questions, Set 1 of 2, paper gate_algo_mock_7_2026-11-02.html) serves no notes card; subtopic groups: classes-p-and-np 7, polynomial-time-reductions 6, np-complete-problems-3sat-clique-vertex-cover 6, np-hard-identification 6. content/index.json map[] holds no algorithms card and content/syllabus.json lists algorithms with every topic still \"planned\". Write content/subjects/algorithms/complexity-np-complete/ classes-p-and-np.json and polynomial-time-reductions.json; the published lesson complexity-classes-p-np-np-complete already serves the unit."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture › performance-arithmetic › cpu-performance-arithmetic",
+      "detail": "published lesson \"CPU performance: the equation, CPI, MIPS and Amdahl's law\" (slug cpu-performance-cpi-mips-and-amdahl, coverage_status PUBLISHED, 12 scenes, 55 caption segments, syllabus-coverage subtopics \"the CPU performance equation and the unit check\" through \"the pipeline speedup limit and the exact cycle count\") serves no notes card: content/index.json holds no computer-organization-and-architecture topic on performance arithmetic. The nearest cards are instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation, ideal-timing-and-speedup-formula and throughput-efficiency-and-the-clock-rate-trade, which use this arithmetic but are filed under pipelining and already carry the dedicated lesson pipelining-and-hazards. Write content/subjects/computer-organization-and-architecture/performance-arithmetic/cpu-performance-arithmetic.json."
     }
   ]
 }
