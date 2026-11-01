@@ -74,6 +74,32 @@
   ],
   "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py.",
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "boolean-algebra",
+      "unit_name": "Boolean Algebra & Switching Logic",
+      "unit_number": 11,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Boolean identities & duality",
+          "questions": 6
+        },
+        {
+          "label": "SOP & POS forms",
+          "questions": 6
+        },
+        {
+          "label": "Minterms & maxterms",
+          "questions": 6
+        },
+        {
+          "label": "K-map simplification",
+          "questions": 7
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
       "slug": "boolean-algebra-and-minimisation",
       "title": "Boolean Algebra and Minimisation",
@@ -83,6 +109,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

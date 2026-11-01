@@ -27696,6 +27696,32 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The postulates, the 2^(2^n) count and the duality rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The self-dual function and its count: the same course's Lecture 10 opening (English), where the dual circuit and the self-dual function are introduced. Every count in this card is recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -27705,7 +27731,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
@@ -27793,6 +27819,32 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The theorem list and the NAND-NOR observation: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, opening and closing summary read). The prime-implicant and simplification vocabulary in GATE's own phrasing: GATE Overflow's Digital Logic subject notes (English, read in part). Every identity used here is recomputed on all 0/1 rows in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -27804,7 +27856,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
@@ -27981,6 +28033,32 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The truth table to minterm/maxterm conversion and the two-level reading: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 opening (English), which recaps Lecture 09's conversion. The complement pairing of Sigma m and Pi M: recomputed row by row in scripts/validate.py, and stated in GATE Overflow's subject notes (English).",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -27990,7 +28068,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
@@ -28167,6 +28245,32 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The grid, the minterm numbering and the adjacency argument: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 (English, opening read). Gray-code ordering, wrap-around and the reading rule: the Wikipedia Karnaugh map article (English, read in part). Every adjacency and every cell number is recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -28176,7 +28280,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
@@ -28265,6 +28369,32 @@ window.GATE_DATA = {
    "sourceLine": "The grouping rules and the cover requirement: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) - logical adjacency is the key, every 1 is covered by the fewest and largest power-of-two groups. The reading rule (keep the constant variables): GATE Overflow's Digital Logic subject notes (English, read in part) and recomputation in scripts/validate.py.",
    "visual": "digital-logic/boolean-algebra-and-minimization/kmap-dont-care-grouping",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -28274,7 +28404,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
@@ -28591,6 +28721,32 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The POS rule (cover the 0s, and a don't care may join a group of 0s): NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English) and GATE Overflow's Digital Logic subject notes (English). The inverted reading of a sum term and the De Morgan route from the complement: the Wikipedia Karnaugh map article (English, read in part). Both forms of the worked example are recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 6
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 6
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 6
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 7
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
     "visual": {
      "slug": "boolean-algebra-and-minimisation",
      "title": "Boolean Algebra and Minimisation",
@@ -28600,7 +28756,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
