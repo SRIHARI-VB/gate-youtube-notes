@@ -92,15 +92,16 @@
   "sourceLine": "The definitions of implicant, prime implicant and essential prime implicant and the three-step cover algorithm: GATE Overflow's Digital Logic subject notes (English) and the Aditya Engineering College switching-functions notes (English, read in part). The cover-every-1 rule: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 10 closing summary (English). Every prime implicant and essential prime implicant in this card is enumerated by brute force in scripts/validate.py.",
   "links": {
     "visual": {
-      "slug": "boolean-algebra-and-minimisation",
-      "title": "Boolean Algebra and Minimisation",
+      "slug": "quine-mccluskey-tabular-method",
+      "title": "The Tabular Method: Quine–McCluskey, Prime Implicant Charts and Petrick's Method",
       "level": "topic-level",
       "covers": [
-        "prime implicants against a cover",
-        "essential prime implicants"
+        "prime against essential prime: containment against uniqueness",
+        "the prime implicant chart as a covering problem",
+        "cyclic charts and Petrick's method"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/quine-mccluskey-tabular-method/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }
