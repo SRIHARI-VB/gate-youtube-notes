@@ -40450,7 +40450,7 @@ window.GATE_DATA = {
    "sourceLine": "The interface unit as the resolver of the CPU-peripheral differences and the three transfer modes: NPTEL IIT Guwahati Lecture 33 (English, read in part). The three-register view and the polling/interrupt distinction stated over it: DSWallah Learn, romanised Hindi, translated (read in part). Command, status and data registers and register mapping: Auburn ELEC 5200 Chapter 6 (English, read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -40466,26 +40466,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -40584,7 +40584,7 @@ window.GATE_DATA = {
    "sourceLine": "Memory-mapped against I/O-instruction register mapping, with the note that the operating system's address translation makes the registers kernel-only: Auburn ELEC 5200 Chapter 6 (English, read in part). Memory-mapped against isolated I/O with the x86 and ARM examples: DSWallah Learn, romanised Hindi, translated (read in part). The need for an I/O module and the addressing of devices: NPTEL IIT Guwahati Lecture 33 (English, read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -40595,6 +40595,32 @@ window.GATE_DATA = {
       "the address budget 2^k - p, worked at 16 bits and 256 ports giving 65280"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "io-interfaces",
+     "unit_name": "I/O Interface & Storage",
+     "unit_number": 6,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Secondary storage disks",
+       "questions": 14
+      },
+      {
+       "label": "DMA controller",
+       "questions": 12
+      },
+      {
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
+      },
+      {
+       "label": "RAID levels",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -40691,7 +40717,7 @@ window.GATE_DATA = {
    "sourceLine": "Programmed I/O as a status-check loop in which the processor is busy doing nothing: NPTEL IIT Guwahati Lecture 34 (English, read in part). Polling as the CPU repeatedly checking status bits, and the busy-wait criticism: Auburn ELEC 5200 Chapter 6 (English, read in part). The three-technique comparison with polling as busy waiting: DSWallah Learn, romanised Hindi, translated (read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -40707,26 +40733,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -40823,7 +40849,7 @@ window.GATE_DATA = {
    "sourceLine": "The read-command / interface-interrupts-the-CPU sequence and the removal of busy waiting: NPTEL IIT Guwahati Lecture 34 (English, read in part). Priority interrupts, the interrupt as an asynchronous exception taken between instructions, and the warning that interrupts cost a mode switch: Auburn ELEC 5200 Chapter 6 (English, read in part). The five-step handling sequence and what is saved: DSWallah Learn, romanised Hindi, translated (read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -40838,26 +40864,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -40957,7 +40983,7 @@ window.GATE_DATA = {
    "sourceLine": "The five-step handling sequence, the vector table and what is saved: DSWallah Learn, romanised Hindi, translated (read in part). The interrupt cycle as a branch-and-save-return-address operation with its register transfers: IARE Computer Organization notes (English, read in part). The need for interrupt-driven I/O stated over the same cycle: NPTEL IIT Guwahati Lecture 34 (English, read in part). Both PYQ orderings are recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -40972,26 +40998,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41089,7 +41115,7 @@ window.GATE_DATA = {
    "sourceLine": "Vectored against non-vectored interrupts, the vector table, and the extra identification step in the non-vectored case: DSWallah Learn, romanised Hindi, translated (read in part). Interrupts as exceptions carrying the cause, with priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The interrupt sequence the vector feeds: NPTEL IIT Guwahati Lecture 34 (English, read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41104,26 +41130,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41223,7 +41249,7 @@ window.GATE_DATA = {
    "sourceLine": "Daisy chain as positional priority with the acknowledge passed along the chain, plus bus arbitration and the BR/BG handshake: DSWallah Learn, romanised Hindi, translated (read in part, two lessons). Priority interrupts, with the note that a higher-priority device can interrupt a lower-priority handler: Auburn ELEC 5200 Chapter 6 (English, read in part). Maskable against non-maskable and the four interrupt types: DSWallah Learn, romanised Hindi, translated (read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41239,26 +41265,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41357,7 +41383,7 @@ window.GATE_DATA = {
    "sourceLine": "Busy waiting as the defect of programmed I/O and the interrupt as its removal: NPTEL IIT Guwahati Lecture 34 (English, read in part). The polling-against-interrupt comparison and its efficiency claim: DSWallah Learn, romanised Hindi, translated (read in part). Polling cost, mode-switch cost of an interrupt, and priority interrupts: Auburn ELEC 5200 Chapter 6 (English, read in part). The 2023 arithmetic is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41373,26 +41399,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41491,7 +41517,7 @@ window.GATE_DATA = {
    "sourceLine": "DMA as the removal of the processor from the data path, and the design objectives of a DMA module: NPTEL IIT Guwahati Lecture 35 (English, read in part). DMA organisation and operation - CPU programmes the registers, bus request and grant, the controller transfers until complete, cache and virtual-memory interactions: Auburn ELEC 5200 Chapter 6 (English, read in part). The HOLD/HLDA handshake in which the CPU releases the bus: IARE Computer Organization notes (English, read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41507,26 +41533,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41626,7 +41652,7 @@ window.GATE_DATA = {
    "videoRefs": [],
    "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41641,26 +41667,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41761,7 +41787,7 @@ window.GATE_DATA = {
    "sourceLine": "DMA transfer and the need for it: NPTEL IIT Guwahati Lecture 35 (English, read in part). The DMA total-time expression as bus request time plus transfer time plus bus release time, which is where the overhead accounting comes from: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English, read in full article). Cycle stealing against burst with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). All three PYQ figures are recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41778,26 +41804,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -41896,7 +41922,7 @@ window.GATE_DATA = {
    "sourceLine": "The DMA module's registers, including the count register, and its design issues: NPTEL IIT Guwahati Lecture 35 (English, read in part). CPU sets the start address and length, and the controller transfers until complete: Auburn ELEC 5200 Chapter 6 (English, read in part). The DMA transfer sequence: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English). The 456 figure is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -41911,26 +41937,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",
@@ -42042,7 +42068,7 @@ window.GATE_DATA = {
    "videoRefs": [],
    "visual": "computer-organization-and-architecture/io-interface/io-transfer-three-ways",
    "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
      "slug": "io-interface-interrupts-dma",
      "title": "I/O Interface, Interrupts and DMA",
@@ -42057,26 +42083,26 @@ window.GATE_DATA = {
      "unit_slug": "io-interfaces",
      "unit_name": "I/O Interface & Storage",
      "unit_number": 6,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Programmed I/O & interrupts",
-       "questions": 6
+       "label": "Secondary storage disks",
+       "questions": 14
       },
       {
        "label": "DMA controller",
-       "questions": 6
+       "questions": 12
       },
       {
-       "label": "Secondary storage disks",
-       "questions": 7
+       "label": "Programmed I/O & interrupts",
+       "questions": 12
       },
       {
        "label": "RAID levels",
-       "questions": 6
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
    },
    "subject": "computer-organization-and-architecture",

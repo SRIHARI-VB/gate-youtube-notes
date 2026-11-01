@@ -90,7 +90,7 @@
   "sourceLine": "Memory-mapped against I/O-instruction register mapping, with the note that the operating system's address translation makes the registers kernel-only: Auburn ELEC 5200 Chapter 6 (English, read in part). Memory-mapped against isolated I/O with the x86 and ARM examples: DSWallah Learn, romanised Hindi, translated (read in part). The need for an I/O module and the addressing of devices: NPTEL IIT Guwahati Lecture 33 (English, read in part).",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-02",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -101,6 +101,32 @@
         "the address budget 2^k - p, worked at 16 bits and 256 ports giving 65280"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/io-interface-interrupts-dma/index.html"
+    },
+    "mock": {
+      "subject": "computer-architecture",
+      "unit_slug": "io-interfaces",
+      "unit_name": "I/O Interface & Storage",
+      "unit_number": 6,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Secondary storage disks",
+          "questions": 14
+        },
+        {
+          "label": "DMA controller",
+          "questions": 12
+        },
+        {
+          "label": "Programmed I/O & interrupts",
+          "questions": 12
+        },
+        {
+          "label": "RAID levels",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
   }
 }

@@ -92,7 +92,7 @@
   "sourceLine": "DMA transfer and the need for it: NPTEL IIT Guwahati Lecture 35 (English, read in part). The DMA total-time expression as bus request time plus transfer time plus bus release time, which is where the overhead accounting comes from: GeeksforGeeks, I/O Interface (Interrupt and DMA Mode) (English, read in full article). Cycle stealing against burst with the CPU-slowdown statement: DSWallah Learn, romanised Hindi, translated (read in part). All three PYQ figures are recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -109,26 +109,26 @@
       "unit_slug": "io-interfaces",
       "unit_name": "I/O Interface & Storage",
       "unit_number": 6,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
-          "label": "Programmed I/O & interrupts",
-          "questions": 6
+          "label": "Secondary storage disks",
+          "questions": 14
         },
         {
           "label": "DMA controller",
-          "questions": 6
+          "questions": 12
         },
         {
-          "label": "Secondary storage disks",
-          "questions": 7
+          "label": "Programmed I/O & interrupts",
+          "questions": 12
         },
         {
           "label": "RAID levels",
-          "questions": 6
+          "questions": 12
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
   }
 }

@@ -81,7 +81,7 @@
   "sourceLine": "The interface unit as the resolver of the CPU-peripheral differences and the three transfer modes: NPTEL IIT Guwahati Lecture 33 (English, read in part). The three-register view and the polling/interrupt distinction stated over it: DSWallah Learn, romanised Hindi, translated (read in part). Command, status and data registers and register mapping: Auburn ELEC 5200 Chapter 6 (English, read in part).",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-11-01",
+    "mapped_at": "2026-11-02",
     "visual": {
       "slug": "io-interface-interrupts-dma",
       "title": "I/O Interface, Interrupts and DMA",
@@ -97,26 +97,26 @@
       "unit_slug": "io-interfaces",
       "unit_name": "I/O Interface & Storage",
       "unit_number": 6,
-      "question_count": 25,
+      "question_count": 50,
       "subtopics": [
         {
-          "label": "Programmed I/O & interrupts",
-          "questions": 6
+          "label": "Secondary storage disks",
+          "questions": 14
         },
         {
           "label": "DMA controller",
-          "questions": 6
+          "questions": 12
         },
         {
-          "label": "Secondary storage disks",
-          "questions": 7
+          "label": "Programmed I/O & interrupts",
+          "questions": 12
         },
         {
           "label": "RAID levels",
-          "questions": 6
+          "questions": 12
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html"
     }
   }
 }

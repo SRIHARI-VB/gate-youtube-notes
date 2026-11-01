@@ -3649,14 +3649,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3667,8 +3667,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/io-interface-why-it-exists-and-its-registers.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3691,10 +3692,27 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/memory-mapped-and-isolated-io.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "VISUAL_ONLY",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "io-interfaces",
+        "unit_name": "I/O Interface & Storage",
+        "unit_number": 6,
+        "question_count": 50,
+        "subtopic_labels": [
+          "DMA controller",
+          "Programmed I/O & interrupts",
+          "RAID levels",
+          "Secondary storage disks"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3709,14 +3727,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3727,8 +3745,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/programmed-io-polling-and-its-cost.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3747,14 +3766,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3765,8 +3784,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-driven-io-the-handshake.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3785,14 +3805,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3803,8 +3823,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/the-interrupt-cycle-microoperations.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3823,14 +3844,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3841,8 +3862,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/vectored-versus-non-vectored-interrupts.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3861,14 +3883,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3879,8 +3901,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-priority-daisy-chain-and-polling.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3899,14 +3922,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3917,8 +3940,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/interrupt-overhead-and-polling-versus-interrupt-arithmetic.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3937,14 +3961,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3955,8 +3979,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-controller-registers-and-the-transfer-sequence.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -3975,14 +4000,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -3993,8 +4018,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-modes-burst-cycle-stealing-transparent.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -4013,14 +4039,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -4031,8 +4057,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-throughput-and-cycle-stealing-arithmetic.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -4051,14 +4078,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -4069,8 +4096,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/dma-count-register-chunking.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -4089,14 +4117,14 @@
         "unit_slug": "io-interfaces",
         "unit_name": "I/O Interface & Storage",
         "unit_number": 6,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "DMA controller",
           "Programmed I/O & interrupts",
           "RAID levels",
           "Secondary storage disks"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "io-interface-interrupts-dma",
@@ -4107,8 +4135,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (25 records)",
-        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-01.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=io-interfaces (50 records, unit at the 50-question cap)",
+        "mock url: runs[] last entry for unit io-interfaces -> https://gate-cse-mocks.vercel.app/computer-architecture/io-interfaces/gate_co_mock_6_2026-11-02.html",
+        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/io-interface/comparing-the-three-modes-and-dma-cache-coherence.json",
         "visual: gate-visual-explainer/topics.json slug=io-interface-interrupts-dma; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene headings (10 scenes) and microtopics[]",
         "visual url: topics/io-interface-interrupts-dma/index.html"
       ],
@@ -13523,12 +13552,12 @@
     {
       "kind": "notes",
       "placement": "computer-organization-and-architecture › io-interface › secondary-storage-disks",
-      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 25 questions) carries 7 questions on Secondary storage disks (disk access time, rotational latency, cylinders, transfer rate) but no notes card covers them; the io-interface topic holds 13 cards and none on secondary storage. Write content/subjects/computer-organization-and-architecture/io-interface/secondary-storage-disks.json"
+      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 14 questions on Secondary storage disks (disk access time, rotational latency, cylinders, transfer rate) but no notes card covers them; the io-interface topic holds 13 cards and none on secondary storage. Write content/subjects/computer-organization-and-architecture/io-interface/secondary-storage-disks.json"
     },
     {
       "kind": "notes",
       "placement": "computer-organization-and-architecture › io-interface › raid-levels",
-      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 25 questions) carries 6 questions on RAID levels (RAID 0/1/4/5/6, parity, usable capacity, MTTF) but no notes card covers them. Write content/subjects/computer-organization-and-architecture/io-interface/raid-levels.json"
+      "detail": "mock unit \"I/O Interface & Storage\" (unit_number 6, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 12 questions on RAID levels (RAID 0/1/4/5/6, parity, usable capacity, MTTF) but no notes card covers them. Write content/subjects/computer-organization-and-architecture/io-interface/raid-levels.json"
     },
     {
       "kind": "notes",
@@ -14279,6 +14308,11 @@
       "kind": "notes",
       "placement": "operating-systems › file-systems › journaling-write-ahead-log",
       "detail": "gate-visual-explainer lesson journaling-file-systems (topics/journaling-file-systems, PUBLISHED) teaches the write-ahead log, the commit record, the three commit orders and recovery, but gate-youtube-notes holds no Operating Systems subject at all, so the lesson serves no card. Write content/subjects/operating-systems/file-systems/journaling-write-ahead-log.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › memory-management › contiguous-memory-allocation-and-fit-policies",
+      "detail": "published lesson \"Contiguous memory allocation: fixed and variable partitioning, the four fit policies, internal and external fragmentation, and compaction\" (slug contiguous-memory-allocation-and-fit-policies, coverage_status PUBLISHED 2026-11-02, 11 scenes, 16 subtopics, 22 microtopics) serves no notes card: content/index.json holds 7 subjects and no operating-systems subject at all, so nothing in the notes covers partitioning, first/next/best/worst fit, fragmentation or compaction. Write content/subjects/operating-systems/memory-management/contiguous-memory-allocation-and-fit-policies.json; the notes material would need a playlist covering OS memory management, which content/syllabus.json does not list."
     }
   ]
 }
