@@ -111,7 +111,7 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "eigenvalues and eigenvectors"
+        "the count of directions is the nullity of A minus lambda I"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

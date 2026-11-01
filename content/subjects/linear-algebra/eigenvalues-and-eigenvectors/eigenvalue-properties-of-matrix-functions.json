@@ -112,8 +112,7 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "matrix operations",
-        "eigenvalues and eigenvectors"
+        "powers: A^k has lambda^k; the inverse has 1/lambda"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

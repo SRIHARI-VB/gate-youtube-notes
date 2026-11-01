@@ -113,7 +113,7 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "eigenvalues and eigenvectors"
+        "triangular, all-ones, idempotent, nilpotent and rotation patterns"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

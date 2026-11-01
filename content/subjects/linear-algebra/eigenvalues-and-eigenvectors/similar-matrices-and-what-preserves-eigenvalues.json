@@ -104,15 +104,6 @@
       ],
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
-    "visual": {
-      "slug": "matrices-systems-and-eigenvalues",
-      "title": "Matrices, Systems and Eigenvalues",
-      "level": "topic-level",
-      "covers": [
-        "eigenvalues and eigenvectors"
-      ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
-    },
     "mapped_at": "2026-11-01"
   }
 }

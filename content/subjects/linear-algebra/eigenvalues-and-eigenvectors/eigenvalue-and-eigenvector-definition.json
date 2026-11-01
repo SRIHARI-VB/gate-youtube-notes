@@ -121,7 +121,7 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "eigenvalues and eigenvectors"
+        "eigenvectors as preserved directions; Av = lambda v"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

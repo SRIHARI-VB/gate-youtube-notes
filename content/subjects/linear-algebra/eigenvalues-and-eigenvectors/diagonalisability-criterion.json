@@ -109,6 +109,10 @@
       "slug": "matrices-systems-and-eigenvalues",
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
+      "covers": [
+        "diagonalisation A = P D P^-1 and powers through D",
+        "algebraic against geometric multiplicity; defective matrices"
+      ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
     "mapped_at": "2026-11-01"

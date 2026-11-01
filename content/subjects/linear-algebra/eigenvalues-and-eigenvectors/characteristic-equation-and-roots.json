@@ -111,7 +111,8 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "characteristic polynomial det(A - lambda I) = 0"
+        "characteristic polynomial det(A - lambda I) = 0",
+        "trace is the sum and determinant the product of the eigenvalues"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

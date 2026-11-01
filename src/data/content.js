@@ -13250,7 +13250,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvalues and eigenvectors"
+      "eigenvectors as preserved directions; Av = lambda v"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -13373,7 +13373,8 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "characteristic polynomial det(A - lambda I) = 0"
+      "characteristic polynomial det(A - lambda I) = 0",
+      "trace is the sum and determinant the product of the eigenvalues"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -13496,7 +13497,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvalues and eigenvectors"
+      "the count of directions is the nullity of A minus lambda I"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -13620,8 +13621,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "matrix operations",
-      "eigenvalues and eigenvectors"
+      "powers: A^k has lambda^k; the inverse has 1/lambda"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -13866,6 +13866,10 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
+     "covers": [
+      "diagonalisation A = P D P^-1 and powers through D",
+      "algebraic against geometric multiplicity; defective matrices"
+     ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
     "mapped_at": "2026-11-01"
@@ -13987,7 +13991,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvalues and eigenvectors"
+      "symmetric matrices: real eigenvalues, orthogonal eigenvectors"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -14099,7 +14103,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvalues and eigenvectors"
+      "a real matrix with no real eigenvalue"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -14224,7 +14228,7 @@ window.GATE_DATA = {
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
      "covers": [
-      "eigenvalues and eigenvectors"
+      "triangular, all-ones, idempotent, nilpotent and rotation patterns"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
@@ -14340,15 +14344,6 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
     },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "covers": [
-      "eigenvalues and eigenvectors"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
-    },
     "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
@@ -14460,15 +14455,6 @@ window.GATE_DATA = {
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
-    },
-    "visual": {
-     "slug": "matrices-systems-and-eigenvalues",
-     "title": "Matrices, Systems and Eigenvalues",
-     "level": "topic-level",
-     "covers": [
-      "matrix operations"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
     "mapped_at": "2026-11-01"
    },

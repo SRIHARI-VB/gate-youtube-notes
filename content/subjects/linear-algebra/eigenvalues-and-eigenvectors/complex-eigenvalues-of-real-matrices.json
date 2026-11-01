@@ -100,7 +100,7 @@
       "title": "Matrices, Systems and Eigenvalues",
       "level": "topic-level",
       "covers": [
-        "eigenvalues and eigenvectors"
+        "a real matrix with no real eigenvalue"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },

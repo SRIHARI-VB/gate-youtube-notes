@@ -9977,16 +9977,15 @@
     "title": "Matrices, Systems and Eigenvalues",
     "coverage_status": "PUBLISHED",
     "level": "topic-level",
-    "verdict": "VISUAL_LESSON"
+    "verdict": "VISUAL_MISSING"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/similar-matrices-and-what-preserves-eigenvalues.json",
     "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
     "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
-    "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/matrices-systems-and-eigenvalues/index.html"
+    "visual: topics/matrices-systems-and-eigenvalues/transcript.md read scene by scene; no scene or microtopic covers this subtopic, so the link is omitted rather than asserted"
    ],
-   "row_verdict": "BOTH"
+   "row_verdict": "MOCK_ONLY"
   },
   {
    "subject": "linear-algebra",
@@ -10015,16 +10014,15 @@
     "title": "Matrices, Systems and Eigenvalues",
     "coverage_status": "PUBLISHED",
     "level": "topic-level",
-    "verdict": "VISUAL_LESSON"
+    "verdict": "VISUAL_MISSING"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/linear-algebra/eigenvalues-and-eigenvectors/cayley-hamilton-and-matrix-inverse.json",
     "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=eigenvalues-eigenvectors (75 records, over the 50-question cap after the 2026-11-01 second-pass set)",
     "mock url: runs[] last entry for eigenvalues-eigenvectors (run 12, 2026-11-01) -> https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html",
-    "visual: topics.json slug=matrices-systems-and-eigenvalues; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/matrices-systems-and-eigenvalues/index.html"
+    "visual: topics/matrices-systems-and-eigenvalues/transcript.md read scene by scene; no scene or microtopic covers this subtopic, so the link is omitted rather than asserted"
    ],
-   "row_verdict": "BOTH"
+   "row_verdict": "MOCK_ONLY"
   },
   {
    "subject": "linear-algebra",
@@ -13886,6 +13884,26 @@
    "kind": "notes",
    "placement": "operating-systems \u203a concurrency \u203a barriers-and-their-implementations",
    "detail": "published lesson \"Barriers and Their Implementations\" (PUBLISHED 2026-11-01, 10 scenes, topics/barriers-and-their-implementations/) serves no notes card: content/index.json holds no operating-systems subject at all. Its transcript covers what a barrier is and the two gates, the GATE CSE 2006 barrier read as three blocks, the deadlock on two invocations in immediate succession, the four candidate repairs executed, the naive count == n barrier, the sense-reversing centralized barrier, the two-phase arrival/departure semaphore barrier, and the counts (n-1 spinning, 2n-1 counter maximum, 2n under option D). The mock side already holds the family: operating-systems unit 2, subtopic slug semaphores-binary-counting (20 questions) and hardware-primitives-test-and-set (18)."
+  },
+  {
+   "kind": "mock",
+   "placement": "databases \u203a file-organization-and-indexing",
+   "detail": "mock unit \"Indexing, B-Trees & Storage\" (unit_number 5, unit_slug indexing-storage, 25 questions, added 2026-11-01 as run 8) serves no notes card: the notes repo holds no databases subject at all. Its subtopic groups are b-trees-and-b-plus-trees-order-capacity 8, primary-secondary-clustering-indexes 6, dense-vs-sparse-indexing 6, static-and-dynamic-hashing 5. Recommendation: add a Databases playlist under content/playlists/ and write the first cards under content/subjects/databases/file-organization-and-indexing/."
+  },
+  {
+   "kind": "notes",
+   "placement": "databases \u203a relational-algebra-and-tuple-calculus",
+   "detail": "published lesson \"Relational Calculus: Safety and Expressive Power\" (PUBLISHED, 2026-11-01) serves no notes card; it covers the three atoms, free and bound variables, exists as a bounded scan, for-all as not-exists-not, the domain calculus, the safety condition, the growth test, vacuous truth and Codd's equivalence. Recommendation: write the card at content/subjects/databases/relational-algebra-and-tuple-calculus/ and link it to lesson slug relational-calculus-and-safety."
+  },
+  {
+   "kind": "visual",
+   "placement": "linear-algebra \u203a eigenvalues-and-eigenvectors \u203a cayley-hamilton-and-matrix-inverse",
+   "detail": "no published lesson covers Cayley-Hamilton: topics/matrices-systems-and-eigenvalues/transcript.md never names it across its 10 scenes, so the card carries no visual link. Recommendation: extend topics/matrices-systems-and-eigenvalues with a Cayley-Hamilton scene and regenerate captions with node tools/gen-captions.mjs matrices-systems-and-eigenvalues."
+  },
+  {
+   "kind": "visual",
+   "placement": "linear-algebra \u203a eigenvalues-and-eigenvectors \u203a similar-matrices-and-what-preserves-eigenvalues",
+   "detail": "no published lesson covers similarity or transpose invariance: the transcript of topics/matrices-systems-and-eigenvalues has no scene on similar matrices, so the card carries no visual link. Recommendation: extend topics/matrices-systems-and-eigenvalues with a similarity scene and regenerate captions with node tools/gen-captions.mjs matrices-systems-and-eigenvalues."
   }
  ]
 }
