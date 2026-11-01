@@ -68,9 +68,38 @@
       "language": "en",
       "transcript": "PARTIAL",
       "translated": false,
-      "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+      "url": "https://gateoverflow.in/subject/digital-logic",
       "note": "read the K Map, Min Sum of Products Form and Min Products of Sum Form sections: the grouping rules (powers of two, rectangular, wrap-around, every 1 covered, largest groups first), the definitions of prime implicant and essential prime implicant, the don't-care rule, and the three-step algorithm for a minimal SOP (circle the PIs, take all EPIs, then a minimum subset for the rest). Used as the GATE-oriented statement of the rules, not as a source of questions."
     }
   ],
-  "sourceLine": "The associativity contrast between AND/OR and NAND/NOR: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 closing summary (English). The XOR identities and their rewrites: recomputed on all rows in scripts/validate.py, with GATE Overflow's subject notes (English) as the GATE-side statement of the operator list."
+  "sourceLine": "The associativity contrast between AND/OR and NAND/NOR: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 closing summary (English). The XOR identities and their rewrites: recomputed on all rows in scripts/validate.py, with GATE Overflow's subject notes (English) as the GATE-side statement of the operator list.",
+  "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "boolean-algebra",
+      "unit_name": "Boolean Algebra & Switching Logic",
+      "unit_number": 11,
+      "question_count": 50,
+      "subtopics": [
+        {
+          "label": "Boolean identities & duality",
+          "questions": 13
+        },
+        {
+          "label": "K-map simplification",
+          "questions": 13
+        },
+        {
+          "label": "SOP & POS forms",
+          "questions": 12
+        },
+        {
+          "label": "Minterms & maxterms",
+          "questions": 12
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
+    "mapped_at": "2026-11-01"
+  }
 }

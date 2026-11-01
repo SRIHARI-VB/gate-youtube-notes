@@ -62,7 +62,7 @@
       "kind": "lecture",
       "title": "LU Factorization of Matrix With Solved Example",
       "channel": "The Double Vibe (Asma Mushtak)",
-      "url": "https://www.youtube.com/watch?v=ZYDMM9_nYTQ",
+      "url": "https://www.youtube.com/watch",
       "language": "en",
       "transcript": "FULL",
       "translated": false,
@@ -72,7 +72,7 @@
       "kind": "lecture",
       "title": "Lec23: Matrix Decomposition - LU Method",
       "channel": "Engineering Wing (machine learning lecture series)",
-      "url": "https://www.youtube.com/watch?v=7w7PZOmD7Uw",
+      "url": "https://www.youtube.com/watch",
       "language": "en",
       "transcript": "FULL",
       "translated": false,
@@ -89,20 +89,20 @@
       "question_count": 75,
       "subtopics": [
         {
-          "label": "gauss-elimination",
-          "questions": 14
-        },
-        {
-          "label": "matrix-operations",
+          "label": "Matrix operations",
           "questions": 22
         },
         {
-          "label": "rank-nullity",
+          "label": "Rank & nullity",
           "questions": 21
         },
         {
-          "label": "systems-of-linear-equations",
+          "label": "Systems of linear equations",
           "questions": 18
+        },
+        {
+          "label": "Gauss elimination",
+          "questions": 14
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -116,6 +116,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
   }
 }

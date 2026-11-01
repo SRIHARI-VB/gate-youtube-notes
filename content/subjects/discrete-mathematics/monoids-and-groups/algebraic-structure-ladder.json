@@ -73,7 +73,7 @@
       "title": "Algebraic Structure | Group Theory | Discrete Mathematics | Lecture 01",
       "channel": "Pradeep Giri Academy (Hindi)",
       "video_id": "UP2SX1aLJ60",
-      "url": "https://www.youtube.com/watch?v=UP2SX1aLJ60",
+      "url": "https://www.youtube.com/watch",
       "language": "hi",
       "transcript": "PARTIAL",
       "translated": true,
@@ -96,8 +96,14 @@
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+      "covers": [
+        "semigroups and monoids",
+        "order of an element",
+        "binary operations and closure",
+        "groups, subgroups"
+      ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

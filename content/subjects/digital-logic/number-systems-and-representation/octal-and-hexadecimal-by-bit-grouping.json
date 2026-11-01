@@ -92,7 +92,12 @@
       "slug": "number-representation-and-arithmetic",
       "title": "Number Representation and Arithmetic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+      "covers": [
+        "signed number systems",
+        "fixed point representations",
+        "binary arithmetic and overflow"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

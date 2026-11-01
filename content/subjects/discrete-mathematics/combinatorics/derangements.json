@@ -82,7 +82,11 @@
       "slug": "counting-and-combinatorics",
       "title": "Counting and Combinatorics",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html",
+      "covers": [
+        "inclusion-exclusion",
+        "permutations and combinations"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

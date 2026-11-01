@@ -91,7 +91,12 @@
       "slug": "propositional-logic",
       "title": "Propositional Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+      "covers": [
+        "truth tables",
+        "propositions and truth values",
+        "logical equivalence"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

@@ -1366,7 +1366,10 @@ window.GATE_DATA = {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html",
+     "covers": [
+      "sum and product rules"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -1834,7 +1837,10 @@ window.GATE_DATA = {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html",
+     "covers": [
+      "sum and product rules"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -1920,7 +1926,10 @@ window.GATE_DATA = {
      "slug": "functions-and-their-properties",
      "title": "Functions and Their Properties",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html",
+     "covers": [
+      "composition of functions"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -2357,7 +2366,11 @@ window.GATE_DATA = {
      "slug": "counting-and-combinatorics",
      "title": "Counting and Combinatorics",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html",
+     "covers": [
+      "inclusion-exclusion",
+      "permutations and combinations"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -3181,7 +3194,11 @@ window.GATE_DATA = {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "covers": [
+      "truth tables",
+      "valid argument forms"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -3497,7 +3514,10 @@ window.GATE_DATA = {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "covers": [
+      "valid argument forms"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -3599,7 +3619,10 @@ window.GATE_DATA = {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "covers": [
+      "valid argument forms"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -3701,7 +3724,11 @@ window.GATE_DATA = {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "covers": [
+      "the five connectives",
+      "truth tables"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -3904,7 +3931,12 @@ window.GATE_DATA = {
      "slug": "propositional-logic",
      "title": "Propositional Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "covers": [
+      "truth tables",
+      "propositions and truth values",
+      "logical equivalence"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -4737,7 +4769,12 @@ window.GATE_DATA = {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "universal and existential quantifiers",
+      "predicates and the domain of discourse",
+      "free and bound variables"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -4832,7 +4869,13 @@ window.GATE_DATA = {
      "slug": "first-order-logic",
      "title": "First-Order Logic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+     "covers": [
+      "universal and existential quantifiers",
+      "quantifier negation",
+      "nested quantifiers and order",
+      "free and bound variables"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -5304,7 +5347,13 @@ window.GATE_DATA = {
      "slug": "sets-and-set-operations",
      "title": "Sets and Set Operations",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html",
+     "covers": [
+      "union, intersection, complement, difference",
+      "subset and proper subset",
+      "principle of inclusion-exclusion",
+      "set notation and membership"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -7452,7 +7501,12 @@ window.GATE_DATA = {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
+     "covers": [
+      "distributive and complemented lattices",
+      "upper and lower bounds",
+      "lattices and their properties"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -8095,9 +8149,15 @@ window.GATE_DATA = {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html",
+     "covers": [
+      "semigroups and monoids",
+      "order of an element",
+      "binary operations and closure",
+      "groups, subgroups"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -10448,20 +10508,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -10475,7 +10535,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10568,20 +10628,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -10595,7 +10655,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10700,20 +10760,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -10727,7 +10787,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10831,20 +10891,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -10858,7 +10918,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -10965,20 +11025,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -10992,7 +11052,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11097,20 +11157,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11124,7 +11184,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11229,20 +11289,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11256,7 +11316,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11366,20 +11426,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11394,7 +11454,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11499,20 +11559,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11526,7 +11586,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11636,20 +11696,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11663,7 +11723,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11769,20 +11829,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11791,9 +11851,14 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations",
+      "eigenvalues and eigenvectors",
+      "determinants and their properties"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "matrices-and-determinants",
@@ -11884,20 +11949,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -11911,7 +11976,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12013,20 +12078,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12041,7 +12106,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12133,20 +12198,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12160,7 +12225,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12251,20 +12316,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12278,7 +12343,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12379,20 +12444,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12406,7 +12471,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12498,20 +12563,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12526,7 +12591,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12619,20 +12684,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12641,9 +12706,13 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "solving systems: consistency and uniqueness",
+      "determinants and their properties"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12735,20 +12804,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12757,9 +12826,13 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "solving systems: consistency and uniqueness",
+      "matrix operations"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12850,20 +12923,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12878,7 +12951,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -12970,20 +13043,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -12992,9 +13065,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "solving systems: consistency and uniqueness"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -13097,20 +13173,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -13119,9 +13195,14 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "solving systems: consistency and uniqueness",
+      "matrix operations",
+      "determinants and their properties"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "system-of-linear-equations",
@@ -13227,20 +13308,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13350,20 +13431,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13474,20 +13555,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13598,20 +13679,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13722,20 +13803,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13844,20 +13925,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -13968,20 +14049,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -14080,20 +14161,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -14205,20 +14286,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -14326,20 +14407,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -14438,20 +14519,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "cayley-hamilton-theorem",
-       "questions": 14
+       "label": "Eigenvalue properties",
+       "questions": 23
       },
       {
-       "label": "characteristic-equations",
+       "label": "Characteristic equations",
        "questions": 20
       },
       {
-       "label": "diagonalization",
+       "label": "Diagonalization",
        "questions": 18
       },
       {
-       "label": "eigenvalue-properties",
-       "questions": 23
+       "label": "Cayley–Hamilton theorem",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"
@@ -14563,20 +14644,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -14585,9 +14666,14 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations",
+      "LU decomposition",
+      "determinants and their properties"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14683,20 +14769,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -14711,7 +14797,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14817,20 +14903,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -14839,9 +14925,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -14937,20 +15026,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -14964,7 +15053,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15047,20 +15136,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15069,9 +15158,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15168,20 +15260,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15195,7 +15287,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15281,20 +15373,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15308,7 +15400,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15394,20 +15486,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15421,7 +15513,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15504,20 +15596,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15526,9 +15618,13 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations",
+      "LU decomposition"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15612,20 +15708,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15639,7 +15735,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15725,20 +15821,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15747,9 +15843,12 @@ window.GATE_DATA = {
      "slug": "matrices-systems-and-eigenvalues",
      "title": "Matrices, Systems and Eigenvalues",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html",
+     "covers": [
+      "matrix operations"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -15846,20 +15945,20 @@ window.GATE_DATA = {
      "question_count": 75,
      "subtopics": [
       {
-       "label": "gauss-elimination",
-       "questions": 14
-      },
-      {
-       "label": "matrix-operations",
+       "label": "Matrix operations",
        "questions": 22
       },
       {
-       "label": "rank-nullity",
+       "label": "Rank & nullity",
        "questions": 21
       },
       {
-       "label": "systems-of-linear-equations",
+       "label": "Systems of linear equations",
        "questions": 18
+      },
+      {
+       "label": "Gauss elimination",
+       "questions": 14
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/linear-algebra-matrices/gate_em_mock_1_2026-10-31.html"
@@ -15874,7 +15973,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matrices-systems-and-eigenvalues/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "linear-algebra",
    "topic": "lu-decomposition",
@@ -16831,9 +16930,12 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "continuity"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "limits-continuity-differentiability",
@@ -17434,9 +17536,13 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "mean value theorem",
+      "maxima and minima"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -17663,9 +17769,14 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "mean value theorem",
+      "maxima and minima",
+      "limits and standard forms"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18360,9 +18471,12 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "maxima and minima"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18591,9 +18705,12 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "maxima and minima"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -18937,9 +19054,13 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "maxima and minima",
+      "limits and standard forms"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "maxima-and-minima",
@@ -20553,9 +20674,13 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20667,9 +20792,15 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "mean value theorem",
+      "limits and standard forms",
+      "integration",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20779,9 +20910,14 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "limits and standard forms",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -20895,9 +21031,14 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "limits and standard forms",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21379,9 +21520,13 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "limits and standard forms"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21492,9 +21637,14 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "limits and standard forms",
+      "integration",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21714,9 +21864,13 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -21829,9 +21983,14 @@ window.GATE_DATA = {
      "slug": "calculus-limits-extrema-and-integration",
      "title": "Calculus: Limits, Extrema and Integration",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+     "covers": [
+      "integration",
+      "limits and standard forms",
+      "differentiation rules"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "calculus",
    "topic": "integration",
@@ -22092,9 +22251,12 @@ window.GATE_DATA = {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "random variables and expectation"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22227,9 +22389,13 @@ window.GATE_DATA = {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "random variables and expectation",
+      "uniform, normal, exponential, Poisson, binomial distributions"
+     ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -25367,9 +25533,13 @@ window.GATE_DATA = {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+     "covers": [
+      "conditional probability and independence",
+      "Bayes' theorem"
+     ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26210,7 +26380,12 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "signed number systems",
+      "fixed point representations",
+      "binary arithmetic and overflow"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -26425,7 +26600,12 @@ window.GATE_DATA = {
      "slug": "number-representation-and-arithmetic",
      "title": "Number Representation and Arithmetic",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html",
+     "covers": [
+      "signed number systems",
+      "fixed point representations",
+      "binary arithmetic and overflow"
+     ]
     },
     "mapped_at": "2026-11-01"
    },
@@ -27937,6 +28117,35 @@ window.GATE_DATA = {
     }
    ],
    "sourceLine": "The associativity contrast between AND/OR and NAND/NOR: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 closing summary (English). The XOR identities and their rewrites: recomputed on all rows in scripts/validate.py, with GATE Overflow's subject notes (English) as the GATE-side statement of the operator list.",
+   "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "boolean-algebra",
+     "unit_name": "Boolean Algebra & Switching Logic",
+     "unit_number": 11,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Boolean identities & duality",
+       "questions": 13
+      },
+      {
+       "label": "K-map simplification",
+       "questions": 13
+      },
+      {
+       "label": "SOP & POS forms",
+       "questions": 12
+      },
+      {
+       "label": "Minterms & maxterms",
+       "questions": 12
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/boolean-algebra/gate_dm_mock_11_2026-11-01.html"
+    },
+    "mapped_at": "2026-11-01"
+   },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",
    "path": "subjects/digital-logic/boolean-algebra-and-minimization/xor-and-xnor-algebra.json"

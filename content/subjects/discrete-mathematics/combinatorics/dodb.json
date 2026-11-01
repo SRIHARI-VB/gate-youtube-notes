@@ -76,7 +76,10 @@
       "slug": "functions-and-their-properties",
       "title": "Functions and Their Properties",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/functions-and-their-properties/index.html",
+      "covers": [
+        "composition of functions"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

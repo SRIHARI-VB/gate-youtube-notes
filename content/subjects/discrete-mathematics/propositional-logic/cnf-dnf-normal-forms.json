@@ -93,7 +93,11 @@
       "slug": "propositional-logic",
       "title": "Propositional Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+      "covers": [
+        "truth tables",
+        "valid argument forms"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

@@ -85,7 +85,13 @@
       "slug": "first-order-logic",
       "title": "First-Order Logic",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/first-order-logic/index.html",
+      "covers": [
+        "universal and existential quantifiers",
+        "quantifier negation",
+        "nested quantifiers and order",
+        "free and bound variables"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

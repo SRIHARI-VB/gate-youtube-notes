@@ -62,7 +62,7 @@
       "kind": "lecture",
       "title": "Lecture 46: Eigenvalues and Eigenvectors",
       "channel": "NPTEL, IIT Kharagpur (Prof. Jitendra Kumar, Engineering Mathematics I)",
-      "url": "https://www.youtube.com/watch?v=h5urBuE4Xhg",
+      "url": "https://www.youtube.com/watch",
       "language": "en",
       "transcript": "FULL",
       "translated": false,
@@ -72,7 +72,7 @@
       "kind": "text",
       "title": "Linear Algebra subject notes and revision notes",
       "channel": "GATE Overflow",
-      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra?tab=notes",
+      "url": "https://gateoverflow.in/subject/mathematics/linear-algebra",
       "language": "en",
       "transcript": "PARTIAL",
       "translated": false,
@@ -89,20 +89,20 @@
       "question_count": 75,
       "subtopics": [
         {
-          "label": "cayley-hamilton-theorem",
-          "questions": 14
+          "label": "Eigenvalue properties",
+          "questions": 23
         },
         {
-          "label": "characteristic-equations",
+          "label": "Characteristic equations",
           "questions": 20
         },
         {
-          "label": "diagonalization",
+          "label": "Diagonalization",
           "questions": 18
         },
         {
-          "label": "eigenvalue-properties",
-          "questions": 23
+          "label": "Cayley–Hamilton theorem",
+          "questions": 14
         }
       ],
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/eigenvalues-eigenvectors/gate_em_mock_2_2026-11-01.html"

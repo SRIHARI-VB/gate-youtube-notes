@@ -102,8 +102,12 @@
       "slug": "calculus-limits-extrema-and-integration",
       "title": "Calculus: Limits, Extrema and Integration",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/calculus-limits-extrema-and-integration/index.html",
+      "covers": [
+        "maxima and minima",
+        "limits and standard forms"
+      ]
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-01"
   }
 }

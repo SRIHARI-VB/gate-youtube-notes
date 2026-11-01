@@ -111,7 +111,13 @@
       "slug": "sets-and-set-operations",
       "title": "Sets and Set Operations",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/sets-and-set-operations/index.html",
+      "covers": [
+        "union, intersection, complement, difference",
+        "subset and proper subset",
+        "principle of inclusion-exclusion",
+        "set notation and membership"
+      ]
     },
     "mapped_at": "2026-11-01"
   }

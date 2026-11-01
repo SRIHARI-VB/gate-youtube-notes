@@ -118,8 +118,11 @@
       "slug": "probability-and-random-variables",
       "title": "Probability, Random Variables and Distributions",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
+      "covers": [
+        "random variables and expectation"
+      ]
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-01"
   }
 }

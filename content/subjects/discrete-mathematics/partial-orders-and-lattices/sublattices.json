@@ -124,7 +124,12 @@
       "slug": "partial-orders-and-lattices",
       "title": "Partial Orders, Hasse Diagrams and Lattices",
       "level": "topic-level",
-      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
+      "covers": [
+        "distributive and complemented lattices",
+        "upper and lower bounds",
+        "lattices and their properties"
+      ]
     },
     "mapped_at": "2026-11-01"
   }
