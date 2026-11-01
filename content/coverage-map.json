@@ -13557,7 +13557,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › routing-protocols",
-      "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: arp-rarp-icmp-dhcp-nat 11, bgp-and-path-vector 11, distance-vector-routing-count-to-infinity 14, link-state-routing-ospf-dijkstra 14"
+      "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, 75 questions, paper computer-networks/routing-protocols/gate_cn_mock_4_2026-11-01.html dated 2026-11-01) serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups as the bank labels them: Distance vector & count to infinity 20, Link state, OSPF & Dijkstra 20, BGP & path vector 17, ARP, RARP, ICMP, DHCP & NAT 11, ARP, ICMP, DHCP & NAT 7"
     },
     {
       "kind": "notes",
@@ -14183,6 +14183,11 @@
       "kind": "notes",
       "placement": "programming-and-data-structures › trees › red-black-deletion",
       "detail": "visual lesson \"red-black-deletion\" (PUBLISHED 2026-11-01; syllabus-coverage.json places it at Programming and Data Structures › Section 4: trees, binary search trees › Red-black deletion, 10 subtopics and 33 microtopics) serves no notes card: content/index.json has no algorithms or programming-and-data-structures trees group. Checked against topics/red-black-deletion/transcript.md, the lesson covers the splice and successor, the extra black as bookkeeping, case 1 (red sibling), case 2 (both nephews black), case 3 (near nephew red), case 4 (far nephew red), the black-height that can fall at the root, and the measured three-rotation bound. The card it needs is programming-and-data-structures › trees › red-black-deletion"
+    },
+    {
+      "kind": "notes",
+      "placement": "lesson multidimensional-arrays-and-decay",
+      "detail": "published lesson \"Multidimensional Arrays in C: Array-of-Arrays Types, Decay and the Pointer-to-Array\" (PUBLISHED 2026-11-01, topics/multidimensional-arrays-and-decay/) serves no notes card: content/index.json has no card for multidimensional arrays, the pointer-to-array, the parameter adjustment or row/column-major address arithmetic. Its nearest overlap is programming-and-data-structures › programming-in-c › pointer-arithmetic-and-array-decay (array decay, sizeof, pointer scaling) at topic level only, and that card already carries the dedicated lesson pointers-in-c. Its mock counterpart is programming-data-structures unit linear-data-structures, group \"Arrays & multidimensional arrays\" (13 questions), which also has no card. New card belongs at programming-and-data-structures › programming-in-c › multidimensional-arrays."
     }
   ]
 }
