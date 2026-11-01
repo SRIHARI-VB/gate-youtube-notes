@@ -28364,15 +28364,18 @@ window.GATE_DATA = {
    "sourceLine": "The four moves and their justification: NPTEL IIT Kharagpur Digital Electronic Circuits Lecture 07 (English, postulates and duality read), with the simplification rules in GATE Overflow's subject notes (English). No verified GATE question is decided by this card alone, so it carries no PYQ of its own - the two that test the technique are linked from the theorem and XOR cards.",
    "links": {
     "visual": {
-     "slug": "boolean-algebra-and-minimisation",
-     "title": "Boolean Algebra and Minimisation",
-     "level": "topic-level",
+     "slug": "algebraic-boolean-minimisation",
+     "title": "Algebraic Minimisation of Boolean Functions: Rewrite Rules, the Consensus Theorem and Why It Is Not an Algorithm",
+     "level": "subtopic-level",
      "covers": [
-      "algebraic minimisation with absorption and consensus, and where it stops"
+      "combine, absorb and eliminate a literal as the three reducing rules",
+      "the consensus theorem XY + X'Z + YZ = XY + X'Z, and where the consensus is undefined",
+      "the literal count as the cost, and the stall: a fixed point of the rules that is not a minimum",
+      "order dependence: one expression at 6 literals by one route and 8 by another"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/boolean-algebra-and-minimisation/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/algebraic-boolean-minimisation/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "boolean-algebra-and-minimization",

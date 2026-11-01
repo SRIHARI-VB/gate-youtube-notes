@@ -4829,16 +4829,16 @@
       "path": "subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "boolean-algebra-and-minimisation",
-        "title": "Boolean Algebra and Minimisation",
+        "slug": "algebraic-boolean-minimisation",
+        "title": "Algebraic Minimisation of Boolean Functions: Rewrite Rules, the Consensus Theorem and Why It Is Not an Algorithm",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/algebraic-minimization-technique.json",
-        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
-        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+        "visual: gate-visual-explainer/topics.json slug=algebraic-boolean-minimisation (created 2026-11-02); syllabus-coverage.json coverage_status=PUBLISHED, microtopics[] checked against topics/algebraic-boolean-minimisation/transcript.md (13 scenes)",
+        "visual url: topics/algebraic-boolean-minimisation/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -14313,6 +14313,11 @@
       "kind": "notes",
       "placement": "operating-systems › memory-management › contiguous-memory-allocation-and-fit-policies",
       "detail": "published lesson \"Contiguous memory allocation: fixed and variable partitioning, the four fit policies, internal and external fragmentation, and compaction\" (slug contiguous-memory-allocation-and-fit-policies, coverage_status PUBLISHED 2026-11-02, 11 scenes, 16 subtopics, 22 microtopics) serves no notes card: content/index.json holds 7 subjects and no operating-systems subject at all, so nothing in the notes covers partitioning, first/next/best/worst fit, fragmentation or compaction. Write content/subjects/operating-systems/memory-management/contiguous-memory-allocation-and-fit-policies.json; the notes material would need a playlist covering OS memory management, which content/syllabus.json does not list."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › complexity-np-complete",
+      "detail": "mock unit \"Complexity Theory & NP-Completeness\" (unit_number 7, unit_slug complexity-np-complete, 25 questions, Set 1 of 2, paper gate_algo_mock_7_2026-11-02.html) serves no notes card; subtopic groups: classes-p-and-np 7, polynomial-time-reductions 6, np-complete-problems-3sat-clique-vertex-cover 6, np-hard-identification 6. content/index.json map[] holds no algorithms card and content/syllabus.json lists algorithms with every topic still \"planned\". Write content/subjects/algorithms/complexity-np-complete/ classes-p-and-np.json and polynomial-time-reductions.json; the published lesson complexity-classes-p-np-np-complete already serves the unit."
     }
   ]
 }
