@@ -75,5 +75,18 @@
     }
   ],
   "sourceLine": "The fixed-point introduction, the statement that the hardware interprets the same bits as integer or fraction, and the signed-magnitude versus two's complement split: Bhalodia, Unit 7 (English, read in part). The carry and overflow distinction that the Q-format wrap-around rests on: GATE Overflow GATE CSE Book, section 2.2.8 (English, read in part). The Q4.4 arithmetic is recomputed in scripts/validate.py.",
-  "videoRefs": []
+  "videoRefs": [],
+  "links": {
+    "visual": {
+      "slug": "number-representation-and-arithmetic",
+      "title": "Number Representation and Arithmetic",
+      "level": "topic-level",
+      "covers": [
+        "fixed point: weights 2^k from k = -f to i-1, i = n - f",
+        "fixed point range 0 to 2^i - 2^-f and step 2^-f"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+    },
+    "mapped_at": "2026-11-01"
+  }
 }

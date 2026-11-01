@@ -5729,9 +5729,17 @@
       "transcript_status": "not stated",
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json",
-        "visual evidence: no published lesson covers this card; see gaps[]"
+        "visual evidence: gate-visual-explainer/syllabus-coverage.json lesson_slug=number-representation-and-arithmetic, coverage_status PUBLISHED; microtopics 'fixed point: weights 2^k from k = -f to i-1, i = n - f' and 'fixed point range 0 to 2^i - 2^-f and step 2^-f' cover the Qm.n representation; the multiply-and-shift-back step is not in the lesson, so the mapping is topic-level",
+        "mock evidence: gate-cse-mocks/digital-logic/question-bank/master_bank.json unit number-systems holds 75 questions grouped Base conversions 22, One's & two's complement 19, Range & overflow 17, Floating point & IEEE 754 17 - no Q-format fraction group, so no mock mapping"
       ],
-      "row_verdict": "NEITHER"
+      "row_verdict": "VISUAL_ONLY",
+      "visual": {
+        "slug": "number-representation-and-arithmetic",
+        "title": "Number Representation and Arithmetic",
+        "coverage_status": "PUBLISHED",
+        "level": "topic-level",
+        "verdict": "VISUAL_LESSON"
+      }
     },
     {
       "subject": "digital-logic",
@@ -13565,7 +13573,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › top-down-parsing",
-      "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: first-and-follow-sets 21, left-recursion-and-factoring 18, ll1-parsing-tables 18, recursive-descent-parsers 18"
+      "detail": "mock unit \"Syntax Analysis: Top-Down Parsing\" (unit_number 2, 100 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Subtopic groups: FIRST and FOLLOW sets 27, LL(1) parsing tables 25, Recursive-descent parsers 24, Left recursion & factoring 24. Run 17 (2026-11-01, Set 2 of 2 second pass) added gate_cd_mock_2_2026-11-01.html."
     },
     {
       "kind": "notes",
@@ -14256,6 +14264,16 @@
       "kind": "mock",
       "placement": "digital-logic › computer-arithmetic › fixed-point-fraction-multiplication",
       "detail": "the card carries no links: digital-logic/question-bank/master_bank.json holds units number-systems, combinational-circuits, sequential-flipflops and sequential-fsm-counters only, so no computer-arithmetic unit exists to map; the nearest visual lesson floating-point-arithmetic covers alignment and rounding, not Q-format fixed-point multiplication. Needs a digital-logic unit slug for computer arithmetic before this card can carry a mock link"
+    },
+    {
+      "kind": "notes",
+      "placement": "operating-systems › process-synchronization › priority-inversion-and-inheritance",
+      "detail": "visual lesson priority-inversion-and-inheritance (Operating Systems, syllabus unit \"concurrency and synchronization\" at the junction with \"CPU and I/O scheduling\", coverage_status PUBLISHED, 10 subtopics, 41 microtopics) serves no notes card: content/index.json carries no operating-systems subject. Covers inversion vs preemption, the 2 + L and 2 + 8k unbounded sweeps, basic and transitive inheritance, semaphore ceilings and the admission test, direct/push-through/ceiling blocking, the min(n, m) and one-longest-section bounds, and the deadlock sweep (31 of 121 release-time pairs under inheritance, 0 under the ceiling)."
+    },
+    {
+      "kind": "mock",
+      "placement": "digital-logic › computer-arithmetic › fixed-point-fraction-multiplication",
+      "detail": "notes card has no matching mock subtopic: the number-systems unit (75 questions) groups base conversions, one's & two's complement, range & overflow and IEEE 754 only. The unit is already at 75, above the 50-question cap, so a Q-format fraction group has no home in it."
     }
   ]
 }
