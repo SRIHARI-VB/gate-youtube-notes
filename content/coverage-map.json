@@ -3344,20 +3344,20 @@
       "title": "The Instruction Format: Opcode, Operand Fields and Length",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "mock": {
         "subject": "computer-architecture",
         "unit_slug": "instructions-addressing",
         "unit_name": "Machine Instructions & Addressing Modes",
         "unit_number": 1,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "addressing-modes-effective-address",
-          "instruction-formats-opcodes",
-          "risc-vs-cisc",
-          "stack-and-subroutines"
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
@@ -3367,12 +3367,10 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
-        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json questions[] with unit_slug=instructions-addressing, 25 records grouped by their subtopic field (the 25 records carry no subtopic_label; run 11 of runs[] lists the same four subtopics)",
-        "mock url: runs[] last entry for unit instructions-addressing (run 11, 2026-11-02) -> https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-format-and-fields.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> instruction-formats-opcodes",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
       "row_verdict": "BOTH"
     },
@@ -3383,7 +3381,7 @@
       "title": "Splitting the Word: The Bit Budget for Opcode, Registers, Mode and Immediate",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3392,12 +3390,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-field-bit-budget.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> instruction-formats-opcodes",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3406,20 +3418,20 @@
       "title": "What an Instruction Set Is, and Why RISC Has Few Addressing Modes",
       "priority": "P2",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "mock": {
         "subject": "computer-architecture",
         "unit_slug": "instructions-addressing",
         "unit_name": "Machine Instructions & Addressing Modes",
         "unit_number": 1,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "addressing-modes-effective-address",
-          "instruction-formats-opcodes",
-          "risc-vs-cisc",
-          "stack-and-subroutines"
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
@@ -3429,12 +3441,10 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
-        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json questions[] with unit_slug=instructions-addressing, 25 records grouped by their subtopic field (the 25 records carry no subtopic_label; run 11 of runs[] lists the same four subtopics)",
-        "mock url: runs[] last entry for unit instructions-addressing (run 11, 2026-11-02) -> https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/isa-instruction-types-and-risc-cisc.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> risc-vs-cisc",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
       "row_verdict": "BOTH"
     },
@@ -3445,7 +3455,7 @@
       "title": "Zero-, One-, Two- and Three-Address Formats",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3454,12 +3464,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/instruction-formats-zero-to-three-address.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> instruction-formats-opcodes",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3468,7 +3492,7 @@
       "title": "Immediate Addressing: The Operand Is in the Instruction",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3477,12 +3501,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/immediate-addressing.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3491,7 +3529,7 @@
       "title": "Direct (Absolute) Addressing: The Address Is in the Instruction",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3500,12 +3538,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/direct-addressing.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3514,7 +3566,7 @@
       "title": "Indirect Addressing: An Address That Points at an Address",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3523,12 +3575,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/indirect-addressing-and-pointers.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3537,7 +3603,7 @@
       "title": "Register and Register-Indirect Addressing",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3546,12 +3612,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/register-and-register-indirect-addressing.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3560,7 +3640,7 @@
       "title": "Displacement Addressing: Base, Index and the Same Arithmetic Under Three Names",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3569,12 +3649,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/displacement-addressing-base-and-index.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3583,7 +3677,7 @@
       "title": "PC-Relative Addressing and the Branch Offset Arithmetic",
       "priority": "P2",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
         "title": "Instruction Set and Addressing Modes",
@@ -3592,12 +3686,26 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/pc-relative-addressing-and-branch-offsets.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "computer-architecture",
+        "unit_slug": "instructions-addressing",
+        "unit_name": "Machine Instructions & Addressing Modes",
+        "unit_number": 1,
+        "question_count": 50,
+        "subtopic_labels": [
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "computer-organization-and-architecture",
@@ -3606,20 +3714,20 @@
       "title": "Autoincrement, Autodecrement and Stack Addressing",
       "priority": "P2",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "mock": {
         "subject": "computer-architecture",
         "unit_slug": "instructions-addressing",
         "unit_name": "Machine Instructions & Addressing Modes",
         "unit_number": 1,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "addressing-modes-effective-address",
-          "instruction-formats-opcodes",
-          "risc-vs-cisc",
-          "stack-and-subroutines"
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
@@ -3629,12 +3737,10 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
-        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json questions[] with unit_slug=instructions-addressing, 25 records grouped by their subtopic field (the 25 records carry no subtopic_label; run 11 of runs[] lists the same four subtopics)",
-        "mock url: runs[] last entry for unit instructions-addressing (run 11, 2026-11-02) -> https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/autoincrement-autodecrement-and-stack.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> stack-and-subroutines",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
       "row_verdict": "BOTH"
     },
@@ -3645,20 +3751,20 @@
       "title": "Effective Address and Counting Memory Cycles",
       "priority": "P1",
       "path": "subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
-      "transcript_status": "not stated",
+      "transcript_status": "PARTIAL",
       "mock": {
         "subject": "computer-architecture",
         "unit_slug": "instructions-addressing",
         "unit_name": "Machine Instructions & Addressing Modes",
         "unit_number": 1,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
-          "addressing-modes-effective-address",
-          "instruction-formats-opcodes",
-          "risc-vs-cisc",
-          "stack-and-subroutines"
+          "Instruction formats & opcodes",
+          "Addressing modes & effective address",
+          "RISC vs CISC",
+          "Stack & subroutines"
         ],
-        "verdict": "MOCK_READY"
+        "verdict": "MOCK_CAPPED"
       },
       "visual": {
         "slug": "instruction-set-and-addressing-modes",
@@ -3668,12 +3774,10 @@
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
-        "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
-        "mock: gate-cse-mocks/computer-architecture/question-bank/master_bank.json questions[] with unit_slug=instructions-addressing, 25 records grouped by their subtopic field (the 25 records carry no subtopic_label; run 11 of runs[] lists the same four subtopics)",
-        "mock url: runs[] last entry for unit instructions-addressing (run 11, 2026-11-02) -> https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json unit 'Instruction set', topic 'Instruction set and addressing modes', coverage_status PUBLISHED, lesson_slug instruction-set-and-addressing-modes",
-        "visual coverage: topics/instruction-set-and-addressing-modes/transcript.md scenes 1-10 checked against the card's microtopics",
-        "visual url: topics/instruction-set-and-addressing-modes/index.html"
+        "notes content/index.json map[].path = content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/effective-address-and-memory-cycles.json",
+        "mock: gate-cse-mocks computer-architecture/question-bank/master_bank.json questions[] where unit_slug=instructions-addressing; 50 records, grouped by subtopic -> addressing-modes-effective-address",
+        "mock url: runs[] last entry for unit_slug=instructions-addressing -> computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html",
+        "visual: syllabus-coverage.json topic lesson_slug=instruction-set-and-addressing-modes, coverage_status=PUBLISHED; covers[] checked against topics/instruction-set-and-addressing-modes/transcript.md"
       ],
       "row_verdict": "BOTH"
     },
@@ -14616,6 +14720,16 @@
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › two-edge-connected-components-and-bridge-tree",
       "detail": "lesson two-edge-connected-components-and-the-bridge-tree (PUBLISHED 2026-11-02, syllabus-coverage.json, Discrete Mathematics Section 1) teaches bridges, 2-edge-connected components, the bridge tree, the count identity components = components + bridges and the ceil(L/2) augmentation. No notes card covers it: a grep of content/subjects for 'bridge tree', '2-edge-connected' and 'edge-disjoint' matches only eulerian-and-hamiltonian-graphs, incidentally, so the lesson links to no card. Write content/subjects/discrete-mathematics/graphs/two-edge-connected-components-and-bridge-tree.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-organization-and-architecture › instruction-set-and-addressing-modes › subroutine-call-and-return",
+      "detail": "mock unit \"Machine Instructions & Addressing Modes\" (unit_number 1, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 11 questions whose subtopic is stack-and-subroutines, of which CO-U1-Q45..Q48 and CO-U1-Q22..Q24 ask about call/return linkage, activation records and recursive saves. No notes card covers subroutine linkage: the group's only stack card is autoincrement-autodecrement-and-stack, whose remember[] stops at push/pop and stack addressing. Write content/subjects/computer-organization-and-architecture/instruction-set-and-addressing-modes/subroutine-call-and-return.json"
+    },
+    {
+      "kind": "mock",
+      "placement": "computer-architecture › instructions-addressing",
+      "detail": "25 of the unit's 50 records (CO-U1-Q01..CO-U1-Q25) carry only the subtopic slug and no subtopic_label, so a subtopic_label grouping covers half the bank. Add subtopic_label to those records so the unit's groups sum to question_count."
     }
   ]
 }

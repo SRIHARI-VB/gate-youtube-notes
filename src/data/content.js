@@ -34514,23 +34514,23 @@ window.GATE_DATA = {
      "unit_slug": "instructions-addressing",
      "unit_name": "Machine Instructions & Addressing Modes",
      "unit_number": 1,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "instruction-formats-opcodes",
-       "questions": 7
+       "label": "Instruction formats & opcodes",
+       "questions": 14
       },
       {
-       "label": "addressing-modes-effective-address",
-       "questions": 8
+       "label": "Addressing modes & effective address",
+       "questions": 15
       },
       {
-       "label": "risc-vs-cisc",
-       "questions": 5
+       "label": "RISC vs CISC",
+       "questions": 10
       },
       {
-       "label": "stack-and-subroutines",
-       "questions": 5
+       "label": "Stack & subroutines",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
@@ -34639,7 +34639,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -34740,23 +34766,23 @@ window.GATE_DATA = {
      "unit_slug": "instructions-addressing",
      "unit_name": "Machine Instructions & Addressing Modes",
      "unit_number": 1,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "instruction-formats-opcodes",
-       "questions": 7
+       "label": "Instruction formats & opcodes",
+       "questions": 14
       },
       {
-       "label": "addressing-modes-effective-address",
-       "questions": 8
+       "label": "Addressing modes & effective address",
+       "questions": 15
       },
       {
-       "label": "risc-vs-cisc",
-       "questions": 5
+       "label": "RISC vs CISC",
+       "questions": 10
       },
       {
-       "label": "stack-and-subroutines",
-       "questions": 5
+       "label": "Stack & subroutines",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
@@ -34862,7 +34888,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -34969,7 +35021,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35068,7 +35146,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35168,7 +35272,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35265,7 +35395,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35378,7 +35534,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35478,7 +35660,33 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02",
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Instruction formats & opcodes",
+       "questions": 14
+      },
+      {
+       "label": "Addressing modes & effective address",
+       "questions": 15
+      },
+      {
+       "label": "RISC vs CISC",
+       "questions": 10
+      },
+      {
+       "label": "Stack & subroutines",
+       "questions": 11
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    }
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35572,23 +35780,23 @@ window.GATE_DATA = {
      "unit_slug": "instructions-addressing",
      "unit_name": "Machine Instructions & Addressing Modes",
      "unit_number": 1,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "instruction-formats-opcodes",
-       "questions": 7
+       "label": "Instruction formats & opcodes",
+       "questions": 14
       },
       {
-       "label": "addressing-modes-effective-address",
-       "questions": 8
+       "label": "Addressing modes & effective address",
+       "questions": 15
       },
       {
-       "label": "risc-vs-cisc",
-       "questions": 5
+       "label": "RISC vs CISC",
+       "questions": 10
       },
       {
-       "label": "stack-and-subroutines",
-       "questions": 5
+       "label": "Stack & subroutines",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
@@ -35699,23 +35907,23 @@ window.GATE_DATA = {
      "unit_slug": "instructions-addressing",
      "unit_name": "Machine Instructions & Addressing Modes",
      "unit_number": 1,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "instruction-formats-opcodes",
-       "questions": 7
+       "label": "Instruction formats & opcodes",
+       "questions": 14
       },
       {
-       "label": "addressing-modes-effective-address",
-       "questions": 8
+       "label": "Addressing modes & effective address",
+       "questions": 15
       },
       {
-       "label": "risc-vs-cisc",
-       "questions": 5
+       "label": "RISC vs CISC",
+       "questions": 10
       },
       {
-       "label": "stack-and-subroutines",
-       "questions": 5
+       "label": "Stack & subroutines",
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
