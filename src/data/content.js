@@ -31361,26 +31361,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31393,7 +31393,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31479,26 +31479,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31512,7 +31512,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31598,26 +31598,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31629,7 +31629,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31718,26 +31718,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31752,7 +31752,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31840,26 +31840,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31872,7 +31872,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31970,26 +31970,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "flip-flop-conversion",
@@ -32003,7 +32003,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/flip-flop-conversion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32089,26 +32089,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-flipflops",
      "unit_name": "Sequential Circuits: Flip-Flops & Registers",
      "unit_number": 3,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Characteristic equations",
-       "questions": 18
-      },
-      {
        "label": "Latches vs flip-flops",
-       "questions": 20
+       "questions": 27
       },
       {
        "label": "Setup and hold times",
-       "questions": 19
+       "questions": 25
+      },
+      {
+       "label": "Characteristic equations",
+       "questions": 24
       },
       {
        "label": "Shift registers",
-       "questions": 18
+       "questions": 24
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32119,7 +32119,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
