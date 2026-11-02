@@ -78,10 +78,11 @@
       "level": "topic-level",
       "covers": [
         "matchings and maximum matchings",
-        "perfect and maximum matchings"
+        "perfect and maximum matchings",
+        "Berge's theorem and the augmenting-path algorithm"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
   }
 }
