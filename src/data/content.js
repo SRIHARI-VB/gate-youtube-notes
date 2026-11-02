@@ -6505,48 +6505,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "partial order definitions"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "the three promises of a partial order",
+      "antisymmetry as the axiom usually missing"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6645,48 +6638,42 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "Hasse diagrams"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "the covering relation",
+      "drawing the Hasse diagram",
+      "reading comparisons by walking upward"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6796,54 +6783,44 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "antichains-and-chain-covers",
      "title": "Antichains, chain covers and the width of a poset: Dilworth, Mirsky, Sperner and the matching that computes them",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/antichains-and-chain-covers/index.html",
      "covers": [
       "a chain is a set in which every pair is comparable; an antichain a set of mutually incomparable elements",
-      "a chain and an antichain share at most one element",
       "width is the largest antichain, height the longest chain",
       "Mirsky: the minimum antichain cover equals the longest chain, and the levels attain it",
       "Dilworth: the largest antichain and the smallest chain cover have the same size",
-      "the chain cover is produced by a maximum matching in the split graph",
-      "Sperner: the widest level of a power set has C(n, floor(n/2)) members"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/antichains-and-chain-covers/index.html"
+      "the chain cover is produced by a maximum matching in the split graph"
+     ]
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -6939,48 +6916,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "maximal, minimal, greatest, least elements"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "maximal against greatest",
+      "minimal against least"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7065,48 +7035,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "upper and lower bounds"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "bounds of a subset",
+      "LUB and GLB"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7205,50 +7168,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "partial order definitions",
-      "lattices and their properties",
-      "distributive and complemented lattices"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "the pairwise lattice test",
+      "one pair without a join stops it being a lattice"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7471,50 +7425,31 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
-    "visual": {
-     "slug": "partial-orders-and-lattices",
-     "title": "Partial Orders, Hasse Diagrams and Lattices",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
-     "covers": [
-      "distributive and complemented lattices",
-      "upper and lower bounds",
-      "lattices and their properties"
-     ]
-    },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7610,49 +7545,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "lattices and their properties",
-      "distributive and complemented lattices"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "a complement needs both meet 0 and join 1",
+      "M3 gives each middle element two complements"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7738,49 +7665,41 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "lattices and their properties",
-      "distributive and complemented lattices"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "distributivity tested by one triple",
+      "M3 and N5 as the two obstructions"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
@@ -7880,49 +7799,40 @@ window.GATE_DATA = {
    "links": {
     "mock": {
      "subject": "discrete-mathematics",
-     "unit_slug": "relations",
-     "unit_name": "Relations",
-     "unit_number": 4,
+     "unit_slug": "lattices-posets",
+     "unit_name": "Lattices & Posets",
+     "unit_number": 13,
      "question_count": 50,
      "subtopics": [
       {
-       "label": "Composition & transitive closure",
-       "questions": 8
+       "label": "Posets & Hasse diagrams",
+       "questions": 13
       },
       {
-       "label": "Counting relations",
-       "questions": 8
+       "label": "LUB, GLB, meet & join",
+       "questions": 13
       },
       {
-       "label": "Equivalence relations & classes",
-       "questions": 9
+       "label": "Bounded & complemented lattices",
+       "questions": 12
       },
       {
-       "label": "Lattices in posets",
-       "questions": 8
-      },
-      {
-       "label": "Partial orders & Hasse diagrams",
-       "questions": 8
-      },
-      {
-       "label": "Relation properties",
-       "questions": 9
+       "label": "Distributive & modular lattices",
+       "questions": 12
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html"
     },
     "visual": {
      "slug": "partial-orders-and-lattices",
      "title": "Partial Orders, Hasse Diagrams and Lattices",
      "level": "topic-level",
+     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html",
      "covers": [
-      "lattices and their properties",
-      "distributive and complemented lattices"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+      "the power set lattice is distributive and each element has one complement"
+     ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",

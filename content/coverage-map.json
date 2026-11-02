@@ -8874,17 +8874,15 @@
    "transcript_status": "FULL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -8897,9 +8895,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/poset-and-partial-order-axioms.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -8914,17 +8912,15 @@
    "transcript_status": "PARTIAL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -8937,9 +8933,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/hasse-diagram-and-covering.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -8954,17 +8950,15 @@
    "transcript_status": "PARTIAL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -8977,11 +8971,10 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=antichains-and-chain-covers (added 2026-11-02); syllabus-coverage.json lesson_slug=antichains-and-chain-covers, coverage_status PUBLISHED; covers[] checked against topics/antichains-and-chain-covers/transcript.md scenes 1,3,4,5,7",
-    "visual url: topics/antichains-and-chain-covers/index.html",
-    "note: topics/counting-linear-extensions (previously linked) covers the card's total-order and linear-extension half; the antichains lesson covers the chain/antichain, Mirsky and Dilworth half and is nearer to the card's title and check question"
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=antichains-and-chain-covers; covers[] checked against topics/<slug>/transcript.md scene text",
+    "visual url: topics/antichains-and-chain-covers/index.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -8995,17 +8988,15 @@
    "transcript_status": "PARTIAL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9018,9 +9009,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/minimal-maximal-least-greatest.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -9035,17 +9026,15 @@
    "transcript_status": "FULL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9058,9 +9047,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/upper-lower-bounds-lub-glb.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -9075,17 +9064,15 @@
    "transcript_status": "FULL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9098,9 +9085,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/lattice-definition-and-pairwise-test.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -9155,35 +9142,27 @@
    "transcript_status": "FULL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
-   "visual": {
-    "slug": "partial-orders-and-lattices",
-    "title": "Partial Orders, Hasse Diagrams and Lattices",
-    "coverage_status": "PUBLISHED",
-    "level": "topic-level",
-    "verdict": "VISUAL_LESSON"
-   },
+   "visual": null,
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/sublattices.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
-   "row_verdict": "BOTH"
+   "row_verdict": "MOCK_ONLY"
   },
   {
    "subject": "discrete-mathematics",
@@ -9195,17 +9174,15 @@
    "transcript_status": "PARTIAL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9218,9 +9195,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/bounded-and-complemented-lattices.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -9235,17 +9212,15 @@
    "transcript_status": "FULL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9258,9 +9233,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/distributive-lattices.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -9275,17 +9250,15 @@
    "transcript_status": "PARTIAL",
    "mock": {
     "subject": "discrete-mathematics",
-    "unit_slug": "relations",
-    "unit_name": "Relations",
-    "unit_number": 4,
+    "unit_slug": "lattices-posets",
+    "unit_name": "Lattices & Posets",
+    "unit_number": 13,
     "question_count": 50,
     "subtopic_labels": [
-     "Composition & transitive closure",
-     "Counting relations",
-     "Equivalence relations & classes",
-     "Lattices in posets",
-     "Partial orders & Hasse diagrams",
-     "Relation properties"
+     "Posets & Hasse diagrams",
+     "LUB, GLB, meet & join",
+     "Bounded & complemented lattices",
+     "Distributive & modular lattices"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -9298,9 +9271,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/boolean-lattices-and-examples.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
-    "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-    "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=lattices-posets (50 records, at the 50-question cap)",
+    "mock url: runs[] last entry for unit lattices-posets -> https://gate-cse-mocks.vercel.app/discrete-mathematics/lattices-posets/gate_dm_mock_13_2026-11-03.html",
+    "visual: topics.json + syllabus-coverage.json entry for slug=partial-orders-and-lattices; covers[] checked against topics/<slug>/transcript.md scene text",
     "visual url: topics/partial-orders-and-lattices/index.html"
    ],
    "row_verdict": "BOTH"
@@ -14733,6 +14706,16 @@
    "kind": "notes",
    "placement": "programming-and-data-structures › programming-in-c › bit-fields-in-c",
    "detail": "gate-visual-explainer published lesson bit-fields-in-c on 2026-11-03 (topics.json slug bit-fields-in-c; syllabus-coverage.json lesson_slug bit-fields-in-c, coverage_status PUBLISHED; 12 scenes in topics/bit-fields-in-c/transcript.md, 30 microtopics) covering the name-colon-width declaration, the 4-byte allocation unit, the fit test and lost bits, the zero-width and unnamed field forms, the width-to-range rule, what a bit-field refuses (address, sizeof, array, offsetof) and the six implementation-defined properties. No notes card covers bit fields: content/index.json map[] holds no programming-and-data-structures card on bit fields, and programming-in-c/structures-unions-and-padding covers struct layout and padding only. Write content/subjects/programming-and-data-structures/programming-in-c/bit-fields-in-c.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › graphs › ear-decomposition-and-robbins-orientation",
+   "detail": "visual lesson ear-decomposition-and-robbins-orientation (coverage_status PUBLISHED, created 2026-11-03) covers ear decomposition, the ear count |E|-|V|+1, Robbins' theorem and the strong orientation built by orienting each ear, but no notes card serves it: the discrete-mathematics graphs group holds 11 cards and none covers ears, circuit rank or strong orientation. Write content/subjects/discrete-mathematics/graphs/ear-decomposition-and-robbins-orientation.json"
+  },
+  {
+   "kind": "visual",
+   "placement": "discrete-mathematics › partial-orders-and-lattices › sublattices",
+   "detail": "the card is served by mock unit 13 but the lesson partial-orders-and-lattices never mentions a sublattice (0 occurrences of 'sublattice' in topics/partial-orders-and-lattices/transcript.md across its 10 scenes), so the visual side is unmapped. Extend topics/partial-orders-and-lattices with one sublattice scene (closed under the joins and meets computed in L) and rerun node tools/gen-captions.mjs partial-orders-and-lattices"
   }
  ]
 }
