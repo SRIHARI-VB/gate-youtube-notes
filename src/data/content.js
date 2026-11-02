@@ -9767,13 +9767,16 @@ window.GATE_DATA = {
    "sourceLine": "Cut vertices, bridges, the DFS rules and biconnected components: GATE Overflow GO Classroom deck (English, read in part) for the cut-set, cut-vertex and edge/vertex-connectivity definitions; CLRS ch. 22 problem 22-2 for the two DFS rules. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). The bridge-on-a-cycle equivalence, the n-2 bound and the DFS rules are all recomputed in scripts/validate.py over every graph on up to 5 vertices.",
    "links": {
     "visual": {
-     "slug": "graphs-connectivity",
-     "title": "Graphs: Connectivity and Structure",
-     "level": "topic-level",
+     "slug": "articulation-points-bridges-and-blocks",
+     "title": "Articulation Points, Bridges and Biconnected Components: The Two Cuts, the Root Rule and the Block-Cut Tree",
+     "level": "subtopic-level",
      "covers": [
-      "cut vertices and bridges"
+      "articulation point and bridge tests (low[v] >= disc[u], low[v] > disc[u])",
+      "the DFS root rule",
+      "biconnected components from an edge stack",
+      "the block-cut tree"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/articulation-points-bridges-and-blocks/index.html"
     },
     "mock": {
      "subject": "discrete-mathematics",
@@ -9809,7 +9812,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-fundamentals/gate_dm_mock_9_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -26631,26 +26634,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26663,7 +26666,7 @@ window.GATE_DATA = {
       "binary arithmetic and overflow"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26746,26 +26749,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26776,7 +26779,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26851,26 +26854,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26883,7 +26886,7 @@ window.GATE_DATA = {
       "binary arithmetic and overflow"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -26958,26 +26961,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -26988,7 +26991,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27063,26 +27066,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27093,7 +27096,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27168,26 +27171,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27200,7 +27203,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27284,26 +27287,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27317,7 +27320,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27400,26 +27403,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27433,7 +27436,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27511,26 +27514,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27544,7 +27547,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27628,26 +27631,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "fixed-point-arithmetic",
@@ -27756,26 +27759,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27787,7 +27790,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -27892,26 +27895,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -27922,7 +27925,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -28037,26 +28040,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
       },
       {
        "label": "Range & overflow",
-       "questions": 17
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "number-representation-and-arithmetic",
@@ -28067,7 +28070,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -33229,26 +33232,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
-      },
-      {
-       "label": "Range & overflow",
-       "questions": 17
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "fixed-point-arithmetic",
@@ -34047,26 +34050,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
-      },
-      {
-       "label": "Range & overflow",
-       "questions": 17
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "floating-point-arithmetic",
@@ -34078,7 +34081,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/floating-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
@@ -34388,26 +34391,26 @@ window.GATE_DATA = {
      "unit_slug": "number-systems",
      "unit_name": "Number Systems & Representation",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Base conversions",
-       "questions": 22
+       "questions": 29
       },
       {
        "label": "One's & two's complement",
-       "questions": 19
-      },
-      {
-       "label": "Range & overflow",
-       "questions": 17
+       "questions": 25
       },
       {
        "label": "Floating point & IEEE 754",
-       "questions": 17
+       "questions": 24
+      },
+      {
+       "label": "Range & overflow",
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html"
     },
     "visual": {
      "slug": "fixed-point-arithmetic",
