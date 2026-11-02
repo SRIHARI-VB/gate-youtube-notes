@@ -14517,6 +14517,11 @@
       "kind": "notes",
       "placement": "discrete-mathematics › partial-orders-and-lattices › counting-linear-extensions",
       "detail": "lesson counting-linear-extensions (PUBLISHED 2026-11-02, 11 scenes, syllabus-coverage subtopics on the definition, the series-parallel rules, the hook-length formula, case splits, the subset DP and the three exam names) is now the visual on the card comparability-chains-and-antichains, but no card carries its counting methods: the card counts total orders containing a poset and stops there, while the lesson executes the subset DP f(S) at n * 2^n, the hook-length formula and the #P-completeness of the count. Write content/subjects/discrete-mathematics/partial-orders-and-lattices/counting-linear-extensions.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › searching-sorting-hashing › selection-lower-bounds-max-min-second-largest",
+      "detail": "visual lesson selection-lower-bounds-max-min-second-largest (PUBLISHED 2026-11-02, 11 scenes, 44 caption segments) serves no notes card: content/index.json holds no algorithms subject at all (7 subjects, 385 cards), and content/syllabus.json marks the algorithms topic searching-sorting-hashing as material \"planned\". The transcript and syllabus-coverage microtopics carry the three exact counts (the maximum in n - 1, the maximum and minimum together in ceil(3n/2) - 2 by the pairing method with its four-category adversary, the second largest in n + ceil(log2 n) - 2 by a balanced knockout with a victim list) plus GATE CSE 2014 Set 1 Q39 and GATE CSE 2021 Set 1 Q2 recomputed. The nearest existing cards are the discrete-mathematics combinatorics cards, which count arrangements, not comparisons, and the nearest mock group is algorithms/sorting-divide-conquer, whose selection-kth-element label holds 12 questions, which ask for the k-th element rather than for a minimum comparison count. Write content/subjects/algorithms/searching-sorting-hashing/selection-lower-bounds-max-min-second-largest.json"
     }
   ]
 }
