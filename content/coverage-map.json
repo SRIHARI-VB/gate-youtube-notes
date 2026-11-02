@@ -8327,8 +8327,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8336,7 +8336,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8366,8 +8366,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8375,7 +8375,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8405,8 +8405,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8414,7 +8414,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8444,8 +8444,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8453,7 +8453,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8483,8 +8483,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8492,7 +8492,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8522,8 +8522,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8531,7 +8531,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8561,8 +8561,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8570,7 +8570,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8622,8 +8622,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual url: topics/monoids-and-groups/index.html",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -8631,7 +8631,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",
@@ -8660,9 +8660,9 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html",
-        "visual check: topics/monoids-and-groups/transcript.md (11 scenes) and timeline.js contain no homomorphism or kernel content (0 mentions of each); the 3 mentions of 'isomorphism' are an element-order fingerprint remark in Scene 5 and Scene 9, not a homomorphism lesson, so VISUAL_MISSING"
+        "visual check: topics/monoids-and-groups/transcript.md (11 scenes) and timeline.js contain no homomorphism or kernel content (0 mentions of each); the 3 mentions of 'isomorphism' are an element-order fingerprint remark in Scene 5 and Scene 9, not a homomorphism lesson, so VISUAL_MISSING",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
       "row_verdict": "MOCK_ONLY",
       "mock": {
@@ -8670,7 +8670,7 @@
         "unit_slug": "algebraic-structures",
         "unit_name": "Algebraic Structures",
         "unit_number": 12,
-        "question_count": 25,
+        "question_count": 50,
         "subtopic_labels": [
           "Binary operations & properties",
           "Groups & abelian groups",

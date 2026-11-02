@@ -8156,27 +8156,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8300,27 +8300,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8426,27 +8426,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8557,27 +8557,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8688,27 +8688,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8816,27 +8816,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -8945,27 +8945,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -9179,27 +9179,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
@@ -9308,27 +9308,27 @@ window.GATE_DATA = {
      "unit_slug": "algebraic-structures",
      "unit_name": "Algebraic Structures",
      "unit_number": 12,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
-       "label": "Subgroups & cyclic groups",
-       "questions": 6
-      },
-      {
        "label": "Binary operations & properties",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Semigroups & monoids",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Groups & abelian groups",
-       "questions": 5
+       "questions": 10
+      },
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 11
       },
       {
        "label": "Homomorphisms & isomorphisms",
-       "questions": 4
+       "questions": 9
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
