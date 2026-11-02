@@ -101,12 +101,8 @@
           "questions": 20
         },
         {
-          "label": "Setup &amp; hold times",
-          "questions": 6
-        },
-        {
           "label": "Setup and hold times",
-          "questions": 13
+          "questions": 19
         },
         {
           "label": "Shift registers",

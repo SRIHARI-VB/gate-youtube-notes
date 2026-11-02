@@ -31372,12 +31372,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -31397,7 +31393,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31494,12 +31490,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -31520,7 +31512,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31617,12 +31609,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -31641,7 +31629,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31741,12 +31729,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -31768,7 +31752,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -31867,12 +31851,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -31892,7 +31872,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32001,12 +31981,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -32124,12 +32100,8 @@ window.GATE_DATA = {
        "questions": 20
       },
       {
-       "label": "Setup &amp; hold times",
-       "questions": 6
-      },
-      {
        "label": "Setup and hold times",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Shift registers",
@@ -32147,7 +32119,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",

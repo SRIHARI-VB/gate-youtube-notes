@@ -6589,7 +6589,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6627,7 +6626,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6665,7 +6663,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6703,7 +6700,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6741,7 +6737,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6779,7 +6774,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -6818,7 +6812,6 @@
         "subtopic_labels": [
           "Characteristic equations",
           "Latches vs flip-flops",
-          "Setup &amp; hold times",
           "Setup and hold times",
           "Shift registers"
         ],
@@ -14039,7 +14032,7 @@
     {
       "kind": "notes",
       "placement": "programming-data-structures › trees-traversals",
-      "detail": "mock unit \"Binary Trees & Tree Traversals\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: binary-tree-properties 14, expression-trees 12, threaded-binary-trees 12, tree-traversals-inorder-pre-post 12"
+      "detail": "mock unit \"Binary Trees & Tree Traversals\" (unit_number 4, unit_slug trees-traversals, 75 questions after the 2026-11-02 run, above the 50-question cap so MOCK_CAPPED) serves no notes card: the programming-and-data-structures subject holds only programming-in-c (13 cards) and recursion (12 cards), none on binary trees. Subtopic groups: Binary tree properties 21, Inorder, preorder & postorder 20, Threaded binary trees 17, Expression trees 17. Latest paper programming-data-structures/trees-traversals/gate_ds_mock_4_2026-11-02.html. Write content/subjects/programming-and-data-structures/binary-trees/binary-tree-properties.json, inorder-preorder-postorder.json, threaded-binary-trees.json and expression-trees.json"
     },
     {
       "kind": "notes",
@@ -14730,6 +14723,11 @@
       "kind": "mock",
       "placement": "computer-architecture › instructions-addressing",
       "detail": "25 of the unit's 50 records (CO-U1-Q01..CO-U1-Q25) carry only the subtopic slug and no subtopic_label, so a subtopic_label grouping covers half the bank. Add subtopic_label to those records so the unit's groups sum to question_count."
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-and-data-structures › programming-in-c › bitwise-operators-and-masks",
+      "detail": "the lesson topics/bitwise-operators-and-bit-manipulation (topics.json slug bitwise-operators-and-bit-manipulation, created 2026-11-02; syllabus-coverage.json 'Section 4: Programming in C' 8 subtopics and 48 microtopics) covers masks, field extraction, the complement identity, the shift rules, the two bit tricks and bitwise precedence, and serves no notes card: programming-and-data-structures › programming-in-c holds 13 cards and none on bitwise operators. Write content/subjects/programming-and-data-structures/programming-in-c/bitwise-operators-and-masks.json"
     }
   ]
 }
