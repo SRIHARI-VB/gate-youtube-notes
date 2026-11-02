@@ -8808,18 +8808,19 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "counting-linear-extensions",
-        "title": "Counting linear extensions of a partial order: topological orderings, interleavings and schedules",
+        "slug": "antichains-and-chain-covers",
+        "title": "Antichains, chain covers and the width of a poset: Dilworth, Mirsky, Sperner and the matching that computes them",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
-        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=relations (50 records)",
         "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-        "visual: topics.json slug=counting-linear-extensions; syllabus-coverage.json lesson_slug=counting-linear-extensions, coverage_status PUBLISHED, 11 scenes read in topics/counting-linear-extensions/transcript.md; card remember[] already names linear extensions and the n! count",
-        "visual url: topics/counting-linear-extensions/index.html"
+        "visual: topics.json slug=antichains-and-chain-covers (added 2026-11-02); syllabus-coverage.json lesson_slug=antichains-and-chain-covers, coverage_status PUBLISHED; covers[] checked against topics/antichains-and-chain-covers/transcript.md scenes 1,3,4,5,7",
+        "visual url: topics/antichains-and-chain-covers/index.html",
+        "note: topics/counting-linear-extensions (previously linked) covers the card's total-order and linear-extension half; the antichains lesson covers the chain/antichain, Mirsky and Dilworth half and is nearer to the card's title and check question"
       ],
       "row_verdict": "BOTH"
     },

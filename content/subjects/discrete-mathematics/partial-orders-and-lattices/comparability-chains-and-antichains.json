@@ -135,18 +135,19 @@
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
-      "slug": "counting-linear-extensions",
-      "title": "Counting linear extensions of a partial order: topological orderings, interleavings and schedules",
+      "slug": "antichains-and-chain-covers",
+      "title": "Antichains, chain covers and the width of a poset: Dilworth, Mirsky, Sperner and the matching that computes them",
       "level": "topic-level",
       "covers": [
-        "a linear extension is a full ordering in which every constraint still points forward",
-        "1 <= e(P) <= n!, with a chain at the bottom and an antichain at the top",
-        "series multiplies, parallel chooses slots: C(m+n, m) for two parallel chains",
-        "the hook-length formula for a rooted forest",
-        "the subset dynamic program f(S) at a cost of n * 2^n",
-        "topological orderings, interleavings and conflict-serialisable schedules are one count"
+        "a chain is a set in which every pair is comparable; an antichain a set of mutually incomparable elements",
+        "a chain and an antichain share at most one element",
+        "width is the largest antichain, height the longest chain",
+        "Mirsky: the minimum antichain cover equals the longest chain, and the levels attain it",
+        "Dilworth: the largest antichain and the smallest chain cover have the same size",
+        "the chain cover is produced by a maximum matching in the split graph",
+        "Sperner: the widest level of a power set has C(n, floor(n/2)) members"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/counting-linear-extensions/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/antichains-and-chain-covers/index.html"
     },
     "mapped_at": "2026-11-02"
   }
