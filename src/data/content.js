@@ -34509,6 +34509,32 @@ window.GATE_DATA = {
    "sourceLine": "The opcode-and-operand split, the rule that a destination must be a register or a memory location while an immediate is only a source, the zero- to three-address formats and the 32-bit field example with 5 bits per register: Datta, Lecture 07 (English, read in part). The statement that a high-precision operand forces a long instruction and is therefore moved into memory, which is the format-versus-mode trade: Deka et al., Lecture 12 (English, read in part). Every number here is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "instruction-formats-opcodes",
+       "questions": 7
+      },
+      {
+       "label": "addressing-modes-effective-address",
+       "questions": 8
+      },
+      {
+       "label": "risc-vs-cisc",
+       "questions": 5
+      },
+      {
+       "label": "stack-and-subroutines",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    },
     "visual": {
      "slug": "instruction-set-and-addressing-modes",
      "title": "Instruction Set and Addressing Modes",
@@ -34520,7 +34546,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -34709,6 +34735,32 @@ window.GATE_DATA = {
    "sourceLine": "The architecture-against-organisation distinction with the instruction set, data formats and memory-addressing techniques named as architectural attributes: Deka's NPTEL web course, introduction chapters (English, read in part through a published mirror). Instructions as the interface between hardware and software and MIPS as a real RISC design: Anshul Kumar, Lecture 3 (English, read in part). The statement that load-store architectures support very few addressing modes: Datta, Lecture 07 (English, read in part). No previous-year question is attached: the one that tests it directly, GATE CSE 2025 Set 2 Q.18, was seen only as a stripped listing and is not claimed here.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "instruction-formats-opcodes",
+       "questions": 7
+      },
+      {
+       "label": "addressing-modes-effective-address",
+       "questions": 8
+      },
+      {
+       "label": "risc-vs-cisc",
+       "questions": 5
+      },
+      {
+       "label": "stack-and-subroutines",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    },
     "visual": {
      "slug": "instruction-set-and-addressing-modes",
      "title": "Instruction Set and Addressing Modes",
@@ -34721,7 +34773,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35515,6 +35567,32 @@ window.GATE_DATA = {
    "sourceLine": "The translated description of stack addressing as implicit addressing through the stack pointer, with no memory reference for the address itself: computernetworksite.in (Hindi, translated, read in part). The mode-by-mode control-step structure that makes the register update a distinct step: Deka et al., Lecture 18 (English, read in part). The autoincrement and autodecrement definitions and the increment-amount rule are recomputed in scripts/validate.py against the 2008 answer.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "instruction-formats-opcodes",
+       "questions": 7
+      },
+      {
+       "label": "addressing-modes-effective-address",
+       "questions": 8
+      },
+      {
+       "label": "risc-vs-cisc",
+       "questions": 5
+      },
+      {
+       "label": "stack-and-subroutines",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    },
     "visual": {
      "slug": "instruction-set-and-addressing-modes",
      "title": "Instruction Set and Addressing Modes",
@@ -35525,7 +35603,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
@@ -35616,6 +35694,32 @@ window.GATE_DATA = {
    "sourceLine": "The mode-by-mode control-step sequences, shown for direct mode as IR -> MAR, memory read, MDR -> operand, and the statement that the fetch steps 1 to 3 are the same for every instruction while the later steps differ by mode: Deka et al., Lecture 18 (English, read in part). The translated statement that indirect addressing needs three or more memory references for the whole instruction while direct needs one: computernetworksite.in (Hindi, translated, read in part). The full count for the 2005 instruction is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "computer-architecture",
+     "unit_slug": "instructions-addressing",
+     "unit_name": "Machine Instructions & Addressing Modes",
+     "unit_number": 1,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "instruction-formats-opcodes",
+       "questions": 7
+      },
+      {
+       "label": "addressing-modes-effective-address",
+       "questions": 8
+      },
+      {
+       "label": "risc-vs-cisc",
+       "questions": 5
+      },
+      {
+       "label": "stack-and-subroutines",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/instructions-addressing/gate_co_mock_1_2026-11-02.html"
+    },
     "visual": {
      "slug": "instruction-set-and-addressing-modes",
      "title": "Instruction Set and Addressing Modes",
@@ -35627,7 +35731,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/instruction-set-and-addressing-modes/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "instruction-set-and-addressing-modes",
