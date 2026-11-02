@@ -5247,7 +5247,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5266,8 +5266,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/combinational-circuit-definition-and-design.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: unit is the combinational-design unit; no subtopic group is the design procedure itself",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5287,7 +5287,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5306,8 +5306,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/half-adder-and-full-adder.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group adders-subtractors",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5327,7 +5327,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5346,8 +5346,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/ripple-carry-adder-and-delay.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group adders-subtractors",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5367,7 +5367,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5386,8 +5386,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/carry-lookahead-adder.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group adders-subtractors",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5407,7 +5407,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5426,8 +5426,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/adder-subtractor.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group adders-subtractors",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5447,7 +5447,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5466,8 +5466,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/multiplexer-and-select-lines.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group multiplexers-demultiplexers",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5487,7 +5487,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5506,8 +5506,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/mux-implementing-a-boolean-function.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group multiplexers-demultiplexers; the card already carries a subtopic-level notes visual, kept",
         "visual: gate-visual-explainer topics.json slug combinational-circuits (category digital-logic), syllabus-coverage.json lesson_slug combinational-circuits (PUBLISHED); transcript.md scenes 5-6 carry the 8-to-1 table method and the 4-to-1 variable method; the old links.visual slug mux-to-minimal-sop is a notes-internal visual under visuals/, not a gate-visual-explainer lesson, so it was replaced"
       ],
@@ -5526,7 +5526,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5545,8 +5545,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/mux-trees-and-cascading.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group multiplexers-demultiplexers",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5566,7 +5566,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5585,8 +5585,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/decoder-and-minterm-generation.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group decoders-encoders",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5606,7 +5606,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5625,8 +5625,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/encoder-and-priority-encoder.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group decoders-encoders",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -5646,7 +5646,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5658,8 +5658,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/magnitude-comparator.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: unit is the combinational-design unit but no group is a comparator; the lesson never mentions one",
         "visual evidence: unit is the combinational-design unit but no group is a comparator; the lesson never mentions one"
       ],
@@ -5678,7 +5678,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5690,8 +5690,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/rom-and-pla.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them",
         "visual evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them"
       ],
@@ -5710,7 +5710,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5722,8 +5722,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/parity-generator-and-checker.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: unit is the combinational-design unit but no group is parity circuitry; the lesson has only full-adder parity",
         "visual evidence: unit is the combinational-design unit but no group is parity circuitry; the lesson has only full-adder parity"
       ],
@@ -5742,7 +5742,7 @@
         "unit_slug": "combinational-circuits",
         "unit_name": "Combinational Circuit Design",
         "unit_number": 2,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Adders & subtractors",
           "Code converters",
@@ -5761,8 +5761,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/hazards-in-combinational-circuits.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (75 records)",
-        "mock url: runs[] last entry for unit combinational-circuits -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
+        "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
         "mock evidence: mock group hazard-and-glitches",
         "visual: topics.json slug=combinational-circuits; syllabus-coverage.json subtopics/microtopics checked against topics/combinational-circuits/transcript.md and index.html",
         "visual url: topics/combinational-circuits/index.html"
@@ -14557,7 +14557,7 @@
     {
       "kind": "notes",
       "placement": "digital-logic › combinational-circuits › code-converters",
-      "detail": "mock unit \"Combinational Circuit Design\" (unit_number 2, 75 questions) holds 15 code-converter questions (excess-3, Gray code, BCD correction) and no notes card covers them; add a card at content/subjects/digital-logic/combinational-circuits/code-converters.json"
+      "detail": "mock unit \"Combinational Circuit Design\" (unit_number 2, 100 questions) holds 20 code-converter questions (excess-3, Gray code, BCD correction) and no notes card covers them; add a card at content/subjects/digital-logic/combinational-circuits/code-converters.json"
     },
     {
       "kind": "notes",

@@ -29654,30 +29654,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -29688,7 +29688,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -29782,30 +29782,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -29817,7 +29817,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -29910,30 +29910,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -29945,7 +29945,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30031,30 +30031,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30066,7 +30066,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30148,30 +30148,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30183,7 +30183,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30284,30 +30284,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30319,7 +30319,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30411,6 +30411,36 @@ window.GATE_DATA = {
    "sourceLine": "The Shannon-expansion reading and the construction of a bigger multiplexer from smaller ones: NPTEL IIT Kharagpur Lecture 16 (English). The data-input reading rule and the sizing rule are recomputed here and checked in scripts/validate.py against the three PYQs on this card: GATE CSE 2007 Q.34 (option C), 2014 Set 1 Q.45 (option A) and 2021 Set 2 Q.5 (option A). The visual lesson on this card animates the 2014 Set 1 Q.45 multiplexer end to end.",
    "visual": "digital-logic/combinational-circuits/mux-to-minimal-sop",
    "links": {
+    "mock": {
+     "subject": "digital-logic",
+     "unit_slug": "combinational-circuits",
+     "unit_name": "Combinational Circuit Design",
+     "unit_number": 2,
+     "question_count": 100,
+     "subtopics": [
+      {
+       "label": "Adders & subtractors",
+       "questions": 20
+      },
+      {
+       "label": "Code converters",
+       "questions": 20
+      },
+      {
+       "label": "Decoders & encoders",
+       "questions": 20
+      },
+      {
+       "label": "Hazards & glitches",
+       "questions": 20
+      },
+      {
+       "label": "Multiplexers & demultiplexers",
+       "questions": 20
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
+    },
     "visual": {
      "slug": "combinational-circuits",
      "title": "Combinational Circuits: Adders, Multiplexers and Decoders",
@@ -30422,37 +30452,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01",
-    "mock": {
-     "subject": "digital-logic",
-     "unit_slug": "combinational-circuits",
-     "unit_name": "Combinational Circuit Design",
-     "unit_number": 2,
-     "question_count": 75,
-     "subtopics": [
-      {
-       "label": "Adders & subtractors",
-       "questions": 15
-      },
-      {
-       "label": "Code converters",
-       "questions": 15
-      },
-      {
-       "label": "Decoders & encoders",
-       "questions": 15
-      },
-      {
-       "label": "Hazards & glitches",
-       "questions": 15
-      },
-      {
-       "label": "Multiplexers & demultiplexers",
-       "questions": 15
-      }
-     ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
-    }
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30546,30 +30546,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30581,7 +30581,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30677,30 +30677,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30712,7 +30712,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30793,30 +30793,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -30827,7 +30827,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -30908,32 +30908,32 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -31016,32 +31016,32 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -31123,32 +31123,32 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -31240,30 +31240,30 @@ window.GATE_DATA = {
      "unit_slug": "combinational-circuits",
      "unit_name": "Combinational Circuit Design",
      "unit_number": 2,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Adders & subtractors",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Code converters",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Decoders & encoders",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Hazards & glitches",
-       "questions": 15
+       "questions": 20
       },
       {
        "label": "Multiplexers & demultiplexers",
-       "questions": 15
+       "questions": 20
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "combinational-circuits",
@@ -31275,7 +31275,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",

@@ -74,30 +74,30 @@
       "unit_slug": "combinational-circuits",
       "unit_name": "Combinational Circuit Design",
       "unit_number": 2,
-      "question_count": 75,
+      "question_count": 100,
       "subtopics": [
         {
           "label": "Adders & subtractors",
-          "questions": 15
+          "questions": 20
         },
         {
           "label": "Code converters",
-          "questions": 15
+          "questions": 20
         },
         {
           "label": "Decoders & encoders",
-          "questions": 15
+          "questions": 20
         },
         {
           "label": "Hazards & glitches",
-          "questions": 15
+          "questions": 20
         },
         {
           "label": "Multiplexers & demultiplexers",
-          "questions": 15
+          "questions": 20
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-01.html"
+      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
     "visual": {
       "slug": "combinational-circuits",
@@ -109,6 +109,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/combinational-circuits/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
   }
 }
