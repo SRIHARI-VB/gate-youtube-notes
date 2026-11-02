@@ -8145,6 +8145,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable).",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8157,7 +8187,7 @@ window.GATE_DATA = {
       "groups, subgroups"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8259,6 +8289,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Monoid definition, uniqueness of the identity and the concatenation example: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English, source language Hindi). Question patterns: GATE CSE 1996 Q.2.4, 1997 Q.3.1 and 2025 Set 1 Q.39.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8268,7 +8328,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8355,6 +8415,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Group axioms, uniqueness of identity and inverse, cancellation and the reversal rule: GeeksforGeeks GATE group-theory notes (English, read in full). Lecture position of 'group properties' and 'alternative definitions of subgroup': GO Classes Module 7 lecture list (structure only, captions unavailable). Every identity is recomputed on S3, Z_n and the Klein four group in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8366,7 +8456,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8456,6 +8546,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Order of a group, order of an element and the divisibility corollary: GeeksforGeeks GATE group-theory notes (English, read in full). The 'power of an element' and 'order of an element' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every order in this card is recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8468,7 +8588,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8557,6 +8677,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Commutativity, the two tests and the inheritance by subgroups: GeeksforGeeks GATE group-theory notes (English, read in full) and the accepted solutions on the GATE Overflow page for GATE CSE 2022 Q.27. The 'alternative definitions of abelian group' lecture position: GO Classes Module 7 lecture list (structure only, captions unavailable).",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8568,7 +8718,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8655,6 +8805,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Subgroup definition, the one-step and two-step tests and the intersection fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'subgroup' and 'alternative definitions of subgroup' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every subgroup claim is recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8664,7 +8844,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8754,6 +8934,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Cyclic groups, generators, the phi(n) count and the subgroup-per-divisor fact: GeeksforGeeks GATE group-theory notes (English, read in full). The 'cyclic group' and 'Lagrange's theorem' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Generator counts are recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8765,7 +8975,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -8958,6 +9168,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Standard groups and their properties: GeeksforGeeks GATE group-theory notes (English, read in full). The 'addition modulo n group' and 'nth roots of unity' lecture positions: GO Classes Module 7 lecture list (structure only, captions unavailable). Every count in this card is recomputed in scripts/validate.py.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -8969,7 +9209,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -9057,6 +9297,36 @@ window.GATE_DATA = {
    ],
    "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it.",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "algebraic-structures",
+     "unit_name": "Algebraic Structures",
+     "unit_number": 12,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Subgroups & cyclic groups",
+       "questions": 6
+      },
+      {
+       "label": "Binary operations & properties",
+       "questions": 5
+      },
+      {
+       "label": "Semigroups & monoids",
+       "questions": 5
+      },
+      {
+       "label": "Groups & abelian groups",
+       "questions": 5
+      },
+      {
+       "label": "Homomorphisms & isomorphisms",
+       "questions": 4
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
      "slug": "monoids-and-groups",
      "title": "Monoids and Groups",
@@ -9068,7 +9338,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
@@ -27374,16 +27644,17 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
-     "slug": "number-representation-and-arithmetic",
-     "title": "Number Representation and Arithmetic",
-     "level": "topic-level",
+     "slug": "fixed-point-arithmetic",
+     "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
+     "level": "subtopic-level",
      "covers": [
-      "fixed point representations",
-      "floating point (IEEE 754)"
+      "the format and the scale: value = k / 2^f",
+      "the window and the step, and the asymmetry of two's complement",
+      "the trade between resolution and range at fixed width"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",
@@ -31961,26 +32232,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -31993,7 +32264,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32081,26 +32352,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32113,7 +32384,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32214,26 +32485,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32245,7 +32516,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32336,26 +32607,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32367,7 +32638,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32465,26 +32736,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32495,7 +32766,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32581,26 +32852,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "fsm-state-minimisation",
@@ -32615,7 +32886,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/fsm-state-minimisation/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32701,26 +32972,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32733,7 +33004,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32822,26 +33093,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Synchronous & asynchronous counters",
-       "questions": 13
+       "label": "FSM: Mealy & Moore machines",
+       "questions": 21
       },
       {
-       "label": "FSM: Mealy & Moore machines",
-       "questions": 12
+       "label": "Synchronous & asynchronous counters",
+       "questions": 20
       },
       {
        "label": "State reduction & assignment",
-       "questions": 12
+       "questions": 17
       },
       {
        "label": "Timing analysis",
-       "questions": 13
+       "questions": 17
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32853,7 +33124,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32969,16 +33240,16 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
-     "slug": "number-representation-and-arithmetic",
-     "title": "Number Representation and Arithmetic",
+     "slug": "fixed-point-arithmetic",
+     "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
      "level": "topic-level",
      "covers": [
-      "overflow as carry-in xor carry-out of the sign column",
-      "one adder for addition and subtraction; the discarded carry"
+      "addition and subtraction: aligning the points, and the extra integer bit",
+      "the window and the step, and the asymmetry of two's complement"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
@@ -33548,16 +33819,16 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "number-representation-and-arithmetic",
-     "title": "Number Representation and Arithmetic",
+     "slug": "fixed-point-arithmetic",
+     "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
      "level": "topic-level",
      "covers": [
-      "fixed point: weights 2^k from k = -f to i-1, i = n - f",
-      "fixed point range 0 to 2^i - 2^-f and step 2^-f"
+      "multiplication: the fraction bits add, and the product is double width",
+      "rescaling by a right shift, and what the shift discards"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
@@ -34128,16 +34399,16 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
-     "slug": "number-representation-and-arithmetic",
-     "title": "Number Representation and Arithmetic",
+     "slug": "fixed-point-arithmetic",
+     "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
      "level": "topic-level",
      "covers": [
-      "precision 24 bits against range: the gap at 1 is 2^-23",
-      "resolution against range at fixed width"
+      "fixed point against floating point on the same word width",
+      "the trade between resolution and range at fixed width"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "computer-arithmetic",
