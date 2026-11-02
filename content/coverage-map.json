@@ -32,12 +32,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -50,10 +50,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/antiderivative-and-the-constant-of-integration.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -70,12 +70,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -88,10 +88,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/definite-integral-as-signed-area.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -108,12 +108,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -126,10 +126,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/fundamental-theorem-of-calculus.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -146,12 +146,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -164,10 +164,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/properties-of-definite-integrals.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -184,12 +184,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -202,10 +202,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/symmetry-rules-for-definite-integrals.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -222,12 +222,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -240,10 +240,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/substitution-in-definite-integrals.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -260,12 +260,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -278,10 +278,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/integration-by-parts.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -298,12 +298,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -316,10 +316,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/splitting-the-interval-at-sign-changes.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -336,12 +336,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -354,10 +354,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/improper-integrals-and-convergence.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -374,12 +374,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -392,10 +392,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/area-between-two-curves.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -412,12 +412,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -430,10 +430,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/average-value-and-the-mean-value-theorem-for-integrals.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -450,12 +450,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -468,10 +468,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/integrating-a-functional-equation.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -488,12 +488,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -506,10 +506,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/integration/iterated-integrals-and-odd-symmetry.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -944,12 +944,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -962,10 +962,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/limits-continuity-differentiability/corners-cusps-and-max-min-functions.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -982,12 +982,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1000,10 +1000,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/local-and-global-extrema.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1020,12 +1020,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1038,10 +1038,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/stationary-and-critical-points.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1058,12 +1058,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1076,10 +1076,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/fermats-theorem-and-its-converse.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1096,12 +1096,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1114,10 +1114,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/first-derivative-test.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1134,12 +1134,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1152,10 +1152,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/second-derivative-test.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1172,12 +1172,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1190,10 +1190,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/higher-derivative-test.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1210,12 +1210,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1228,10 +1228,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/closed-interval-candidate-list.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1248,12 +1248,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1266,10 +1266,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/monotonicity-and-sign-of-derivative.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1286,12 +1286,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1304,10 +1304,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/extrema-of-piecewise-and-absolute-value-functions.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1324,12 +1324,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1342,10 +1342,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/endpoint-extrema-and-the-definition-dispute.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1362,12 +1362,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1380,10 +1380,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/cubic-and-quartic-extrema-counting.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1400,12 +1400,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1418,10 +1418,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/extrema-of-trig-functions-on-an-interval.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1438,12 +1438,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1456,10 +1456,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/two-variable-stationary-points.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -1476,12 +1476,12 @@
         "unit_slug": "calculus-optimization-integrals",
         "unit_name": "Calculus: Maxima, Minima & Integrals",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "definite-integrals",
-          "multivariable-extrema-saddle-points",
-          "single-variable-extrema",
-          "vector-calculus-basics"
+          "Single-variable extrema",
+          "Multivariable extrema & saddle points",
+          "Definite integrals",
+          "Vector calculus basics"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -1494,10 +1494,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/calculus/maxima-and-minima/optimisation-word-problems.json",
-        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (50 records)",
-        "mock url: runs[] last entry for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-10-29.html",
         "visual: topics.json slug=calculus-limits-extrema-and-integration; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/calculus-limits-extrema-and-integration/index.html"
+        "visual url: topics/calculus-limits-extrema-and-integration/index.html",
+        "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=calculus-optimization-integrals (75 records)",
+        "mock url: runs[] last entry (run 14, 2026-11-02) for unit calculus-optimization-integrals -> https://gate-cse-mocks.vercel.app/engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -5053,16 +5053,16 @@
       "path": "subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "boolean-algebra-and-minimisation",
-        "title": "Boolean Algebra and Minimisation",
+        "slug": "minimum-nand-nor-gate-count",
+        "title": "Minimum NAND and NOR Gate Count: why the number depends on the clause",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/boolean-algebra-and-minimization/literal-and-gate-cost.json",
-        "visual: topics.json slug=boolean-algebra-and-minimisation; syllabus-coverage.json subtopics/microtopics checked against topics/boolean-algebra-and-minimisation/transcript.md scene list",
-        "visual url: topics/boolean-algebra-and-minimisation/index.html"
+        "visual: gate-visual-explainer/topics.json slug=minimum-nand-nor-gate-count; syllabus-coverage.json coverage_status PUBLISHED; microtopics checked against topics/minimum-nand-nor-gate-count/transcript.md scenes 1-12",
+        "visual url: topics/minimum-nand-nor-gate-count/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -14506,6 +14506,11 @@
       "kind": "notes",
       "placement": "digital-logic › sequential-circuits › flip-flop-conversion",
       "detail": "visual lesson \"flip-flop-conversion\" (PUBLISHED 2026-11-02, 12 scenes, 66 verified rows) serves no dedicated notes card: it covers the twelve ordered conversions, their input equations and their gate counts. The nearest card, t-flip-flop-and-excitation-tables, covers only the characteristic and excitation tables the procedure uses. Write content/subjects/digital-logic/sequential-circuits/flip-flop-conversion.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "calculus › vector-calculus › vector-calculus-basics",
+      "detail": "mock unit \"Calculus: Maxima, Minima & Integrals\" (unit_number 4, 75 questions, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html dated 2026-11-02) carries 16 questions on vector calculus basics (gradient, divergence, curl, line and surface integrals) but no notes card covers them: the calculus subject in content/index.json holds only integration, limits-continuity-differentiability, maxima-and-minima and mean-value-theorem. Write content/subjects/calculus/vector-calculus/vector-calculus-basics.json"
     }
   ]
 }
