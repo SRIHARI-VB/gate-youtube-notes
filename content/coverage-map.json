@@ -13886,7 +13886,7 @@
     {
       "kind": "notes",
       "placement": "theory-of-computation › regular-languages-fa",
-      "detail": "mock unit \"Regular Languages & Finite Automata\" (unit_number 1, 100 questions) serves no notes card; subtopic groups: dfa-construction-minimization 32, nfa-to-dfa-subset-construction 22, pumping-lemma-for-regular 22, regular-expressions 24"
+      "detail": "mock unit \"Regular Languages & Finite Automata\" (unit_number 1, unit_slug regular-languages-fa, 125 questions in theory-of-computation/question-bank/master_bank.json after run 17 on 2026-11-02 added Set 2 of 2 of the third pass, 25 questions, paper theory-of-computation/regular-languages-fa/gate_toc_mock_1_2026-11-02.html; the unit is far above the 50-question cap so MOCK_CAPPED) serves no notes card; no theory-of-computation subject exists in the notes repo. Subtopic groups counted from the bank, by subtopic slug: dfa-construction-minimization 39, nfa-to-dfa-subset-construction 28 (the bank labels it \"NFA to DFA: subset construction\" 18, \"NFA to DFA (subset construction)\" 6 and \"NFA to DFA & subset construction\" 4), regular-expressions 30, pumping-lemma-for-regular 28. Recommendation: write content/subjects/theory-of-computation/regular-languages-fa/dfa-construction-minimization.json, nfa-to-dfa-subset-construction.json, regular-expressions.json and pumping-lemma-for-regular.json; the published lessons regular-expressions-and-finite-automata and closure-and-decision-properties already serve this unit."
     },
     {
       "kind": "notes",
@@ -14522,6 +14522,11 @@
       "kind": "notes",
       "placement": "algorithms › searching-sorting-hashing › selection-lower-bounds-max-min-second-largest",
       "detail": "visual lesson selection-lower-bounds-max-min-second-largest (PUBLISHED 2026-11-02, 11 scenes, 44 caption segments) serves no notes card: content/index.json holds no algorithms subject at all (7 subjects, 385 cards), and content/syllabus.json marks the algorithms topic searching-sorting-hashing as material \"planned\". The transcript and syllabus-coverage microtopics carry the three exact counts (the maximum in n - 1, the maximum and minimum together in ceil(3n/2) - 2 by the pairing method with its four-category adversary, the second largest in n + ceil(log2 n) - 2 by a balanced knockout with a victim list) plus GATE CSE 2014 Set 1 Q39 and GATE CSE 2021 Set 1 Q2 recomputed. The nearest existing cards are the discrete-mathematics combinatorics cards, which count arrangements, not comparisons, and the nearest mock group is algorithms/sorting-divide-conquer, whose selection-kth-element label holds 12 questions, which ask for the k-th element rather than for a minimum comparison count. Write content/subjects/algorithms/searching-sorting-hashing/selection-lower-bounds-max-min-second-largest.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › asymptotic-analysis",
+      "detail": "published lesson master-theorem-cases-and-boundaries (\"The Master Theorem and Its Boundaries: Three Cases, the Regularity Condition, and the Gap Where No Case Applies\", PUBLISHED 2026-11-02, topics/master-theorem-cases-and-boundaries/, 11 scenes, 44 caption segments) serves no notes card: content/index.json map[] holds no algorithms card at all. Checked against transcript.md, the 11 scenes genuinely cover the shape aT(n/b)+f(n), the watershed n^(log_b a) as the leaf count, case 1, case 2 and case 3, the regularity condition, the gap at f = n/log n giving Theta(n log log n), extended case 2, and the three shapes the theorem refuses. It also covers the master-theorem-cases group of 14 questions in mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, algorithms/question-bank/master_bank.json), which has no notes card either. Recommendation: write content/subjects/algorithms/asymptotic-analysis/master-theorem-cases.json, which gives both the lesson and that group their first card."
     }
   ]
 }
