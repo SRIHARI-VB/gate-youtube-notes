@@ -6585,11 +6585,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6603,8 +6603,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6622,11 +6622,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6640,8 +6640,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6659,11 +6659,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6677,8 +6677,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6696,11 +6696,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6714,8 +6714,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6733,11 +6733,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6751,8 +6751,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -6770,11 +6770,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6788,8 +6788,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug flip-flop-conversion, coverage_status PUBLISHED; covers checked against topics/flip-flop-conversion/transcript.md",
         "visual url: topics/flip-flop-conversion/index.html"
       ],
@@ -6808,11 +6808,11 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
-          "Characteristic equations",
           "Latches vs flip-flops",
           "Setup and hold times",
+          "Characteristic equations",
           "Shift registers"
         ],
         "verdict": "MOCK_CAPPED"
@@ -6826,8 +6826,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
       ],
       "row_verdict": "BOTH"
@@ -14728,6 +14728,11 @@
       "kind": "notes",
       "placement": "programming-and-data-structures › programming-in-c › bitwise-operators-and-masks",
       "detail": "the lesson topics/bitwise-operators-and-bit-manipulation (topics.json slug bitwise-operators-and-bit-manipulation, created 2026-11-02; syllabus-coverage.json 'Section 4: Programming in C' 8 subtopics and 48 microtopics) covers masks, field extraction, the complement identity, the shift rules, the two bit tricks and bitwise precedence, and serves no notes card: programming-and-data-structures › programming-in-c holds 13 cards and none on bitwise operators. Write content/subjects/programming-and-data-structures/programming-in-c/bitwise-operators-and-masks.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-and-data-structures › programming-in-c › bit-fields-in-c",
+      "detail": "gate-visual-explainer published lesson bit-fields-in-c on 2026-11-03 (topics.json slug bit-fields-in-c; syllabus-coverage.json lesson_slug bit-fields-in-c, coverage_status PUBLISHED; 12 scenes in topics/bit-fields-in-c/transcript.md, 30 microtopics) covering the name-colon-width declaration, the 4-byte allocation unit, the fit test and lost bits, the zero-width and unnamed field forms, the width-to-range rule, what a bit-field refuses (address, sizeof, array, offsetof) and the six implementation-defined properties. No notes card covers bit fields: content/index.json map[] holds no programming-and-data-structures card on bit fields, and programming-in-c/structures-unions-and-padding covers struct layout and padding only. Write content/subjects/programming-and-data-structures/programming-in-c/bit-fields-in-c.json"
     }
   ]
 }
