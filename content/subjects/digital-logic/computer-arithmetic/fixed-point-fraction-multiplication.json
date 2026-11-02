@@ -78,15 +78,15 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "number-representation-and-arithmetic",
-      "title": "Number Representation and Arithmetic",
+      "slug": "fixed-point-arithmetic",
+      "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
       "level": "topic-level",
       "covers": [
-        "fixed point: weights 2^k from k = -f to i-1, i = n - f",
-        "fixed point range 0 to 2^i - 2^-f and step 2^-f"
+        "multiplication: the fraction bits add, and the product is double width",
+        "rescaling by a right shift, and what the shift discards"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
   }
 }

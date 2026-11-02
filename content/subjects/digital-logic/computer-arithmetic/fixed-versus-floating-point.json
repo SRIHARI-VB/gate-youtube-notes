@@ -114,15 +114,15 @@
       "url": "https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html"
     },
     "visual": {
-      "slug": "number-representation-and-arithmetic",
-      "title": "Number Representation and Arithmetic",
+      "slug": "fixed-point-arithmetic",
+      "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
       "level": "topic-level",
       "covers": [
-        "precision 24 bits against range: the gap at 1 is 2^-23",
-        "resolution against range at fixed width"
+        "fixed point against floating point on the same word width",
+        "the trade between resolution and range at fixed width"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/number-representation-and-arithmetic/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
   }
 }

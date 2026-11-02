@@ -80,6 +80,36 @@
   ],
   "sourceLine": "Homomorphism, kernel and isomorphism statements: GeeksforGeeks GATE group-theory notes (English, read in full) for the group vocabulary, with every claim here recomputed in scripts/validate.py on the reduction map Z to Z_6 and on the exponential map. This material is outside the two-word GATE line and no verified PYQ in the repository tests it.",
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "algebraic-structures",
+      "unit_name": "Algebraic Structures",
+      "unit_number": 12,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Subgroups & cyclic groups",
+          "questions": 6
+        },
+        {
+          "label": "Binary operations & properties",
+          "questions": 5
+        },
+        {
+          "label": "Semigroups & monoids",
+          "questions": 5
+        },
+        {
+          "label": "Groups & abelian groups",
+          "questions": 5
+        },
+        {
+          "label": "Homomorphisms & isomorphisms",
+          "questions": 4
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
@@ -91,6 +121,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
   }
 }

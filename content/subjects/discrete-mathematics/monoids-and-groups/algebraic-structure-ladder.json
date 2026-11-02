@@ -92,6 +92,36 @@
   ],
   "sourceLine": "The rung-by-rung definitions and the closure/associativity distinction: GeeksforGeeks GATE group-theory notes (English, read in full) and the Pradeep Giri 'Algebraic Structure' lecture (Hindi auto-captions, read in part; translated into English for this card, source language Hindi). The lecture sequence that puts these rungs in GATE order: GO Classes Module 7 lecture list (structure only, captions unavailable).",
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "algebraic-structures",
+      "unit_name": "Algebraic Structures",
+      "unit_number": 12,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Subgroups & cyclic groups",
+          "questions": 6
+        },
+        {
+          "label": "Binary operations & properties",
+          "questions": 5
+        },
+        {
+          "label": "Semigroups & monoids",
+          "questions": 5
+        },
+        {
+          "label": "Groups & abelian groups",
+          "questions": 5
+        },
+        {
+          "label": "Homomorphisms & isomorphisms",
+          "questions": 4
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+    },
     "visual": {
       "slug": "monoids-and-groups",
       "title": "Monoids and Groups",
@@ -104,6 +134,6 @@
         "groups, subgroups"
       ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
   }
 }

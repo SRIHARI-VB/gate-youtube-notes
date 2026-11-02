@@ -5624,8 +5624,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "number-representation-and-arithmetic",
-        "title": "Number Representation and Arithmetic",
+        "slug": "fixed-point-arithmetic",
+        "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -5634,7 +5634,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json",
         "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (75 records)",
         "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html",
-        "visual: gate-visual-explainer/topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
       ],
       "row_verdict": "BOTH"
     },
@@ -5758,13 +5758,13 @@
       "transcript_status": "not stated",
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-fraction-multiplication.json",
-        "visual evidence: gate-visual-explainer/syllabus-coverage.json lesson_slug=number-representation-and-arithmetic, coverage_status PUBLISHED; microtopics 'fixed point: weights 2^k from k = -f to i-1, i = n - f' and 'fixed point range 0 to 2^i - 2^-f and step 2^-f' cover the Qm.n representation; the multiply-and-shift-back step is not in the lesson, so the mapping is topic-level",
-        "mock evidence: gate-cse-mocks/digital-logic/question-bank/master_bank.json unit number-systems holds 75 questions grouped Base conversions 22, One's & two's complement 19, Range & overflow 17, Floating point & IEEE 754 17 - no Q-format fraction group, so no mock mapping"
+        "mock evidence: gate-cse-mocks/digital-logic/question-bank/master_bank.json unit number-systems holds 75 questions grouped Base conversions 22, One's & two's complement 19, Range & overflow 17, Floating point & IEEE 754 17 - no Q-format fraction group, so no mock mapping",
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
       ],
       "row_verdict": "VISUAL_ONLY",
       "visual": {
-        "slug": "number-representation-and-arithmetic",
-        "title": "Number Representation and Arithmetic",
+        "slug": "fixed-point-arithmetic",
+        "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -5897,8 +5897,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "number-representation-and-arithmetic",
-        "title": "Number Representation and Arithmetic",
+        "slug": "fixed-point-arithmetic",
+        "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -5907,7 +5907,7 @@
         "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
         "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (75 records)",
         "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html",
-        "visual: gate-visual-explainer/topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
       ],
       "row_verdict": "BOTH"
     },
@@ -6276,18 +6276,17 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "number-representation-and-arithmetic",
-        "title": "Number Representation and Arithmetic",
+        "slug": "fixed-point-arithmetic",
+        "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json",
         "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (75 records)",
         "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-10-31.html",
-        "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
-        "visual url: topics/number-representation-and-arithmetic/index.html"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
       ],
       "row_verdict": "BOTH"
     },
@@ -6684,7 +6683,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6702,9 +6701,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/ring-and-johnson-counters.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6721,7 +6720,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6739,9 +6738,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/ripple-counter-and-frequency-division.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6758,7 +6757,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6776,9 +6775,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/synchronous-counter-and-mod-n-design.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6795,7 +6794,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6813,9 +6812,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequential-circuit-analysis-state-equations.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6832,7 +6831,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6850,9 +6849,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/mealy-and-moore-machines.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6869,7 +6868,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6887,9 +6886,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/state-minimisation-partition-refinement.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/topics.json slug=fsm-state-minimisation; syllabus-coverage.json subject Digital Logic, unit Sequential design, coverage_status PUBLISHED; covers checked against topics/fsm-state-minimisation/transcript.md scenes 3-9"
+        "visual: gate-visual-explainer/topics.json slug=fsm-state-minimisation; syllabus-coverage.json subject Digital Logic, unit Sequential design, coverage_status PUBLISHED; covers checked against topics/fsm-state-minimisation/transcript.md scenes 3-9",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6906,7 +6905,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6924,9 +6923,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/state-assignment-encoding.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6943,7 +6942,7 @@
         "unit_slug": "sequential-fsm-counters",
         "unit_name": "Sequential Circuits: Counters & State Machines",
         "unit_number": 4,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "FSM: Mealy & Moore machines",
           "State reduction & assignment",
@@ -6961,9 +6960,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-fsm-counters (50 records)",
-        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-10-30.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
+        "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -8326,9 +8325,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/algebraic-structure-ladder.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8348,9 +8364,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/monoid-identity-and-examples.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8370,9 +8403,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-axioms-and-uniqueness.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8392,9 +8442,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/order-of-group-and-element.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8414,9 +8481,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/abelian-groups-and-commutativity-tests.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8436,9 +8520,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/subgroups-and-tests.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8458,9 +8559,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/cyclic-groups-and-generators.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8502,9 +8620,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/finite-group-examples-gate-uses.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -8524,9 +8659,26 @@
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html"
+        "visual url: topics/monoids-and-groups/index.html",
+        "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
       ],
-      "row_verdict": "VISUAL_ONLY"
+      "row_verdict": "BOTH",
+      "mock": {
+        "subject": "discrete-mathematics",
+        "unit_slug": "algebraic-structures",
+        "unit_name": "Algebraic Structures",
+        "unit_number": 12,
+        "question_count": 25,
+        "subtopic_labels": [
+          "Binary operations & properties",
+          "Groups & abelian groups",
+          "Homomorphisms & isomorphisms",
+          "Semigroups & monoids",
+          "Subgroups & cyclic groups"
+        ],
+        "verdict": "MOCK_CAPPED"
+      }
     },
     {
       "subject": "discrete-mathematics",
@@ -14328,6 +14480,16 @@
       "kind": "notes",
       "placement": "theory-of-computation › turing-machines-and-undecidability › post-correspondence-problem",
       "detail": "published lesson \"post-correspondence-problem\" (PUBLISHED 2026-11-02, topics/post-correspondence-problem/, 12 scenes, 64 caption segments, syllabus-coverage.json places it at Theory of Computation, unit \"Turing machines and undecidability\" at the junction with \"Regular and context-free languages\") serves no notes card: content/index.json holds no theory-of-computation subject at all, and content/syllabus.json lists its four topics as \"planned\". Checked against transcript.md, the 12 scenes genuinely cover the instance and the match, the prefix invariant and the overhang, the pruned search as a semidecision procedure, MPCP and the star-padding reduction, the computation-history reduction, grammar ambiguity, CFL intersection emptiness and CFG inequivalence, the unary-alphabet decider, and bounded PCP as NP-complete. Recommendation: write content/subjects/theory-of-computation/turing-machines-and-undecidability/post-correspondence-problem.json, which also gives the unit \"Turing Machines & Decidability\" (100 questions) its first card."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › monoids-and-groups › cosets-and-lagrange",
+      "detail": "mock unit \"Algebraic Structures\" (unit_number 12, 25 questions, at the 25-question first set so not capped) holds no subtopic_label for cosets or Lagrange: its five groups are Binary operations & properties 5, Semigroups & monoids 5, Groups & abelian groups 5, Subgroups & cyclic groups 6, Homomorphisms & isomorphisms 4. The card stays unmapped on the mock side; add a cosets-and-lagrange set to discrete-mathematics/algebraic-structures/ when the unit next rotates"
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › monoids-and-groups › permutation-groups-and-symmetry",
+      "detail": "mock unit \"Algebraic Structures\" (unit_number 12, 25 questions) has no permutation-group or symmetric-group subtopic_label, so this card is unmapped on the mock side. Add it to discrete-mathematics/algebraic-structures/ on the unit's next rotation"
     }
   ]
 }
