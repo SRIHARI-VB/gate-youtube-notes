@@ -8808,8 +8808,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "partial-orders-and-lattices",
-        "title": "Partial Orders, Hasse Diagrams and Lattices",
+        "slug": "counting-linear-extensions",
+        "title": "Counting linear extensions of a partial order: topological orderings, interleavings and schedules",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -8818,8 +8818,8 @@
         "notes content/index.json map[].path = subjects/discrete-mathematics/partial-orders-and-lattices/comparability-chains-and-antichains.json",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=relations (50 records)",
         "mock url: runs[] last entry for unit relations -> https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html",
-        "visual: topics.json slug=partial-orders-and-lattices; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/partial-orders-and-lattices/index.html"
+        "visual: topics.json slug=counting-linear-extensions; syllabus-coverage.json lesson_slug=counting-linear-extensions, coverage_status PUBLISHED, 11 scenes read in topics/counting-linear-extensions/transcript.md; card remember[] already names linear extensions and the n! count",
+        "visual url: topics/counting-linear-extensions/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -14470,7 +14470,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › complexity-np-complete",
-      "detail": "mock unit \"Complexity Theory & NP-Completeness\" (unit_number 7, unit_slug complexity-np-complete, 25 questions, Set 1 of 2, paper gate_algo_mock_7_2026-11-02.html) serves no notes card; subtopic groups: classes-p-and-np 7, polynomial-time-reductions 6, np-complete-problems-3sat-clique-vertex-cover 6, np-hard-identification 6. content/index.json map[] holds no algorithms card and content/syllabus.json lists algorithms with every topic still \"planned\". Write content/subjects/algorithms/complexity-np-complete/ classes-p-and-np.json and polynomial-time-reductions.json; the published lesson complexity-classes-p-np-np-complete already serves the unit."
+      "detail": "mock unit \"Complexity Theory & NP-Completeness\" (unit_number 7, unit_slug complexity-np-complete, 50 questions after Set 2 of 2 on 2026-11-02, at the 50-question cap so MOCK_CAPPED, current paper gate_algo_mock_7_2026-11-02.html) serves no notes card; subtopic_label groups counted from algorithms/question-bank/master_bank.json: Classes P and NP 14, Polynomial-time reductions 12, NP-complete problems: 3-SAT, clique, vertex cover 13, NP-hard identification 11. content/index.json map[] holds no algorithms card at all, so this is a notes gap, not a mapping. Write content/subjects/algorithms/complexity-np-complete/classes-p-and-np.json and polynomial-time-reductions.json; the published lesson complexity-classes-p-np-np-complete already serves the unit."
     },
     {
       "kind": "notes",
@@ -14511,6 +14511,11 @@
       "kind": "notes",
       "placement": "calculus › vector-calculus › vector-calculus-basics",
       "detail": "mock unit \"Calculus: Maxima, Minima & Integrals\" (unit_number 4, 75 questions, paper engineering-mathematics/calculus-optimization-integrals/gate_em_mock_4_2026-11-02.html dated 2026-11-02) carries 16 questions on vector calculus basics (gradient, divergence, curl, line and surface integrals) but no notes card covers them: the calculus subject in content/index.json holds only integration, limits-continuity-differentiability, maxima-and-minima and mean-value-theorem. Write content/subjects/calculus/vector-calculus/vector-calculus-basics.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › partial-orders-and-lattices › counting-linear-extensions",
+      "detail": "lesson counting-linear-extensions (PUBLISHED 2026-11-02, 11 scenes, syllabus-coverage subtopics on the definition, the series-parallel rules, the hook-length formula, case splits, the subset DP and the three exam names) is now the visual on the card comparability-chains-and-antichains, but no card carries its counting methods: the card counts total orders containing a poset and stops there, while the lesson executes the subset DP f(S) at n * 2^n, the hook-length formula and the #P-completeness of the count. Write content/subjects/discrete-mathematics/partial-orders-and-lattices/counting-linear-extensions.json."
     }
   ]
 }

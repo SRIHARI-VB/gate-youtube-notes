@@ -6829,15 +6829,20 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
     },
     "visual": {
-     "slug": "partial-orders-and-lattices",
-     "title": "Partial Orders, Hasse Diagrams and Lattices",
+     "slug": "counting-linear-extensions",
+     "title": "Counting linear extensions of a partial order: topological orderings, interleavings and schedules",
      "level": "topic-level",
      "covers": [
-      "chain versus antichain"
+      "a linear extension is a full ordering in which every constraint still points forward",
+      "1 <= e(P) <= n!, with a chain at the bottom and an antichain at the top",
+      "series multiplies, parallel chooses slots: C(m+n, m) for two parallel chains",
+      "the hook-length formula for a rooted forest",
+      "the subset dynamic program f(S) at a cost of n * 2^n",
+      "topological orderings, interleavings and conflict-serialisable schedules are one count"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/counting-linear-extensions/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",
    "topic": "partial-orders-and-lattices",
