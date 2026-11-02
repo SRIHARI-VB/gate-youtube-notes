@@ -90,14 +90,16 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
+      "slug": "multi-event-independence",
+      "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
       "level": "topic-level",
       "covers": [
-        "conditional probability and independence"
+        "conditional independence is the product rule read inside the conditioned space",
+        "conditioning on Z = 1 leaves 011 and 101, where P(X=1,Y=1|Z=1) = 0 against 1/4",
+        "conditioning can create dependence as well as destroy it"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
   }
 }

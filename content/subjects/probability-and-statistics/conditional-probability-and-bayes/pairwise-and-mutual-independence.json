@@ -79,14 +79,19 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
-      "level": "topic-level",
+      "slug": "multi-event-independence",
+      "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
+      "level": "subtopic-level",
       "covers": [
-        "conditional probability and independence"
+        "mutual independence quantifies over every subset of size two or more, not over the pairs",
+        "2^n - n - 1 conditions: 1, 4, 11, 26, 57 for two to six events",
+        "Bernstein's four tickets 112, 121, 211, 222: every pair 1/4 against 1/4, the triple 0 against 1/8",
+        "the reverse failure: two dice, A first die 1-3, B first die 3-5, C sum 9 - the triple product holds, no pair does",
+        "the parity bit Z = X xor Y: every pair independent, the triple never 111",
+        "counting the independent pairs and triples on a four-point space"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
   }
 }

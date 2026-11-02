@@ -91,14 +91,16 @@
   "videoRefs": [],
   "links": {
     "visual": {
-      "slug": "probability-and-random-variables",
-      "title": "Probability, Random Variables and Distributions",
+      "slug": "multi-event-independence",
+      "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
       "level": "topic-level",
       "covers": [
-        "conditional probability and independence"
+        "independence is the product rule on both sides, checked on a four-cell grid",
+        "the conditional form P(A|B) = P(A) needs P(B) > 0, so the product form is the definition",
+        "the at-least-one formula multiplies the complements and so needs mutual independence"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
   }
 }

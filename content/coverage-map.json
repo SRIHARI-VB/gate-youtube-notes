@@ -11879,16 +11879,16 @@
       "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "multi-event-independence",
+        "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
-        "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/probability-and-random-variables/index.html"
+        "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
+        "visual url: topics/multi-event-independence/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -11901,16 +11901,16 @@
       "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "multi-event-independence",
+        "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json",
-        "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/probability-and-random-variables/index.html"
+        "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
+        "visual url: topics/multi-event-independence/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -11923,16 +11923,16 @@
       "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "multi-event-independence",
+        "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json",
-        "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/probability-and-random-variables/index.html"
+        "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
+        "visual url: topics/multi-event-independence/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -11945,16 +11945,16 @@
       "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json",
       "transcript_status": "PARTIAL",
       "visual": {
-        "slug": "probability-and-random-variables",
-        "title": "Probability, Random Variables and Distributions",
+        "slug": "multi-event-independence",
+        "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json",
-        "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/probability-and-random-variables/index.html"
+        "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
+        "visual url: topics/multi-event-independence/index.html"
       ],
       "row_verdict": "VISUAL_ONLY"
     },
@@ -13736,7 +13736,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › bottom-up-parsing",
-      "detail": "mock unit \"Syntax Analysis: Bottom-Up Parsing\" (unit_number 3, 75 questions) serves no notes card; the 25 questions added on 2026-10-31 group as LR(0) items & parsing 7, SLR(1) parsing & conflicts 6, LR(1) and LALR(1) parsers 6, Operator-precedence parsing 6; the earlier 50 records carry no subtopic_label. Paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-10-31.html"
+      "detail": "mock unit \"Syntax Analysis: Bottom-Up Parsing\" (unit_number 3, unit_slug bottom-up-parsing, 100 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Run 18 (2026-11-02) added 25 questions grouping as LR(0) items & parsing 7, SLR(1) parsing & conflicts 6, LR(1) and LALR(1) parsers 6, Operator-precedence parsing 6; the earlier 75 records carry no subtopic_label. Latest paper compiler-design/bottom-up-parsing/gate_cd_mock_3_2026-11-02.html. Write content/subjects/compiler-design/parsing/bottom-up-lr-parsing.json"
     },
     {
       "kind": "notes",

@@ -25690,15 +25690,17 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "multi-event-independence",
+     "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
      "level": "topic-level",
      "covers": [
-      "conditional probability and independence"
+      "independence is the product rule on both sides, checked on a four-cell grid",
+      "the conditional form P(A|B) = P(A) needs P(B) > 0, so the product form is the definition",
+      "the at-least-one formula multiplies the complements and so needs mutual independence"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25795,16 +25797,18 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "multi-event-independence",
+     "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
      "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html",
      "covers": [
-      "conditional probability and independence",
-      "Bayes' theorem"
-     ]
+      "disjoint with both probabilities positive means dependent, never independent",
+      "probability zero or one is independent of everything",
+      "complementing any event preserves independence",
+      "a nested event of positive probability is dependent on its container"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25891,15 +25895,20 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
-     "level": "topic-level",
+     "slug": "multi-event-independence",
+     "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
+     "level": "subtopic-level",
      "covers": [
-      "conditional probability and independence"
+      "mutual independence quantifies over every subset of size two or more, not over the pairs",
+      "2^n - n - 1 conditions: 1, 4, 11, 26, 57 for two to six events",
+      "Bernstein's four tickets 112, 121, 211, 222: every pair 1/4 against 1/4, the triple 0 against 1/8",
+      "the reverse failure: two dice, A first die 1-3, B first die 3-5, C sum 9 - the triple product holds, no pair does",
+      "the parity bit Z = X xor Y: every pair independent, the triple never 111",
+      "counting the independent pairs and triples on a four-point space"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25997,15 +26006,17 @@ window.GATE_DATA = {
    "videoRefs": [],
    "links": {
     "visual": {
-     "slug": "probability-and-random-variables",
-     "title": "Probability, Random Variables and Distributions",
+     "slug": "multi-event-independence",
+     "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
      "level": "topic-level",
      "covers": [
-      "conditional probability and independence"
+      "conditional independence is the product rule read inside the conditioned space",
+      "conditioning on Z = 1 leaves 011 and 101, where P(X=1,Y=1|Z=1) = 0 against 1/4",
+      "conditioning can create dependence as well as destroy it"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-02"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
