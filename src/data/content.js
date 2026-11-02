@@ -10261,11 +10261,12 @@ window.GATE_DATA = {
      "level": "topic-level",
      "covers": [
       "matchings and maximum matchings",
-      "perfect and maximum matchings"
+      "perfect and maximum matchings",
+      "Berge's theorem and the augmenting-path algorithm"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
@@ -10435,11 +10436,11 @@ window.GATE_DATA = {
      "title": "Graphs: Matching and Colouring",
      "level": "topic-level",
      "covers": [
-      "vertex colouring and the chromatic number"
+      "Konig's theorem, the constructive cover, and its failure on an odd cycle"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/matching-and-colouring/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "graphs",
