@@ -14092,7 +14092,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › application-layer-security",
-      "detail": "mock unit \"Application Layer & Network Security\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: DNS hierarchy & resolution 12, HTTP, HTTPS, SMTP & FTP 14, Symmetric, asymmetric & RSA 7, Digital signatures & firewalls 5, Symmetric & asymmetric cryptography, RSA 7, Digital signatures, certificates & firewalls 5; the unit is at the 50-question cap"
+      "detail": "mock unit \"Application Layer & Network Security\" (unit_number 6, unit_slug application-layer-security, 75 questions in computer-networks/question-bank/master_bank.json, above the 50-question cap so MOCK_CAPPED; run 18 dated 2026-11-02 added a second pass of 25 questions and the paper computer-networks/application-layer-security/gate_cn_mock_6_2026-11-02.html) serves no notes card: content/index.json holds no computer-networks subject at all. Subtopic groups as the bank labels them: HTTP, HTTPS, SMTP & FTP 20, DNS hierarchy & resolution 19, Symmetric & asymmetric cryptography, RSA 13, Digital signatures, certificates & firewalls 11, Symmetric, asymmetric & RSA 7, Digital signatures & firewalls 5. Recommendation: write content/subjects/computer-networks/application-layer-protocols/ cards first (dns-resolution, http-smtp-ftp), then a computer-networks group network-security for the RSA, digital-signature and firewall groups, which the syllabus line names only as \"DNS and HTTP\"."
     },
     {
       "kind": "visual",
@@ -14323,6 +14323,11 @@
       "kind": "notes",
       "placement": "computer-organization-and-architecture › performance-arithmetic › cpu-performance-arithmetic",
       "detail": "published lesson \"CPU performance: the equation, CPI, MIPS and Amdahl's law\" (slug cpu-performance-cpi-mips-and-amdahl, coverage_status PUBLISHED, 12 scenes, 55 caption segments, syllabus-coverage subtopics \"the CPU performance equation and the unit check\" through \"the pipeline speedup limit and the exact cycle count\") serves no notes card: content/index.json holds no computer-organization-and-architecture topic on performance arithmetic. The nearest cards are instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation, ideal-timing-and-speedup-formula and throughput-efficiency-and-the-clock-rate-trade, which use this arithmetic but are filed under pipelining and already carry the dedicated lesson pipelining-and-hazards. Write content/subjects/computer-organization-and-architecture/performance-arithmetic/cpu-performance-arithmetic.json."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › turing-machines-and-undecidability › post-correspondence-problem",
+      "detail": "published lesson \"post-correspondence-problem\" (PUBLISHED 2026-11-02, topics/post-correspondence-problem/, 12 scenes, 64 caption segments, syllabus-coverage.json places it at Theory of Computation, unit \"Turing machines and undecidability\" at the junction with \"Regular and context-free languages\") serves no notes card: content/index.json holds no theory-of-computation subject at all, and content/syllabus.json lists its four topics as \"planned\". Checked against transcript.md, the 12 scenes genuinely cover the instance and the match, the prefix invariant and the overhang, the pruned search as a semidecision procedure, MPCP and the star-padding reduction, the computation-history reduction, grammar ambiguity, CFL intersection emptiness and CFG inequivalence, the unary-alphabet decider, and bounded PCP as NP-complete. Recommendation: write content/subjects/theory-of-computation/turing-machines-and-undecidability/post-correspondence-problem.json, which also gives the unit \"Turing Machines & Decidability\" (100 questions) its first card."
     }
   ]
 }
