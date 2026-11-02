@@ -13801,7 +13801,7 @@
     {
       "kind": "notes",
       "placement": "databases › sql-querying",
-      "detail": "mock unit \"SQL & Advanced Querying\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: aggregate-functions-group-by-having 10, ddl-dml-dcl 10, joins-outer-joins 10, nested-and-correlated-subqueries 10, views-triggers-constraints 10"
+      "detail": "mock unit \"SQL & Advanced Querying\" (unit_number 2, unit_slug sql-querying, 75 questions) serves no notes card: content/index.json carries no databases subject. Subtopic groups: DDL, DML & DCL 15, Joins & outer joins 15, Nested & correlated subqueries 15, Aggregates, GROUP BY & HAVING 15, Views, triggers & constraints 15. Run 18 (2026-11-02, \"Set 1 of 2 (second pass)\") added 25 questions, DB-U2-Q51 to DB-U2-Q75, each carrying a subtopic_label; the earlier 50 records (DB-U2-Q01 to DB-U2-Q50) carry only the subtopic slug, 10 per group. Latest paper databases/sql-querying/gate_db_mock_2_2026-11-02.html. Recommendation: write content/subjects/databases/sql-querying/nested-and-correlated-subqueries.json first, then one card per remaining group under the same folder."
     },
     {
       "kind": "notes",
@@ -14527,6 +14527,11 @@
       "kind": "notes",
       "placement": "algorithms › asymptotic-analysis",
       "detail": "published lesson master-theorem-cases-and-boundaries (\"The Master Theorem and Its Boundaries: Three Cases, the Regularity Condition, and the Gap Where No Case Applies\", PUBLISHED 2026-11-02, topics/master-theorem-cases-and-boundaries/, 11 scenes, 44 caption segments) serves no notes card: content/index.json map[] holds no algorithms card at all. Checked against transcript.md, the 11 scenes genuinely cover the shape aT(n/b)+f(n), the watershed n^(log_b a) as the leaf count, case 1, case 2 and case 3, the regularity condition, the gap at f = n/log n giving Theta(n log log n), extended case 2, and the three shapes the theorem refuses. It also covers the master-theorem-cases group of 14 questions in mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, algorithms/question-bank/master_bank.json), which has no notes card either. Recommendation: write content/subjects/algorithms/asymptotic-analysis/master-theorem-cases.json, which gives both the lesson and that group their first card."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › graphs › strongly-connected-components",
+      "detail": "published lesson \"strongly-connected-components\" (syllabus-coverage.json coverage_status PUBLISHED, 2026-11-02, 20 microtopics) serves no notes card: transcript.md covers mutual reachability as an equivalence relation, the finishing-order lemma, Kosaraju's two passes on the transpose, Tarjan's low-link root test, the condensation and the Eswaran-Tarjan max(sources, sinks) + isolated count, and no card under content/subjects/discrete-mathematics/graphs/ mentions strongly connected components, Kosaraju or Tarjan. Recommendation: write content/subjects/discrete-mathematics/graphs/strongly-connected-components.json and link lesson slug strongly-connected-components."
     }
   ]
 }
