@@ -9327,17 +9327,6 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
     },
-    "visual": {
-     "slug": "monoids-and-groups",
-     "title": "Monoids and Groups",
-     "level": "topic-level",
-     "covers": [
-      "semigroups and monoids",
-      "groups, subgroups",
-      "cyclic groups and generators"
-     ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/monoids-and-groups/index.html"
-    },
     "mapped_at": "2026-11-02"
    },
    "subject": "discrete-mathematics",

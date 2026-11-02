@@ -8654,16 +8654,16 @@
         "title": "Monoids and Groups",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
-        "verdict": "VISUAL_LESSON"
+        "verdict": "VISUAL_MISSING"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
-        "visual url: topics/monoids-and-groups/index.html",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=algebraic-structures (25 records)",
-        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock url: runs[] last entry for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html",
+        "visual check: topics/monoids-and-groups/transcript.md (11 scenes) and timeline.js contain no homomorphism or kernel content (0 mentions of each); the 3 mentions of 'isomorphism' are an element-order fingerprint remark in Scene 5 and Scene 9, not a homomorphism lesson, so VISUAL_MISSING"
       ],
-      "row_verdict": "BOTH",
+      "row_verdict": "MOCK_ONLY",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "algebraic-structures",
@@ -14490,6 +14490,11 @@
       "kind": "notes",
       "placement": "discrete-mathematics › monoids-and-groups › permutation-groups-and-symmetry",
       "detail": "mock unit \"Algebraic Structures\" (unit_number 12, 25 questions) has no permutation-group or symmetric-group subtopic_label, so this card is unmapped on the mock side. Add it to discrete-mathematics/algebraic-structures/ on the unit's next rotation"
+    },
+    {
+      "kind": "visual",
+      "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
+      "detail": "mock unit \"Algebraic Structures\" (unit_number 12, 25 questions) holds 4 Homomorphisms & isomorphisms questions (DM-U12-Q22..Q25) and the notes card exists, but the published lesson topics/monoids-and-groups teaches no homomorphism or kernel: transcript.md has 11 scenes and 0 mentions of either word. The card now carries mock only. Extend topics/monoids-and-groups with a homomorphism-and-kernel scene set rather than a new slug, then run node tools/gen-captions.mjs monoids-and-groups"
     }
   ]
 }
