@@ -31993,16 +31993,18 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html"
     },
     "visual": {
-     "slug": "sequential-circuits",
-     "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+     "slug": "flip-flop-conversion",
+     "title": "Flip-Flop Conversion: Building One Flip-Flop From Another, and the Gate Count Each Direction Costs",
      "level": "topic-level",
      "covers": [
-      "T flip-flop as a JK with the inputs tied: Q next = Q XOR T",
-      "excitation tables for D, T and JK, and the free input in every JK transition"
+      "Q+ = S + R'Q, JQ' + K'Q, D, T'Q + TQ'",
+      "excitation rows are the four transitions 0>0, 0>1, 1>0, 1>1",
+      "free entries per type: JK four, SR two, D none, T none",
+      "JK to T is J = K = T, zero gates"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/flip-flop-conversion/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-02"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -44444,26 +44446,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "functions-scope-and-preprocessor",
@@ -44477,7 +44479,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44580,26 +44582,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "functions-scope-and-preprocessor",
@@ -44612,7 +44614,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44698,26 +44700,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "pointers-in-c",
@@ -44730,7 +44732,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/pointers-in-c/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44836,26 +44838,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "pointers-in-c",
@@ -44869,7 +44871,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/pointers-in-c/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -45166,26 +45168,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "dynamic-memory-and-program-layout",
@@ -45199,7 +45201,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/dynamic-memory-and-program-layout/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -45284,26 +45286,26 @@ window.GATE_DATA = {
      "unit_slug": "pointers-memory",
      "unit_name": "Pointers, Memory & Preprocessors",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "Pointer arithmetic",
-       "questions": 14
+       "questions": 21
       },
       {
        "label": "Pointers to functions",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Dynamic memory allocation",
-       "questions": 12
+       "questions": 18
       },
       {
        "label": "Macro expansion, scope & lifetime",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html"
     },
     "visual": {
      "slug": "functions-scope-and-preprocessor",
@@ -45317,7 +45319,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-02"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",

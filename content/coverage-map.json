@@ -6618,8 +6618,8 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "sequential-circuits",
-        "title": "Sequential Circuits: Latches, Flip-Flops, Counters and Machines",
+        "slug": "flip-flop-conversion",
+        "title": "Flip-Flop Conversion: Building One Flip-Flop From Another, and the Gate Count Each Direction Costs",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
         "verdict": "VISUAL_LESSON"
@@ -6628,7 +6628,8 @@
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json",
         "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (75 records)",
         "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-01.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug flip-flop-conversion, coverage_status PUBLISHED; covers checked against topics/flip-flop-conversion/transcript.md",
+        "visual url: topics/flip-flop-conversion/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -12984,7 +12985,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13002,8 +13003,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/scope-shadowing-and-linkage.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=functions-scope-and-preprocessor; syllabus-coverage.json microtopics checked against topics/functions-scope-and-preprocessor/index.html",
         "visual url: topics/functions-scope-and-preprocessor/index.html"
       ],
@@ -13022,7 +13023,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13040,8 +13041,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/storage-classes-auto-static-extern-register.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=functions-scope-and-preprocessor; syllabus-coverage.json microtopics checked against topics/functions-scope-and-preprocessor/index.html",
         "visual url: topics/functions-scope-and-preprocessor/index.html"
       ],
@@ -13060,7 +13061,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13078,8 +13079,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/pointers-address-and-indirection.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=pointers-in-c; syllabus-coverage.json microtopics checked against topics/pointers-in-c/index.html",
         "visual url: topics/pointers-in-c/index.html"
       ],
@@ -13098,7 +13099,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13116,8 +13117,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/pointer-arithmetic-and-array-decay.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=pointers-in-c; syllabus-coverage.json microtopics checked against topics/pointers-in-c/index.html",
         "visual url: topics/pointers-in-c/index.html"
       ],
@@ -13180,7 +13181,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13198,8 +13199,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/dynamic-memory-malloc-calloc-realloc-free.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=dynamic-memory-and-program-layout; syllabus-coverage.json microtopics checked against topics/dynamic-memory-and-program-layout/index.html",
         "visual url: topics/dynamic-memory-and-program-layout/index.html"
       ],
@@ -13218,7 +13219,7 @@
         "unit_slug": "pointers-memory",
         "unit_name": "Pointers, Memory & Preprocessors",
         "unit_number": 2,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
           "Dynamic memory allocation",
           "Macro expansion, scope & lifetime",
@@ -13236,8 +13237,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/preprocessor-macros.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (50 records)",
-        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-10-27.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pointers-memory (75 records)",
+        "mock url: runs[] last entry for unit pointers-memory -> https://gate-cse-mocks.vercel.app/programming-data-structures/pointers-memory/gate_ds_mock_2_2026-11-02.html",
         "visual: topics.json slug=functions-scope-and-preprocessor; syllabus-coverage.json microtopics checked against topics/functions-scope-and-preprocessor/index.html",
         "visual url: topics/functions-scope-and-preprocessor/index.html"
       ],
@@ -14495,6 +14496,16 @@
       "kind": "visual",
       "placement": "discrete-mathematics › monoids-and-groups › group-homomorphism-and-kernel",
       "detail": "mock unit \"Algebraic Structures\" (unit_number 12, 25 questions) holds 4 Homomorphisms & isomorphisms questions (DM-U12-Q22..Q25) and the notes card exists, but the published lesson topics/monoids-and-groups teaches no homomorphism or kernel: transcript.md has 11 scenes and 0 mentions of either word. The card now carries mock only. Extend topics/monoids-and-groups with a homomorphism-and-kernel scene set rather than a new slug, then run node tools/gen-captions.mjs monoids-and-groups"
+    },
+    {
+      "kind": "notes",
+      "placement": "programming-and-data-structures › programming-in-c › pointers-to-functions",
+      "detail": "mock unit \"Pointers, Memory & Preprocessors\" (unit_number 2, pointers-memory) holds 18 questions grouped under subtopic_label \"Pointers to functions\", and no notes card in programming-in-c covers function pointers, callbacks or their syntax; the 13 cards in the group hold no such card. Write content/subjects/programming-and-data-structures/programming-in-c/pointers-to-functions.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "digital-logic › sequential-circuits › flip-flop-conversion",
+      "detail": "visual lesson \"flip-flop-conversion\" (PUBLISHED 2026-11-02, 12 scenes, 66 verified rows) serves no dedicated notes card: it covers the twelve ordered conversions, their input equations and their gate counts. The nearest card, t-flip-flop-and-excitation-tables, covers only the characteristic and excitation tables the procedure uses. Write content/subjects/digital-logic/sequential-circuits/flip-flop-conversion.json"
     }
   ]
 }
