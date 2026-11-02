@@ -13716,7 +13716,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › asymptotic-analysis",
-      "detail": "mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, 50 questions) serves no notes card; subtopic groups: big-o-omega-theta 15, master-theorem-cases 14, recursion-tree-method 13, substitution-method 8"
+      "detail": "mock unit \"Asymptotic Analysis & Recurrences\" (unit_number 1, unit_slug asymptotic-analysis, 75 questions in algorithms/question-bank/master_bank.json after run 15 on 2026-11-02, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json map[] holds 0 algorithms cards and content/syllabus.json marks every algorithms topic material \"planned\". Every unit-1 record carries subtopic_label null, so the groups are the subtopic slugs: big-o-omega-theta 22, master-theorem-cases 20, recursion-tree-method 20, substitution-method 13. Latest paper algorithms/asymptotic-analysis/gate_algo_mock_1_2026-11-02.html (25 items ALG-U1-Q51..Q75, subtopics big-o-omega-theta 7, master-theorem-cases 6, recursion-tree-method 7, substitution-method 5 per runs[]). Write content/subjects/algorithms/asymptotic-complexity/big-o-omega-theta.json, master-theorem-cases.json, recursion-tree-method.json and substitution-method.json"
     },
     {
       "kind": "notes",
@@ -14286,7 +14286,7 @@
     {
       "kind": "mock",
       "placement": "computer-organization-and-architecture › instruction-pipelining-and-hazards › superscalar-and-ilp-beyond-one-per-cycle",
-      "detail": "the card has no mock coverage: computer-architecture/question-bank/master_bank.json unit 5 (pipelining, 25 questions) holds the groups Pipeline stages & throughput, Structural hazards, Data hazards & forwarding, Control hazards & branch penalty and no ILP or superscalar group. Add a \"Superscalar issue & ILP\" group to computer-architecture/pipelining/ (unit 5 is at 25 of the 50-question cap)"
+      "detail": "the card has no mock coverage: computer-architecture/question-bank/master_bank.json unit 5 (pipelining, 50 questions) holds the groups Pipeline stages & throughput, Structural hazards, Data hazards & forwarding, Control hazards & branch penalty and no ILP or superscalar group. Add a \"Superscalar issue & ILP\" group to computer-architecture/pipelining/ (unit 5 now sits at the 50-question cap, so a new group needs a fresh pass)"
     },
     {
       "kind": "visual",
@@ -14542,6 +14542,11 @@
       "kind": "notes",
       "placement": "discrete-mathematics › graphs › block-cut-tree",
       "detail": "lesson articulation-points-bridges-and-blocks covers the block-cut tree and its counting identities (number of blocks = tree edges with low[v] >= disc[u]; sum-of-block-sizes identity) and no notes card covers them; cut-vertices-bridges-and-blocks stops at the block definition"
+    },
+    {
+      "kind": "notes",
+      "placement": "lesson comparison-lower-bound-decision-trees",
+      "detail": "published lesson comparison-lower-bound-decision-trees (\"The Comparison Lower Bound: Decision Trees, Leaf Counting and the Exact Height\", topics.json category algorithms, syllabus-coverage.json coverage_status PUBLISHED 2026-11-02, 10 subtopics and 30 microtopics, placed by the registry at Algorithms > Asymptotic worst case complexity (sorting)) serves no notes card: content/index.json map[] holds 0 algorithms cards. Its content covers the decision-tree model, the n! leaf count, 2^h leaf capacity, ceil(log2(n!)) with the exact table to n = 22, Stirling, and the merge-insertion floor achieved to n = 11 and missed at n = 12. Write content/subjects/algorithms/searching-sorting-hashing/comparison-lower-bound.json, then map it back to the sorting-algorithms and selection-lower-bounds-max-min-second-largest lessons"
     }
   ]
 }
