@@ -1,6 +1,6 @@
 {
  "generated_by": "gate-content-mapper",
- "generated_at": "2026-11-03",
+ "generated_at": "2026-11-04",
  "playlists": [
   {
    "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -14176,7 +14176,7 @@
   {
    "kind": "notes",
    "placement": "discrete-mathematics › proof-techniques",
-   "detail": "mock unit \"Logic & Proof Techniques\" (unit_number 16, 75 questions) serves no notes card; subtopic groups: biconditional-iff-proofs 8, counterexamples 17, direct-contradiction-contrapositive 37, necessity-vs-sufficiency 13"
+   "detail": "mock unit \"Logic & Proof Techniques\" (unit_number 16, unit_slug proof-techniques, 100 questions in discrete-mathematics/question-bank/master_bank.json after run 34 on 2026-11-03, above the 50-question cap so MOCK_CAPPED; last paper discrete-mathematics/proof-techniques/gate_dm_mock_16_2026-11-03.html) serves no notes card: content/syllabus.json enumerates no proof-techniques group under discrete-mathematics, and no card in content/index.json covers direct proof, contradiction, contrapositive, counterexamples, necessity vs sufficiency or biconditional proofs. Subtopic groups: Direct proof, contradiction & contrapositive 43; Counterexamples 23; Necessity vs sufficiency 20; Biconditional (iff) proofs 14. Write the cards at content/subjects/discrete-mathematics/proof-techniques/ once the combinatorics playlist run closes."
   },
   {
    "kind": "notes",
@@ -15047,6 +15047,11 @@
    "kind": "visual",
    "placement": "discrete-mathematics › combinatorics › ioib-partitions",
    "detail": "card \"IOIB: Integer Partitions\" (content/subjects/discrete-mathematics/combinatorics/ioib-partitions.json) has no lesson that covers it: counting-and-combinatorics (PUBLISHED) stops at stars and bars, the identical-items-into-distinct-bins case, and no slug in topics.json names integer partitions. Build topics/integer-partitions/ with index.html and timeline.js: p(n) by systematic enumeration, the Ferrers diagram, conjugate partitions, the distinct-parts identity, and the contrast with stars and bars that the card draws"
+  },
+  {
+   "kind": "notes",
+   "placement": "computer-networks › tcp-and-congestion-control › socket-api",
+   "detail": "published lesson \"The socket API and the connection lifecycle: calls, four-tuples, TIME_WAIT and port exhaustion\" (slug socket-api-and-connection-lifecycle, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 8 subtopics, 30 microtopics, topics/socket-api-and-connection-lifecycle/) serves no notes card: content/index.json holds no computer-networks subject at all, so there is nothing to attach it to. syllabus-coverage.json places it at Computer Networks, Section 10 \"TCP - flow control and congestion control, socket API\". Its transcript covers the calls on each side and their order, the listening against the connected socket, the backlog as a completed-connection queue, the four-tuple and ephemeral port exhaustion, TIME-WAIT and the UDP variant. Write the card at content/subjects/computer-networks/tcp-and-congestion-control/socket-api.json; the mock side already exists in unit transport-layer (75 questions, group \"TCP header & connection management\" 21)."
   }
  ]
 }
