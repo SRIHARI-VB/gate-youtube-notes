@@ -7469,16 +7469,17 @@
     "title": "Counting and Combinatorics",
     "coverage_status": "PUBLISHED",
     "level": "topic-level",
-    "verdict": "VISUAL_LESSON"
+    "verdict": "VISUAL_MISSING"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/doib-stirling.json",
     "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=set-theory (50 records)",
     "mock url: runs[] last entry for unit set-theory -> https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html",
     "visual: topics.json slug=counting-and-combinatorics; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/counting-and-combinatorics/index.html"
+    "visual url: topics/counting-and-combinatorics/index.html",
+    "visual: topics/counting-and-combinatorics/transcript.md read this run - the lesson covers sum and product rules, the four-box grid, permutations and combinations, stars and bars for identical items into distinct bins, inclusion-exclusion, pigeonhole, counting functions between finite sets, derangements; it does not cover this card's case, so links.visual was removed"
    ],
-   "row_verdict": "BOTH"
+   "row_verdict": "MOCK_ONLY"
   },
   {
    "subject": "discrete-mathematics",
@@ -7493,14 +7494,15 @@
     "title": "Counting and Combinatorics",
     "coverage_status": "PUBLISHED",
     "level": "topic-level",
-    "verdict": "VISUAL_LESSON"
+    "verdict": "VISUAL_MISSING"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/combinatorics/ioib-partitions.json",
     "visual: topics.json slug=counting-and-combinatorics; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/counting-and-combinatorics/index.html"
+    "visual url: topics/counting-and-combinatorics/index.html",
+    "visual: topics/counting-and-combinatorics/transcript.md read this run - the lesson covers sum and product rules, the four-box grid, permutations and combinations, stars and bars for identical items into distinct bins, inclusion-exclusion, pigeonhole, counting functions between finite sets, derangements; it does not cover this card's case, so links.visual was removed"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "NEITHER"
   },
   {
    "subject": "discrete-mathematics",
@@ -14239,7 +14241,7 @@
   {
    "kind": "notes",
    "placement": "theory-of-computation › pushdown-automata",
-   "detail": "mock unit \"Pushdown Automata\" (unit_number 3, 75 questions) serves no notes card; subtopic groups: acceptance-empty-store-vs-final-state 17, deterministic-pda 21, equivalence-with-cfg 19, nondeterministic-pda 18"
+   "detail": "mock unit \"Pushdown Automata\" (unit_number 3, unit_slug pushdown-automata, 125 questions in theory-of-computation/question-bank/master_bank.json after run 19 on 2026-11-03 added Set 2 of 2 of the third pass, 25 questions TOC-U3-Q101..TOC-U3-Q125, paper theory-of-computation/pushdown-automata/gate_toc_mock_3_2026-11-03.html; the unit is on its third pass and far above the 50-question first-pass cap, so MOCK_CAPPED) serves no notes card: no theory-of-computation subject exists in the notes repo. Subtopic groups counted from the bank: Deterministic PDA 35, Nondeterministic PDA 31, Equivalence with CFG 31, Acceptance: empty store vs final state 28. Visual side: lessons context-free-grammars-and-pushdown-automata and deterministic-pda-and-dcfl are both PUBLISHED, but neither has a notes card to sit on. Write content/subjects/theory-of-computation/pushdown-automata/deterministic-pda.json, nondeterministic-pda.json, equivalence-with-cfg.json and acceptance-empty-store-vs-final-state.json"
   },
   {
    "kind": "notes",
@@ -15035,6 +15037,16 @@
    "kind": "notes",
    "placement": "discrete-mathematics › graphs › counting-eulerian-circuits-best-theorem",
    "detail": "visual lesson counting-eulerian-circuits-best-theorem (topics.json, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes, 50 caption segments) has no notes card of its own: its transcript covers Euler's two digraph conditions, why (m-1)! overcounts rotations, arborescences into a root, the BEST theorem ec = t_w * prod(outdeg-1)!, the directed Matrix-Tree theorem and root independence of t_w, and the de Bruijn graph, while the nearest card eulerian-and-hamiltonian-graphs stops at undirected degree parity and Hamilton conditions (grep of content/subjects for BEST, arborescence, de Bruijn and Matrix-Tree returns 0 hits). Recommendation: write content/subjects/discrete-mathematics/graphs/counting-eulerian-circuits-best-theorem.json and keep the card's visual link on euler-trails-and-hamiltonian-cycles."
+  },
+  {
+   "kind": "visual",
+   "placement": "discrete-mathematics › combinatorics › doib-stirling",
+   "detail": "card \"DOIB: Distinct Objects, Identical Boxes (Stirling Numbers)\" (content/subjects/discrete-mathematics/combinatorics/doib-stirling.json) has no lesson that covers it: counting-and-combinatorics (PUBLISHED) reaches onto functions by inclusion-exclusion, which is the k! x S(n,k) bridge, and never divides by k! to reach the Stirling number itself, and no other slug in topics.json names Stirling numbers. Build topics/stirling-numbers-second-kind/ with index.html and timeline.js: the recurrence S(n,k) = k S(n-1,k) + S(n-1,k-1), the table, the k! division that turns onto functions into blocks, and the Bell-number sum"
+  },
+  {
+   "kind": "visual",
+   "placement": "discrete-mathematics › combinatorics › ioib-partitions",
+   "detail": "card \"IOIB: Integer Partitions\" (content/subjects/discrete-mathematics/combinatorics/ioib-partitions.json) has no lesson that covers it: counting-and-combinatorics (PUBLISHED) stops at stars and bars, the identical-items-into-distinct-bins case, and no slug in topics.json names integer partitions. Build topics/integer-partitions/ with index.html and timeline.js: p(n) by systematic enumeration, the Ferrers diagram, conjugate partitions, the distinct-parts identity, and the contrast with stars and bars that the card draws"
   }
  ]
 }

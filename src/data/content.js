@@ -2115,13 +2115,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
     },
-    "visual": {
-     "slug": "counting-and-combinatorics",
-     "title": "Counting and Combinatorics",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
-    },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
@@ -2175,13 +2169,7 @@ window.GATE_DATA = {
     "doib-stirling"
    ],
    "links": {
-    "visual": {
-     "slug": "counting-and-combinatorics",
-     "title": "Counting and Combinatorics",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/counting-and-combinatorics/index.html"
-    },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "combinatorics",
