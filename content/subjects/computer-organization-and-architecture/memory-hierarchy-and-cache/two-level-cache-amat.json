@@ -79,32 +79,32 @@
   "sourceLine": "AMAT as hit time plus miss rate times miss penalty and the two-level recursive form, with the warning that a miss in L1 must also pay the L2 time: DSWallah Learn, romanised Hindi, translated (read in part). Miss penalty defined as the time to bring a line from the next level down: NPTEL IIT Guwahati Lecture 26 (English, read in part). The 2025 answer is recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-03",
     "mock": {
       "subject": "computer-architecture",
       "unit_slug": "cache-memory",
       "unit_name": "Memory Hierarchy & Cache Memory",
       "unit_number": 3,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "Direct, associative & set-associative mapping",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Cache hit/miss & miss penalty",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Replacement algorithms",
-          "questions": 11
+          "questions": 17
         },
         {
           "label": "Write policies: write-through & write-back",
-          "questions": 11
+          "questions": 18
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html"
     },
     "visual": {
       "slug": "memory-hierarchy-and-cache",

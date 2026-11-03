@@ -85,32 +85,32 @@
   "sourceLine": "Why a larger line lowers the miss rate through spatial locality and why the rate turns back up when the line becomes a large fraction of the cache, with the miss penalty as first-word latency plus transfer time: NPTEL IIT Guwahati Lecture 26 (English, read in part). Conflict misses as the characteristic cost of a single-line set: IISc CDS slides (English, read in part). Block against word as the unit of transfer and the block-size trade-off: DSWallah Learn, romanised Hindi, translated (read in part). The 2022 trace is simulated in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-03",
     "mock": {
       "subject": "computer-architecture",
       "unit_slug": "cache-memory",
       "unit_name": "Memory Hierarchy & Cache Memory",
       "unit_number": 3,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "Direct, associative & set-associative mapping",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Cache hit/miss & miss penalty",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Replacement algorithms",
-          "questions": 11
+          "questions": 17
         },
         {
           "label": "Write policies: write-through & write-back",
-          "questions": 11
+          "questions": 18
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html"
     },
     "visual": {
       "slug": "memory-hierarchy-and-cache",

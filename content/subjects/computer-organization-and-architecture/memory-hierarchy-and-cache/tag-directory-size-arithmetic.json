@@ -80,32 +80,32 @@
   "sourceLine": "A cache line as a valid bit, a tag and a data block, with the directory drawn beside the data array: IISc CDS slides (English, read in part). The valid and modified bits as per-line state in a write-back cache: NPTEL IIT Guwahati Lecture 25 (English, read in part). The 2011 directory size is recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-03",
     "mock": {
       "subject": "computer-architecture",
       "unit_slug": "cache-memory",
       "unit_name": "Memory Hierarchy & Cache Memory",
       "unit_number": 3,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "Direct, associative & set-associative mapping",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Cache hit/miss & miss penalty",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Replacement algorithms",
-          "questions": 11
+          "questions": 17
         },
         {
           "label": "Write policies: write-through & write-back",
-          "questions": 11
+          "questions": 18
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html"
     },
     "visual": {
       "slug": "memory-hierarchy-and-cache",

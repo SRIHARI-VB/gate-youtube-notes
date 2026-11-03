@@ -4324,7 +4324,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4342,8 +4342,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-hierarchy-levels-and-the-cost-speed-trade.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4361,7 +4361,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4379,8 +4379,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/locality-of-reference-temporal-and-spatial.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4429,7 +4429,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4447,8 +4447,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/hit-time-miss-penalty-and-amat.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4466,7 +4466,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4484,8 +4484,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/two-level-cache-amat.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4503,7 +4503,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4521,8 +4521,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/cache-line-set-and-the-address-split.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4540,7 +4540,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4558,8 +4558,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/direct-mapping-line-modulo-lines.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4577,7 +4577,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4595,8 +4595,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/fully-associative-mapping-and-comparators.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4614,7 +4614,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4632,8 +4632,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/set-associative-mapping-sets-and-ways.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4651,7 +4651,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4669,8 +4669,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/tag-directory-size-arithmetic.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4688,7 +4688,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4706,8 +4706,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/replacement-policies-and-lru-trace.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4725,7 +4725,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4743,8 +4743,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/write-through-write-back-and-dirty-bits.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -4762,7 +4762,7 @@
     "unit_slug": "cache-memory",
     "unit_name": "Memory Hierarchy & Cache Memory",
     "unit_number": 3,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "Cache hit/miss & miss penalty",
      "Direct, associative & set-associative mapping",
@@ -4780,8 +4780,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/block-size-and-the-three-kinds-of-miss.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=cache-memory (50 records)",
-    "mock url: runs[] last entry for unit cache-memory -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=cache-memory (75 records)",
+    "mock url: runs[] last entry for unit cache-memory (run 14, 2026-11-03, set Set 1 of 2 (second pass)) -> https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=memory-hierarchy-and-cache; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
    ],
    "row_verdict": "BOTH"
@@ -12886,8 +12886,8 @@
     "verdict": "MOCK_CAPPED"
    },
    "visual": {
-    "slug": "normal-distribution",
-    "title": "The Normal Distribution: Standardise First, Then Read the Tail",
+    "slug": "variance-of-a-sum-covariance-and-chebyshev",
+    "title": "Variance of a Sum, Covariance and the Chebyshev Bound: Three Terms, One Identity, Two Inequalities",
     "coverage_status": "PUBLISHED",
     "level": "topic-level",
     "verdict": "VISUAL_LESSON"
@@ -12896,8 +12896,8 @@
     "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/sums-of-independent-random-variables.json",
     "mock: engineering-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=probability-distributions (50 records)",
     "mock url: runs[] last entry for unit probability-distributions -> https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html",
-    "visual: topics.json slug=normal-distribution; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/normal-distribution/index.html"
+    "visual: gate-visual-explainer/topics.json slug=variance-of-a-sum-covariance-and-chebyshev; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against topics/variance-of-a-sum-covariance-and-chebyshev/transcript.md scene text (three-term identity, uncorrelated vs independent, n variables and the sample mean, Markov and Chebyshev)",
+    "visual url: topics/variance-of-a-sum-covariance-and-chebyshev/index.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -14765,6 +14765,11 @@
    "kind": "notes",
    "placement": "compiler-design › lexical-analysis › lexical-error-recovery",
    "detail": "gate-visual-explainer published the lesson topics/lexical-errors-and-lexer-recovery/ (commit f95e6e1, 2026-11-03) covering longest match and the accepting-state fallback, the two ways a scan fails (no move from the start state; a run reaching no accepting state), lexical against syntactic and semantic classification, panic mode with the progress guard, syncing to a delimiter and counting tokens under a printed specification. It serves no notes card: content/index.json map[] holds 0 compiler-design cards and content/syllabus.json lists every compiler-design topic as \"planned\". Write content/subjects/compiler-design/lexical-analysis/lexical-error-recovery.json, with the longest-match rule and token counting as sibling cards in the same group."
+  },
+  {
+   "kind": "notes",
+   "placement": "probability-and-statistics › random-variables-and-distributions › correlation-and-covariance",
+   "detail": "published lesson \"variance-of-a-sum-covariance-and-chebyshev\" (Variance of a Sum, Covariance and the Chebyshev Bound: Three Terms, One Identity, Two Inequalities, syllabus-coverage.json coverage_status PUBLISHED) teaches covariance, the three-term variance identity, uncorrelated versus independent and the Markov and Chebyshev bounds, and mock unit \"Continuous Probability & Distributions\" (unit_number 5, engineering-mathematics/question-bank/master_bank.json) already holds 10 of its 50 records under subtopic correlation-and-covariance, but no notes card owns that subtopic: content/subjects/probability-and-statistics/ holds 36 cards and none is on covariance or on Chebyshev, and the words Chebyshev and Markov appear in none of them. The sums card carries the variance identity only as a clause (\"variances carry covariance terms\"). Write content/subjects/probability-and-statistics/random-variables-and-distributions/correlation-and-covariance.json and a second card for the Chebyshev and Markov bounds, then link both to lesson slug variance-of-a-sum-covariance-and-chebyshev."
   }
  ]
 }

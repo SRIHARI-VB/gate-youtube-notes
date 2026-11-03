@@ -81,6 +81,7 @@
   "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
   "videoRefs": [],
   "links": {
+    "mapped_at": "2026-11-03",
     "mock": {
       "subject": "engineering-mathematics",
       "unit_slug": "probability-distributions",
@@ -112,14 +113,16 @@
       "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
     },
     "visual": {
-      "slug": "normal-distribution",
-      "title": "The Normal Distribution: Standardise First, Then Read the Tail",
+      "slug": "variance-of-a-sum-covariance-and-chebyshev",
+      "title": "Variance of a Sum, Covariance and the Chebyshev Bound: Three Terms, One Identity, Two Inequalities",
       "level": "topic-level",
       "covers": [
-        "the affine map aX + b and the sum of independent normals by convolution"
+        "the three-term identity Var(X+Y) = Var X + Var Y + 2Cov, with no independence assumed",
+        "uncorrelated against independent: zero covariance forbids only a linear trend",
+        "the variance of a sum of n variables, and the variance of the sample mean",
+        "Markov and Chebyshev: a tail bound from the mean and the variance alone"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html"
-    },
-    "mapped_at": "2026-10-31"
+      "url": "https://gate-visual-explainer.vercel.app/topics/variance-of-a-sum-covariance-and-chebyshev/index.html"
+    }
   }
 }

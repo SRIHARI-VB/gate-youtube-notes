@@ -74,32 +74,32 @@
   "sourceLine": "Fully associative caches as the single-set case, with m-way associativity as the general one: IISc CDS slides (English, read in part). Fully associative mapping as blocks placed anywhere with the whole line set compared in parallel and the warning that it has no index field: DSWallah Learn, romanised Hindi, translated (read in part). The 2019 field widths are recomputed in scripts/validate.py.",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-03",
     "mock": {
       "subject": "computer-architecture",
       "unit_slug": "cache-memory",
       "unit_name": "Memory Hierarchy & Cache Memory",
       "unit_number": 3,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "Direct, associative & set-associative mapping",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Cache hit/miss & miss penalty",
-          "questions": 14
+          "questions": 20
         },
         {
           "label": "Replacement algorithms",
-          "questions": 11
+          "questions": 17
         },
         {
           "label": "Write policies: write-through & write-back",
-          "questions": 11
+          "questions": 18
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-10-30.html"
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/cache-memory/gate_co_mock_3_2026-11-03.html"
     },
     "visual": {
       "slug": "memory-hierarchy-and-cache",
