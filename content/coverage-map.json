@@ -6092,7 +6092,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6110,8 +6110,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/positional-number-systems.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6130,7 +6130,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6148,8 +6148,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/base-conversion-integer-and-fraction.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6168,7 +6168,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6186,8 +6186,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/octal-and-hexadecimal-by-bit-grouping.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6206,7 +6206,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6224,8 +6224,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/unsigned-fixed-width-range.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6244,7 +6244,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6262,8 +6262,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/sign-magnitude-representation.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6282,7 +6282,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6300,8 +6300,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/ones-complement-representation.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6320,7 +6320,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6338,8 +6338,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/twos-complement-definition-and-range.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6358,7 +6358,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6376,8 +6376,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/twos-complement-negation-and-subtraction.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6396,7 +6396,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6414,8 +6414,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/distinct-values-and-duplicate-zero.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6434,7 +6434,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6452,9 +6452,10 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/fixed-point-representation.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
-    "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
+    "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
+    "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -6471,7 +6472,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6489,8 +6490,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/floating-point-normalisation-and-bias.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6509,7 +6510,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6527,8 +6528,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/ieee-754-single-precision-layout.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -6547,7 +6548,7 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
      "Floating point & IEEE 754",
@@ -6565,8 +6566,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/number-systems-and-representation/ieee-754-special-values-and-extremes.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry for unit number-systems (run 17, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=number-representation-and-arithmetic; syllabus-coverage.json microtopics checked against the card text",
     "visual url: topics/number-representation-and-arithmetic/index.html"
    ],
@@ -15029,6 +15030,11 @@
    "kind": "notes",
    "placement": "compiler-design › lexical-analysis › symbol-table-organisation-and-scope",
    "detail": "gate-visual-explainer published topics/symbol-table-organisation-and-scope (title \"Symbol Table: Organisation and Scope Handling\", category compiler-design, coverage_status PUBLISHED, syllabus-coverage.json last_verified_date 2026-11-03) and no notes card serves it: content/index.json map[] holds 0 compiler-design cards across its 385, and content/syllabus.json lists compiler-design with all seven topics material \"planned\". The lesson covers, checked against transcript.md scenes 1-10 and its syllabus-coverage microtopics: the symbol table as a map from name to attribute record with insert and lookup; the linear list at n(n-1)/2 comparisons (eight names, 28); the search tree whose cost is the height the insertion order decides (height 7 costing 28 against median-first height 3 costing 13); the hash table with separate chaining, collisions, chain lengths and occupation density (8/11; 25/152 = 0.16); scope as a stack of tables where lookup walks outward and stops at the first match, which is what makes shadowing work; one entry per declaration rather than per spelling; the function name in the enclosing table and its parameters in its own; the prototype as the forward declaration the table has not seen yet; and the single table with duplicate keys and a log as the alternative. Write content/subjects/compiler-design/lexical-analysis/symbol-table-organisation-and-scope.json (syllabus.json compiler-design topic slug lexical-analysis, the phase that creates the table)."
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › graphs › counting-eulerian-circuits-best-theorem",
+   "detail": "visual lesson counting-eulerian-circuits-best-theorem (topics.json, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes, 50 caption segments) has no notes card of its own: its transcript covers Euler's two digraph conditions, why (m-1)! overcounts rotations, arborescences into a root, the BEST theorem ec = t_w * prod(outdeg-1)!, the directed Matrix-Tree theorem and root independence of t_w, and the de Bruijn graph, while the nearest card eulerian-and-hamiltonian-graphs stops at undirected degree parity and Hamilton conditions (grep of content/subjects for BEST, arborescence, de Bruijn and Matrix-Tree returns 0 hits). Recommendation: write content/subjects/discrete-mathematics/graphs/counting-eulerian-circuits-best-theorem.json and keep the card's visual link on euler-trails-and-hamiltonian-cycles."
   }
  ]
 }
