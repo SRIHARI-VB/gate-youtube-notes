@@ -13869,12 +13869,12 @@
   {
    "kind": "notes",
    "placement": "compiler-design › runtime-code-optimization",
-   "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions) serves no notes card; subtopic groups: activation-records-call-stack 12, basic-blocks-and-flow-graphs 13, data-flow-analysis-liveness 12, local-and-loop-optimizations 13"
+   "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, unit_slug runtime-code-optimization, 75 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Subtopic groups: Activation records & the call stack 18, Basic blocks & flow graphs 19, Local & loop optimizations 19, Data-flow analysis & liveness 19. Latest paper compiler-design/runtime-code-optimization/gate_cd_mock_5_2026-11-01.html (run 15, 2026-11-01). Write content/subjects/compiler-design/runtime-environments-and-code-optimization/activation-records-and-the-call-stack.json plus sibling cards for the other three groups."
   },
   {
    "kind": "notes",
    "placement": "compiler-design › sdt-intermediate-code",
-   "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, 75 questions) serves no notes card; the 25 questions added 2026-11-01 group as S-attributed vs L-attributed definitions 7, Syntax trees & DAGs 6, Three-address code, quadruples & triples 6, Type checking 6, and the 50 records from 2026-10-28 and 2026-10-29 carry no subtopic_label. Paper: compiler-design/sdt-intermediate-code/gate_cd_mock_4_2026-11-01.html"
+   "detail": "mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4, unit_slug sdt-intermediate-code, 100 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Run 19 (2026-11-03) added 25 questions (CD-U4-Q76..Q100) grouping as Three-address code, quadruples & triples 7, S-attributed vs L-attributed definitions 6, Syntax trees & DAGs 6, Type checking 6; the unit now groups as Three-address code, quadruples & triples 27, S-attributed vs L-attributed definitions 26, Syntax trees & DAGs 24, Type checking 23. Latest paper compiler-design/sdt-intermediate-code/gate_cd_mock_4_2026-11-03.html. Write content/subjects/compiler-design/sdt-and-intermediate-code/s-attributed-vs-l-attributed-definitions.json, three-address-code-quadruples-triples.json, syntax-trees-and-dags.json and type-checking.json"
   },
   {
    "kind": "notes",
@@ -14364,7 +14364,7 @@
   {
    "kind": "notes",
    "placement": "compiler-design › runtime-environments",
-   "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 50 questions, group activation-records-call-stack 12) also exercises"
+   "detail": "visual lesson \"runtime-environments-and-activation-records\" (PUBLISHED 2026-10-31) serves no notes card; it covers activation-record fields, control vs access link, displays and the four parameter modes, which the compiler-design unit \"Runtime Environments & Code Optimization\" (unit_number 5, 75 questions, group Activation records & the call stack 18) also exercises"
   },
   {
    "kind": "notes",
@@ -14379,7 +14379,7 @@
   {
    "kind": "notes",
    "placement": "compiler-design › target-code-generation",
-   "detail": "visual lesson target-code-generation (PUBLISHED, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no compiler-design subject (6 subjects, 319 cards). The lesson covers instruction selection from a DAG, Sethi-Ullman minimum registers, liveness, interference-graph colouring, spilling and peephole optimisation. The mocks already hold compiler-design unit runtime-code-optimization (50 questions)."
+   "detail": "visual lesson target-code-generation (PUBLISHED, 10 scenes, 40 caption segments) serves no notes card: content/index.json has no compiler-design subject (6 subjects, 319 cards). The lesson covers instruction selection from a DAG, Sethi-Ullman minimum registers, liveness, interference-graph colouring, spilling and peephole optimisation. The mocks already hold compiler-design unit runtime-code-optimization (75 questions)."
   },
   {
    "kind": "visual",
@@ -14770,6 +14770,11 @@
    "kind": "notes",
    "placement": "probability-and-statistics › random-variables-and-distributions › correlation-and-covariance",
    "detail": "published lesson \"variance-of-a-sum-covariance-and-chebyshev\" (Variance of a Sum, Covariance and the Chebyshev Bound: Three Terms, One Identity, Two Inequalities, syllabus-coverage.json coverage_status PUBLISHED) teaches covariance, the three-term variance identity, uncorrelated versus independent and the Markov and Chebyshev bounds, and mock unit \"Continuous Probability & Distributions\" (unit_number 5, engineering-mathematics/question-bank/master_bank.json) already holds 10 of its 50 records under subtopic correlation-and-covariance, but no notes card owns that subtopic: content/subjects/probability-and-statistics/ holds 36 cards and none is on covariance or on Chebyshev, and the words Chebyshev and Markov appear in none of them. The sums card carries the variance identity only as a clause (\"variances carry covariance terms\"). Write content/subjects/probability-and-statistics/random-variables-and-distributions/correlation-and-covariance.json and a second card for the Chebyshev and Markov bounds, then link both to lesson slug variance-of-a-sum-covariance-and-chebyshev."
+  },
+  {
+   "kind": "notes",
+   "placement": "programming-and-data-structures › programming-in-c › file-io-and-streams",
+   "detail": "gate-visual-explainer published the lesson topics/file-io-in-c/ (commit 606d66fe, 2026-11-03; syllabus-coverage.json coverage_status PUBLISHED, 10 subtopics and 43 microtopics, 10 scenes, 50 caption cues, 43 of 43 model checks) and it serves no notes card: the 25 programming-and-data-structures cards stop at tokens, control flow, functions, pointers, strings, structures, dynamic memory, preprocessor macros and recursion, none on file I/O. Content checked against topics/file-io-in-c/transcript.md, not the alias list: the FILE pointer as a handle holding a position, a buffer, an end flag and an error flag; the six mode strings run against an existing four-byte file and against a missing one; fopen returning a null pointer on failure; fgetc returning an int so that a 0xFF byte in a signed char reads as EOF; fgets taking n-1 characters and keeping the newline; fprintf, fscanf, fread and fwrite counting characters, items and elements; ftell, fseek with its three origins and rewind; append writing at the end regardless of the position; and the update-stream rule that needs a positioning call between directions. Write content/subjects/programming-and-data-structures/programming-in-c/file-io-and-streams.json and link it to lesson slug file-io-in-c"
   }
  ]
 }
