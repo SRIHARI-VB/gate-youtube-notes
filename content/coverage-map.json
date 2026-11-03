@@ -13851,8 +13851,8 @@
   },
   {
    "kind": "notes",
-   "placement": "algorithms › sorting-divide-conquer",
-   "detail": "mock unit \"Divide and Conquer & Sorting\" (unit_number 2, 50 questions) serves no notes card; subtopic groups: inversion-counting 12, linear-time-sorts-counting-radix 12, merge-sort-quick-sort 14, selection-kth-element 12"
+   "placement": "algorithms › searching-sorting-hashing",
+   "detail": "mock unit \"Divide and Conquer & Sorting\" (unit_number 2, unit_slug sorting-divide-conquer, 75 questions in algorithms/question-bank/master_bank.json after run 16 on 2026-11-03, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json map[] holds 0 algorithms cards and content/syllabus.json marks algorithms topics searching-sorting-hashing and divide-and-conquer \"planned\". Every unit-2 record carries subtopic_label null, so the groups are the subtopic slugs: merge-sort-quick-sort 21, linear-time-sorts-counting-radix 18, selection-kth-element 18, inversion-counting 18. Latest paper algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-11-03.html (25 items ALG-U2-Q51..Q75, Set 3 second pass; merge sort & quick sort 7, counting & radix sort 6, selection & the k-th element 6, inversion counting 6 per runs[]). Recommendation: write content/subjects/algorithms/searching-sorting-hashing/merge-sort-quick-sort.json, linear-time-sorts-counting-radix.json, selection-kth-element.json and inversion-counting.json, and the divide-and-conquer framing under content/subjects/algorithms/divide-and-conquer/."
   },
   {
    "kind": "notes",
@@ -14713,6 +14713,11 @@
    "kind": "notes",
    "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache › secondary-storage-and-raid",
    "detail": "published lesson \"Secondary Storage and RAID: Disk Geometry, Access Time and the Five Levels\" (syllabus-coverage.json coverage_status PUBLISHED, repaired 2026-11-03, 11 scenes) serves no notes card: no card under content/subjects takes platters, sectors, cylinders, seek or rotational latency as its topic, and the only 'RAID levels' strings in the repo are mock subtopic labels inside the io-interface cards' links. Destination: a new card computer-organization-and-architecture/memory-hierarchy-and-cache/secondary-storage-and-raid.json, which would give the lesson its first notes home."
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › graphs › eccentricity-radius-diameter-centre",
+   "detail": "visual lesson graph-eccentricity-radius-diameter-centre (topics.json title \"Eccentricity, Radius, Diameter and Centre: One Distance Table, Two Theorems About Trees\", syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes, 40 caption segments) serves no notes card: content/index.json holds 11 discrete-mathematics › graphs cards and none on eccentricity, radius, diameter, centre or periphery; the nearest is paths-cycles-and-components, whose visual covers[] carries \"distance\" inside walks/trails/paths. Its content (transcript.md and the 9 syllabus subtopics) covers the distance table, eccentricity as a row maximum, radius = min and diameter = max of eccentricities, centre and periphery as the two arg-sets, ceil(d/2) <= r <= d, the tree theorem r = ceil(d/2) with one or two adjacent centres, leaf peeling, the two-sweep diameter algorithm and where it fails, BFS-tree height against the diameter, and diam(G^2) = ceil(diam(G)/2). Recommendation: write content/subjects/discrete-mathematics/graphs/eccentricity-radius-diameter-centre.json and map it back to this lesson at topic-level."
   }
  ]
 }
