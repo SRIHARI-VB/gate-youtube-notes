@@ -70,15 +70,19 @@
   "sourceLine": "Euler and Hamiltonian definitions, the parity criterion and the edge-disjoint Hamiltonian decomposition of K_n for odd n: GATE Overflow GO Classroom deck (English, read in part). Dirac and the Petersen counterexample from West. Standard references used to verify, never copied: Rosen, Discrete Mathematics and Its Applications, ch. 10; West, Introduction to Graph Theory (Brooks, Dirac, Koenig, chromatic polynomial); CLRS ch. 22 (articulation points, bridges) and ch. 26 (bipartite matching); Diestel, Graph Theory (Menger). Every parity claim and the K_5 decomposition are recomputed in scripts/validate.py.",
   "links": {
     "visual": {
-      "slug": "graphs-connectivity",
-      "title": "Graphs: Connectivity and Structure",
-      "level": "topic-level",
+      "slug": "euler-trails-and-hamiltonian-cycles",
+      "title": "Euler Trails and Hamiltonian Cycles: The One-Line Test and the Question That Has None",
+      "level": "subtopic-level",
       "covers": [
-        "graph as two sets, adjacency matrix and adjacency list",
-        "bipartite graphs and odd cycles",
-        "Euler trails and Hamiltonian cycles"
+        "walk, trail, path, circuit and cycle as five different objects, each rationing a different thing",
+        "an Euler circuit rations edges and may revisit vertices freely",
+        "the Euler criterion: even degrees and one component, undirected and directed",
+        "Hierholzer's walk-and-splice against Fleury's rule",
+        "Dirac's and Ore's sufficient conditions, and the six-cycle that refutes them",
+        "the Petersen graph, non-Hamiltonian and hypohamiltonian",
+        "GATE CSE 2007 Q23, the Eulerian-circuit MCQ"
       ],
-      "url": "https://gate-visual-explainer.vercel.app/topics/graphs-connectivity/index.html"
+      "url": "https://gate-visual-explainer.vercel.app/topics/euler-trails-and-hamiltonian-cycles/index.html"
     },
     "mock": {
       "subject": "discrete-mathematics",
@@ -110,6 +114,6 @@
       ],
       "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
   }
 }

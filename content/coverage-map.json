@@ -8270,18 +8270,19 @@
     "verdict": "MOCK_CAPPED"
    },
    "visual": {
-    "slug": "graphs-connectivity",
-    "title": "Graphs: Connectivity and Structure",
+    "slug": "euler-trails-and-hamiltonian-cycles",
+    "title": "Euler Trails and Hamiltonian Cycles: The One-Line Test and the Question That Has None",
     "coverage_status": "PUBLISHED",
-    "level": "topic-level",
+    "level": "subtopic-level",
     "verdict": "VISUAL_LESSON"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/graphs/eulerian-and-hamiltonian-graphs.json",
-    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=graph-theory-advanced (50 records)",
+    "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=graph-theory-advanced (50 records, 10 on \"Eulerian & Hamiltonian graphs\")",
     "mock url: runs[] last entry for unit graph-theory-advanced -> https://gate-cse-mocks.vercel.app/discrete-mathematics/graph-theory-advanced/gate_dm_mock_10_2026-10-31.html",
-    "visual: topics.json slug=graphs-connectivity; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/graphs-connectivity/index.html"
+    "visual: topics.json slug=euler-trails-and-hamiltonian-cycles (updated 2026-11-03); syllabus-coverage.json microtopics 0, 7, 12, 21-26 and 29 checked against timeline.js scenes and transcript.md",
+    "visual url: topics/euler-trails-and-hamiltonian-cycles/index.html",
+    "visual level: subtopic-level - the lesson is dedicated to this card, replacing the topic-level graphs-connectivity mapping"
    ],
    "row_verdict": "BOTH"
   },
@@ -14718,6 +14719,26 @@
    "kind": "notes",
    "placement": "discrete-mathematics › graphs › eccentricity-radius-diameter-centre",
    "detail": "visual lesson graph-eccentricity-radius-diameter-centre (topics.json title \"Eccentricity, Radius, Diameter and Centre: One Distance Table, Two Theorems About Trees\", syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes, 40 caption segments) serves no notes card: content/index.json holds 11 discrete-mathematics › graphs cards and none on eccentricity, radius, diameter, centre or periphery; the nearest is paths-cycles-and-components, whose visual covers[] carries \"distance\" inside walks/trails/paths. Its content (transcript.md and the 9 syllabus subtopics) covers the distance table, eccentricity as a row maximum, radius = min and diameter = max of eccentricities, centre and periphery as the two arg-sets, ceil(d/2) <= r <= d, the tree theorem r = ceil(d/2) with one or two adjacent centres, leaf peeling, the two-sweep diameter algorithm and where it fails, BFS-tree height against the diameter, and diam(G^2) = ceil(diam(G)/2). Recommendation: write content/subjects/discrete-mathematics/graphs/eccentricity-radius-diameter-centre.json and map it back to this lesson at topic-level."
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › number-theory › divisibility-and-division-algorithm",
+   "detail": "mock unit \"Number Theory\" (unit_number 14, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 13 questions on Divisibility & division algorithm (divisibility, the division algorithm and its quotient and remainder form) but no notes card covers them: the discrete-mathematics subject holds seven topics and none is number theory. Write content/subjects/discrete-mathematics/number-theory/divisibility-and-division-algorithm.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › number-theory › modular-arithmetic-congruences",
+   "detail": "mock unit \"Number Theory\" (unit_number 14, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 13 questions on Modular arithmetic & congruences (congruences, residue classes, Fermat and Euler reduction, and the number of solutions of a linear congruence) but no notes card covers them: the discrete-mathematics subject holds seven topics and none is number theory. Write content/subjects/discrete-mathematics/number-theory/modular-arithmetic-congruences.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › number-theory › gcd-lcm-euclidean-algorithm",
+   "detail": "mock unit \"Number Theory\" (unit_number 14, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 12 questions on GCD, LCM & Euclidean algorithm (gcd and lcm from prime factorisations, the Euclidean algorithm and its division count, and gcd identities) but no notes card covers them: the discrete-mathematics subject holds seven topics and none is number theory. Write content/subjects/discrete-mathematics/number-theory/gcd-lcm-euclidean-algorithm.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › number-theory › multiplicative-inverses-chinese-remainder",
+   "detail": "mock unit \"Number Theory\" (unit_number 14, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 12 questions on Inverses & Chinese remainder theorem (multiplicative inverses modulo n, when ax = b (mod m) is solvable, and the Chinese remainder theorem) but no notes card covers them: the discrete-mathematics subject holds seven topics and none is number theory. Write content/subjects/discrete-mathematics/number-theory/multiplicative-inverses-chinese-remainder.json"
   }
  ]
 }
