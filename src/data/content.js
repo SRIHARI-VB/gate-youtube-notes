@@ -22796,27 +22796,27 @@ window.GATE_DATA = {
      "unit_slug": "discrete-probability",
      "unit_name": "Discrete Probability",
      "unit_number": 15,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Sample spaces & events",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Conditional probability & Bayes",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Independence",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Counting-based probability",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Expectation & variance",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
@@ -25286,27 +25286,27 @@ window.GATE_DATA = {
      "unit_slug": "discrete-probability",
      "unit_name": "Discrete Probability",
      "unit_number": 15,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Sample spaces & events",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Conditional probability & Bayes",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Independence",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Counting-based probability",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Expectation & variance",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
@@ -25428,7 +25428,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25536,7 +25566,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25639,27 +25699,27 @@ window.GATE_DATA = {
      "unit_slug": "discrete-probability",
      "unit_name": "Discrete Probability",
      "unit_number": 15,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Sample spaces & events",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Conditional probability & Bayes",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Independence",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Counting-based probability",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Expectation & variance",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
@@ -25783,7 +25843,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25883,7 +25973,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25991,7 +26111,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26100,7 +26250,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26207,27 +26387,27 @@ window.GATE_DATA = {
      "unit_slug": "discrete-probability",
      "unit_name": "Discrete Probability",
      "unit_number": 15,
-     "question_count": 25,
+     "question_count": 50,
      "subtopics": [
       {
        "label": "Sample spaces & events",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Conditional probability & Bayes",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Independence",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Counting-based probability",
-       "questions": 5
+       "questions": 10
       },
       {
        "label": "Expectation & variance",
-       "questions": 5
+       "questions": 10
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
@@ -26348,7 +26528,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26453,7 +26663,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26563,7 +26803,37 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03",
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 50,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 10
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 10
+      },
+      {
+       "label": "Independence",
+       "questions": 10
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 10
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 10
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    }
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",

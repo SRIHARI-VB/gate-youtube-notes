@@ -11935,7 +11935,7 @@
     "unit_slug": "discrete-probability",
     "unit_name": "Discrete Probability",
     "unit_number": 15,
-    "question_count": 25,
+    "question_count": 50,
     "subtopic_labels": [
      "Sample spaces & events",
      "Conditional probability & Bayes",
@@ -11943,7 +11943,7 @@
      "Counting-based probability",
      "Expectation & variance"
     ],
-    "verdict": "MOCK_READY"
+    "verdict": "MOCK_CAPPED"
    },
    "visual": {
     "slug": "probability-and-random-variables",
@@ -11956,9 +11956,9 @@
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/probability-and-random-variables/index.html",
-    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
-    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full); Sample spaces & events (partial - the restricted space only)"
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Sample spaces & events (full)"
    ],
    "row_verdict": "BOTH"
   },
@@ -11980,9 +11980,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/a-conditional-probability-is-still-a-probability.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/probability-and-random-variables/index.html"
+    "visual url: topics/probability-and-random-variables/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Sample spaces & events (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12002,9 +12020,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/multiplication-rule-and-sequential-draws.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/probability-and-random-variables/index.html"
+    "visual url: topics/probability-and-random-variables/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12019,7 +12055,7 @@
     "unit_slug": "discrete-probability",
     "unit_name": "Discrete Probability",
     "unit_number": 15,
-    "question_count": 25,
+    "question_count": 50,
     "subtopic_labels": [
      "Sample spaces & events",
      "Conditional probability & Bayes",
@@ -12027,7 +12063,7 @@
      "Counting-based probability",
      "Expectation & variance"
     ],
-    "verdict": "MOCK_READY"
+    "verdict": "MOCK_CAPPED"
    },
    "visual": {
     "slug": "multi-event-independence",
@@ -12040,7 +12076,7 @@
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
     "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
     "visual url: topics/multi-event-independence/index.html",
-    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Independence (full)"
    ],
@@ -12064,9 +12100,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/independent-events-cannot-be-mutually-exclusive.json",
     "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
-    "visual url: topics/multi-event-independence/index.html"
+    "visual url: topics/multi-event-independence/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Independence (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12086,9 +12140,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/pairwise-and-mutual-independence.json",
     "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
-    "visual url: topics/multi-event-independence/index.html"
+    "visual url: topics/multi-event-independence/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Independence (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12108,9 +12180,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-independence.json",
     "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
-    "visual url: topics/multi-event-independence/index.html"
+    "visual url: topics/multi-event-independence/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12130,9 +12220,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/the-total-probability-theorem.json",
     "visual: topics.json slug=bayes-theorem-as-revision; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/bayes-theorem-as-revision/index.html"
+    "visual url: topics/bayes-theorem-as-revision/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12147,7 +12255,7 @@
     "unit_slug": "discrete-probability",
     "unit_name": "Discrete Probability",
     "unit_number": 15,
-    "question_count": 25,
+    "question_count": 50,
     "subtopic_labels": [
      "Sample spaces & events",
      "Conditional probability & Bayes",
@@ -12155,7 +12263,7 @@
      "Counting-based probability",
      "Expectation & variance"
     ],
-    "verdict": "MOCK_READY"
+    "verdict": "MOCK_CAPPED"
    },
    "visual": {
     "slug": "bayes-theorem-as-revision",
@@ -12168,7 +12276,7 @@
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json",
     "visual: topics.json slug=bayes-theorem-as-revision; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/bayes-theorem-as-revision/index.html",
-    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
@@ -12192,9 +12300,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-on-a-tree-and-in-odds.json",
     "visual: topics.json slug=bayes-theorem-as-revision; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/bayes-theorem-as-revision/index.html"
+    "visual url: topics/bayes-theorem-as-revision/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12214,9 +12340,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/the-base-rate-and-a-good-test.json",
     "visual: topics.json slug=bayes-theorem-as-revision; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/bayes-theorem-as-revision/index.html"
+    "visual url: topics/bayes-theorem-as-revision/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12236,9 +12380,27 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/conditioning-on-a-count-and-on-shared-trials.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/probability-and-random-variables/index.html"
+    "visual url: topics/probability-and-random-variables/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 50,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_CAPPED"
+   }
   },
   {
    "subject": "probability-and-statistics",
@@ -12673,7 +12835,7 @@
     "unit_slug": "discrete-probability",
     "unit_name": "Discrete Probability",
     "unit_number": 15,
-    "question_count": 25,
+    "question_count": 50,
     "subtopic_labels": [
      "Sample spaces & events",
      "Conditional probability & Bayes",
@@ -12681,7 +12843,7 @@
      "Counting-based probability",
      "Expectation & variance"
     ],
-    "verdict": "MOCK_READY"
+    "verdict": "MOCK_CAPPED"
    },
    "visual": {
     "slug": "probability-and-random-variables",
@@ -12694,7 +12856,7 @@
     "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
     "visual url: topics/probability-and-random-variables/index.html",
-    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 50 records grouped by subtopic_label: Sample spaces & events 10, Conditional probability & Bayes 10, Independence 10, Counting-based probability 10, Expectation & variance 10; paper from runs[] run 25 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
     "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Expectation & variance (full)"
    ],
@@ -14862,6 +15024,11 @@
    "kind": "notes",
    "placement": "programming-and-data-structures › programming-in-c › command-line-arguments-argc-argv",
    "detail": "published lesson \"command-line-arguments-in-c\" (\"Command-Line Arguments in C: argc, the argv Pointer Array and the Null Sentinel\", programming-and-data-structures, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes and 50 caption cues in topics/command-line-arguments-in-c/) serves no notes card: content/index.json map[] holds 13 programming-in-c cards and none of them treats argc, argv, argv[argc], atoi or strtol - the words appear nowhere in the card set (the only mention in the topic is one line of the sources.json source description). Content checked against topics/command-line-arguments-in-c/transcript.md, not the alias list: the shell splits the line, argc counts the program name, argv is an array of char pointers with a null pointer at slot argc, the strict versus inclusive loop bound, atoi's silent 0 versus strtol's end pointer, char *argv[] adjusting to char **argv, and sizeof(argv) as one pointer. Recommendation: write content/subjects/programming-and-data-structures/programming-in-c/command-line-arguments-argc-argv.json and link it to lesson slug command-line-arguments-in-c."
+  },
+  {
+   "kind": "notes",
+   "placement": "compiler-design › lexical-analysis › symbol-table-organisation-and-scope",
+   "detail": "gate-visual-explainer published topics/symbol-table-organisation-and-scope (title \"Symbol Table: Organisation and Scope Handling\", category compiler-design, coverage_status PUBLISHED, syllabus-coverage.json last_verified_date 2026-11-03) and no notes card serves it: content/index.json map[] holds 0 compiler-design cards across its 385, and content/syllabus.json lists compiler-design with all seven topics material \"planned\". The lesson covers, checked against transcript.md scenes 1-10 and its syllabus-coverage microtopics: the symbol table as a map from name to attribute record with insert and lookup; the linear list at n(n-1)/2 comparisons (eight names, 28); the search tree whose cost is the height the insertion order decides (height 7 costing 28 against median-first height 3 costing 13); the hash table with separate chaining, collisions, chain lengths and occupation density (8/11; 25/152 = 0.16); scope as a stack of tables where lookup walks outward and stops at the first match, which is what makes shadowing work; one entry per declaration rather than per spelling; the function name in the enclosing table and its parameters in its own; the prototype as the forward declaration the table has not seen yet; and the single table with duplicate keys and a log as the alternative. Write content/subjects/compiler-design/lexical-analysis/symbol-table-organisation-and-scope.json (syllabus.json compiler-design topic slug lexical-analysis, the phase that creates the table)."
   }
  ]
 }
