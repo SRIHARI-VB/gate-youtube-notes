@@ -5782,12 +5782,12 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
-     "Floating point & IEEE 754",
      "One's & two's complement",
-     "Range & overflow"
+     "Range & overflow",
+     "Floating point & IEEE 754"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5800,8 +5800,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-point-add-subtract-overflow.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 17, 2026-11-03) for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
    ],
    "row_verdict": "BOTH"
@@ -5973,12 +5973,12 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
-     "Floating point & IEEE 754",
      "One's & two's complement",
-     "Range & overflow"
+     "Range & overflow",
+     "Floating point & IEEE 754"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -5991,8 +5991,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/floating-point-multiplication-and-division.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 17, 2026-11-03) for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: topics.json slug=floating-point-arithmetic; syllabus-coverage.json microtopics checked against topics/floating-point-arithmetic/index.html",
     "visual url: topics/floating-point-arithmetic/index.html"
    ],
@@ -6055,12 +6055,12 @@
     "unit_slug": "number-systems",
     "unit_name": "Number Systems & Representation",
     "unit_number": 1,
-    "question_count": 100,
+    "question_count": 125,
     "subtopic_labels": [
      "Base conversions",
-     "Floating point & IEEE 754",
      "One's & two's complement",
-     "Range & overflow"
+     "Range & overflow",
+     "Floating point & IEEE 754"
     ],
     "verdict": "MOCK_CAPPED"
    },
@@ -6073,8 +6073,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/computer-arithmetic/fixed-versus-floating-point.json",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (100 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-02.html",
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=number-systems (125 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 17, 2026-11-03) for unit number-systems -> https://gate-cse-mocks.vercel.app/digital-logic/number-systems/gate_dl_mock_1_2026-11-03.html",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug fixed-point-arithmetic, coverage_status PUBLISHED; covers checked against topics/fixed-point-arithmetic/transcript.md scenes 1-11"
    ],
    "row_verdict": "BOTH"
@@ -14209,7 +14209,7 @@
   {
    "kind": "notes",
    "placement": "programming-data-structures › heaps-priority-queues",
-   "detail": "mock unit \"Heaps & Priority Queues\" (unit_number 6, 50 questions) serves no notes card; subtopic groups: min-max-heaps 13, heapify-and-build-heap 13 (labels \"Heapify & bottom-up build\" 7 and \"Heapify & build-heap\" 6), heap-sort 12 (labels \"Heap-sort\" 6 and \"Heap sort\" 6), priority-queue-applications 12 (labels \"Priority queues & their applications\" 6 and \"Priority queue applications\" 6)"
+   "detail": "mock unit \"Heaps & Priority Queues\" (unit_number 6, unit_slug heaps-priority-queues, 75 questions in programming-data-structures/question-bank/master_bank.json after run 20 on 2026-11-03, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json map[] holds no heaps or priority-queue card. Subtopic groups: min-max-heaps 20 (labels \"Heap order & min-max heaps\" 13 and \"Min-heaps & max-heaps\" 7), heapify-and-build-heap 19 (labels \"Heapify & bottom-up build\" 7 and \"Heapify & build-heap\" 12), heap-sort 18 (labels \"Heap-sort\" 12 and \"Heap sort\" 6), priority-queue-applications 18 (labels \"Priority queues & their applications\" 6, \"Priority queue applications\" 6 and \"Priority-queue applications\" 6). Latest paper: programming-data-structures/heaps-priority-queues/gate_ds_mock_6_2026-11-03.html. Visual side exists: lesson trees-bst-and-heaps (PUBLISHED, topic-level). Write content/subjects/programming-and-data-structures/heaps-priority-queues/min-max-heaps.json and siblings heapify-and-build-heap.json, heap-sort.json, priority-queue-applications.json"
   },
   {
    "kind": "notes",
