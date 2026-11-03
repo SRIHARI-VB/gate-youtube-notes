@@ -13841,6 +13841,11 @@
   },
   {
    "kind": "notes",
+   "placement": "algorithms › dynamic-programming › optimal-binary-search-tree",
+   "detail": "published lesson \"optimal-binary-search-tree\" (\"The Optimal Binary Search Tree: weighted depth, the range-weight lemma, and why the heaviest key is not the root\", Algorithms, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes and 40 caption segments in topics/optimal-binary-search-tree/) serves no notes card: content/index.json map[] holds no algorithms subject, so there is no dynamic-programming card to attach it to. Content checked against topics/optimal-binary-search-tree/transcript.md, not the alias list: cost as a weighted sum of levels with the root at level 1, the range-weight lemma, optimal substructure, the recurrence C(i,j) = W(i,j) + min over the root, the triangular table filled by increasing length, reconstruction from the root table, and why the greedy root rule fails. Recommendation: write content/subjects/algorithms/dynamic-programming/optimal-binary-search-tree.json and link it to lesson slug optimal-binary-search-tree."
+  },
+  {
+   "kind": "notes",
    "placement": "algorithms › greedy-algorithms",
    "detail": "mock unit \"Greedy Algorithms\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: activity-selection-interval-scheduling 13, fractional-knapsack 13, huffman-coding 12, optimal-merge-patterns 12"
   },
@@ -13912,7 +13917,7 @@
   {
    "kind": "notes",
    "placement": "databases › normalization",
-   "detail": "mock unit \"Database Normalization\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: 1nf-2nf-3nf-bcnf 10, closure-of-attribute-sets-keys 10, functional-dependencies-armstrong-axioms 10, lossless-join-dependency-preservation 10, multivalued-dependencies-4nf 10"
+   "detail": "mock unit \"Database Normalization\" (unit_number 3, unit_slug normalization, 75 questions in databases/question-bank/master_bank.json after the 2026-11-03 set, paper databases/normalization/gate_db_mock_3_2026-11-03.html) serves no notes card: content/index.json carries no databases subject. Subtopic groups, 15 each: Functional dependencies & Armstrong's axioms 15, Closure of attribute sets & keys 15, 1NF, 2NF, 3NF & BCNF 15, Lossless join & dependency preservation 15, Multivalued dependencies & 4NF 15. The 25 records added on 2026-11-03 (DB-U3-Q51 to DB-U3-Q75) carry the subtopic slug only, with no subtopic_label; each is counted in the group whose earlier records share that slug. The unit now holds 75 questions, above UNIT_QUESTION_CAP = 50, so it is MOCK_CAPPED and a second pass has begun. Recommendation: write content/subjects/databases/normalization/functional-dependencies-and-armstrong-axioms.json first, then one card per remaining group under the same folder."
   },
   {
    "kind": "notes",
