@@ -32097,26 +32097,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32129,7 +32129,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32217,26 +32217,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32249,7 +32249,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32350,26 +32350,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32381,7 +32381,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32472,26 +32472,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32503,7 +32503,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32601,26 +32601,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32631,7 +32631,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32717,26 +32717,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "fsm-state-minimisation",
@@ -32751,7 +32751,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/fsm-state-minimisation/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32837,26 +32837,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32869,7 +32869,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",
@@ -32958,26 +32958,26 @@ window.GATE_DATA = {
      "unit_slug": "sequential-fsm-counters",
      "unit_name": "Sequential Circuits: Counters & State Machines",
      "unit_number": 4,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "FSM: Mealy & Moore machines",
-       "questions": 21
+       "questions": 28
       },
       {
        "label": "Synchronous & asynchronous counters",
-       "questions": 20
+       "questions": 26
       },
       {
        "label": "State reduction & assignment",
-       "questions": 17
+       "questions": 23
       },
       {
        "label": "Timing analysis",
-       "questions": 17
+       "questions": 23
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+     "url": "https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
     },
     "visual": {
      "slug": "sequential-circuits",
@@ -32989,7 +32989,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequential-circuits/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "digital-logic",
    "topic": "sequential-circuits",

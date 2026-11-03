@@ -6845,11 +6845,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -6864,8 +6864,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/ring-and-johnson-counters.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -6882,11 +6882,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -6901,8 +6901,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/ripple-counter-and-frequency-division.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -6919,11 +6919,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -6938,8 +6938,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/synchronous-counter-and-mod-n-design.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -6956,11 +6956,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -6975,8 +6975,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequential-circuit-analysis-state-equations.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -6993,11 +6993,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -7012,8 +7012,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/mealy-and-moore-machines.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -7030,11 +7030,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -7049,8 +7049,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/state-minimisation-partition-refinement.json",
     "visual: gate-visual-explainer/topics.json slug=fsm-state-minimisation; syllabus-coverage.json subject Digital Logic, unit Sequential design, coverage_status PUBLISHED; covers checked against topics/fsm-state-minimisation/transcript.md scenes 3-9",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -7067,11 +7067,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -7086,8 +7086,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/state-assignment-encoding.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -7104,11 +7104,11 @@
     "unit_slug": "sequential-fsm-counters",
     "unit_name": "Sequential Circuits: Counters & State Machines",
     "unit_number": 4,
-    "question_count": 75,
+    "question_count": 100,
     "subtopic_labels": [
      "FSM: Mealy & Moore machines",
-     "State reduction & assignment",
      "Synchronous & asynchronous counters",
+     "State reduction & assignment",
      "Timing analysis"
     ],
     "verdict": "MOCK_CAPPED"
@@ -7123,8 +7123,8 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequence-detector-minimum-states.json",
     "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
-    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (75 records, refreshed 2026-11-02)",
-    "mock url: runs[] last entry for unit sequential-fsm-counters -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-02.html"
+    "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=sequential-fsm-counters (100 records, refreshed 2026-11-03)",
+    "mock url: runs[] last entry (run 16, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-fsm-counters/gate_dl_mock_4_2026-11-03.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -14760,6 +14760,11 @@
    "kind": "notes",
    "placement": "compiler-design › parsing › canonical-lr1-items-and-lalr-merging",
    "detail": "visual lesson \"canonical-lr1-items-and-lalr-merging\" (PUBLISHED 2026-11-03; syllabus-coverage.json places it at Compiler Design › Section 7 parsing › Canonical LR(1) items and the LALR(1) merge, 7 subtopics, 20 microtopics, 10 scenes) serves no notes card: content/index.json map[] holds 0 compiler-design cards and content/syllabus.json marks compiler-design › parsing material \"planned\". Its transcript covers the LR(1) item and its lookahead, closure with FIRST(beta a), GOTO and the canonical collection, the local reduce rule against FOLLOW, merging by core with union of lookaheads, and a grammar that is LR(1) but not LALR(1). Write content/subjects/compiler-design/parsing/canonical-lr1-items-and-lalr-merging.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "compiler-design › lexical-analysis › lexical-error-recovery",
+   "detail": "gate-visual-explainer published the lesson topics/lexical-errors-and-lexer-recovery/ (commit f95e6e1, 2026-11-03) covering longest match and the accepting-state fallback, the two ways a scan fails (no move from the start state; a run reaching no accepting state), lexical against syntactic and semantic classification, panic mode with the progress guard, syncing to a delimiter and counting tokens under a printed specification. It serves no notes card: content/index.json map[] holds 0 compiler-design cards and content/syllabus.json lists every compiler-design topic as \"planned\". Write content/subjects/compiler-design/lexical-analysis/lexical-error-recovery.json, with the longest-match rule and token counting as sibling cards in the same group."
   }
  ]
 }
