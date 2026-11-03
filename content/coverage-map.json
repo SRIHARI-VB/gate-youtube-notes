@@ -11930,6 +11930,21 @@
    "priority": "P1",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json",
    "transcript_status": "PARTIAL",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 25,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_READY"
+   },
    "visual": {
     "slug": "probability-and-random-variables",
     "title": "Probability, Random Variables and Distributions",
@@ -11940,9 +11955,12 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/conditional-probability-and-the-restricted-space.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/probability-and-random-variables/index.html"
+    "visual url: topics/probability-and-random-variables/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full); Sample spaces & events (partial - the restricted space only)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH"
   },
   {
    "subject": "probability-and-statistics",
@@ -11996,6 +12014,21 @@
    "priority": "P1",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
    "transcript_status": "PARTIAL",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 25,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_READY"
+   },
    "visual": {
     "slug": "multi-event-independence",
     "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
@@ -12006,9 +12039,12 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/independence-and-the-product-test.json",
     "visual: topics.json slug=multi-event-independence (added 2026-11-02); syllabus-coverage.json subtopics/microtopics checked against topics/multi-event-independence/transcript.md scenes 1-11, not the alias list",
-    "visual url: topics/multi-event-independence/index.html"
+    "visual url: topics/multi-event-independence/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Independence (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH"
   },
   {
    "subject": "probability-and-statistics",
@@ -12106,6 +12142,21 @@
    "priority": "P1",
    "path": "subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json",
    "transcript_status": "PARTIAL",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 25,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_READY"
+   },
    "visual": {
     "slug": "bayes-theorem-as-revision",
     "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
@@ -12116,9 +12167,12 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/conditional-probability-and-bayes/bayes-theorem-from-evidence-to-cause.json",
     "visual: topics.json slug=bayes-theorem-as-revision; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/bayes-theorem-as-revision/index.html"
+    "visual url: topics/bayes-theorem-as-revision/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Conditional probability & Bayes (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH"
   },
   {
    "subject": "probability-and-statistics",
@@ -12614,6 +12668,21 @@
    "priority": "P1",
    "path": "subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
    "transcript_status": "PARTIAL",
+   "mock": {
+    "subject": "discrete-mathematics",
+    "unit_slug": "discrete-probability",
+    "unit_name": "Discrete Probability",
+    "unit_number": 15,
+    "question_count": 25,
+    "subtopic_labels": [
+     "Sample spaces & events",
+     "Conditional probability & Bayes",
+     "Independence",
+     "Counting-based probability",
+     "Expectation & variance"
+    ],
+    "verdict": "MOCK_READY"
+   },
    "visual": {
     "slug": "probability-and-random-variables",
     "title": "Probability, Random Variables and Distributions",
@@ -12624,9 +12693,12 @@
    "evidence": [
     "notes content/index.json map[].path = subjects/probability-and-statistics/random-variables-and-distributions/variance-and-standard-deviation.json",
     "visual: topics.json slug=probability-and-random-variables; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/probability-and-random-variables/index.html"
+    "visual url: topics/probability-and-random-variables/index.html",
+    "mock: gate-cse-mocks discrete-mathematics/question-bank/master_bank.json questions[] filtered to unit 15 (unit_slug discrete-probability, unit_name Discrete Probability, unit_number 15), 25 records grouped by subtopic_label: Sample spaces & events 5, Conditional probability & Bayes 5, Independence 5, Counting-based probability 5, Expectation & variance 5; paper from runs[] run 24 file discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "mock url: https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html",
+    "match: unit subtopic_label against the card body, ladder rung 4 (mock unit placement) - Expectation & variance (full)"
    ],
-   "row_verdict": "VISUAL_ONLY"
+   "row_verdict": "BOTH"
   },
   {
    "subject": "probability-and-statistics",
@@ -14775,6 +14847,21 @@
    "kind": "notes",
    "placement": "programming-and-data-structures › programming-in-c › file-io-and-streams",
    "detail": "gate-visual-explainer published the lesson topics/file-io-in-c/ (commit 606d66fe, 2026-11-03; syllabus-coverage.json coverage_status PUBLISHED, 10 subtopics and 43 microtopics, 10 scenes, 50 caption cues, 43 of 43 model checks) and it serves no notes card: the 25 programming-and-data-structures cards stop at tokens, control flow, functions, pointers, strings, structures, dynamic memory, preprocessor macros and recursion, none on file I/O. Content checked against topics/file-io-in-c/transcript.md, not the alias list: the FILE pointer as a handle holding a position, a buffer, an end flag and an error flag; the six mode strings run against an existing four-byte file and against a missing one; fopen returning a null pointer on failure; fgetc returning an int so that a 0xFF byte in a signed char reads as EOF; fgets taking n-1 characters and keeping the newline; fprintf, fscanf, fread and fwrite counting characters, items and elements; ftell, fseek with its three origins and rewind; append writing at the end regardless of the position; and the update-stream rule that needs a positioning call between directions. Write content/subjects/programming-and-data-structures/programming-in-c/file-io-and-streams.json and link it to lesson slug file-io-in-c"
+  },
+  {
+   "kind": "notes",
+   "placement": "probability-and-statistics › conditional-probability-and-bayes › sample-spaces-events",
+   "detail": "mock unit \"Discrete Probability\" (unit_number 15, unit_slug discrete-probability, 25 questions in discrete-mathematics/question-bank/master_bank.json after run 24 on 2026-11-03) carries 5 questions labelled \"Sample spaces & events\" (two dice, a card drawn from a deck, an even product), and the notes hold no card on the sample space, the event set and equally likely outcomes as such: the nearest is conditional-probability-and-the-restricted-space, which treats the sample space only after a condition restricts it. Write content/subjects/probability-and-statistics/conditional-probability-and-bayes/sample-spaces-events.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "probability-and-statistics › conditional-probability-and-bayes › counting-based-probability",
+   "detail": "the same unit 15 carries 5 questions labelled \"Counting-based probability\" (adjacent seats 2x9!/10!, four aces 48/C(52,5), an even permutation of 1234, derangements of the letters of a word, onto functions 3^5 - 3.2^5 + 3), and no probability card covers them: the counting machinery lives in discrete-mathematics › combinatorics (basic-counting-rules, permutations, combinations, derangements, onto-functions), which carry no probability card and no probability-flavoured example. Write content/subjects/probability-and-statistics/conditional-probability-and-bayes/counting-based-probability.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "programming-and-data-structures › programming-in-c › command-line-arguments-argc-argv",
+   "detail": "published lesson \"command-line-arguments-in-c\" (\"Command-Line Arguments in C: argc, the argv Pointer Array and the Null Sentinel\", programming-and-data-structures, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 10 scenes and 50 caption cues in topics/command-line-arguments-in-c/) serves no notes card: content/index.json map[] holds 13 programming-in-c cards and none of them treats argc, argv, argv[argc], atoi or strtol - the words appear nowhere in the card set (the only mention in the topic is one line of the sources.json source description). Content checked against topics/command-line-arguments-in-c/transcript.md, not the alias list: the shell splits the line, argc counts the program name, argv is an array of char pointers with a null pointer at slot argc, the strict versus inclusive loop bound, atoi's silent 0 versus strtol's end pointer, char *argv[] adjusting to char **argv, and sizeof(argv) as one pointer. Recommendation: write content/subjects/programming-and-data-structures/programming-in-c/command-line-arguments-argc-argv.json and link it to lesson slug command-line-arguments-in-c."
   }
  ]
 }

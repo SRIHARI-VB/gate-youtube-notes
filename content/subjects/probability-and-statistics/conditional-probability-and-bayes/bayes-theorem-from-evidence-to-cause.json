@@ -94,6 +94,36 @@
   "videoRefs": [],
   "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "discrete-probability",
+      "unit_name": "Discrete Probability",
+      "unit_number": 15,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Sample spaces & events",
+          "questions": 5
+        },
+        {
+          "label": "Conditional probability & Bayes",
+          "questions": 5
+        },
+        {
+          "label": "Independence",
+          "questions": 5
+        },
+        {
+          "label": "Counting-based probability",
+          "questions": 5
+        },
+        {
+          "label": "Expectation & variance",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
       "slug": "bayes-theorem-as-revision",
       "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
@@ -104,6 +134,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
   }
 }

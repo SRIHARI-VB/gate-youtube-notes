@@ -22791,6 +22791,36 @@ window.GATE_DATA = {
    "sourceLine": "The identity Var(X) = E[X^2] - mu^2, the Var(aX+b) rule and the independence condition on Var(X - Y): the GATE Overflow probability notes and the Hindi page (translated), which lists 'writing E(X^2) - E(X)' as one of four common mistakes. A variance computed from first principles for a named distribution: NPTEL Lecture 24, the continuous uniform (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 5
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 5
+      },
+      {
+       "label": "Independence",
+       "questions": 5
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 5
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
@@ -22801,7 +22831,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -25251,6 +25281,36 @@ window.GATE_DATA = {
    "sourceLine": "The definition, the die example and the shrunken sample space: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's conditional probability lecture (English). The two-dice sum-8 example and the 'rebuild the denominator when the stem says given' warning: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 5
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 5
+      },
+      {
+       "label": "Independence",
+       "questions": 5
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 5
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
      "slug": "probability-and-random-variables",
      "title": "Probability, Random Variables and Distributions",
@@ -25261,7 +25321,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -25574,6 +25634,36 @@ window.GATE_DATA = {
    "sourceLine": "The definition of statistical independence, the symmetry argument and the four conditions for three events: NPTEL IIT Kharagpur Lecture 10 (English, read in part). The product test as a GATE-level statement with the free-kick example: OpenStax Introductory Statistics 3.3 (English). The independence against exclusivity warning: the Knowledge Gate AI GATE probability page (English).",
    "videoRefs": [],
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 5
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 5
+      },
+      {
+       "label": "Independence",
+       "questions": 5
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 5
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
      "slug": "multi-event-independence",
      "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
@@ -25585,7 +25675,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-03"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26112,6 +26202,36 @@ window.GATE_DATA = {
    "videoRefs": [],
    "visual": "probability-and-statistics/conditional-probability-and-bayes/bayes-tree-and-the-base-rate",
    "links": {
+    "mock": {
+     "subject": "discrete-mathematics",
+     "unit_slug": "discrete-probability",
+     "unit_name": "Discrete Probability",
+     "unit_number": 15,
+     "question_count": 25,
+     "subtopics": [
+      {
+       "label": "Sample spaces & events",
+       "questions": 5
+      },
+      {
+       "label": "Conditional probability & Bayes",
+       "questions": 5
+      },
+      {
+       "label": "Independence",
+       "questions": 5
+      },
+      {
+       "label": "Counting-based probability",
+       "questions": 5
+      },
+      {
+       "label": "Expectation & variance",
+       "questions": 5
+      }
+     ],
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
      "slug": "bayes-theorem-as-revision",
      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
@@ -26122,7 +26242,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",

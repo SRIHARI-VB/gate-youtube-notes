@@ -91,6 +91,36 @@
   "sourceLine": "The definition, the die example and the shrunken sample space: NPTEL IIT Kharagpur Lecture 09 (English, read in part) and StatLect's conditional probability lecture (English). The two-dice sum-8 example and the 'rebuild the denominator when the stem says given' warning: the Knowledge Gate AI GATE probability page (English).",
   "videoRefs": [],
   "links": {
+    "mock": {
+      "subject": "discrete-mathematics",
+      "unit_slug": "discrete-probability",
+      "unit_name": "Discrete Probability",
+      "unit_number": 15,
+      "question_count": 25,
+      "subtopics": [
+        {
+          "label": "Sample spaces & events",
+          "questions": 5
+        },
+        {
+          "label": "Conditional probability & Bayes",
+          "questions": 5
+        },
+        {
+          "label": "Independence",
+          "questions": 5
+        },
+        {
+          "label": "Counting-based probability",
+          "questions": 5
+        },
+        {
+          "label": "Expectation & variance",
+          "questions": 5
+        }
+      ],
+      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/discrete-probability/gate_dm_mock_15_2026-11-03.html"
+    },
     "visual": {
       "slug": "probability-and-random-variables",
       "title": "Probability, Random Variables and Distributions",
@@ -101,6 +131,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-30"
+    "mapped_at": "2026-11-03"
   }
 }
