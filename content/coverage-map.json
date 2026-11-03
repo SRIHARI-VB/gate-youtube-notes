@@ -9646,18 +9646,19 @@
     "verdict": "MOCK_CAPPED"
    },
    "visual": {
-    "slug": "propositional-logic",
-    "title": "Propositional Logic",
+    "slug": "resolution-refutation-and-horn-clauses",
+    "title": "Resolution Refutation and Horn Clauses: Clausal Form, the Empty Clause and the Linear-Time Fragment",
     "coverage_status": "PUBLISHED",
-    "level": "topic-level",
+    "level": "subtopic-level",
     "verdict": "VISUAL_LESSON"
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/discrete-mathematics/propositional-logic/resolution-refutation.json",
     "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=propositional-logic (50 records)",
     "mock url: runs[] last entry for unit propositional-logic -> https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html",
-    "visual: topics.json slug=propositional-logic; syllabus-coverage.json subtopics/microtopics checked against the card text",
-    "visual url: topics/propositional-logic/index.html"
+    "visual: gate-visual-explainer topics.json slug=resolution-refutation-and-horn-clauses; aliases include 'resolution refutation' and 'proof by refutation' (rung 1/2)",
+    "visual coverage: syllabus-coverage.json coverage_status PUBLISHED, microtopics checked against topics/resolution-refutation-and-horn-clauses/transcript.md scenes 2,3,5,7,8",
+    "visual url: topics/resolution-refutation-and-horn-clauses/index.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -14739,6 +14740,16 @@
    "kind": "notes",
    "placement": "discrete-mathematics › number-theory › multiplicative-inverses-chinese-remainder",
    "detail": "mock unit \"Number Theory\" (unit_number 14, 50 questions, at the 50-question cap so MOCK_CAPPED) carries 12 questions on Inverses & Chinese remainder theorem (multiplicative inverses modulo n, when ax = b (mod m) is solvable, and the Chinese remainder theorem) but no notes card covers them: the discrete-mathematics subject holds seven topics and none is number theory. Write content/subjects/discrete-mathematics/number-theory/multiplicative-inverses-chinese-remainder.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "databases › transactions-and-concurrency-control › acid-properties (and four sibling subtopics)",
+   "detail": "mock unit \"Transactions & Concurrency Control\" (unit_number 4, unit_slug transactions-concurrency, 75 questions in databases/question-bank/master_bank.json after run 13 on 2026-11-03, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json map[] holds 0 databases cards across its 7 subjects, so nothing in the notes spine can carry it. Groups by subtopic slug, 15 each: acid-properties, schedules-serializability-conflict-view, recoverability-cascadeless, two-phase-locking-2pl-strict-rigorous, timestamp-ordering-and-deadlocks. The 25 records of run 13 (DB-U4-Q51..DB-U4-Q75, date 2026-11-03) carry no subtopic_label, so their groups are read from the subtopic slug. Latest paper databases/transactions-concurrency/gate_db_mock_4_2026-11-03.html. Write content/subjects/databases/transactions-and-concurrency-control/{acid-properties,schedules-serializability-conflict-view,recoverability-cascadeless,two-phase-locking-2pl-strict-rigorous,timestamp-ordering-and-deadlocks}.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › propositional-logic › horn-clauses-and-unit-propagation",
+   "detail": "lesson resolution-refutation-and-horn-clauses covers Horn clauses and unit propagation (scenes 7 and 8, syllabus-coverage.json subtopics 'Horn clauses' and 'unit propagation and linear-time Horn satisfiability') but no notes card covers them; the resolution-refutation card stops at resolution and the empty clause. Write content/subjects/discrete-mathematics/propositional-logic/horn-clauses-and-unit-propagation.json"
   }
  ]
 }

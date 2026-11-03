@@ -3616,15 +3616,21 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
     },
     "visual": {
-     "slug": "propositional-logic",
-     "title": "Propositional Logic",
-     "level": "topic-level",
-     "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html",
+     "slug": "resolution-refutation-and-horn-clauses",
+     "title": "Resolution Refutation and Horn Clauses: Clausal Form, the Empty Clause and the Linear-Time Fragment",
+     "level": "subtopic-level",
      "covers": [
-      "valid argument forms"
-     ]
+      "clausal form and the conversion from a formula",
+      "the resolution rule and the resolvent",
+      "soundness of the resolvent",
+      "refutation completeness",
+      "the empty clause",
+      "Horn clauses",
+      "unit propagation and linear-time Horn satisfiability"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/resolution-refutation-and-horn-clauses/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
