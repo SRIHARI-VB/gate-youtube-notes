@@ -100,6 +100,19 @@
       ],
       "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04",
+    "visual": {
+      "slug": "rom-pla-and-pal-programmable-logic",
+      "title": "ROM, PLA and PAL: the two-level array, the dots that program it, and the arithmetic of choosing a device",
+      "level": "topic-level",
+      "covers": [
+        "ROM: fixed 2^n-line decoder, programmable OR plane",
+        "ROM size m times 2^n bits, independent of the function",
+        "PLA: both planes programmable, 2nk + km links",
+        "PLA program table and dot notation",
+        "product-term sharing across outputs"
+      ],
+      "url": "https://gate-visual-explainer.vercel.app/topics/rom-pla-and-pal-programmable-logic/index.html"
+    }
   }
 }

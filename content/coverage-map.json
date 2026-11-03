@@ -4398,11 +4398,11 @@
     "unit_slug": "memory-management-unit",
     "unit_name": "Main Memory & Virtual Memory Interface",
     "unit_number": 4,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "DRAM & SRAM organization",
-     "Effective access time",
      "Paging & TLB hit ratio",
+     "Effective access time",
      "Segmentation"
     ],
     "verdict": "MOCK_CAPPED"
@@ -4410,9 +4410,10 @@
    "visual": null,
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-characteristics-sram-and-dram.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=memory-management-unit (50 records)",
-    "mock url: runs[] last entry for unit memory-management-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html",
-    "visual: no lesson covers the SRAM/DRAM split - topics/memory-hierarchy-and-cache/transcript.md never names SRAM or DRAM"
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=memory-management-unit (75 records)",
+    "mock groups: DRAM & SRAM organization 19, Paging & TLB hit ratio 26, Effective access time 17, Segmentation 13",
+    "mock url: runs[] last entry (run 15, 2026-11-04) for unit memory-management-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-11-04.html",
+    "match: subtopic_label \"DRAM & SRAM organization\" against the card title and remember[] SRAM/DRAM split; the other three groups are carried in links because the unit holds them, and serve no card"
    ],
    "row_verdict": "MOCK_ONLY"
   },
@@ -5692,10 +5693,19 @@
     "notes content/index.json map[].path = subjects/digital-logic/combinational-circuits/rom-and-pla.json",
     "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=combinational-circuits (100 records)",
     "mock url: runs[] last entry for unit combinational-circuits (run 14, 2026-11-03) -> https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html",
-    "mock evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them",
-    "visual evidence: unit is the combinational-design unit but no group is ROM/PLA; the lesson never mentions them"
+    "mock evidence: no group in unit 2 is ROM/PLA/PAL; the card is served by the unit, not by a matching group",
+    "visual: topics.json slug=rom-pla-and-pal-programmable-logic (created 2026-11-04); syllabus-coverage.json coverage_status PUBLISHED, lesson_slug rom-pla-and-pal-programmable-logic",
+    "visual content checked: transcript.md scenes 1-2 name the fixed decoder and 2^n minterms, the program table and dot notation, 2nk + km, sharing, PAL16L8 and 82S100 - not the alias list",
+    "visual url: topics/rom-pla-and-pal-programmable-logic/index.html"
    ],
-   "row_verdict": "MOCK_ONLY"
+   "row_verdict": "BOTH",
+   "visual": {
+    "slug": "rom-pla-and-pal-programmable-logic",
+    "title": "ROM, PLA and PAL: the two-level array, the dots that program it, and the arithmetic of choosing a device",
+    "coverage_status": "PUBLISHED",
+    "level": "topic-level",
+    "verdict": "VISUAL_LESSON"
+   }
   },
   {
    "subject": "digital-logic",
@@ -14125,11 +14135,6 @@
   },
   {
    "kind": "notes",
-   "placement": "computer-architecture › memory-management-unit",
-   "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, 50 questions) serves no notes card; subtopic groups: dram-sram-organization 13, effective-access-time 11, paging-tlb-hit-ratio 17, segmentation 9"
-  },
-  {
-   "kind": "notes",
    "placement": "computer-networks › ipv4-subnetting",
    "detail": "mock unit \"Network Layer: IP Addressing & Subnetting\" (unit_number 3) now holds 75 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: IPv4 header & fragmentation 19, Classful vs classless & CIDR 19, Subnet masking & supernetting 19, IPv6 basics & differences 18; latest paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-11-01.html (runs[] run 15); the rotation advances to unit 4, Network Layer: Routing & Protocols"
   },
@@ -14587,11 +14592,6 @@
    "kind": "notes",
    "placement": "lesson intermediate-code-generation",
    "detail": "published lesson \"Intermediate code generation: three-address code, the four counts, and the three tables\" (PUBLISHED) serves no notes card; covers three-address code, temporaries, SSA and the phi function, control-flow translation and quadruples/triples; pairs with mock unit \"Syntax-Directed Translation & Intermediate Code\" (unit_number 4) group three-address-code-quadruples-triples"
-  },
-  {
-   "kind": "notes",
-   "placement": "computer-organization-and-architecture › memory-hierarchy-and-cache",
-   "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, unit_slug memory-management-unit, 50 questions, papers gate_co_mock_4_2026-10-30.html) serves no notes card; subtopic_label groups: DRAM & SRAM organization 13, Paging & TLB hit ratio 17, Effective access time 11, Segmentation 9"
   },
   {
    "kind": "mock",
@@ -15052,6 +15052,21 @@
    "kind": "notes",
    "placement": "computer-networks › tcp-and-congestion-control › socket-api",
    "detail": "published lesson \"The socket API and the connection lifecycle: calls, four-tuples, TIME_WAIT and port exhaustion\" (slug socket-api-and-connection-lifecycle, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-03, 8 subtopics, 30 microtopics, topics/socket-api-and-connection-lifecycle/) serves no notes card: content/index.json holds no computer-networks subject at all, so there is nothing to attach it to. syllabus-coverage.json places it at Computer Networks, Section 10 \"TCP - flow control and congestion control, socket API\". Its transcript covers the calls on each side and their order, the listening against the connected socket, the backlog as a completed-connection queue, the four-tuple and ephemeral port exhaustion, TIME-WAIT and the UDP variant. Write the card at content/subjects/computer-networks/tcp-and-congestion-control/socket-api.json; the mock side already exists in unit transport-layer (75 questions, group \"TCP header & connection management\" 21)."
+  },
+  {
+   "kind": "notes",
+   "placement": "computer-organization-and-architecture › main-memory-and-virtual-memory › paging-and-tlb-hit-ratio",
+   "detail": "mock unit \"Main Memory & Virtual Memory Interface\" (unit_number 4, unit_slug memory-management-unit, 75 questions, MOCK_CAPPED) holds 26 questions on \"Paging & TLB hit ratio\" (page-table size, TLB sets, virtually-indexed caches) and 17 on \"Effective access time\" (TLB access + hit ratio + page-table walks) - all TLB/paging EAT, not cache AMAT, so the AMAT card does not serve them. The notes subject holds no virtual-memory group: memory-hierarchy-and-cache ends at memory interleaving. Write content/subjects/computer-organization-and-architecture/main-memory-and-virtual-memory/paging-and-tlb-hit-ratio.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "computer-organization-and-architecture › main-memory-and-virtual-memory › segmentation",
+   "detail": "mock unit 4 memory-management-unit holds 13 questions on \"Segmentation\" (segment table, base-limit trap, fragmentation against paging); no notes card covers segmentation. Write content/subjects/computer-organization-and-architecture/main-memory-and-virtual-memory/segmentation.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "digital-logic › combinational-circuits › rom-and-pla",
+   "detail": "lesson rom-pla-and-pal-programmable-logic (PUBLISHED 2026-11-04) teaches PAL as a first-class device - fixed OR plane, no product-term sharing, PAL16L8 at 64 rows x 32 columns = 2048 fuses, seven terms per output - while the card rom-and-pla carries PAL in one remember[] bullet and no sizing. Extend content/subjects/digital-logic/combinational-circuits/rom-and-pla.json rather than adding a card; the lesson is the source."
   }
  ]
 }

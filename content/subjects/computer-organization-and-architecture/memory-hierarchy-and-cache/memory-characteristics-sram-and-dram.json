@@ -81,32 +81,32 @@
   "sourceLine": "Capacity, unit of transfer, word size and byte against word addressing: NPTEL IIT Guwahati Lecture 24 (English, read in part). The SRAM and DRAM comparison with its access-time and cost-per-GB figures: the same course, Lecture 25 (English, read in part). Volatile against non-volatile memory, SRAM as a latch and DRAM as a refreshed capacitor, and the meaning of kB and MB for memories: UBC ELEX 2117 lecture 9 notes (English, read in part).",
   "videoRefs": [],
   "links": {
-    "mapped_at": "2026-10-31",
     "mock": {
       "subject": "computer-architecture",
       "unit_slug": "memory-management-unit",
       "unit_name": "Main Memory & Virtual Memory Interface",
       "unit_number": 4,
-      "question_count": 50,
+      "question_count": 75,
       "subtopics": [
         {
           "label": "DRAM & SRAM organization",
-          "questions": 13
+          "questions": 19
         },
         {
           "label": "Paging & TLB hit ratio",
-          "questions": 17
+          "questions": 26
         },
         {
           "label": "Effective access time",
-          "questions": 11
+          "questions": 17
         },
         {
           "label": "Segmentation",
-          "questions": 9
+          "questions": 13
         }
       ],
-      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
-    }
+      "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-11-04.html"
+    },
+    "mapped_at": "2026-11-04"
   }
 }

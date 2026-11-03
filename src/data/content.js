@@ -31301,7 +31301,20 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/digital-logic/combinational-circuits/gate_dl_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04",
+    "visual": {
+     "slug": "rom-pla-and-pal-programmable-logic",
+     "title": "ROM, PLA and PAL: the two-level array, the dots that program it, and the arithmetic of choosing a device",
+     "level": "topic-level",
+     "covers": [
+      "ROM: fixed 2^n-line decoder, programmable OR plane",
+      "ROM size m times 2^n bits, independent of the function",
+      "PLA: both planes programmable, 2nk + km links",
+      "PLA program table and dot notation",
+      "product-term sharing across outputs"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/rom-pla-and-pal-programmable-logic/index.html"
+    }
    },
    "subject": "digital-logic",
    "topic": "combinational-circuits",
@@ -39698,33 +39711,33 @@ window.GATE_DATA = {
    "sourceLine": "Capacity, unit of transfer, word size and byte against word addressing: NPTEL IIT Guwahati Lecture 24 (English, read in part). The SRAM and DRAM comparison with its access-time and cost-per-GB figures: the same course, Lecture 25 (English, read in part). Volatile against non-volatile memory, SRAM as a latch and DRAM as a refreshed capacitor, and the meaning of kB and MB for memories: UBC ELEX 2117 lecture 9 notes (English, read in part).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-10-31",
     "mock": {
      "subject": "computer-architecture",
      "unit_slug": "memory-management-unit",
      "unit_name": "Main Memory & Virtual Memory Interface",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "DRAM & SRAM organization",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Paging & TLB hit ratio",
-       "questions": 17
+       "questions": 26
       },
       {
        "label": "Effective access time",
-       "questions": 11
+       "questions": 17
       },
       {
        "label": "Segmentation",
-       "questions": 9
+       "questions": 13
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
-    }
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-11-04.html"
+    },
+    "mapped_at": "2026-11-04"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "memory-hierarchy-and-cache",
