@@ -13999,7 +13999,7 @@
   {
    "kind": "notes",
    "placement": "theory-of-computation › cfl-grammars",
-   "detail": "mock unit \"Grammars & Context-Free Languages\" (unit_number 2, 75 questions) serves no notes card; subtopic groups: ambiguity-in-grammars 18, cfg-derivation-trees 20, closure-properties-cfl 18, cnf-gnf-normal-forms 19"
+   "detail": "mock unit \"Grammars & Context-Free Languages\" (unit_number 2, unit_slug cfl-grammars, 125 questions in theory-of-computation/question-bank/master_bank.json after run 18 on 2026-11-03 added Set 2 of 2 of the third pass, 25 questions TOC-U2-Q101..Q125, paper theory-of-computation/cfl-grammars/gate_toc_mock_2_2026-11-03.html; far above the 50-question cap so MOCK_CAPPED) serves no notes card: no theory-of-computation subject exists in the notes repo. Subtopic groups counted from the bank: CFG derivation trees 34, Ambiguity in grammars 30, CNF & GNF normal forms 31, Closure properties of CFLs 30. Write content/subjects/theory-of-computation/cfl-grammars/{cfg-derivation-trees,ambiguity-in-grammars,cnf-gnf-normal-forms,closure-properties-cfl}.json"
   },
   {
    "kind": "notes",
@@ -14750,6 +14750,11 @@
    "kind": "notes",
    "placement": "discrete-mathematics › propositional-logic › horn-clauses-and-unit-propagation",
    "detail": "lesson resolution-refutation-and-horn-clauses covers Horn clauses and unit propagation (scenes 7 and 8, syllabus-coverage.json subtopics 'Horn clauses' and 'unit propagation and linear-time Horn satisfiability') but no notes card covers them; the resolution-refutation card stops at resolution and the empty clause. Write content/subjects/discrete-mathematics/propositional-logic/horn-clauses-and-unit-propagation.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "discrete-mathematics › first-order-logic › first-order-resolution-and-unification",
+   "detail": "published lesson \"first-order-resolution-and-unification\" (PUBLISHED 2026-11-03, topics/first-order-resolution-and-unification/, 10 scenes, 40 caption segments, syllabus-coverage.json unit 'Logic: Propositional and first order logic - the first-order half of the inference procedure') serves no notes card. Checked against transcript.md, not the alias list, it genuinely covers: terms as finite trees, substitutions and their composition, the disagreement set and the unification walk, the occurs check, the most general unifier and renaming apart, prenex form and Skolemisation with arity from the universals to the left, first-order resolution with unification and factoring, soundness, Herbrand ground instances with the lifting lemma, semi-decidability, and equality via paramodulation. The notes topic discrete-mathematics › first-order-logic holds ten cards and none covers unification, Skolemisation or first-order resolution; fol-quantifier-inference-rules stops at universal/existential instantiation and generalisation, and resolution-refutation is propositional. Write content/subjects/discrete-mathematics/first-order-logic/first-order-resolution-and-unification.json with prereqs resolution-refutation and fol-quantifier-inference-rules."
   }
  ]
 }
