@@ -77,40 +77,6 @@
   ],
   "sourceLine": "The definition of a lattice via pairwise joins and meets and the union/intersection reading of a lattice of sets: NPTEL IIT Madras Lecture 40 (English, full transcript). The completeness criterion and the GATE 2004 argument are recomputed from the set arithmetic and checked against Rosen ch. 9.6.",
   "links": {
-    "mock": {
-      "subject": "discrete-mathematics",
-      "unit_slug": "relations",
-      "unit_name": "Relations",
-      "unit_number": 4,
-      "question_count": 50,
-      "subtopics": [
-        {
-          "label": "Composition & transitive closure",
-          "questions": 8
-        },
-        {
-          "label": "Counting relations",
-          "questions": 8
-        },
-        {
-          "label": "Equivalence relations & classes",
-          "questions": 9
-        },
-        {
-          "label": "Lattices in posets",
-          "questions": 8
-        },
-        {
-          "label": "Partial orders & Hasse diagrams",
-          "questions": 8
-        },
-        {
-          "label": "Relation properties",
-          "questions": 9
-        }
-      ],
-      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/relations/gate_dm_mock_4_2026-10-26.html"
-    },
     "visual": {
       "slug": "partial-orders-and-lattices",
       "title": "Partial Orders, Hasse Diagrams and Lattices",
@@ -121,6 +87,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/partial-orders-and-lattices/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
   }
 }
