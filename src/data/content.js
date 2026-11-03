@@ -35982,26 +35982,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36013,7 +36013,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36107,26 +36107,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36137,7 +36137,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36231,26 +36231,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36261,7 +36261,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36355,26 +36355,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36385,7 +36385,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36476,28 +36476,28 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36588,26 +36588,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36618,7 +36618,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36710,26 +36710,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36740,7 +36740,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36832,28 +36832,28 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -36945,26 +36945,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -36976,7 +36976,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -37070,26 +37070,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37100,7 +37100,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -37193,26 +37193,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37223,7 +37223,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -37315,26 +37315,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
-       "label": "Hardwired control",
-       "questions": 13
-      },
-      {
-       "label": "Microprogrammed control",
-       "questions": 12
-      },
-      {
        "label": "ALU & datapath timing",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
+      },
+      {
+       "label": "Microprogrammed control",
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37345,7 +37345,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "alu-design",
@@ -37436,26 +37436,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37471,7 +37471,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37563,26 +37563,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37598,7 +37598,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37688,26 +37688,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37723,7 +37723,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37813,26 +37813,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37848,7 +37848,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -37938,26 +37938,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -37973,7 +37973,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38053,26 +38053,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38088,7 +38088,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38180,26 +38180,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38215,7 +38215,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38309,26 +38309,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38344,7 +38344,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38437,26 +38437,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38472,7 +38472,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38563,26 +38563,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38598,7 +38598,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38688,26 +38688,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38723,7 +38723,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38817,26 +38817,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38852,7 +38852,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",
@@ -38943,26 +38943,26 @@ window.GATE_DATA = {
      "unit_slug": "datapath-control-unit",
      "unit_name": "CPU Control Design & Data Path",
      "unit_number": 2,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "ALU & datapath timing",
-       "questions": 13
-      },
-      {
-       "label": "Hardwired control",
-       "questions": 13
+       "questions": 20
       },
       {
        "label": "Bus architectures",
-       "questions": 12
+       "questions": 18
+      },
+      {
+       "label": "Hardwired control",
+       "questions": 19
       },
       {
        "label": "Microprogrammed control",
-       "questions": 12
+       "questions": 18
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
     },
     "visual": {
      "slug": "alu-and-control-unit-design",
@@ -38978,7 +38978,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/alu-and-control-unit-design/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-03"
    },
    "subject": "computer-organization-and-architecture",
    "topic": "control-unit-design",

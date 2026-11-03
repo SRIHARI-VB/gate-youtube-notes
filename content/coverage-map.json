@@ -1970,7 +1970,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -1988,8 +1988,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/alu-block-contract.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2007,7 +2007,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2025,8 +2025,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/one-bit-slice-and-output-mux.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2044,7 +2044,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2062,8 +2062,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/function-select-encoding.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2081,7 +2081,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2099,8 +2099,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/alu-input-multiplexers-and-operand-sources.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2118,7 +2118,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2129,8 +2129,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/comparison-and-slt.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
    ],
    "row_verdict": "MOCK_ONLY"
   },
@@ -2147,7 +2147,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2165,8 +2165,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/zero-detect-and-equality.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2184,7 +2184,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2202,8 +2202,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/status-flags-z-n-c-v.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2221,7 +2221,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2232,8 +2232,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/shifter-and-barrel-shift.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html"
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html"
    ],
    "row_verdict": "MOCK_ONLY"
   },
@@ -2250,7 +2250,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2268,8 +2268,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/alu-control-from-opcode.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2287,7 +2287,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2305,8 +2305,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/single-bus-datapath-and-temporaries.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2324,7 +2324,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2342,8 +2342,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/cycles-for-one-alu-operation.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2361,7 +2361,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2379,8 +2379,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/alu-design/alu-critical-path-and-delay.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md and syllabus-coverage microtopics"
    ],
    "row_verdict": "BOTH"
@@ -2398,7 +2398,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2416,8 +2416,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/control-unit-contract-and-control-word.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2436,7 +2436,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2454,8 +2454,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/instruction-cycle-as-micro-operation-sequence.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2474,7 +2474,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2492,8 +2492,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/hardwired-control-as-a-state-machine.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2512,7 +2512,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2530,8 +2530,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/instruction-decoder-and-signal-generation-tree.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2550,7 +2550,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2568,8 +2568,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/control-signal-equations-from-a-micro-operation-table.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2588,7 +2588,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2606,8 +2606,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/hardwired-design-methods-counter-delay-state-table.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2626,7 +2626,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2644,8 +2644,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/microprogrammed-control-store-and-microinstruction.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2664,7 +2664,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2682,8 +2682,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/microinstruction-format-horizontal-vertical-hybrid.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2702,7 +2702,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2720,8 +2720,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/field-width-and-control-memory-size-arithmetic.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2740,7 +2740,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2758,8 +2758,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/microinstruction-sequencing-and-next-address.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2778,7 +2778,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2796,8 +2796,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/mapping-opcode-to-microprogram-and-the-fetch-routine.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2816,7 +2816,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2834,8 +2834,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/hardwired-versus-microprogrammed-trade-offs.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -2854,7 +2854,7 @@
     "unit_slug": "datapath-control-unit",
     "unit_name": "CPU Control Design & Data Path",
     "unit_number": 2,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "ALU & datapath timing",
      "Bus architectures",
@@ -2872,8 +2872,8 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/control-unit-design/control-unit-of-a-real-machine-the-basic-computer.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (50 records)",
-    "mock url: runs[] last entry for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-10-28.html",
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=datapath-control-unit (75 records)",
+    "mock url: runs[] last entry (run 13, 2026-11-03) for unit datapath-control-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/datapath-control-unit/gate_co_mock_2_2026-11-03.html",
     "visual: gate-visual-explainer/topics.json slug=alu-and-control-unit-design; syllabus-coverage.json microtopics checked against topics/alu-and-control-unit-design/transcript.md scenes 7-10",
     "visual url: topics/alu-and-control-unit-design/index.html"
    ],
@@ -14755,6 +14755,11 @@
    "kind": "notes",
    "placement": "discrete-mathematics › first-order-logic › first-order-resolution-and-unification",
    "detail": "published lesson \"first-order-resolution-and-unification\" (PUBLISHED 2026-11-03, topics/first-order-resolution-and-unification/, 10 scenes, 40 caption segments, syllabus-coverage.json unit 'Logic: Propositional and first order logic - the first-order half of the inference procedure') serves no notes card. Checked against transcript.md, not the alias list, it genuinely covers: terms as finite trees, substitutions and their composition, the disagreement set and the unification walk, the occurs check, the most general unifier and renaming apart, prenex form and Skolemisation with arity from the universals to the left, first-order resolution with unification and factoring, soundness, Herbrand ground instances with the lifting lemma, semi-decidability, and equality via paramodulation. The notes topic discrete-mathematics › first-order-logic holds ten cards and none covers unification, Skolemisation or first-order resolution; fol-quantifier-inference-rules stops at universal/existential instantiation and generalisation, and resolution-refutation is propositional. Write content/subjects/discrete-mathematics/first-order-logic/first-order-resolution-and-unification.json with prereqs resolution-refutation and fol-quantifier-inference-rules."
+  },
+  {
+   "kind": "notes",
+   "placement": "compiler-design › parsing › canonical-lr1-items-and-lalr-merging",
+   "detail": "visual lesson \"canonical-lr1-items-and-lalr-merging\" (PUBLISHED 2026-11-03; syllabus-coverage.json places it at Compiler Design › Section 7 parsing › Canonical LR(1) items and the LALR(1) merge, 7 subtopics, 20 microtopics, 10 scenes) serves no notes card: content/index.json map[] holds 0 compiler-design cards and content/syllabus.json marks compiler-design › parsing material \"planned\". Its transcript covers the LR(1) item and its lookahead, closure with FIRST(beta a), GOTO and the canonical collection, the local reduce rule against FOLLOW, merging by core with union of lookaheads, and a grammar that is LR(1) but not LALR(1). Write content/subjects/compiler-design/parsing/canonical-lr1-items-and-lalr-merging.json"
   }
  ]
 }
