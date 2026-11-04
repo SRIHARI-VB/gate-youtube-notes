@@ -4821,11 +4821,11 @@
     "unit_slug": "memory-management-unit",
     "unit_name": "Main Memory & Virtual Memory Interface",
     "unit_number": 4,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "DRAM & SRAM organization",
-     "Effective access time",
      "Paging & TLB hit ratio",
+     "Effective access time",
      "Segmentation"
     ],
     "verdict": "MOCK_CAPPED"
@@ -4839,9 +4839,9 @@
    },
    "evidence": [
     "notes content/index.json map[].path = subjects/computer-organization-and-architecture/memory-hierarchy-and-cache/memory-interleaving-high-and-low-order.json",
-    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=memory-management-unit (50 records)",
-    "mock url: runs[] last entry for unit memory-management-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html",
-    "visual: gate-visual-explainer/topics.json slug=memory-interfacing-and-interleaving; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text"
+    "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=memory-management-unit (75 records, last run 15 dated 2026-11-04)",
+    "visual: gate-visual-explainer/topics.json slug=memory-interfacing-and-interleaving; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against transcript.md scene text",
+    "mock url: runs[] last entry for unit memory-management-unit -> https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-11-04.html"
    ],
    "row_verdict": "BOTH"
   },
@@ -14140,6 +14140,11 @@
   },
   {
    "kind": "notes",
+   "placement": "computer-networks › ipv4-addressing",
+   "detail": "published lesson \"vlsm-subnet-design-longest-prefix-and-aggregation\" (\"VLSM Subnet Design, Longest Prefix Match and Aggregation\", Computer Networks, syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-04, 10 scenes and 40 caption segments in topics/vlsm-subnet-design-longest-prefix-and-aggregation/) serves no notes card: content/index.json holds no computer-networks subject, and content/syllabus.json lists computer-networks > ipv4-addressing (\"IPv4: Fragmentation, CIDR and NAT\") as material \"planned\". Content checked against topics/vlsm-subnet-design-longest-prefix-and-aggregation/transcript.md, not the alias list: a block as 2^(32-p) at a multiple of its own size, splitting into 2^k equal subnets at prefix p+k, usable = 2^h - 2 with the /31 and /32 exceptions, a host requirement converted to the smallest prefix, largest-first allocation with the alignment check, the free space as five maximal aligned blocks (62 free in 2, 4, 8, 16, 32), longest prefix match and the binary-trie walk, sibling-prefix aggregation and the hole kept beside an aggregate. Recommendation: write content/subjects/computer-networks/ipv4-addressing/vlsm-subnet-design.json and link it to lesson slug vlsm-subnet-design-longest-prefix-and-aggregation."
+  },
+  {
+   "kind": "notes",
    "placement": "computer-networks › network-fundamentals-framing",
    "detail": "mock unit \"Layering, Physical & Framing\" (unit_number 1, 100 questions in computer-networks/question-bank/master_bank.json after run 19 on 2026-11-03, above the 50-question cap so MOCK_CAPPED; last paper computer-networks/network-fundamentals-framing/gate_cn_mock_1_2026-11-03.html) serves no notes card because no computer-networks subject holds cards in content/index.json; subtopic_label groups: Delays & bandwidth-delay product 26, OSI & TCP/IP models 25, CRC checksum & Hamming 25, Framing bit & byte stuffing 24. Write the card under computer-networks › principles-of-layering, switching-and-performance-metrics and data-link-layer, all material=planned in content/syllabus.json."
   },
@@ -14736,7 +14741,7 @@
   {
    "kind": "mock",
    "placement": "algorithms › searching-sorting-hashing",
-   "detail": "mock unit \"Hashing & Hash Tables\" (unit_number 7, unit_slug hashing, 50 questions, Set 2 of 2 added 2026-11-01 as run 14, paper programming-data-structures/hashing/gate_ds_mock_7_2026-11-01.html) serves no notes card: content/index.json holds no hashing group under any subject. Its subtopic_label groups are Hash functions 13, Load factor & rehashing 12, Open addressing: linear, quadratic & double 7, Open addressing: linear, quadratic, double 7, Collision resolution: chaining 6, Collision resolution by chaining 5. The unit is at the 50-question cap (MOCK_CAPPED), so the next Programming and Data Structures run advances to programming-data-structures/c-programming-core. Recommendation: write the first hashing cards under content/subjects/algorithms/searching-sorting-hashing/ (planned in content/syllabus.json), which also serves the published lesson hashing."
+   "detail": "mock unit \"Hashing & Hash Tables\" (unit_number 7, unit_slug hashing, 75 records in programming-data-structures/question-bank/master_bank.json after run 21 on 2026-11-04, above the 50-question cap so MOCK_CAPPED, paper programming-data-structures/hashing/gate_ds_mock_7_2026-11-04.html) serves no notes card: content/index.json holds no hashing group under any subject. Groups by subtopic: Hash functions 20, Open addressing: linear, quadratic & double hashing 21, Load factor & rehashing 18, Collision resolution: chaining 16. By the run's own modulo rule ((index_of(hashing) = 6 + 1) mod 7 = 0) the next Programming and Data Structures set advances to Unit 1, C Programming Foundations (c-programming-core). Recommendation: write the first hashing cards under content/subjects/algorithms/searching-sorting-hashing/ (planned in content/syllabus.json), which also serves the published lesson hashing."
   },
   {
    "kind": "notes",

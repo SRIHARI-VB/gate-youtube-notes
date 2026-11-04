@@ -41169,32 +41169,32 @@ window.GATE_DATA = {
    "sourceLine": "Addresses distributed across modules round-robin, the high-order arrangement in which the most significant bits name the module and the low-order arrangement in which the least significant bits do, with the benefit stated as bandwidth: GeeksforGeeks, Memory Interleaving (English, read in full). Banks of chips selected by decoded high-order bits: UBC ELEX 2117 lecture 9 notes (English, read in part). The timing arithmetic on this card is recomputed in scripts/validate.py.",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-10-31",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "computer-architecture",
      "unit_slug": "memory-management-unit",
      "unit_name": "Main Memory & Virtual Memory Interface",
      "unit_number": 4,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "DRAM & SRAM organization",
-       "questions": 13
+       "questions": 19
       },
       {
        "label": "Paging & TLB hit ratio",
-       "questions": 17
+       "questions": 26
       },
       {
        "label": "Effective access time",
-       "questions": 11
+       "questions": 17
       },
       {
        "label": "Segmentation",
-       "questions": 9
+       "questions": 13
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/computer-architecture/memory-management-unit/gate_co_mock_4_2026-11-04.html"
     },
     "visual": {
      "slug": "memory-interfacing-and-interleaving",
