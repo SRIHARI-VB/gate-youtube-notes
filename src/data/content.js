@@ -2711,7 +2711,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -2736,9 +2736,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2750,7 +2774,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2819,7 +2843,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -2844,9 +2868,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2859,7 +2907,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -2934,7 +2982,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -2959,9 +3007,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -2974,7 +3046,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3043,7 +3115,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3068,9 +3140,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3081,7 +3177,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3149,7 +3245,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3174,9 +3270,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3188,7 +3308,7 @@ window.GATE_DATA = {
       "valid argument forms"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3256,7 +3376,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3281,9 +3401,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3294,7 +3438,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3362,7 +3506,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3387,9 +3531,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3400,7 +3568,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/propositional-logic/index.html"
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3469,7 +3637,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3494,9 +3662,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3507,7 +3699,7 @@ window.GATE_DATA = {
       "valid argument forms"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3574,7 +3766,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3599,9 +3791,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "resolution-refutation-and-horn-clauses",
@@ -3618,7 +3834,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/resolution-refutation-and-horn-clauses/index.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3685,7 +3901,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3710,9 +3926,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3724,7 +3964,7 @@ window.GATE_DATA = {
       "truth tables"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
@@ -3892,7 +4132,7 @@ window.GATE_DATA = {
      "unit_slug": "propositional-logic",
      "unit_name": "Propositional Logic",
      "unit_number": 1,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "CNF / DNF",
@@ -3917,9 +4157,33 @@ window.GATE_DATA = {
       {
        "label": "Validity & satisfiability",
        "questions": 8
+      },
+      {
+       "label": "cnf-dnf",
+       "questions": 4
+      },
+      {
+       "label": "implications-and-inference",
+       "questions": 5
+      },
+      {
+       "label": "logical-equivalences",
+       "questions": 4
+      },
+      {
+       "label": "propositions-and-connectives",
+       "questions": 5
+      },
+      {
+       "label": "truth-tables",
+       "questions": 4
+      },
+      {
+       "label": "validity-and-satisfiability",
+       "questions": 3
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
     },
     "visual": {
      "slug": "propositional-logic",
@@ -3932,7 +4196,7 @@ window.GATE_DATA = {
       "logical equivalence"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "discrete-mathematics",
    "topic": "propositional-logic",
