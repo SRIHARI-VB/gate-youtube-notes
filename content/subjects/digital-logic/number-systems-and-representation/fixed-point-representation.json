@@ -100,7 +100,7 @@
     "visual": {
       "slug": "fixed-point-arithmetic",
       "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
-      "level": "subtopic-level",
+      "level": "topic-level",
       "covers": [
         "the format and the scale: value = k / 2^f",
         "the window and the step, and the asymmetry of two's complement",
@@ -108,6 +108,6 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04"
   }
 }

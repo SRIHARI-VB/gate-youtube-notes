@@ -23122,7 +23122,7 @@ window.GATE_DATA = {
     "visual": {
      "slug": "exponential-and-poisson-distributions",
      "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
       "the Poisson mass function e^-lambda lambda^k / k! and its normalisation",
@@ -23264,7 +23264,7 @@ window.GATE_DATA = {
     "visual": {
      "slug": "exponential-and-poisson-distributions",
      "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
       "the exponential density lambda e^-lambda x and its tail e^-lambda x",
@@ -25950,7 +25950,7 @@ window.GATE_DATA = {
     "visual": {
      "slug": "multi-event-independence",
      "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "mutual independence quantifies over every subset of size two or more, not over the pairs",
       "2^n - n - 1 conditions: 1, 4, 11, 26, 57 for two to six events",
@@ -25961,7 +25961,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "discrete-probability",
@@ -26232,13 +26232,13 @@ window.GATE_DATA = {
     "visual": {
      "slug": "bayes-theorem-as-revision",
      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the law of total probability as the denominator"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "discrete-probability",
@@ -26403,14 +26403,14 @@ window.GATE_DATA = {
     "visual": {
      "slug": "bayes-theorem-as-revision",
      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the three inputs of a Bayes question: prior, likelihood, evidence",
       "the partition requirement: disjoint, exhaustive, positive evidence"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "conditional-probability-and-bayes",
@@ -26510,13 +26510,13 @@ window.GATE_DATA = {
     "visual": {
      "slug": "bayes-theorem-as-revision",
      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the odds form and the likelihood ratio"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "discrete-probability",
@@ -26645,13 +26645,13 @@ window.GATE_DATA = {
     "visual": {
      "slug": "bayes-theorem-as-revision",
      "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the base-rate case: prevalence, sensitivity and specificity"
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "discrete-mathematics",
      "unit_slug": "discrete-probability",
@@ -27915,7 +27915,7 @@ window.GATE_DATA = {
     "visual": {
      "slug": "fixed-point-arithmetic",
      "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
-     "level": "subtopic-level",
+     "level": "topic-level",
      "covers": [
       "the format and the scale: value = k / 2^f",
       "the window and the step, and the asymmetry of two's complement",
@@ -27923,7 +27923,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/fixed-point-arithmetic/index.html"
     },
-    "mapped_at": "2026-11-03"
+    "mapped_at": "2026-11-04"
    },
    "subject": "digital-logic",
    "topic": "number-systems-and-representation",

@@ -81,7 +81,7 @@
     "visual": {
       "slug": "multi-event-independence",
       "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
-      "level": "subtopic-level",
+      "level": "topic-level",
       "covers": [
         "mutual independence quantifies over every subset of size two or more, not over the pairs",
         "2^n - n - 1 conditions: 1, 4, 11, 26, 57 for two to six events",
@@ -92,7 +92,7 @@
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/multi-event-independence/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
       "subject": "discrete-mathematics",
       "unit_slug": "discrete-probability",

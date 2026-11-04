@@ -125,7 +125,7 @@
     "visual": {
       "slug": "exponential-and-poisson-distributions",
       "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
-      "level": "subtopic-level",
+      "level": "topic-level",
       "covers": [
         "the count against the wait: Poisson on the whole numbers, exponential on the positive reals",
         "the exponential density lambda e^-lambda x and its tail e^-lambda x",

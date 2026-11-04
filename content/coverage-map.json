@@ -6457,7 +6457,7 @@
         "slug": "fixed-point-arithmetic",
         "title": "Fixed-Point Arithmetic: The Scaling Convention, the Aligned Sum, the Double-Width Product and the Resolution–Range Trade",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12146,7 +12146,7 @@
         "slug": "multi-event-independence",
         "title": "Independence beyond two events: pairwise, mutual and conditional independence, with the two counterexamples that separate them",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12226,7 +12226,7 @@
         "slug": "bayes-theorem-as-revision",
         "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12281,7 +12281,7 @@
         "slug": "bayes-theorem-as-revision",
         "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12306,7 +12306,7 @@
         "slug": "bayes-theorem-as-revision",
         "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12346,7 +12346,7 @@
         "slug": "bayes-theorem-as-revision",
         "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12940,7 +12940,7 @@
         "slug": "exponential-and-poisson-distributions",
         "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -12979,7 +12979,7 @@
         "slug": "exponential-and-poisson-distributions",
         "title": "The Exponential and Poisson Distributions: One Rate, Two Questions, and the Four Places the Arithmetic Breaks",
         "coverage_status": "PUBLISHED",
-        "level": "subtopic-level",
+        "level": "topic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [

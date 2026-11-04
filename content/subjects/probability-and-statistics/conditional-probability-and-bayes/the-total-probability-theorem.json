@@ -95,13 +95,13 @@
     "visual": {
       "slug": "bayes-theorem-as-revision",
       "title": "Bayes' Theorem as a Revision Rule: Prior, Likelihood, Evidence, Posterior",
-      "level": "subtopic-level",
+      "level": "topic-level",
       "covers": [
         "the law of total probability as the denominator"
       ],
       "url": "https://gate-visual-explainer.vercel.app/topics/bayes-theorem-as-revision/index.html"
     },
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
       "subject": "discrete-mathematics",
       "unit_slug": "discrete-probability",
