@@ -14096,7 +14096,7 @@
   {
    "kind": "notes",
    "placement": "algorithms › greedy-algorithms",
-   "detail": "mock unit \"Greedy Algorithms\" (unit_number 3, 50 questions) serves no notes card; subtopic groups: activity-selection-interval-scheduling 13, fractional-knapsack 13, huffman-coding 12, optimal-merge-patterns 12"
+   "detail": "mock unit \"Greedy Algorithms\" (unit_number 3, unit_slug greedy-algorithms, 75 questions in algorithms/question-bank/master_bank.json after run 17 on 2026-11-04, above the 50-question cap so MOCK_CAPPED; latest paper algorithms/greedy-algorithms/gate_algo_mock_3_2026-11-04.html, 25 items ALG-U3-Q51..Q75) serves no notes card: content/index.json map[] holds 0 algorithms cards and content/syllabus.json marks every algorithms topic material \"planned\". Subtopic groups (subtopic_label where the record carries one, subtopic slug otherwise): fractional-knapsack 20, huffman-coding 19, activity-selection-interval-scheduling 18, optimal-merge-patterns 18. Every unit of the subject now stands at or above the cap (75, 75, 75, 50, 50, 50, 50), so the rotation advances one unit to unit 4, Dynamic Programming (50 questions). Write content/subjects/algorithms/greedy-algorithms/fractional-knapsack.json, huffman-coding.json, activity-selection-interval-scheduling.json and optimal-merge-patterns.json"
   },
   {
    "kind": "notes",
@@ -15077,6 +15077,11 @@
    "kind": "notes",
    "placement": "computer-networks › tcp-and-congestion-control › tcp-retransmission-timeout-and-rtt-estimation",
    "detail": "the visual lesson tcp-retransmission-timeout-and-rtt-estimation (PUBLISHED 2026-11-04, topics.json updated 2026-11-04) covers TCP's retransmission timeout and RTT estimation - the first-measurement rule SRTT = R, RTTVAR = R/2, RTO = 3R; the alpha = 1/8, beta = 1/4 update order; the one-second floor; Karn's rule; and the doubling ladder to a 60 s ceiling - but no notes card exists: content/index.json map[] holds 0 computer-networks cards and content/syllabus.json marks computer-networks/tcp-and-congestion-control material \"planned\". The neighbouring lesson tcp-flow-congestion-control-and-sockets is equally uncarded. Write content/subjects/computer-networks/tcp-and-congestion-control/tcp-retransmission-timeout-and-rtt-estimation.json"
+  },
+  {
+   "kind": "notes",
+   "placement": "computer-networks › tcp-and-congestion-control › tcp-window-scaling-and-timestamps",
+   "detail": "published lesson \"TCP Window Scaling and Timestamps: the 16-bit Window Field, the Shift Count, PAWS and RTTM\" (slug tcp-window-scaling-and-timestamps, syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-04, 10 scenes and 40 caption segments in topics/tcp-window-scaling-and-timestamps/) serves no notes card: content/index.json holds no computer-networks subject, and content/syllabus.json lists computer-networks › tcp-and-congestion-control as material \"planned\". Checked against topics/tcp-window-scaling-and-timestamps/transcript.md scenes 1-10, it genuinely covers the 16-bit window field and its 65,535-byte ceiling (5,242,800 bit/s on a 100 ms path), the bandwidth-delay product, the kind-3 shift option with the true window SEG.WND << s and the ladder to count 14, the both-directions handshake rule and the unscaled SYN window field, the two shift counters and the 2^(difference) error factor, the ten-byte kind-8 timestamps option, and PAWS with the 24-day invalidation. The mock unit \"Transport Layer: TCP, UDP & Congestion\" (unit_number 5) carries the matching records under Flow control & sliding window (18). Write content/subjects/computer-networks/tcp-and-congestion-control/tcp-window-scaling-and-timestamps.json"
   }
  ]
 }
