@@ -9334,13 +9334,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9380,13 +9374,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9426,13 +9414,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9472,13 +9454,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9518,13 +9494,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9564,13 +9534,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9610,13 +9574,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9656,13 +9614,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9702,13 +9654,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9748,13 +9694,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -9833,13 +9773,7 @@
           "Logical equivalences",
           "Propositions & connectives",
           "Truth tables",
-          "Validity & satisfiability",
-          "cnf-dnf",
-          "implications-and-inference",
-          "logical-equivalences",
-          "propositions-and-connectives",
-          "truth-tables",
-          "validity-and-satisfiability"
+          "Validity & satisfiability"
         ],
         "verdict": "MOCK_CAPPED"
       },
@@ -14201,7 +14135,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › ipv4-subnetting",
-      "detail": "mock unit \"Network Layer: IP Addressing & Subnetting\" (unit_number 3) now holds 75 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: IPv4 header & fragmentation 19, Classful vs classless & CIDR 19, Subnet masking & supernetting 19, IPv6 basics & differences 18; latest paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-11-01.html (runs[] run 15); the rotation advances to unit 4, Network Layer: Routing & Protocols"
+      "detail": "mock unit \"Network Layer: IP Addressing & Subnetting\" (unit_number 3, unit_slug ipv4-subnetting) now holds 100 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: IPv4 header & fragmentation 26, Classful vs classless & CIDR 25, Subnet masking & supernetting 25, IPv6 basics & differences 24; latest paper computer-networks/ipv4-subnetting/gate_cn_mock_3_2026-11-04.html (runs[] run 21, 2026-11-04); the rotation advances to unit 4, Network Layer: Routing & Protocols. Write content/subjects/computer-networks/ipv4-addressing/ipv4-header-fragmentation.json, classful-vs-classless-cidr.json, subnet-masking-supernetting.json and ipv6-basics-differences.json"
     },
     {
       "kind": "notes",
@@ -15167,6 +15101,11 @@
       "kind": "notes",
       "placement": "databases › transactions-and-concurrency-control › view-serialisability-and-blind-writes",
       "detail": "visual lesson \"view-serialisability-and-blind-writes\" (PUBLISHED 2026-11-04, topics/view-serialisability-and-blind-writes/, 10 scenes, syllabus-coverage.json unit \"Transactions and concurrency control\", coverage_status PUBLISHED) serves no notes card: content/index.json map[] holds no databases subject, so 0 of its 385 cards can carry it. Checked against transcript.md, the 10 scenes genuinely cover view equivalence as three observations (initial reads, read-from, final writes), the T_init/T_final read-from table, the cyclic-precedence-graph witness rT1 wT2 wT1 wT3 that is view but not conflict serialisable, blind writes as necessary and not sufficient, the enumerated families (12 / 210 / 560 interleavings), and the four-class ladder serial inside conflict inside view inside final-state with why protocols stop at conflict. Recommendation: write content/subjects/databases/transactions-and-concurrency-control/view-serialisability-and-blind-writes.json, which also gives the sibling mock unit \"Transactions & Concurrency Control\" (unit_number 4, 75 questions) its second card."
+    },
+    {
+      "kind": "notes",
+      "placement": "compiler-design › parsing › left-recursion-elimination-and-left-factoring",
+      "detail": "visual lesson \"left-recursion-elimination-and-left-factoring\" (\"Eliminating Left Recursion and Left Factoring: the Three Routes, the Ordered Algorithm and the Fixed Point\", category compiler-design, syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-04, 10 scenes and 40 caption segments in topics/left-recursion-elimination-and-left-factoring/) serves no notes card: content/index.json map[] holds 0 compiler-design cards and content/syllabus.json marks compiler-design › parsing material \"planned\". Checked against transcript.md and its 29 microtopics, not its alias list: it covers the direct rewrite A -> beta A', A' -> alpha A' | epsilon and the epsilon that carries \"zero or more\", the production count n + m + 1, the left-corner closure with the nullable-prefix jump for indirect and hidden recursion, the ordered algorithm run on GATE CSE 1998 Q6b, left factoring to a fixed point, and why neither transformation is sufficient for LL(1). The mock side already holds compiler-design unit top-down-parsing (unit_number 2, 100 questions) with Left recursion & factoring 24. Write content/subjects/compiler-design/parsing/left-recursion-elimination.json and left-factoring.json"
     }
   ]
 }

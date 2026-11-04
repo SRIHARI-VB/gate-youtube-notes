@@ -2715,51 +2715,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -2847,51 +2823,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -2986,51 +2938,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3119,51 +3047,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3249,51 +3153,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3380,51 +3260,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3510,51 +3366,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3641,51 +3473,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3770,51 +3578,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -3905,51 +3689,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
@@ -4136,51 +3896,27 @@ window.GATE_DATA = {
      "subtopics": [
       {
        "label": "CNF / DNF",
-       "questions": 8
+       "questions": 12
       },
       {
        "label": "Implications & inference",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Logical equivalences",
-       "questions": 7
+       "questions": 11
       },
       {
        "label": "Propositions & connectives",
-       "questions": 9
+       "questions": 14
       },
       {
        "label": "Truth tables",
-       "questions": 9
+       "questions": 13
       },
       {
        "label": "Validity & satisfiability",
-       "questions": 8
-      },
-      {
-       "label": "cnf-dnf",
-       "questions": 4
-      },
-      {
-       "label": "implications-and-inference",
-       "questions": 5
-      },
-      {
-       "label": "logical-equivalences",
-       "questions": 4
-      },
-      {
-       "label": "propositions-and-connectives",
-       "questions": 5
-      },
-      {
-       "label": "truth-tables",
-       "questions": 4
-      },
-      {
-       "label": "validity-and-satisfiability",
-       "questions": 3
+       "questions": 11
       }
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/propositional-logic/gate_dm_mock_1_2026-11-04.html"
