@@ -44408,26 +44408,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Data types & operators",
-       "questions": 21
+       "questions": 29
       },
       {
        "label": "Control structures",
-       "questions": 18
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "c-fundamentals",
@@ -44441,7 +44441,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44534,26 +44534,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Data types & operators",
-       "questions": 21
+       "questions": 29
       },
       {
        "label": "Control structures",
-       "questions": 18
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "c-fundamentals",
@@ -44567,7 +44567,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44669,26 +44669,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Data types & operators",
-       "questions": 21
+       "questions": 29
       },
       {
        "label": "Control structures",
-       "questions": 18
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "sequencing-and-order-of-evaluation-in-c",
@@ -44704,7 +44704,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/sequencing-and-order-of-evaluation-in-c/index.html"
     },
-    "mapped_at": "2026-11-04"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44786,26 +44786,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Data types & operators",
-       "questions": 21
+       "questions": 29
       },
       {
        "label": "Control structures",
-       "questions": 18
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "c-fundamentals",
@@ -44819,7 +44819,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -44912,26 +44912,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
        "label": "Data types & operators",
-       "questions": 21
+       "questions": 29
       },
       {
        "label": "Control structures",
-       "questions": 18
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "functions-scope-and-preprocessor",
@@ -44944,7 +44944,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/functions-scope-and-preprocessor/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
@@ -45992,26 +45992,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46029,7 +46029,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46128,26 +46128,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46165,7 +46165,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46275,26 +46275,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46312,7 +46312,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46414,26 +46414,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46451,7 +46451,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46562,26 +46562,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46599,7 +46599,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46699,26 +46699,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46736,7 +46736,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46837,26 +46837,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -46874,7 +46874,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -46966,26 +46966,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -47003,7 +47003,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -47103,26 +47103,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -47140,7 +47140,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -47232,26 +47232,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -47269,7 +47269,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -47370,26 +47370,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -47407,7 +47407,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",
@@ -47507,26 +47507,26 @@ window.GATE_DATA = {
      "unit_slug": "c-programming-core",
      "unit_name": "C Programming Foundations",
      "unit_number": 1,
-     "question_count": 75,
+     "question_count": 100,
      "subtopics": [
       {
-       "label": "Control structures",
-       "questions": 18
+       "label": "Data types & operators",
+       "questions": 29
       },
       {
-       "label": "Data types & operators",
-       "questions": 21
+       "label": "Control structures",
+       "questions": 25
       },
       {
        "label": "Functions & parameter passing",
-       "questions": 18
+       "questions": 24
       },
       {
        "label": "Recursion & stack execution",
-       "questions": 18
+       "questions": 22
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
+     "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html"
     },
     "visual": {
      "slug": "recursion",
@@ -47544,7 +47544,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/recursion/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05"
    },
    "subject": "programming-and-data-structures",
    "topic": "recursion",

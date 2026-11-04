@@ -1,6 +1,6 @@
 {
   "generated_by": "gate-content-mapper",
-  "generated_at": "2026-11-04",
+  "generated_at": "2026-11-05",
   "playlists": [
     {
       "playlist_id": "PLIPZ2_p3RNHidhFvyKH4U_VE1rFAyvG8U",
@@ -13160,7 +13160,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13178,8 +13178,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/tokens-types-and-sizeof.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=c-fundamentals; syllabus-coverage.json microtopics checked against topics/c-fundamentals/index.html",
         "visual url: topics/c-fundamentals/index.html"
       ],
@@ -13198,7 +13198,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13216,8 +13216,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/integer-promotion-and-unsigned-wrap.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=c-fundamentals; syllabus-coverage.json microtopics checked against topics/c-fundamentals/index.html",
         "visual url: topics/c-fundamentals/index.html"
       ],
@@ -13236,7 +13236,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13254,8 +13254,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/operator-precedence-and-sequence-points.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] for unit_slug=c-programming-core -> 75 records, groups Data types & operators 21, Control structures 18, Functions & parameter passing 18, Recursion & stack execution 18",
-        "mock url: runs[] last entry for unit c-programming-core -> programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=sequencing-and-order-of-evaluation-in-c (created 2026-11-04); syllabus-coverage.json coverage_status PUBLISHED, 40 microtopics; coverage checked against topics/sequencing-and-order-of-evaluation-in-c/transcript.md scenes 1-10",
         "visual url: topics/sequencing-and-order-of-evaluation-in-c/index.html"
       ],
@@ -13274,7 +13274,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13292,8 +13292,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/control-flow-switch-fallthrough.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=c-fundamentals; syllabus-coverage.json microtopics checked against topics/c-fundamentals/index.html",
         "visual url: topics/c-fundamentals/index.html"
       ],
@@ -13312,7 +13312,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13330,8 +13330,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/call-by-value-and-the-activation-record.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=functions-scope-and-preprocessor; syllabus-coverage.json microtopics checked against topics/functions-scope-and-preprocessor/index.html",
         "visual url: topics/functions-scope-and-preprocessor/index.html"
       ],
@@ -13622,7 +13622,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13640,8 +13640,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-anatomy-base-and-recursive-case.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13660,7 +13660,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13678,8 +13678,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/termination-and-missing-base-cases.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13698,7 +13698,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13716,8 +13716,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/call-stack-activation-records-and-depth.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13736,7 +13736,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13754,8 +13754,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/descent-and-unwinding-order.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13774,7 +13774,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13792,8 +13792,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/counting-invocations-in-a-call-tree.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13812,7 +13812,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13830,8 +13830,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/linear-tree-and-nested-recursion.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13850,7 +13850,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13868,8 +13868,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-depth-and-logarithmic-recursion.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13888,7 +13888,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13906,8 +13906,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/tail-head-and-indirect-recursion.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13926,7 +13926,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13944,8 +13944,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/static-and-global-state-across-calls.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -13964,7 +13964,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -13982,8 +13982,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/tail-call-elimination-and-iteration.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -14002,7 +14002,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -14020,8 +14020,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/recursion-on-arrays-strings-and-digits.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -14040,7 +14040,7 @@
         "unit_slug": "c-programming-core",
         "unit_name": "C Programming Foundations",
         "unit_number": 1,
-        "question_count": 75,
+        "question_count": 100,
         "subtopic_labels": [
           "Control structures",
           "Data types & operators",
@@ -14058,8 +14058,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic_label for unit_slug=c-programming-core (100 records)",
+        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-05.html",
         "visual: topics.json slug=recursion (updated 2026-10-26); syllabus-coverage.json lesson_slug=recursion coverage_status=PUBLISHED; covers[] checked against transcript.md scene list",
         "visual url: topics/recursion/index.html"
       ],
@@ -15126,6 +15126,11 @@
       "kind": "notes",
       "placement": "algorithms › searching-sorting-hashing › selection-kth-element",
       "detail": "Published lesson \"deterministic-selection-median-of-medians\" (\"Deterministic Linear-Time Selection: Quickselect, Median of Medians and Why Five\", Algorithms, syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-04, 10 scenes in topics/deterministic-selection-median-of-medians/timeline.js and 37 microtopics) serves no notes card: content/index.json map[] holds 0 algorithms cards and content/syllabus.json marks every algorithms topic \"planned\". Content checked against topics/deterministic-selection-median-of-medians/transcript.md, not the alias list: the selection problem and what rank k means, quickselect partitioning and recursing into one side, the quadratic positional-pivot worst case, groups of five and the median of medians, the 3n/10 - 6 counting lemma, the recurrence T(n) <= T(n/5) + T(7n/10) + O(n) and why group size 5 rather than 3. The mock unit \"Divide and Conquer & Sorting\" (unit_number 2, unit_slug sorting-divide-conquer, 75 questions in algorithms/question-bank/master_bank.json, above the 50-question cap so MOCK_CAPPED) already carries selection-kth-element 18, and its latest paper is algorithms/sorting-divide-conquer/gate_algo_mock_2_2026-11-03.html (run 16, 2026-11-03). Recommendation: write content/subjects/algorithms/searching-sorting-hashing/selection-kth-element.json and set its links.visual to lesson slug deterministic-selection-median-of-medians."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › cfl-grammars › chomsky-normal-form-and-grammar-simplification",
+      "detail": "Published lesson \"chomsky-normal-form-and-grammar-simplification\" (topics.json title \"Chomsky Normal Form and Grammar Simplification: Four Passes, the Helper Counts and the 2n − 1 Arithmetic\", category theory-of-computation; syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-05, 10 scenes and 40 caption segments in transcript.md) serves no notes card: content/index.json holds 7 subjects and none of them is theory-of-computation. Content checked against transcript.md, not the alias list: it genuinely covers useless symbols (productive/reachable), epsilon-production removal with the nullable set, unit-production removal and unit pairs, the order of the passes, terminal isolation and binarisation into CNF, 2n-1 derivation steps and node counts, and membership by the triangular table with the 2^(k-1) length bound; Greibach normal form appears only as the comparison in scene 2. Write content/subjects/theory-of-computation/cfl-grammars/chomsky-normal-form-and-grammar-simplification.json and set its links.visual to slug chomsky-normal-form-and-grammar-simplification."
     }
   ]
 }
