@@ -12692,7 +12692,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12731,7 +12731,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12770,7 +12770,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12809,7 +12809,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12888,7 +12888,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12927,7 +12927,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -12966,7 +12966,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -13005,7 +13005,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -13044,7 +13044,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -13083,7 +13083,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -13122,7 +13122,7 @@
     "unit_slug": "probability-distributions",
     "unit_name": "Continuous Probability & Distributions",
     "unit_number": 5,
-    "question_count": 50,
+    "question_count": 75,
     "subtopic_labels": [
      "correlation-and-covariance",
      "exponential-distribution",
@@ -15072,6 +15072,11 @@
    "kind": "notes",
    "placement": "digital-logic › combinational-circuits › rom-and-pla",
    "detail": "lesson rom-pla-and-pal-programmable-logic (PUBLISHED 2026-11-04) teaches PAL as a first-class device - fixed OR plane, no product-term sharing, PAL16L8 at 64 rows x 32 columns = 2048 fuses, seven terms per output - while the card rom-and-pla carries PAL in one remember[] bullet and no sizing. Extend content/subjects/digital-logic/combinational-circuits/rom-and-pla.json rather than adding a card; the lesson is the source."
+  },
+  {
+   "kind": "notes",
+   "placement": "computer-networks › tcp-and-congestion-control › tcp-retransmission-timeout-and-rtt-estimation",
+   "detail": "the visual lesson tcp-retransmission-timeout-and-rtt-estimation (PUBLISHED 2026-11-04, topics.json updated 2026-11-04) covers TCP's retransmission timeout and RTT estimation - the first-measurement rule SRTT = R, RTTVAR = R/2, RTO = 3R; the alpha = 1/8, beta = 1/4 update order; the one-second floor; Karn's rule; and the doubling ladder to a 60 s ceiling - but no notes card exists: content/index.json map[] holds 0 computer-networks cards and content/syllabus.json marks computer-networks/tcp-and-congestion-control material \"planned\". The neighbouring lesson tcp-flow-congestion-control-and-sockets is equally uncarded. Write content/subjects/computer-networks/tcp-and-congestion-control/tcp-retransmission-timeout-and-rtt-estimation.json"
   }
  ]
 }

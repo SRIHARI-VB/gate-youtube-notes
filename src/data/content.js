@@ -22226,30 +22226,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "probability-and-random-variables",
@@ -22260,7 +22260,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22357,30 +22357,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "probability-and-random-variables",
@@ -22391,7 +22391,7 @@ window.GATE_DATA = {
       "random variables and expectation"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22495,30 +22495,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "probability-and-random-variables",
@@ -22530,7 +22530,7 @@ window.GATE_DATA = {
       "uniform, normal, exponential, Poisson, binomial distributions"
      ]
     },
-    "mapped_at": "2026-11-01"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22645,30 +22645,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "linearity-of-expectation",
@@ -22681,7 +22681,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/linearity-of-expectation/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -22943,30 +22943,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "binomial-distribution",
@@ -22980,7 +22980,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/binomial-distribution/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23094,30 +23094,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "exponential-and-poisson-distributions",
@@ -23131,7 +23131,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23236,30 +23236,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "exponential-and-poisson-distributions",
@@ -23272,7 +23272,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/exponential-and-poisson-distributions/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23386,30 +23386,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "uniform-distribution",
@@ -23423,7 +23423,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/uniform-distribution/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23528,30 +23528,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "normal-distribution",
@@ -23564,7 +23564,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/normal-distribution/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23679,30 +23679,30 @@ window.GATE_DATA = {
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "probability-and-random-variables",
@@ -23713,7 +23713,7 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-visual-explainer.vercel.app/topics/probability-and-random-variables/index.html"
     },
-    "mapped_at": "2026-10-31"
+    "mapped_at": "2026-11-04"
    },
    "subject": "probability-and-statistics",
    "topic": "random-variables-and-distributions",
@@ -23802,36 +23802,36 @@ window.GATE_DATA = {
    "sourceLine": "The reproductive property derived for the Poisson sum, and the statements that binomial and normal share it while the Bernoulli family does not: NPTEL Introduction to Probability Theory and Stochastic Processes, Lecture 30, IIT Delhi (English). The variance-addition condition: the GATE Overflow probability notes (English).",
    "videoRefs": [],
    "links": {
-    "mapped_at": "2026-11-03",
+    "mapped_at": "2026-11-04",
     "mock": {
      "subject": "engineering-mathematics",
      "unit_slug": "probability-distributions",
      "unit_name": "Continuous Probability & Distributions",
      "unit_number": 5,
-     "question_count": 50,
+     "question_count": 75,
      "subtopics": [
       {
        "label": "correlation-and-covariance",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "exponential-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "normal-distribution",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "random-variables-cdf-pdf",
-       "questions": 10
+       "questions": 15
       },
       {
        "label": "uniform-distribution",
-       "questions": 10
+       "questions": 15
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-10-30.html"
+     "url": "https://gate-cse-mocks.vercel.app/engineering-mathematics/probability-distributions/gate_em_mock_5_2026-11-04.html"
     },
     "visual": {
      "slug": "variance-of-a-sum-covariance-and-chebyshev",
