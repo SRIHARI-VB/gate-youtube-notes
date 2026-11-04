@@ -13312,18 +13312,18 @@
         "verdict": "MOCK_CAPPED"
       },
       "visual": {
-        "slug": "c-fundamentals",
-        "title": "C Fundamentals: Types, Operators and Control Flow",
+        "slug": "sequencing-and-order-of-evaluation-in-c",
+        "title": "Sequencing and Order of Evaluation in C: Sequence Points, Side Effects, and the Expressions That Have No Answer",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/programming-and-data-structures/programming-in-c/operator-precedence-and-sequence-points.json",
-        "mock: programming-data-structures/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=c-programming-core (50 records)",
-        "mock url: runs[] last entry for unit c-programming-core -> https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-10-26.html",
-        "visual: topics.json slug=c-fundamentals; syllabus-coverage.json microtopics checked against topics/c-fundamentals/index.html",
-        "visual url: topics/c-fundamentals/index.html"
+        "mock: programming-data-structures/question-bank/master_bank.json questions[] for unit_slug=c-programming-core -> 75 records, groups Data types & operators 21, Control structures 18, Functions & parameter passing 18, Recursion & stack execution 18",
+        "mock url: runs[] last entry for unit c-programming-core -> programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html",
+        "visual: topics.json slug=sequencing-and-order-of-evaluation-in-c (created 2026-11-04); syllabus-coverage.json coverage_status PUBLISHED, 40 microtopics; coverage checked against topics/sequencing-and-order-of-evaluation-in-c/transcript.md scenes 1-10",
+        "visual url: topics/sequencing-and-order-of-evaluation-in-c/index.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -14266,7 +14266,7 @@
     {
       "kind": "notes",
       "placement": "operating-systems › process-scheduling",
-      "detail": "mock unit \"Process Management & CPU Scheduling\" (unit_number 1) now holds 100 questions, over the 50-question cap (MOCK_CAPPED), and serves no notes card because no operating-systems subject exists in the notes repo; subtopic groups: Process states & PCB 25, Threads: user vs kernel 23, Preemptive vs non-preemptive 22, FCFS, SJF, SRTF, RR & priority 30; latest paper operating-systems/process-scheduling/gate_os_mock_1_2026-11-01.html (runs[] run 19, 2026-11-01). Write content/subjects/operating-systems/concurrency/process-scheduling.json"
+      "detail": "mock unit \"Process Management & CPU Scheduling\" (unit_number 1, unit_slug process-scheduling, 125 questions in operating-systems/question-bank/master_bank.json after run 25 on 2026-11-04, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json has no operating-systems subject, and content/syllabus.json marks the operating-system topics material \"planned\" with every subject outside Discrete Mathematics in not_covered_by_playlist. Groups over all 125 records: Process states & PCB 31, Threads: user vs kernel 29, Preemptive vs non-preemptive 28, FCFS, SJF, SRTF, RR & priority 37. Latest paper operating-systems/process-scheduling/gate_os_mock_1_2026-11-04.html (runs[] run 25, 25 items OS-U1-Q101..Q125). Write content/subjects/operating-systems/concurrency/process-scheduling.json"
     },
     {
       "kind": "notes",

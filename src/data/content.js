@@ -30541,7 +30541,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Digital Logic subject notes, the combinational-circuit sections",
      "channel": "GATE Overflow, subject page for Digital Logic",
-     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "url": "https://gateoverflow.in/subject/digital-logic",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -31418,7 +31418,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Digital Logic subject notes, the combinational-circuit sections",
      "channel": "GATE Overflow, subject page for Digital Logic",
-     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "url": "https://gateoverflow.in/subject/digital-logic",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -31526,7 +31526,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Digital Logic subject notes, the combinational-circuit sections",
      "channel": "GATE Overflow, subject page for Digital Logic",
-     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "url": "https://gateoverflow.in/subject/digital-logic",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -31646,7 +31646,7 @@ window.GATE_DATA = {
      "kind": "text",
      "title": "Digital Logic subject notes, the combinational-circuit sections",
      "channel": "GATE Overflow, subject page for Digital Logic",
-     "url": "https://gateoverflow.in/subject/digital-logic?tab=exams",
+     "url": "https://gateoverflow.in/subject/digital-logic",
      "language": "en",
      "transcript": "PARTIAL",
      "translated": false,
@@ -44955,18 +44955,20 @@ window.GATE_DATA = {
      "url": "https://gate-cse-mocks.vercel.app/programming-data-structures/c-programming-core/gate_ds_mock_1_2026-11-01.html"
     },
     "visual": {
-     "slug": "c-fundamentals",
-     "title": "C Fundamentals: Types, Operators and Control Flow",
-     "level": "topic-level",
+     "slug": "sequencing-and-order-of-evaluation-in-c",
+     "title": "Sequencing and Order of Evaluation in C: Sequence Points, Side Effects, and the Expressions That Have No Answer",
+     "level": "subtopic-level",
      "covers": [
-      "the precedence ladder from postfix down to the comma operator",
-      "bitwise &, ^, | sit below equality, so a & b == c is a & (b == c)",
-      "&& and || sequence their operands and short circuit",
-      "two unsequenced modifications of one object are undefined"
+      "precedence fixes the tree; it never orders the run",
+      "a postfix increment's value computation is sequenced before its store",
+      "the sequence points, including the comma operator, ?:, && and ||",
+      "6.5p2: an unsequenced store and another access to one scalar object is undefined",
+      "i++ + i++ gives {10, 11}: undefined is not merely unknown",
+      "i < n && a[i] == x is safe; the reversed operand order is not"
      ],
-     "url": "https://gate-visual-explainer.vercel.app/topics/c-fundamentals/index.html"
+     "url": "https://gate-visual-explainer.vercel.app/topics/sequencing-and-order-of-evaluation-in-c/index.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-04"
    },
    "subject": "programming-and-data-structures",
    "topic": "programming-in-c",
