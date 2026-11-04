@@ -14181,7 +14181,7 @@
     {
       "kind": "notes",
       "placement": "compiler-design › runtime-code-optimization",
-      "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, unit_slug runtime-code-optimization, 75 questions, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Subtopic groups: Activation records & the call stack 18, Basic blocks & flow graphs 19, Local & loop optimizations 19, Data-flow analysis & liveness 19. Latest paper compiler-design/runtime-code-optimization/gate_cd_mock_5_2026-11-01.html (run 15, 2026-11-01). Write content/subjects/compiler-design/runtime-environments-and-code-optimization/activation-records-and-the-call-stack.json plus sibling cards for the other three groups."
+      "detail": "mock unit \"Runtime Environments & Code Optimization\" (unit_number 5, unit_slug runtime-code-optimization, 100 questions after run 20 on 2026-11-04, above the 50-question cap so MOCK_CAPPED) serves no notes card: content/index.json carries no compiler-design subject. Subtopic groups by the subtopic field: Activation records & the call stack 24, Basic blocks & flow graphs 25, Local & loop optimizations 26, Data-flow analysis & liveness 25; the 25 questions CD-U5-Q26..Q50 also carry a subtopic_label in the same four names. Latest paper compiler-design/runtime-code-optimization/gate_cd_mock_5_2026-11-04.html (run 20, 2026-11-04); the 2026-11-01 paper is archived under archive/gate_cd_mock_5_2026-11-01_run3.html. Write content/subjects/compiler-design/runtime-environments-and-code-optimization/activation-records-and-the-call-stack.json plus sibling cards for the other three groups."
     },
     {
       "kind": "notes",
@@ -15152,6 +15152,11 @@
       "kind": "notes",
       "placement": "computer-networks › transport-layer",
       "detail": "visual lesson \"TCP Options: the 40-Byte Budget, the MSS Arithmetic and Window Retraction\" (slug tcp-options-mss-and-window-retraction, coverage_status PUBLISHED, syllabus-coverage.json, published 2026-11-04) serves no notes card because no computer-networks subject exists in content/index.json. It covers, checked against topics/tcp-options-mss-and-window-retraction/transcript.md: the 20-to-60-byte header and the 40-byte option area; option lengths MSS 4, window scale 3, SACK-permitted 2, timestamps 10, MD5 18 and the 19-to-20 rounding; MSS = MTU minus the fixed headers with 536 as the default; options cutting the data and not the MSS; the 2^s window step; window retraction bounded by 2^s - 1. Write the cards under computer-networks › transport-layer, which content/syllabus.json lists as not covered by any playlist, so this is an upstream transcript gap and must not be filled with invented content."
+    },
+    {
+      "kind": "notes",
+      "placement": "computer-networks › ipv4-addressing › path-mtu-discovery",
+      "detail": "visual lesson \"Path MTU Discovery and the Effective Send Size\" (slug path-mtu-discovery-and-effective-mss, coverage_status PUBLISHED, syllabus-coverage.json last_verified_date 2026-11-04, 10 scenes and 40 caption segments under topics/path-mtu-discovery-and-effective-mss/) serves no notes card because content/index.json holds no computer-networks subject; content/syllabus.json lists computer-networks topic ipv4-addressing (\"IPv4: Fragmentation, CIDR and NAT\") with material \"planned\". Checked against the lesson transcript and its 21 microtopics, not its alias list: the path MTU as the minimum hop against a 1400-byte path, the DF probe and ICMP type 3 code 4, the Next-Hop MTU field with the 68-octet floor, the RFC 1191 plateau search, effective send size = min(peer MSS, path ceiling), the four timers and ageing of a cached estimate, IPv6 Packet Too Big with the 1280 floor, and the black hole with MSS clamping and PLPMTUD. Write content/subjects/computer-networks/ipv4-addressing/path-mtu-discovery-and-effective-send-size.json; the nearest existing lesson is ip-fragmentation-cidr-and-nat, which carries MTU only at topic level."
     }
   ]
 }
