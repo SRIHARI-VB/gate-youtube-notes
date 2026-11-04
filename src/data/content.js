@@ -2113,7 +2113,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "mapped_at": "2026-11-03"
    },
@@ -5084,7 +5084,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5211,7 +5211,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5335,7 +5335,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5462,7 +5462,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
@@ -5582,7 +5582,7 @@ window.GATE_DATA = {
        "questions": 10
       }
      ],
-     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/gate_dm_mock_3_2026-10-25.html"
+     "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/set-theory/archive/gate_dm_mock_3_2026-10-25_run1.html"
     },
     "visual": {
      "slug": "sets-and-set-operations",
