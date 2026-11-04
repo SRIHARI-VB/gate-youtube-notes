@@ -14150,7 +14150,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › routing-protocols",
-      "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, 75 questions, paper computer-networks/routing-protocols/gate_cn_mock_4_2026-11-01.html dated 2026-11-01) serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups as the bank labels them: Distance vector & count to infinity 20, Link state, OSPF & Dijkstra 20, BGP & path vector 17, ARP, RARP, ICMP, DHCP & NAT 11, ARP, ICMP, DHCP & NAT 7"
+      "detail": "mock unit \"Network Layer: Routing & Protocols\" (unit_number 4, unit_slug routing-protocols, 100 questions in computer-networks/question-bank/master_bank.json, paper computer-networks/routing-protocols/gate_cn_mock_4_2026-11-04.html from the unit's last runs[] entry, dated 2026-11-04) and the published lesson distance-vector-and-link-state-routing both serve no notes card: content/syllabus.json lists computer-networks › routing-algorithms (\"Distance Vector and Link State Routing\", material planned) but content/index.json map[] holds 0 computer-networks cards. Bank subtopics, with the 2026-11-04 set's HTML-escaped labels merged into their plain forms: Distance vector & count to infinity 27, Link state, OSPF & Dijkstra 26, BGP & path vector 23, ARP/RARP/ICMP/DHCP & NAT 24"
     },
     {
       "kind": "notes",
@@ -15111,6 +15111,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › regular-languages-fa › myhill-nerode-and-distinguishability",
       "detail": "published lesson \"Myhill–Nerode and Distinguishability: The Classes That Are the States\" (slug myhill-nerode-and-distinguishability, PUBLISHED 2026-11-04, topics/myhill-nerode-and-distinguishability/, 10 scenes, 40 caption segments, syllabus-coverage.json unit \"Regular languages\", last_execution_status \"published 2026-11-04: 22/22 model checks, 10 scenes, 40 cues, geometry audit clean, checker PASS\") serves no notes card: content/index.json holds no theory-of-computation subject at all. Checked against transcript.md, the ten scenes genuinely cover x ~ y as agreement on every ending and the four properties including right-invariance, the signature set sig(x), the quotient construction with states = classes, the index, the lower bound and uniqueness of the minimal DFA up to relabelling, index counts for parity 4, binary mod 3 3, ends in 01 3, no two consecutive a’s 3, no three consecutive 1s 4, #a mod 2 with #b mod 3 6, a^(3k) 4 and third-symbol-from-the-end 8, a^n b^n by pairwise distinguishability, and the pumping lemma’s converse failing where the index does not. Recommendation: write content/subjects/theory-of-computation/regular-languages-fa/myhill-nerode-and-distinguishability.json; it is the card that matches the 55-question DFA construction & minimisation and 39-question pumping lemma groups of the regular-languages-fa unit."
+    },
+    {
+      "kind": "notes",
+      "placement": "algorithms › searching-sorting-hashing",
+      "detail": "lesson algorithm-correctness-loop-invariants (PUBLISHED, category algorithms in topics.json, created 2026-11-04, 10 scenes, 40 caption segments) serves no notes card: content/index.json map[] holds 0 algorithms cards and every algorithms topic in content/syllabus.json is material \"planned\". Checked against the lesson's transcript.md rather than its aliases: it genuinely covers the loop invariant and the three obligations (initialization, maintenance, exit argument with the failed guard), partial versus total correctness as separate claims, the variant as a positive integer that strictly falls, and applies them to binary search and a running maximum, with the GATE CSE 2008 erroneous binary search recomputed. Nearest existing cards are programming-and-data-structures › recursion › termination-and-missing-base-cases (recursion, not loops) and discrete-mathematics › propositional-logic › resolution-refutation (a different subject); neither serves it"
     }
   ]
 }
