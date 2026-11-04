@@ -2892,11 +2892,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -2910,8 +2910,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-idea-and-the-space-time-diagram.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -2929,11 +2929,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -2947,8 +2947,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/pipeline-registers-and-the-clock-period.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -2966,11 +2966,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -2984,8 +2984,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/ideal-timing-and-speedup-formula.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3003,11 +3003,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3021,8 +3021,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/throughput-efficiency-and-the-clock-rate-trade.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3040,11 +3040,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3058,8 +3058,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/cpi-with-stalls-the-performance-equation.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3077,11 +3077,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3095,8 +3095,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/structural-hazards.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3114,11 +3114,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3132,8 +3132,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/data-hazard-types-raw-war-waw.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3151,11 +3151,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3169,8 +3169,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/forwarding-and-its-limits.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3188,11 +3188,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3206,8 +3206,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/stalls-interlocks-and-bubbles.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3262,11 +3262,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3280,8 +3280,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/control-hazards-and-the-branch-penalty.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -3299,11 +3299,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
+          "Pipeline stages & throughput",
           "Control hazards & branch penalty",
           "Data hazards & forwarding",
-          "Pipeline stages & throughput",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3317,8 +3317,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/branch-prediction-and-its-payoff.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -15131,6 +15131,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › cfl-grammars › chomsky-normal-form-and-grammar-simplification",
       "detail": "Published lesson \"chomsky-normal-form-and-grammar-simplification\" (topics.json title \"Chomsky Normal Form and Grammar Simplification: Four Passes, the Helper Counts and the 2n − 1 Arithmetic\", category theory-of-computation; syllabus-coverage.json coverage_status PUBLISHED, last_verified_date 2026-11-05, 10 scenes and 40 caption segments in transcript.md) serves no notes card: content/index.json holds 7 subjects and none of them is theory-of-computation. Content checked against transcript.md, not the alias list: it genuinely covers useless symbols (productive/reachable), epsilon-production removal with the nullable set, unit-production removal and unit pairs, the order of the passes, terminal isolation and binarisation into CNF, 2n-1 derivation steps and node counts, and membership by the triangular table with the 2^(k-1) length bound; Greibach normal form appears only as the comparison in scene 2. Write content/subjects/theory-of-computation/cfl-grammars/chomsky-normal-form-and-grammar-simplification.json and set its links.visual to slug chomsky-normal-form-and-grammar-simplification."
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › turing-machines-and-undecidability › linear-bounded-automata",
+      "detail": "lesson slug linear-bounded-automata (gate-visual-explainer, PUBLISHED 2026-11-05, syllabus-coverage.json counts 185/185 published) covers the linear bounded automaton, its configuration count, non-contracting grammars, closure and the two LBA problems, and serves no notes card: content/index.json map[] holds 0 theory-of-computation cards and content/syllabus.json marks all four theory-of-computation topics \"planned\". Write content/subjects/theory-of-computation/turing-machines-and-undecidability/linear-bounded-automata.json"
     }
   ]
 }
