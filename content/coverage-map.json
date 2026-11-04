@@ -3225,11 +3225,11 @@
         "unit_slug": "pipelining",
         "unit_name": "Instruction Pipelining",
         "unit_number": 5,
-        "question_count": 50,
+        "question_count": 75,
         "subtopic_labels": [
-          "Control hazards & branch penalty",
-          "Data hazards & forwarding",
           "Pipeline stages & throughput",
+          "Data hazards & forwarding",
+          "Control hazards & branch penalty",
           "Structural hazards"
         ],
         "verdict": "MOCK_CAPPED"
@@ -3243,8 +3243,8 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/computer-organization-and-architecture/instruction-pipelining-and-hazards/software-fixes-scheduling-and-register-renaming.json",
-        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (50 records)",
-        "mock url: runs[] last entry for unit pipelining -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-10-31.html",
+        "mock: computer-architecture/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=pipelining (75 records)",
+        "mock url: runs[] last entry for unit pipelining (run 16, 2026-11-05) -> https://gate-cse-mocks.vercel.app/computer-architecture/pipelining/gate_co_mock_5_2026-11-05.html",
         "visual: gate-visual-explainer/topics.json slug=pipelining-and-hazards; syllabus-coverage.json coverage_status=PUBLISHED; covers checked against its microtopics for this card's content"
       ],
       "row_verdict": "BOTH"
@@ -14670,7 +14670,7 @@
     {
       "kind": "notes",
       "placement": "algorithms › graph-algorithms-traversals-mst",
-      "detail": "mock unit \"Graph Algorithms: Traversals & Spanning Trees\" (unit_number 5, 50 questions, at the 50-question cap) serves no notes card; content/index.json map[] holds 0 algorithms cards. Subtopic groups: bfs-dfs-edge-classification 14, kruskals-disjoint-set-union 12, prims-algorithm 12, topological-sort 12. Lesson graph-traversals-mst-shortest-paths covers edge classification, topological order and Prim/Kruskal at topic level but still has no card to sit on. Paper algorithms/graph-algorithms-traversals-mst/gate_algo_mock_5_2026-10-31.html"
+      "detail": "mock unit \"Graph Algorithms: Traversals & Spanning Trees\" (unit_number 5, unit_slug graph-algorithms-traversals-mst, 75 questions after run 19 on 2026-11-05 added Set 3, 25 questions ALG-U5-S3-Q01..Q25, paper algorithms/graph-algorithms-traversals-mst/gate_algo_mock_5_2026-11-05.html, the 2026-10-31 paper archived as algorithms/graph-algorithms-traversals-mst/archive/gate_algo_mock_5_2026-10-31_run2.html; above the 50-question cap so MOCK_CAPPED) serves no notes card; content/index.json map[] holds 0 algorithms cards. Subtopic groups counted from the bank: bfs-dfs-edge-classification 20, kruskals-disjoint-set-union 19, topological-sort 18, prims-algorithm 18. Lesson graph-traversals-mst-shortest-paths covers edge classification, topological order and Prim/Kruskal at topic level but still has no card to sit on. Write content/subjects/algorithms/graph-algorithms-traversals-mst/{bfs-dfs-edge-classification,topological-sort,prims-algorithm,kruskals-disjoint-set-union}.json"
     },
     {
       "kind": "mock",
@@ -15136,6 +15136,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › turing-machines-and-undecidability › linear-bounded-automata",
       "detail": "lesson slug linear-bounded-automata (gate-visual-explainer, PUBLISHED 2026-11-05, syllabus-coverage.json counts 185/185 published) covers the linear bounded automaton, its configuration count, non-contracting grammars, closure and the two LBA problems, and serves no notes card: content/index.json map[] holds 0 theory-of-computation cards and content/syllabus.json marks all four theory-of-computation topics \"planned\". Write content/subjects/theory-of-computation/turing-machines-and-undecidability/linear-bounded-automata.json"
+    },
+    {
+      "kind": "notes",
+      "placement": "theory-of-computation › cfl-grammars › ambiguity-in-grammars",
+      "detail": "published lesson ambiguity-of-context-free-grammars (PUBLISHED 2026-11-05, topics/ambiguity-of-context-free-grammars/, 10 scenes, 50 caption segments, syllabus-coverage.json places it at Theory of Computation, unit \"Section 6: Context-free grammars and push-down automata\") serves no notes card: content/index.json holds no theory-of-computation subject, and no card anywhere in content/subjects mentions grammar ambiguity. Checked against transcript.md, the scenes genuinely cover the two-distinct-parse-trees definition, the span-table counter and the Catalan counts, the levelled-grammar repair with the language check, the dangling-else witness and the matched/unmatched repair that fails, trees against leftmost derivations against derivation sequences, inherent ambiguity on the overlap language, and the Post's-correspondence reduction. Recommendation: write content/subjects/theory-of-computation/cfl-grammars/ambiguity-in-grammars.json, which also gives mock unit cfl-grammars (150 questions, 36 on Ambiguity in grammars) its first card."
     }
   ]
 }
