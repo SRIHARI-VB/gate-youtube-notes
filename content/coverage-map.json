@@ -6596,7 +6596,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6614,9 +6614,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sequential-circuit-definition-and-clock.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6633,7 +6633,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6651,9 +6651,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/sr-latch-nor-and-nand.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6670,7 +6670,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6688,9 +6688,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/gated-sr-latch-and-d-latch.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6707,7 +6707,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6725,9 +6725,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/edge-triggered-flip-flop-and-timing.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6744,7 +6744,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6762,9 +6762,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/d-and-jk-flip-flop-characteristic-equations.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6781,7 +6781,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6799,10 +6799,10 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/t-flip-flop-and-excitation-tables.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
         "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug flip-flop-conversion, coverage_status PUBLISHED; covers checked against topics/flip-flop-conversion/transcript.md",
-        "visual url: topics/flip-flop-conversion/index.html"
+        "visual url: topics/flip-flop-conversion/index.html",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -6819,7 +6819,7 @@
         "unit_slug": "sequential-flipflops",
         "unit_name": "Sequential Circuits: Flip-Flops & Registers",
         "unit_number": 3,
-        "question_count": 100,
+        "question_count": 125,
         "subtopic_labels": [
           "Latches vs flip-flops",
           "Setup and hold times",
@@ -6837,9 +6837,9 @@
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/digital-logic/sequential-circuits/registers-and-shift-registers.json",
-        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (100 records after run 15 on 2026-11-03); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 6 + 6 = 25",
-        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-03.html",
-        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md"
+        "visual: gate-visual-explainer/syllabus-coverage.json lesson_slug sequential-circuits, coverage_status PUBLISHED; covers checked against topics/sequential-circuits/transcript.md",
+        "mock: digital-logic/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=sequential-flipflops (125 records after run 19 on 2026-11-05); subtopic_label spelling variants merged by subtopic slug: setup-and-hold-times 13 + 13 + 6 = 32",
+        "mock url: runs[] last entry for unit sequential-flipflops -> https://gate-cse-mocks.vercel.app/digital-logic/sequential-flipflops/gate_dl_mock_3_2026-11-05.html"
       ],
       "row_verdict": "BOTH"
     },
@@ -8826,10 +8826,10 @@
       "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
       "transcript_status": "FULL",
       "visual": {
-        "slug": "group-isomorphism-and-invariants",
-        "title": "Group Isomorphism and the Invariant Hunt: Same Order Is Not the Same Group",
+        "slug": "group-homomorphisms-kernel-and-quotient",
+        "title": "Group Homomorphisms and the Kernel: Collapse, Quotient and the First Isomorphism Theorem",
         "coverage_status": "PUBLISHED",
-        "level": "topic-level",
+        "level": "subtopic-level",
         "verdict": "VISUAL_LESSON"
       },
       "evidence": [
@@ -8838,7 +8838,7 @@
         "visual check: topics/monoids-and-groups/transcript.md (11 scenes) and timeline.js contain no homomorphism or kernel content (0 mentions of each); the 3 mentions of 'isomorphism' are an element-order fingerprint remark in Scene 5 and Scene 9, not a homomorphism lesson, so VISUAL_MISSING",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
         "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html",
-        "visual (2026-11-05): topics.json slug=group-isomorphism-and-invariants; syllabus-coverage.json coverage_status PUBLISHED; transcript.md scenes 2-5 (definition, phi(e)/inverse/order, witness Z6->Z2xZ3, invariants) and scenes 5-9 (Z4 vs V4, Z6 vs S3, D4 vs Q8, order-16 counterexample) read against the card's remember items 3 and 6"
+        "visual (2026-11-05, second pass): topics.json slug=group-homomorphisms-kernel-and-quotient, syllabus-coverage.json coverage_status PUBLISHED, 9 subtopics; content checked against topics/group-homomorphisms-kernel-and-quotient/transcript.md (10 scenes) and timeline.js: kernel as preimage of identity, injective iff trivial kernel, image and |G|=|ker|x|im|, kernel is normal, cosets/quotient and well-defined multiplication, first isomorphism theorem, counting homomorphisms; dedicated to this card, so subtopic-level"
       ],
       "row_verdict": "BOTH",
       "mock": {
@@ -15142,6 +15142,11 @@
       "kind": "notes",
       "placement": "theory-of-computation › cfl-grammars › ambiguity-in-grammars",
       "detail": "published lesson ambiguity-of-context-free-grammars (PUBLISHED 2026-11-05, topics/ambiguity-of-context-free-grammars/, 10 scenes, 50 caption segments, syllabus-coverage.json places it at Theory of Computation, unit \"Section 6: Context-free grammars and push-down automata\") serves no notes card: content/index.json holds no theory-of-computation subject, and no card anywhere in content/subjects mentions grammar ambiguity. Checked against transcript.md, the scenes genuinely cover the two-distinct-parse-trees definition, the span-table counter and the Catalan counts, the levelled-grammar repair with the language check, the dangling-else witness and the matched/unmatched repair that fails, trees against leftmost derivations against derivation sequences, inherent ambiguity on the overlap language, and the Post's-correspondence reduction. Recommendation: write content/subjects/theory-of-computation/cfl-grammars/ambiguity-in-grammars.json, which also gives mock unit cfl-grammars (150 questions, 36 on Ambiguity in grammars) its first card."
+    },
+    {
+      "kind": "notes",
+      "placement": "discrete-mathematics › monoids-and-groups › normal-subgroups-and-quotient-groups",
+      "detail": "Lesson \"group-homomorphisms-kernel-and-quotient\" (topics.json, syllabus-coverage.json coverage_status PUBLISHED, 2026-11-05) devotes scenes 6-8 to material no notes card holds: the kernel is normal and non-normal subgroups are never kernels (S3 6 subgroups / 3 normal, D4 10 / 6), cosets and why coset multiplication needs normality (the {e,(2 3)} witness), the quotient group and the first isomorphism theorem verified on four maps. content/index.json map[] holds no card for normality, quotient groups or the first isomorphism theorem under discrete-mathematics › monoids-and-groups; the nearest card, group-homomorphism-and-kernel, stops at the kernel and injectivity. Recommend a card at subjects/discrete-mathematics/monoids-and-groups/normal-subgroups-and-quotient-groups.json."
     }
   ]
 }
