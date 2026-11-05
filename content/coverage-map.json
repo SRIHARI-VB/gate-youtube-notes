@@ -8826,20 +8826,21 @@
       "path": "subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
       "transcript_status": "FULL",
       "visual": {
-        "slug": "monoids-and-groups",
-        "title": "Monoids and Groups",
+        "slug": "group-isomorphism-and-invariants",
+        "title": "Group Isomorphism and the Invariant Hunt: Same Order Is Not the Same Group",
         "coverage_status": "PUBLISHED",
         "level": "topic-level",
-        "verdict": "VISUAL_MISSING"
+        "verdict": "VISUAL_LESSON"
       },
       "evidence": [
         "notes content/index.json map[].path = subjects/discrete-mathematics/monoids-and-groups/group-homomorphism-and-kernel.json",
         "visual: topics.json slug=monoids-and-groups; syllabus-coverage.json subtopics/microtopics checked against the card text",
         "visual check: topics/monoids-and-groups/transcript.md (11 scenes) and timeline.js contain no homomorphism or kernel content (0 mentions of each); the 3 mentions of 'isomorphism' are an element-order fingerprint remark in Scene 5 and Scene 9, not a homomorphism lesson, so VISUAL_MISSING",
         "mock: discrete-mathematics/question-bank/master_bank.json questions[] grouped by subtopic for unit_slug=algebraic-structures (50 records)",
-        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
+        "mock url: runs[] last entry (run 19, 2026-11-02) for unit algebraic-structures -> https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html",
+        "visual (2026-11-05): topics.json slug=group-isomorphism-and-invariants; syllabus-coverage.json coverage_status PUBLISHED; transcript.md scenes 2-5 (definition, phi(e)/inverse/order, witness Z6->Z2xZ3, invariants) and scenes 5-9 (Z4 vs V4, Z6 vs S3, D4 vs Q8, order-16 counterexample) read against the card's remember items 3 and 6"
       ],
-      "row_verdict": "MOCK_ONLY",
+      "row_verdict": "BOTH",
       "mock": {
         "subject": "discrete-mathematics",
         "unit_slug": "algebraic-structures",
@@ -14155,7 +14156,7 @@
     {
       "kind": "notes",
       "placement": "computer-networks › transport-layer",
-      "detail": "mock unit \"Transport Layer: TCP, UDP & Congestion\" (unit_number 5, 75 questions, over the 50-question cap, so MOCK_CAPPED) serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: TCP header & connection management 21, Flow control & sliding window 18, Congestion control: slow start & AIMD 18, UDP datagrams 12, UDP datagram simplicity 6; latest paper computer-networks/transport-layer/gate_cn_mock_5_2026-11-01.html (runs[] run 3); the rotation advances to unit 6, Application Layer & Network Security"
+      "detail": "mock unit \"Transport Layer: TCP, UDP & Congestion\" (unit_number 5, 100 questions, over the 50-question cap, so MOCK_CAPPED) serves no notes card because no computer-networks subject exists in the notes repo; subtopic groups: Congestion control: slow start & AIMD 24, Flow control & sliding window 24, TCP header & connection management 21, TCP header, handshake & connection close 7, UDP datagram simplicity 6, UDP datagrams 12, UDP: datagram simplicity 6; latest paper computer-networks/transport-layer/gate_cn_mock_5_2026-11-05.html (runs[] run 23, 2026-11-05); the 2026-11-05 run added CN-U5-Q76..Q100, taking the unit from 75 to 100, and introduced three label variants for two existing subtopics (\"TCP header, handshake & connection close\", \"UDP: datagram simplicity\") alongside the older wording, so the bank now carries 7 distinct subtopic_label strings for 4 subtopics; write content/subjects/computer-networks/transport-layer/tcp-header-handshake-connection-close.json, udp-datagram-simplicity.json, flow-control-sliding-window.json, congestion-control-slow-start-aimd.json"
     },
     {
       "kind": "notes",

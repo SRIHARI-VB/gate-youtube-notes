@@ -9195,7 +9195,20 @@ window.GATE_DATA = {
      ],
      "url": "https://gate-cse-mocks.vercel.app/discrete-mathematics/algebraic-structures/gate_dm_mock_12_2026-11-02.html"
     },
-    "mapped_at": "2026-11-02"
+    "mapped_at": "2026-11-05",
+    "visual": {
+     "slug": "group-isomorphism-and-invariants",
+     "title": "Group Isomorphism and the Invariant Hunt: Same Order Is Not the Same Group",
+     "level": "topic-level",
+     "covers": [
+      "isomorphism is a bijection with phi(a*b) = phi(a)*phi(b)",
+      "phi(e) = e, phi(a^-1) = phi(a)^-1, and order(phi(a)) = order(a)",
+      "invariants: order, abelianness, element-order profile",
+      "Z4 against V4: same order, different element orders",
+      "a matching invariant proves nothing: Z4xZ4 against Q8xZ2 at order 16"
+     ],
+     "url": "https://gate-visual-explainer.vercel.app/topics/group-isomorphism-and-invariants/index.html"
+    }
    },
    "subject": "discrete-mathematics",
    "topic": "monoids-and-groups",
