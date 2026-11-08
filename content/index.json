@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 7,
-    "topics": 405,
-    "pyqs": 337,
+    "topics": 416,
+    "pyqs": 347,
     "videos": 39,
     "playlists": 3
   },
@@ -6060,6 +6060,169 @@
       "pyqs": [
         "gate-2017-set-1-q08-join-two-lists"
       ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "tree-and-binary-tree-terminology",
+      "title": "Trees and Binary Trees: The Words GATE Uses",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/tree-and-binary-tree-terminology.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set-2-q3-two-child-nodes"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "binary-tree-node-and-height-bounds",
+      "title": "Counting Nodes: Level, Height and the Catalan Count",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-tree-node-and-height-bounds.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set-1-q6-bst-15-nodes-height",
+        "gate-2016-set-2-q40-insertion-orders-height-6"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "binary-tree-representations",
+      "title": "Two Ways to Store a Binary Tree",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-tree-representations.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "tree-traversals-and-their-orders",
+      "title": "Preorder, Inorder, Postorder: Three Walks of One Shape",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/tree-traversals-and-their-orders.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-q5-preorder-to-postorder",
+        "gate-2017-set-2-q36-preorder-to-postorder",
+        "gate-2026-set-1-q52-bst-preorder-postorder-position"
+      ],
+      "visual": "programming-and-data-structures/trees-and-binary-search-trees/traversal-orders",
+      "variations": 2
+    },
+    {
+      "topic": "level-order-traversal-and-the-queue",
+      "title": "Level Order: The One Traversal That Needs a Queue",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/level-order-traversal-and-the-queue.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "reconstructing-a-tree-from-traversals",
+      "title": "Rebuilding the Shape from Traversals",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/reconstructing-a-tree-from-traversals.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-q35-traversal-pairs-unique"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "binary-search-tree-property-and-search",
+      "title": "The Search-Tree Rule and What It Buys",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-search-tree-property-and-search.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2024-set-2-q29-inorder-from-set",
+        "gate-2025-set-1-q16-bst-true-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "bst-insertion-and-deletion",
+      "title": "Insert at a Leaf, Delete by Replacement",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-insertion-and-deletion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set-2-q25-bst-insert-depth-19"
+      ],
+      "visual": "programming-and-data-structures/trees-and-binary-search-trees/bst-insertion-and-deletion",
+      "variations": 2
+    },
+    {
+      "topic": "bst-height-and-operation-costs",
+      "title": "What a Search Tree Costs, and When It Degrades",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-height-and-operation-costs.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set-1-q6-bst-15-nodes-height",
+        "gate-2016-set-2-q40-insertion-orders-height-6",
+        "gate-2025-set-1-q16-bst-true-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "bst-inorder-successor-and-predecessor",
+      "title": "Successor, Predecessor and Proving the Rule Holds",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-inorder-successor-and-predecessor.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "expression-trees-and-traversal-applications",
+      "title": "Expression Trees: Where the Traversals Earn Their Keep",
+      "subject": "programming-and-data-structures",
+      "group": "trees-and-binary-search-trees",
+      "unit": "Trees and Binary Search Trees",
+      "priority": "P3",
+      "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/expression-trees-and-traversal-applications.json",
+      "videos": [],
+      "pyqs": [],
       "visual": null,
       "variations": 2
     }

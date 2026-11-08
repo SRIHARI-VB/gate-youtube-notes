@@ -353,7 +353,7 @@ window.GATE_DATA = {
      {
       "slug": "trees-and-binary-search-trees",
       "name": "Trees and Binary Search Trees",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "binary-heaps",
@@ -49119,6 +49119,1016 @@ window.GATE_DATA = {
    "subject": "programming-and-data-structures",
    "topic": "linked-lists",
    "path": "subjects/programming-and-data-structures/linked-lists/linked-lists-for-stacks-queues-and-applications.json"
+  },
+  {
+   "id": "tree-and-binary-tree-terminology",
+   "title": "Trees and Binary Trees: The Words GATE Uses",
+   "priority": "P1",
+   "order": 605,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "A tree of n nodes has exactly n-1 edges and one path between any two nodes; a binary tree adds a left and a right position and caps a node at two children, and the leaf count follows from the degree count.",
+   "remember": [
+    "A tree on n nodes has exactly n-1 edges. Add an edge and a cycle appears; remove an edge and the structure splits into two trees.",
+    "Root, parent, child, sibling, leaf (no children), internal node (at least one child). The level of the root is 0, the depth of a node is its number of edges from the root, and the height of the tree is the largest depth in it.",
+    "In a binary tree each node has at most two children, and the left and right slots are different even when only one is filled. That is why the same preorder and postorder can come from two different binary trees.",
+    "Full (also called strict or proper) means every node has 0 or 2 children. Complete means every level except possibly the last is full and the last level is filled from the left. Perfect means full and all leaves at the same depth. Complete is not full, and perfect is both.",
+    "For any non-empty binary tree, leaves = nodes with two children + 1. The identity comes from counting edges two ways and needs no full-tree assumption: n = n0 + n1 + n2 and n - 1 = n1 + 2n2 give n0 = n2 + 1.",
+    "GATE states its own convention when it matters. Questions that say the height of a single node is 0 are counting edges, not levels."
+   ],
+   "example": {
+    "prompt": "A binary tree has root 1, children 2 and 3, and 2 has children 4 and 5. Count nodes, edges, leaves and two-child nodes, and give the height and the depth of node 5.",
+    "work": "Nodes: 1, 2, 3, 4, 5, so n = 5 and the edges are 1-2, 1-3, 2-4, 2-5, which is 4 = n - 1. Leaves: 3, 4, 5, so n0 = 3. Two-child nodes: 1 and 2, so n2 = 2, and n0 = n2 + 1 holds. The longest root-to-leaf path is 1-2-4, two edges, so the height is 2. Node 5 is reached by 1-2-5, also two edges, so its depth is 2.",
+    "answer": "n = 5, edges = 4, leaves = 3, two-child nodes = 2, height = 2, depth of node 5 = 2."
+   },
+   "gateAngle": "Terminology questions are usually a count: the leaf identity in GATE CSE 2025 Set 2 Q.3, the height convention in the note attached to GATE CSE 2017 Set 1 Q.6, and the full versus complete distinction that decides whether a node with one child is allowed.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.3. A binary tree T has n > 0 nodes and every node has either zero or two children. How many nodes have exactly two children?",
+     "answer": "Option 2, (n - 1)/2.",
+     "why": "Every node is a leaf or a two-child node, so n = n0 + n2, and the edge count gives n - 1 = 2n2. Dividing, n2 = (n - 1)/2. Equivalently n0 = n2 + 1, so n = 2n2 + 1."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A binary tree has 5 nodes with two children and some leaves, and every other node is a leaf. How many leaves does it have, and how many nodes in total?",
+     "answer": "6 leaves and 11 nodes.",
+     "why": "n0 = n2 + 1 = 6, so n = n0 + n2 = 6 + 5 = 11. The identity holds because no node has exactly one child here, which is the case the formula is usually memorised for, but the edge-counting proof does not need it."
+    }
+   ],
+   "trap": {
+    "what": "Believing that leaves = internal nodes + 1 needs a full binary tree, or that a complete binary tree cannot contain a node with one child.",
+    "why": "The identity leaves = two-child nodes + 1 comes from counting edges, and it survives nodes with one child; what breaks it is replacing it by leaves = internal nodes + 1 when internal nodes include one-child nodes.",
+    "counterexample": "A complete binary tree on 4 nodes: root with left child and right child, and the left child has a left child. The node with one child exists, so the tree is not full, yet leaves = 2 and two-child nodes = 1, so leaves = two-child nodes + 1. Internal nodes number 2, and leaves = internal nodes + 1 would be false."
+   },
+   "check": {
+    "question": "A binary tree has 9 nodes and every internal node has exactly two children. How many leaves and how many internal nodes does it have?",
+    "answer": "5 leaves and 4 internal nodes.",
+    "explanation": "n = n0 + n2 and n0 = n2 + 1 give 9 = 2n2 + 1, so n2 = 4 and n0 = 5. The edge count agrees: 8 edges, and 4 two-child nodes produce 8 edges."
+   },
+   "pyqIds": [
+    "gate-2025-set-2-q3-two-child-nodes"
+   ],
+   "prereqs": [
+    "node-and-pointer-representation"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Binary tree",
+     "url": "https://en.wikipedia.org/wiki/Binary_tree",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "playlist",
+     "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+     "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2025 Set 2 Q.3",
+     "url": "https://gateoverflow.in/460832/gate-cse-2025-set-2-question-3",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options, accepted answer and the two derivations"
+    }
+   ],
+   "sourceLine": "Full, complete and perfect, and the array view of a complete tree: Wikipedia, \"Binary tree\" (English, read in part). The height convention and the tree-to-BST bridge: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Scope of the tree lectures: mycodeschool, \"Data structures\" playlist (English, titles only, no caption track retrievable). The leaf identity: GATE Overflow question page for GATE CSE 2025 Set 2 Q.3 (English, read in part). Every count in this card is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/tree-and-binary-tree-terminology.json"
+  },
+  {
+   "id": "binary-tree-node-and-height-bounds",
+   "title": "Counting Nodes: Level, Height and the Catalan Count",
+   "priority": "P1",
+   "order": 606,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Level i holds at most 2^i nodes, a tree of height h holds at most 2^(h+1) - 1 and at least h + 1, so n nodes force the height between ceil(log2(n+1)) - 1 and n - 1.",
+   "remember": [
+    "Level i holds at most 2^i nodes when the root is at level 0: 1, 2, 4, 8, and so on.",
+    "A binary tree of height h has at most 2^(h+1) - 1 nodes, reached by the perfect tree, and at least h + 1 nodes, reached by a chain.",
+    "Turned around: with n nodes the minimum height is ceil(log2(n+1)) - 1, which equals floor(log2 n), and the maximum height is n - 1.",
+    "A perfect tree of height h has 2^h leaves and 2^h - 1 internal nodes, so it has 2^(h+1) - 1 nodes in all.",
+    "The number of differently shaped binary trees on n nodes is the Catalan number C(2n, n)/(n+1): 1, 2, 5, 14, 42, 132, 429 for n = 1 to 7. The number of binary search trees on n distinct keys is the same count, because the shape fixes where each key goes.",
+    "The number of insertion orders that produce one particular tree shape is not the Catalan count; that is a separate question about permutations, and GATE CSE 2016 Set 2 Q.40 asks exactly it."
+   ],
+   "example": {
+    "prompt": "A binary search tree has 15 nodes. What are its smallest and largest possible heights, counting the height of a single node as 0?",
+    "work": "Largest: a chain of 15 nodes, 14 edges, so height 14. Smallest: pack the levels. Levels 0, 1, 2, 3 hold 1 + 2 + 4 + 8 = 15 nodes exactly, so height 3. The formula agrees: ceil(log2(16)) - 1 = 4 - 1 = 3.",
+    "answer": "Minimum height 3, maximum height 14."
+   },
+   "gateAngle": "GATE asks the bound in both directions: GATE CSE 2017 Set 1 Q.6 gives n = 15 and wants the height range, while GATE CSE 2016 Set 2 Q.40 fixes the height at 6 for seven keys and wants the number of insertion orders, which is 2^6 = 64 because each of the first six insertions must take an extreme of the keys still unused.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2017 Set 1 Q.6. Let T be a binary search tree with 15 nodes. The minimum and maximum possible heights of T are what, given that the height of a single node is 0?",
+     "answer": "Option 2, 3 and 14 respectively.",
+     "why": "A skewed chain of 15 nodes has 14 edges. A tree of height h holds at most 2^(h+1) - 1 nodes, so 15 nodes need 2^(h+1) >= 16, that is h >= 3, and the perfect tree of height 3 has exactly 15 nodes."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many nodes does a binary tree of height 5 have at the least, and at the most, counting the root as height 0?",
+     "answer": "At least 6 and at most 63.",
+     "why": "The minimum is one node per level, h + 1 = 6. The maximum is 2^(h+1) - 1 = 2^6 - 1 = 63, the perfect tree."
+    }
+   ],
+   "trap": {
+    "what": "Using 2^h - 1 as the maximum node count for height h, which is the count for h levels rather than h edges.",
+    "why": "Height counts edges, so a tree of height h has h + 1 levels and the level sum runs from 2^0 to 2^h, giving 2^(h+1) - 1.",
+    "counterexample": "For h = 3 the correct maximum is 2^4 - 1 = 15 nodes, as in the 2017 question. The wrong formula gives 2^3 - 1 = 7, which is the node count of a perfect tree of height 2."
+   },
+   "check": {
+    "question": "What is the minimum number of nodes in a binary tree of height 4, and the maximum?",
+    "answer": "5 nodes at least, 31 at most.",
+    "explanation": "A chain of 5 nodes has 4 edges, so height 4 with 5 nodes. A perfect tree of height 4 has 2^5 - 1 = 31 nodes, which is the largest any tree of height 4 can hold."
+   },
+   "pyqIds": [
+    "gate-2017-set-1-q6-bst-15-nodes-height",
+    "gate-2016-set-2-q40-insertion-orders-height-6"
+   ],
+   "prereqs": [
+    "tree-and-binary-tree-terminology"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Binary tree",
+     "url": "https://en.wikipedia.org/wiki/Binary_tree",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2017 Set 1 Q.6",
+     "url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.40",
+     "url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement and the accepted count"
+    }
+   ],
+   "sourceLine": "Level and height counts, and the perfect tree: Wikipedia, \"Binary tree\" (English, read in part). Height-bounded complexity of tree operations: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The two questions: GATE Overflow question pages for GATE CSE 2017 Set 1 Q.6 and GATE CSE 2016 Set 2 Q.40 (English, read in part). The Catalan values, the height bounds for n = 1 to 9999 and the 64 insertion orders of 1 to 7 are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-tree-node-and-height-bounds.json"
+  },
+  {
+   "id": "binary-tree-representations",
+   "title": "Two Ways to Store a Binary Tree",
+   "priority": "P2",
+   "order": 607,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "A linked node carries two pointers; a complete tree can live in an array where the children of index i sit at 2i+1 and 2i+2, but a skewed tree then wastes exponentially many slots.",
+   "remember": [
+    "Linked form: struct node { int data; struct node *left, *right; } and a pointer to the root. Two pointers per node, and a missing child is NULL.",
+    "Array form with the root at index 0: the children of index i are 2i+1 and 2i+2, and the parent of index i is (i-1)/2 in integer division.",
+    "Some texts use the root at index 1, where the children of i are 2i and 2i+1 and the parent is i/2. Both conventions are common, so read the question before computing an index.",
+    "A complete binary tree of n nodes fills indices 0 to n-1 exactly, so an array of n slots is enough and no slot is wasted.",
+    "Any other shape wastes slots: a chain of h+1 nodes needs 2^(h+1) - 1 slots, so ten nodes in a chain need 1023 slots to store ten values.",
+    "The linked form needs the same number of nodes whatever the shape, which is why it is the default for general trees; the array form wins on locality and on parent lookup, which is what a heap needs."
+   ],
+   "example": {
+    "prompt": "A complete binary tree holds the values 8, 4, 12, 2, 6, 10, 14, 1 in level order. Give the array, the children of the node holding 12, and the parent of the node holding 1.",
+    "work": "Level order gives index 0 to 7: 8, 4, 12, 2, 6, 10, 14, 1. The value 12 is at index 2, so its children are at 2*2+1 = 5 and 2*2+2 = 6, holding 10 and 14. The value 1 is at index 7, so its parent is (7-1)/2 = 3, holding 2. All eight slots are used, so nothing is wasted.",
+    "answer": "Array 8, 4, 12, 2, 6, 10, 14, 1; 12's children are 10 and 14; 1's parent is 2."
+   },
+   "gateAngle": "Array questions ask for the index arithmetic or the number of slots a shape needs. GATE has asked the 2D array address form in the same subject, so the index formula is worth having automatic; the tree version is the same idea one level up.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A binary tree of height 9 is stored in an array using the root-at-0 convention, and every node has only a right child. How many slots must the array have, and how many of them are used?",
+     "answer": "1023 slots, 10 of them used.",
+     "why": "A chain of height 9 has 10 nodes, and the rightmost node sits at index 2^10 - 2 = 1022, so the array must be 1023 long. Only the 10 chain positions hold data."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "In the root-at-0 convention, what is the index of the parent of the leftmost leaf of a perfect binary tree of height 2, and how many slots does the array need?",
+     "answer": "Parent index 1, and the array needs 7 slots.",
+     "why": "A perfect tree of height 2 has 7 nodes at indices 0 to 6, so its leaves sit at 3, 4, 5 and 6 and the leftmost is index 3. The parent of index 3 is (3-1)/2 = 1, which holds the second level's left node."
+    }
+   ],
+   "trap": {
+    "what": "Assuming an array of n slots always stores a binary tree of n nodes.",
+    "why": "The packed indexing is exact only for complete trees. For any other shape the largest index can be far beyond n-1.",
+    "counterexample": "A chain 1 -> 2 -> 3 -> 4 descending to the right sits at indices 0, 2, 6, 14, so four nodes already need 15 slots, and the ten-node chain needs 1023."
+   },
+   "check": {
+    "question": "In the root-at-0 convention, a node sits at index 6. What is its parent index, and which of its children indices exist in a complete tree of 10 nodes?",
+    "answer": "Parent index 2; the left child index 13 does not exist, since the tree's indices stop at 9.",
+    "explanation": "(6-1)/2 = 2 in integer division. The children of 6 would be 13 and 14, both past the last index 9 of a 10-node complete tree, so index 6 is a leaf."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "binary-tree-node-and-height-bounds"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Binary tree",
+     "url": "https://en.wikipedia.org/wiki/Binary_tree",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+     "kind": "playlist",
+     "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+     "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+   ],
+   "sourceLine": "The array representation of a complete binary tree and the shapes it does and does not fit: Wikipedia, \"Binary tree\" (English, read in part). Lecture scope: mycodeschool, \"Data structures\" playlist, which includes the binary tree and its implementation (English, titles only, no caption track retrievable). The index arithmetic and the 1023-slot figure are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-tree-representations.json"
+  },
+  {
+   "id": "tree-traversals-and-their-orders",
+   "title": "Preorder, Inorder, Postorder: Three Walks of One Shape",
+   "priority": "P1",
+   "order": 608,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "The three depth-first orders differ only in when the root is printed - before, between or after its subtrees - so each costs Theta(n) time and the recursion uses Theta(h) stack, not Theta(1).",
+   "remember": [
+    "Preorder is root, left, right. Inorder is left, root, right. Postorder is left, right, root. Each visits every node exactly once, so each is Theta(n) time.",
+    "The order depends on the shape alone, never on the values. Two trees with the same shape give the same sequences whatever keys they hold.",
+    "The recursion holds one frame per level, so the auxiliary space is Theta(h): Theta(log n) for a balanced tree and Theta(n) for a chain. An iterative version with an explicit stack has the same bound.",
+    "Inorder on a binary search tree prints the keys in ascending order. That single fact converts a traversal question into a sorting question.",
+    "Postorder is the order to use when children must be processed before the parent: freeing a tree, evaluating an expression tree, or computing a subtree size.",
+    "Preorder lists a parent before its children, so it is a topological order of the tree and is what a serialisation or a copy uses."
+   ],
+   "example": {
+    "prompt": "The tree has root 1, children 2 and 3, and node 2 has children 4 and 5. Write the three traversals.",
+    "work": "Preorder prints 1, then walks the left subtree 2 with children 4 and 5 giving 2, 4, 5, then the right subtree 3: 1 2 4 5 3. Inorder takes the left subtree first: 4, 2, 5, then the root 1, then 3: 4 2 5 1 3. Postorder finishes both subtrees before the root: 4, 5, 2, then 3, then 1: 4 5 2 3 1.",
+    "answer": "Preorder 1 2 4 5 3, inorder 4 2 5 1 3, postorder 4 5 2 3 1."
+   },
+   "gateAngle": "GATE mostly asks one traversal from another on a binary search tree, where the inorder is free because it is the sorted keys: GATE CSE 2020 Q.5 and GATE CSE 2017 Set 2 Q.36 give a preorder and want the postorder, and GATE CSE 2026 Set 1 Q.52 asks for the position of one key inside the postorder.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2020 Q.5. The preorder traversal of a binary search tree is 15, 10, 12, 11, 20, 18, 16, 19. Which one of the following is the postorder traversal of the tree?",
+     "answer": "Option 2, 11, 12, 10, 16, 19, 18, 20, 15.",
+     "why": "The root is 15, so the postorder must end with 15 and the left part 10, 12, 11 must come before the right part 20, 18, 16, 19. Inside the left part 10 is the root, so 11 and 12 come out before 10 as 11, 12, 10; inside the right part 20 is the root, and 18 with children 16 and 19 gives 16, 19, 18. The whole sequence is 11, 12, 10, 16, 19, 18, 20, 15."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The binary search tree built by inserting 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77 in that order is traversed inorder. Which position does 47 occupy?",
+     "answer": "Position 5.",
+     "why": "The inorder of a binary search tree is the sorted keys: 13, 25, 30, 40, 47, 50, 60, 70, 75, 77, 80. The key 47 is the fifth element, and no traversal of the tree is needed to say so."
+    }
+   ],
+   "trap": {
+    "what": "Reading a traversal as a property of the keys, or assuming one traversal fixes the shape.",
+    "why": "The three orders are determined by the shape, and many shapes share one sequence. A single traversal therefore never determines a tree.",
+    "counterexample": "A root A with one child B on the left and a root A with one child B on the right both give preorder A B and postorder B A, but their inorders are B A and A B. The preorder and postorder pair cannot tell them apart."
+   },
+   "check": {
+    "question": "For the tree with root 1, left child 2 (children 4 and 5) and right child 3, what is the postorder, and how many stack frames does the recursive postorder hold at its deepest?",
+    "answer": "4 5 2 3 1, with at most 3 frames on the stack.",
+    "explanation": "Postorder finishes each subtree before its root. The deepest path is 1-2-4, three nodes, so the recursion is three frames deep: the height plus one."
+   },
+   "pyqIds": [
+    "gate-2020-q5-preorder-to-postorder",
+    "gate-2017-set-2-q36-preorder-to-postorder",
+    "gate-2026-set-1-q52-bst-preorder-postorder-position"
+   ],
+   "prereqs": [
+    "tree-and-binary-tree-terminology"
+   ],
+   "videoRefs": [],
+   "visual": "programming-and-data-structures/trees-and-binary-search-trees/traversal-orders",
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "playlist",
+     "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+     "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2020 Q.5",
+     "url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2017 Set 2 Q.36",
+     "url": "https://gateoverflow.in/118378/gate-cse-2017-set-2-question-36",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2026 Set 1 Q.52",
+     "url": "https://gateoverflow.in/523028/gate-cse-2026-set-1-question-52",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement and accepted answers"
+    }
+   ],
+   "sourceLine": "The three depth-first orders, the stack that defers nodes and the statement that no single traversal fixes a tree: Wikipedia, \"Tree traversal\" (English, read in part). Inorder as a sort on a search tree: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Lecture scope: mycodeschool, \"Data structures\" playlist, whose traversal and level-order videos are part of it (English, titles only, no caption track retrievable). The three questions: GATE Overflow question pages for GATE CSE 2020 Q.5, GATE CSE 2017 Set 2 Q.36 and GATE CSE 2026 Set 1 Q.52 (English, read in part). Every sequence in this card is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/tree-traversals-and-their-orders.json"
+  },
+  {
+   "id": "level-order-traversal-and-the-queue",
+   "title": "Level Order: The One Traversal That Needs a Queue",
+   "priority": "P2",
+   "order": 609,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Level order visits the tree breadth first with a FIFO queue: dequeue a node, print it, enqueue its left child then its right child, and the queue always holds one or two consecutive levels.",
+   "remember": [
+    "Algorithm: enqueue the root; while the queue is non-empty, dequeue a node, visit it, then enqueue its left child and then its right child. The FIFO order is what makes the visit level by level.",
+    "The queue holds at most the width of the tree, the largest number of nodes on one level, so the auxiliary space is Theta(w) rather than Theta(h).",
+    "To print level by level, record the queue length at the start of each round and dequeue exactly that many nodes.",
+    "Swapping the queue for a stack turns the same loop into a depth-first walk, which is the mistake to avoid.",
+    "Level order of a binary search tree is not sorted, and it is not the sorted order of anything; only the inorder is sorted.",
+    "Uses: the width of a tree, level sums, checking whether a tree is complete, and printing a tree row by row."
+   ],
+   "example": {
+    "prompt": "Run level order on the tree with root 1, children 2 and 3, and node 2 with children 4 and 5. Give the sequence, the queue state after each round and the width.",
+    "work": "Start with queue [1]. Round 1: dequeue 1, print 1, enqueue 2 and 3, queue [2, 3]. Round 2: dequeue 2 and 3, print 2 3, enqueue 4 and 5 from 2 and nothing from 3, queue [4, 5]. Round 3: dequeue 4 and 5, print 4 5, queue empty. The sequence is 1 2 3 4 5 and the widest round held two nodes.",
+    "answer": "1 2 3 4 5, with queue states [2,3] then [4,5], and width 2."
+   },
+   "gateAngle": "Level order is not the order GATE most often asks for, and in the questions collected for this topic no paper question asked for a level-order sequence on its own; the closest are the traversal-identification questions, which use preorder, inorder and postorder. Treat it as P2: know the algorithm and the queue, and expect it as a supporting fact inside a completeness or width question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A perfect binary tree has 7 nodes. Give its level-order sequence and the largest number of nodes the queue ever holds.",
+     "answer": "1 2 3 4 5 6 7, and the queue holds at most 4 nodes.",
+     "why": "A perfect tree of height 2 fills levels 0, 1 and 2 with 1, 2 and 4 nodes. Level order prints the levels in turn, and when the last level is enqueued the queue holds all 4 of its nodes."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The values 50, 25, 75, 13, 40, 60, 80 are inserted into an empty binary search tree in that order. Give the level-order sequence.",
+     "answer": "50 25 75 13 40 60 80.",
+     "why": "Each key is compared from the root: 25 and 75 become the children of 50, then 13 and 40 hang under 25 and 60 and 80 under 75. Reading the three levels gives exactly the sequence above, which is not sorted even though every key of the tree appears in it."
+    }
+   ],
+   "trap": {
+    "what": "Using a stack where the algorithm needs a queue, or reporting the level-order sequence of a search tree as if it were sorted.",
+    "why": "A stack visits the most recently seen node first, which walks down one branch; and the level order of a search tree follows the shape, which follows the insertion order.",
+    "counterexample": "Insert 50, 25, 13: the level order is 50 25 13, which is sorted, but insert 50, 13, 25 and the level order is 50 13 25 while the inorder is 13 25 50. Only the inorder is guaranteed sorted."
+   },
+   "check": {
+    "question": "How many nodes does the queue hold when level order reaches the last level of a complete binary tree with 10 nodes?",
+    "answer": "3 nodes.",
+    "explanation": "Levels 0, 1 and 2 hold 1, 2 and 4 nodes, seven in all, so the last level holds 10 - 7 = 3 nodes and the queue holds those three when they are dequeued."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "tree-traversals-and-their-orders"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+     "kind": "playlist",
+     "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+     "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+   ],
+   "sourceLine": "Breadth-first traversal with a queue and the stack-or-queue distinction: Wikipedia, \"Tree traversal\" (English, read in part). Scope of the level-order lecture: mycodeschool, \"Data structures\" playlist, which includes \"Binary tree: Level Order Traversal\" (English, titles only, no caption track retrievable). This card therefore rests on the reference text and on the recomputation in scripts/validate.py, not on a readable lecture.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/level-order-traversal-and-the-queue.json"
+  },
+  {
+   "id": "reconstructing-a-tree-from-traversals",
+   "title": "Rebuilding the Shape from Traversals",
+   "priority": "P1",
+   "order": 610,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Inorder is the pivot: with preorder or postorder it fixes the tree uniquely, while preorder with postorder does not, and on a binary search tree the preorder alone is enough because the inorder is the sorted keys.",
+   "remember": [
+    "Preorder with inorder fixes a binary tree uniquely, and postorder with inorder does too, when the keys are distinct.",
+    "Preorder with postorder does not, for a general binary tree. The root is visible in both, but a single child is not: it looks the same whether it hangs left or right.",
+    "For a full binary tree, where every node has 0 or 2 children, preorder with postorder does determine the tree, because there is no single-child case to be ambiguous about.",
+    "Inorder alone never fixes a tree; on a binary search tree it is only the sorted key list.",
+    "On a binary search tree a single traversal is enough: the first key of the preorder is the root, everything smaller goes to its left and everything larger to its right, recursively. That is why GATE gives only a preorder and still expects the postorder.",
+    "The reconstruction splits at the root: take the root from the preorder, find it in the inorder, the keys to its left form the left subtree, and the two subtrees are rebuilt from the two remaining pieces."
+   ],
+   "example": {
+    "prompt": "A binary tree has preorder A B D E C F and inorder D B E A F C. Rebuild it and give the postorder.",
+    "work": "The root is A. In the inorder, A splits the keys into D B E on the left and F C on the right, so the left subtree takes preorder B D E and the right takes C F. Left: root B, and the inorder D B E puts D on the left and E on the right. Right: root C, and the inorder F C puts F on the left. Postorder reads D, E, B for the left, F, C for the right, then A.",
+    "answer": "Postorder D E B F C A."
+   },
+   "gateAngle": "GATE CSE 2004 Q.35 asks which pairs of traversals identify a tree uniquely, and answers preorder with inorder and postorder with inorder. The preorder-only questions - GATE CSE 2020 Q.5, 2017 Set 2 Q.36 and 2026 Set 1 Q.52 - are the same idea with the inorder supplied for free by the search-tree property.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2004 Q.35. Consider the pairs of traversals on a labelled binary tree: (i) preorder and postorder, (ii) inorder and postorder, (iii) preorder and inorder, (iv) level order and postorder. Which pairs identify a tree uniquely?",
+     "answer": "Option 2, (ii) and (iii).",
+     "why": "Inorder fixes which keys lie to the left and right of the root, so one more traversal that reveals the root order completes the shape. Preorder with postorder leaves the single-child case ambiguous, and level order with postorder does not separate left from right either."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Two binary trees have preorder A B C and postorder C B A. How many different binary tree shapes fit both sequences, and what distinguishes them?",
+     "answer": "Two shapes: a chain leaning left and a chain leaning right.",
+     "why": "Every node has one child, so the choice at each of the two nodes is left or right, giving 2^2 = 4 chains; only the two straight chains give postorder C B A. Their inorders are C B A and A B C, so the pair of traversals cannot separate them."
+    }
+   ],
+   "trap": {
+    "what": "Assuming any two of the three traversals are enough, or that a binary search tree can be rebuilt from its inorder alone.",
+    "why": "Only a pair that contains the inorder, or a single traversal plus the search-tree ordering rule, carries enough information. The inorder of a search tree is just the sorted keys and says nothing about the shape.",
+    "counterexample": "The keys 1, 2, 3 in a search tree have inorder 1 2 3 whatever the insertion order: inserting 2, 1, 3 gives a root 2, while inserting 1, 2, 3 gives a chain, and both have the same inorder."
+   },
+   "check": {
+    "question": "A binary search tree has preorder 30, 20, 10, 15, 25, 23, 39, 35, 42. What is its postorder, and which traversal supplied the information that the preorder did not?",
+    "answer": "Postorder 15, 10, 23, 25, 20, 35, 42, 39, 30; the inorder, which is the sorted keys 10, 15, 20, 23, 25, 30, 35, 39, 42.",
+    "explanation": "The preorder gives the roots in order and the search-tree rule places each key left or right of its root, so the sorted key list acts as the inorder. The rebuild puts 30 at the root, 20 with children 10 (right child 15) and 25 (left child 23) on the left, and 39 with children 35 and 42 on the right."
+   },
+   "pyqIds": [
+    "gate-2004-q35-traversal-pairs-unique"
+   ],
+   "prereqs": [
+    "tree-traversals-and-their-orders"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+     "kind": "video",
+     "title": "mycodeschool, Data structures: Binary Search Tree",
+     "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2004 Q.35",
+     "url": "https://gateoverflow.in/1032/gate-cse-2004-question-35",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2020 Q.5",
+     "url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    }
+   ],
+   "sourceLine": "The uniqueness statement for traversal pairs and the ambiguity of preorder with postorder: Wikipedia, \"Tree traversal\" (English, read in part). The search-tree rule that lets a preorder alone rebuild the tree: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The question: GATE Overflow question page for GATE CSE 2004 Q.35 (English, read in part), with the preorder-only pattern from the 2020 and 2017 pages. Both reconstructions in this card are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/reconstructing-a-tree-from-traversals.json"
+  },
+  {
+   "id": "binary-search-tree-property-and-search",
+   "title": "The Search-Tree Rule and What It Buys",
+   "priority": "P1",
+   "order": 611,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "A binary search tree puts every key of the left subtree below the node and every key of the right subtree above it, so a search throws away one subtree per comparison and the inorder prints the keys sorted.",
+   "remember": [
+    "The rule is about whole subtrees, not about children: for every node, every key in its left subtree is smaller and every key in its right subtree is larger. Keys are usually distinct; if duplicates are allowed, the question must say where they go.",
+    "Search walks down one path: compare, go left if the key is smaller, right if it is larger, stop at a match or at NULL. The number of comparisons is the depth of the node plus one, or the height plus one when the key is absent.",
+    "Inorder prints the keys in ascending order, so the inorder of a search tree is the sorted key list whatever the shape. That is the fact GATE CSE 2024 Set 2 Q.29 is built on: from a set of keys alone only the inorder is determined, not the root and not the preorder or postorder.",
+    "The minimum is the leftmost node and the maximum is the rightmost node, each found in O(h) with no comparisons of keys beyond following the pointers.",
+    "A search tree is not a heap and not a sorted array: GATE CSE 2025 Set 1 Q.16 marks \"every BST is also a Min-Heap\" false, and marks the O(log n) worst case false because a chain gives O(n).",
+    "Searching costs Theta(h): Theta(log n) when the tree is balanced and Theta(n) when it degenerates, which is why the shape, not the rule, decides the cost."
+   ],
+   "example": {
+    "prompt": "Insert 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77 in that order into an empty binary search tree, then count the comparisons needed to find 47.",
+    "work": "50 is the root. 25 goes left of 50, 13 left of 25, 40 right of 25, 30 left of 40, 47 right of 40, 75 right of 50, 60 left of 75, 70 right of 60, 80 right of 75, 77 left of 80. Searching 47 compares with 50, then 25, then 40, then 47: four comparisons, and the node sits at depth 3.",
+    "answer": "Four comparisons, matching depth 3 plus one."
+   },
+   "gateAngle": "Two shapes of question. GATE CSE 2024 Set 2 Q.29 asks what a set of keys determines about a tree built from an unknown insertion order, and the answer is only the inorder. GATE CSE 2025 Set 1 Q.16 asks which statements hold for any search tree on n distinct keys, and only \"the longest root path is n-1\" and \"the inorder is sorted\" survive.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2024 Set 2 Q.29. A set V of distinct integers is inserted one by one, in an order you do not know, into a binary search tree T you cannot see, with all keys in the left subtree of a node smaller than the node. Which statement is TRUE?",
+     "answer": "Option 1, the inorder traversal of T can be determined from V.",
+     "why": "The inorder of a search tree is the sorted keys, which the set fixes. The root, the preorder and the postorder all depend on the insertion order, so none of them follows from V."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 1 Q.16. For any binary search tree with n distinct integers, which statements are TRUE: (A) the maximum length of a path from the root to any other node is n-1, (B) an inorder traversal produces a sorted sequence, (C) finding an element takes O(log n) in the worst case, (D) every BST is also a Min-Heap?",
+     "answer": "Options A and B only.",
+     "why": "A chain gives a path of n-1 edges, and the inorder is sorted by the rule. The worst case is O(n), not O(log n), which is exactly the chain in A, so C contradicts A. A search tree is not a heap: its root need not be the smallest key."
+    }
+   ],
+   "trap": {
+    "what": "Checking only each parent against its children when deciding whether a tree is a search tree.",
+    "why": "The rule constrains every key in a subtree against the node, not just the two children, so a violation can sit two levels down and pass every parent-child test.",
+    "counterexample": "Root 10, left child 5, right child 15, and 5 has a right child 12. Every parent-child pair passes (5 < 10, 15 > 10, 12 > 5), yet 12 is greater than 10 and sits in 10's left subtree, so the tree is not a search tree. Its inorder 5, 12, 10, 15 is not sorted, which is the fastest test."
+   },
+   "check": {
+    "question": "Is the tree with root 20, left child 10, right child 30, and 30's children 25 and 35 a binary search tree?",
+    "answer": "Yes.",
+    "explanation": "Every key in 20's left subtree is 10, below 20; in the right subtree 30, 25 and 35 are all above 20; and under 30 the left key 25 is below 30 and the right key 35 above it. The inorder 10, 20, 25, 30, 35 is sorted."
+   },
+   "pyqIds": [
+    "gate-2024-set-2-q29-inorder-from-set",
+    "gate-2025-set-1-q16-bst-true-statements"
+   ],
+   "prereqs": [
+    "tree-traversals-and-their-orders"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "mycodeschool, Data structures: Binary Search Tree",
+     "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2024 Set 2 Q.29",
+     "url": "https://gateoverflow.in/422868/gate-cse-2024-set-2-question-29",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2025 Set 1 Q.16",
+     "url": "https://gateoverflow.in/460064/gate-cse-2025-set-1-question-16",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and the per-option verdicts"
+    }
+   ],
+   "sourceLine": "The search-tree rule, the comparison cost and the skewed worst case: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). Inorder as a sort, find, minimum and maximum: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Inorder on a search tree giving ascending keys: Wikipedia, \"Tree traversal\" (English, read in part). The two questions: GATE Overflow question pages for GATE CSE 2024 Set 2 Q.29 and GATE CSE 2025 Set 1 Q.16 (English, read in part). The insertion trace, the comparison count and the counterexample are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/binary-search-tree-property-and-search.json"
+  },
+  {
+   "id": "bst-insertion-and-deletion",
+   "title": "Insert at a Leaf, Delete by Replacement",
+   "priority": "P2",
+   "order": 612,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Insertion is a failed search that ends by hanging a new leaf; deletion has three cases, and the two-child case is handled by overwriting the key with its inorder successor or predecessor and then deleting that node, which is easy.",
+   "remember": [
+    "Insertion: search for the key from the root, and when the search falls off the tree, attach the new node there. A new key is always a leaf, never an internal node, so insertion never moves existing keys.",
+    "The shape after n insertions depends on the order, not on the set. That is why a set of keys does not fix the tree and why a sorted insertion order builds a chain.",
+    "Deletion, no children: remove the node and set its parent's pointer to NULL.",
+    "Deletion, one child: splice the child into the parent's pointer, so the child takes the deleted node's place. The search-tree rule survives because the child's whole subtree lies on the same side of every ancestor as the deleted node did.",
+    "Deletion, two children: overwrite the key with its inorder successor (the minimum of the right subtree) or its inorder predecessor (the maximum of the left subtree), then delete that node. It has no left child if it is the successor, so its own deletion is case 1 or case 2.",
+    "All three cases cost O(h): the search for the node, and the walk to the successor, each follow one downward path."
+   ],
+   "example": {
+    "prompt": "In the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77, delete 25, then delete 40.",
+    "work": "Node 25 has two children, 13 and 40. Its inorder successor is the minimum of its right subtree: descend 40, then 30, which has no left child, so the successor is 30. Overwrite 25 with 30, then delete the node that held 30, which is a leaf. The left subtree of 50 is now 30 with left child 13 and right child 40, and 40 keeps its right child 47. Next, 40 has left child nothing and right child 47, one child, so 47 is spliced into 40's place.",
+    "answer": "After the two deletions the keys are 13, 30, 47, 50, 60, 70, 75, 77, 80 in inorder, still a valid search tree."
+   },
+   "gateAngle": "GATE CSE 2025 Set 2 Q.25 asks only how deep one key lands after eight insertions, which is the insertion path, not the whole tree. Deletion questions ask which key replaces the deleted one, and the two acceptable answers are the inorder successor and the inorder predecessor - never an arbitrary child.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 2 Q.25. The values 10, -4, 15, 30, 20, 5, 60, 19 are inserted in that order into an empty binary search tree. How many edges lie on the path from the node holding 19 to the root?",
+     "answer": "4 edges.",
+     "why": "10 is the root, -4 and 15 its children, 30 the right child of 15, 20 the left child of 30, 5 the right child of -4, 60 the right child of 30, and 19 the left child of 20. The path is 19 to 20 to 30 to 15 to 10, four edges and five nodes."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A search tree has root 50, a left subtree rooted at 20 whose right child is 45, and a right subtree rooted at 70 with left child 60. Delete 50 by promoting 20 to the root and hanging the right subtree under it. What goes wrong, and what should be done instead?",
+     "answer": "Promoting 20 overwrites its right child 45, so the key 45 is lost. Instead replace 50's key with the inorder successor 60, which is the minimum of the right subtree, and delete the node that held 60.",
+     "why": "20's right slot already holds 45, and the right subtree must attach somewhere, so a pointer is overwritten and a key disappears. The successor 60 is the leftmost node of the right subtree, it has no left child, and deleting it is a leaf removal, which changes no other pointer."
+    }
+   ],
+   "trap": {
+    "what": "Deleting a two-child node by promoting one of its children and reattaching the other subtree, or forgetting that a search tree insertion can never create an internal node.",
+    "why": "Promotion overwrites an existing pointer, so a subtree silently disappears; and a new key must reach an empty slot, which is always a leaf position.",
+    "counterexample": "Deleting 50 from a tree whose left child 20 already has a right child 45 and whose right child 70 has a left child 60: setting 20's right pointer to 70 discards 45, and the tree no longer holds the same keys. Replacing 50's key by the successor 60, then deleting the node 60, keeps every key."
+   },
+   "check": {
+    "question": "Delete 40 from the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77. Which key replaces it, and why is that node easy to remove?",
+    "answer": "47 replaces it, and the node 47 is a leaf.",
+    "explanation": "40 has children 30 and 47, so the two-child case applies. The inorder successor is the minimum of the right subtree, which is 47 itself, and 47 has no children, so removing it is the leaf case."
+   },
+   "pyqIds": [
+    "gate-2025-set-2-q25-bst-insert-depth-19"
+   ],
+   "prereqs": [
+    "binary-search-tree-property-and-search"
+   ],
+   "videoRefs": [],
+   "visual": "programming-and-data-structures/trees-and-binary-search-trees/bst-insertion-and-deletion",
+   "sources": [
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "video",
+     "title": "mycodeschool, Data structures: Binary Search Tree",
+     "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2025 Set 2 Q.25",
+     "url": "https://gateoverflow.in/460810/gate-cse-2025-set-2-question-25",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement and the traced insertion path"
+    }
+   ],
+   "sourceLine": "Insertion at a leaf, the three deletion cases and the choice of the left-subtree maximum as the replacement: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The search cost and the shape depending on insertion order: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The question: GATE Overflow question page for GATE CSE 2025 Set 2 Q.25 (English, read in part). Both deletion traces and the successor walk are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-insertion-and-deletion.json"
+  },
+  {
+   "id": "bst-height-and-operation-costs",
+   "title": "What a Search Tree Costs, and When It Degrades",
+   "priority": "P1",
+   "order": 613,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Every search-tree operation walks one root-to-node path, so its cost is the height: between ceil(log2(n+1)) - 1 and n - 1 for n keys, which is why a sorted insertion order turns a search tree into a list.",
+   "remember": [
+    "Search, insert and delete are all Theta(h), where h is the height of the tree, because each of them follows at most one downward path.",
+    "For n keys the height is at least ceil(log2(n+1)) - 1 and at most n - 1. The minimum comes from packing the levels, the maximum from a chain.",
+    "So a search tree is O(log n) per operation when it is balanced and O(n) when it is not. Saying \"search in a BST is O(log n)\" without the word balanced is the standard error, and GATE CSE 2025 Set 1 Q.16 marks that option false.",
+    "Inserting keys in sorted order, ascending or descending, builds a chain: n keys, height n - 1, and every search degenerates to a linear scan.",
+    "An inorder traversal is Theta(n) whatever the shape, because it visits each node once and the recursion depth only changes the space, not the number of visits.",
+    "The number of insertion orders of n distinct keys that produce a chain of height n - 1 is 2^(n-1), because after the first key every insertion must take either the smallest or the largest key still unused. For n = 7 that is 2^6 = 64, which is what GATE CSE 2016 Set 2 Q.40 asks for."
+   ],
+   "example": {
+    "prompt": "A search tree holds 1000 keys. What are the best and worst heights, and how many comparisons does a search need in each case?",
+    "work": "Worst: a chain, height 999, so a search may compare with all 1000 keys. Best: pack the levels, ceil(log2(1001)) - 1 = 10 - 1 = 9, so at most 10 comparisons. The perfect tree of height 9 holds 2^10 - 1 = 1023 nodes, which is enough for 1000 keys.",
+    "answer": "Height between 9 and 999, and comparisons between 10 and 1000."
+   },
+   "gateAngle": "GATE CSE 2017 Set 1 Q.6 asks the height range for 15 keys, GATE CSE 2016 Set 2 Q.40 asks how many insertion orders of 1 to 7 give height 6, and GATE CSE 2025 Set 1 Q.16 asks whether the worst case is O(log n). All three are the same fact: the height is the cost and the insertion order sets the height.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2016 Set 2 Q.40. In how many ways can the numbers 1, 2, 3, 4, 5, 6, 7 be inserted into an empty binary search tree so that the resulting tree has height 6, where the height of a single node is 0?",
+     "answer": "64.",
+     "why": "A tree of height 6 on 7 keys is a chain, so no node has two children and every insertion after the first must take either the smallest or the largest key still unused. That is two choices for each of the first six insertions and one for the last, so 2^6 = 64."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "How many insertion orders of the keys 1, 2, 3 give a binary search tree of height 1?",
+     "answer": "2 orders: 2, 1, 3 and 2, 3, 1.",
+     "why": "Height 1 means the root has both children, so the root must be 2 and the keys 1 and 3 may arrive in either order. Inserting 1 or 3 first makes a chain of height 2, and the other four orders do that."
+    }
+   ],
+   "trap": {
+    "what": "Quoting O(log n) for search-tree operations without saying the tree is balanced, or reading the average case as a guarantee.",
+    "why": "The bound is Theta(h) and h can be n - 1. The logarithmic case needs a shape guarantee that the plain insertion algorithm does not provide.",
+    "counterexample": "Inserting 1, 2, 3, 4, 5 in that order gives a right chain of height 4, and finding 5 compares with all five keys, so the cost is n, not log n."
+   },
+   "check": {
+    "question": "A search tree is built by inserting 10, 20, 30, 40, 50 in that order. What is its height, and how many comparisons does searching for 50 take?",
+    "answer": "Height 4, and 5 comparisons.",
+    "explanation": "Every key is larger than the previous one, so each becomes the right child of the last and the tree is a chain of five nodes with height 4. Finding 50 compares with 10, 20, 30, 40 and 50, which is depth 4 plus one."
+   },
+   "pyqIds": [
+    "gate-2017-set-1-q6-bst-15-nodes-height",
+    "gate-2016-set-2-q40-insertion-orders-height-6",
+    "gate-2025-set-1-q16-bst-true-statements"
+   ],
+   "prereqs": [
+    "bst-insertion-and-deletion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "video",
+     "title": "mycodeschool, Data structures: Binary Search Tree",
+     "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2017 Set 1 Q.6",
+     "url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and accepted answer"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.40",
+     "url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement and the accepted count"
+    }
+   ],
+   "sourceLine": "The height-bounded complexity of search-tree operations and the balanced case: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The average and worst cases with the skewed example: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The questions: GATE Overflow question pages for GATE CSE 2017 Set 1 Q.6 and GATE CSE 2016 Set 2 Q.40 (English, read in part), with the O(log n) claim from GATE CSE 2025 Set 1 Q.16. The height bounds for n up to 9999 and the 64 orders are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-height-and-operation-costs.json"
+  },
+  {
+   "id": "bst-inorder-successor-and-predecessor",
+   "title": "Successor, Predecessor and Proving the Rule Holds",
+   "priority": "P2",
+   "order": 614,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "The inorder successor of a node is the leftmost node of its right subtree when that subtree exists, and otherwise the lowest ancestor from which the node hangs on the left; the predecessor is the mirror image.",
+   "remember": [
+    "Successor with a right subtree: descend to the right once, then keep going left. The node reached is the next key in sorted order and it has no left child.",
+    "Successor without a right subtree: climb the ancestors until you come up from a left child; that ancestor is the successor. If no ancestor qualifies, the node holds the largest key and has no successor.",
+    "Predecessor is the mirror: the rightmost node of the left subtree, or the lowest ancestor reached from a right child.",
+    "Minimum is the leftmost node and maximum the rightmost, which are the two extremes of the same walk, both O(h).",
+    "These are exactly the nodes a two-child deletion uses as its replacement, so the successor and the deletion case are one fact, not two.",
+    "Two ways to verify a search tree: the inorder must be sorted (Theta(n) time and Theta(n) extra space if the keys are collected), or every node must satisfy a running (low, high) window passed down the recursion (Theta(n) time, Theta(h) stack). The window test catches violations without collecting anything."
+   ],
+   "example": {
+    "prompt": "In the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77, give the inorder successor of 40, of 47 and of 25, and of 80.",
+    "work": "40 has a right subtree containing 47, whose leftmost node is 47 itself, so the successor of 40 is 47. 47 has no right child, so climb: 47 is the right child of 40, not a left child; 40 is the right child of 25; 25 is the left child of 50, so the successor of 47 is 50. 25 has a right subtree rooted at 40, whose leftmost node is 30, so the successor is 30. 80 has no right child and is the right child of 75, which is the right child of 50, so there is no ancestor reached from a left child: 80 is the maximum and has no successor.",
+    "answer": "Successor of 40 is 47, of 47 is 50, of 25 is 30, and 80 has none."
+   },
+   "gateAngle": "Successor questions arrive either as \"the next key printed by an inorder walk\" or as part of a deletion. The trap is always the same: answering the parent. In the tree above the parent of 40 is 25, but its successor is 47.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A node has a left child and no right child. Can its inorder successor be that left child?",
+     "answer": "No, never.",
+     "why": "The left subtree holds keys smaller than the node, so every key in it is printed before the node. The successor is either an ancestor or a node in the right subtree, and here there is no right subtree, so it is an ancestor."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A search tree holds the 1023 keys 1 to 1023 in a perfect tree of height 9. How many left-child steps does finding the successor of the root take?",
+     "answer": "9 steps, ending at the smallest key of the right subtree.",
+     "why": "The root has a right subtree, so the successor is its minimum: one step right and then left until a node has no left child. A perfect tree of height 9 has 9 edges on every root-to-leaf path, so the descent takes 9 steps and lands on the smallest key above the root."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the inorder successor of a node is always its parent.",
+    "why": "The parent is the successor only when the node is the parent's left child and the node has no right subtree. Otherwise the successor is inside the right subtree or higher up.",
+    "counterexample": "In the tree built from 50, 25, 13, 40, 30, 47, the parent of 40 is 25, but the inorder is 13, 25, 30, 40, 47, 50, so the successor of 40 is 47, its own right child."
+   },
+   "check": {
+    "question": "Using the window test, is a tree valid when the root is 10, its left child is 5 with a right child 12, and its right child is 15?",
+    "answer": "No.",
+    "explanation": "The window at the root is all keys. Going left to 5 narrows the window to below 10; the right child 12 of 5 must then be above 5 and below 10, and 12 fails. The inorder 5, 12, 10, 15 is not sorted, which is the same verdict."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "bst-insertion-and-deletion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "lecture-handout",
+     "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+     "kind": "playlist",
+     "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+     "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+   ],
+   "sourceLine": "Minimum and maximum as the leftmost and rightmost nodes, and the deletion that uses the left-subtree maximum: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Inorder on a search tree giving ascending keys, which is what makes the successor the next key in that order: Wikipedia, \"Tree traversal\" (English, read in part). Scope of the successor lecture: mycodeschool, \"Data structures\" playlist, which includes \"Inorder Successor in a binary search tree\" (English, titles only, no caption track retrievable). Every successor in this card is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/bst-inorder-successor-and-predecessor.json"
+  },
+  {
+   "id": "expression-trees-and-traversal-applications",
+   "title": "Expression Trees: Where the Traversals Earn Their Keep",
+   "priority": "P3",
+   "order": 615,
+   "unit": "Trees and Binary Search Trees",
+   "quickIdea": "Build an expression tree from a postfix string with a stack, and the three traversals then hand back the postfix, infix and prefix forms of the same expression without any parentheses.",
+   "remember": [
+    "Construction from postfix: an operand pushes a one-node tree; an operator pops two trees, makes them the right and left child of a new operator node, and pushes the result. Popping order matters: the first pop is the right operand.",
+    "The traversals read back the three notations: postorder gives the postfix string, preorder gives the prefix string, and inorder gives the infix string, which needs parentheses put back where the tree's grouping matters.",
+    "Operators sit at internal nodes and operands at leaves, so a valid postfix string has one more operand than operator and the stack ends holding exactly one tree.",
+    "Evaluation is the same shape as construction: run postorder and replace each operator node by the value of its two children. That is Theta(n) time and Theta(h) stack, and it is why postfix machine code needs no parentheses.",
+    "The same idea explains Huffman trees and syntax trees in a compiler: the shape carries the grouping, so the linear form does not have to."
+   ],
+   "example": {
+    "prompt": "Build the expression tree for the postfix string a b + c d e + * * and give its postfix, prefix and infix forms.",
+    "work": "Push a, push b, then + pops b then a and pushes the tree (a + b). Push c, d, e; + pops e then d and pushes (d + e); * pops (d + e) then c and pushes c * (d + e); the final * pops that then (a + b) and pushes (a + b) * (c * (d + e)). Postorder reads back a b + c d e + * *, preorder reads * + a b * c + d e, and inorder reads a + b * c * d + e, which as written is ambiguous without the tree.",
+    "answer": "Postfix a b + c d e + * *, prefix * + a b * c + d e, infix a + b * c * d + e with the grouping carried by the tree."
+   },
+   "gateAngle": "Expression trees reach GATE through stacks and through traversals: a postfix-to-prefix conversion, or a question that hands you a postfix string and asks which traversal returns which form. In the question record collected for this topic no paper question asked about expression trees directly, so this card is P3 and the questions below are labelled as practice rather than as previous-year questions.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The postfix string a b + c d e + * * is read left to right. How many trees sit on the stack after the fifth symbol, and after the eighth?",
+     "answer": "Three after the fifth symbol, and two after the eighth.",
+     "why": "After a b + the stack holds one tree. c, d and e each push one node, so after e the stack holds (a + b), c, d, e, which is four, and after the + that follows it holds (a + b), c, (d + e), which is three. The * then reduces to two: (a + b) and c * (d + e)."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "An expression tree has root - with left child a and right child + whose children are b and c. Which postfix string built it, and what does the inorder form need that the postfix form does not?",
+     "answer": "a b c + - builds it, and the inorder form a - b + c needs parentheses to stay unambiguous.",
+     "why": "Postorder reads a, b, c, +, - which is the string that built the tree. The inorder a - b + c reads as (a - b) + c if evaluated left to right, which is a different tree, so the tree's grouping has to be written as a - (b + c)."
+    }
+   ],
+   "trap": {
+    "what": "Popping the two operands of a binary operator in the wrong order when building the tree.",
+    "why": "The stack pops the most recent item first, which is the right operand, so writing the first pop as the left child reverses subtraction and division.",
+    "counterexample": "For a b -, the correct tree has a as the left child and b as the right child, giving a - b. Taking the first pop as the left child gives b - a, a different value for every a and b."
+   },
+   "check": {
+    "question": "What is the prefix form of the expression whose postfix form is a b + c d e + * *?",
+    "answer": "* + a b * c + d e.",
+    "explanation": "The preorder of the expression tree reads each operator before its two subtrees: the root * first, then the left subtree + a b, then the right subtree * c + d e. Because the tree fixes the grouping, the prefix string needs no parentheses."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "tree-traversals-and-their-orders"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Binary expression tree",
+     "url": "https://en.wikipedia.org/wiki/Binary_expression_tree",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the stack construction of an expression tree from a postfix string, with the worked example a b + c d e + * *"
+    },
+    {
+     "kind": "reference",
+     "title": "Wikipedia, Tree traversal",
+     "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    }
+   ],
+   "sourceLine": "The stack construction of an expression tree from a postfix string, with the worked example a b + c d e + * *: Wikipedia, \"Binary expression tree\" (English, read in part). Postorder giving the postfix form of an expression tree: Wikipedia, \"Tree traversal\" (English, read in part). This card has no verified previous-year question and rests on one reference page, which is why it is P3 and why the topic stays partial. Every string in this card is rebuilt from the tree in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "trees-and-binary-search-trees",
+   "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/expression-trees-and-traversal-applications.json"
   }
  ],
  "pyqs": [
@@ -50398,6 +51408,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2004 Q.20 with the accepted answer (option C)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer begins 'Answer: (C) A displacement type addressing should be preferred. So, (I) is not the answer. Indirect Addressing leads to extra memory reference which is not preferable at run time.' Several answers on the page reach the same option by the base-register argument. Corroborated by the GeeksforGeeks GATE CS 2004 Question 20 page, which lists the same option set."
+  },
+  {
+   "id": "gate-2004-q35-traversal-pairs-unique",
+   "year": "2004",
+   "paper": "GATE CSE 2004",
+   "question_ref": "Q.35 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "reconstructing-a-tree-from-traversals",
+   "text": "Consider the label sequences obtained by the following pairs of traversals on a labeled binary tree. Which of these pairs identify a tree uniquely? (i) preorder and postorder (ii) inorder and postorder (iii) preorder and inorder (iv) level order and postorder",
+   "options": [
+    "(i) only",
+    "(ii), (iii)",
+    "(iii) only",
+    "(iv) only"
+   ],
+   "answer": "Option 2 - (ii), (iii)",
+   "solution": "Inorder fixes, for every root, which keys lie to its left and which to its right, so one more traversal that reveals the root order rebuilds the tree: preorder with inorder and postorder with inorder both do. Preorder with postorder does not separate a single child's side, since a root A with one child B gives preorder A B and postorder B A whether B hangs left or right. Level order with postorder also fails to fix the sides.",
+   "source_url": "https://gateoverflow.in/1032/gate-cse-2004-question-35",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.35, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 2, with the left-child and right-child counterexample for preorder with postorder. The paper and official key were not fetched, so the record stays SOURCED. Both counterexample trees are constructed in scripts/validate.py."
   },
   {
    "id": "gate-2004-q36-circular-queue-single-pointer",
@@ -52355,6 +53386,21 @@ window.GATE_DATA = {
    "answer_evidence": "Several answers on the page set tau1 = 6x and obtain 4 GHz, and one states the answer in words as 'Answer is 4 GHz'."
   },
   {
+   "id": "gate-2016-set-2-q40-insertion-orders-height-6",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 2",
+   "question_ref": "Q.40 on GATE Overflow",
+   "type": "NAT",
+   "topic": "binary-tree-node-and-height-bounds",
+   "text": "The number of ways in which the numbers 1, 2, 3, 4, 5, 6, 7 can be inserted in an empty binary search tree, such that the resulting tree has height 6, is ____. Note: The height of a tree with a single node is 0.",
+   "answer": "64",
+   "solution": "Seven keys at height 6 means every level holds exactly one key, so the tree is a chain and no node has two children. A node can have only one child only if its key is an extreme of the keys still to be placed, so after the first insertion each of the next six must take either the smallest or the largest remaining key: two choices for each of six levels, and the last key has no choice. The count is 2^6 = 64.",
+   "source_url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.40, statement and accepted count",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on 64 through the 2^6 argument and the leaf count of a perfect tree of height 6. The paper and official key were not fetched, so the record stays SOURCED. All 5040 insertion orders of 1 to 7 are enumerated in scripts/validate.py and 64 of them give height 6."
+  },
+  {
    "id": "gate-2016-set1-05-determinant-from-eigenvalues",
    "year": "2016",
    "paper": "GATE CS 2016 Set 1",
@@ -52674,6 +53720,48 @@ window.GATE_DATA = {
    "source_label": "ExamSIDE question page for the GATE CSE 2017 Set 1 RISC PC-relative branch question, with the answer -16",
    "verification": "SOURCED",
    "answer_evidence": "The ExamSIDE page prints 'Correct answer is -16' with the derivation 'Target address = next-instruction address + Offset'. The question number is not certain: ExamSIDE numbers it Q.14 in the 2017 Set 1 paper, other aggregators number it differently, and the paper itself was not fetched this run, so the reference records where the number comes from. Recomputed here from the instruction sequence: the answer is forced by the four 4-byte instructions and the next-instruction convention."
+  },
+  {
+   "id": "gate-2017-set-1-q6-bst-15-nodes-height",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.6 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "binary-tree-node-and-height-bounds",
+   "text": "Let T be a binary search tree with 15 nodes. The minimum and maximum possible heights of T are: Note: The height of a tree with a single node is 0.",
+   "options": [
+    "4 and 15 respectively",
+    "3 and 14 respectively",
+    "4 and 14 respectively",
+    "3 and 15 respectively"
+   ],
+   "answer": "Option 2 - 3 and 14 respectively",
+   "solution": "Maximum: a chain of 15 nodes has 14 edges, so height 14. Minimum: a tree of height h holds at most 2^(h+1) - 1 nodes, and 15 nodes need 2^(h+1) >= 16, so h >= 3; the perfect tree of height 3 has exactly 1 + 2 + 4 + 8 = 15 nodes. The closed form ceil(log2(16)) - 1 also gives 3.",
+   "source_url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.6, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 2, and a mirror site reproduces the options with B marked. The paper and official key were not fetched, so the record stays SOURCED. The level sum and the bound for n = 15 are recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2017-set-2-q36-preorder-to-postorder",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 2",
+   "question_ref": "Q.36 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "tree-traversals-and-their-orders",
+   "text": "The pre-order traversal of a binary search tree is given by 12, 8, 6, 2, 7, 9, 10, 16, 15, 19, 17, 20. Then the post-order traversal of this tree is",
+   "options": [
+    "2, 6, 7, 8, 9, 10, 12, 15, 16, 17, 19, 20",
+    "2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12",
+    "7, 2, 6, 8, 9, 10, 20, 17, 19, 15, 16, 12",
+    "7, 6, 2, 10, 9, 8, 15, 16, 17, 20, 19, 12"
+   ],
+   "answer": "Option 2 - 2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12",
+   "solution": "The root is 12. Keys below 12 form the left subtree and keys above form the right subtree. Left: root 8, with 6 as its left child (children 2 and 7) and 9 as its right child with right child 10, giving 2, 7, 6, 10, 9, 8. Right: root 16, with 15 as its left child and 19 as its right child with children 17 and 20, giving 15, 17, 20, 19, 16. The postorder is 2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12.",
+   "source_url": "https://gateoverflow.in/118378/gate-cse-2017-set-2-question-36",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.36, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 2, one of them by taking the sorted keys as the inorder and rebuilding. The paper and official key were not fetched, so the record stays SOURCED. The postorder is recomputed from the preorder in scripts/validate.py."
   },
   {
    "id": "gate-2017-set1-19-median-of-max-x-zero",
@@ -53433,6 +54521,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2020, listed as Question: 43, with the accepted answer 2.16",
    "verification": "SOURCED",
    "answer_evidence": "Five answers on the page reach 2.16 from 2 ns against 0.925 ns and the page records the accepted range 2.15 to 2.18. One question-bank index numbers the same question Q.53, which is recorded here rather than resolved."
+  },
+  {
+   "id": "gate-2020-q5-preorder-to-postorder",
+   "year": "2020",
+   "paper": "GATE CSE 2020",
+   "question_ref": "Q.5 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "tree-traversals-and-their-orders",
+   "text": "The preorder traversal of a binary search tree is 15, 10, 12, 11, 20, 18, 16, 19. Which one of the following is the postorder traversal of the tree?",
+   "options": [
+    "10, 11, 12, 15, 16, 18, 19, 20",
+    "11, 12, 10, 16, 19, 18, 20, 15",
+    "20, 19, 18, 16, 15, 12, 11, 10",
+    "19, 16, 18, 20, 11, 12, 10, 15"
+   ],
+   "answer": "Option 2 - 11, 12, 10, 16, 19, 18, 20, 15",
+   "solution": "The preorder's first key 15 is the root, so the postorder must end with 15. The keys 10, 12, 11 are below 15 and form the left subtree, whose own root is 10, with 12 as its right child and 11 the left child of 12, giving 11, 12, 10. The keys 20, 18, 16, 19 form the right subtree, rooted at 20, with 18 as its left child and 16 and 19 the children of 18, giving 16, 19, 18. The postorder is 11, 12, 10, 16, 19, 18, 20, 15.",
+   "source_url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.5, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 2, two of them by rebuilding the tree from the preorder and the sorted inorder. The paper and official key were not fetched, so the record stays SOURCED. The postorder is recomputed from the preorder in scripts/validate.py."
   },
   {
    "id": "gate-2021-2-50",
@@ -54303,6 +55412,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answers on the page mark statements 1, 2 and 3 correct and 4 incorrect. The official GATE 2024 CS paper (gate2024.iisc.ac.in, CS1 set) prints the same four statements at Q.30."
   },
   {
+   "id": "gate-2024-set-2-q29-inorder-from-set",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 2",
+   "question_ref": "Q.29 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "binary-search-tree-property-and-search",
+   "text": "You are given a set V of distinct integers. A binary search tree T is created by inserting all elements of V one by one, starting with an empty tree, with all values stored in the left subtree of a node smaller than the value stored at the node. You are not aware of the sequence in which these values were inserted into T, and you do not have access to T. Which one of the following statements is TRUE?",
+   "options": [
+    "Inorder traversal of T can be determined from V",
+    "Root node of T can be determined from V",
+    "Preorder traversal of T can be determined from V",
+    "Postorder traversal of T can be determined from V"
+   ],
+   "answer": "Option 1 - Inorder traversal of T can be determined from V",
+   "solution": "The inorder of a search tree lists the keys in ascending order whatever the shape, so it is the sorted form of V and is fixed by the set. The root is the first inserted key, which V does not reveal: inserting 10, 5, 20 roots the tree at 10, while inserting 5, 20, 10 roots it at 5. Preorder and postorder follow the shape, so they are not fixed either.",
+   "source_url": "https://gateoverflow.in/422868/gate-cse-2024-set-2-question-29",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.29, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers agree on option 1, several of them with the 10, 5, 20 counterexample for the root. The paper and official key were not fetched, so the record stays SOURCED. The two insertion orders and their different roots are recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2024-set-2-q31-dependency-classification",
    "year": "2024",
    "paper": "GATE CS 2024 Set 2",
@@ -54850,6 +55980,27 @@ window.GATE_DATA = {
    "answer_evidence": "The paper page lists Q.49 as a 2-mark MSQ with official answer A, B, C, and the GateAI PYQ page for the same question decodes the registers as -9, 6 and 12 and reaches the same three options. Recomputed here from the bit patterns. GATE Overflow and ExamSIDE number it Q.49 while one other site numbers it Q.53."
   },
   {
+   "id": "gate-2025-set-1-q16-bst-true-statements",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Q.16 on GATE Overflow (a mirror that numbers the paper including the GA section lists it as Q.36)",
+   "type": "MSQ",
+   "topic": "binary-search-tree-property-and-search",
+   "text": "Which of the following statement(s) is/are TRUE for any binary search tree (BST) having n distinct integers?",
+   "options": [
+    "The maximum length of a path from the root node to any other node is (n-1).",
+    "An inorder traversal will always produce a sorted sequence of elements.",
+    "Finding an element takes O(log2 n) time in the worst case.",
+    "Every BST is also a Min-Heap."
+   ],
+   "answer": "Options 1 and 2",
+   "solution": "A search tree built by inserting keys in sorted order is a chain of n nodes, so some root-to-any-node path has n-1 edges and no path can be longer: statement 1 is true. The inorder of a search tree is the sorted key list by the defining rule: statement 2 is true. In that same chain a search compares with up to n keys, so the worst case is O(n), not O(log n): statement 3 is false, and it contradicts statement 1. A search tree is not a heap, since its root is not the smallest key in general: statement 4 is false.",
+   "source_url": "https://gateoverflow.in/460064/gate-cse-2025-set-1-question-16",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.16, statement, options and per-option verdicts",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers agree on options 1 and 2, and a mirror site records A and B with the same reasoning. The paper and official key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.16, the mirror Q.36."
+  },
+  {
    "id": "gate-2025-set-1-q27-immediate-field",
    "year": "2025",
    "paper": "GATE CSE 2025 Set 1",
@@ -54884,6 +56035,42 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.52, statement and accepted answers",
    "verification": "SOURCED",
    "answer_evidence": "Several GATE Overflow answers reach 5 and one traces the loop node by node; a mirror site records 5 as the official 2025 final key value. The paper and key themselves were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.52, mirrors Q.62."
+  },
+  {
+   "id": "gate-2025-set-2-q25-bst-insert-depth-19",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.25 on GATE Overflow (a mirror site numbers it Q.35)",
+   "type": "NAT",
+   "topic": "bst-insertion-and-deletion",
+   "text": "Suppose the values 10, -4, 15, 30, 20, 5, 60, 19 are inserted in that order into an initially empty binary search tree. Let T be the resulting binary search tree. The number of edges in the path from the node containing 19 to the root node of T is ____ (answer in integer).",
+   "answer": "4",
+   "solution": "Insertion: 10 is the root; -4 is its left child; 15 its right child; 30 the right child of 15; 20 the left child of 30; 5 the right child of -4; 60 the right child of 30; 19 the left child of 20. The path is 19, 20, 30, 15, 10, which has four edges and five nodes.",
+   "source_url": "https://gateoverflow.in/460810/gate-cse-2025-set-2-question-25",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.25, statement and the traced insertion path",
+   "verification": "SOURCED",
+   "answer_evidence": "Three GATE Overflow answers trace the insertions and reach 4, and two mirror sites state 4 as the official 2025 final key value. The key document itself was not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.25, a mirror numbers it Q.35. The insertion path is recomputed in scripts/validate.py."
+  },
+  {
+   "id": "gate-2025-set-2-q3-two-child-nodes",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 2",
+   "question_ref": "Q.3 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "tree-and-binary-tree-terminology",
+   "text": "Consider a binary tree T in which every node has either zero or two children. Let n > 0 be the number of nodes in T. Which ONE of the following is the number of nodes in T that have exactly two children?",
+   "options": [
+    "(n-2)/2",
+    "(n-1)/2",
+    "n/2",
+    "(n+1)/2"
+   ],
+   "answer": "Option 2 - (n-1)/2",
+   "solution": "Every node is a leaf or a two-child node, so n = n0 + n2. The tree has n - 1 edges, and only the two-child nodes produce edges, so n - 1 = 2n2. Hence n2 = (n-1)/2. The same result follows from the identity n0 = n2 + 1: n = 2n2 + 1. Small cases agree: n = 1 gives 0, n = 3 gives 1, n = 5 gives 2.",
+   "source_url": "https://gateoverflow.in/460832/gate-cse-2025-set-2-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.3, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 2 with the edge-counting derivation. The paper and official key were not fetched, so the record stays SOURCED. The formula and its small cases are recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2025-set-2-q56-latch-delay-1000-instructions",
@@ -55297,6 +56484,21 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.4 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states 'Answer is option B. P-4, Q-2, R-1, S-3' and gives the four justifications, linking the same distinction to GATE CSE 2017 Set 1 Q.11. Corroborated by the ExamSIDE 2026 Set 1 paper page, whose solution matches base-with-index to an array element and base-with-displacement to a record element, and by EduRev's PYQ page, which records Answer: B."
+  },
+  {
+   "id": "gate-2026-set-1-q52-bst-preorder-postorder-position",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Q.52 on GATE Overflow",
+   "type": "NAT",
+   "topic": "tree-traversals-and-their-orders",
+   "text": "The following sequence corresponds to the preorder traversal of a binary search tree T: 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77. The position of the element 60 in the postorder traversal of T is ____ (answer in integer). Note: the position begins with 1.",
+   "answer": "7",
+   "solution": "Rebuilding the search tree from the preorder: 50 is the root; 25 is its left child; 13 the left child of 25; 40 the right child of 25; 30 the left child of 40; 47 the right child of 40; 75 the right child of 50; 60 the left child of 75; 70 the right child of 60; 80 the right child of 75; 77 the left child of 80. The postorder is 13, 30, 47, 40, 25, 70, 60, 77, 80, 75, 50, so 60 is the seventh element.",
+   "source_url": "https://gateoverflow.in/523028/gate-cse-2026-set-1-question-52",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.52, statement and accepted answers",
+   "verification": "SOURCED",
+   "answer_evidence": "Two GATE Overflow answers give 7 and one of them warns that indexing the node's own position gives 6 instead. The paper and the official key were not fetched, so the record stays SOURCED. The postorder in the solution is recomputed from the preorder in scripts/validate.py."
   },
   {
    "id": "gate-2026-set-1-q60-structural-hazard-ex-stalls",
