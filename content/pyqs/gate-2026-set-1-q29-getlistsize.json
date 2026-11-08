@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set-1-q29-getlistsize",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 1",
+  "question_ref": "Q.29 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.39)",
+  "type": "MCQ",
+  "topic": "traversing-and-searching-a-singly-linked-list",
+  "text": "Consider the following code snippet in C language that computes the number of nodes in a non-empty singly linked list pointed to by the pointer variable head: struct node { int elt; struct node *next; }; int getListSize (struct node *head) { if ( E1 ) return 1; return E2 ; } Which one of the following options gives the correct replacements for the expressions E1 and E2?",
+  "options": [
+    "E1: head == NULL, E2: 1 + getListSize(head)",
+    "E1: head->next == NULL, E2: 1 + getListSize(head->next)",
+    "E1: head == NULL, E2: 1 + getListSize(head->next)",
+    "E1: head->next == NULL, E2: 1 + getListSize(head)"
+  ],
+  "answer": "Option 2 - E1: head->next == NULL and E2: 1 + getListSize(head->next)",
+  "solution": "The list is guaranteed non-empty, so the smallest case is a single node, whose next is NULL; that is the base case and it returns 1. Otherwise the count is the current node plus the count of the list starting at head->next, so E2 must recurse on head->next. Option 1 never advances, so it recurses forever; option 4 does the same; option 3 would add a node for the NULL that ends the list and return n+1.",
+  "source_url": "https://gateoverflow.in/523051/gate-cse-2026-set-1-question-29",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.29, statement, four options and the accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answer page states 'Answer is: Option B' and reasons through the single-node base case. The official 2026 paper and key were not fetched this run, so the record stays SOURCED. Numbering differs between mirrors: GATE Overflow labels it Q.29, two mirror sites label it Q.39 of the same paper."
+}

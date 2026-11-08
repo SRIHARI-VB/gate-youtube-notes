@@ -1,0 +1,15 @@
+{
+  "id": "gate-2025-set-1-q52-delete-values-in-l2",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 1",
+  "question_ref": "Q.52 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.62)",
+  "type": "NAT",
+  "topic": "deleting-a-node-given-its-pointer",
+  "text": "LIST is typedef struct list { int data; struct list *next; } LIST. Two lists L1 (9 nodes: 1,7,12,3,9,5,11,15,8) and L2 (7 nodes: 1,11,6,9,15,12,4) are built. The segment ptr1=L1; ptr2=L2; while (ptr1->next != NULL) { query = ptr1->next->data; if (find(query, L2)) ptr1->next = ptr1->next->next; else ptr1 = ptr1->next; } modifies L1. The number of nodes in L1 after execution is ____ (answer in integer).",
+  "answer": "5",
+  "solution": "The head is never tested because the loop looks at ptr1->next. At 1 the successor 7 is not in L2, so ptr1 moves to 7; at 7 the successor 12 is in L2, so 12 is bypassed and ptr1 stays at 7; now the successor 3 is not in L2, so ptr1 moves to 3; at 3 the successor 9 is bypassed; the successor 5 is kept and ptr1 moves to 5; then 11 is bypassed, then 15 is bypassed, then 8 is kept and ptr1 moves to 8, whose next is NULL. The surviving list is 1,7,3,5,8, so five nodes remain.",
+  "source_url": "https://gateoverflow.in/460028/gate-cse-2025-set-1-question-52",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.52, statement and accepted answers",
+  "verification": "SOURCED",
+  "answer_evidence": "Several GATE Overflow answers reach 5 and one traces the loop node by node; a mirror site records 5 as the official 2025 final key value. The paper and key themselves were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.52, mirrors Q.62."
+}

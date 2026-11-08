@@ -1,0 +1,21 @@
+{
+  "id": "gate-2010-q36-move-last-to-front",
+  "year": "2010",
+  "paper": "GATE CSE 2010",
+  "question_ref": "Q.36 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "reversing-a-singly-linked-list",
+  "text": "The following C function takes a singly-linked list as input argument and modifies the list by moving the last element to the front of the list, returning the modified list. Node *move_to_front(Node *head) { Node *p, *q; if (head == NULL || head->next == NULL) return head; q = NULL; p = head; while (p->next != NULL) { q = p; p = p->next; } ______ return head; } Choose the correct alternative to replace the blank line.",
+  "options": [
+    "q = NULL; p->next = head; head = p;",
+    "q->next = NULL; head = p; p->next = head;",
+    "head = p; p->next = q; q->next = NULL;",
+    "q->next = NULL; p->next = head; head = p;"
+  ],
+  "answer": "Option 4 - q->next = NULL; p->next = head; head = p;",
+  "solution": "When the loop ends, p is the last node and q is the second-last. The last node must be cut off, so q->next = NULL; it must then point at the old first node, so p->next = head; and finally head must move to p. Option 2 assigns head = p before p->next is set, so p->next would point at itself and the list becomes a two-node cycle.",
+  "source_url": "https://gateoverflow.in/2337/gate-cse-2010-question-36",
+  "source_label": "GATE Overflow question page - GATE CSE 2010 Q.36, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answer page selects option 4 and points out the self-loop created by option 2. The paper and key were not fetched, so the record stays SOURCED."
+}

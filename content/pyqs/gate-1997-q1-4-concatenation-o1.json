@@ -1,0 +1,21 @@
+{
+  "id": "gate-1997-q1-4-concatenation-o1",
+  "year": "1997",
+  "paper": "GATE CSE 1997",
+  "question_ref": "Q.1(4) on GATE Overflow",
+  "type": "MCQ",
+  "topic": "circular-linked-list",
+  "text": "The concatenation of two lists is to be performed in O(1) time. Which of the following implementations of a list should be used?",
+  "options": [
+    "Singly linked list",
+    "Doubly linked list",
+    "Circular doubly linked list",
+    "Array implementation of list"
+  ],
+  "answer": "Option 3 - Circular doubly linked list",
+  "solution": "Concatenation must reach the end of the first list and the start of the second without a walk. In a circular doubly linked list the head's prev is the tail, so both ends of both lists are one dereference away, and four pointer writes splice them: t1->next = h2, h2->prev = t1, t2->next = h1, h1->prev = t2. A singly or doubly linked list keeping only a head pointer must walk to its tail, which is O(n); an array must copy both blocks into a new one, which is O(n+m).",
+  "source_url": "https://gateoverflow.in/2220/gate-cse-1997-question-1-4",
+  "source_label": "GATE Overflow question page - GATE CSE 1997 Q.1(4), statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers give the circular doubly linked list and list the four pointer writes. The paper and key were not fetched, so the record stays SOURCED."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-q36-circular-queue-single-pointer",
+  "year": "2004",
+  "paper": "GATE CSE 2004",
+  "question_ref": "Q.36 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "circular-linked-list",
+  "text": "A circularly linked list is used to represent a Queue. A single variable p is used to access the Queue. To which node should p point such that both the operations enQueue and deQueue can be performed in constant time?",
+  "options": [
+    "rear node",
+    "front node",
+    "not possible with a single pointer",
+    "node next to front"
+  ],
+  "answer": "Option 1 - the rear node",
+  "solution": "In a circular list the rear's next is the front, so one pointer at the rear reaches both ends. Enqueue inserts after the rear (item->next = p->next; p->next = item; p = item) and dequeue removes p->next and relinks it to p->next->next; each is a constant number of writes. With p at the front, dequeue is still constant but enqueue must find the rear, which is n-1 links away, so it is O(n).",
+  "source_url": "https://gateoverflow.in/1033/gate-cse-2004-question-36",
+  "source_label": "GATE Overflow question page - GATE CSE 2004 Q.36, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers give the rear node and several show both operations in constant-time code. The paper and key were not fetched, so the record stays SOURCED."
+}

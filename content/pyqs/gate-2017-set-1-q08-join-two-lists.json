@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set-1-q08-join-two-lists",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 1",
+  "question_ref": "Q.08 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "insertion-in-a-singly-linked-list",
+  "text": "Consider the C code fragment typedef struct node { int data; node* next; } node; void join(node* m, node* n) { node* p = n; while (p->next != NULL) { p = p->next; } p->next = m; }. Assuming that m and n point to valid NULL-terminated linked lists, invocation of join will",
+  "options": [
+    "append list m to the end of list n for all inputs.",
+    "either cause a null pointer dereference or append list m to the end of list n.",
+    "cause a null pointer dereference for all inputs.",
+    "append list n to the end of list m for all inputs."
+  ],
+  "answer": "Option 2 - either a null pointer dereference or an append of m to the end of n",
+  "solution": "If n is non-empty, p walks to n's last node and p->next = m appends m after it, so the result is n followed by m. If n is the empty list, p = n = NULL and the first evaluation of p->next dereferences NULL, which is a run-time error. Both cases are possible for valid NULL-terminated inputs, so only option 2 covers the whole input space.",
+  "source_url": "https://gateoverflow.in/118711/gate-cse-2017-set-1-question-08",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.08, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answer page walks both the empty and the non-empty case and selects option 2. The paper and key were not fetched, so the record stays SOURCED."
+}

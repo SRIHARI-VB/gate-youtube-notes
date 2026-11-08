@@ -1,0 +1,21 @@
+{
+  "id": "gate-2020-q16-sorted-insertion-cost",
+  "year": "2020",
+  "paper": "GATE CSE 2020",
+  "question_ref": "Q.16 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "insertion-in-a-singly-linked-list",
+  "text": "What is the worst case time complexity of inserting n elements into an empty linked list, if the linked list needs to be maintained in sorted order?",
+  "options": [
+    "Theta(n)",
+    "Theta(n log n)",
+    "Theta(n^2)",
+    "Theta(1)"
+  ],
+  "answer": "Option 3 - Theta(n^2)",
+  "solution": "Inserting one element into a sorted linked list costs the walk to its position, which is Theta(n) in the worst case, plus O(1) for the relinking. Inserting n elements one at a time therefore costs the sum 0 + 1 + ... + (n-1) = n(n-1)/2 link steps, which is Theta(n^2). The worst case is input that arrives already sorted, so every new element belongs at the end and every walk is the longest possible.",
+  "source_url": "https://gateoverflow.in/333215/gate-cse-2020-question-16",
+  "source_label": "GATE Overflow question page - GATE CSE 2020 Q.16, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page is option 3 and several answers derive the n(n-1)/2 sum; the page also records the objection that if all n elements are given in advance the list could be built in Theta(n log n), which the official key did not allow. The paper and key were not fetched, so the record stays SOURCED and the ambiguity is noted rather than hidden."
+}

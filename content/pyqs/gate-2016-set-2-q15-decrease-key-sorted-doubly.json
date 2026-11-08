@@ -1,0 +1,21 @@
+{
+  "id": "gate-2016-set-2-q15-decrease-key-sorted-doubly",
+  "year": "2016",
+  "paper": "GATE CSE 2016 Set 2",
+  "question_ref": "Q.15 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "doubly-linked-list",
+  "text": "N items are stored in a sorted doubly linked list. For a delete operation, a pointer is provided to the record to be deleted. For a decrease-key operation, a pointer is provided to the record on which the operation is to be performed. An algorithm performs the following operations on the list in this order: Theta(N) delete, O(log N) insert, O(log N) find, and Theta(N) decrease-key. What is the time complexity of all these operations put together?",
+  "options": [
+    "O(log^2 N)",
+    "O(N)",
+    "O(N^2)",
+    "Theta(N^2 log N)"
+  ],
+  "answer": "Option 3 - O(N^2)",
+  "solution": "A delete is O(1) because the doubly linked node stores its predecessor, so Theta(N) deletes cost O(N). An insert or a find must walk the list, so each is O(N) and O(log N) of them cost O(N log N). A decrease-key is O(1) at the record, but the list must remain sorted, so the new position costs a walk of O(N); Theta(N) such operations cost Theta(N^2), which dominates everything else.",
+  "source_url": "https://gateoverflow.in/39557/gate-cse-2016-set-2-question-15",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.15, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The accepted answer on the page is option 3 with the per-operation costs itemised, and an aggregator reproduces the same answer. The paper and key were not fetched, so the record stays SOURCED."
+}

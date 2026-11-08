@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-q3-slldel-dlldel",
+  "year": "2023",
+  "paper": "GATE CSE 2023",
+  "question_ref": "Q.3 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.13)",
+  "type": "MCQ",
+  "topic": "deleting-a-node-given-its-pointer",
+  "text": "Let SLLdel be a function that deletes a node in a singly-linked list given a pointer to the node and a pointer to the head of the list. Similarly, let DLLdel be another function that deletes a node in a doubly-linked list given a pointer to the node and a pointer to the head of the list. Let n denote the number of nodes in each of the linked lists. Which one of the following choices is TRUE about the worst-case time complexity of SLLdel and DLLdel?",
+  "options": [
+    "SLLdel is O(1) and DLLdel is O(n)",
+    "Both SLLdel and DLLdel are O(log(n))",
+    "Both SLLdel and DLLdel are O(1)",
+    "SLLdel is O(n) and DLLdel is O(1)"
+  ],
+  "answer": "Option 4 - SLLdel is O(n) and DLLdel is O(1)",
+  "solution": "Unlinking a node requires its predecessor. A singly linked node stores only its successor, so the predecessor must be found by walking from the head, which is n-1 links in the worst case: SLLdel is O(n). A doubly linked node stores prev, so the predecessor is one dereference away and two pointer writes unlink it: DLLdel is O(1). The head pointer passed to DLLdel is not used when the node is not the head.",
+  "source_url": "https://gateoverflow.in/399309/gate-cse-2023-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.3, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 4, and two mirror sites record it as the official 2023 final key. The paper and key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.3, mirrors Q.13."
+}

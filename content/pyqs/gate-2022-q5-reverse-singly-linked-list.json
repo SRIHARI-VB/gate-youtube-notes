@@ -1,0 +1,21 @@
+{
+  "id": "gate-2022-q5-reverse-singly-linked-list",
+  "year": "2022",
+  "paper": "GATE CSE 2022",
+  "question_ref": "Q.5 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.15)",
+  "type": "MCQ",
+  "topic": "reversing-a-singly-linked-list",
+  "text": "Consider the problem of reversing a singly linked list. Which one of the following statements is TRUE about the time complexity of algorithms that solve the above problem in O(1) space?",
+  "options": [
+    "The best algorithm for the problem takes Theta(n) time in the worst case.",
+    "The best algorithm for the problem takes Theta(n log n) time in the worst case.",
+    "The best algorithm for the problem takes Theta(n^2) time in the worst case.",
+    "It is not possible to reverse a singly linked list in O(1) space."
+  ],
+  "answer": "Option 1 - The best algorithm takes Theta(n) time in the worst case",
+  "solution": "The three-pointer loop reverses the links in place: save the successor, point the current node at the previous one, then advance. Each node is visited once and no extra structure is allocated, so the time is O(n) with O(1) space. Every node's next pointer must change, so Omega(n) is a lower bound and Theta(n) is optimal, which rules out the quadratic option and the impossibility claim.",
+  "source_url": "https://gateoverflow.in/371931/gate-cse-2022-question-5",
+  "source_label": "GATE Overflow question page - GATE CSE 2022 Q.5, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers give option 1 with working three-pointer code, and a mirror site records it as the official 2022 final key. The paper and key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.5, mirrors Q.15."
+}
