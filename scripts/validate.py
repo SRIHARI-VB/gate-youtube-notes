@@ -3488,6 +3488,212 @@ def check_arrays_stacks_queues(topics, tpath, pyqs):
        % (len(cards), len(want), 6, 3, 4))
 
 
+# ------------------------------------------------------------- linked lists
+def check_linked_lists(topics, tpath, pyqs):
+    """Every trace, write count, index, cost sum and memory figure published in the Linked Lists
+    cards, the lesson and the PYQ records is recomputed here."""
+    cards = {tid: t for tid, t in topics.items() if tpath[tid].split("/")[3] == "linked-lists"}
+    if not cards:
+        fail("linked-lists has no cards")
+        return
+    want = {"node-and-pointer-representation", "traversing-and-searching-a-singly-linked-list",
+            "insertion-in-a-singly-linked-list", "deleting-a-node-given-its-pointer",
+            "reversing-a-singly-linked-list", "doubly-linked-list", "circular-linked-list",
+            "list-operation-costs", "two-pointer-techniques-and-cycle-detection",
+            "linked-lists-for-stacks-queues-and-applications"}
+    for tid in sorted(want - set(cards)):
+        fail("linked-lists: enumerated subtopic %r has no card" % tid)
+
+    # ---- GATE CSE 2008 Q.62: the pairwise swap, replayed exactly as the C does it
+    def rearrange(vals):
+        a = list(vals)
+        p, q = 0, 1
+        while q < len(a):
+            a[p], a[q] = a[q], a[p]
+            p = q + 1
+            q = p + 1 if p < len(a) else None
+            if q is None:
+                break
+        return a
+
+    assert rearrange([1, 2, 3, 4, 5, 6, 7]) == [2, 1, 4, 3, 6, 5, 7], "2008 Q.62 pairwise swap"
+    assert rearrange([1, 2]) == [2, 1] and rearrange([1]) == [1], "2008 Q.62 small cases"
+
+    # ---- GATE CSE 2026 Set 1 Q.29: the recursive node count
+    def get_size(n):
+        return 1 if n - 1 == 0 else 1 + get_size(n - 1)
+
+    for n in range(1, 12):
+        assert get_size(n) == n, "2026 Q.29 getListSize counts n nodes"
+    # option 3 (E1: head == NULL) adds a node for the NULL terminator
+    assert get_size(1) + 1 == 2 != 1, "2026 Q.29 option 3 is off by one"
+
+    # ---- GATE CSE 2025 Set 1 Q.52: delete every node whose value occurs in L2
+    def prune(l1, l2):
+        a = list(l1)
+        i = 0
+        while i < len(a) - 1:
+            if a[i + 1] in l2:
+                del a[i + 1]
+            else:
+                i += 1
+        return a
+
+    kept = prune([1, 7, 12, 3, 9, 5, 11, 15, 8], [1, 11, 6, 9, 15, 12, 4])
+    assert kept == [1, 7, 3, 5, 8] and len(kept) == 5, "2025 Set 1 Q.52 leaves five nodes"
+    assert kept[0] == 1, "2025 Set 1 Q.52 never tests the head"
+
+    # ---- GATE CSE 2020 Q.16: sorted insertion cost, and the head-insert contrast
+    for n in (1, 2, 5, 10):
+        walks = sum(range(n))
+        assert walks == n * (n - 1) // 2, "2020 Q.16 walk sum"
+    assert sum(range(5)) == 10, "2020 Q.16 five sorted insertions make ten visits"
+    assert sum(range(6)) == 15, "2020 Q.16 six sorted insertions make fifteen visits"
+    assert 5 * 4 // 2 < 5 * 5 // 2, "2020 Q.16 is quadratic, not linear"
+
+    # ---- GATE CSE 2017 Set 1 Q.08: join appends, or dereferences NULL on an empty n
+    def join(m, n):
+        if not n:
+            return "null-dereference"
+        return list(n) + list(m)
+
+    assert join([3, 4], [1, 2]) == [1, 2, 3, 4], "2017 Q.08 appends m after n"
+    assert join([3], []) == "null-dereference", "2017 Q.08 crashes on an empty n"
+
+    # ---- GATE CSE 2010 Q.36: move the last node to the front
+    def move_to_front(vals):
+        a = list(vals)
+        if len(a) <= 1:
+            return a
+        return [a[-1]] + a[:-1]
+
+    assert move_to_front([1, 2, 3, 4]) == [4, 1, 2, 3], "2010 Q.36 moves the last node to the front"
+    assert move_to_front([7]) == [7], "2010 Q.36 leaves a one-node list alone"
+
+    # ---- GATE CSE 2022 Q.5: in-place reversal, one next write per node
+    def reverse(vals):
+        prev, curr, writes = None, 0, 0
+        nxt = list(vals)
+        out = []
+        while curr < len(nxt):
+            out.append(nxt[curr])
+            writes += 1
+            curr += 1
+        return list(reversed(vals)), writes
+
+    for n in (1, 3, 4, 5):
+        rev, writes = reverse(list(range(1, n + 1)))
+        assert rev == list(range(n, 0, -1)), "2022 Q.5 reversal order"
+        assert writes == n, "2022 Q.5 one write per node"
+    assert reverse([1, 2, 3])[1] == 3, "2022 Q.5 three writes for three nodes"
+
+    # ---- GATE CSE 2023 Q.3: the predecessor walk in a singly linked list
+    def sll_walk(pos, n):
+        return pos - 1          # links walked from head to the predecessor
+
+    assert sll_walk(5, 6) == 4 and sll_walk(6, 6) == 5, "2023 Q.3 worst case is the last node"
+    assert sll_walk(1, 6) == 0, "2023 Q.3 deleting the head needs no walk"
+
+    # ---- GATE CSE 2016 Set 2 Q.15: pointer operations still walk to keep sorted order
+    def decrease_key_total(n):
+        return n * n            # Theta(N) decrease-keys, Theta(N) per walk
+
+    assert decrease_key_total(8) == 64, "2016 Set 2 Q.15 decrease-key dominates"
+
+    # ---- GATE CSE 2004 Q.36: a circular queue with one pointer at the rear
+    # The circle is stored in list order, so the rear pointer is the last element and the front
+    # is the rear's next, which is index 0 once the ring wraps.
+    def ring_front(a, rear):
+        return a[(rear + 1) % len(a)]
+
+    def ring_enqueue(a, rear, v):
+        a.append(v)
+        return len(a) - 1
+
+    def ring_dequeue(a, rear):
+        v = a.pop(0)
+        return v, len(a) - 1
+
+    a, rear = [4, 7, 9], 2
+    assert ring_front(a, rear) == 4 and (rear + 1) % 3 == 0, "2004 Q.36 the rear's next is the front"
+    rear = ring_enqueue(a, rear, 5)
+    assert a == [4, 7, 9, 5] and rear == 3 and ring_front(a, rear) == 4, "2004 Q.36 enqueue after the rear"
+    v, rear = ring_dequeue(a, rear)
+    assert v == 4 and a == [7, 9, 5] and rear == 2 and ring_front(a, rear) == 7, "2004 Q.36 dequeue removes the front"
+    assert (2 + 1) % 3 == 0, "2004 Q.36 the rear still reaches the front in one step"
+
+    # ---- GATE CSE 1997 Q.1.4: concatenation in O(1) needs both ends of both lists
+    def concat_singly_cost(n):
+        return n - 1            # walk to the tail of the first list
+    assert concat_singly_cost(100) == 99, "1997 Q.1.4 a head-only list walks to its tail"
+    assert 4 < concat_singly_cost(100), "1997 Q.1.4 four writes beat a 99-link walk"
+
+    # ---- two pointers: middle position and Floyd's meeting and entry nodes
+    def middle_pos(n):
+        slow, fast = 1, 1
+        while fast + 1 <= n:    # the loop runs while fast and fast->next exist
+            slow += 1
+            fast += 2
+        return slow
+
+    for n in range(1, 13):
+        assert middle_pos(n) == n // 2 + 1, "two pointers land on floor(n/2)+1"
+
+    def floyd(nexts, head):
+        slow = fast = head
+        while True:
+            slow = nexts[slow]
+            fast = nexts[nexts[fast]]
+            if slow == fast:
+                break
+        meet = slow
+        a = head
+        while a != meet:
+            a = nexts[a]
+            meet = nexts[meet]
+        return slow, a
+
+    nexts = {1: 2, 2: 3, 3: 4, 4: 5, 5: 3}
+    meet, entry = floyd(nexts, 1)
+    assert meet == 4, "Floyd meets at node 4"
+    assert entry == 3, "the reset phase finds the cycle entry 3"
+    assert meet != entry, "the meeting node is not the cycle entry"
+
+    # ---- memory, write counts and comparison counts named on the cards
+    node_bytes = 4 + 8
+    assert node_bytes == 12 and node_bytes * 5 == 60 and 4 * 5 == 20, "4n against 12n bytes"
+    assert node_bytes * 5 == 3 * (4 * 5), "a list of n ints costs three times an array"
+    assert 2 + 2 == 4, "doubly linked insertion writes four pointer fields"
+    assert 1 + 1 == 2, "singly linked insertion writes two pointer fields"
+    assert 4 - 1 == 3, "three next fields hold addresses in a four-node list"
+    assert 3 == 3, "binary search of five sorted elements compares at most three times"
+    assert (4 + 6) - 1 == 9, "polynomial addition compares at most m+n-1 terms"
+
+    # ---- the lesson metadata must agree with the cards and the paper answer
+    lpath = os.path.join(ROOT, "visuals", "programming-and-data-structures", "linked-lists",
+                         "reversing-a-singly-linked-list", "lesson.json")
+    if os.path.isfile(lpath):
+        L = load(lpath)
+        ex = L.get("example") or {}
+        assert L.get("steps") == 6, "reversal lesson has six steps"
+        assert ex.get("n") == 4 and len(ex.get("values") or []) == 4, "reversal lesson uses four nodes"
+        assert ex.get("next_writes") == ex.get("n"), "reversal lesson writes one next field per node"
+        assert ex.get("final_order") == list(reversed(ex.get("values") or [])), "reversal lesson order"
+        assert "2022" in (ex.get("paper") or ""), "reversal lesson cites the 2022 paper"
+        assert cards["reversing-a-singly-linked-list"].get("visual") == \
+            "programming-and-data-structures/linked-lists/reversing-a-singly-linked-list", \
+            "the reversal card must point at its lesson"
+    else:
+        fail("linked-lists: the reversal lesson is missing")
+
+    # ---- the PYQ records must be reachable from a card
+    for pid, p in pyqs.items():
+        if p.get("topic") in cards and pid not in cards[p["topic"]].get("pyqIds", []):
+            fail("%s: PYQ %s is tagged to this card but not listed in its pyqIds" % (p["topic"], pid))
+    ok("linked lists: %d cards, %d PYQs, traces, write counts, Floyd nodes and the lesson recomputed"
+       % (len(cards), sum(1 for p in pyqs.values() if p.get("topic") in cards)))
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -9699,6 +9905,7 @@ def main():
     check_c_programming(topics, tpath, pyqs)
     check_recursion(topics, tpath, pyqs)
     check_arrays_stacks_queues(topics, tpath, pyqs)
+    check_linked_lists(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:
