@@ -1,0 +1,21 @@
+{
+  "id": "gate-2019-q40-heap-statements",
+  "year": "2019",
+  "paper": "GATE CSE 2019",
+  "question_ref": "Q.40 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "build-heap-in-linear-time",
+  "text": "Consider the following statements: I. The smallest element in a max-heap is always at a leaf node. II. The second largest element in a max-heap is always a child of a root node. III. A max-heap can be constructed from a binary search tree in Theta(n) time. IV. A binary search tree can be constructed from a max-heap in Theta(n) time. Which of the above statements are TRUE?",
+  "options": [
+    "I, II and III",
+    "I, II and IV",
+    "I, III and IV",
+    "II, III and IV"
+  ],
+  "answer": "Option 1 - I, II and III",
+  "solution": "I: a parent is at least its children, so the minimum has no child and is a leaf. II: every node except the root lies under one of the two children of the root, and the larger child exceeds everything in the other subtree. III: walk the BST into an array and build-heap, both Theta(n). IV is false: a heap plus a Theta(n) conversion plus an inorder walk would sort n keys in Theta(n) comparisons, contradicting the Omega(n log n) lower bound.",
+  "source_url": "https://gateoverflow.in/302808/gate-cse-2019-question-40",
+  "source_label": "GATE Overflow question page - GATE CSE 2019 Q.40, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 1. The paper and key were not fetched, so the record stays SOURCED. Statements I and II are re-tested on explicit heaps and statement III's cost is recomputed in scripts/validate.py."
+}

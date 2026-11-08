@@ -1,0 +1,21 @@
+{
+  "id": "gate-2023-q2-array-that-is-max-heap",
+  "year": "2023",
+  "paper": "GATE CSE 2023",
+  "question_ref": "Q.2 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "heap-shape-and-heap-property",
+  "text": "Which one of the following sequences when stored in an array at locations A[1], ..., A[10] forms a max-heap?",
+  "options": [
+    "23, 17, 10, 6, 13, 14, 1, 5, 7, 12",
+    "23, 17, 14, 7, 13, 10, 1, 5, 6, 12",
+    "23, 17, 14, 6, 13, 10, 1, 5, 7, 15",
+    "23, 14, 17, 1, 10, 13, 16, 12, 7, 5"
+  ],
+  "answer": "Option 2 - 23, 17, 14, 7, 13, 10, 1, 5, 6, 12",
+  "solution": "Test each parent against its children. Option 1 fails at (3,6): 10 is the parent of 14. Option 3 fails at (4,9): 6 is the parent of 15. Option 4 fails at (4,8): 1 is the parent of 12. Option 2 satisfies every edge: 23 over 17 and 14, 17 over 7 and 13, 14 over 10 and 1, 7 over 5 and 6, 13 over 12.",
+  "source_url": "https://gateoverflow.in/399310/gate-cse-2023-question-2",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.2, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 2, with the three failing edges named. The paper and key were not fetched, so the record stays SOURCED. All four arrays are re-tested edge by edge in scripts/validate.py."
+}

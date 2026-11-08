@@ -1,0 +1,21 @@
+{
+  "id": "gate-2026-set-1-q13-leaf-indices",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 1",
+  "question_ref": "Question 13 on GATE Overflow (one paper-listing site numbers the same question Q.23; see answer_evidence)",
+  "type": "MSQ",
+  "topic": "array-representation-and-index-arithmetic",
+  "text": "Let n be an odd number greater than 100. Consider a binary min-heap with n elements stored in an array P whose index starts from 1. Which of the following indices of P do/does NOT correspond to any leaf node of the min-heap?",
+  "options": [
+    "(n+1)/2",
+    "(n-1)/2",
+    "(n-3)/2",
+    "n"
+  ],
+  "answer": "Options 2 and 3 - (n-1)/2 and (n-3)/2",
+  "solution": "For odd n with 1-based indices the internal nodes are 1 to (n-1)/2 and the leaves are (n+1)/2 to n. So (n+1)/2 is the first leaf and n the last, while (n-1)/2 is the last internal node and (n-3)/2 = (n-1)/2 - 1 is internal too. At n = 101: internal nodes 1 to 50, leaves 51 to 101, so 51 and 101 are leaves and 50 and 49 are not.",
+  "source_url": "https://gateoverflow.in/523067/gate-cse-2026-set-1-question-13",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.13, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records 'B and C'. A second site listing the GATE 2026 Set 1 paper prints the identical statement and options but numbers it Q.23, so the question reference records the disagreement rather than pinning a number. The paper and key were not fetched, so the record stays SOURCED. The internal-node boundary is recomputed for n = 101, 103 and 105 in scripts/validate.py."
+}

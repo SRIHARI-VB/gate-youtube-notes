@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert Climbs, Extract Sinks - Binary Heaps visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Insert Climbs, Extract Sinks</h1>
+  <div class="objective"><strong>Objective.</strong> One max-heap, six keys, two repairs. Watch an insert append the new key at the end and climb it past two parents, then watch an extract move the last key into the root and sink it past one child. The tree and the array are shown together, because a heap is one array and the tree is only a way of reading it.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Both operations do the same two things in a different order: change the array at the end, then repair the order along one path. Insert appends the new key at index n+1, which keeps the tree complete, and then compares it with its parent, swapping upward while it wins. Extract takes the root, moves the last key into the root, shrinks the heap by one, and then compares downward, swapping with the larger child in a max-heap.</p>
+  <p>Each swap moves exactly one level, so each repair costs at most the height of the heap, which is floor(log2 n) for a complete tree. Here the heap has six keys, height 2, and the insert takes two swaps while the extract takes one. Nothing else in the tree is examined: every other parent-child edge was already valid and neither operation creates a new one.</p>
+  <p>The child chosen during a sink is not a free choice. The key must swap with the larger child in a max-heap, because the smaller child would then sit under a parent smaller than itself, and the heap would still be broken. The animation's fifth step shows the correct swap with 9 and not with 7.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That inserting means running heapify from the root. Heapify repairs a key that is too small for its children, and the inserted key is too large for its parent, so only a climb can fix it. On the array [10,8,5] with 9 appended, heapify from the root does nothing at all and the heap is left broken at the edge between index 2 and index 4.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>Insert 1 into the min-heap [2,5,3,9,7,4]. Which indices are compared, and what is the array afterwards?</p><details><summary>Answer</summary><p><strong>[1,5,2,9,7,4,3], after comparing with index 3 (value 3) and then index 1 (value 2).</strong> Append at index 7: [2,5,3,9,7,4,1]. The parent is index 3, holding 3, and 1 &lt; 3, so swap: [2,5,1,9,7,4,3]. The new parent is index 1, holding 2, and 1 &lt; 2, so swap again: [1,5,2,9,7,4,3]. Two swaps, the height of a seven-key heap.</p></details></div>
+
+  <p class="small">Topic: Binary Heaps (Programming and Data Structures), subtopic insertion and sift-up. The up-heap and down-heap procedures and their logarithmic worst cases: Wikipedia, "Binary heap" (English, read in part). Insert as a climb from the leaf and delete-min as a sink from the root: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full). Every array in every step is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2014-set-2-q12-priority-queue-insertions",
+  "year": "2014",
+  "paper": "GATE CSE 2014 Set 2",
+  "question_ref": "Q.12 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "insertion-and-sift-up",
+  "text": "A priority queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is: 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted into the heap in that order. The level-order traversal of the heap after the insertion of the elements is:",
+  "options": [
+    "10, 8, 7, 3, 2, 1, 5",
+    "10, 8, 7, 2, 3, 1, 5",
+    "10, 8, 7, 1, 2, 3, 5",
+    "10, 8, 7, 5, 3, 2, 1"
+  ],
+  "answer": "Option 1 - 10, 8, 7, 3, 2, 1, 5",
+  "solution": "Insert 1: append at index 6, its parent is index 3 holding 5, and 1 < 5, so no swap: 10,8,5,3,2,1. Insert 7: append at index 7, its parent is index 3 holding 5, and 7 > 5, so swap: 10,8,7,3,2,1,5; the new parent is index 1 holding 10, which wins, so the climb stops.",
+  "source_url": "https://gateoverflow.in/1967/gate-cse-2014-set-2-question-12",
+  "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.12, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 1 with the two insertions traced. The paper and key were not fetched, so the record stays SOURCED. Both insertions are simulated in scripts/validate.py."
+}

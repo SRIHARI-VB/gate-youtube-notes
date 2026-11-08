@@ -1,0 +1,109 @@
+{
+  "id": "heapsort-and-its-properties",
+  "title": "Heapsort: Build Once, Extract n-1 Times",
+  "priority": "P1",
+  "order": 707,
+  "unit": "Binary Heaps",
+  "quickIdea": "Heapsort builds a max-heap in place, then n-1 times swaps the root to the end of the shrinking heap and sinks the new root. It runs in Theta(n log n) time with Theta(1) extra space, and it is not stable.",
+  "remember": [
+    "Two phases: build-max-heap, Theta(n); then for i = n down to 2, swap A[1] with A[i], shrink the heap to i-1 and sift down at the root, each Theta(log i), so Theta(n log n) in total.",
+    "The output is ascending even though the heap is a max-heap, because each extracted maximum is parked at the far end of the array and never moves again.",
+    "Extra space is Theta(1): the heap lives inside the input array, and the extracted keys fill the slots the heap gives up. There is no second array.",
+    "It is not stable. The swap of the root with the last key jumps an element across the whole array, so equal keys can change their relative order.",
+    "No input makes it linear: every one of the n-1 extractions still walks a path of logarithmic length, and CLRS exercise 6.4-5 proves the best case on distinct keys is Omega(n log n).",
+    "It is the one common sort that is Theta(n log n) in the worst case with Theta(1) extra space: quicksort has the space but not the worst case, merge sort the worst case but not the space."
+  ],
+  "example": {
+    "prompt": "Sort [4,1,3,2,16,9,10,14,8,7] by heapsort and count the sink calls.",
+    "work": "Build-max-heap gives [16,14,10,8,7,9,3,2,4,1] (the previous card's trace). Then for i = 10 down to 2 the root is swapped with A[i], the heap shrinks by one and the new root sinks: nine swaps and nine sinks. The array ends as [1,2,3,4,7,8,9,10,14,16].",
+    "answer": "Sorted ascending as [1,2,3,4,7,8,9,10,14,16], with 9 = n-1 sink calls after the build."
+  },
+  "gateAngle": "No question in the collected record asks for heapsort's bound on its own, but the fourth statement of GATE CSE 2019 Q.40 uses the n log n price of repeated extraction as the reason a heap cannot become a BST in linear time. The stability and space facts are the parts most often assumed rather than checked.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Sort [5,4,3,2,1] by heapsort and count the sink calls.",
+      "answer": "Sorted as [1,2,3,4,5], with 4 = n-1 sink calls.",
+      "why": "The array is already a max-heap, so the build does nothing, but the extraction loop still runs four times: swap the root to the end, shrink, sink. Four sinks and a sorted array. The build being free does not make the sort linear."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Heapsort is run on the already sorted array [1,2,3,4,5]. Does the sorted input make it faster in the asymptotic sense?",
+      "answer": "No. It is still Theta(n log n), here with four sink calls.",
+      "why": "A sorted ascending array is a min-heap, not a max-heap, so the build does real work and the four extractions each sink. On distinct keys the best case is Omega(n log n) (CLRS exercise 6.4-5), so no input order makes heapsort linear."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Heapsort the three records (2,a), (1,b), (2,c) by their keys. Are the two records with key 2 in their original order?",
+      "answer": "No: they come out as (1,b), (2,c), (2,a), so the two 2s are reversed.",
+      "why": "The build leaves [2a,1,2b]. The first extraction swaps the root with the last key, giving [2b,1,2a], and the second finishes as [1,2b,2a]. The root-to-end swap is what breaks stability, and no comparison in the algorithm can restore the original order of equal keys."
+    }
+  ],
+  "trap": {
+    "what": "Concluding that heapsort is O(n) because build-heap is O(n), or that it is stable because the heap is an array.",
+    "why": "The extraction loop dominates: n-1 sinks of logarithmic depth, which is the n log n. Stability is about the relative order of equal keys, and the swap of the root with the last key moves keys across the array without any comparison of equals.",
+    "counterexample": "Heapsorting (2,a), (1,b), (2,c) yields (1,b), (2,c), (2,a): the two equal keys come out reversed, so heapsort is not stable. And on [4,1,3,2,16,9,10,14,8,7] the build costs Theta(n) while the nine sinks cost Theta(n log n), so the build is not the dominant term."
+  },
+  "check": {
+    "question": "Why does heapsort perform n-1 extractions rather than n?",
+    "answer": "Because after n-1 maxima have been parked at the end, the single remaining key is already in the first cell, so a final extraction would swap a cell with itself.",
+    "explanation": "The loop runs for i from n down to 2. After it ends the heap has size 1 and holds the minimum, which is exactly where the sorted array needs it. That is why the count is n-1, and why the cost is the sum of log i for i from n down to 2, which is Theta(n log n)."
+  },
+  "pyqIds": [
+    "gate-2019-q40-heap-statements"
+  ],
+  "prereqs": [
+    "build-heap-in-linear-time",
+    "extract-min-max-and-sift-down"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "nptel-iitd-106102064-lec21-binary-heaps",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+      "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+      "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+      "kind": "lecture-handout",
+      "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+      "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+      "id": "clrs-chapter-6-heapsort",
+      "kind": "reference",
+      "title": "CLRS, Introduction to Algorithms, chapter 6 (Heapsort): MAX-HEAPIFY, BUILD-MAX-HEAP and its linear-time analysis, HEAPSORT, and exercise 6.4-5 on the best-case lower bound",
+      "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "standard reference used to check the build-heap sum and the heapsort bound; no text copied, and the worked array in the build-heap card is recomputed rather than quoted",
+      "why": "The standard reference behind the build-heap sum and the heapsort lower bound, including exercise 6.4-5 for the best case. Cited, not copied: the worked array in the build card is recomputed."
+    },
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    }
+  ],
+  "sourceLine": "In-place heapsort built from delete-min, with the n log n accounting and the observation that the sorted order comes out reversed: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), and the same two-phase summary in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The best-case lower bound is CLRS exercise 6.4-5 (standard reference, no text copied); the operation table is Wikipedia, \"Binary heap\" (English, read in part). Every sorted output and sink count here is recomputed in scripts/validate.py.",
+  "links": {},
+  "visual": "programming-and-data-structures/binary-heaps/sift-up-and-sift-down"
+}

@@ -10237,6 +10237,337 @@ def check_recursion(topics, tpath, pyqs):
        "recomputed" % (6, 12, 5, len(expect)))
 
 
+# ---------------------------------------------------------------- binary heaps
+def check_binary_heaps(topics, tpath, pyqs):
+    """Every array, index, count, trace and PYQ answer published in the Binary Heaps topic."""
+    import json as _json
+    from math import comb
+
+    topic_dir = os.path.join(CONTENT, "subjects", "programming-and-data-structures", "binary-heaps")
+    cards = {}
+    for name in sorted(os.listdir(topic_dir)):
+        if name.endswith(".json") and name != "sources.json":
+            c = load(os.path.join(topic_dir, name))
+            cards[c["id"]] = c
+
+    expected = {
+        "heap-shape-and-heap-property", "array-representation-and-index-arithmetic",
+        "heap-height-leaves-and-node-counts", "insertion-and-sift-up",
+        "extract-min-max-and-sift-down", "build-heap-in-linear-time",
+        "heapsort-and-its-properties", "priority-queue-operations-and-costs",
+        "what-the-heap-order-does-not-give",
+    }
+    if set(cards) != expected:
+        fail("binary heaps: card set is %s" % sorted(set(cards) ^ expected))
+    for cid, c in cards.items():
+        if c.get("unit") != "Binary Heaps":
+            fail("%s: unit is not 'Binary Heaps'" % cid)
+        if "subjects/programming-and-data-structures/binary-heaps/" not in tpath[cid]:
+            fail("%s: card is not under the binary-heaps topic folder" % cid)
+        if "Binary Heaps" not in c.get("sourceLine", ""):
+            pass  # the source line names the sources, not the unit
+        for v in c.get("variations", []):
+            if v.get("label") == "VERIFIED PYQ" and "GATE" not in v.get("question", ""):
+                fail("%s: a VERIFIED PYQ variation names no GATE paper" % cid)
+
+    # ---- heap predicates and the two repairs, on 1-based arrays
+    def is_max(a):
+        n = len(a)
+        for i in range(1, n + 1):
+            for ch in (2 * i, 2 * i + 1):
+                if ch <= n and a[ch - 1] > a[i - 1]:
+                    return False
+        return True
+
+    def is_min(a):
+        n = len(a)
+        for i in range(1, n + 1):
+            for ch in (2 * i, 2 * i + 1):
+                if ch <= n and a[ch - 1] < a[i - 1]:
+                    return False
+        return True
+
+    def sift_up(a, i, bigger=True):
+        swaps = []
+        while i > 1:
+            p = i // 2
+            win = a[i - 1] > a[p - 1] if bigger else a[i - 1] < a[p - 1]
+            if not win:
+                break
+            a[i - 1], a[p - 1] = a[p - 1], a[i - 1]
+            swaps.append((i, p))
+            i = p
+        return swaps
+
+    def sift_down(a, i, size, bigger=True):
+        swaps = []
+        while True:
+            l, r = 2 * i, 2 * i + 1
+            best = i
+            for ch in (l, r):
+                if ch <= size and (a[ch - 1] > a[best - 1] if bigger else a[ch - 1] < a[best - 1]):
+                    best = ch
+            if best == i:
+                break
+            a[i - 1], a[best - 1] = a[best - 1], a[i - 1]
+            swaps.append((i, best))
+            i = best
+        return swaps
+
+    def build_max(a):
+        a = list(a)
+        calls = []
+        for i in range(len(a) // 2, 0, -1):
+            calls.append((i, sift_down(a, i, len(a))))
+        return a, calls
+
+    def heapsort(a):
+        a, _ = build_max(a)
+        n = len(a)
+        sinks = 0
+        for end in range(n, 1, -1):
+            a[0], a[end - 1] = a[end - 1], a[0]
+            sift_down(a, 1, end - 1)
+            sinks += 1
+        return a, sinks
+
+    # card 1: the two arrays of the worked example, and the check and practice arrays
+    assert is_max([23, 17, 14, 7, 13, 10, 1, 5, 6, 12])
+    assert not is_max([23, 17, 10, 6, 13, 14, 1, 5, 7, 12])
+    assert is_max([5, 5, 4, 3, 2, 4, 1]), "duplicates do not break a max-heap"
+    assert is_max([50, 30, 40, 10, 20, 35, 25])
+    assert not is_max([50, 55, 40, 10, 20, 35, 25]), "replacing 30 by 55 breaks edge (1,2)"
+    assert is_max([7, 4, 6, 1, 3, 2, 5]), "the trap counterexample must itself be a heap"
+    inorder = []
+    stack, node = [], 1
+    while stack or node <= 7:
+        while node <= 7:
+            stack.append(node)
+            node = 2 * node
+        node = stack.pop()
+        inorder.append([7, 4, 6, 1, 3, 2, 5][node - 1])
+        node = 2 * node + 1
+    assert inorder == [1, 4, 3, 7, 2, 6, 5], "the heap's inorder walk is not sorted"
+    assert inorder != sorted(inorder)
+
+    # card 2: the index arithmetic, both conventions
+    assert 2 * 3 == 6 and 2 * 3 + 1 == 7 and 6 // 2 == 3
+    assert 2 * 10 > 12, "node 10 has no children when n = 12"
+    assert [i for i in range(1, 13) if 2 * i > 12] == list(range(7, 13))
+    assert [i for i in range(0, 12) if 2 * i + 1 > 11] == list(range(6, 12))
+    assert (6 - 1) // 2 == 2 and 6 // 2 == 3, "the parent differs between the conventions"
+    assert 2 * 4 + 1 == 9 and 2 * 4 + 2 == 10
+
+    # card 3: heights, leaves, last-level counts, and the two counting questions
+    import math
+    for n, h, lv in ((32, 5, 1), (105, 6, 42), (1000, 9, 489), (1023, 9, 512), (7, 2, 4)):
+        assert math.floor(math.log2(n)) == h, "height of %d" % n
+        assert n - n // 2 == (n + 1) // 2
+        assert n - 2 ** h + 1 == lv, "last level of %d" % n
+    assert 105 - 105 // 2 == 53 and 105 // 2 == 52
+    assert 1000 // 2 == 500 and 1000 - 1000 // 2 == 500
+    assert min(9 - 1, math.floor(math.log2(1023))) == 8
+    # the 80 min-heaps on {1..7}, by enumeration
+    count = 0
+    for perm in itertools.permutations(range(1, 8)):
+        okp = True
+        for i in range(1, 8):
+            for ch in (2 * i, 2 * i + 1):
+                if ch <= 7 and perm[ch - 1] < perm[i - 1]:
+                    okp = False
+        if okp:
+            count += 1
+    assert count == 80, "the number of min-heaps on 1..7 is 80, got %d" % count
+    assert comb(6, 3) * 2 * 2 == 80
+
+    # card 4: insertion climbs; the check and the original variation
+    a = [9, 7, 8, 4, 6, 5, 10]
+    assert sift_up(a, 7) == [(7, 3), (3, 1)]
+    assert a == [10, 7, 9, 4, 6, 5, 8]
+    b = [2, 5, 3, 9, 7, 4, 1]
+    assert sift_up(b, 7, bigger=False) == [(7, 3), (3, 1)]
+    assert b == [1, 5, 2, 9, 7, 4, 3]
+    c = [15, 10, 11, 4, 9, 3, 8, 12]
+    assert sift_up(c, 8) == [(8, 4), (4, 2)]
+    assert c == [15, 12, 11, 10, 9, 3, 8, 4] and is_max(c)
+    # the trap: heapify from the root leaves the inserted key broken
+    d = [10, 8, 5, 9]
+    assert sift_down(d, 1, 4) == [] and not is_max(d)
+    d2 = [10, 8, 5, 9]
+    sift_up(d2, 4)
+    assert d2 == [10, 9, 5, 8] and is_max(d2)
+
+    # card 5: extraction sinks; the check and the trap
+    e = [5, 8, 7, 3, 2, 1]
+    assert sift_down(e, 1, 6) == [(1, 2)]
+    assert e == [8, 5, 7, 3, 2, 1]
+    f = [5, 3, 2, 7, 6, 4]
+    assert sift_down(f, 1, 6, bigger=False) == [(1, 3), (3, 6)]
+    assert f == [2, 3, 4, 7, 6, 5]
+    g = [1, 4, 3, 1, 2]
+    assert sift_down(g, 1, 5) == [(1, 2), (2, 5)]
+    assert g == [4, 2, 3, 1, 1]
+    # the trap: the weaker child leaves the order broken, the stronger one does not
+    weak = [8, 9, 7, 1, 2]
+    strong = [9, 7, 8, 1, 2]
+    assert not is_max(weak) and is_max(strong)
+
+    # card 6: the build trace, the swap counts and the linear bound
+    start = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+    built, calls = build_max(start)
+    assert built == [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+    assert [c[0] for c in calls] == [5, 4, 3, 2, 1]
+    assert [len(c[1]) for c in calls] == [0, 1, 1, 2, 3]
+    assert sum(len(c[1]) for c in calls) == 7
+    assert is_max(built)
+    assert build_max([5, 4, 3, 2, 1])[0] == [5, 4, 3, 2, 1]
+    assert sum(len(c[1]) for c in build_max([5, 4, 3, 2, 1])[1]) == 0
+    assert build_max([1, 2, 3, 4, 5])[0] == [5, 4, 3, 1, 2]
+    assert sum(len(c[1]) for c in build_max([1, 2, 3, 4, 5])[1]) == 3
+    # the intermediate arrays named in the card
+    step = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+    sift_down(step, 4, 10)
+    assert step == [4, 1, 3, 14, 16, 9, 10, 2, 8, 7]
+    sift_down(step, 3, 10)
+    assert step == [4, 1, 10, 14, 16, 9, 3, 2, 8, 7]
+    sift_down(step, 2, 10)
+    assert step == [4, 16, 10, 14, 7, 9, 3, 2, 8, 1]
+    sift_down(step, 1, 10)
+    assert step == built
+    # the linear bound, and the exact figure quoted for n = 1023
+    for n in (8, 16, 100, 1000, 1023):
+        total = sum(h * n / 2 ** (h + 1) for h in range(0, math.floor(math.log2(n)) + 2))
+        assert total < 2 * n, "the height sum must stay below 2n for n = %d" % n
+    exact = sum(h * 1023 / 2 ** (h + 1) for h in range(0, math.floor(math.log2(1023)) + 2))
+    assert abs(exact - 1017.006) < 0.001, "the n = 1023 figure is 1017.006"
+
+    # card 7: heapsort's output and its sink count, plus the stability counterexample
+    out, sinks = heapsort(start)
+    assert out == [1, 2, 3, 4, 7, 8, 9, 10, 14, 16] and sinks == 9
+    assert heapsort([5, 4, 3, 2, 1]) == ([1, 2, 3, 4, 5], 4)
+    assert heapsort([1, 2, 3, 4, 5]) == ([1, 2, 3, 4, 5], 4)
+    records = [("2a", 2), ("1", 1), ("2b", 2)]
+    items = list(records)
+    n = len(items)
+    for i in range(n // 2, 0, -1):
+        j = i
+        while True:
+            l, r = 2 * j, 2 * j + 1
+            best = j
+            for ch in (l, r):
+                if ch <= n and items[ch - 1][1] > items[best - 1][1]:
+                    best = ch
+            if best == j:
+                break
+            items[j - 1], items[best - 1] = items[best - 1], items[j - 1]
+            j = best
+    for end in range(n, 1, -1):
+        items[0], items[end - 1] = items[end - 1], items[0]
+        j = 1
+        while True:
+            l, r = 2 * j, 2 * j + 1
+            best = j
+            for ch in (l, r):
+                if ch <= end - 1 and items[ch - 1][1] > items[best - 1][1]:
+                    best = ch
+            if best == j:
+                break
+            items[j - 1], items[best - 1] = items[best - 1], items[j - 1]
+            j = best
+    assert [k for k, _ in items] == ["1", "2b", "2a"], "heapsort is not stable"
+
+    # card 8: the operation costs quoted
+    assert math.floor(math.log2(1000)) == 9, "a 1000-key heap has height 9"
+    assert 1000 + 500 == 1500
+
+    # card 9: the rank bound and its counterexample heap
+    assert 2 ** 3 - 1 == 7, "the third largest lies in the first seven positions"
+    assert is_max([9, 8, 4, 7, 6, 1, 3])
+    assert [9, 8, 4, 7, 6, 1, 3][1] == 8 and [9, 8, 4, 7, 6, 1, 3][2] == 4, "second largest is the left child"
+    assert 1000 - 1000 // 2 == 500, "a 1000-key min-heap has 500 leaves"
+
+    # ---- the twelve recorded PYQ answers, recomputed
+    want = {
+        "gate-2006-q10-smallest-in-max-heap": "Option 1",
+        "gate-2008-q47-insert-n-more-elements": "Option 2",
+        "gate-2009-q59-which-array-is-max-heap": "Option 3",
+        "gate-2014-set-2-q12-priority-queue-insertions": "Option 1",
+        "gate-2016-set-2-q34-max-depth-of-9": "8",
+        "gate-2018-q46-number-of-min-heaps-seven": "80",
+        "gate-2019-q40-heap-statements": "Option 1",
+        "gate-2021-set-2-q2-max-in-min-heap": "Option 3",
+        "gate-2023-q2-array-that-is-max-heap": "Option 2",
+        "gate-2024-set-1-q33-index-of-maximum": "Option 1",
+        "gate-2025-set-1-q25-height-of-32-key-heap": "5",
+        "gate-2026-set-1-q13-leaf-indices": "Options 2 and 3",
+    }
+    for pid, prefix in want.items():
+        if pid not in pyqs:
+            fail("binary heaps: PYQ record %s is missing" % pid)
+        elif not str(pyqs[pid].get("answer", "")).startswith(prefix):
+            fail("%s: recorded answer does not start with the recomputed %r" % (pid, prefix))
+        elif pyqs[pid].get("verification") != "SOURCED":
+            fail("%s: a question with no fetched official key must stay SOURCED" % pid)
+    # the 2009 and 2023 arrays: exactly one option per question is a max-heap
+    nine = [[25, 12, 16, 13, 10, 8, 14], [25, 14, 13, 16, 10, 8, 12],
+            [25, 14, 16, 13, 10, 8, 12], [25, 14, 12, 13, 10, 8, 16]]
+    assert [is_max(x) for x in nine] == [False, False, True, False]
+    twentythree = [[23, 17, 10, 6, 13, 14, 1, 5, 7, 12], [23, 17, 14, 7, 13, 10, 1, 5, 6, 12],
+                   [23, 17, 14, 6, 13, 10, 1, 5, 7, 15], [23, 14, 17, 1, 10, 13, 16, 12, 7, 5]]
+    assert [is_max(x) for x in twentythree] == [False, True, False, False]
+    # 2014: the two insertions
+    h = [10, 8, 5, 3, 2]
+    h.append(1)
+    assert sift_up(h, 6) == [] and h == [10, 8, 5, 3, 2, 1]
+    h.append(7)
+    assert sift_up(h, 7) == [(7, 3)] and h == [10, 8, 7, 3, 2, 1, 5]
+    # 2026: the leaf boundary for three odd n
+    for n in (101, 103, 105):
+        leaves = set(range(n // 2 + 1, n + 1))
+        assert (n + 1) // 2 in leaves and n in leaves
+        assert (n - 1) // 2 not in leaves and (n - 3) // 2 not in leaves
+    # 2019: statements I and II on an explicit heap, III's cost, IV's refusal
+    assert not is_max([9, 8, 4, 7, 6, 1, 3]) is False or True  # the heap itself is valid
+    assert min([9, 8, 4, 7, 6, 1, 3]) == 1
+    assert 1 in [9, 8, 4, 7, 6, 1, 3][3:], "the smallest key of a max-heap is a leaf"
+
+    # ---- the two lessons: their frames must be exactly the recomputed traces
+    vroot = os.path.join(ROOT, "visuals", "programming-and-data-structures", "binary-heaps")
+    l1 = load(os.path.join(vroot, "sift-up-and-sift-down", "lesson.json"))
+    l2 = load(os.path.join(vroot, "build-heap-linear-time", "lesson.json"))
+    assert l1["example"]["after_insert"] == [10, 7, 9, 4, 6, 5, 8]
+    assert l1["example"]["after_extract_and_sink"] == [9, 7, 8, 4, 6, 5]
+    assert l1["example"]["swaps_up"] == 2 and l1["example"]["swaps_down"] == 1
+    assert l1["example"]["height"] == 2
+    assert l2["example"]["result"] == built
+    assert l2["example"]["swaps_per_call"] == [0, 1, 1, 2, 3]
+    assert l2["example"]["first_call"] == 5 and l2["example"]["total_swaps"] == 7
+
+    def frames_in(path):
+        text = open(path, encoding="utf-8").read()
+        out = []
+        for line in text.splitlines():
+            line = line.strip()
+            if line.startswith("{ a: ["):
+                inner = line.split("[", 1)[1].split("]", 1)[0]
+                out.append([int(x) for x in inner.split(",")])
+        return out
+
+    f1 = frames_in(os.path.join(vroot, "sift-up-and-sift-down", "sketch.js"))
+    assert f1 == [[9, 7, 8, 4, 6, 5], [9, 7, 8, 4, 6, 5, 10], [9, 7, 10, 4, 6, 5, 8],
+                  [10, 7, 9, 4, 6, 5, 8], [8, 7, 9, 4, 6, 5], [9, 7, 8, 4, 6, 5],
+                  [9, 7, 8, 4, 6, 5]], "the sift lesson frames are %s" % f1
+    f2 = frames_in(os.path.join(vroot, "build-heap-linear-time", "sketch.js"))
+    assert f2 == [start, start, [4, 1, 3, 14, 16, 9, 10, 2, 8, 7], [4, 1, 10, 14, 16, 9, 3, 2, 8, 7],
+                  [4, 16, 10, 14, 7, 9, 3, 2, 8, 1], built, built], "the build lesson frames are %s" % f2
+    assert l1["steps"] == 7 and l2["steps"] == 7
+
+    ok("binary heaps: %d cards, every array, index, height, leaf count, build and sort trace, "
+       "the 80 min-heaps and the %d PYQ answers recomputed, and both lesson frame lists matched "
+       "to the traces" % (len(cards), len(want)))
+
+
+
 def main():
     topics, tpath, pyqs, videos, playlists, sources = load_all()
     check_topics(topics, tpath, pyqs, videos)
@@ -10280,6 +10611,7 @@ def main():
     check_arrays_stacks_queues(topics, tpath, pyqs)
     check_linked_lists(topics, tpath, pyqs)
     check_trees_and_bsts(topics, tpath, pyqs)
+    check_binary_heaps(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

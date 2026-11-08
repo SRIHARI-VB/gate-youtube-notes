@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 7,
-    "topics": 416,
-    "pyqs": 347,
+    "topics": 425,
+    "pyqs": 359,
     "videos": 39,
     "playlists": 3
   },
@@ -6225,6 +6225,147 @@
       "pyqs": [],
       "visual": null,
       "variations": 2
+    },
+    {
+      "topic": "heap-shape-and-heap-property",
+      "title": "A Heap Is a Shape and an Order, Not a Sorted Tree",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/heap-shape-and-heap-property.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-q2-array-that-is-max-heap",
+        "gate-2009-q59-which-array-is-max-heap"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "array-representation-and-index-arithmetic",
+      "title": "One Array, No Pointers: Heap Index Arithmetic",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/array-representation-and-index-arithmetic.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set-1-q13-leaf-indices"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "heap-height-leaves-and-node-counts",
+      "title": "Height, Leaves and Where the Leaves Begin",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/heap-height-leaves-and-node-counts.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2025-set-1-q25-height-of-32-key-heap",
+        "gate-2024-set-1-q33-index-of-maximum",
+        "gate-2018-q46-number-of-min-heaps-seven",
+        "gate-2016-set-2-q34-max-depth-of-9"
+      ],
+      "visual": null,
+      "variations": 3
+    },
+    {
+      "topic": "insertion-and-sift-up",
+      "title": "Insert: Append at the End, Then Climb",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/insertion-and-sift-up.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2014-set-2-q12-priority-queue-insertions"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "extract-min-max-and-sift-down",
+      "title": "Extract: Move the Last Key to the Root and Sink It",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/extract-min-max-and-sift-down.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-q40-heap-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "build-heap-in-linear-time",
+      "title": "Build-Heap: Bottom-Up Sink-Down Is Linear",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/build-heap-in-linear-time.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2008-q47-insert-n-more-elements",
+        "gate-2019-q40-heap-statements"
+      ],
+      "visual": "programming-and-data-structures/binary-heaps/build-heap-linear-time",
+      "variations": 3
+    },
+    {
+      "topic": "heapsort-and-its-properties",
+      "title": "Heapsort: Build Once, Extract n-1 Times",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/binary-heaps/heapsort-and-its-properties.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-q40-heap-statements"
+      ],
+      "visual": "programming-and-data-structures/binary-heaps/sift-up-and-sift-down",
+      "variations": 3
+    },
+    {
+      "topic": "priority-queue-operations-and-costs",
+      "title": "The Priority Queue Behind the Heap",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/binary-heaps/priority-queue-operations-and-costs.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2019-q40-heap-statements"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "what-the-heap-order-does-not-give",
+      "title": "What the Heap Order Does Not Give You",
+      "subject": "programming-and-data-structures",
+      "group": "binary-heaps",
+      "unit": "Binary Heaps",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/binary-heaps/what-the-heap-order-does-not-give.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2006-q10-smallest-in-max-heap",
+        "gate-2021-set-2-q2-max-in-min-heap"
+      ],
+      "visual": null,
+      "variations": 3
     }
   ]
 }

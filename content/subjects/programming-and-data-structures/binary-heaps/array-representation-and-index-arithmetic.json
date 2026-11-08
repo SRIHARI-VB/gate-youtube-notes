@@ -1,0 +1,90 @@
+{
+  "id": "array-representation-and-index-arithmetic",
+  "title": "One Array, No Pointers: Heap Index Arithmetic",
+  "priority": "P1",
+  "order": 702,
+  "unit": "Binary Heaps",
+  "quickIdea": "A complete binary tree in level order is an array with no holes, so a heap needs no pointers. With 1-based indices the children of i are 2i and 2i+1 and the parent is floor(i/2); with 0-based indices they are 2i+1 and 2i+2 and the parent is floor((i-1)/2).",
+  "remember": [
+    "1-based, the convention GATE usually states: root at 1, left child 2i, right child 2i+1, parent floor(i/2), last node at n.",
+    "0-based, the convention of C, Java and Python arrays: root at 0, left child 2i+1, right child 2i+2, parent floor((i-1)/2).",
+    "The mapping is exact only because the shape is complete: level order fills the array without gaps, so a node's index is decided by its place in the tree and nothing else.",
+    "Node i exists iff i <= n; its left child exists iff 2i <= n (1-based), so 'is this a leaf' is a comparison, not a walk.",
+    "The two conventions differ by one in the child indices and by a shift in the parent, and mixing them is the commonest arithmetic slip in heap questions.",
+    "Storage is Theta(n) cells with no per-node link, which is exactly what lets heapsort run in place."
+  ],
+  "example": {
+    "prompt": "With 1-based indices and n = 12, describe nodes 3 and 10 and name the leaves. Then give the same facts for 0-based indices.",
+    "work": "1-based: node 3 has children 6 and 7 and parent 1; node 10 has parent 5 and no children, because 2*10 = 20 exceeds 12; the internal nodes are 1 to floor(12/2) = 6, so the leaves are 7 to 12. 0-based: the same tree is stored at indices 0 to 11, node 3 has children 7 and 8 and parent 1, and the leaves are the indices i with 2i+1 > 11, that is 6 to 11.",
+    "answer": "1-based: children of 3 are 6 and 7, parent 1, leaves 7 to 12 (six leaves). 0-based: children of 3 are 7 and 8, parent 1, leaves 6 to 11 (six leaves)."
+  },
+  "gateAngle": "GATE CSE 2026 Set 1 Q.13 asks which of four index expressions cannot name a leaf of a heap with odd n > 100; GATE CSE 2024 Set 1 Q.33 asks how many indices the maximum of a 105-key min-heap can occupy. Both are answered by one fact: with 1-based indices the internal nodes are 1 to floor(n/2) and the leaves are floor(n/2)+1 to n.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2026 Set 1 Q.13. Let n be an odd number greater than 100. A binary min-heap with n elements is stored in an array P whose index starts from 1. Which of the following indices of P do/does NOT correspond to any leaf node of the min-heap? (1) (n+1)/2 (2) (n-1)/2 (3) (n-3)/2 (4) n",
+      "answer": "Options 2 and 3, that is (n-1)/2 and (n-3)/2.",
+      "why": "For odd n the internal nodes are 1 to (n-1)/2 and the leaves are (n+1)/2 to n. So (n+1)/2 is the first leaf and n is the last, while (n-1)/2 is the last internal node and (n-3)/2 = (n-1)/2 - 1 is internal too. At n = 101: leaves are 51 to 101, so 51 and 101 are leaves and 50 and 49 are internal nodes with children."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "With 0-based indices and n = 12, which indices are leaves?",
+      "answer": "Indices 6 to 11, six leaves.",
+      "why": "A node i has a left child at 2i+1, so it is internal exactly when 2i+1 <= 11, that is i <= 5. The internal nodes are 0 to 5 and the leaves are 6 to 11. The count agrees with the 1-based answer because the shape did not change, only the labels."
+    }
+  ],
+  "trap": {
+    "what": "Applying the 1-based formulas to a 0-based array, or the reverse.",
+    "why": "The parent of index 6 is 3 when the array starts at 1 and 2 when it starts at 0. Using the wrong one silently names the wrong node, and every later comparison in the trace is then about the wrong key.",
+    "counterexample": "In the 0-based array [10,8,5,3,2,1], index 4 holds 2 and its parent is floor((4-1)/2) = 1, holding 8. The 1-based formula floor(4/2) = 2 would name index 2, holding 5, which is not the parent of anything at index 4."
+  },
+  "check": {
+    "question": "With 1-based indices and n = 12, which indices are leaves and how many are there?",
+    "answer": "Indices 7 to 12, six leaves.",
+    "explanation": "Internal nodes are 1 to floor(12/2) = 6, so the leaves are 7 to 12. That is n - floor(n/2) = 12 - 6 = 6 = ceil(n/2) leaves, the count the next card uses."
+  },
+  "pyqIds": [
+    "gate-2026-set-1-q13-leaf-indices"
+  ],
+  "prereqs": [
+    "heap-shape-and-heap-property"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "gatehub-hindi-introduction-to-heap",
+      "kind": "video",
+      "title": "THE GATEHUB, 'Introduction to Heap || Heap Tree with examples || Heapsort || GATECSE || DAA'",
+      "url": "https://www.youtube.com/watch?v=wAiNNuf9wA0",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi (Devanagari) caption text, read in part and translated: the level-order array representation of a binary tree with blanks for missing children, the 1-based index formulas 2i, 2i+1 and floor(i/2), and their verification on two worked nodes. The extraction stopped inside the array-representation section, so no card rests on the later max-heap, build-heap or heapify sections",
+      "why": "The only lecture in another language whose text was readable in this run, and the clearest walk-through of the level-order array representation with blanks for missing children and of the 1-based formulas verified on two nodes. Hindi (Devanagari) captions read in part and translated; used by one card, marked as translated."
+    },
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+      "url": "https://gateoverflow.in/tag/binary-heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+      "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+  ],
+  "sourceLine": "The level-order array representation with blanks for missing children, and the 1-based formulas 2i, 2i+1 and floor(i/2) with their verification: THE GATEHUB, \"Introduction to Heap\" (Hindi, Devanagari captions read in part and translated into English for this card). The 0-based formulas and the operation table: Wikipedia, \"Binary heap\" (English, read in part). The index question: GATE Overflow page for GATE CSE 2026 Set 1 Q.13 (English, read in part). Every index and leaf count here is recomputed in scripts/validate.py.",
+  "links": {}
+}

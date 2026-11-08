@@ -1,0 +1,15 @@
+{
+  "id": "gate-2018-q46-number-of-min-heaps-seven",
+  "year": "2018",
+  "paper": "GATE CSE 2018",
+  "question_ref": "Q.46 on GATE Overflow",
+  "type": "NAT",
+  "topic": "heap-height-leaves-and-node-counts",
+  "text": "The number of possible min-heaps containing each value from {1,2,3,4,5,6,7} exactly once is ____.",
+  "answer": "80",
+  "solution": "Seven nodes force the shape: root, two children, four leaves, with three nodes in each subtree. The root must be 1. Choose which three of the remaining six keys go left: C(6,3) = 20. Inside a three-node subtree the root is its smallest key and the two leaves can be ordered two ways, so each side multiplies by 2. Total 20 * 2 * 2 = 80.",
+  "source_url": "https://gateoverflow.in/204121/gate-cse-2018-question-46",
+  "source_label": "GATE Overflow question page - GATE CSE 2018 Q.46, statement and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records 80 with several independent derivations. The paper and key were not fetched, so the record stays SOURCED. The count is also obtained by brute-force enumeration of all 5040 permutations in scripts/validate.py."
+}

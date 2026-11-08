@@ -1,0 +1,102 @@
+{
+  "id": "priority-queue-operations-and-costs",
+  "title": "The Priority Queue Behind the Heap",
+  "priority": "P2",
+  "order": 708,
+  "unit": "Binary Heaps",
+  "quickIdea": "A binary heap is the standard implementation of a priority queue: the extreme is O(1) away, insert and delete-extreme are O(log n), but merging two heaps costs Theta(n) and deleting a key you can only name costs Theta(n) to find it first.",
+  "remember": [
+    "The abstract data type: insert(x), minimum or maximum, delete-min or delete-max, plus decrease-key, increase-key, delete(x) and merge.",
+    "Costs on a binary heap of n keys: find-extreme O(1); insert O(log n) worst case and O(1) average; delete-extreme O(log n); decrease-key O(log n) once the position is known; delete(x) O(log n) after an O(n) search; merge Theta(n); build Theta(n).",
+    "A key change is two different repairs by direction: toward the root (an increase in a max-heap, a decrease in a min-heap) needs sift-up, and away from the root needs sift-down. One name, two procedures.",
+    "decrease-key needs a handle to the position. A plain array heap has no map from key to slot, which is why the O(log n) figure is conditional and why Dijkstra's implementation stores the index of each vertex.",
+    "Against the alternatives: an unsorted list gives insert Theta(1) but delete-min Theta(n); a sorted list gives the reverse; the heap balances both at Theta(log n), which is why it is the default.",
+    "Conversions: any array becomes a heap in Theta(n), so a BST becomes a max-heap in Theta(n) by walking it and building. A heap does not become a BST in Theta(n), because that would sort in linear time."
+  ],
+  "example": {
+    "prompt": "A heap holds 1000 keys. Give the worst-case cost of find-max, insert, delete-max and merging it with another heap of 500 keys.",
+    "work": "The height is floor(log2 1000) = 9. find-max reads A[1], one step. insert appends and climbs at most 9 levels, so at most 9 swaps. delete-max moves the last key up and sinks at most 9 levels. Merging is not supported cheaply: the two arrays are concatenated, giving 1500 cells, and one build-heap runs over them, which is Theta(1500).",
+    "answer": "find-max O(1); insert O(log n); delete-max O(log n); merge Theta(n), here about 1500 steps against 500 * log(1500) for 500 separate insertions."
+  },
+  "gateAngle": "GATE CSE 2019 Q.40 is the operations-and-conversion question: it prices a heap build at Theta(n) and refuses the reverse conversion for exactly the reason given here. The two costs most often mis-stated are delete of a named key and merge.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2019 Q.40, statement IV. 'A binary search tree can be constructed from a max-heap in Theta(n) time.' Is it true?",
+      "answer": "False.",
+      "why": "Any array becomes a heap in Theta(n), so if a heap became a BST in Theta(n) as well, an inorder walk (Theta(n)) would sort n keys in Theta(n) with comparisons, contradicting the Omega(n log n) lower bound. Extracting the keys in sorted order costs Theta(n log n), and inserting them one by one into a BST costs Theta(n log n) on average and Theta(n^2) in the worst case."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "You hold two binary heaps of 500 keys each and must produce one heap. What is the cheapest correct cost?",
+      "answer": "Theta(n) for n = 1000: append the two arrays and run one build-heap.",
+      "why": "A binary heap has no cheap merge: inserting the 500 keys of one heap into the other costs 500 * O(log 1000). Concatenating the arrays gives 1000 cells that are not a heap, but build-heap makes them one in Theta(1000). Merging is Theta(n), which is why meldable heaps exist for the applications that need it."
+    }
+  ],
+  "trap": {
+    "what": "Quoting the deletion of an arbitrary key as O(log n) in a plain array heap.",
+    "why": "The sink after the removal is O(log n), but only once the position is known. Nothing in the array maps a key to its index, so locating the key is a scan of the whole array, and the operation as a whole is Theta(n).",
+    "counterexample": "In a 1000-key heap you are told to delete the key 37. The search for 37 is Theta(n) in the worst case, and only then does the O(log n) repair begin, so the total is Theta(n). The O(log n) figure belongs to the case where the position was handed to you, as Dijkstra's algorithm arranges."
+  },
+  "check": {
+    "question": "Which priority-queue operation is Theta(n) on a binary heap even when the element's position is known in advance?",
+    "answer": "Merge.",
+    "explanation": "Merging two binary heaps means concatenating the arrays and rebuilding, which is Theta(n) because build-heap is Theta(n). delete-min is O(log n) when the position is known, insert is O(log n), and find-min is O(1). Melding in O(log n) needs a different structure, such as a binomial or Fibonacci heap, and those are outside the GATE CSE syllabus line."
+  },
+  "pyqIds": [
+    "gate-2019-q40-heap-statements"
+  ],
+  "prereqs": [
+    "extract-min-max-and-sift-down",
+    "build-heap-in-linear-time"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "nptel-iitd-106102064-lec20-priority-queues",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Lecture 20 'Priority Queues' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec20.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the priority-queue ADT (insert, minimum, delete-min), the shortest-remaining-processing-time motivation and the total order required on priorities; the extraction stopped before the heap procedures themselves",
+      "why": "The only readable source for the priority-queue abstract data type and the total order it requires on priorities, which the operations card needs before any cost table makes sense. Read in part: the extraction stopped before the heap procedures, so no card takes a procedure from it."
+    },
+    {
+      "id": "nptel-iitd-106102064-lec21-binary-heaps",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+      "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+      "url": "https://gateoverflow.in/tag/binary-heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+      "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+  ],
+  "sourceLine": "The priority-queue ADT, its three basic operations and the total order required on priorities: NPTEL IIT Delhi Lecture 20, Prof. Naveen Garg (English, transcript read in part). The comparison of heap, sorted list and unsorted list, and the costs of insert, find and delete-min: NPTEL IIT Delhi Lecture 21 (English, transcript read in full). The operation table including decrease-key and merge: Wikipedia, \"Binary heap\" (English, read in part). The conversion statements: GATE Overflow page for GATE CSE 2019 Q.40 (English, read in part). The costs quoted here are checked against the same table in scripts/validate.py.",
+  "links": {}
+}

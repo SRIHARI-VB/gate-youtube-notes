@@ -1,0 +1,140 @@
+{
+  "subject": "programming-and-data-structures",
+  "topic": "binary-heaps",
+  "chosen": [
+    {
+      "id": "nptel-iitd-106102064-lec21-binary-heaps",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+      "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+      "id": "nptel-iitd-106102064-lec20-priority-queues",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Lecture 20 'Priority Queues' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec20.pdf",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: the priority-queue ADT (insert, minimum, delete-min), the shortest-remaining-processing-time motivation and the total order required on priorities; the extraction stopped before the heap procedures themselves",
+      "why": "The only readable source for the priority-queue abstract data type and the total order it requires on priorities, which the operations card needs before any cost table makes sense. Read in part: the extraction stopped before the heap procedures, so no card takes a procedure from it."
+    },
+    {
+      "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+      "kind": "lecture-handout",
+      "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+      "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+      "id": "gatehub-hindi-introduction-to-heap",
+      "kind": "video",
+      "title": "THE GATEHUB, 'Introduction to Heap || Heap Tree with examples || Heapsort || GATECSE || DAA'",
+      "url": "https://www.youtube.com/watch?v=wAiNNuf9wA0",
+      "language": "hi",
+      "transcript": "PARTIAL",
+      "translated": true,
+      "note": "Hindi (Devanagari) caption text, read in part and translated: the level-order array representation of a binary tree with blanks for missing children, the 1-based index formulas 2i, 2i+1 and floor(i/2), and their verification on two worked nodes. The extraction stopped inside the array-representation section, so no card rests on the later max-heap, build-heap or heapify sections",
+      "why": "The only lecture in another language whose text was readable in this run, and the clearest walk-through of the level-order array representation with blanks for missing children and of the 1-based formulas verified on two nodes. Hindi (Devanagari) captions read in part and translated; used by one card, marked as translated."
+    },
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "clrs-chapter-6-heapsort",
+      "kind": "reference",
+      "title": "CLRS, Introduction to Algorithms, chapter 6 (Heapsort): MAX-HEAPIFY, BUILD-MAX-HEAP and its linear-time analysis, HEAPSORT, and exercise 6.4-5 on the best-case lower bound",
+      "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "standard reference used to check the build-heap sum and the heapsort bound; no text copied, and the worked array in the build-heap card is recomputed rather than quoted",
+      "why": "The standard reference behind the build-heap sum and the heapsort lower bound, including exercise 6.4-5 for the best case. Cited, not copied: the worked array in the build card is recomputed."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+      "url": "https://gateoverflow.in/tag/binary-heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+      "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "sciencestoppers-data-structures-gate-pyq-set-1",
+      "kind": "question-bank",
+      "url": "https://sciencestoppers.com/data-structures-gate-pyq-set-1/",
+      "language": "en",
+      "why": "Rejected as a question source after one check: it prints 'GATE CSE 2018 - number of min-heaps with {1,2,3,4,5,6,7}: (D) 105', where the accepted answer on the GATE Overflow page for that question is 80, and it attributes to GATE CSE 2024 Set 1 a 'parent of 53' question that is not the paper's Q.33. A bank with two wrong entries in five was not used for any answer."
+    },
+    {
+      "id": "computerhindinotes-heap-data-structure",
+      "kind": "article",
+      "url": "https://computerhindinotes.com/heap-data-structure-types-operations-applications/",
+      "language": "hi",
+      "why": "Hindi article, read only through its type definitions: it spends the opening on binomial and Fibonacci heaps, which the GATE 2027 CS line does not name, and the extraction stopped before any operation cost or worked trace, so nothing could be checked against a standard reference. Not cited by any card."
+    },
+    {
+      "id": "geeksforgeeks-binary-heap",
+      "kind": "article",
+      "url": "https://www.geeksforgeeks.org/dsa/binary-heap/",
+      "language": "en",
+      "why": "Correct but secondary: a list of operations and complexities with no derivation. The linear build-heap argument and the heapsort accounting were better served by the NPTEL lecture, which states the sum, so this page adds nothing the chosen sources lack."
+    },
+    {
+      "id": "geeksforgeeks-short-notes-heap",
+      "kind": "article",
+      "url": "https://www.geeksforgeeks.org/dsa/shot-notes-heap/",
+      "language": "en",
+      "why": "A revision sheet of one-line facts aimed at interviews; it carries no GATE question references and no derivation, so it could not be the source of a verified claim."
+    },
+    {
+      "id": "testbook-binary-heap-mcq-hindi",
+      "kind": "question-bank",
+      "url": "https://testbook.com/objective-questions/hn/mcq-on-binary-heap--5eea6a1139140f30f369eb9c",
+      "language": "hi",
+      "why": "Hindi MCQ bank for a state examination rather than GATE CSE; its questions are not previous-year GATE questions and carry no paper reference, so nothing in it can be presented as a PYQ."
+    },
+    {
+      "id": "hi-wikipedia-heap",
+      "kind": "reference",
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%B9%E0%A5%80%E0%A4%AA",
+      "language": "hi",
+      "why": "Hindi Wikipedia article on the heap, but the page is a short stub: it defines the structure and stops before the array indices, the build or the sort, so it cannot support any card."
+    },
+    {
+      "id": "studyres-nptel-mod-10-heapsort",
+      "kind": "lecture-handout",
+      "url": "https://studyres.com/doc/11158351/mod-10---nptel",
+      "language": "en",
+      "why": "An NPTEL module text on heap sort, readable, but a re-hosted copy with the figures missing ('fig 1 comes hear') and its pseudocode off by one in the child indices (it writes right = 2*i + 1 for a 1-based array). Usable as corroboration, not as a source of formulas."
+    }
+  ],
+  "standard_refs": [
+    "CLRS, Introduction to Algorithms, chapter 6 (Heapsort), including exercises 6.4-4 and 6.4-5",
+    "GATE 2027 Computer Science and Information Technology syllabus, IIT Madras (the line 'binary heaps')"
+  ],
+  "note": "Nine subtopics were enumerated from the syllabus line before any source was searched. The syllabus names the topic in two words, so the enumeration comes from the standard treatment (CLRS chapter 6), the GATE question record from 2004 to 2026, and what the sources actually teach. The Hindi lecture is the only translated source; it is used for one card and marked as translated in that card's source line.",
+  "retrieved_at": "2026-11-08"
+}

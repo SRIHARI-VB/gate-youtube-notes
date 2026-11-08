@@ -1,0 +1,102 @@
+{
+  "id": "insertion-and-sift-up",
+  "title": "Insert: Append at the End, Then Climb",
+  "priority": "P1",
+  "order": 704,
+  "unit": "Binary Heaps",
+  "quickIdea": "Insert places the new key in the next free slot, which keeps the tree complete, then swaps it upward with its parent until the order holds. Each swap moves it one level, so the cost is the height: O(log n) worst case.",
+  "remember": [
+    "Two steps, in this order: append at index n+1, then sift up (also called bubble-up or percolate-up) while the key beats its parent.",
+    "Appending is what preserves the shape. Sift-up is the only repair needed, because every other parent-child edge was already valid and the new key sits below all of them.",
+    "Worst case floor(log2 n) swaps, so O(log n); the climb stops at the first parent that wins, and over random heaps it stops after O(1) steps on average.",
+    "The direction matters: insertion repairs upward, deletion repairs downward. Running heapify (sift-down) after an insert repairs the wrong direction and can leave the new key violating its parent edge.",
+    "n inserts into an empty heap cost O(n log n) this way. If all keys are available at once, build-heap does the same job in O(n).",
+    "The heap's size grows by one and the array needs no reallocation until it is full, which is why the amortised cost of a push into a growing heap array is still O(log n)."
+  ],
+  "example": {
+    "prompt": "Insert 10 into the max-heap [9,7,8,4,6,5] and give the array after each swap.",
+    "work": "Append 10 at index 7: [9,7,8,4,6,5,10]. Its parent is index 3, holding 8, and 10 > 8, so swap: [9,7,10,4,6,5,8]. Its parent is now index 1, holding 9, and 10 > 9, so swap: [10,7,9,4,6,5,8]. There is no parent above index 1, so the climb ends.",
+    "answer": "[10,7,9,4,6,5,8] after two swaps, which is two levels of climbing."
+  },
+  "gateAngle": "GATE CSE 2014 Set 2 Q.12 inserts 1 and then 7 into a max-heap given by its level order and asks for the new level order. Nothing but appending and climbing is needed, and the answer is decided by two comparisons. Any question that gives a heap and a key to insert is this trace.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2014 Set 2 Q.12. A priority queue is implemented as a max-heap. Initially it has 5 elements whose level-order traversal is 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted in that order. The level-order traversal after the insertions is (1) 10,8,7,3,2,1,5 (2) 10,8,7,2,3,1,5 (3) 10,8,7,1,2,3,5 (4) 10,8,7,5,3,2,1",
+      "answer": "Option 1, 10,8,7,3,2,1,5.",
+      "why": "Insert 1: append at index 6, parent is index 3 holding 5, and 1 < 5, so no swap: [10,8,5,3,2,1]. Insert 7: append at index 7, parent is index 3 holding 5, and 7 > 5, so swap: [10,8,7,3,2,1,5]; the new parent is index 1 holding 10, which wins, so the climb stops. The first insertion needs no swap at all, which is the step most traces get wrong."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Insert 12 into the max-heap [15,10,11,4,9,3,8] and give the array.",
+      "answer": "[15,12,11,10,9,3,8,4].",
+      "why": "Append at index 8: [15,10,11,4,9,3,8,12]. Parent index 4 holds 4, so swap: [15,10,11,12,9,3,8,4]. Parent index 2 holds 10, so swap: [15,12,11,10,9,3,8,4]. Parent index 1 holds 15, which wins. Two swaps, two levels, and the shape is unchanged apart from the new leaf."
+    }
+  ],
+  "trap": {
+    "what": "Inserting the key and then calling heapify from the root, or placing the new key anywhere but the end.",
+    "why": "Sift-down repairs a node that is too small for its children; the newly appended key is too large for its parent, so only sift-up can fix it. And inserting anywhere but the end breaks the completeness that the array indices depend on.",
+    "counterexample": "The max-heap [10,8,5] with 9 appended gives [10,8,5,9]. Running heapify from the root does nothing, because 10 already beats 8 and 5, and the real violation, the edge (2,4) where 8 is the parent of 9, survives. Climbing from index 4 instead gives [10,9,5,8], which is a heap."
+  },
+  "check": {
+    "question": "Insert 1 into the min-heap [2,5,3,9,7,4] and give the array.",
+    "answer": "[1,5,2,9,7,4,3].",
+    "explanation": "Append at index 7: [2,5,3,9,7,4,1]. Parent index 3 holds 3, and 1 < 3, so swap: [2,5,1,9,7,4,3]. Parent index 1 holds 2, and 1 < 2, so swap: [1,5,2,9,7,4,3]. The climb reaches the root in two swaps, the height of this heap."
+  },
+  "pyqIds": [
+    "gate-2014-set-2-q12-priority-queue-insertions"
+  ],
+  "prereqs": [
+    "heap-shape-and-heap-property",
+    "array-representation-and-index-arithmetic"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "nptel-iitd-106102064-lec21-binary-heaps",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+      "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+      "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+      "kind": "lecture-handout",
+      "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+      "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+      "url": "https://gateoverflow.in/tag/binary-heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+      "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+  ],
+  "sourceLine": "The up-heap procedure, its worst case and its average-case O(1) row: Wikipedia, \"Binary heap\" (English, read in part). Insert as a bubble-up from the leaf to the root, and the height bound behind it: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), with the same step in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The insertion trace: GATE Overflow page for GATE CSE 2014 Set 2 Q.12 (English, read in part). Every array here is recomputed in scripts/validate.py.",
+  "links": {}
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2009-q59-which-array-is-max-heap",
+  "year": "2009",
+  "paper": "GATE CSE 2009",
+  "question_ref": "Q.59 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "heap-shape-and-heap-property",
+  "text": "Consider a binary max-heap implemented using an array. Which one of the following array represents a binary max-heap?",
+  "options": [
+    "{25,12,16,13,10,8,14}",
+    "{25,14,13,16,10,8,12}",
+    "{25,14,16,13,10,8,12}",
+    "{25,14,12,13,10,8,16}"
+  ],
+  "answer": "Option 3 - {25,14,16,13,10,8,12}",
+  "solution": "With 1-based indices, check each parent against 2i and 2i+1. Option 1 fails at (2,4): 12 is the parent of 13. Option 2 fails at (2,4): 14 is the parent of 16. Option 4 fails at (3,7): 12 is the parent of 16. Option 3 satisfies every edge: 25 over 14 and 16, 14 over 13 and 10, 16 over 8 and 12.",
+  "source_url": "https://gateoverflow.in/1341/gate-cse-2009-question-59",
+  "source_label": "GATE Overflow question page - GATE CSE 2009 Q.59, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 3, and the accepted answer walks the four arrays as level order. The paper and key were not fetched, so the record stays SOURCED. All four arrays are re-tested edge by edge in scripts/validate.py."
+}

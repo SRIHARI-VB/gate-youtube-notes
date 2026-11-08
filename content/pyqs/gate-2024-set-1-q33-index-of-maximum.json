@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set-1-q33-index-of-maximum",
+  "year": "2024",
+  "paper": "GATE CSE 2024 Set 1",
+  "question_ref": "Q.33 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "heap-height-leaves-and-node-counts",
+  "text": "Consider a binary min-heap containing 105 distinct elements. Let k be the index (in the underlying array) of the maximum element stored in the heap. The number of possible values of k is",
+  "options": [
+    "53",
+    "52",
+    "27",
+    "1"
+  ],
+  "answer": "Option 1 - 53",
+  "solution": "The maximum of a min-heap is a leaf, so the possible indices of k are exactly the leaf indices. With 1-based indices the internal nodes are 1 to floor(105/2) = 52 and the leaves are 53 to 105, which is 105 - 52 = 53 = ceil(105/2) positions. The second distractor, 52, is the number of internal nodes.",
+  "source_url": "https://gateoverflow.in/422809/gate-cse-2024-set-1-question-33",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.33, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 1, with both the floor(n/2) argument and the level-count argument given. The paper and key were not fetched, so the record stays SOURCED. The counts 52 and 53 are recomputed in scripts/validate.py."
+}

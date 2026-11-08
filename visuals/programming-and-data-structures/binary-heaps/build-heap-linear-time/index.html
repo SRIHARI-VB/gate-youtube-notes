@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build-Heap Bottom Up Is Linear - Binary Heaps visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Build-Heap Bottom Up Is Linear</h1>
+  <div class="objective"><strong>Objective.</strong> Ten keys, five heapify calls, seven swaps, and the array becomes a max-heap. Watch the loop start at the last internal node and walk backwards to the root, and see why the work shrinks as the loop climbs: the nodes that could sink far are few, and the nodes that are many sink almost nowhere.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Build-heap takes an array that is a complete tree in shape but not a heap in order, and runs heapify on every internal node from index floor(n/2) down to 1. Leaves are skipped because a one-node subtree is already a heap. The order of the loop matters: when heapify(i) runs, both subtrees of i are already heaps, which is the precondition a sink needs.</p>
+  <p>The cost is not n times log n. A node at height h sinks at most h steps, and a complete tree has about n/2^(h+1) nodes at height h, so the total is the sum of h*n/2^(h+1) over h. That sum is below 2n and approaches n, so the build is Theta(n). Half of the nodes are leaves and cost nothing, a quarter cost at most one step, and only the root can cost the full height.</p>
+  <p>This is the fact behind two previous-year questions. GATE CSE 2008 Q.47 asks for the cost of adding n keys to a heap of n and the answer is Theta(n), because the keys may be appended and one build run over the 2n cells. The third statement of GATE CSE 2019 Q.40 says a max-heap can be built from a binary search tree in Theta(n), which is the same linear build after a linear walk.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That build-heap is O(n log n) because heapify is O(log n) and there are about n/2 calls. That multiplies a worst case by a count that never attains it. For n = 1023 the exact sum is 1017.006 steps, below 2n = 2046 and far below n log n = 10230.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>Build a max-heap from [1,2,3,4,5]. How many swaps does it take, and what is the array?</p><details><summary>Answer</summary><p><strong>[5,4,3,1,2] after three swaps in two heapify calls.</strong> n = 5, so the calls run at i = 2 then i = 1. At i = 2 the key 2 has children 4 and 5, so it swaps with 5: [1,5,3,4,2]. At i = 1 the key 1 swaps with 5: [5,1,3,4,2], then at index 2 it swaps with 4: [5,4,3,1,2].</p></details></div>
+
+  <p class="small">Topic: Binary Heaps (Programming and Data Structures), subtopic build-heap in linear time. Build-heap bottom up, the sum of heights and the comparison with repeated insertion: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), and the same O(N) argument in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The worked array is the one used in CLRS chapter 6's build-max-heap figure, recomputed here rather than quoted, and every array in every step is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

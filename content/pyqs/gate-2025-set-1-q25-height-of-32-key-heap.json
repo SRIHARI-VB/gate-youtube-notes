@@ -1,0 +1,15 @@
+{
+  "id": "gate-2025-set-1-q25-height-of-32-key-heap",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 1",
+  "question_ref": "Q.25 on GATE Overflow",
+  "type": "NAT",
+  "topic": "heap-height-leaves-and-node-counts",
+  "text": "The height of any rooted tree is defined as the maximum number of edges in the path from the root node to any leaf node. Suppose a Min-Heap T stores 32 keys. The height of T is ____. (Answer in integer)",
+  "answer": "5",
+  "solution": "A heap is a complete binary tree, so its height is floor(log2 n) = floor(log2 32) = 5 edges. Levels 0 to 4 hold 1+2+4+8+16 = 31 nodes, so the 32nd key opens level 5 and the deepest leaf is 5 edges from the root. Answering 6 counts the nodes on that path instead of the edges.",
+  "source_url": "https://gateoverflow.in/460055/gate-cse-2025-set-1-question-25",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.25, statement and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records 5, and the level-by-level count agrees. The paper and key were not fetched, so the record stays SOURCED. The height and the level sums are recomputed in scripts/validate.py."
+}

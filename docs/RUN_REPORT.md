@@ -1,5 +1,112 @@
 # Run report
 
+## Run 12 - Binary Heaps (2026-11-08)
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Binary Heaps** (`binary-heaps`), the sixth topic of the GATE 2027 Programming
+and Data Structures line: *"Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search
+trees, binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on `programming-and-data-structures/trees-and-binary-search-trees`,
+and the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one, and no topic is
+`blocked`. The earlier `partial` topics were left alone because the second pass over `partial` topics begins only
+after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Nine. The syllabus names the topic in two words, so the enumeration comes from the standard treatment (CLRS
+chapter 6), the GATE question record from 2004 to 2026, and what the readable sources actually teach: the shape and
+the parent-child order, with min and max flavours; the array representation and the index arithmetic in both
+conventions; the height, leaf and internal-node counts and the rank-versus-depth bound; insertion and sift-up;
+extraction and sift-down; the linear bottom-up build; heapsort and its properties; the priority-queue operation
+costs including decrease-key, delete-by-key and merge; and what the partial order does not give, which is search,
+sorted order and the extreme at the wrong end. Binomial and Fibonacci heaps are outside the GATE 2027 CS line and
+were not covered; meldable heaps are mentioned only as the structure that a merge needs.
+
+### Sources chosen, on merit
+
+Seven readable sources from seven places, in three languages, with no default to one channel and no default to
+what the repository already held:
+
+1. **NPTEL IIT Delhi 106102064, Lecture 21 "Binary Heaps", Prof. Naveen Garg** (English, transcript read in full) -
+   the best teaching of this topic that could be read at all: delete-min, the bottom-up build with the sum-of-heights
+   argument, in-place heapsort, and the comparison of a heap against a sorted and an unsorted list for a priority
+   queue. Every card's cost claims were checked against it and against CLRS.
+2. **NPTEL IIT Delhi 106102064, Lecture 20 "Priority Queues"** (English, read in part) - the priority-queue ADT, the
+   shortest-remaining-processing-time motivation and the total order required on priorities. The extraction stopped
+   before the heap procedures, so no card takes a procedure from it.
+3. **NPTEL / Chennai Mathematical Institute, Week 6 Lecture 5 handout** (English, read in full) - an independent
+   second account, in 0-based indices, which is what let the index card show both conventions honestly.
+4. **THE GATEHUB, "Introduction to Heap"** (Hindi, Devanagari captions read in part, translated) - the only lecture in
+   another language whose text was readable in this run, and the clearest walk-through of the level-order array
+   representation with blanks for missing children and of the 1-based formulas verified on two nodes. One card draws
+   on it and says so.
+5. **Wikipedia, "Binary heap"** (English, read in part) - the two requirements, the up-heap and down-heap procedures,
+   and the operation table with the conditional decrease-key O(log n) and the Theta(n) merge.
+6. **CLRS, chapter 6** (standard reference) - the build-heap sum and the heapsort lower bound, including exercise
+   6.4-5 for the best case. Cited, never copied: the worked array in the build card is recomputed.
+7. **GATE Overflow** (English, read in part) - the twelve question pages with statements, options and accepted
+   answers, and the `binary-heap` tag index, which was used to check the subtopic enumeration against the paper
+   record.
+
+Rejected with reasons in `sources.json`: a **GATE MCQ collection site** whose 2018 entry gives 105 for the number of
+min-heaps on seven keys where the accepted answer is 80, and which attributes to GATE CSE 2024 Set 1 a "parent of
+53" question the paper does not ask - two wrong entries in five, so it was not used for any answer; two
+**GeeksforGeeks** pages, correct but secondary, with no derivation of the linear build or the heapsort accounting;
+a **Hindi article** on computerhindinotes.com whose readable part never reached an operation cost, so nothing in it
+could be checked; a **Hindi state-exam MCQ bank** with no GATE paper references; the **Hindi Wikipedia** article,
+which is a stub; and a re-hosted **NPTEL heap-sort module** on studyres whose figures are missing and whose
+pseudocode writes the right child as `2*i + 1` in a 1-based array, an off-by-one. No English video caption track was
+readable in this run, which is recorded as the first gap rather than worked around.
+
+### Learning material created
+
+Nine revision cards, one per enumerated subtopic, each with a quick idea, remember items, a worked example, the GATE
+angle, two or three variations, a trap with a counterexample, a quick check with its answer and a source line that
+names the language and how much of each source was read. Twelve verified PYQs, every one with a year, a question
+reference and a source URL: 2006 Q.10, 2008 Q.47, 2009 Q.59, 2014 Set 2 Q.12, 2016 Set 2 Q.34, 2018 Q.46, 2019 Q.40,
+2021 Set 2 Q.2, 2023 Q.2, 2024 Set 1 Q.33, 2025 Set 1 Q.25 and 2026 Set 1 Q.13. Verified PYQs, original PYQ-style
+questions, conceptual practice and predicted variations are labelled separately on every card. Two p5.js lessons:
+`sift-up-and-sift-down` traces an insert that climbs twice and an extract that sinks once, with the tree and the
+array shown together; `build-heap-linear-time` runs the five heapify calls of the linear build and shows why the
+work shrinks as the loop climbs.
+
+### Validation
+
+`scripts/build-index.py` regenerated the index (425 cards, 359 PYQs, 43 lessons) and `scripts/validate.py` passed
+with 0 failures and 8 warnings, all of them pre-existing and none in this topic. `node tests/visual-lessons.js`
+passed, with both new lessons drawing all seven steps at p = 0, 0.5 and 1. A new `check_binary_heaps()` recomputes
+every array, index, height, leaf count, build trace, sort output and sink count published here, plus the twelve
+recorded PYQ answers, the 80 min-heaps by brute-force enumeration of all 5040 permutations, the height sum for five
+values of n, and a byte-level match of both lessons' frame lists against the recomputed traces. It caught nothing in
+the cards, but it did catch two drafting errors while the content was being written: a proposed "one swap turns this
+array into a heap" variation that left the edge (4,9) broken, and a hand-written extract-min trace that stopped one
+swap early. Both were replaced with the recomputed versions rather than the check being relaxed. No frozen file was
+touched: no design token, no shell layout, no route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No English video caption track was readable: the Hindi GATEHUB lecture was readable only through its
+   array-representation section, so the insertion, extraction, build and sort cards rest on the NPTEL transcripts and
+   reference text rather than on a lecture video.
+2. Every PYQ is `SOURCED`, not key-verified: no official GATE paper or answer key was fetched, so no marks field is
+   recorded on any of the twelve.
+3. Heapsort has no verified previous-year question of its own; its card carries practice questions and the
+   GATE CSE 2019 Q.40 statement that prices repeated extraction.
+4. The 2026 question carries a numbering disagreement (Q.13 on GATE Overflow, Q.23 on one paper-listing site) rather
+   than a pinned reference.
+5. Decrease-key, merge and delete-by-key are recorded as costs only; meldable, binomial and Fibonacci heaps are
+   outside the syllabus line and are not covered.
+6. The GATE Overflow `binary-heap` tag lists further questions (a 2026 memory-based question and a GO Classes mock)
+   that were not read, so the twelve recorded PYQs are not an exhaustive set.
+
+### Next
+
+The cycle pointer now sits on `programming-and-data-structures/binary-heaps`, so the next topic is
+`programming-and-data-structures/graphs-data-structure`, the last `not_started` topic of the subject.
+
 ## Run 11 - Trees and Binary Search Trees (2026-11-08)
 
 ### The topic, and why it was next

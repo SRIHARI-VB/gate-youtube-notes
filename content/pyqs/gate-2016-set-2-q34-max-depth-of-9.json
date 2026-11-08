@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set-2-q34-max-depth-of-9",
+  "year": "2016",
+  "paper": "GATE CSE 2016 Set 2",
+  "question_ref": "Q.34 on GATE Overflow",
+  "type": "NAT",
+  "topic": "heap-height-leaves-and-node-counts",
+  "text": "A complete binary min-heap is made by including each integer in [1, 1023] exactly once. The depth of a node in the heap is the length of the path from the root of the heap to that node. Thus, the root is at depth 0. The maximum depth at which integer 9 can appear is ____.",
+  "answer": "8",
+  "solution": "Every ancestor of 9 on its root path holds a smaller key, and only 1 to 8 are smaller, so a path of depth d needs d distinct smaller keys and d <= 8. The heap on 1023 keys has height floor(log2 1023) = 9, so depth 8 is reachable: put 1,2,...,9 on one root-to-leaf chain and fill the rest of the complete shape with the remaining keys. The bound is min(k-1, height) = min(8, 9) = 8.",
+  "source_url": "https://gateoverflow.in/39585/gate-cse-2016-set-2-question-34",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.34, statement and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records 8, with the accepted answer giving both the chain argument and the complete-shape check. The paper and key were not fetched, so the record stays SOURCED. The bound min(k-1, floor(log2 n)) is recomputed in scripts/validate.py."
+}

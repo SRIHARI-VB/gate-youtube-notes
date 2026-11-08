@@ -1,0 +1,21 @@
+{
+  "id": "gate-2008-q47-insert-n-more-elements",
+  "year": "2008",
+  "paper": "GATE CSE 2008",
+  "question_ref": "Q.47 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "build-heap-in-linear-time",
+  "text": "We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is",
+  "options": [
+    "Theta(log n)",
+    "Theta(n)",
+    "Theta(n log n)",
+    "Theta(n^2)"
+  ],
+  "answer": "Option 2 - Theta(n)",
+  "solution": "Append the n new keys to the array, giving 2n cells, then run one build-heap over them. Build-heap is Theta(2n) = Theta(n) by the sum of heights. Inserting the keys one at a time would cost Theta(n log n), which is why the question says 'not necessarily one after another': the work may be deferred.",
+  "source_url": "https://gateoverflow.in/459/gate-cse-2008-question-47",
+  "source_label": "GATE Overflow question page - GATE CSE 2008 Q.47, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 2, with several answers noting that the Theta in the question is itself the hint that a linear method exists. The paper and key were not fetched, so the record stays SOURCED. The build-heap bound is recomputed in scripts/validate.py."
+}

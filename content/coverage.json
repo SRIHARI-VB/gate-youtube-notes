@@ -3,7 +3,7 @@
   "updated_at": "2026-11-08",
   "cycle": {
     "last_subject": "programming-and-data-structures",
-    "last_topic": "trees-and-binary-search-trees",
+    "last_topic": "binary-heaps",
     "updated_at": "2026-11-08"
   },
   "subjects": [
@@ -1119,10 +1119,34 @@
         {
           "slug": "binary-heaps",
           "name": "Binary Heaps",
-          "status": "not_started",
-          "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-          "runs": [],
-          "gaps": []
+          "status": "partial",
+          "coverage_note": "Nine cards, one per enumerated subtopic: the shape and the parent-child order; the array indices in both conventions; the height, leaf and internal-node counts with the rank-versus-depth bound; insertion and sift-up; extraction and sift-down; the linear bottom-up build; heapsort and its properties; the priority-queue operation costs; and what the partial order does not give. Twelve verified PYQs from GATE CSE 2006 to 2026 (two array-is-a-heap questions, the two extreme-element questions, the height and leaf-count questions, the distinct-min-heaps count, the n-more-insertions cost, the statement question, the insertion trace and the leaf index question) and 2 p5.js lessons. Partial because six gaps remain, named below.",
+          "runs": [
+            {
+              "date": "2026-11-08",
+              "sources": [
+                "nptel-iitd-106102064-lec21-binary-heaps",
+                "nptel-iitd-106102064-lec20-priority-queues",
+                "nptel-cmi-python-week6-lecture5-heaps-handout",
+                "gatehub-hindi-introduction-to-heap",
+                "wikipedia-binary-heap",
+                "clrs-chapter-6-heapsort",
+                "gateoverflow-question-pages"
+              ],
+              "cards": 9,
+              "pyqs": 12,
+              "lessons": 2,
+              "note": "Sources chosen on merit across three languages and seven places, with no default to one channel and no default to what the repository already held: the NPTEL IIT Delhi Lecture 21 transcript (English, read in full) for delete-min, the linear build-heap argument, in-place heapsort and the priority-queue cost comparison; Lecture 20 (English, read in part) for the priority-queue ADT and the total order; the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full) as an independent 0-based account; the THE GATEHUB Hindi lecture (Devanagari captions read in part, translated) for the level-order array representation and the 1-based index formulas; Wikipedia 'Binary heap' (English, read in part) for the operation table with decrease-key and merge; CLRS chapter 6 as the standard reference behind the build-heap sum and the heapsort bound; and GATE Overflow question pages for all twelve PYQs. Rejected with reasons in sources.json: a GATE MCQ collection site whose 2018 answer is 105 where the accepted answer is 80 and which attributes to 2024 Set 1 a question the paper does not ask, two GeeksforGeeks pages (correct but secondary, no derivation), a Hindi article whose readable part never reached an operation cost, a Hindi state-exam MCQ bank with no GATE references, the Hindi Wikipedia stub, and a re-hosted NPTEL heap module whose figures are missing and whose pseudocode is off by one in the child indices. No English video caption track was readable in this run."
+            }
+          ],
+          "gaps": [
+            "no English video caption track was readable: the Hindi GATEHUB lecture was readable only through its array-representation section, so the insertion, extraction, build and sort cards rest on the NPTEL transcripts and reference text rather than on a lecture video",
+            "every PYQ is SOURCED rather than key-verified: no official GATE paper or answer key was fetched, so no marks field is recorded on any of the twelve",
+            "heapsort has no verified previous-year question of its own; its card carries practice questions and the GATE CSE 2019 Q.40 statement that prices repeated extraction",
+            "the 2026 question carries a numbering disagreement (Q.13 on GATE Overflow, Q.23 on one paper-listing site) rather than a pinned reference",
+            "decrease-key, merge and delete-by-key are recorded as costs only; meldable heaps, binomial heaps and Fibonacci heaps are outside the GATE 2027 CS line and are not covered",
+            "the GATE Overflow binary-heap tag lists further questions (a 2026 memory-based question and a GO Classes mock) that were not read, so the twelve recorded PYQs are not an exhaustive set"
+          ]
         },
         {
           "slug": "graphs-data-structure",

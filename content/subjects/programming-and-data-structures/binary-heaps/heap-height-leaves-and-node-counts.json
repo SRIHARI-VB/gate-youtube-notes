@@ -1,0 +1,99 @@
+{
+  "id": "heap-height-leaves-and-node-counts",
+  "title": "Height, Leaves and Where the Leaves Begin",
+  "priority": "P1",
+  "order": 703,
+  "unit": "Binary Heaps",
+  "quickIdea": "A heap on n nodes is a complete tree, so its height is floor(log2 n) edges, its internal nodes occupy the first floor(n/2) positions, its leaves are the rest, which is ceil(n/2) of them, and level k holds at most 2^k nodes.",
+  "remember": [
+    "Height in edges, root at depth 0: floor(log2 n). The number of levels is floor(log2 n)+1, and the last level holds n - 2^floor(log2 n) + 1 nodes.",
+    "1-based indices: internal nodes 1 to floor(n/2), leaves floor(n/2)+1 to n, so the leaf count is n - floor(n/2) = ceil(n/2).",
+    "Level k holds at most 2^k nodes. Hence in a min-heap the k-th smallest key cannot lie deeper than depth k-1, and also not deeper than the height: its depth is at most min(k-1, floor(log2 n)).",
+    "Counting distinct heaps on a fixed set of keys: the shape is forced by completeness, the root is forced to be the smallest (or largest), then the count multiplies the choice of which keys go left by the count inside each subtree. For seven keys that is C(6,3) * 2 * 2 = 80.",
+    "Every fact here is about the shape, so it holds for a min-heap and a max-heap alike and none of it depends on the key values.",
+    "Two counts are easy to confuse: the number of internal nodes, floor(n/2), and the number of leaves, ceil(n/2); for even n they are equal, for odd n the leaves are one more."
+  ],
+  "example": {
+    "prompt": "A heap stores 105 keys. Give its height, the number of nodes on its last level, and its internal-node and leaf counts. Then do the same for 1000 keys.",
+    "work": "105 lies between 2^6 - 1 = 63 and 2^7 - 1 = 127, so the height is 6 and the levels are 0 to 6. The last level holds 105 - 2^6 + 1 = 42 nodes. Internal nodes are 1 to floor(105/2) = 52, so the leaves are 53 = ceil(105/2). For 1000 keys: floor(log2 1000) = 9, so the height is 9, the internal nodes are 500 and the leaves are 500.",
+    "answer": "105 keys: height 6, 42 nodes on the last level, 52 internal nodes, 53 leaves. 1000 keys: height 9, 500 internal nodes, 500 leaves."
+  },
+  "gateAngle": "Three shapes of question, one set of formulas. GATE CSE 2025 Set 1 Q.25 asks the height of a 32-key heap and the trap is answering 6 by counting nodes instead of edges. GATE CSE 2024 Set 1 Q.33 asks in how many index positions the maximum of a 105-key min-heap can sit, which is the leaf count. GATE CSE 2016 Set 2 Q.34 asks the deepest place for the key 9 in a 1023-key min-heap, which combines the rank bound with the height.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 1 Q.25. The height of any rooted tree is defined as the maximum number of edges in the path from the root node to any leaf node. Suppose a Min-Heap T stores 32 keys. The height of T is ____. (Answer in integer)",
+      "answer": "5.",
+      "why": "A heap is complete, so its height is floor(log2 32) = 5 edges. Levels 0 to 4 hold 1+2+4+8+16 = 31 nodes, so the 32nd key opens level 5. Counting the nodes on the deepest path would give 6, which is the trap the question sets."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2018 Q.46. The number of possible min-heaps containing each value from {1,2,3,4,5,6,7} exactly once is ____. (Answer in integer)",
+      "answer": "80.",
+      "why": "Seven nodes fix the shape: a root, two children and four leaves, with the left subtree holding three nodes. The root must be 1. Choose which three of the remaining six keys go to the left subtree: C(6,3) = 20. Inside a three-node subtree the root is forced to be its smallest key and its two leaves can be ordered two ways, so each side contributes a factor 2. Total 20 * 2 * 2 = 80."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A heap stores 1000 keys. How many leaves does it have, and what is its height?",
+      "answer": "500 leaves and height 9.",
+      "why": "floor(1000/2) = 500 internal nodes, so 500 leaves; floor(log2 1000) = 9 because 2^9 = 512 <= 1000 < 1024 = 2^10. Here the internal-node and leaf counts coincide because n is even."
+    }
+  ],
+  "trap": {
+    "what": "Taking the height as ceil(log2(n+1)), or the leaf count as floor(n/2).",
+    "why": "The height counts edges, so a complete tree on 2^h nodes has height h and not h+1; and for odd n the leaves are one more than the internal nodes, so floor(n/2) names the internal nodes instead of the leaves.",
+    "counterexample": "n = 105: floor(log2 105) = 6 is the height, while ceil(log2 106) = 7 is not. The leaves are ceil(105/2) = 53, while floor(105/2) = 52 is the number of internal nodes. Both errors shift the answer by exactly one, which is what the distractors offer."
+  },
+  "check": {
+    "question": "A min-heap holds each key from 1 to 1023 exactly once. What is the greatest depth at which the key 9 can appear?",
+    "answer": "Depth 8.",
+    "explanation": "Every ancestor of 9 on the path from the root is a smaller key, and there are only eight of those (1 to 8), so a path of depth d needs d distinct smaller keys and d <= 8. The heap's height is floor(log2 1023) = 9, so depth 8 is available and the bound is attained: the chain 1,2,3,4,5,6,7,8,9 sits on a root-to-leaf path, and the remaining keys fill the rest of the complete shape."
+  },
+  "pyqIds": [
+    "gate-2025-set-1-q25-height-of-32-key-heap",
+    "gate-2024-set-1-q33-index-of-maximum",
+    "gate-2018-q46-number-of-min-heaps-seven",
+    "gate-2016-set-2-q34-max-depth-of-9"
+  ],
+  "prereqs": [
+    "array-representation-and-index-arithmetic"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+      "kind": "lecture-handout",
+      "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+      "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+      "url": "https://gateoverflow.in/tag/binary-heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+      "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+  ],
+  "sourceLine": "The shape, the height and the leaf count: Wikipedia, \"Binary heap\" (English, read in part) and the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The rank-versus-depth bound and the count of distinct heaps: GATE Overflow pages for GATE CSE 2016 Set 2 Q.34, GATE CSE 2018 Q.46, GATE CSE 2024 Set 1 Q.33 and GATE CSE 2025 Set 1 Q.25 (English, read in part). Every height, count and depth bound here is recomputed in scripts/validate.py, including the 80 by brute-force enumeration.",
+  "links": {}
+}

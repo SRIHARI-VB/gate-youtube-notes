@@ -1,0 +1,43 @@
+{
+  "slug": "sift-up-and-sift-down",
+  "topic": "insertion-and-sift-up",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "heap": [
+      9,
+      7,
+      8,
+      4,
+      6,
+      5
+    ],
+    "insert": 10,
+    "after_insert": [
+      10,
+      7,
+      9,
+      4,
+      6,
+      5,
+      8
+    ],
+    "extract_max": 10,
+    "after_extract_and_sink": [
+      9,
+      7,
+      8,
+      4,
+      6,
+      5
+    ],
+    "swaps_up": 2,
+    "swaps_down": 1,
+    "height": 2,
+    "quick_check": {
+      "question": "Insert 1 into the min-heap [2,5,3,9,7,4]. Which indices are compared, and what is the array afterwards?",
+      "answer": "[1,5,2,9,7,4,3], with comparisons against index 3 (value 3) and then index 1 (value 2).",
+      "note": "The climb stops at the root after two swaps, the height of a seven-key heap"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2006-q10-smallest-in-max-heap",
+  "year": "2006",
+  "paper": "GATE CSE 2006",
+  "question_ref": "Q.10 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "what-the-heap-order-does-not-give",
+  "text": "In a binary max heap containing n numbers, the smallest element can be found in time",
+  "options": [
+    "O(n)",
+    "O(log n)",
+    "O(log log n)",
+    "O(1)"
+  ],
+  "answer": "Option 1 - O(n)",
+  "solution": "In a max-heap a parent is at least each child, so the smallest key has no children and must be a leaf. A complete tree on n nodes has ceil(n/2) leaves, unordered among themselves, so all of them must be inspected: Theta(n), and no better, since no ordering exists among the leaves. Turning the max-heap into a min-heap first also costs Theta(n).",
+  "source_url": "https://gateoverflow.in/889/gate-cse-2006-question-10",
+  "source_label": "GATE Overflow question page - GATE CSE 2006 Q.10, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 1 with the leaf argument. The paper and the official key were not fetched, so the record stays SOURCED. The leaf count ceil(n/2) is recomputed in scripts/validate.py."
+}

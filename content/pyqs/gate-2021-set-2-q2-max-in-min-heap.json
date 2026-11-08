@@ -1,0 +1,21 @@
+{
+  "id": "gate-2021-set-2-q2-max-in-min-heap",
+  "year": "2021",
+  "paper": "GATE CSE 2021 Set 2",
+  "question_ref": "Q.2 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "what-the-heap-order-does-not-give",
+  "text": "Let H be a binary min-heap consisting of n elements implemented as an array. What is the worst case time complexity of an optimal algorithm to find the maximum element in H?",
+  "options": [
+    "Theta(1)",
+    "Theta(log n)",
+    "Theta(n)",
+    "Theta(n log n)"
+  ],
+  "answer": "Option 3 - Theta(n)",
+  "solution": "The maximum of a min-heap is a leaf, since any internal node has a child that is at most it. With 1-based indices the leaves are floor(n/2)+1 to n, so scanning those ceil(n/2) cells costs Theta(n). It is optimal because the leaves are unordered among themselves, so no leaf can be excluded without reading it, and binary search is unavailable.",
+  "source_url": "https://gateoverflow.in/357538/gate-cse-2021-set-2-question-2",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.2, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "GATE Overflow records option 3, with the leaf-scan argument accepted. The paper and key were not fetched, so the record stays SOURCED. The leaf index range is recomputed in scripts/validate.py."
+}

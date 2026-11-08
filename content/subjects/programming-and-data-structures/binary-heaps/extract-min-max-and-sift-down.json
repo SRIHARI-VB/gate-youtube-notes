@@ -1,0 +1,91 @@
+{
+  "id": "extract-min-max-and-sift-down",
+  "title": "Extract: Move the Last Key to the Root and Sink It",
+  "priority": "P1",
+  "order": 705,
+  "unit": "Binary Heaps",
+  "quickIdea": "Delete the root, put the last key in its place, shrink the heap by one, then sink that key by swapping it with the winning child, the larger one in a max-heap and the smaller one in a min-heap, until the order holds. The cost is the height, O(log n).",
+  "remember": [
+    "Three steps: remember A[1]; move A[n] to A[1] and decrement the size; sift down while a child beats the key, each time swapping with the child that beats it most.",
+    "Choosing the winning child is not cosmetic. Swapping with the weaker child leaves the stronger child above its new parent, so the order is still broken.",
+    "Cost O(log n): at most one swap per level, and a complete tree has height floor(log2 n). Only the single root-to-leaf path the key travels is touched.",
+    "The shape survives because removing the last leaf of a complete tree leaves a complete tree; only the order needs repair.",
+    "In an array this is in place: the extracted key stays in the slot the heap has just given up, which is exactly what heapsort collects.",
+    "find-max or find-min is O(1) because the extreme is the root; the extract is what costs the sink. Decreasing a key is the mirror operation and climbs instead."
+  ],
+  "example": {
+    "prompt": "Extract the maximum from the max-heap [10,8,7,3,2,1,5] and give the array after each swap.",
+    "work": "Take 10 out. Move the last key, 5, to the root and shrink the size to 6: [5,8,7,3,2,1]. The root's children are 8 at index 2 and 7 at index 3; the larger is 8, so swap: [8,5,7,3,2,1]. At index 2 the children are 3 and 2, both below 5, so the sink stops.",
+    "answer": "One swap; the heap becomes [8,5,7,3,2,1] and the extracted maximum is 10."
+  },
+  "gateAngle": "Extraction traces appear inside larger questions rather than as questions of their own: the heapsort trace, the priority-queue insertion question, and the fourth statement of GATE CSE 2019 Q.40, which prices a heap-to-BST conversion at n log n precisely because it needs n extractions of this kind.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Extract the minimum from the min-heap [1,3,2,7,6,4,5] and give the array.",
+      "answer": "[2,3,4,7,6,5], after two swaps.",
+      "why": "Move the last key 5 to the root and shrink to size 6: [5,3,2,7,6,4]. The children of the root are 3 and 2; the smaller is 2, so swap: [2,3,5,7,6,4]. At index 3 the only child inside the heap is 4 at index 6, and 4 < 5, so swap again: [2,3,4,7,6,5]. A sink does not stop after one swap, which is the step that gets dropped."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A max-heap on n keys has its largest key at the root and its second largest as a child of the root. How many comparisons does one extract-max need when the last key is already larger than both grandchildren?",
+      "answer": "Two comparisons and one swap: the answer is Theta(1) for that input, while the bound stays O(log n).",
+      "why": "The two comparisons pick the winning child, one swap installs it at the root, and the sink then stops at the first level. The worst case is unchanged: a key that is smaller than everything on its path sinks the full height. This is the same distinction GATE draws between the cost of one operation and the cost of n of them."
+    }
+  ],
+  "trap": {
+    "what": "Sinking by swapping with whichever child is at hand, or forgetting to shrink the size before sinking.",
+    "why": "The heap property is required on both child edges, so the swap must be with the child that wins; and if the size is not reduced first, the extracted key is still inside the heap and the sink can compare against it.",
+    "counterexample": "Max-heap [10,9,8,1,2,7]: extract 10 and move 7 to the root, giving [7,9,8,1,2]. Swapping with the smaller child 8 gives [8,9,7,1,2], where 9 is a child of 8 and the order is still broken. Swapping with the larger child 9 gives [9,7,8,1,2], which is a heap."
+  },
+  "check": {
+    "question": "Extract the maximum from the max-heap [4,4,3,1,2,1] and give the array.",
+    "answer": "[4,2,3,1,1].",
+    "explanation": "Move the last key 1 to the root and shrink to size 5: [1,4,3,1,2]. Children of the root are 4 and 3; swap with 4: [4,1,3,1,2]. At index 2 the children are 1 and 2, and 2 > 1, so swap: [4,2,3,1,1]. The duplicate 4 in the original heap is irrelevant: an extract removes one key, not every key of that value."
+  },
+  "pyqIds": [
+    "gate-2019-q40-heap-statements"
+  ],
+  "prereqs": [
+    "heap-shape-and-heap-property",
+    "insertion-and-sift-up"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "id": "wikipedia-binary-heap",
+      "kind": "reference",
+      "title": "Wikipedia, Binary heap",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+      "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+      "id": "nptel-iitd-106102064-lec21-binary-heaps",
+      "kind": "lecture-transcript",
+      "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+      "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+      "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+      "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+      "kind": "lecture-handout",
+      "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+      "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    }
+  ],
+  "sourceLine": "Delete-min as remove the root, move the last key up and heapify: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), and the same procedure in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The down-heap procedure and its winning-child rule: Wikipedia, \"Binary heap\" (English, read in part). The array costs behind GATE CSE 2019 Q.40 are those of the GATE Overflow page for that question (English, read in part). Every trace here is recomputed in scripts/validate.py.",
+  "links": {}
+}
