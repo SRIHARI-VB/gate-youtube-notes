@@ -1,5 +1,106 @@
 # Run report
 
+## Run 10 - Linked Lists (2026-11-08)
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Linked Lists** (`linked-lists`), the fourth topic of the GATE 2027
+Programming and Data Structures line: *"Programming in C. Recursion. Arrays, stacks, queues, linked lists,
+trees, binary search trees, binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on `programming-and-data-structures/arrays-stacks-queues`, and
+the first topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one,
+which was `not_started`. Nothing was skipped: no topic sits between the pointer and this one and no topic is
+`blocked`. The twenty `partial` topics earlier in the cycle were left alone because the second pass over
+`partial` topics starts only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Ten. The syllabus names the topic in one phrase, so the enumeration comes from the standard treatment (CLRS
+ch. 10.2, which is the section for linked lists, and ch. 10.1 for the stack and queue ADTs built on them), the
+GATE question record from 1997 to 2026, and the shapes the sources teach: the node, the head pointer and the
+NULL terminator against the array; traversal, counting and search; insertion at the head, after a given node
+and at the tail; deletion given only a pointer to the node, including the O(1) data-copy trick; in-place
+reversal; the doubly linked list; the circular list and its single-pointer queue; the operation-cost table;
+two-pointer techniques and cycle detection; and linked stacks, queues and applications.
+
+### Sources chosen, on merit
+
+Six sources, from five different places, with no default to one channel and no default to what the repository
+already held:
+
+1. **IAE Academy, "Linear structures: arrays, stacks, queues and linked lists"** (English, read in part) - an
+   independent notes site, and the only readable GATE-oriented source found that states the O(1) data-copy
+   deletion together with the reason it cannot delete the tail, and names the cycle-detection relation.
+2. **Wikipedia, "Linked list"** (English, read in part) - the correctness anchor for the node definition, the
+   absence of random access, the extra pointer per element and the doubly and circular variants.
+3. **GATE Overflow, Data Structures chapter** (English, read in part) - fixes the syllabus scope and supplies
+   the published per-year mark table for this subject.
+4. **GeeksforGeeks, "Linked List Data Structure"** (English, read in part) - the operation inventory, the array
+   comparison and the applications, so that no single site carries the topic.
+5. **GATE Overflow question pages** for eleven questions: 1997 Q.1(4), 2004 Q.36, 2008 Q.62, 2010 Q.36,
+   2016 Set 2 Q.15, 2017 Set 1 Q.08, 2020 Q.16, 2022 Q.5, 2023 Q.3, 2025 Set 1 Q.52 and 2026 Set 1 Q.29.
+6. **NPTEL IIT Delhi 106102064** (English) - scope only, recorded as `STRUCTURE_ONLY` because no caption track
+   was retrievable, so no card quotes it and no claim rests on it.
+
+Rejected with reasons in `sources.json`: the **Gate Smashers** Hindi DSA playlist, whose linked-list branch
+matches this topic almost line for line but whose captions were unavailable (the watch page for Lec-19 carried
+no `captionTracks` and the player API answered `LOGIN_REQUIRED`); **Neso Academy**'s roughly forty linked-list
+lectures, the best subtopic coverage of any candidate but equally unreadable and implementation-focused;
+**Unacademy's** Hindi linked-list PYQ lesson, which is behind a login; the **GO Classes** linked-list DPP set,
+rejected as a PYQ source because daily-practice problems are not paper questions; **EduRev's** mixed
+GATE/ISRO list, which numbers questions by its own sequence; **BYJU'S** and a 2025 MCQ blog.
+
+No card is translated: every source drawn on is English. The three Hindi candidates were rejected on
+accessibility, not on language.
+
+### What was created
+
+Ten cards, one per enumerated subtopic, under `content/subjects/programming-and-data-structures/linked-lists/`:
+`node-and-pointer-representation`, `traversing-and-searching-a-singly-linked-list`,
+`insertion-in-a-singly-linked-list`, `deleting-a-node-given-its-pointer`, `reversing-a-singly-linked-list`,
+`doubly-linked-list`, `circular-linked-list`, `list-operation-costs`,
+`two-pointer-techniques-and-cycle-detection` and `linked-lists-for-stacks-queues-and-applications`. Each carries
+the 5-second idea, remember items, a tiny worked example, the GATE angle, two labelled variations, one trap with
+a counterexample, a quick check and its source line. Eleven PYQ records were added under `content/pyqs/`, and
+`sources.json` records the chosen and rejected candidates.
+
+One p5.js lesson: `visuals/programming-and-data-structures/linked-lists/reversing-a-singly-linked-list/`, six
+steps that reverse 1-2-3-4 in place, with the prev, curr and next markers moving and the NULL marker migrating
+from the right end to the left. It reuses the existing harness and the frozen lesson stylesheet.
+
+### Validation
+
+`scripts/build-index.py` regenerated the index (405 cards, 337 PYQs, 39 lessons) and `scripts/validate.py`
+passed with 0 failures and 8 warnings, all pre-existing and none in this topic. `node tests/visual-lessons.js`
+passed, with the new lesson drawing all six steps at p = 0, 0.5 and 1. A new `check_linked_lists()` recomputes
+every trace, write count, index, cost sum and memory figure published here: the 2008 pairwise swap replayed as
+the C does it, the 2026 recursive count for n = 1..11, the 2025 prune loop, the sorted-insertion sum, the 2017
+join on empty and non-empty inputs, the 2010 move-to-front, one next write per node in the 2022 reversal, the
+2023 predecessor walk, the 2004 ring queue, Floyd's meeting and entry nodes on 1-2-3-4-5 with 5 pointing at 3,
+the floor(n/2)+1 middle position for n = 1..12, the 4n against 12n memory figures and the lesson's own fields.
+No frozen file was touched: no design token, no shell layout, no route, no navigation label and no shared
+component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable: the watch page carried no `captionTracks` and the player API answered
+   `LOGIN_REQUIRED`, so `videoRefs` is empty on all ten cards and the lecture source is `STRUCTURE_ONLY`.
+2. Every PYQ is `SOURCED`, not key-verified, and no marks field is recorded on any of the eleven.
+3. Four subtopics carry no verified GATE CSE PYQ of their own: the node representation, the operation-cost
+   table, two-pointer cycle detection, and linked stacks, queues and applications.
+4. Question numbering differs between mirrors for the 2022 to 2026 papers: GATE Overflow labels them ten lower
+   than the mirrors that number the paper including its GA section (2025 Set 1 Q.52 against Q.62, 2023 Q.3
+   against Q.13, 2022 Q.5 against Q.15, 2026 Set 1 Q.29 against Q.39). Each record states GATE Overflow's label
+   and names the discrepancy rather than picking one silently.
+5. The Floyd meeting-point relation is stated only as "the meeting node is not the cycle entry" plus the reset
+   rule, because the notes' derivation of the `a mod c` relation could not be read this run.
+
+### Next
+
+The cycle pointer now sits on `programming-and-data-structures/linked-lists`, so the next topic is
+`programming-and-data-structures/trees-and-binary-search-trees`, the next `not_started` topic of the subject.
+
 ## Run 9 - Arrays, Stacks and Queues (2026-11-08)
 
 ### The topic, and why it was next
