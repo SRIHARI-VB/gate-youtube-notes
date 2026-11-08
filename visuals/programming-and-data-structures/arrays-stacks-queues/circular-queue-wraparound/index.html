@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circular Queue: Wraparound, Full and Empty - Arrays, Stacks and Queues visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Circular Queue: Wraparound, Full and Empty</h1>
+  <div class="objective"><strong>Objective.</strong> Watch five array slots serve as a queue of capacity four, see the rear index wrap past the end of the array, and see why the empty and full tests cannot both be front == rear. This is the setup of GATE CSE 2012 Q.35, whose answer is full: (REAR + 1) mod n == FRONT and empty: REAR == FRONT.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>A circular queue keeps the same array as a linear queue but lets both indices wrap: enqueue writes at <code>rear</code> and then sets <code>rear = (rear + 1) mod n</code>, dequeue reads at <code>front</code> and then sets <code>front = (front + 1) mod n</code>. Neither operation moves an element, so both are O(1), and slots freed at the front become reachable again instead of being lost.</p>
+  <p>The cost of using only two indices is that the empty state and the full state have to be told apart. In the convention used here, both indices start at 0 and <code>rear</code> is the index of the next free slot, so an empty queue has <code>front == rear</code>. If all n slots were usable, a queue holding n elements would also have <code>front == rear</code>, and the two states would be indistinguishable. The standard fix is to leave one slot permanently empty: the queue is full when <code>(rear + 1) mod n == front</code>, which fires one step before the indices meet, and the capacity becomes n - 1.</p>
+  <p>The number of stored elements follows from the same two indices: <code>(rear - front + n) mod n</code>. In the final frame of the animation, n = 5, front = 2 and rear = 1, giving <code>(1 - 2 + 5) mod 5 = 4</code>, and the live slots read 2, 3, 0, 1 - that is 30, 40, 50, 60 in queue order.</p>
+  <p>The other convention keeps an explicit <code>count</code>: empty when count == 0, full when count == n, and all n slots usable. A separate "full" flag does the same job. Any of these is correct; what is never correct is mixing the tests of one convention with the capacity of another, which is exactly what the distractors in the 2012 question do.</p>
+
+  <div class="card ok"><div class="label">Worked example</div>
+  <p>An array of 5 slots, capacity 4. Enqueue 10, 20, 30, 40: rear walks 0 to 4 while front stays 0, and <code>(4 + 1) mod 5 = 0 = front</code>, so the queue is full with four elements. Dequeue twice: front becomes 2, and slots 0 and 1 are free. Enqueue 50: it is written at rear = 4 and rear wraps to 0. Enqueue 60: written at 0, rear becomes 1, and <code>(1 + 1) mod 5 = 2 = front</code>, so the queue is full again - now across the wrap, holding 30, 40, 50, 60.</p></div>
+
+  <div class="card ok"><div class="label">Question variation</div>
+  <p>A circular queue is implemented in an array of size n with a separate <code>count</code> variable instead of a sacrificed slot. Initially front = rear = count = 0. After enqueue a, enqueue b, dequeue, enqueue c, what are front, rear and count, and is the queue full?</p>
+  <details><summary>Answer</summary><p>front = 1, rear = 3, count = 2, not full. The two enqueues write at 0 and 1 with rear = 2; the dequeue moves front to 1 and count to 1; the last enqueue writes at 2 and sets rear = 3 with count = 2. Under this convention the queue is full only when count == n, so all n slots are usable - the difference from the sacrificed-slot version is the capacity, not the wraparound.</p></details></div>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That a circular queue of an array of size n stores n elements. In the two-index convention it stores n - 1, because one slot must stay empty to separate full from empty. A second misconception is that the full test is a test on the sum of the indices, or that front == rear can be checked as "full" - either swap makes the queue report the wrong state at exactly the moment it matters.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>In an array of size 8 under the sacrificed-slot convention, front = 6 and rear = 2. How many elements are stored, and which indices hold them?</p>
+  <details><summary>Answer</summary><p><strong>4 elements</strong>, at indices 6, 7, 0 and 1. The count is <code>(rear - front + n) mod n = (2 - 6 + 8) mod 8 = 4</code>. Reading forward from front wraps past the end of the array, which is the same wraparound the animation shows at n = 5.</p></details></div>
+
+  <p class="small">Topic: Arrays, Stacks and Queues (Programming and Data Structures), subtopic circular queue full and empty conditions. The convention, the element-count formula and the two-slot-sacrifice argument: IAE Academy, "Linear structures: GATE CS, DA Notes &amp; Solved PYQs" (English, read in part). The paper question and its answer: GATE Overflow question page for GATE CSE 2012 Q.35 (English, read in part). Every index, count and full/empty test shown here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the worked example, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

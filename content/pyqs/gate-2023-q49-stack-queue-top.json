@@ -1,0 +1,15 @@
+{
+  "id": "gate-2023-q49-stack-queue-top",
+  "year": "2023",
+  "paper": "GATE CS 2023",
+  "question_ref": "Q.49",
+  "type": "NAT",
+  "topic": "stack-adt-and-lifo",
+  "text": "Consider a sequence a of elements a0 = 1, a1 = 5, a2 = 7, a3 = 8, a4 = 9 and a5 = 2. The following operations are performed on a stack S and a queue Q, both initially empty: push the elements of a from a0 to a5 in that order into S; enqueue the elements from a0 to a5 in that order into Q; pop an element from S; dequeue an element from Q; pop an element from S; dequeue an element from Q; dequeue an element from Q and push it into S, repeated three times; pop an element from S; pop an element from S. The top element of S after executing the above operations is ______.",
+  "answer": "8",
+  "solution": "S holds 2, 9, 8, 7, 5, 1 (top first) and Q holds 1, 5, 7, 8, 9, 2. The two pops remove 2 and then 9, leaving 8, 7, 5, 1. The two dequeues remove 1 and then 5, so Q is 7, 8, 9, 2. Operation VII is performed once, dequeuing 7 and pushing it, and then repeated three more times, dequeuing and pushing 8, 9 and 2: S becomes 1, 5, 7, 8, 7, 8, 9, 2 with 2 on top. The last two pops remove 2 and then 9, leaving 8 on top. Recomputed by replaying the whole sequence in scripts/validate.py.",
+  "source_url": "https://gateoverflow.in/399262/gate-cse-2023-question-49",
+  "source_label": "GATE Overflow question page - GATE CSE 2023 Q.49 with community solutions (answer recorded as 8)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted trace ends with 8 as the top element; scripts/validate.py replays the whole operation sequence and checks the final stack and its top."
+}

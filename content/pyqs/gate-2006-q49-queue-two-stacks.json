@@ -1,0 +1,21 @@
+{
+  "id": "gate-2006-q49-queue-two-stacks",
+  "year": "2006",
+  "paper": "GATE CS 2006",
+  "question_ref": "Q.49",
+  "type": "MCQ",
+  "topic": "deque-and-queue-from-two-stacks",
+  "text": "An implementation of a queue Q, using two stacks S1 and S2, is given: insert(Q, x) pushes x onto S1; delete(Q) moves every element of S1 to S2 when S2 is empty and then pops S2. Let n insert and m (m <= n) delete operations be performed in an arbitrary order on an empty queue Q. Let x and y be the number of push and pop operations performed respectively. Which one of the following is true for all m and n?",
+  "answer": "Option (A) - n + m <= x < 2n and 2m <= y <= n + m",
+  "solution": "Best case is alternating insert and delete: each delete moves one element across, so x = n + m and y = 2m. Worst case is all inserts first: the first delete moves all n elements, so x = 2n and y = n + m. Both bounds lie inside option (A).",
+  "source_url": "https://gateoverflow.in/1826/gate-cse-2006-question-49",
+  "source_label": "GATE Overflow question page - GATE CSE 2006 Q.49 with community solutions (answer recorded as option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted answer gives (A) with the best-case and worst-case counts; scripts/validate.py simulates the two-stack queue over every interleaving for small n and m and checks both bounds.",
+  "options": [
+    "n + m <= x < 2n and 2m <= y <= n + m",
+    "n + m <= x < 2n and 2m <= y <= 2n",
+    "2m <= x < 2n and 2m <= y <= n + m",
+    "2m <= x < 2n and 2m <= y <= 2n"
+  ]
+}

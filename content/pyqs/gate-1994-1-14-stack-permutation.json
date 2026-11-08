@@ -1,0 +1,21 @@
+{
+  "id": "gate-1994-1-14-stack-permutation",
+  "year": "1994",
+  "paper": "GATE CS 1994",
+  "question_ref": "Q.1.14",
+  "type": "MCQ",
+  "topic": "stack-permutations-and-catalan",
+  "text": "Which of the following permutations can be obtained in the output (in the same order) using a stack assuming that the input is the sequence 1, 2, 3, 4, 5 in that order?",
+  "answer": "Option (B) - 3, 4, 5, 2, 1",
+  "solution": "Push 1, push 2, push 3, pop 3, push 4, pop 4, push 5, pop 5, then pop 2 and pop 1. The other options fail because 2 sits above 1 (option A), because 4 sits above 2, 3 (option C), or because 1 is popped before 2 is reachable (option D). Recomputed by enumerating all push-pop schedules for n = 5: 42 of the 120 orders are obtainable and option (B) is one of them.",
+  "source_url": "https://gateoverflow.in/2457/gate-cse-1994-question-1-14",
+  "source_label": "GATE Overflow question page - GATE CSE 1994 Q.1.14 with community solutions (answer recorded as option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page records 'option is B' with the push-pop trace; scripts/validate.py independently enumerates the obtainable orders and checks that B is obtainable and A, C, D are not.",
+  "options": [
+    "3, 4, 5, 1, 2",
+    "3, 4, 5, 2, 1",
+    "1, 5, 2, 3, 4",
+    "5, 4, 3, 1, 2"
+  ]
+}

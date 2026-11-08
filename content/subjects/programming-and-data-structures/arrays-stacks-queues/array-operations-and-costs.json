@@ -1,0 +1,71 @@
+{
+  "id": "array-operations-and-costs",
+  "title": "Array Operations and What They Cost",
+  "priority": "P2",
+  "order": 586,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Reading or writing one cell is O(1); inserting or deleting in the middle is O(n), because every later element has to move one slot.",
+  "remember": [
+    "Access by index: O(1), because the address formula is arithmetic.",
+    "Search: O(n) in an unsorted array; O(log n) by binary search in a sorted array.",
+    "Insert at index k of an array holding n elements: n - k elements shift right, so the worst case (k = 0) is n moves and the average over the n + 1 insertion positions is n/2.",
+    "Delete at index k of an array holding n elements: n - 1 - k elements shift left; deleting the last element moves nothing.",
+    "A dynamic array that doubles its capacity when full copies 1 + 2 + 4 + ... + n/2 = n - 1 elements over n appends, so append is O(1) amortised but O(n) in the worst single call.",
+    "The size of a plain C array is fixed at declaration; growing it means allocating a new block and copying."
+  ],
+  "example": {
+    "prompt": "An array holds 10 elements. How many element moves does one insertion take at the front, at the back, and on average?",
+    "work": "Inserting at index 0 shifts all 10 elements: 10 moves. Inserting at index 10 (after the last element) shifts nothing: 0 moves. The 11 possible positions need 10, 9, 8, ..., 1, 0 moves, whose sum is 55, and 55 / 11 = 5 = n/2.",
+    "answer": "10 moves at the front, 0 at the back, 5 on average."
+  },
+  "gateAngle": "GATE asks this cost model inside trace questions rather than as a definition: a loop that inserts at the front of an array n times costs Theta(n^2), while the same loop appending at the end costs Theta(n). Reading a cost off the code is faster than recalling a table.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A dynamic array starts with capacity 1 and doubles whenever it is full. Starting empty, how many element copies do 8 appends cause in total, and what is the final capacity?",
+      "answer": "7 copies, final capacity 8.",
+      "why": "Copies happen only when the array is full: 1 copy at the 2nd append, 2 at the 3rd, 4 at the 5th, and none afterwards, so 1 + 2 + 4 = 7 = n - 1 for n = 8. This is the amortised-O(1) argument in one line."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "An array of n elements is sorted. Is deleting its smallest element O(1) because the element's address is known?",
+      "answer": "No, it is O(n).",
+      "why": "Knowing where the element sits does not remove the shifting: deleting index 0 moves the other n - 1 elements left to keep the block contiguous. Random access is O(1); deletion is not."
+    }
+  ],
+  "trap": {
+    "what": "Believing that O(1) random access makes every array operation O(1).",
+    "why": "The address formula only locates a cell. Keeping the array contiguous after an insert or delete is the expensive part, and that cost is paid in moves, not in lookups.",
+    "counterexample": "Deleting the first of 1,000,000 elements takes 999,999 moves even though its address is computed instantly. Only deleting the last element is O(1)."
+  },
+  "check": {
+    "question": "An array holds n = 10 elements. How many element moves does deleting the element at index 0 take?",
+    "answer": "9.",
+    "explanation": "The 9 elements after it each shift one slot left, so the count is n - 1 - k with k = 0, which is 9. Deleting the last element (k = 9) would take 0 moves."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "array-address-calculation"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: properties and costs of arrays",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "text",
+      "title": "CLRS, Introduction to Algorithms, ch. 17 (amortized analysis) for the doubling argument",
+      "language": "en",
+      "transcript": "N/A",
+      "translated": false
+    }
+  ],
+  "sourceLine": "Costs of array operations, the packing formula and the exam tip on reading an address question: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The move counts and the doubling arithmetic are recomputed in scripts/validate.py.",
+  "links": {}
+}

@@ -1,0 +1,75 @@
+{
+  "id": "deque-and-queue-from-two-stacks",
+  "title": "Deques, and Building One Structure from Another",
+  "priority": "P2",
+  "order": 594,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "A deque allows insertion and deletion at both ends. A queue can be built from two stacks with O(1) amortised operations, and the amortisation is what GATE tests.",
+  "remember": [
+    "Deque variants: input-restricted allows insertion at one end only and deletion at both; output-restricted allows deletion at one end only and insertion at both. A deque can act as a stack (use one end) or as a queue (insert one end, delete the other).",
+    "Queue from two stacks, amortised-O(1) method: enqueue always pushes onto stack in; dequeue pops from stack out, first moving every element of in to out when out is empty. Each element moves at most once, so the total work over n operations is O(n).",
+    "Worst-case single dequeue in that method is O(k) for a queue holding k elements - the amortised bound does not make any one call constant.",
+    "Stack from two queues: push enqueues into q1, pop moves all but the last element of q1 into q2, returns the last, then swaps the queues. Push is O(1) and pop is O(n).",
+    "Priority queue is a different structure: it returns the smallest or largest key, not the oldest element, and it is covered with binary heaps rather than with queues."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2006 Q.49. A queue is built from stacks S1 and S2: insert pushes onto S1; delete moves all of S1 to S2 when S2 is empty, then pops S2. With n inserts and m <= n deletes in any order, bound the number of push operations x and pop operations y.",
+    "work": "Best case, alternating: each delete moves one element across, so pushes are n (inserts) plus m (the moves) = n + m, and pops are 2m (one move out of S1 and one out of S2 per delete). Worst case, all inserts first: the first delete moves all n elements, so pushes are n + n = 2n and pops are n moves plus m returns = n + m. The paper writes the push bound as n + m <= x < 2n; the all-inserts-first order reaches x = 2n exactly, so the bound is read as x <= 2n, and no other option fits either way.",
+    "answer": "Option (A) of the paper: n + m <= x < 2n and 2m <= y <= n + m (with x = 2n attained in the all-inserts-first order)."
+  },
+  "gateAngle": "Amortised cost questions are answered by counting the total work over the whole sequence rather than the worst single call. State the total first, then read the bound off it - that ordering avoids the usual mistake of quoting O(1) for a dequeue that just moved k elements. Note the one loose end in this question: the paper's strict upper bound x < 2n is reached exactly when every insert precedes every delete, so treat it as x <= 2n and check the options against that.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Using the two-stack queue, insert 1, 2, 3 then delete once, then insert 4, then delete twice. List the deleted values and give the total number of stack pushes and pops.",
+      "answer": "Deletions 1, 2, 3; total pushes 7 and total pops 6.",
+      "why": "Inserts 1, 2, 3 push onto S1 (3 pushes). The first delete moves 3 elements to S2 (3 pops, 3 pushes) and pops 1 (1 pop). Insert 4 is one push. The next two deletes pop 2 then 3, one pop each. Pushes 3 + 3 + 1 = 7; pops 3 + 1 + 1 + 1 = 6 - the same counting that produces the 2006 bounds."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "An input-restricted deque allows insertion at one end only. Can it still simulate a stack?",
+      "answer": "Yes.",
+      "why": "A stack needs insertion and deletion at the same end, and an input-restricted deque permits deletion at both ends, so choose that end for both operations. Restricting the input end does not restrict the output end."
+    }
+  ],
+  "trap": {
+    "what": "Reporting O(1) as the worst-case cost of a dequeue in the two-stack queue.",
+    "why": "The amortised bound is a total-over-the-sequence statement. A single dequeue that finds the out stack empty must move every queued element, which is O(k) for that call.",
+    "counterexample": "Insert 1,000 elements and then delete one. That single dequeue performs 1,000 pops and 1,000 pushes before returning the first element - clearly not O(1), though 1,000 alternating operations are O(1) each on average."
+  },
+  "check": {
+    "question": "In the two-stack queue holding k elements, what is the worst-case cost of one dequeue, and what is the amortised cost?",
+    "answer": "O(k) worst case; O(1) amortised.",
+    "explanation": "When the out stack is empty the whole in stack must be reversed, which is k moves. Each element is moved at most once over its lifetime, so the total for n operations is O(n) and the amortised cost per operation is constant."
+  },
+  "pyqIds": [
+    "gate-2006-q49-queue-two-stacks"
+  ],
+  "prereqs": [
+    "queue-adt-and-linear-queue-limitation",
+    "stack-adt-and-lifo"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: deques, queue using two stacks",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow, GATE CSE 2006 Question 49 (queue implemented with two stacks)",
+      "url": "https://gateoverflow.in/1826/gate-cse-2006-question-49",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "question, options and best/worst-case argument read"
+    }
+  ],
+  "sourceLine": "Deque variants, queue-from-two-stacks and stack-from-two-queues with their costs: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 2006 bounds and their best/worst cases: GATE Overflow question page for GATE CSE 2006 Q.49 (English, read in part). The counts are recomputed in scripts/validate.py.",
+  "links": {}
+}

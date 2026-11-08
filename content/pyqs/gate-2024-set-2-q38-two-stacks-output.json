@@ -1,0 +1,21 @@
+{
+  "id": "gate-2024-set-2-q38-two-stacks-output",
+  "year": "2024",
+  "paper": "GATE CS 2024 Set 2",
+  "question_ref": "Q.38",
+  "type": "MSQ",
+  "topic": "stack-permutations-and-catalan",
+  "text": "Let S1 and S2 be two stacks. S1 has capacity 4 and already holds 100, 200, 300, 400 with 400 on top; S2 has capacity 2 and is empty. The only available operations are PushToS2 (pop the top of S1 and push it on S2), PushToS1 (pop the top of S2 and push it on S1) and GenerateOutput (pop the top of S1 and output it). Pop is not allowed on an empty stack and push is not allowed on a full stack. Which of the following output sequences can be generated?",
+  "answer": "Options (B), (C) and (D)",
+  "solution": "Option (A) needs 100 to be printed first, which requires moving 400, 300 and 200 off S1 at once, and S2 holds only two elements. (B): move 400 and 300 to S2, print 200, bring 300 back and print it, then bring 400 back and print 400, 100. (C): print 400, park 300 in S2, print 200 and 100, bring 300 back and print it. (D): park 400 in S2, print 300 and 200, bring 400 back and print 400, 100.",
+  "source_url": "https://gateoverflow.in/422859/gate-cse-2024-set-2-question-38",
+  "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.38 with community solutions (answers recorded as B, C, D)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted answer demonstrates sequences B, C and D and rules out A on the capacity of S2; scripts/validate.py searches the reachable output sequences under the two capacities and reproduces the answer set.",
+  "options": [
+    "100, 200, 400, 300",
+    "200, 300, 400, 100",
+    "400, 200, 100, 300",
+    "300, 200, 400, 100"
+  ]
+}

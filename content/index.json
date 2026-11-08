@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 7,
-    "topics": 385,
-    "pyqs": 314,
+    "topics": 395,
+    "pyqs": 326,
     "videos": 39,
     "playlists": 3
   },
@@ -5761,6 +5761,157 @@
       ],
       "visual": null,
       "variations": 4
+    },
+    {
+      "topic": "array-address-calculation",
+      "title": "Array Addressing in One and Two Dimensions",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/array-address-calculation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1998-2-14-2d-array-address",
+        "gate-2002-2-8-char-array-address"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "array-operations-and-costs",
+      "title": "Array Operations and What They Cost",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/array-operations-and-costs.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "stack-adt-and-lifo",
+      "title": "The Stack ADT: Last In, First Out",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/stack-adt-and-lifo.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2021-set-1-q21-stack-queue-trace",
+        "gate-2023-q49-stack-queue-top"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "two-stacks-in-one-array",
+      "title": "Two Stacks Sharing One Array",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/two-stacks-in-one-array.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-two-stacks-one-array"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "stack-permutations-and-catalan",
+      "title": "Stack Permutations and the Catalan Count",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/stack-permutations-and-catalan.json",
+      "videos": [],
+      "pyqs": [
+        "gate-1994-1-14-stack-permutation",
+        "gate-2024-set-2-q38-two-stacks-output"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "infix-postfix-prefix-conversion",
+      "title": "Infix, Postfix and Prefix Conversion",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/infix-postfix-prefix-conversion.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-postfix-of-exponent-expression"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "postfix-evaluation-and-parentheses",
+      "title": "Evaluating Postfix and Matching Brackets",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/postfix-evaluation-and-parentheses.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2015-set-3-q12-postfix-evaluation"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "queue-adt-and-linear-queue-limitation",
+      "title": "The Queue ADT and the Linear-Queue Problem",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/queue-adt-and-linear-queue-limitation.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set-1-q10-queue-array-complexity"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "circular-queue-full-empty-conditions",
+      "title": "Circular Queue: Full and Empty Conditions",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/circular-queue-full-empty-conditions.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2012-q35-circular-queue-full-empty"
+      ],
+      "visual": "programming-and-data-structures/arrays-stacks-queues/circular-queue-wraparound",
+      "variations": 2
+    },
+    {
+      "topic": "deque-and-queue-from-two-stacks",
+      "title": "Deques, and Building One Structure from Another",
+      "subject": "programming-and-data-structures",
+      "group": "arrays-stacks-queues",
+      "unit": "Arrays, Stacks and Queues",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/arrays-stacks-queues/deque-and-queue-from-two-stacks.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2006-q49-queue-two-stacks"
+      ],
+      "visual": null,
+      "variations": 2
     }
   ]
 }

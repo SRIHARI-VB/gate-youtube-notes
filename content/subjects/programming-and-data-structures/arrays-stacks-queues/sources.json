@@ -1,0 +1,128 @@
+{
+  "subject": "programming-and-data-structures",
+  "topic": "arrays-stacks-queues",
+  "chosen": [
+    {
+      "id": "iaeacademy-linear-structures-notes",
+      "kind": "web-notes",
+      "channel": "IAE Academy (independent GATE CS/DA study-notes site)",
+      "title": "Linear structures: GATE CS, DA Notes & Solved PYQs",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "array address calculation",
+        "array operation costs",
+        "stack operations and array implementation",
+        "infix-to-postfix conversion",
+        "postfix evaluation",
+        "stack permutations and the Catalan count",
+        "two stacks in one array",
+        "circular queue full/empty conventions",
+        "deque",
+        "queue from two stacks"
+      ],
+      "why": "The only readable source found that covers every subtopic of the topic at GATE level, with the address formulas, the two circular-queue conventions and the 3-1-2 stack-permutation rule stated precisely enough to check against the papers. Read in part: the sections up to stacks and queues were read, the linked-list section after them was not used."
+    },
+    {
+      "id": "knowledgegate-infix-to-postfix-gate-2004",
+      "kind": "video-summary",
+      "channel": "Knowledge Gate AI (timestamped lecture summary of Sanchit Jain's lecture)",
+      "title": "Infix To Postfix Conversion of the GATE 2004 expression",
+      "url": "https://www.knowledgegate.ai/learn/DATA-STRUCTURES/data-structures/stack/infix-postfix-prefix/asset-infix-to-postfix-conversion-of-expression",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "infix-to-postfix conversion",
+        "right-associative exponentiation"
+      ],
+      "why": "A readable, timestamped walk-through of the GATE 2004 conversion question that agrees, step for step, with the conversion recomputed in scripts/validate.py. Chosen over the longer playlists because it is the one conversion source whose content could actually be read and checked in this run."
+    },
+    {
+      "id": "nptel-iitd-106102064-lectures-2-3",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IIT Delhi (Prof. Naveen Garg)",
+      "title": "Data Structures and Algorithms, Lecture 2 - Stacks; Lecture 3 - Queues and Linked Lists",
+      "url": "https://nptel.ac.in/courses/106102064",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "covers": [
+        "stack ADT",
+        "queue ADT",
+        "linked implementation of both"
+      ],
+      "why": "The published lecture list and syllabus fix the scope of the topic for a beginner at first-principles level. Recorded as structure-only: no captions or transcript were retrievable, so no card quotes it and no claim rests on it."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "channel": "GATE Overflow",
+      "title": "Question pages for GATE CSE 1994 Q.1.14, 1998 Q.2.14, 2002 Q.2.8, 2006 Q.49, 2012 Q.35, 2015 Set 3 Q.12, 2016 Set 1 Q.10, 2021 Set 1 Q.21, 2023 Q.49 and 2024 Set 2 Q.38",
+      "url": "https://gateoverflow.in/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "verified PYQ statements",
+        "paper answers",
+        "community traces"
+      ],
+      "why": "The only repository where each question carries its year and question number, its options and a community answer that can be checked by recomputation. Every PYQ record here is SOURCED from it or, for GATE 2004, from the GeeksforGeeks GATE 2004 listing."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "gate-smashers-dsa-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers",
+      "language": "hi",
+      "why": "A 66-lecture Hindi DSA playlist whose stack and queue branches explicitly work GATE questions (its queue branch names a GATE 2006 and a GATE 2022 question). Rejected for this run only because its captions were not retrievable: the watch pages answered LOGIN_REQUIRED, so no card could be written from it without guessing. It remains the strongest candidate for a later pass that has transcript access."
+    },
+    {
+      "id": "neso-academy-data-structures",
+      "kind": "playlist",
+      "channel": "Neso Academy",
+      "language": "en",
+      "why": "Thorough English coverage of array, stack and queue implementations, but it teaches implementations rather than GATE question patterns, and its captions were equally unreadable in this run. The readable notes source covers the same ground with the exam formulas attached."
+    },
+    {
+      "id": "vishvadeep-gothi-infinity-batch-ds",
+      "kind": "playlist",
+      "channel": "Vishvadeep Gothi (Unacademy, Infinity Batch for GATE)",
+      "language": "en",
+      "why": "42 lectures, about 41 hours, with separate array, queue and stack lectures and two stack-application lectures. Rejected because a 41-hour sequence that cannot be read is not better than a readable set of notes, and its array and queue lectures duplicate subtopics already covered by a source whose claims could be checked."
+    },
+    {
+      "id": "naveen-garg-iitd-video-page",
+      "kind": "video-series",
+      "channel": "NPTEL / digimat mirror of IIT Delhi 106102064",
+      "language": "en",
+      "why": "The digimat topic-list PDF and the elearn mirror were readable, but the lecture pages carry only a player and a speech-recognition widget with no transcript text. Kept as the scope reference, not as a source of any claim."
+    },
+    {
+      "id": "monalisacs-ds-chapter-pdfs",
+      "kind": "pdf-notes",
+      "channel": "MonalisaCS (Monalisa Pradhan)",
+      "language": "en",
+      "why": "Chapter-wise lecture and PYQ PDFs for exactly this syllabus line, but the links are download endpoints that were not fetched in this run, so nothing could be read or checked. A candidate for a later pass with PDF access."
+    },
+    {
+      "id": "go-classes-arrays-stacks-queues",
+      "kind": "playlist",
+      "channel": "GO Classes for GATE CS",
+      "language": "en",
+      "why": "The channel already used for this repository's discrete-mathematics topics was searched for an arrays/stacks/queues playlist and none was located in this run; the repository's GO Classes folder holds discrete-mathematics playlists only. Not chosen, and no default to it was made."
+    }
+  ],
+  "standard_refs": [
+    "CLRS, Introduction to Algorithms, ch. 10.1 (stacks and queues) and ch. 17 (amortized analysis)",
+    "Rosen, Discrete Mathematics and Its Applications, ch. 2.6 (matrices and row-major layout)",
+    "The official GATE CSE syllabus line: Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs."
+  ],
+  "translated_material": "none - every source drawn on in this run is in English",
+  "retrieved_at": "2026-11-08",
+  "note": "Video captions were unavailable throughout this run: the YouTube watch pages answered LOGIN_REQUIRED and yt-dlp was refused with a bot check. Every card therefore rests on readable text, and the two lecture sources are recorded as STRUCTURE_ONLY."
+}

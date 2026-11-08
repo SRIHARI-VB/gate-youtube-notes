@@ -1,1 +1,72 @@
-__PLACEHOLDER__
+{
+  "id": "array-address-calculation",
+  "title": "Array Addressing in One and Two Dimensions",
+  "priority": "P1",
+  "order": 585,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "An array is a contiguous block of equal-size cells, so the address of any element follows from its index by a formula. No traversal is needed, which is why access is O(1).",
+  "remember": [
+    "One dimension: Addr(A[i]) = Base + (i - L) * w, where L is the lower bound of the index and w the size of one element in bytes.",
+    "Two dimensions, row-major: Addr(A[i][j]) = Base + ((i - L1) * nc + (j - L2)) * w, where nc = U2 - L2 + 1 is the number of columns.",
+    "Two dimensions, column-major: Addr(A[i][j]) = Base + ((j - L2) * nr + (i - L1)) * w, where nr = U1 - L1 + 1 is the number of rows.",
+    "C stores two-dimensional arrays in row-major order, so a question that does not name an order means row-major.",
+    "For a packed lower-triangular n x n matrix stored row by row, the offset of entry (i, j) with i >= j is i(i+1)/2 + j, and the packed array holds n(n+1)/2 entries.",
+    "Three facts must be read off the question before substituting: the lower bound, the storage order and the element size."
+  ],
+  "example": {
+    "prompt": "GATE CSE 1998 Q.2.14. A: array [1..10][1..15] of integer, each integer one memory location, row-major, first element at 100. Find the address of A[i][j].",
+    "work": "L1 = 1, L2 = 1, nr = 10, nc = 15, w = 1. Row-major offset = ((i - 1) * 15 + (j - 1)) * 1. Add the base: 100 + 15i - 15 + j - 1 = 15i + j + 84. Check the two corners: A[1][1] gives 15 + 1 + 84 = 100, the base, and A[10][15] gives 150 + 15 + 84 = 249, which is 100 + (9 * 15 + 14) = 249.",
+    "answer": "15i + j + 84, option (A) of the paper."
+  },
+  "gateAngle": "Address questions are pure substitution once the three readings are fixed. The paper usually offers the column-major answer as a distractor, so note which order is named, and watch a 1-based lower bound: the term is (i - L), not i.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "GATE CSE 2002 Q.2.8 pattern. char a[100][100] is stored from address 0 in a byte-addressable machine. What is the address of a[40][50]?",
+      "answer": "4050.",
+      "why": "Same substitution as the 1998 question with L1 = L2 = 0, nc = 100, w = 1: (40 * 100 + 50) * 1 = 4050. The change is a 0-based lower bound and a one-byte element, and it removes both terms that subtract 1."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Take the 1998 array again but store it column-major. What is the address of A[i][j] then?",
+      "answer": "10j + i + 89.",
+      "why": "Column-major counts whole columns: ((j - 1) * 10 + (i - 1)) + 100 = 10j + i + 89, which is option (D) of the same paper. Swapping the roles of i and j and the two dimensions is the whole difference."
+    }
+  ],
+  "trap": {
+    "what": "Substituting i and j directly when the declared lower bound is 1 instead of 0.",
+    "why": "The offset counts how many elements precede the wanted one, and that count starts at the lower bound, so every index must be reduced by L. Skipping the reduction shifts every answer by one row and one column.",
+    "counterexample": "For A[1..10][1..15] with base 100, the first element A[1][1] must sit at 100. The reduced formula gives 15 + 1 + 84 = 100; the unreduced 15i + j + 99 gives 115, which is not the base address, so it is visibly wrong at the very first cell."
+  },
+  "check": {
+    "question": "An int array A[0..9][0..19] starts at 1000 and an int takes 4 bytes, row-major. What is the address of A[3][5]?",
+    "answer": "1260.",
+    "explanation": "The offset is 3 * 20 + 5 = 65 elements, so the address is 1000 + 65 * 4 = 1000 + 260 = 1260. The element size multiplies the whole offset, not just the column index."
+  },
+  "pyqIds": [
+    "gate-1998-2-14-2d-array-address",
+    "gate-2002-2-8-char-array-address"
+  ],
+  "prereqs": [],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays as structures (address formulas, triangular packing, exam tip)",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read up to the stacks section"
+    },
+    {
+      "kind": "text",
+      "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2.6 (matrices) for the row-major layout convention",
+      "language": "en",
+      "transcript": "N/A",
+      "translated": false
+    }
+  ],
+  "sourceLine": "The address formulas, the row-major default of C and the packed triangular offset: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). Both worked answers are recomputed in scripts/validate.py.",
+  "links": {}
+}

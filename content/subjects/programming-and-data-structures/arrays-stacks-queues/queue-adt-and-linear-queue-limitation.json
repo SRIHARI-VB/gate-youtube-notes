@@ -1,0 +1,72 @@
+{
+  "id": "queue-adt-and-linear-queue-limitation",
+  "title": "The Queue ADT and the Linear-Queue Problem",
+  "priority": "P1",
+  "order": 592,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "A queue inserts at the rear and removes at the front, so the oldest item leaves first. On a plain array the freed slots at the front are never reused, and shifting to recover them costs O(n) per dequeue.",
+  "remember": [
+    "Operations: enqueue at the rear, dequeue at the front, front/rear reads, isEmpty, isFull. All are O(1) on a circular array or a linked list.",
+    "Linear array implementation: front and rear only move forward. After k dequeues the first k slots are dead, and rear eventually reaches the end while the queue is short.",
+    "If a dequeue shifts the remaining elements left to keep them at index 0, dequeue costs Theta(n) and enqueue stays O(1). That is the naive implementation the 2016 question rules out.",
+    "The fix is to treat the array as circular, wrapping both indices modulo the array size, so every slot is reusable and both operations stay O(1).",
+    "A queue on a linked list keeps head and tail pointers, so enqueue at the tail and dequeue at the head are both O(1) with no capacity limit."
+  ],
+  "example": {
+    "prompt": "An array of size 5 holds a linear queue. Enqueue a, b, c; dequeue twice; then enqueue d and e. What happens?",
+    "work": "After the three enqueues rear = 3 and front = 0. Two dequeues move front to 2 and free slots 0 and 1. Enqueue d writes at 3 and sets rear = 4; enqueue e would write at 4 and set rear = 5, which is past the end, so the queue reports full although only three elements are stored and slots 0 and 1 are empty.",
+    "answer": "The fifth enqueue reports full with two slots free - the linear-queue defect."
+  },
+  "gateAngle": "The 2016 Set 1 question is the cost version of this card: it asks which implementation makes both operations O(1), and the answer is the circular array. Reading a queue implementation means asking where front and rear point and whether either wraps.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A queue is implemented on an array of size 5 by shifting all remaining elements one slot left on every dequeue. Give the worst-case cost of enqueue and of dequeue, and the cost of n alternating operations.",
+      "answer": "Enqueue O(1), dequeue O(n); n alternating operations cost Theta(n^2).",
+      "why": "This is exactly the implementation the 2016 question rejects. Each dequeue moves up to n - 1 elements, so a sequence of n operations is quadratic - the reason the circular array exists."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "After enqueue a, b, c and one dequeue on a linear queue held in an array, where are front and rear, and how many elements are stored?",
+      "answer": "front = 1, rear = 3, two elements (b and c).",
+      "why": "front advances past the removed a and rear is the next free slot, so the live elements are at indices 1 and 2. The element count is rear - front = 2 in this convention, and slot 0 is already dead space."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that a queue built on an array gives O(1) dequeue because it gives O(1) enqueue.",
+    "why": "Without wraparound, keeping the queue contiguous forces a shift on every dequeue. The asymmetry comes from the layout, not from the abstract data type: both operations are O(1) on a circular array or a linked list.",
+    "counterexample": "Dequeue the first of 1,000,000 queued items in a shifting implementation: 999,999 elements move. In a circular array the same dequeue moves front by one and copies nothing."
+  },
+  "check": {
+    "question": "In a linear array queue with front = 1 and rear = 3 (rear is the next free slot), how many elements are stored?",
+    "answer": "2.",
+    "explanation": "The live slots are 1 and 2, so the count is rear - front = 3 - 1 = 2. Slot 0 is dead space left by the earlier dequeue."
+  },
+  "pyqIds": [
+    "gate-2016-set-1-q10-queue-array-complexity"
+  ],
+  "prereqs": [],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: queues - linear queue limitation",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "lecture",
+      "title": "NPTEL IIT Delhi, Data Structures and Algorithms, Lecture 3 - Queues and Linked Lists",
+      "url": "https://nptel.ac.in/courses/106102064",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "note": "lecture title and published topic list only; no captions or transcript were retrievable, so no card quotes it"
+    }
+  ],
+  "sourceLine": "FIFO operations and why the naive array queue wastes space: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The lecture scope is fixed by NPTEL IIT Delhi 106102064, Prof. Naveen Garg, Lectures 2 (Stacks) and 3 (Queues and Linked Lists) (English, structure only). The slot arithmetic and the cost argument are recomputed in scripts/validate.py.",
+  "links": {}
+}

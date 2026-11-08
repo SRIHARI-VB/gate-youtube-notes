@@ -1,0 +1,66 @@
+{
+  "id": "stack-permutations-and-catalan",
+  "title": "Stack Permutations and the Catalan Count",
+  "priority": "P2",
+  "order": 589,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Push 1, 2, ..., n in that order and pop whenever you like. The output orders you can produce are exactly the permutations with no 3-1-2 pattern, and there are Catalan-many of them.",
+  "remember": [
+    "A permutation is obtainable from a stack fed 1, 2, ..., n in order if and only if it avoids the pattern 3-1-2: there are no positions a < b < c with p[b] < p[c] < p[a].",
+    "The number of obtainable orders is the Catalan number C_n = binom(2n, n) / (n + 1): 1, 2, 5, 14, 42, 132 for n = 1..6.",
+    "A quick hand test: read the output left to right. Whenever a value smaller than the previous one appears, every value between the two must already have appeared.",
+    "Capacity matters only when the question fixes the stack size; with an unbounded stack the answer is the Catalan count.",
+    "An output order is produced by a sequence of pushes and pops, so the count of orders equals the count of balanced bracketings of n pairs."
+  ],
+  "example": {
+    "prompt": "GATE CSE 1994 Q.1.14. The input 1, 2, 3, 4, 5 is pushed in that order. Which output can be produced: (A) 3, 4, 5, 1, 2 (B) 3, 4, 5, 2, 1 (C) 1, 5, 2, 3, 4 (D) 5, 4, 3, 1, 2?",
+    "work": "For (B): push 1, push 2, push 3, pop 3, push 4, pop 4, push 5, pop 5, pop 2, pop 1, giving 3, 4, 5, 2, 1. For (A): after 3, 4, 5 the stack holds 1 then 2 on top, so 2 must be popped before 1, not after. For (C): after 1 and 5 the stack holds 2, 3, 4, so the next pop can only be 4. For (D): 1 is popped before 2 is reachable.",
+    "answer": "Option (B), 3, 4, 5, 2, 1."
+  },
+  "gateAngle": "These questions are decided in seconds by the pattern test rather than by simulating every option. For n = 5 the count of obtainable orders is C_5 = 42 out of 120, so most options are wrong for a structural reason, and the 3-1-2 pattern names that reason.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "How many of the 24 permutations of 1, 2, 3, 4 can be produced by a stack fed in increasing order?",
+      "answer": "14, which is C_4.",
+      "why": "The Catalan count with n = 4. The 10 impossible orders each contain a 3-1-2 pattern, so counting the obtainable ones is counting the pattern-avoiding ones."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Same setup, but the stack can hold only 2 elements at a time. Is 3, 2, 1 still obtainable from the input 1, 2, 3?",
+      "answer": "No.",
+      "why": "Producing 3 first needs 1 and 2 pushed and still held, so three elements must be inside at once. A capacity of 2 forbids it, which is exactly the constraint the 2024 Set 2 two-stack question builds on."
+    }
+  ],
+  "trap": {
+    "what": "Assuming that any permutation can be produced because the stack has no size limit.",
+    "why": "The stack reverses the relative order of any pair of elements that are both inside it when the later one is popped. That reversal is what the 3-1-2 pattern detects, and it survives an unbounded stack.",
+    "counterexample": "For the input 1, 2, 3 the order 3, 1, 2 is impossible: getting 3 first means 1 and 2 are both in the stack, and 2 sits above 1, so 2 must come out before 1. Five of the six orders are possible, and this is the sixth."
+  },
+  "check": {
+    "question": "How many of the six permutations of 1, 2, 3 can a stack produce from the input 1, 2, 3?",
+    "answer": "5.",
+    "explanation": "C_3 = binom(6,3)/4 = 20/4 = 5. Only 3, 1, 2 is impossible, because 3 first forces 1 and 2 into the stack with 2 on top."
+  },
+  "pyqIds": [
+    "gate-1994-1-14-stack-permutation",
+    "gate-2024-set-2-q38-two-stacks-output"
+  ],
+  "prereqs": [
+    "stack-adt-and-lifo"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: stack-permutation feasibility with the 3-1-2 rule and the Catalan count",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    }
+  ],
+  "sourceLine": "The 3-1-2 pattern rule and the Catalan count: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 1994 trace and the Catalan values are recomputed in scripts/validate.py, which enumerates every push-pop schedule.",
+  "links": {}
+}

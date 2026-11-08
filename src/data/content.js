@@ -343,7 +343,7 @@ window.GATE_DATA = {
      {
       "slug": "arrays-stacks-queues",
       "name": "Arrays, Stacks and Queues",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "linked-lists",
@@ -47564,6 +47564,763 @@ window.GATE_DATA = {
    "subject": "programming-and-data-structures",
    "topic": "recursion",
    "path": "subjects/programming-and-data-structures/recursion/deriving-a-recurrence-from-code.json"
+  },
+  {
+   "id": "array-address-calculation",
+   "title": "Array Addressing in One and Two Dimensions",
+   "priority": "P1",
+   "order": 585,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "An array is a contiguous block of equal-size cells, so the address of any element follows from its index by a formula. No traversal is needed, which is why access is O(1).",
+   "remember": [
+    "One dimension: Addr(A[i]) = Base + (i - L) * w, where L is the lower bound of the index and w the size of one element in bytes.",
+    "Two dimensions, row-major: Addr(A[i][j]) = Base + ((i - L1) * nc + (j - L2)) * w, where nc = U2 - L2 + 1 is the number of columns.",
+    "Two dimensions, column-major: Addr(A[i][j]) = Base + ((j - L2) * nr + (i - L1)) * w, where nr = U1 - L1 + 1 is the number of rows.",
+    "C stores two-dimensional arrays in row-major order, so a question that does not name an order means row-major.",
+    "For a packed lower-triangular n x n matrix stored row by row, the offset of entry (i, j) with i >= j is i(i+1)/2 + j, and the packed array holds n(n+1)/2 entries.",
+    "Three facts must be read off the question before substituting: the lower bound, the storage order and the element size."
+   ],
+   "example": {
+    "prompt": "GATE CSE 1998 Q.2.14. A: array [1..10][1..15] of integer, each integer one memory location, row-major, first element at 100. Find the address of A[i][j].",
+    "work": "L1 = 1, L2 = 1, nr = 10, nc = 15, w = 1. Row-major offset = ((i - 1) * 15 + (j - 1)) * 1. Add the base: 100 + 15i - 15 + j - 1 = 15i + j + 84. Check the two corners: A[1][1] gives 15 + 1 + 84 = 100, the base, and A[10][15] gives 150 + 15 + 84 = 249, which is 100 + (9 * 15 + 14) = 249.",
+    "answer": "15i + j + 84, option (A) of the paper."
+   },
+   "gateAngle": "Address questions are pure substitution once the three readings are fixed. The paper usually offers the column-major answer as a distractor, so note which order is named, and watch a 1-based lower bound: the term is (i - L), not i.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "GATE CSE 2002 Q.2.8 pattern. char a[100][100] is stored from address 0 in a byte-addressable machine. What is the address of a[40][50]?",
+     "answer": "4050.",
+     "why": "Same substitution as the 1998 question with L1 = L2 = 0, nc = 100, w = 1: (40 * 100 + 50) * 1 = 4050. The change is a 0-based lower bound and a one-byte element, and it removes both terms that subtract 1."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Take the 1998 array again but store it column-major. What is the address of A[i][j] then?",
+     "answer": "10j + i + 89.",
+     "why": "Column-major counts whole columns: ((j - 1) * 10 + (i - 1)) + 100 = 10j + i + 89, which is option (D) of the same paper. Swapping the roles of i and j and the two dimensions is the whole difference."
+    }
+   ],
+   "trap": {
+    "what": "Substituting i and j directly when the declared lower bound is 1 instead of 0.",
+    "why": "The offset counts how many elements precede the wanted one, and that count starts at the lower bound, so every index must be reduced by L. Skipping the reduction shifts every answer by one row and one column.",
+    "counterexample": "For A[1..10][1..15] with base 100, the first element A[1][1] must sit at 100. The reduced formula gives 15 + 1 + 84 = 100; the unreduced 15i + j + 99 gives 115, which is not the base address, so it is visibly wrong at the very first cell."
+   },
+   "check": {
+    "question": "An int array A[0..9][0..19] starts at 1000 and an int takes 4 bytes, row-major. What is the address of A[3][5]?",
+    "answer": "1260.",
+    "explanation": "The offset is 3 * 20 + 5 = 65 elements, so the address is 1000 + 65 * 4 = 1000 + 260 = 1260. The element size multiplies the whole offset, not just the column index."
+   },
+   "pyqIds": [
+    "gate-1998-2-14-2d-array-address",
+    "gate-2002-2-8-char-array-address"
+   ],
+   "prereqs": [],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays as structures (address formulas, triangular packing, exam tip)",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read up to the stacks section"
+    },
+    {
+     "kind": "text",
+     "title": "Rosen, Discrete Mathematics and Its Applications, ch. 2.6 (matrices) for the row-major layout convention",
+     "language": "en",
+     "transcript": "N/A",
+     "translated": false
+    }
+   ],
+   "sourceLine": "The address formulas, the row-major default of C and the packed triangular offset: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). Both worked answers are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/array-address-calculation.json"
+  },
+  {
+   "id": "array-operations-and-costs",
+   "title": "Array Operations and What They Cost",
+   "priority": "P2",
+   "order": 586,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Reading or writing one cell is O(1); inserting or deleting in the middle is O(n), because every later element has to move one slot.",
+   "remember": [
+    "Access by index: O(1), because the address formula is arithmetic.",
+    "Search: O(n) in an unsorted array; O(log n) by binary search in a sorted array.",
+    "Insert at index k of an array holding n elements: n - k elements shift right, so the worst case (k = 0) is n moves and the average over the n + 1 insertion positions is n/2.",
+    "Delete at index k of an array holding n elements: n - 1 - k elements shift left; deleting the last element moves nothing.",
+    "A dynamic array that doubles its capacity when full copies 1 + 2 + 4 + ... + n/2 = n - 1 elements over n appends, so append is O(1) amortised but O(n) in the worst single call.",
+    "The size of a plain C array is fixed at declaration; growing it means allocating a new block and copying."
+   ],
+   "example": {
+    "prompt": "An array holds 10 elements. How many element moves does one insertion take at the front, at the back, and on average?",
+    "work": "Inserting at index 0 shifts all 10 elements: 10 moves. Inserting at index 10 (after the last element) shifts nothing: 0 moves. The 11 possible positions need 10, 9, 8, ..., 1, 0 moves, whose sum is 55, and 55 / 11 = 5 = n/2.",
+    "answer": "10 moves at the front, 0 at the back, 5 on average."
+   },
+   "gateAngle": "GATE asks this cost model inside trace questions rather than as a definition: a loop that inserts at the front of an array n times costs Theta(n^2), while the same loop appending at the end costs Theta(n). Reading a cost off the code is faster than recalling a table.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A dynamic array starts with capacity 1 and doubles whenever it is full. Starting empty, how many element copies do 8 appends cause in total, and what is the final capacity?",
+     "answer": "7 copies, final capacity 8.",
+     "why": "Copies happen only when the array is full: 1 copy at the 2nd append, 2 at the 3rd, 4 at the 5th, and none afterwards, so 1 + 2 + 4 = 7 = n - 1 for n = 8. This is the amortised-O(1) argument in one line."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "An array of n elements is sorted. Is deleting its smallest element O(1) because the element's address is known?",
+     "answer": "No, it is O(n).",
+     "why": "Knowing where the element sits does not remove the shifting: deleting index 0 moves the other n - 1 elements left to keep the block contiguous. Random access is O(1); deletion is not."
+    }
+   ],
+   "trap": {
+    "what": "Believing that O(1) random access makes every array operation O(1).",
+    "why": "The address formula only locates a cell. Keeping the array contiguous after an insert or delete is the expensive part, and that cost is paid in moves, not in lookups.",
+    "counterexample": "Deleting the first of 1,000,000 elements takes 999,999 moves even though its address is computed instantly. Only deleting the last element is O(1)."
+   },
+   "check": {
+    "question": "An array holds n = 10 elements. How many element moves does deleting the element at index 0 take?",
+    "answer": "9.",
+    "explanation": "The 9 elements after it each shift one slot left, so the count is n - 1 - k with k = 0, which is 9. Deleting the last element (k = 9) would take 0 moves."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "array-address-calculation"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: properties and costs of arrays",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "text",
+     "title": "CLRS, Introduction to Algorithms, ch. 17 (amortized analysis) for the doubling argument",
+     "language": "en",
+     "transcript": "N/A",
+     "translated": false
+    }
+   ],
+   "sourceLine": "Costs of array operations, the packing formula and the exam tip on reading an address question: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The move counts and the doubling arithmetic are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/array-operations-and-costs.json"
+  },
+  {
+   "id": "stack-adt-and-lifo",
+   "title": "The Stack ADT: Last In, First Out",
+   "priority": "P1",
+   "order": 587,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "A stack allows insertion and removal at one end only, so the most recent item is the first to leave. Push, pop, peek and isEmpty are all O(1).",
+   "remember": [
+    "Operations: push (insert at the top), pop (remove and return the top), peek or top (read the top without removing), isEmpty, isFull. The abstract data type fixes the operations, not their implementation.",
+    "Array implementation: an integer top starts at -1; push writes at ++top; pop returns stack[top--]; empty means top == -1 and full means top == capacity - 1.",
+    "Linked-list implementation: push inserts at the head and pop removes the head, so no traversal and no fixed capacity. The price is one pointer per element.",
+    "Underflow is a pop on an empty stack; overflow is a push on a full fixed-size stack. Both are errors the question usually asks you to detect, not to ignore.",
+    "Peek is not pop: reading the top leaves the stack unchanged, which is what makes the O(1) minimum-augmentation questions work.",
+    "A trace question is answered by writing the stack after every operation, top on the right, and never by guessing from the final state."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2021 Set 1 Q.21. On an empty stack: push(54); push(52); pop(); push(55); push(62); s = pop(). What is s?",
+    "work": "After push(54) and push(52) the stack is 54, 52 with 52 on top. The pop removes 52, leaving 54. push(55) gives 54, 55 and push(62) gives 54, 55, 62. The final pop returns 62.",
+    "answer": "s = 62. In the same question the queue half gives q = 24, so s + q = 86."
+   },
+   "gateAngle": "Stack traces are the cheapest marks in this topic: four lines of bookkeeping settle them. GATE pairs a stack trace with a queue trace (2021 Set 1 Q.21) or with a sequence that mixes the two structures (2023 Q.49) to check that you are not applying one discipline to both.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "On an empty stack perform push(1), push(2), push(3), pop, pop, push(4), pop. List the values popped, in order.",
+     "answer": "3, 2, 4.",
+     "why": "The same bookkeeping as the 2021 trace: the two pops take the two most recent items 3 and 2, and 4 is pushed after them so it is popped next. Nothing about the order of the remaining stack changes."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A stack is implemented on an array of capacity 3 with top starting at -1. After push(7), push(8), push(9) and one more push(10), what happens and what is the stack?",
+     "answer": "The fourth push overflows and is rejected; the stack is still 7, 8, 9 with top = 2.",
+     "why": "Full means top == capacity - 1 = 2, so the push cannot write anywhere. A correct implementation reports overflow and leaves the stack unchanged rather than overwriting index 3."
+    }
+   ],
+   "trap": {
+    "what": "Treating peek and pop as the same operation, or forgetting that a pop on an empty stack is underflow.",
+    "why": "Peek reads without changing the stack; pop removes. In a long trace the difference decides whether an element is still available for a later pop.",
+    "counterexample": "On the stack 54, 55, 62 a peek returns 62 and leaves all three elements; a pop returns 62 and leaves 54, 55. A trace that uses peek in place of pop reports 62 twice and then underflows."
+   },
+   "check": {
+    "question": "After push(1), push(2), push(3) and two pops on an initially empty stack, what does peek return?",
+    "answer": "1.",
+    "explanation": "The two pops remove 3 and then 2, leaving only 1, so the top is 1. Peek returns it without removing it, so a further peek still returns 1."
+   },
+   "pyqIds": [
+    "gate-2021-set-1-q21-stack-queue-trace",
+    "gate-2023-q49-stack-queue-top"
+   ],
+   "prereqs": [],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: stacks (operations and array implementation)",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "lecture",
+     "title": "NPTEL IIT Delhi, Data Structures and Algorithms, Lecture 2 - Stacks",
+     "url": "https://nptel.ac.in/courses/106102064",
+     "language": "en",
+     "transcript": "STRUCTURE_ONLY",
+     "translated": false,
+     "note": "lecture title and published topic list only; no captions or transcript were retrievable, so no card quotes it"
+    }
+   ],
+   "sourceLine": "The LIFO operations, the array implementation with top = -1 and the linked implementation: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The lecture scope and the ADT framing are fixed by NPTEL IIT Delhi 106102064, Prof. Naveen Garg, Lectures 2 (Stacks) and 3 (Queues and Linked Lists) (English, structure only). Both traces are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/stack-adt-and-lifo.json"
+  },
+  {
+   "id": "two-stacks-in-one-array",
+   "title": "Two Stacks Sharing One Array",
+   "priority": "P2",
+   "order": 588,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Let one stack grow from the left end and the other from the right end. They meet in the middle, and the array is full only when the two tops are adjacent.",
+   "remember": [
+    "One-indexed convention (the GATE CSE 2004 statement): A[1..MAXSIZE], top1 < top2, stack 1 grows up from 1 and stack 2 grows down from MAXSIZE. The array is full when top1 = top2 - 1.",
+    "Zero-indexed convention: top1 starts at -1 and top2 at n. The array is full when top1 + 1 == top2, and the number of free slots is top2 - top1 - 1.",
+    "This layout uses all n slots whenever the two stacks together need n elements, whatever the split. Splitting the array in halves does not: stack 1 overflows with half the array still empty.",
+    "Each push or pop is still O(1): only the relevant top moves.",
+    "In the one-indexed convention the number of elements stored is top1 + n - top2 + 1, which for A[1..10] with top1 = 6 and top2 = 8 is 6 + 10 - 8 + 1 = 9, and the free slots are top2 - top1 - 1 = 1."
+   ],
+   "example": {
+    "prompt": "An array A[1..10] holds two stacks growing from opposite ends. top1 = 6 and top2 = 8. Is the array full, and how many free slots are there?",
+    "work": "Full would need top1 = top2 - 1, that is 6 = 7, which is false. Free slots are top2 - top1 - 1 = 8 - 6 - 1 = 1, namely index 7. The element count is (6 - 1 + 1) + (10 - 8 + 1) = 6 + 3 = 9, and 9 + 1 free slot = 10.",
+    "answer": "Not full; one free slot at index 7."
+   },
+   "gateAngle": "The 2004 question offers three plausible-looking conditions, and only one of them survives a small example. Test any candidate condition by counting free slots, not by checking it against a picture.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "With the zero-indexed convention (top1 = -1, top2 = n), what is the condition for the array to be full, and what does it become for an array of size 1?",
+     "answer": "top1 + 1 == top2; for n = 1 the array is full once one element is pushed, since top1 becomes 0 and top2 is 1.",
+     "why": "The same adjacency condition written for 0-based indices. The n = 1 case is the boundary that catches a condition written as top1 == top2 - 2 or as top1 + top2 == n."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is splitting an array of size n into two halves of size n/2 a worse use of space than growing from both ends?",
+     "answer": "Because the split is fixed while the demand is not: one stack can overflow while the other half is empty.",
+     "why": "Growing from both ends makes the whole array available to either stack, so overflow happens only when the total is n. The fixed split wastes space in exactly the case that matters."
+    }
+   ],
+   "trap": {
+    "what": "Accepting top1 + top2 = MAXSIZE as the full condition.",
+    "why": "The sum of the two tops says nothing about the gap between them. It can hold while several slots are free, and it can fail while the stacks are touching.",
+    "counterexample": "MAXSIZE = 10, top1 = 4, top2 = 6. The sum is 10, yet slot 5 is free, so the array is not full. Push one element into stack 1: top1 = 5 = top2 - 1, which is full - and the sum is now 11, so the sum test would have missed the true full state."
+   },
+   "check": {
+    "question": "In A[1..20] with stacks growing from both ends, top1 = 7 and top2 = 9. How many slots are free?",
+    "answer": "1.",
+    "explanation": "Free slots are the indices strictly between the tops, top2 - top1 - 1 = 9 - 7 - 1 = 1, which is index 8. The next push into either stack makes top1 = 8 = top2 - 1 and the array is full."
+   },
+   "pyqIds": [
+    "gate-2004-two-stacks-one-array"
+   ],
+   "prereqs": [
+    "stack-adt-and-lifo"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: two stacks in one array",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "text",
+     "title": "GeeksforGeeks, GATE CS 2004, Data structures - Stacks, question 3 (two stacks in one array)",
+     "url": "https://www.geeksforgeeks.org/questions/a-single-array-a1maxsize-is-used-to-implement-two-1/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "question statement and answer read"
+    }
+   ],
+   "sourceLine": "The two-ended layout and the full condition, with the GATE CSE 2004 statement: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The free-slot arithmetic is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/two-stacks-in-one-array.json"
+  },
+  {
+   "id": "stack-permutations-and-catalan",
+   "title": "Stack Permutations and the Catalan Count",
+   "priority": "P2",
+   "order": 589,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Push 1, 2, ..., n in that order and pop whenever you like. The output orders you can produce are exactly the permutations with no 3-1-2 pattern, and there are Catalan-many of them.",
+   "remember": [
+    "A permutation is obtainable from a stack fed 1, 2, ..., n in order if and only if it avoids the pattern 3-1-2: there are no positions a < b < c with p[b] < p[c] < p[a].",
+    "The number of obtainable orders is the Catalan number C_n = binom(2n, n) / (n + 1): 1, 2, 5, 14, 42, 132 for n = 1..6.",
+    "A quick hand test: read the output left to right. Whenever a value smaller than the previous one appears, every value between the two must already have appeared.",
+    "Capacity matters only when the question fixes the stack size; with an unbounded stack the answer is the Catalan count.",
+    "An output order is produced by a sequence of pushes and pops, so the count of orders equals the count of balanced bracketings of n pairs."
+   ],
+   "example": {
+    "prompt": "GATE CSE 1994 Q.1.14. The input 1, 2, 3, 4, 5 is pushed in that order. Which output can be produced: (A) 3, 4, 5, 1, 2 (B) 3, 4, 5, 2, 1 (C) 1, 5, 2, 3, 4 (D) 5, 4, 3, 1, 2?",
+    "work": "For (B): push 1, push 2, push 3, pop 3, push 4, pop 4, push 5, pop 5, pop 2, pop 1, giving 3, 4, 5, 2, 1. For (A): after 3, 4, 5 the stack holds 1 then 2 on top, so 2 must be popped before 1, not after. For (C): after 1 and 5 the stack holds 2, 3, 4, so the next pop can only be 4. For (D): 1 is popped before 2 is reachable.",
+    "answer": "Option (B), 3, 4, 5, 2, 1."
+   },
+   "gateAngle": "These questions are decided in seconds by the pattern test rather than by simulating every option. For n = 5 the count of obtainable orders is C_5 = 42 out of 120, so most options are wrong for a structural reason, and the 3-1-2 pattern names that reason.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many of the 24 permutations of 1, 2, 3, 4 can be produced by a stack fed in increasing order?",
+     "answer": "14, which is C_4.",
+     "why": "The Catalan count with n = 4. The 10 impossible orders each contain a 3-1-2 pattern, so counting the obtainable ones is counting the pattern-avoiding ones."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Same setup, but the stack can hold only 2 elements at a time. Is 3, 2, 1 still obtainable from the input 1, 2, 3?",
+     "answer": "No.",
+     "why": "Producing 3 first needs 1 and 2 pushed and still held, so three elements must be inside at once. A capacity of 2 forbids it, which is exactly the constraint the 2024 Set 2 two-stack question builds on."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that any permutation can be produced because the stack has no size limit.",
+    "why": "The stack reverses the relative order of any pair of elements that are both inside it when the later one is popped. That reversal is what the 3-1-2 pattern detects, and it survives an unbounded stack.",
+    "counterexample": "For the input 1, 2, 3 the order 3, 1, 2 is impossible: getting 3 first means 1 and 2 are both in the stack, and 2 sits above 1, so 2 must come out before 1. Five of the six orders are possible, and this is the sixth."
+   },
+   "check": {
+    "question": "How many of the six permutations of 1, 2, 3 can a stack produce from the input 1, 2, 3?",
+    "answer": "5.",
+    "explanation": "C_3 = binom(6,3)/4 = 20/4 = 5. Only 3, 1, 2 is impossible, because 3 first forces 1 and 2 into the stack with 2 on top."
+   },
+   "pyqIds": [
+    "gate-1994-1-14-stack-permutation",
+    "gate-2024-set-2-q38-two-stacks-output"
+   ],
+   "prereqs": [
+    "stack-adt-and-lifo"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: stack-permutation feasibility with the 3-1-2 rule and the Catalan count",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    }
+   ],
+   "sourceLine": "The 3-1-2 pattern rule and the Catalan count: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 1994 trace and the Catalan values are recomputed in scripts/validate.py, which enumerates every push-pop schedule.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/stack-permutations-and-catalan.json"
+  },
+  {
+   "id": "infix-postfix-prefix-conversion",
+   "title": "Infix, Postfix and Prefix Conversion",
+   "priority": "P1",
+   "order": 590,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Postfix writes the operator after its two operands, so no brackets are needed. Converting from infix needs one stack, holding operators and brackets, never operands.",
+   "remember": [
+    "Precedence used by the standard conversion, highest first: brackets, then ^, then * and /, then + and -. ^ is right-associative; the others are left-associative unless a question says otherwise.",
+    "Shunting-yard rule: an operand goes straight to the output; an operator pops from the stack while the stack top has higher precedence, or equal precedence and the incoming operator is left-associative; a left bracket is pushed and a right bracket pops until its left bracket.",
+    "Prefix is produced by the same algorithm with the input read right to left, or by reversing the postfix string - reversing postfix gives prefix of the mirrored expression only when the operators are not reordered, so the safe method is the right-to-left pass.",
+    "A right-associative operator must NOT pop an equal-precedence operator from the stack. This one rule decides most exam questions.",
+    "Postfix of a + b * c - d ^ e ^ f is a b c * + d e f ^ ^ -."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2004. With +, -, * left-associative and ^ right-associative, and precedence ^ > * > + > -, write the postfix form of a + b * c - d ^ e ^ f.",
+    "work": "Highest precedence first: b * c becomes b c *. Right associativity groups d ^ e ^ f as d ^ (e ^ f), which becomes d e f ^ ^ - not d e ^ f ^. Now the expression is (a + (b * c)) - (d ^ (e ^ f)), whose postfix is a b c * + then d e f ^ ^ then the final minus: a b c * + d e f ^ ^ -.",
+    "answer": "a b c * + d e f ^ ^ -, option (A) of the paper."
+   },
+   "gateAngle": "The examiner's lever is associativity, not precedence: every distractor differs by whether ^ grouped to the left or the right. Convert the highest-precedence subexpression first, then combine, and the operator stack never has to be simulated in full.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Write the postfix form of A + B * (C + D) / F + D * E.",
+     "answer": "A B C D + * F / + D E * +.",
+     "why": "Same method as the 2004 question with a bracket added: C + D becomes C D +, B * (C + D) becomes B C D + *, dividing by F gives B C D + * F /, and A plus that gives A B C D + * F / +. The trailing D * E is D E *, joined by the final +. The bracket, not associativity, is what changes here."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does infix-to-postfix conversion need only an operator stack and no operand stack?",
+     "answer": "Because operands are emitted in the order they are read; only operators and brackets have to be held back and reordered.",
+     "why": "This is GATE CSE 1997's question in substance. An operand's position in the output is already decided when it is read, so nothing about it needs remembering - the reordering work belongs entirely to the operators."
+    }
+   ],
+   "trap": {
+    "what": "Popping an equal-precedence operator when the incoming operator is right-associative.",
+    "why": "Right associativity means the incoming operator binds tighter to what follows it, so it must wait on the stack above the earlier one. Popping early turns a ^ (b ^ c) into (a ^ b) ^ c, a different expression.",
+    "counterexample": "With d = 2, e = 3, f = 2: d ^ (e ^ f) = 2^9 = 512, while (d ^ e) ^ f = 8^2 = 64. The postfix d e f ^ ^ and d e ^ f ^ evaluate to 512 and 64, so the two candidate answers are not merely different strings."
+   },
+   "check": {
+    "question": "Write the postfix form of (a + b) * c.",
+    "answer": "a b + c *.",
+    "explanation": "The bracket forces a + b first, giving a b +, and the multiplication then applies to that result and c. Without the bracket, a + b * c would be a b c * +."
+   },
+   "pyqIds": [
+    "gate-2004-postfix-of-exponent-expression"
+   ],
+   "prereqs": [
+    "stack-adt-and-lifo"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: stacks - infix-to-postfix conversion and the precedence table",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "video-summary",
+     "title": "Knowledge Gate AI, Infix to Postfix Conversion of the GATE 2004 expression (timestamped lecture summary)",
+     "url": "https://www.knowledgegate.ai/learn/DATA-STRUCTURES/data-structures/stack/infix-postfix-prefix/asset-infix-to-postfix-conversion-of-expression",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "timestamped summary of the lecture, read in part; the instructor's grouping steps are at 0:00-2:00"
+    }
+   ],
+   "sourceLine": "Precedence and associativity table, the shunting-yard rules and the right-associative ^ case: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The worked 2004 conversion, with the paper's option (A) confirmed: Knowledge Gate AI lecture summary of the GATE 2004 infix-to-postfix question (English, read in part). Every postfix string here is re-evaluated in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/infix-postfix-prefix-conversion.json"
+  },
+  {
+   "id": "postfix-evaluation-and-parentheses",
+   "title": "Evaluating Postfix and Matching Brackets",
+   "priority": "P1",
+   "order": 591,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Evaluation uses one operand stack: push numbers, and on an operator pop the right operand first and the left second, then push the result. Bracket matching is the same stack idea without numbers.",
+   "remember": [
+    "Scan left to right. A number is pushed. An operator pops y (the right operand) then x (the left operand) and pushes x op y. The last value left on the stack is the answer.",
+    "Operand order matters for - and /: the first pop is the right operand. Reversing them is the commonest arithmetic slip in these questions.",
+    "A valid postfix expression leaves exactly one value on the stack at the end, and the stack never underflows on an operator.",
+    "Bracket matching: push each opening bracket, and on a closing bracket pop and compare. A mismatch or a pop on an empty stack means the expression is unbalanced; a non-empty stack at the end means unclosed brackets.",
+    "An operator stack converts infix to postfix; an operand stack evaluates. GATE has asked which of the two is essential for conversion, and the answer is the operator stack alone."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2015 Set 3 Q.12. Evaluate the postfix expression 10 5 + 60 6 / * 8 -.",
+    "work": "Push 10, push 5; + pops 5 and 10 and pushes 15. Push 60, push 6; / pops 6 and 60 and pushes 60/6 = 10. Now * pops 10 and 15 and pushes 150. Push 8; - pops 8 and 150 and pushes 150 - 8 = 142. One value remains.",
+    "answer": "142, option (C) of the paper."
+   },
+   "gateAngle": "Postfix evaluation is the mechanical core of the topic, and GATE reuses it inside other questions - the 2007 postfix question asks for the top two stack entries partway through, which is the same scan stopped early.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Evaluate 8 2 3 ^ / 2 3 * + 5 1 * -, where ^ is exponentiation.",
+     "answer": "2.",
+     "why": "Push 8, 2, 3; ^ pops 3 and 2 and pushes 2^3 = 8, so the stack is 8, 8; / pops 8 and 8 and pushes 1; 2 3 * pushes 6, + pushes 7; 5 1 * pushes 5, - pushes 7 - 5 = 2. The exponent's operands come in the order 2 then 3, which is the step most often reversed."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "During the evaluation of a postfix expression the stack holds 15 then 60 then 6, with 6 on top, and the next token is /. Which two values are popped, and in what role?",
+     "answer": "6 is popped as the right operand and 60 as the left, giving 60 / 6 = 10.",
+     "why": "This is the 2015 Set 3 step that decides the answer. Taking them the other way gives 6 / 60 = 0.1 and the final result is wrong by a factor of 100."
+    }
+   ],
+   "trap": {
+    "what": "Popping the left operand first on subtraction or division.",
+    "why": "In postfix the operator follows both operands, so the value on top is the second operand. The stack discipline fixes the roles, and only the first pop is the right operand.",
+    "counterexample": "In 10 5 + 60 6 / * 8 - the final step pops 8 then 150. Correct order gives 150 - 8 = 142; the reversed order gives 8 - 150 = -142, which is not among the options, so a reversed pop is visible immediately in a multiple-choice paper."
+   },
+   "check": {
+    "question": "Evaluate the postfix expression 6 2 3 * - and say which operation runs first.",
+    "answer": "0; the multiplication 2 * 3 runs first.",
+    "explanation": "Push 6, 2, 3; * pops 3 and 2 and pushes 6, so the stack is 6, 6; - pops 6 and 6 and pushes 0. The operator nearest the operands binds first, which is why postfix needs no brackets."
+   },
+   "pyqIds": [
+    "gate-2015-set-3-q12-postfix-evaluation"
+   ],
+   "prereqs": [
+    "infix-postfix-prefix-conversion"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: stacks - postfix and prefix evaluation",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow, GATE CSE 2015 Set 3 Question 12 (postfix evaluation, answer 142)",
+     "url": "https://gateoverflow.in/8408/gate-cse-2015-set-3-question-12",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "question, options and community trace read"
+    }
+   ],
+   "sourceLine": "The operand-stack algorithm and bracket matching: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The step-by-step trace of the 2015 Set 3 expression: GATE Overflow question page for GATE CSE 2015 Set 3 Q.12 (English, read in part). Both evaluations are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/postfix-evaluation-and-parentheses.json"
+  },
+  {
+   "id": "queue-adt-and-linear-queue-limitation",
+   "title": "The Queue ADT and the Linear-Queue Problem",
+   "priority": "P1",
+   "order": 592,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "A queue inserts at the rear and removes at the front, so the oldest item leaves first. On a plain array the freed slots at the front are never reused, and shifting to recover them costs O(n) per dequeue.",
+   "remember": [
+    "Operations: enqueue at the rear, dequeue at the front, front/rear reads, isEmpty, isFull. All are O(1) on a circular array or a linked list.",
+    "Linear array implementation: front and rear only move forward. After k dequeues the first k slots are dead, and rear eventually reaches the end while the queue is short.",
+    "If a dequeue shifts the remaining elements left to keep them at index 0, dequeue costs Theta(n) and enqueue stays O(1). That is the naive implementation the 2016 question rules out.",
+    "The fix is to treat the array as circular, wrapping both indices modulo the array size, so every slot is reusable and both operations stay O(1).",
+    "A queue on a linked list keeps head and tail pointers, so enqueue at the tail and dequeue at the head are both O(1) with no capacity limit."
+   ],
+   "example": {
+    "prompt": "An array of size 5 holds a linear queue. Enqueue a, b, c; dequeue twice; then enqueue d and e. What happens?",
+    "work": "After the three enqueues rear = 3 and front = 0. Two dequeues move front to 2 and free slots 0 and 1. Enqueue d writes at 3 and sets rear = 4; enqueue e would write at 4 and set rear = 5, which is past the end, so the queue reports full although only three elements are stored and slots 0 and 1 are empty.",
+    "answer": "The fifth enqueue reports full with two slots free - the linear-queue defect."
+   },
+   "gateAngle": "The 2016 Set 1 question is the cost version of this card: it asks which implementation makes both operations O(1), and the answer is the circular array. Reading a queue implementation means asking where front and rear point and whether either wraps.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A queue is implemented on an array of size 5 by shifting all remaining elements one slot left on every dequeue. Give the worst-case cost of enqueue and of dequeue, and the cost of n alternating operations.",
+     "answer": "Enqueue O(1), dequeue O(n); n alternating operations cost Theta(n^2).",
+     "why": "This is exactly the implementation the 2016 question rejects. Each dequeue moves up to n - 1 elements, so a sequence of n operations is quadratic - the reason the circular array exists."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "After enqueue a, b, c and one dequeue on a linear queue held in an array, where are front and rear, and how many elements are stored?",
+     "answer": "front = 1, rear = 3, two elements (b and c).",
+     "why": "front advances past the removed a and rear is the next free slot, so the live elements are at indices 1 and 2. The element count is rear - front = 2 in this convention, and slot 0 is already dead space."
+    }
+   ],
+   "trap": {
+    "what": "Assuming that a queue built on an array gives O(1) dequeue because it gives O(1) enqueue.",
+    "why": "Without wraparound, keeping the queue contiguous forces a shift on every dequeue. The asymmetry comes from the layout, not from the abstract data type: both operations are O(1) on a circular array or a linked list.",
+    "counterexample": "Dequeue the first of 1,000,000 queued items in a shifting implementation: 999,999 elements move. In a circular array the same dequeue moves front by one and copies nothing."
+   },
+   "check": {
+    "question": "In a linear array queue with front = 1 and rear = 3 (rear is the next free slot), how many elements are stored?",
+    "answer": "2.",
+    "explanation": "The live slots are 1 and 2, so the count is rear - front = 3 - 1 = 2. Slot 0 is dead space left by the earlier dequeue."
+   },
+   "pyqIds": [
+    "gate-2016-set-1-q10-queue-array-complexity"
+   ],
+   "prereqs": [],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: queues - linear queue limitation",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "lecture",
+     "title": "NPTEL IIT Delhi, Data Structures and Algorithms, Lecture 3 - Queues and Linked Lists",
+     "url": "https://nptel.ac.in/courses/106102064",
+     "language": "en",
+     "transcript": "STRUCTURE_ONLY",
+     "translated": false,
+     "note": "lecture title and published topic list only; no captions or transcript were retrievable, so no card quotes it"
+    }
+   ],
+   "sourceLine": "FIFO operations and why the naive array queue wastes space: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The lecture scope is fixed by NPTEL IIT Delhi 106102064, Prof. Naveen Garg, Lectures 2 (Stacks) and 3 (Queues and Linked Lists) (English, structure only). The slot arithmetic and the cost argument are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/queue-adt-and-linear-queue-limitation.json"
+  },
+  {
+   "id": "circular-queue-full-empty-conditions",
+   "title": "Circular Queue: Full and Empty Conditions",
+   "priority": "P1",
+   "order": 593,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "Both indices wrap modulo the array size, so freed slots are reused. With one slot sacrificed, empty is front == rear and full is (rear + 1) mod n == front, giving a capacity of n - 1.",
+   "remember": [
+    "Enqueue writes at rear and then sets rear = (rear + 1) mod n; dequeue reads at front and then sets front = (front + 1) mod n. Both are O(1).",
+    "Convention 1 (both indices start at 0, rear is the next free slot, one slot sacrificed): empty when front == rear; full when (rear + 1) mod n == front; capacity n - 1; element count (rear - front + n) mod n.",
+    "Convention 2 (an explicit count): empty when count == 0, full when count == n, capacity n. All n slots are usable, but count must be updated on every operation.",
+    "Other variants exist (rear starting at -1, or a separate full flag). Read the code in the question before answering, because the capacity follows from the full test used.",
+    "The sacrificed slot is the price of telling full from empty using only the two indices."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2012 Q.35. A circular queue of capacity n - 1 is implemented in an array of n elements, REAR and FRONT are indices, both start at 0. Give the full and empty tests.",
+    "work": "With one slot sacrificed, the queue is empty when the two indices coincide and full when advancing REAR by one would make it coincide with FRONT. Take n = 5: enqueue four elements, REAR goes 0 to 4 while FRONT stays 0, and (4 + 1) mod 5 = 0 = FRONT, so the queue is full with four elements stored. The element count (4 - 0 + 5) mod 5 = 4 confirms the capacity of n - 1.",
+    "answer": "full: (REAR + 1) mod n == FRONT; empty: REAR == FRONT, option (A) of the paper."
+   },
+   "gateAngle": "This is the single most reused queue question in GATE, and it is decided by one small example. Fill the queue in the convention the question states, then check which formula fires at that moment - do not try to remember a table of four formulas.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A circular queue uses the count convention in an array of size 8. After the operations enqueue, enqueue, dequeue, enqueue, what are count, front and rear, and is the queue full?",
+     "answer": "count = 2, front = 1, rear = 3, not full.",
+     "why": "Two enqueues put elements at 0 and 1 with rear = 2; the dequeue moves front to 1 and count to 1; the last enqueue writes at 2 and sets rear = 3, count = 2. Under the count convention full needs count == 8, so capacity is the whole array - the difference from the sacrificed-slot convention."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why can a circular queue using only front and rear not store n elements in an array of size n?",
+     "answer": "Because a queue holding n elements and an empty queue would both have front == rear, so the two states could not be told apart.",
+     "why": "The full state is exactly the empty state once every slot is used, and two indices cannot encode three states (empty, partly full, full). Sacrificing one slot, or keeping a count or a flag, resolves it."
+    }
+   ],
+   "trap": {
+    "what": "Using capacity n with the sacrificed-slot convention, or applying (rear + 1) mod n == front as an empty test.",
+    "why": "In this convention front == rear is the empty state, so the full test must be the one that fires one step before the indices meet. Swapping the two tests makes the queue report empty exactly when it is full.",
+    "counterexample": "n = 5, four elements stored, front = 0 and rear = 4. The queue is full and (rear + 1) mod 5 = 0 = front. If that formula were used for empty, the queue would announce itself empty while holding four elements."
+   },
+   "check": {
+    "question": "A circular queue in an array of size 8 has front = 6 and rear = 2 under the sacrificed-slot convention. How many elements does it hold?",
+    "answer": "4.",
+    "explanation": "The count is (rear - front + n) mod n = (2 - 6 + 8) mod 8 = 4 mod 8 = 4. Reading the live slots confirms it: 6, 7, 0, 1."
+   },
+   "pyqIds": [
+    "gate-2012-q35-circular-queue-full-empty"
+   ],
+   "prereqs": [
+    "queue-adt-and-linear-queue-limitation"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: circular queue full/empty tests under both conventions",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow, GATE CSE 2012 Question 35 (circular queue full and empty conditions)",
+     "url": "https://gateoverflow.in/1756/gate-cse-2012-question-35",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "question, options and the filled-array argument read"
+    }
+   ],
+   "sourceLine": "Both conventions, the element-count formula and the wraparound rule: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 2012 answer and its filled example: GATE Overflow question page for GATE CSE 2012 Q.35 (English, read in part). The lesson visualises the same five-slot example, and every count is recomputed in scripts/validate.py.",
+   "links": {},
+   "visual": "programming-and-data-structures/arrays-stacks-queues/circular-queue-wraparound",
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/circular-queue-full-empty-conditions.json"
+  },
+  {
+   "id": "deque-and-queue-from-two-stacks",
+   "title": "Deques, and Building One Structure from Another",
+   "priority": "P2",
+   "order": 594,
+   "unit": "Arrays, Stacks and Queues",
+   "quickIdea": "A deque allows insertion and deletion at both ends. A queue can be built from two stacks with O(1) amortised operations, and the amortisation is what GATE tests.",
+   "remember": [
+    "Deque variants: input-restricted allows insertion at one end only and deletion at both; output-restricted allows deletion at one end only and insertion at both. A deque can act as a stack (use one end) or as a queue (insert one end, delete the other).",
+    "Queue from two stacks, amortised-O(1) method: enqueue always pushes onto stack in; dequeue pops from stack out, first moving every element of in to out when out is empty. Each element moves at most once, so the total work over n operations is O(n).",
+    "Worst-case single dequeue in that method is O(k) for a queue holding k elements - the amortised bound does not make any one call constant.",
+    "Stack from two queues: push enqueues into q1, pop moves all but the last element of q1 into q2, returns the last, then swaps the queues. Push is O(1) and pop is O(n).",
+    "Priority queue is a different structure: it returns the smallest or largest key, not the oldest element, and it is covered with binary heaps rather than with queues."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2006 Q.49. A queue is built from stacks S1 and S2: insert pushes onto S1; delete moves all of S1 to S2 when S2 is empty, then pops S2. With n inserts and m <= n deletes in any order, bound the number of push operations x and pop operations y.",
+    "work": "Best case, alternating: each delete moves one element across, so pushes are n (inserts) plus m (the moves) = n + m, and pops are 2m (one move out of S1 and one out of S2 per delete). Worst case, all inserts first: the first delete moves all n elements, so pushes are n + n = 2n and pops are n moves plus m returns = n + m. The paper writes the push bound as n + m <= x < 2n; the all-inserts-first order reaches x = 2n exactly, so the bound is read as x <= 2n, and no other option fits either way.",
+    "answer": "Option (A) of the paper: n + m <= x < 2n and 2m <= y <= n + m (with x = 2n attained in the all-inserts-first order)."
+   },
+   "gateAngle": "Amortised cost questions are answered by counting the total work over the whole sequence rather than the worst single call. State the total first, then read the bound off it - that ordering avoids the usual mistake of quoting O(1) for a dequeue that just moved k elements. Note the one loose end in this question: the paper's strict upper bound x < 2n is reached exactly when every insert precedes every delete, so treat it as x <= 2n and check the options against that.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Using the two-stack queue, insert 1, 2, 3 then delete once, then insert 4, then delete twice. List the deleted values and give the total number of stack pushes and pops.",
+     "answer": "Deletions 1, 2, 3; total pushes 7 and total pops 6.",
+     "why": "Inserts 1, 2, 3 push onto S1 (3 pushes). The first delete moves 3 elements to S2 (3 pops, 3 pushes) and pops 1 (1 pop). Insert 4 is one push. The next two deletes pop 2 then 3, one pop each. Pushes 3 + 3 + 1 = 7; pops 3 + 1 + 1 + 1 = 6 - the same counting that produces the 2006 bounds."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "An input-restricted deque allows insertion at one end only. Can it still simulate a stack?",
+     "answer": "Yes.",
+     "why": "A stack needs insertion and deletion at the same end, and an input-restricted deque permits deletion at both ends, so choose that end for both operations. Restricting the input end does not restrict the output end."
+    }
+   ],
+   "trap": {
+    "what": "Reporting O(1) as the worst-case cost of a dequeue in the two-stack queue.",
+    "why": "The amortised bound is a total-over-the-sequence statement. A single dequeue that finds the out stack empty must move every queued element, which is O(k) for that call.",
+    "counterexample": "Insert 1,000 elements and then delete one. That single dequeue performs 1,000 pops and 1,000 pushes before returning the first element - clearly not O(1), though 1,000 alternating operations are O(1) each on average."
+   },
+   "check": {
+    "question": "In the two-stack queue holding k elements, what is the worst-case cost of one dequeue, and what is the amortised cost?",
+    "answer": "O(k) worst case; O(1) amortised.",
+    "explanation": "When the out stack is empty the whole in stack must be reversed, which is k moves. Each element is moved at most once over its lifetime, so the total for n operations is O(n) and the amortised cost per operation is constant."
+   },
+   "pyqIds": [
+    "gate-2006-q49-queue-two-stacks"
+   ],
+   "prereqs": [
+    "queue-adt-and-linear-queue-limitation",
+    "stack-adt-and-lifo"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: deques, queue using two stacks",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "study notes, read in part"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow, GATE CSE 2006 Question 49 (queue implemented with two stacks)",
+     "url": "https://gateoverflow.in/1826/gate-cse-2006-question-49",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "question, options and best/worst-case argument read"
+    }
+   ],
+   "sourceLine": "Deque variants, queue-from-two-stacks and stack-from-two-queues with their costs: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 2006 bounds and their best/worst cases: GATE Overflow question page for GATE CSE 2006 Q.49 (English, read in part). The counts are recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "arrays-stacks-queues",
+   "path": "subjects/programming-and-data-structures/arrays-stacks-queues/deque-and-queue-from-two-stacks.json"
   }
  ],
  "pyqs": [
@@ -47674,6 +48431,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1993 Q.8.4 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page gives 2 to the (n squared), option (B), and notes the identity with the number of relations on A."
+  },
+  {
+   "id": "gate-1994-1-14-stack-permutation",
+   "year": "1994",
+   "paper": "GATE CS 1994",
+   "question_ref": "Q.1.14",
+   "type": "MCQ",
+   "topic": "stack-permutations-and-catalan",
+   "text": "Which of the following permutations can be obtained in the output (in the same order) using a stack assuming that the input is the sequence 1, 2, 3, 4, 5 in that order?",
+   "answer": "Option (B) - 3, 4, 5, 2, 1",
+   "solution": "Push 1, push 2, push 3, pop 3, push 4, pop 4, push 5, pop 5, then pop 2 and pop 1. The other options fail because 2 sits above 1 (option A), because 4 sits above 2, 3 (option C), or because 1 is popped before 2 is reachable (option D). Recomputed by enumerating all push-pop schedules for n = 5: 42 of the 120 orders are obtainable and option (B) is one of them.",
+   "source_url": "https://gateoverflow.in/2457/gate-cse-1994-question-1-14",
+   "source_label": "GATE Overflow question page - GATE CSE 1994 Q.1.14 with community solutions (answer recorded as option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page records 'option is B' with the push-pop trace; scripts/validate.py independently enumerates the obtainable orders and checks that B is obtainable and A, C, D are not.",
+   "options": [
+    "3, 4, 5, 1, 2",
+    "3, 4, 5, 2, 1",
+    "1, 5, 2, 3, 4",
+    "5, 4, 3, 1, 2"
+   ]
   },
   {
    "id": "gate-1994-1-9-rank-3x3",
@@ -48040,6 +48818,27 @@ window.GATE_DATA = {
    "answer_evidence": "Accepted answer: 'R4 = 3R1, so the rank is less than 4, and the remaining three rows are independent, so the rank is 3', option A."
   },
   {
+   "id": "gate-1998-2-14-2d-array-address",
+   "year": "1998",
+   "paper": "GATE CS 1998",
+   "question_ref": "Q.2.14",
+   "type": "MCQ",
+   "topic": "array-address-calculation",
+   "text": "Let A be a two dimensional array declared as A: array [1..10][1..15] of integer. Assuming that each integer takes one memory location, the array is stored in row-major order and the first element of the array is stored at location 100, what is the address of the element A[i][j]?",
+   "answer": "Option (A) - 15i + j + 84",
+   "solution": "Row-major offset = ((i - 1) * 15 + (j - 1)) * 1, added to 100, which gives 15i + j + 84. Checked at the corners: A[1][1] = 100 (the base) and A[10][15] = 249 = 100 + 149. Option (D) is the column-major answer.",
+   "source_url": "https://gateoverflow.in/1686/gate-cse-1998-question-2-14",
+   "source_label": "GATE Overflow question page - GATE CSE 1998 Q.2.14 with community solutions (answer recorded as option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted derivation and several answers give 15i + j + 84; scripts/validate.py recomputes both the row-major and the column-major expressions at every corner of the declared bounds.",
+   "options": [
+    "15i + j + 84",
+    "15j + i + 84",
+    "10i + j + 89",
+    "10j + i + 89"
+   ]
+  },
+  {
    "id": "gate-1998-converse-only-if",
    "year": "1998",
    "paper": "GATE CS 1998",
@@ -48356,6 +49155,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2002 Q.2.7 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer gives option (D) and cites a university microprogramming note for the three properties; a comment on the same page gives the 16-signals example (16 bits horizontal against 4 bits vertical). The official key was not fetched this run, so the record stays SOURCED."
+  },
+  {
+   "id": "gate-2002-2-8-char-array-address",
+   "year": "2002",
+   "paper": "GATE CS 2002",
+   "question_ref": "Q.2.8",
+   "type": "MCQ",
+   "topic": "array-address-calculation",
+   "text": "Consider the following declaration of a two-dimensional array in C: char a[100][100]; Assuming that the main memory is byte-addressable and that the array is stored starting from memory address 0, the address of a[40][50] is",
+   "answer": "Option (B) - 4050",
+   "solution": "C stores a two-dimensional array row-major, so the offset is 40 * 100 + 50 = 4050 elements, and one char is one byte: address 0 + 4050 = 4050. Option (C) is the column-major value 50 * 100 + 40 = 5040.",
+   "source_url": "https://gateoverflow.in/838/gate-cse-2002-question-2-8",
+   "source_label": "GATE Overflow question page - GATE CSE 2002 Q.2.8 with community solutions (answer recorded as option B)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page gives 4050 with the row-major formula; scripts/validate.py recomputes both orders for this declaration.",
+   "options": [
+    "4040",
+    "4050",
+    "5040",
+    "5050"
+   ]
   },
   {
    "id": "gate-2002-q1-24-absolute-addressing",
@@ -48719,6 +49539,27 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2004-postfix-of-exponent-expression",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "GATE 2004, postfix-form question (the paper's own question number is not confirmed; it appears in GATE 2004 question banks as the a + b x c - d ^ e ^ f item)",
+   "type": "MCQ",
+   "topic": "infix-postfix-prefix-conversion",
+   "text": "Assume that the operators +, -, x are left associative and ^ is right associative. The order of precedence (from highest to lowest) is ^, x, +, -. The postfix expression corresponding to the infix expression a + b x c - d ^ e ^ f is",
+   "options": [
+    "a b c x + d e f ^ ^ -",
+    "a b c x + d e ^ f ^ -",
+    "a b + c x d - e ^ f ^",
+    "- + a x b c ^ ^ d e f"
+   ],
+   "answer": "Option (A) - a b c x + d e f ^ ^ -",
+   "solution": "^ is right-associative, so d ^ e ^ f groups as d ^ (e ^ f) and becomes d e f ^ ^. Then b x c becomes b c x and a + (b x c) becomes a b c x +. The subtraction joins the two halves: a b c x + d e f ^ ^ -. Option (B) is the left-associative reading d e ^ f ^.",
+   "source_url": "https://www.knowledgegate.ai/blog/data-structures-stacks-queues-mcqs",
+   "source_label": "Knowledge Gate AI, 'Stacks and Queues MCQs: 12 Solved (GATE)' - records the question as GATE 2004 with answer (a); the same question and answer appear in the timestamped lecture summary of the GATE 2004 conversion",
+   "verification": "SOURCED",
+   "answer_evidence": "The MCQ page records answer (a) a b c x + d e f ^ ^ - and the timestamped lecture summary derives the same string step by step; scripts/validate.py converts the expression with a shunting-yard implementation and checks the result and the left-associative distractor."
+  },
+  {
    "id": "gate-2004-q20-relocation-at-run-time",
    "year": "2004",
    "paper": "GATE CS 2004",
@@ -48780,6 +49621,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2004 Q.23 (also ISRO 2007 Q.32), with the published analysis of each option",
    "verification": "SOURCED",
    "answer_evidence": "The page's accepted analysis eliminates (A) and (C) for using an implication under the existential, and (B) for claiming everyone is a girl, leaving (D)."
+  },
+  {
+   "id": "gate-2004-two-stacks-one-array",
+   "year": "2004",
+   "paper": "GATE CS 2004",
+   "question_ref": "GATE 2004, data structures - stacks, question 3 in the GeeksforGeeks GATE 2004 listing (the paper's own question number is not confirmed)",
+   "type": "MCQ",
+   "topic": "two-stacks-in-one-array",
+   "text": "A single array A[1..MAXSIZE] is used to implement two stacks. The two stacks grow from opposite ends of the array. Variables top1 and top2 (top1 < top2) point to the location of the topmost element in each of the stacks. If the space is to be used efficiently, the condition for \"stack full\" is",
+   "answer": "Option (D) - top1 = top2 - 1",
+   "solution": "Growing from opposite ends, the array is full exactly when the two tops are adjacent: top1 = top2 - 1. Option (B) fails on a concrete case: with MAXSIZE = 10, top1 = 4 and top2 = 6 the sum is 10 while slot 5 is still free.",
+   "source_url": "https://www.geeksforgeeks.org/questions/a-single-array-a1maxsize-is-used-to-implement-two-1/",
+   "source_label": "GeeksforGeeks - GATE CS 2004, Data structures, Stacks, question 3 (answer recorded as option D); the same statement and answer appear on SolutionsAdda under GATE 2004",
+   "verification": "SOURCED",
+   "answer_evidence": "GeeksforGeeks records answer (d) with the adjacency argument, and SolutionsAdda's GATE 2004 page gives the same answer; scripts/validate.py checks the free-slot counterexample against the condition top1 + top2 = MAXSIZE.",
+   "options": [
+    "(top1 = MAXSIZE/2) and (top2 = MAXSIZE/2 + 1)",
+    "top1 + top2 = MAXSIZE",
+    "(top1 = MAXSIZE/2) or (top2 = MAXSIZE)",
+    "top1 = top2 - 1"
+   ]
   },
   {
    "id": "gate-2005-20-memory-mapped-io-protection",
@@ -48993,6 +49855,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2006 Q.21 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "Two independent answers on the question page reach option (A) by the same argument: the count of favourable sequences C(2n, n) over the 4^n equally likely sequences. Recomputed here for n = 1 to 8 against the binomial PMF."
+  },
+  {
+   "id": "gate-2006-q49-queue-two-stacks",
+   "year": "2006",
+   "paper": "GATE CS 2006",
+   "question_ref": "Q.49",
+   "type": "MCQ",
+   "topic": "deque-and-queue-from-two-stacks",
+   "text": "An implementation of a queue Q, using two stacks S1 and S2, is given: insert(Q, x) pushes x onto S1; delete(Q) moves every element of S1 to S2 when S2 is empty and then pops S2. Let n insert and m (m <= n) delete operations be performed in an arbitrary order on an empty queue Q. Let x and y be the number of push and pop operations performed respectively. Which one of the following is true for all m and n?",
+   "answer": "Option (A) - n + m <= x < 2n and 2m <= y <= n + m",
+   "solution": "Best case is alternating insert and delete: each delete moves one element across, so x = n + m and y = 2m. Worst case is all inserts first: the first delete moves all n elements, so x = 2n and y = n + m. Both bounds lie inside option (A).",
+   "source_url": "https://gateoverflow.in/1826/gate-cse-2006-question-49",
+   "source_label": "GATE Overflow question page - GATE CSE 2006 Q.49 with community solutions (answer recorded as option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted answer gives (A) with the best-case and worst-case counts; scripts/validate.py simulates the two-stack queue over every interleaving for small n and m and checks both bounds.",
+   "options": [
+    "n + m <= x < 2n and 2m <= y <= n + m",
+    "n + m <= x < 2n and 2m <= y <= 2n",
+    "2m <= x < 2n and 2m <= y <= n + m",
+    "2m <= x < 2n and 2m <= y <= 2n"
+   ]
   },
   {
    "id": "gate-2007-34-mux-minimum-size",
@@ -49459,6 +50342,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2012 Q.30 with the accepted answer (option B)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answers on the GATE Overflow page give the two quads as b'd' and b'c' and the answer as option B, and a GateAI solution page lists the same 1-cells (m0, m2, m8, m9) and the same don't cares (m1, m4, m10, m12). The printed figure is not reproduced here; the cells are taken from those two independent readings of it. Recomputed here from those cells: prime implicants b'c', b'd' and c'd', essential b'c' and b'd', minimal cover b'c' + b'd'."
+  },
+  {
+   "id": "gate-2012-q35-circular-queue-full-empty",
+   "year": "2012",
+   "paper": "GATE CS 2012",
+   "question_ref": "Q.35",
+   "type": "MCQ",
+   "topic": "circular-queue-full-empty-conditions",
+   "text": "Suppose a circular queue of capacity (n - 1) elements is implemented with an array of n elements. Assume that the insertion and deletion operations are carried out using REAR and FRONT as array index variables, respectively. Initially, REAR = FRONT = 0. The conditions to detect queue full and queue empty are",
+   "answer": "Option (A)",
+   "solution": "With one slot sacrificed, an empty queue has REAR == FRONT and a full queue is one step short of that: (REAR + 1) mod n == FRONT. For n = 5, enqueueing four elements moves REAR to 4 while FRONT stays 0, and (4 + 1) mod 5 = 0 = FRONT, so the queue is full with four elements - the stated capacity n - 1.",
+   "source_url": "https://gateoverflow.in/1756/gate-cse-2012-question-35",
+   "source_label": "GATE Overflow question page - GATE CSE 2012 Q.35 with community solutions (answer recorded as option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "Several answers on the page fill a five-element array and show that only option (A) fires at the full state; scripts/validate.py simulates both conventions and reproduces the full state at capacity n - 1.",
+   "options": [
+    "full: (REAR + 1) mod n == FRONT, empty: REAR == FRONT",
+    "full: (REAR + 1) mod n == FRONT, empty: (FRONT + 1) mod n == REAR",
+    "full: REAR == FRONT, empty: (REAR + 1) mod n == FRONT",
+    "full: (FRONT + 1) mod n == REAR, empty: REAR == FRONT"
+   ]
   },
   {
    "id": "gate-2012-q7-half-in-single-precision",
@@ -50002,6 +50906,27 @@ window.GATE_DATA = {
    "answer_evidence": "One answer on the page states that the ripple-carry reading makes the total 4 x 4.8 = 19.2 and that this is the key given by GATE; a second widely upvoted answer argues for 12 on the carry-only model. A third site records the same question with the answer 19.2. The record reports the accepted answer and names the disagreement instead of choosing silently."
   },
   {
+   "id": "gate-2015-set-3-q12-postfix-evaluation",
+   "year": "2015",
+   "paper": "GATE CS 2015 Set 3",
+   "question_ref": "Q.12",
+   "type": "MCQ",
+   "topic": "postfix-evaluation-and-parentheses",
+   "text": "The result evaluating the postfix expression 10 5 + 60 6 / * 8 - is",
+   "answer": "Option (C) - 142",
+   "solution": "Push 10 and 5, and + gives 15. Push 60 and 6, and / gives 60/6 = 10. The * gives 15 * 10 = 150. Push 8 and the - gives 150 - 8 = 142. The infix reading is ((10 + 5) * (60 / 6)) - 8 = 142.",
+   "source_url": "https://gateoverflow.in/8408/gate-cse-2015-set-3-question-12",
+   "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.12 with community solutions (answer recorded as 142)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted trace gives 142 and its options list 142 as option C; scripts/validate.py evaluates the same token sequence with an operand stack and checks the value and the intermediate stack states.",
+   "options": [
+    "284",
+    "213",
+    "142",
+    "71"
+   ]
+  },
+  {
    "id": "gate-2015-set-3-q47-anti-dependence-statements",
    "year": "2015",
    "paper": "GATE CS 2015 Set 3",
@@ -50456,6 +51381,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/39670/gate-cse-2016-set-1-question-8",
    "source_label": "GATE Overflow discussion of GATE CS 2016 Set 1 Q.8 (answers 3 and 4 both accepted)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2016-set-1-q10-queue-array-complexity",
+   "year": "2016",
+   "paper": "GATE CS 2016 Set 1",
+   "question_ref": "Q.10",
+   "type": "MCQ",
+   "topic": "queue-adt-and-linear-queue-limitation",
+   "text": "A queue is implemented using an array such that ENQUEUE and DEQUEUE operations are performed efficiently. Which one of the following statements is CORRECT (n refers to the number of items in the queue)?",
+   "answer": "Option (A) - both operations can be performed in O(1) time",
+   "solution": "A circular array keeps front and rear as indices advanced modulo the array size. ENQUEUE writes at rear and advances it; DEQUEUE reads at front and advances it. Neither shifts an element, so both are O(1) and the Omega(n) options are wrong.",
+   "source_url": "https://gateoverflow.in/39667/gate-cse-2016-set-1-question-10",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.10 with community solutions (answer recorded as option A)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted answer is A with the circular-array argument, and a second source (ExamSIDE's GATE 2016 Set 1 explanation) states the same; scripts/validate.py models both the shifting and the circular implementation and confirms the per-operation counts.",
+   "options": [
+    "Both operations can be performed in O(1) time.",
+    "At most one operation can be performed in O(1) time but the worst case time for the other operation will be Omega(n).",
+    "The worst case time complexity for both operations will be Omega(n).",
+    "Worst case time complexity for both operations will be Omega(log n)."
+   ]
   },
   {
    "id": "gate-2016-set-1-q32-throughput-increase",
@@ -51560,6 +52506,21 @@ window.GATE_DATA = {
    "verification": "OFFICIAL_KEY"
   },
   {
+   "id": "gate-2021-set-1-q21-stack-queue-trace",
+   "year": "2021",
+   "paper": "GATE CS 2021 Set 1",
+   "question_ref": "Q.21 (GATE Overflow numbering; GeeksforGeeks lists the same question as Q.31)",
+   "type": "NAT",
+   "topic": "stack-adt-and-lifo",
+   "text": "Consider the following sequence of operations on an empty stack: push(54); push(52); pop(); push(55); push(62); s = pop(). Consider the following sequence of operations on an empty queue: enqueue(21); enqueue(24); dequeue(); enqueue(28); enqueue(32); q = dequeue(). The value of s + q is ______.",
+   "answer": "86",
+   "solution": "The stack ends 54, 55, 62, so s = 62. The queue loses 21 at the first dequeue and 24 at the second, so q = 24. Then s + q = 62 + 24 = 86.",
+   "source_url": "https://gateoverflow.in/357430/gate-cse-2021-set-1-question-21",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.21 with community solutions (answer recorded as 86)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted answer traces both structures to 62 + 24 = 86; scripts/validate.py replays both operation sequences and checks the sum."
+  },
+  {
    "id": "gate-2021-set-1-q53-hundred-instructions-time",
    "year": "2021",
    "paper": "GATE CS 2021 Set 1",
@@ -52282,6 +53243,21 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2023-q49-stack-queue-top",
+   "year": "2023",
+   "paper": "GATE CS 2023",
+   "question_ref": "Q.49",
+   "type": "NAT",
+   "topic": "stack-adt-and-lifo",
+   "text": "Consider a sequence a of elements a0 = 1, a1 = 5, a2 = 7, a3 = 8, a4 = 9 and a5 = 2. The following operations are performed on a stack S and a queue Q, both initially empty: push the elements of a from a0 to a5 in that order into S; enqueue the elements from a0 to a5 in that order into Q; pop an element from S; dequeue an element from Q; pop an element from S; dequeue an element from Q; dequeue an element from Q and push it into S, repeated three times; pop an element from S; pop an element from S. The top element of S after executing the above operations is ______.",
+   "answer": "8",
+   "solution": "S holds 2, 9, 8, 7, 5, 1 (top first) and Q holds 1, 5, 7, 8, 9, 2. The two pops remove 2 and then 9, leaving 8, 7, 5, 1. The two dequeues remove 1 and then 5, so Q is 7, 8, 9, 2. Operation VII is performed once, dequeuing 7 and pushing it, and then repeated three more times, dequeuing and pushing 8, 9 and 2: S becomes 1, 5, 7, 8, 7, 8, 9, 2 with 2 on top. The last two pops remove 2 and then 9, leaving 8 on top. Recomputed by replaying the whole sequence in scripts/validate.py.",
+   "source_url": "https://gateoverflow.in/399262/gate-cse-2023-question-49",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.49 with community solutions (answer recorded as 8)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted trace ends with 8 as the top element; scripts/validate.py replays the whole operation sequence and checks the final stack and its top."
+  },
+  {
    "id": "gate-2024-1-3-5bit-overflow",
    "year": "2024",
    "paper": "GATE CSE 2024 Set 1",
@@ -52360,6 +53336,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2, listed as Question: 21, with the accepted answer that only option A is correct",
    "verification": "SOURCED",
    "answer_evidence": "The page's answer states that there is a RAW dependency on R3 between I1 and I2, that there is no RAW between I2 and I3, that the I1-I3 pair is WAW, and that only option A is correct. The paper numbering Q.31 is confirmed by two PYQ pages citing the GATE 2024 CS2 answer key."
+  },
+  {
+   "id": "gate-2024-set-2-q38-two-stacks-output",
+   "year": "2024",
+   "paper": "GATE CS 2024 Set 2",
+   "question_ref": "Q.38",
+   "type": "MSQ",
+   "topic": "stack-permutations-and-catalan",
+   "text": "Let S1 and S2 be two stacks. S1 has capacity 4 and already holds 100, 200, 300, 400 with 400 on top; S2 has capacity 2 and is empty. The only available operations are PushToS2 (pop the top of S1 and push it on S2), PushToS1 (pop the top of S2 and push it on S1) and GenerateOutput (pop the top of S1 and output it). Pop is not allowed on an empty stack and push is not allowed on a full stack. Which of the following output sequences can be generated?",
+   "answer": "Options (B), (C) and (D)",
+   "solution": "Option (A) needs 100 to be printed first, which requires moving 400, 300 and 200 off S1 at once, and S2 holds only two elements. (B): move 400 and 300 to S2, print 200, bring 300 back and print it, then bring 400 back and print 400, 100. (C): print 400, park 300 in S2, print 200 and 100, bring 300 back and print it. (D): park 400 in S2, print 300 and 200, bring 400 back and print 400, 100.",
+   "source_url": "https://gateoverflow.in/422859/gate-cse-2024-set-2-question-38",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 2 Q.38 with community solutions (answers recorded as B, C, D)",
+   "verification": "SOURCED",
+   "answer_evidence": "The page's accepted answer demonstrates sequences B, C and D and rules out A on the capacity of S2; scripts/validate.py searches the reachable output sequences under the two capacities and reproduces the answer set.",
+   "options": [
+    "100, 200, 400, 300",
+    "200, 300, 400, 100",
+    "400, 200, 100, 300",
+    "300, 200, 400, 100"
+   ]
   },
   {
    "id": "gate-2024-set-2-q47-opcodes-per-mode",

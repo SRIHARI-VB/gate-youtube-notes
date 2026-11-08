@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-postfix-of-exponent-expression",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "GATE 2004, postfix-form question (the paper's own question number is not confirmed; it appears in GATE 2004 question banks as the a + b x c - d ^ e ^ f item)",
+  "type": "MCQ",
+  "topic": "infix-postfix-prefix-conversion",
+  "text": "Assume that the operators +, -, x are left associative and ^ is right associative. The order of precedence (from highest to lowest) is ^, x, +, -. The postfix expression corresponding to the infix expression a + b x c - d ^ e ^ f is",
+  "options": [
+    "a b c x + d e f ^ ^ -",
+    "a b c x + d e ^ f ^ -",
+    "a b + c x d - e ^ f ^",
+    "- + a x b c ^ ^ d e f"
+  ],
+  "answer": "Option (A) - a b c x + d e f ^ ^ -",
+  "solution": "^ is right-associative, so d ^ e ^ f groups as d ^ (e ^ f) and becomes d e f ^ ^. Then b x c becomes b c x and a + (b x c) becomes a b c x +. The subtraction joins the two halves: a b c x + d e f ^ ^ -. Option (B) is the left-associative reading d e ^ f ^.",
+  "source_url": "https://www.knowledgegate.ai/blog/data-structures-stacks-queues-mcqs",
+  "source_label": "Knowledge Gate AI, 'Stacks and Queues MCQs: 12 Solved (GATE)' - records the question as GATE 2004 with answer (a); the same question and answer appear in the timestamped lecture summary of the GATE 2004 conversion",
+  "verification": "SOURCED",
+  "answer_evidence": "The MCQ page records answer (a) a b c x + d e f ^ ^ - and the timestamped lecture summary derives the same string step by step; scripts/validate.py converts the expression with a shunting-yard implementation and checks the result and the left-associative distractor."
+}

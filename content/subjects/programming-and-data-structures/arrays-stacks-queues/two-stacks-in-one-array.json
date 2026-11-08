@@ -1,0 +1,74 @@
+{
+  "id": "two-stacks-in-one-array",
+  "title": "Two Stacks Sharing One Array",
+  "priority": "P2",
+  "order": 588,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Let one stack grow from the left end and the other from the right end. They meet in the middle, and the array is full only when the two tops are adjacent.",
+  "remember": [
+    "One-indexed convention (the GATE CSE 2004 statement): A[1..MAXSIZE], top1 < top2, stack 1 grows up from 1 and stack 2 grows down from MAXSIZE. The array is full when top1 = top2 - 1.",
+    "Zero-indexed convention: top1 starts at -1 and top2 at n. The array is full when top1 + 1 == top2, and the number of free slots is top2 - top1 - 1.",
+    "This layout uses all n slots whenever the two stacks together need n elements, whatever the split. Splitting the array in halves does not: stack 1 overflows with half the array still empty.",
+    "Each push or pop is still O(1): only the relevant top moves.",
+    "In the one-indexed convention the number of elements stored is top1 + n - top2 + 1, which for A[1..10] with top1 = 6 and top2 = 8 is 6 + 10 - 8 + 1 = 9, and the free slots are top2 - top1 - 1 = 1."
+  ],
+  "example": {
+    "prompt": "An array A[1..10] holds two stacks growing from opposite ends. top1 = 6 and top2 = 8. Is the array full, and how many free slots are there?",
+    "work": "Full would need top1 = top2 - 1, that is 6 = 7, which is false. Free slots are top2 - top1 - 1 = 8 - 6 - 1 = 1, namely index 7. The element count is (6 - 1 + 1) + (10 - 8 + 1) = 6 + 3 = 9, and 9 + 1 free slot = 10.",
+    "answer": "Not full; one free slot at index 7."
+  },
+  "gateAngle": "The 2004 question offers three plausible-looking conditions, and only one of them survives a small example. Test any candidate condition by counting free slots, not by checking it against a picture.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "With the zero-indexed convention (top1 = -1, top2 = n), what is the condition for the array to be full, and what does it become for an array of size 1?",
+      "answer": "top1 + 1 == top2; for n = 1 the array is full once one element is pushed, since top1 becomes 0 and top2 is 1.",
+      "why": "The same adjacency condition written for 0-based indices. The n = 1 case is the boundary that catches a condition written as top1 == top2 - 2 or as top1 + top2 == n."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is splitting an array of size n into two halves of size n/2 a worse use of space than growing from both ends?",
+      "answer": "Because the split is fixed while the demand is not: one stack can overflow while the other half is empty.",
+      "why": "Growing from both ends makes the whole array available to either stack, so overflow happens only when the total is n. The fixed split wastes space in exactly the case that matters."
+    }
+  ],
+  "trap": {
+    "what": "Accepting top1 + top2 = MAXSIZE as the full condition.",
+    "why": "The sum of the two tops says nothing about the gap between them. It can hold while several slots are free, and it can fail while the stacks are touching.",
+    "counterexample": "MAXSIZE = 10, top1 = 4, top2 = 6. The sum is 10, yet slot 5 is free, so the array is not full. Push one element into stack 1: top1 = 5 = top2 - 1, which is full - and the sum is now 11, so the sum test would have missed the true full state."
+  },
+  "check": {
+    "question": "In A[1..20] with stacks growing from both ends, top1 = 7 and top2 = 9. How many slots are free?",
+    "answer": "1.",
+    "explanation": "Free slots are the indices strictly between the tops, top2 - top1 - 1 = 9 - 7 - 1 = 1, which is index 8. The next push into either stack makes top1 = 8 = top2 - 1 and the array is full."
+  },
+  "pyqIds": [
+    "gate-2004-two-stacks-one-array"
+  ],
+  "prereqs": [
+    "stack-adt-and-lifo"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: two stacks in one array",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "text",
+      "title": "GeeksforGeeks, GATE CS 2004, Data structures - Stacks, question 3 (two stacks in one array)",
+      "url": "https://www.geeksforgeeks.org/questions/a-single-array-a1maxsize-is-used-to-implement-two-1/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "question statement and answer read"
+    }
+  ],
+  "sourceLine": "The two-ended layout and the full condition, with the GATE CSE 2004 statement: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The free-slot arithmetic is recomputed in scripts/validate.py.",
+  "links": {}
+}

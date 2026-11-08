@@ -1,0 +1,34 @@
+{
+  "slug": "circular-queue-wraparound",
+  "topic": "circular-queue-full-empty-conditions",
+  "engine": "p5.js",
+  "steps": 8,
+  "example": {
+    "n": 5,
+    "capacity": 4,
+    "enqueues": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60
+    ],
+    "dequeues": 2,
+    "final_front": 2,
+    "final_rear": 1,
+    "final_count": 4,
+    "final_values": [
+      30,
+      40,
+      50,
+      60
+    ],
+    "paper": "GATE CSE 2012 Q.35",
+    "quick_check": {
+      "question": "In an array of size 8 with front = 6 and rear = 2 under the sacrificed-slot convention, how many elements are stored?",
+      "answer": "4",
+      "note": "(rear - front + n) mod n = (2 - 6 + 8) mod 8 = 4"
+    }
+  }
+}

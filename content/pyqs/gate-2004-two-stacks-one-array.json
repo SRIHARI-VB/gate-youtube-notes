@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-two-stacks-one-array",
+  "year": "2004",
+  "paper": "GATE CS 2004",
+  "question_ref": "GATE 2004, data structures - stacks, question 3 in the GeeksforGeeks GATE 2004 listing (the paper's own question number is not confirmed)",
+  "type": "MCQ",
+  "topic": "two-stacks-in-one-array",
+  "text": "A single array A[1..MAXSIZE] is used to implement two stacks. The two stacks grow from opposite ends of the array. Variables top1 and top2 (top1 < top2) point to the location of the topmost element in each of the stacks. If the space is to be used efficiently, the condition for \"stack full\" is",
+  "answer": "Option (D) - top1 = top2 - 1",
+  "solution": "Growing from opposite ends, the array is full exactly when the two tops are adjacent: top1 = top2 - 1. Option (B) fails on a concrete case: with MAXSIZE = 10, top1 = 4 and top2 = 6 the sum is 10 while slot 5 is still free.",
+  "source_url": "https://www.geeksforgeeks.org/questions/a-single-array-a1maxsize-is-used-to-implement-two-1/",
+  "source_label": "GeeksforGeeks - GATE CS 2004, Data structures, Stacks, question 3 (answer recorded as option D); the same statement and answer appear on SolutionsAdda under GATE 2004",
+  "verification": "SOURCED",
+  "answer_evidence": "GeeksforGeeks records answer (d) with the adjacency argument, and SolutionsAdda's GATE 2004 page gives the same answer; scripts/validate.py checks the free-slot counterexample against the condition top1 + top2 = MAXSIZE.",
+  "options": [
+    "(top1 = MAXSIZE/2) and (top2 = MAXSIZE/2 + 1)",
+    "top1 + top2 = MAXSIZE",
+    "(top1 = MAXSIZE/2) or (top2 = MAXSIZE)",
+    "top1 = top2 - 1"
+  ]
+}

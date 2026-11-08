@@ -1,0 +1,74 @@
+{
+  "id": "postfix-evaluation-and-parentheses",
+  "title": "Evaluating Postfix and Matching Brackets",
+  "priority": "P1",
+  "order": 591,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Evaluation uses one operand stack: push numbers, and on an operator pop the right operand first and the left second, then push the result. Bracket matching is the same stack idea without numbers.",
+  "remember": [
+    "Scan left to right. A number is pushed. An operator pops y (the right operand) then x (the left operand) and pushes x op y. The last value left on the stack is the answer.",
+    "Operand order matters for - and /: the first pop is the right operand. Reversing them is the commonest arithmetic slip in these questions.",
+    "A valid postfix expression leaves exactly one value on the stack at the end, and the stack never underflows on an operator.",
+    "Bracket matching: push each opening bracket, and on a closing bracket pop and compare. A mismatch or a pop on an empty stack means the expression is unbalanced; a non-empty stack at the end means unclosed brackets.",
+    "An operator stack converts infix to postfix; an operand stack evaluates. GATE has asked which of the two is essential for conversion, and the answer is the operator stack alone."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2015 Set 3 Q.12. Evaluate the postfix expression 10 5 + 60 6 / * 8 -.",
+    "work": "Push 10, push 5; + pops 5 and 10 and pushes 15. Push 60, push 6; / pops 6 and 60 and pushes 60/6 = 10. Now * pops 10 and 15 and pushes 150. Push 8; - pops 8 and 150 and pushes 150 - 8 = 142. One value remains.",
+    "answer": "142, option (C) of the paper."
+  },
+  "gateAngle": "Postfix evaluation is the mechanical core of the topic, and GATE reuses it inside other questions - the 2007 postfix question asks for the top two stack entries partway through, which is the same scan stopped early.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Evaluate 8 2 3 ^ / 2 3 * + 5 1 * -, where ^ is exponentiation.",
+      "answer": "2.",
+      "why": "Push 8, 2, 3; ^ pops 3 and 2 and pushes 2^3 = 8, so the stack is 8, 8; / pops 8 and 8 and pushes 1; 2 3 * pushes 6, + pushes 7; 5 1 * pushes 5, - pushes 7 - 5 = 2. The exponent's operands come in the order 2 then 3, which is the step most often reversed."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "During the evaluation of a postfix expression the stack holds 15 then 60 then 6, with 6 on top, and the next token is /. Which two values are popped, and in what role?",
+      "answer": "6 is popped as the right operand and 60 as the left, giving 60 / 6 = 10.",
+      "why": "This is the 2015 Set 3 step that decides the answer. Taking them the other way gives 6 / 60 = 0.1 and the final result is wrong by a factor of 100."
+    }
+  ],
+  "trap": {
+    "what": "Popping the left operand first on subtraction or division.",
+    "why": "In postfix the operator follows both operands, so the value on top is the second operand. The stack discipline fixes the roles, and only the first pop is the right operand.",
+    "counterexample": "In 10 5 + 60 6 / * 8 - the final step pops 8 then 150. Correct order gives 150 - 8 = 142; the reversed order gives 8 - 150 = -142, which is not among the options, so a reversed pop is visible immediately in a multiple-choice paper."
+  },
+  "check": {
+    "question": "Evaluate the postfix expression 6 2 3 * - and say which operation runs first.",
+    "answer": "0; the multiplication 2 * 3 runs first.",
+    "explanation": "Push 6, 2, 3; * pops 3 and 2 and pushes 6, so the stack is 6, 6; - pops 6 and 6 and pushes 0. The operator nearest the operands binds first, which is why postfix needs no brackets."
+  },
+  "pyqIds": [
+    "gate-2015-set-3-q12-postfix-evaluation"
+  ],
+  "prereqs": [
+    "infix-postfix-prefix-conversion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: stacks - postfix and prefix evaluation",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow, GATE CSE 2015 Set 3 Question 12 (postfix evaluation, answer 142)",
+      "url": "https://gateoverflow.in/8408/gate-cse-2015-set-3-question-12",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "question, options and community trace read"
+    }
+  ],
+  "sourceLine": "The operand-stack algorithm and bracket matching: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The step-by-step trace of the 2015 Set 3 expression: GATE Overflow question page for GATE CSE 2015 Set 3 Q.12 (English, read in part). Both evaluations are recomputed in scripts/validate.py.",
+  "links": {}
+}

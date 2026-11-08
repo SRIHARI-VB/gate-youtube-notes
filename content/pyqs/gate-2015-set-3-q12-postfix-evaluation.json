@@ -1,0 +1,21 @@
+{
+  "id": "gate-2015-set-3-q12-postfix-evaluation",
+  "year": "2015",
+  "paper": "GATE CS 2015 Set 3",
+  "question_ref": "Q.12",
+  "type": "MCQ",
+  "topic": "postfix-evaluation-and-parentheses",
+  "text": "The result evaluating the postfix expression 10 5 + 60 6 / * 8 - is",
+  "answer": "Option (C) - 142",
+  "solution": "Push 10 and 5, and + gives 15. Push 60 and 6, and / gives 60/6 = 10. The * gives 15 * 10 = 150. Push 8 and the - gives 150 - 8 = 142. The infix reading is ((10 + 5) * (60 / 6)) - 8 = 142.",
+  "source_url": "https://gateoverflow.in/8408/gate-cse-2015-set-3-question-12",
+  "source_label": "GATE Overflow question page - GATE CSE 2015 Set 3 Q.12 with community solutions (answer recorded as 142)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted trace gives 142 and its options list 142 as option C; scripts/validate.py evaluates the same token sequence with an operand stack and checks the value and the intermediate stack states.",
+  "options": [
+    "284",
+    "213",
+    "142",
+    "71"
+  ]
+}

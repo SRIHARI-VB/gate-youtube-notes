@@ -1,0 +1,21 @@
+{
+  "id": "gate-2002-2-8-char-array-address",
+  "year": "2002",
+  "paper": "GATE CS 2002",
+  "question_ref": "Q.2.8",
+  "type": "MCQ",
+  "topic": "array-address-calculation",
+  "text": "Consider the following declaration of a two-dimensional array in C: char a[100][100]; Assuming that the main memory is byte-addressable and that the array is stored starting from memory address 0, the address of a[40][50] is",
+  "answer": "Option (B) - 4050",
+  "solution": "C stores a two-dimensional array row-major, so the offset is 40 * 100 + 50 = 4050 elements, and one char is one byte: address 0 + 4050 = 4050. Option (C) is the column-major value 50 * 100 + 40 = 5040.",
+  "source_url": "https://gateoverflow.in/838/gate-cse-2002-question-2-8",
+  "source_label": "GATE Overflow question page - GATE CSE 2002 Q.2.8 with community solutions (answer recorded as option B)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page gives 4050 with the row-major formula; scripts/validate.py recomputes both orders for this declaration.",
+  "options": [
+    "4040",
+    "4050",
+    "5040",
+    "5050"
+  ]
+}

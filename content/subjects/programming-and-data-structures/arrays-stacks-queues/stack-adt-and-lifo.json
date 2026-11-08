@@ -1,0 +1,74 @@
+{
+  "id": "stack-adt-and-lifo",
+  "title": "The Stack ADT: Last In, First Out",
+  "priority": "P1",
+  "order": 587,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "A stack allows insertion and removal at one end only, so the most recent item is the first to leave. Push, pop, peek and isEmpty are all O(1).",
+  "remember": [
+    "Operations: push (insert at the top), pop (remove and return the top), peek or top (read the top without removing), isEmpty, isFull. The abstract data type fixes the operations, not their implementation.",
+    "Array implementation: an integer top starts at -1; push writes at ++top; pop returns stack[top--]; empty means top == -1 and full means top == capacity - 1.",
+    "Linked-list implementation: push inserts at the head and pop removes the head, so no traversal and no fixed capacity. The price is one pointer per element.",
+    "Underflow is a pop on an empty stack; overflow is a push on a full fixed-size stack. Both are errors the question usually asks you to detect, not to ignore.",
+    "Peek is not pop: reading the top leaves the stack unchanged, which is what makes the O(1) minimum-augmentation questions work.",
+    "A trace question is answered by writing the stack after every operation, top on the right, and never by guessing from the final state."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2021 Set 1 Q.21. On an empty stack: push(54); push(52); pop(); push(55); push(62); s = pop(). What is s?",
+    "work": "After push(54) and push(52) the stack is 54, 52 with 52 on top. The pop removes 52, leaving 54. push(55) gives 54, 55 and push(62) gives 54, 55, 62. The final pop returns 62.",
+    "answer": "s = 62. In the same question the queue half gives q = 24, so s + q = 86."
+  },
+  "gateAngle": "Stack traces are the cheapest marks in this topic: four lines of bookkeeping settle them. GATE pairs a stack trace with a queue trace (2021 Set 1 Q.21) or with a sequence that mixes the two structures (2023 Q.49) to check that you are not applying one discipline to both.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "On an empty stack perform push(1), push(2), push(3), pop, pop, push(4), pop. List the values popped, in order.",
+      "answer": "3, 2, 4.",
+      "why": "The same bookkeeping as the 2021 trace: the two pops take the two most recent items 3 and 2, and 4 is pushed after them so it is popped next. Nothing about the order of the remaining stack changes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A stack is implemented on an array of capacity 3 with top starting at -1. After push(7), push(8), push(9) and one more push(10), what happens and what is the stack?",
+      "answer": "The fourth push overflows and is rejected; the stack is still 7, 8, 9 with top = 2.",
+      "why": "Full means top == capacity - 1 = 2, so the push cannot write anywhere. A correct implementation reports overflow and leaves the stack unchanged rather than overwriting index 3."
+    }
+  ],
+  "trap": {
+    "what": "Treating peek and pop as the same operation, or forgetting that a pop on an empty stack is underflow.",
+    "why": "Peek reads without changing the stack; pop removes. In a long trace the difference decides whether an element is still available for a later pop.",
+    "counterexample": "On the stack 54, 55, 62 a peek returns 62 and leaves all three elements; a pop returns 62 and leaves 54, 55. A trace that uses peek in place of pop reports 62 twice and then underflows."
+  },
+  "check": {
+    "question": "After push(1), push(2), push(3) and two pops on an initially empty stack, what does peek return?",
+    "answer": "1.",
+    "explanation": "The two pops remove 3 and then 2, leaving only 1, so the top is 1. Peek returns it without removing it, so a further peek still returns 1."
+  },
+  "pyqIds": [
+    "gate-2021-set-1-q21-stack-queue-trace",
+    "gate-2023-q49-stack-queue-top"
+  ],
+  "prereqs": [],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: stacks (operations and array implementation)",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "lecture",
+      "title": "NPTEL IIT Delhi, Data Structures and Algorithms, Lecture 2 - Stacks",
+      "url": "https://nptel.ac.in/courses/106102064",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "note": "lecture title and published topic list only; no captions or transcript were retrievable, so no card quotes it"
+    }
+  ],
+  "sourceLine": "The LIFO operations, the array implementation with top = -1 and the linked implementation: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The lecture scope and the ADT framing are fixed by NPTEL IIT Delhi 106102064, Prof. Naveen Garg, Lectures 2 (Stacks) and 3 (Queues and Linked Lists) (English, structure only). Both traces are recomputed in scripts/validate.py.",
+  "links": {}
+}

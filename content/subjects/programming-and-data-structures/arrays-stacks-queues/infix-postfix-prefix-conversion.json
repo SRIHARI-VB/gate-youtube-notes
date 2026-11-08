@@ -1,0 +1,74 @@
+{
+  "id": "infix-postfix-prefix-conversion",
+  "title": "Infix, Postfix and Prefix Conversion",
+  "priority": "P1",
+  "order": 590,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Postfix writes the operator after its two operands, so no brackets are needed. Converting from infix needs one stack, holding operators and brackets, never operands.",
+  "remember": [
+    "Precedence used by the standard conversion, highest first: brackets, then ^, then * and /, then + and -. ^ is right-associative; the others are left-associative unless a question says otherwise.",
+    "Shunting-yard rule: an operand goes straight to the output; an operator pops from the stack while the stack top has higher precedence, or equal precedence and the incoming operator is left-associative; a left bracket is pushed and a right bracket pops until its left bracket.",
+    "Prefix is produced by the same algorithm with the input read right to left, or by reversing the postfix string - reversing postfix gives prefix of the mirrored expression only when the operators are not reordered, so the safe method is the right-to-left pass.",
+    "A right-associative operator must NOT pop an equal-precedence operator from the stack. This one rule decides most exam questions.",
+    "Postfix of a + b * c - d ^ e ^ f is a b c * + d e f ^ ^ -."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2004. With +, -, * left-associative and ^ right-associative, and precedence ^ > * > + > -, write the postfix form of a + b * c - d ^ e ^ f.",
+    "work": "Highest precedence first: b * c becomes b c *. Right associativity groups d ^ e ^ f as d ^ (e ^ f), which becomes d e f ^ ^ - not d e ^ f ^. Now the expression is (a + (b * c)) - (d ^ (e ^ f)), whose postfix is a b c * + then d e f ^ ^ then the final minus: a b c * + d e f ^ ^ -.",
+    "answer": "a b c * + d e f ^ ^ -, option (A) of the paper."
+  },
+  "gateAngle": "The examiner's lever is associativity, not precedence: every distractor differs by whether ^ grouped to the left or the right. Convert the highest-precedence subexpression first, then combine, and the operator stack never has to be simulated in full.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Write the postfix form of A + B * (C + D) / F + D * E.",
+      "answer": "A B C D + * F / + D E * +.",
+      "why": "Same method as the 2004 question with a bracket added: C + D becomes C D +, B * (C + D) becomes B C D + *, dividing by F gives B C D + * F /, and A plus that gives A B C D + * F / +. The trailing D * E is D E *, joined by the final +. The bracket, not associativity, is what changes here."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does infix-to-postfix conversion need only an operator stack and no operand stack?",
+      "answer": "Because operands are emitted in the order they are read; only operators and brackets have to be held back and reordered.",
+      "why": "This is GATE CSE 1997's question in substance. An operand's position in the output is already decided when it is read, so nothing about it needs remembering - the reordering work belongs entirely to the operators."
+    }
+  ],
+  "trap": {
+    "what": "Popping an equal-precedence operator when the incoming operator is right-associative.",
+    "why": "Right associativity means the incoming operator binds tighter to what follows it, so it must wait on the stack above the earlier one. Popping early turns a ^ (b ^ c) into (a ^ b) ^ c, a different expression.",
+    "counterexample": "With d = 2, e = 3, f = 2: d ^ (e ^ f) = 2^9 = 512, while (d ^ e) ^ f = 8^2 = 64. The postfix d e f ^ ^ and d e ^ f ^ evaluate to 512 and 64, so the two candidate answers are not merely different strings."
+  },
+  "check": {
+    "question": "Write the postfix form of (a + b) * c.",
+    "answer": "a b + c *.",
+    "explanation": "The bracket forces a + b first, giving a b +, and the multiplication then applies to that result and c. Without the bracket, a + b * c would be a b c * +."
+  },
+  "pyqIds": [
+    "gate-2004-postfix-of-exponent-expression"
+  ],
+  "prereqs": [
+    "stack-adt-and-lifo"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: stacks - infix-to-postfix conversion and the precedence table",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "video-summary",
+      "title": "Knowledge Gate AI, Infix to Postfix Conversion of the GATE 2004 expression (timestamped lecture summary)",
+      "url": "https://www.knowledgegate.ai/learn/DATA-STRUCTURES/data-structures/stack/infix-postfix-prefix/asset-infix-to-postfix-conversion-of-expression",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "timestamped summary of the lecture, read in part; the instructor's grouping steps are at 0:00-2:00"
+    }
+  ],
+  "sourceLine": "Precedence and associativity table, the shunting-yard rules and the right-associative ^ case: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The worked 2004 conversion, with the paper's option (A) confirmed: Knowledge Gate AI lecture summary of the GATE 2004 infix-to-postfix question (English, read in part). Every postfix string here is re-evaluated in scripts/validate.py.",
+  "links": {}
+}

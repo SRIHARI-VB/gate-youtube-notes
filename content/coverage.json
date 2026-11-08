@@ -1,10 +1,10 @@
 {
  "exam": "GATE CSE 2027",
- "updated_at": "2026-10-31",
+ "updated_at": "2026-11-08",
  "cycle": {
   "last_subject": "programming-and-data-structures",
-  "last_topic": "recursion",
-  "updated_at": "2026-10-31"
+  "last_topic": "arrays-stacks-queues",
+  "updated_at": "2026-11-08"
  },
  "subjects": [
   {
@@ -1032,10 +1032,32 @@
     {
      "slug": "arrays-stacks-queues",
      "name": "Arrays, Stacks and Queues",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "10 cards, one per subtopic (array addressing in one and two dimensions, array operation costs, the stack ADT, two stacks in one array, stack permutations and the Catalan count, infix/postfix/prefix conversion, postfix evaluation and bracket matching, the queue ADT and the linear-queue defect, circular-queue full and empty conditions, deques and queue-from-two-stacks), 11 verified PYQs and 1 p5.js lesson. Partial because four gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-11-08",
+       "sources": [
+        "iaeacademy-linear-structures-notes",
+        "knowledgegate-infix-to-postfix-gate-2004",
+        "nptel-iitd-106102064-lectures-2-3",
+        "gateoverflow-question-pages"
+       ],
+       "cards": 10,
+       "pyqs": 11,
+       "lesson": "programming-and-data-structures/arrays-stacks-queues/circular-queue-wraparound",
+       "note": "Sources chosen on merit across four sources and no channel default: an independent GATE-notes site (English, read in part) as the primary text, a timestamped lecture summary for the GATE 2004 conversion (English, read in part), the NPTEL IIT Delhi lectures 2-3 for scope only (captions unavailable), and GATE Overflow question pages for every PYQ. Rejected with reasons in sources.json: the Gate Smashers Hindi DSA playlist (captions unavailable), Neso Academy, the Vishvadeep Gothi Infinity Batch, the NPTEL video pages themselves, MonalisaCS chapter PDFs and a GO Classes search that found no playlist for this topic. No card is translated: every source drawn on is English."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable anywhere in this run: YouTube watch pages answered LOGIN_REQUIRED and yt-dlp was refused with a bot check, so videoRefs is empty on all ten cards and the two lecture sources are recorded as STRUCTURE_ONLY",
+      "the Gate Smashers Hindi stack and queue lectures, which work the GATE 2006 and GATE 2022 queue questions, could not be read, so no card draws on them and their question treatments are not recorded",
+      "every PYQ is SOURCED, not key-verified, and no marks field is recorded on any of the eleven",
+      "the GATE 2004 two-stacks-in-one-array question carries a paper-numbering gap: it is question 3 of the GeeksforGeeks GATE 2004 stacks listing and has no confirmed question number in the paper itself; the GATE 2004 postfix question has the same gap",
+      "two subtopics have no verified PYQ of their own: array operation costs (GATE tests the cost model inside code questions, not as a standalone item) and the queue ADT apart from the 2016 complexity question",
+      "linked-list implementations of the stack and the queue are named on the cards but taught in the next topic (linked lists), so the implementation detail is not developed here",
+      "the iaeacademy notes were read in part: the sections after the queue material (linked lists, Floyd cycle detection) were not used, and nothing is claimed from them"
+     ]
     },
     {
      "slug": "linked-lists",

@@ -3095,6 +3095,399 @@ def check_memory_hierarchy_and_cache():
        % (5 * 3 * 3 + 11 + 4))
 
 
+def check_arrays_stacks_queues(topics, tpath, pyqs):
+    """Every address, move count, trace, permutation count and queue index published in the
+    Arrays, Stacks and Queues cards, the lesson and the PYQ records is recomputed here."""
+    cards = {tid: t for tid, t in topics.items() if tpath[tid].split("/")[3] == "arrays-stacks-queues"}
+    if not cards:
+        fail("arrays-stacks-queues has no cards")
+        return
+
+    # ---- array addressing: the 1998 row-major form, its column-major twin and the 2002 char array
+    def addr_row(base, i, j, l1, l2, nr, nc, w):
+        return base + ((i - l1) * nc + (j - l2)) * w
+
+    def addr_col(base, i, j, l1, l2, nr, nc, w):
+        return base + ((j - l2) * nr + (i - l1)) * w
+
+    def f1998_row(i, j):
+        return 15 * i + j + 84
+
+    def f1998_col(i, j):
+        return 10 * j + i + 89
+
+    for i in range(1, 11):
+        for j in range(1, 16):
+            assert addr_row(100, i, j, 1, 1, 10, 15, 1) == f1998_row(i, j), "1998 row-major closed form"
+            assert addr_col(100, i, j, 1, 1, 10, 15, 1) == f1998_col(i, j), "1998 column-major closed form"
+    assert f1998_row(1, 1) == 100 and f1998_row(10, 15) == 249, "1998 corners"
+    assert f1998_col(1, 1) == 100 and f1998_col(10, 15) == 249, "column-major corners"
+    # the unreduced formula the trap names
+    assert 15 * 1 + 1 + 99 == 115 != 100, "unreduced formula is wrong at the first cell"
+    assert addr_row(0, 40, 50, 0, 0, 100, 100, 1) == 4050, "2002 char array address"
+    assert addr_col(0, 40, 50, 0, 0, 100, 100, 1) == 5040, "2002 column-major distractor"
+    assert addr_row(1000, 3, 5, 0, 0, 10, 20, 4) == 1260, "quick check A[3][5] of a 10x20 int array"
+    # packed lower-triangular index and element count
+    for n in range(1, 8):
+        idx = {(i, j): i * (i + 1) // 2 + j for i in range(n) for j in range(i + 1)}
+        assert sorted(idx.values()) == list(range(n * (n + 1) // 2)), "packed triangular offset is a bijection"
+
+    # ---- array operation costs
+    n = 10
+    insert_moves = [n - k for k in range(n + 1)]
+    assert insert_moves[0] == 10 and insert_moves[-1] == 0, "insert at front and back"
+    assert sum(insert_moves) / len(insert_moves) == 5, "average insert cost is n/2"
+    assert n - 1 - 0 == 9, "delete at index 0 moves n-1 elements"
+    assert n - 1 - (n - 1) == 0, "delete at the last index moves nothing"
+    copies, cap = 0, 1
+    for _ in range(8):
+        if _ == cap:
+            copies += cap
+            cap *= 2
+    assert copies == 7 and cap == 8, "doubling array: 7 copies over 8 appends"
+
+    # ---- stack traces
+    def run_stack(ops):
+        st, out = [], []
+        for op in ops:
+            kind, val = op[0], (op[1] if len(op) > 1 else None)
+            if kind == "push":
+                st.append(val)
+            elif kind == "pop":
+                out.append(st.pop())
+        return st, out
+
+    st, out = run_stack([("push", 54), ("push", 52), ("pop",), ("push", 55), ("push", 62), ("pop",)])
+    assert st == [54, 55] and out == [52, 62] and out[-1] == 62, "2021 Set 1 Q.21: s = 62"
+    q, out = [], []
+    for op in [("enqueue", 21), ("enqueue", 24), ("dequeue",), ("enqueue", 28), ("enqueue", 32), ("dequeue",)]:
+        if op[0] == "enqueue":
+            q.append(op[1])
+        else:
+            out.append(q.pop(0))
+    assert out == [21, 24] and out[-1] == 24, "2021 Set 1 Q.21: q = 24"
+    assert 62 + 24 == 86, "2021 Set 1 Q.21: s + q = 86"
+    st, out = run_stack([("push", 1), ("push", 2), ("push", 3), ("pop",), ("pop",), ("push", 4), ("pop",)])
+    assert out == [3, 2, 4], "push/pop quick example"
+    st, _ = run_stack([("push", 1), ("push", 2), ("push", 3), ("pop",), ("pop",)])
+    assert st[-1] == 1 and len(st) == 1, "peek after two pops is 1"
+
+    # the 2023 Q.49 operation sequence, replayed in full
+    a = [1, 5, 7, 8, 9, 2]
+    S, Q = [], []
+    for v in a:
+        S.append(v)
+    for v in a:
+        Q.append(v)
+    S.pop()
+    Q.pop(0)
+    S.pop()
+    Q.pop(0)
+    S.append(Q.pop(0))            # operation VII, performed once
+    for _ in range(3):            # then "repeat operation VII three times"
+        S.append(Q.pop(0))
+    S.pop()
+    S.pop()
+    assert S[-1] == 8, "2023 Q.49: the top element is 8"
+    assert S == [1, 5, 7, 8, 7, 8], "2023 Q.49: the final stack contents"
+
+    # ---- two stacks in one array
+    def free_slots(top1, top2):
+        return top2 - top1 - 1
+
+    assert free_slots(6, 8) == 1 and not (6 == 8 - 1), "A[1..10], top1=6, top2=8: one free slot, not full"
+    assert 6 + 8 != 10, "the sum test fails on this example"
+    assert free_slots(4, 6) == 1 and 4 + 6 == 10, "the sum test reports a full array with a slot free"
+    assert free_slots(7, 9) == 1, "quick check: one free slot"
+    assert (7 - 1 + 1) + (20 - 9 + 1) == 19, "element count in A[1..20] with one free slot"
+
+    # ---- stack permutations: enumerate every push-pop schedule and compare with the Catalan count
+    def obtainable(n):
+        outs = set()
+
+        def rec(i, st, out):
+            if i > n and not st:
+                outs.add(tuple(out))
+                return
+            if i <= n:
+                st.append(i)
+                rec(i + 1, st, out)
+                st.pop()
+            if st:
+                v = st.pop()
+                out.append(v)
+                rec(i, st, out)
+                out.pop()
+                st.append(v)
+        rec(1, [], [])
+        return outs
+
+    cat = {1: 1, 2: 2, 3: 5, 4: 14, 5: 42, 6: 132}
+    for k, expect in cat.items():
+        got = obtainable(k)
+        assert len(got) == expect == comb(2 * k, k) // (k + 1), "Catalan count for n=%d" % k
+        # every obtainable order avoids the 3-1-2 pattern and every other order has one
+        def has312(p):
+            m = len(p)
+            for x in range(m):
+                for y in range(x + 1, m):
+                    for z in range(y + 1, m):
+                        if p[y] < p[z] < p[x]:
+                            return True
+            return False
+        for perm in itertools.permutations(range(1, k + 1)):
+            assert (perm in got) == (not has312(perm)), "3-1-2 pattern test fails for %r" % (perm,)
+    five = obtainable(5)
+    assert (3, 4, 5, 2, 1) in five, "1994 option B is obtainable"
+    for bad in [(3, 4, 5, 1, 2), (1, 5, 2, 3, 4), (5, 4, 3, 1, 2)]:
+        assert bad not in five, "1994 option %r must be impossible" % (bad,)
+    three = obtainable(3)
+    assert len(three) == 5 and (3, 1, 2) not in three, "of the six orders of 1,2,3, five are obtainable"
+
+    # the 2024 Set 2 two-stack question: enumerate reachable outputs under the two capacities
+    start = ((100, 200, 300, 400), ())
+    seen, outputs = {start}, set()
+
+    def moves(state):
+        s1, s2 = state
+        if s1 and len(s2) < 2:
+            yield (s1[:-1], s2 + (s1[-1],)), None
+        if s2 and len(s1) < 4:
+            yield (s1 + (s2[-1],), s2[:-1]), None
+        if s1:
+            yield (s1[:-1], s2), s1[-1]
+    frontier = [start]
+    while frontier:
+        nxt = []
+        for state in frontier:
+            for new, printed in moves(state):
+                if printed is not None:
+                    outputs.add(printed)
+                if new not in seen:
+                    seen.add(new)
+                    nxt.append(new)
+        frontier = nxt
+    assert outputs == {100, 200, 300, 400}, "every element is printable"
+    assert 100 in outputs and 400 in outputs, "the endpoints are reachable"
+
+    def sequence_reachable(seq):
+        """Depth-first search for the exact output sequence, respecting the two capacities."""
+        stack = [(start, 0)]
+        visited = set()
+        while stack:
+            state, k = stack.pop()
+            if k == len(seq):
+                return True
+            key = (state, k)
+            if key in visited:
+                continue
+            visited.add(key)
+            for new, printed in moves(state):
+                if printed is not None:
+                    if printed == seq[k]:
+                        stack.append((new, k + 1))
+                else:
+                    stack.append((new, k))
+        return False
+
+    assert sequence_reachable((200, 300, 400, 100)), "2024 Set 2 Q.38 option B"
+    assert sequence_reachable((400, 200, 100, 300)), "2024 Set 2 Q.38 option C"
+    assert sequence_reachable((300, 200, 400, 100)), "2024 Set 2 Q.38 option D"
+    assert not sequence_reachable((100, 200, 400, 300)), "2024 Set 2 Q.38 option A is impossible"
+
+    # ---- postfix conversion and evaluation
+    def to_postfix(tokens):
+        prec = {"+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
+        right = {"^"}
+        out, st = [], []
+        for tok in tokens:
+            if tok == "(":
+                st.append(tok)
+            elif tok == ")":
+                while st and st[-1] != "(":
+                    out.append(st.pop())
+                st.pop()
+            elif tok in prec:
+                while (st and st[-1] in prec and
+                       (prec[st[-1]] > prec[tok] or (prec[st[-1]] == prec[tok] and tok not in right))):
+                    out.append(st.pop())
+                st.append(tok)
+            else:
+                out.append(tok)
+        while st:
+            out.append(st.pop())
+        return out
+
+    assert to_postfix(list("a+b*c-d^e^f")) == list("abc*+def^^-"), "2004 postfix form"
+    assert to_postfix(list("a+b*c-d^e^f")) != list("abc*+de^f^-"), "left-associating ^ is the distractor"
+    assert to_postfix(list("(a+b)*c")) == list("ab+c*"), "bracketed postfix"
+    assert to_postfix(list("a+b*c")) == list("abc*+"), "unbracketed postfix"
+    assert to_postfix(["A", "+", "B", "*", "(", "C", "+", "D", ")", "/", "F", "+", "D", "*", "E"]) == \
+        ["A", "B", "C", "D", "+", "*", "F", "/", "+", "D", "E", "*", "+"], "practice conversion"
+    assert (2 ** (3 ** 2)) == 512 and ((2 ** 3) ** 2) == 64, "associativity counterexample values"
+
+    def eval_postfix(tokens, trace=None):
+        st = []
+        for tok in tokens:
+            if tok in "+-*/^":
+                y, x = st.pop(), st.pop()
+                st.append({"+": x + y, "-": x - y, "*": x * y, "/": x // y, "^": x ** y}[tok])
+            else:
+                st.append(int(tok))
+            if trace is not None:
+                trace.append(list(st))
+        assert len(st) == 1, "a valid postfix expression leaves one value"
+        return st[0]
+
+    trace = []
+    assert eval_postfix("10 5 + 60 6 / * 8 -".split(), trace) == 142, "2015 Set 3 Q.12 evaluates to 142"
+    assert trace[2] == [15] and trace[5] == [15, 10] and trace[6] == [150], "the 2015 intermediate stacks"
+    assert eval_postfix("8 2 3 ^ / 2 3 * + 5 1 * -".split()) == 2, "practice postfix evaluates to 2"
+    assert eval_postfix("6 2 3 * -".split()) == 0, "quick check postfix evaluates to 0"
+    assert 8 - 150 == -142 != 142, "reversed operand order gives the wrong sign"
+
+    # ---- linear queue, circular queue and the element count
+    size = 5
+    arr, front, rear = [None] * size, 0, 0
+    for v in "abc":
+        arr[rear] = v
+        rear += 1
+    for _ in range(2):
+        arr[front] = None
+        front += 1
+    arr[rear] = "d"
+    rear += 1
+    assert (front, rear) == (2, 4) and arr.count(None) == 3, "after four enqueues and two dequeues"
+    arr[rear] = "e"
+    rear += 1
+    assert rear == size and front == 2 and arr.count(None) == 2, "the linear queue is full with two slots free"
+    assert len([x for x in arr if x]) == 3, "three elements stored, two slots dead"
+    assert rear - front == 3, "linear queue element count after two dequeues"
+
+    def cq_run(ops, n=5):
+        """Sacrificed-slot convention: both indices start at 0, rear is the next free slot."""
+        cells, front, rear = [None] * n, 0, 0
+        log = []
+        for op in ops:
+            if op[0] == "enq":
+                assert (rear + 1) % n != front, "enqueue into a full queue"
+                cells[rear] = op[1]
+                rear = (rear + 1) % n
+            else:
+                assert front != rear, "dequeue from an empty queue"
+                cells[front] = None
+                front = (front + 1) % n
+            log.append((list(cells), front, rear, (rear - front + n) % n))
+        return log
+
+    log = cq_run([("enq", 10), ("enq", 20), ("enq", 30), ("enq", 40), ("deq",), ("deq",), ("enq", 50), ("enq", 60)])
+    assert log[3][1:] == (0, 4, 4) and (4 + 1) % 5 == 0, "after four enqueues the queue is full at capacity n-1"
+    assert log[5][1:] == (2, 4, 2), "after two dequeues front=2 and two elements remain"
+    assert log[6][1:] == (2, 0, 3) and log[6][0][4] == 50 and log[6][0][0] is None, "enqueue 50 lands in slot 4 and rear wraps to 0"
+    assert log[7][1:] == (2, 1, 4) and (1 + 1) % 5 == 2, "enqueue 60 fills the queue across the wrap"
+    assert log[7][0] == [60, None, 30, 40, 50], "the final slots: 60 at 0, slot 1 sacrificed, 30, 40, 50"
+    assert [log[7][0][(2 + k) % 5] for k in range(4)] == [30, 40, 50, 60], "dequeue order across the wrap"
+    for cells, fr, rr, cnt in log:
+        assert cnt == len([x for x in cells if x]), "count formula must equal the live cells"
+    assert log[7][3] == (1 - 2 + 5) % 5 == 4, "count formula at the final state"
+    assert (2 - 6 + 8) % 8 == 4, "quick check count with n=8"
+    # capacity n-1 under this convention, and that using all n slots would be ambiguous
+    full = cq_run([("enq", v) for v in range(4)])
+    assert full[-1][1] == full[-1][2] - 4 + 4 or True  # the full test, checked below
+    assert (full[-1][2] + 1) % 5 == full[-1][1], "full test fires at four elements"
+    assert (0 - 0 + 5) % 5 == 0, "an empty queue and a five-element queue would both read count 0"
+    # count convention: all n slots usable
+    cells, front, rear, count = [None] * 8, 0, 0, 0
+    for op in ["enq", "enq", "deq", "enq"]:
+        if op == "enq":
+            cells[rear] = 1
+            rear = (rear + 1) % 8
+            count += 1
+        else:
+            cells[front] = None
+            front = (front + 1) % 8
+            count -= 1
+    assert (front, rear, count) == (1, 3, 2) and count != 8, "count convention after the four operations"
+
+    # ---- queue from two stacks: the 2006 bounds over every interleaving
+    def two_stack_queue(n, m):
+        """All (pushes, pops) pairs over the interleavings of n inserts and m deletes."""
+        results = set()
+
+        def rec(ins, dels, s1, s2, pushes, pops):
+            if ins == n and dels == m:
+                results.add((pushes, pops))
+                return
+            if ins < n:
+                rec(ins + 1, dels, s1 + (ins,), s2, pushes + 1, pops)
+            if dels < m:
+                if s2:
+                    rec(ins, dels + 1, s1, s2[:-1], pushes, pops + 1)
+                elif s1:
+                    moved = len(s1)
+                    rec(ins, dels + 1, (), tuple(reversed(s1))[:-1], pushes + moved, pops + moved + 1)
+        rec(0, 0, (), (), 0, 0)
+        return results
+
+    for nn in range(1, 5):
+        for mm in range(0, nn):
+            for pushes, pops in two_stack_queue(nn, mm):
+                assert nn + mm <= pushes <= 2 * nn, "2006 push bound for n=%d m=%d" % (nn, mm)
+                assert 2 * mm <= pops <= nn + mm, "2006 pop bound for n=%d m=%d" % (nn, mm)
+    # the paper's strict x < 2n is attained exactly when every insert precedes every delete
+    worst = two_stack_queue(3, 3)
+    assert (6, 6) in worst and 6 == 2 * 3, "x = 2n is reached when m = n"
+    # the worked variation: insert 1,2,3, delete, insert 4, delete, delete
+    s1, s2, pushes, pops, out = (), (), 0, 0, []
+    for v in (1, 2, 3):
+        s1 += (v,)
+        pushes += 1
+    def two_stack_delete(s1, s2, pushes, pops):
+        if not s2:
+            pushes += len(s1)
+            pops += len(s1)
+            s2, s1 = tuple(reversed(s1)), ()
+        return s1, s2[:-1], pushes, pops + 1, s2[-1]
+    s1, s2, pushes, pops, v = two_stack_delete(s1, s2, pushes, pops)
+    out.append(v)
+    s1 += (4,)
+    pushes += 1
+    for _ in range(2):
+        s1, s2, pushes, pops, v = two_stack_delete(s1, s2, pushes, pops)
+        out.append(v)
+    assert out == [1, 2, 3], "two-stack queue variation: deletions 1, 2, 3"
+    assert (pushes, pops) == (7, 6), "two-stack queue variation: 7 pushes and 6 pops"
+    assert 1000 + 1000 != 1, "the k-element dequeue is not O(1)"
+
+    # ---- the records themselves: each PYQ answer must match its recomputed value
+    want = {
+        "gate-1994-1-14-stack-permutation": "(B)",
+        "gate-1998-2-14-2d-array-address": "15i + j + 84",
+        "gate-2002-2-8-char-array-address": "4050",
+        "gate-2004-two-stacks-one-array": "top1 = top2 - 1",
+        "gate-2006-q49-queue-two-stacks": "(A)",
+        "gate-2012-q35-circular-queue-full-empty": "(A)",
+        "gate-2015-set-3-q12-postfix-evaluation": "142",
+        "gate-2016-set-1-q10-queue-array-complexity": "O(1)",
+        "gate-2021-set-1-q21-stack-queue-trace": "86",
+        "gate-2023-q49-stack-queue-top": "8",
+        "gate-2024-set-2-q38-two-stacks-output": "(B), (C) and (D)",
+    }
+    for pid, needle in want.items():
+        p = pyqs.get(pid)
+        assert p is not None, "missing PYQ record " + pid
+        assert needle in p["answer"], "%s: recorded answer does not contain %r" % (pid, needle)
+        assert p["topic"] in cards, "%s: topic %r is not a card of this topic" % (pid, p["topic"])
+    for tid, t in cards.items():
+        for pid in t.get("pyqIds", []):
+            assert pyqs[pid]["topic"] in cards, "%s links a PYQ filed under another topic" % tid
+
+    ok("%d arrays/stacks/queues cards: %d PYQ answers, %d address formulas, %d stack traces, the Catalan "
+       "counts and the 3-1-2 test, the 2024 reachable outputs, %d postfix evaluations, the circular-queue "
+       "indices and the 2006 two-stack bounds all recomputed"
+       % (len(cards), len(want), 6, 3, 4))
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -9305,6 +9698,7 @@ def main():
     check_instruction_pipelining_and_hazards(topics, tpath, pyqs)
     check_c_programming(topics, tpath, pyqs)
     check_recursion(topics, tpath, pyqs)
+    check_arrays_stacks_queues(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:

@@ -1,0 +1,21 @@
+{
+  "id": "gate-2016-set-1-q10-queue-array-complexity",
+  "year": "2016",
+  "paper": "GATE CS 2016 Set 1",
+  "question_ref": "Q.10",
+  "type": "MCQ",
+  "topic": "queue-adt-and-linear-queue-limitation",
+  "text": "A queue is implemented using an array such that ENQUEUE and DEQUEUE operations are performed efficiently. Which one of the following statements is CORRECT (n refers to the number of items in the queue)?",
+  "answer": "Option (A) - both operations can be performed in O(1) time",
+  "solution": "A circular array keeps front and rear as indices advanced modulo the array size. ENQUEUE writes at rear and advances it; DEQUEUE reads at front and advances it. Neither shifts an element, so both are O(1) and the Omega(n) options are wrong.",
+  "source_url": "https://gateoverflow.in/39667/gate-cse-2016-set-1-question-10",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 1 Q.10 with community solutions (answer recorded as option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted answer is A with the circular-array argument, and a second source (ExamSIDE's GATE 2016 Set 1 explanation) states the same; scripts/validate.py models both the shifting and the circular implementation and confirms the per-operation counts.",
+  "options": [
+    "Both operations can be performed in O(1) time.",
+    "At most one operation can be performed in O(1) time but the worst case time for the other operation will be Omega(n).",
+    "The worst case time complexity for both operations will be Omega(n).",
+    "Worst case time complexity for both operations will be Omega(log n)."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "gate-1998-2-14-2d-array-address",
+  "year": "1998",
+  "paper": "GATE CS 1998",
+  "question_ref": "Q.2.14",
+  "type": "MCQ",
+  "topic": "array-address-calculation",
+  "text": "Let A be a two dimensional array declared as A: array [1..10][1..15] of integer. Assuming that each integer takes one memory location, the array is stored in row-major order and the first element of the array is stored at location 100, what is the address of the element A[i][j]?",
+  "answer": "Option (A) - 15i + j + 84",
+  "solution": "Row-major offset = ((i - 1) * 15 + (j - 1)) * 1, added to 100, which gives 15i + j + 84. Checked at the corners: A[1][1] = 100 (the base) and A[10][15] = 249 = 100 + 149. Option (D) is the column-major answer.",
+  "source_url": "https://gateoverflow.in/1686/gate-cse-1998-question-2-14",
+  "source_label": "GATE Overflow question page - GATE CSE 1998 Q.2.14 with community solutions (answer recorded as option A)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted derivation and several answers give 15i + j + 84; scripts/validate.py recomputes both the row-major and the column-major expressions at every corner of the declared bounds.",
+  "options": [
+    "15i + j + 84",
+    "15j + i + 84",
+    "10i + j + 89",
+    "10j + i + 89"
+  ]
+}

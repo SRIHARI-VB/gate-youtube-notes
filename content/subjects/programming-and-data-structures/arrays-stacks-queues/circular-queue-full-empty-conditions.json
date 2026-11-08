@@ -1,0 +1,75 @@
+{
+  "id": "circular-queue-full-empty-conditions",
+  "title": "Circular Queue: Full and Empty Conditions",
+  "priority": "P1",
+  "order": 593,
+  "unit": "Arrays, Stacks and Queues",
+  "quickIdea": "Both indices wrap modulo the array size, so freed slots are reused. With one slot sacrificed, empty is front == rear and full is (rear + 1) mod n == front, giving a capacity of n - 1.",
+  "remember": [
+    "Enqueue writes at rear and then sets rear = (rear + 1) mod n; dequeue reads at front and then sets front = (front + 1) mod n. Both are O(1).",
+    "Convention 1 (both indices start at 0, rear is the next free slot, one slot sacrificed): empty when front == rear; full when (rear + 1) mod n == front; capacity n - 1; element count (rear - front + n) mod n.",
+    "Convention 2 (an explicit count): empty when count == 0, full when count == n, capacity n. All n slots are usable, but count must be updated on every operation.",
+    "Other variants exist (rear starting at -1, or a separate full flag). Read the code in the question before answering, because the capacity follows from the full test used.",
+    "The sacrificed slot is the price of telling full from empty using only the two indices."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2012 Q.35. A circular queue of capacity n - 1 is implemented in an array of n elements, REAR and FRONT are indices, both start at 0. Give the full and empty tests.",
+    "work": "With one slot sacrificed, the queue is empty when the two indices coincide and full when advancing REAR by one would make it coincide with FRONT. Take n = 5: enqueue four elements, REAR goes 0 to 4 while FRONT stays 0, and (4 + 1) mod 5 = 0 = FRONT, so the queue is full with four elements stored. The element count (4 - 0 + 5) mod 5 = 4 confirms the capacity of n - 1.",
+    "answer": "full: (REAR + 1) mod n == FRONT; empty: REAR == FRONT, option (A) of the paper."
+  },
+  "gateAngle": "This is the single most reused queue question in GATE, and it is decided by one small example. Fill the queue in the convention the question states, then check which formula fires at that moment - do not try to remember a table of four formulas.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A circular queue uses the count convention in an array of size 8. After the operations enqueue, enqueue, dequeue, enqueue, what are count, front and rear, and is the queue full?",
+      "answer": "count = 2, front = 1, rear = 3, not full.",
+      "why": "Two enqueues put elements at 0 and 1 with rear = 2; the dequeue moves front to 1 and count to 1; the last enqueue writes at 2 and sets rear = 3, count = 2. Under the count convention full needs count == 8, so capacity is the whole array - the difference from the sacrificed-slot convention."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why can a circular queue using only front and rear not store n elements in an array of size n?",
+      "answer": "Because a queue holding n elements and an empty queue would both have front == rear, so the two states could not be told apart.",
+      "why": "The full state is exactly the empty state once every slot is used, and two indices cannot encode three states (empty, partly full, full). Sacrificing one slot, or keeping a count or a flag, resolves it."
+    }
+  ],
+  "trap": {
+    "what": "Using capacity n with the sacrificed-slot convention, or applying (rear + 1) mod n == front as an empty test.",
+    "why": "In this convention front == rear is the empty state, so the full test must be the one that fires one step before the indices meet. Swapping the two tests makes the queue report empty exactly when it is full.",
+    "counterexample": "n = 5, four elements stored, front = 0 and rear = 4. The queue is full and (rear + 1) mod 5 = 0 = front. If that formula were used for empty, the queue would announce itself empty while holding four elements."
+  },
+  "check": {
+    "question": "A circular queue in an array of size 8 has front = 6 and rear = 2 under the sacrificed-slot convention. How many elements does it hold?",
+    "answer": "4.",
+    "explanation": "The count is (rear - front + n) mod n = (2 - 6 + 8) mod 8 = 4 mod 8 = 4. Reading the live slots confirms it: 6, 7, 0, 1."
+  },
+  "pyqIds": [
+    "gate-2012-q35-circular-queue-full-empty"
+  ],
+  "prereqs": [
+    "queue-adt-and-linear-queue-limitation"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: circular queue full/empty tests under both conventions",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "study notes, read in part"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow, GATE CSE 2012 Question 35 (circular queue full and empty conditions)",
+      "url": "https://gateoverflow.in/1756/gate-cse-2012-question-35",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "question, options and the filled-array argument read"
+    }
+  ],
+  "sourceLine": "Both conventions, the element-count formula and the wraparound rule: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part). The 2012 answer and its filled example: GATE Overflow question page for GATE CSE 2012 Q.35 (English, read in part). The lesson visualises the same five-slot example, and every count is recomputed in scripts/validate.py.",
+  "links": {},
+  "visual": "programming-and-data-structures/arrays-stacks-queues/circular-queue-wraparound"
+}

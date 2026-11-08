@@ -1,5 +1,118 @@
 # Run report
 
+## Run 9 - Arrays, Stacks and Queues (2026-11-08)
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Arrays, Stacks and Queues** (`arrays-stacks-queues`), the third topic of
+the GATE 2027 Programming and Data Structures line: *"Programming in C. Recursion. Arrays, stacks, queues,
+linked lists, trees, binary search trees, binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on `programming-and-data-structures/recursion`, and the first
+topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one and no topic is `blocked`.
+The twenty `partial` topics earlier in the cycle were left alone because the cycle takes its second pass over
+`partial` topics only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Ten. The syllabus names the topic in three words, so the enumeration comes from the standard treatment (CLRS
+ch. 10.1 for the stack and queue ADTs, ch. 17 for the amortised cost of a growing array), the GATE question
+record from 1994 to 2024, and the shapes the sources teach: array representation and address arithmetic in one
+and two dimensions (row-major, column-major, arbitrary lower bounds, packed triangular storage); the cost of
+array operations; the stack ADT and its two implementations; two stacks sharing one array; stack permutations
+and the Catalan count; infix, postfix and prefix conversion; postfix evaluation and bracket matching; the
+queue ADT and the linear-queue defect; circular-queue full and empty conditions; and deques together with
+building a queue from two stacks.
+
+### Sources chosen, on merit
+
+Four sources, from four different places, with no default to one channel:
+
+1. **IAE Academy, "Linear structures: GATE CS, DA Notes & Solved PYQs"** (English, read in part) - an
+   independent notes site rather than a large channel, and the only readable source found that covers every
+   subtopic at GATE level with the address formulas, both circular-queue conventions and the 3-1-2
+   stack-permutation rule stated precisely enough to check against the papers. Every card except one draws on it.
+2. **Knowledge Gate AI, timestamped lecture summary of the GATE 2004 infix-to-postfix question** (English, read
+   in part) - chosen for the conversion card because it is the one conversion source whose content could
+   actually be read and compared with the recomputed answer.
+3. **NPTEL IIT Delhi 106102064, Lectures 2 (Stacks) and 3 (Queues and Linked Lists)**, Prof. Naveen Garg
+   (English) - fixes the scope of the topic for a beginner; recorded as `STRUCTURE_ONLY` because no captions or
+   transcript were retrievable, so no card quotes it.
+4. **GATE Overflow question pages** (English, read in part) - the year, question number, options and community
+   answer for ten of the eleven PYQs; the eleventh (GATE 2004, two stacks in one array) is sourced from the
+   GeeksforGeeks GATE 2004 listing, and the GATE 2004 postfix question from the Knowledge Gate AI MCQ page.
+
+Rejected, with the reasons recorded in `content/subjects/programming-and-data-structures/arrays-stacks-queues/sources.json`:
+the Gate Smashers Hindi DSA playlist (its stack and queue branches work the GATE 2006 and GATE 2022 queue
+questions, but captions were unavailable, so no card could be written from it without guessing); Neso Academy
+(implementations rather than question patterns, and equally unreadable); the Vishvadeep Gothi Infinity Batch
+(41 hours that cannot be read is not better than readable notes); the NPTEL video pages themselves (a player
+and a speech-recognition widget, no transcript text); the MonalisaCS chapter PDFs (download endpoints not
+fetched in this run); and a GO Classes search, which located no arrays/stacks/queues playlist - the repository's
+GO Classes folder holds discrete-mathematics playlists only.
+
+No material is translated: every source drawn on is English, and `sources.json` records that.
+
+### What was created
+
+Ten cards, one per subtopic, in `content/subjects/programming-and-data-structures/arrays-stacks-queues/`:
+array addressing in one and two dimensions; array operation costs; the stack ADT; two stacks in one array;
+stack permutations and the Catalan count; infix/postfix/prefix conversion; postfix evaluation and bracket
+matching; the queue ADT and the linear-queue defect; circular-queue full and empty conditions; and deques with
+queue-from-two-stacks. Each carries a trap with a counterexample, a quick check, and variations labelled
+`ORIGINAL PYQ-STYLE QUESTION`, `CONCEPTUAL PRACTICE QUESTION` or `PREDICTED VARIATION` - never as PYQs.
+
+Eleven PYQ records, each with a year, a question reference and a source URL: 1994 Q.1.14 (stack permutations,
+answer B), 1998 Q.2.14 (row-major address, 15i + j + 84), 2002 Q.2.8 (char a[100][100], 4050), 2004 (two
+stacks in one array, top1 = top2 - 1), 2004 (postfix of a + b x c - d ^ e ^ f, option A), 2006 Q.49 (queue from
+two stacks, option A), 2012 Q.35 (circular queue full/empty, option A), 2015 Set 3 Q.12 (postfix evaluation,
+142), 2016 Set 1 Q.10 (circular array, O(1) both), 2021 Set 1 Q.21 (stack and queue trace, 86), 2023 Q.49
+(stack and queue operations, top 8) and 2024 Set 2 Q.38 (two stacks, options B, C, D).
+
+One p5.js lesson, `visuals/programming-and-data-structures/arrays-stacks-queues/circular-queue-wraparound`,
+eight steps: five slots, capacity four, the rear index wrapping past the end, the queue filling twice, the
+count formula, and the final frame showing why all n slots cannot be used with two indices. It follows the
+shared harness (play, pause, prev, next, restart, speed, captions, reduced motion) and the shared lesson CSS.
+
+### Validation
+
+`scripts/build-index.py` regenerated the index (395 cards, 326 PYQs, 44 lessons) and `scripts/validate.py`
+passed with 0 failures and 8 warnings, all pre-existing and none in this topic. `node tests/visual-lessons.js`
+passed, with the new lesson drawing all eight steps at p = 0, 0.5 and 1. A new
+`check_arrays_stacks_queues()` recomputes every figure published here: the address formulas at every cell of
+the declared bounds, the insert/delete move counts and the doubling-array copy count, three stack traces, the
+full 2023 operation sequence, the free-slot arithmetic, the Catalan counts with the 3-1-2 pattern test over
+every permutation for n = 1..6, the reachable output sequences of the 2024 two-stack question by search, four
+postfix conversions and four evaluations, both circular-queue conventions, and the 2006 bounds over every
+interleaving. It caught four drafting errors before delivery and each was corrected rather than the check:
+the 2023 Q.49 trace (the paper's "repeat operation VII three times" means four dequeue-and-push steps in all,
+not three), the element-count formula for two stacks in one array, the two-stack queue variation's pop count
+(6, not 5), and the lesson's slot contents after the rear index wrapped. No frozen file was touched: no design
+token, no shell layout, no route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No video transcript was readable anywhere in this run: the YouTube watch pages answered `LOGIN_REQUIRED`
+   and `yt-dlp` was refused with a bot check, so `videoRefs` is empty on all ten cards and the two lecture
+   sources are recorded as `STRUCTURE_ONLY`.
+2. The Gate Smashers Hindi stack and queue lectures, which work the GATE 2006 and GATE 2022 queue questions,
+   could not be read, so no card draws on them and their question treatments are not recorded.
+3. Every PYQ is `SOURCED`, not key-verified, and no marks field is recorded on any of the eleven.
+4. Two GATE 2004 questions carry a numbering gap: they are located in question banks but their own paper
+   numbers are not confirmed.
+5. Two subtopics have no verified PYQ of their own: array operation costs, which GATE tests inside code
+   questions rather than as a standalone item, and the queue ADT apart from the 2016 complexity question.
+6. Linked-list implementations of the stack and the queue are named but not developed, because they belong to
+   the next topic.
+7. The notes source was read in part; the linked-list and cycle-detection sections after the queue material
+   were not used and nothing is claimed from them.
+
+### Next
+
+The cycle pointer now sits on `programming-and-data-structures/arrays-stacks-queues`, so the next topic is
+`programming-and-data-structures/linked-lists`, the next `not_started` topic of the subject.
+
 ## Run 8 - Recursion
 
 ### The topic, and why it was next

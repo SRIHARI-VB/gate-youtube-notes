@@ -1,0 +1,15 @@
+{
+  "id": "gate-2021-set-1-q21-stack-queue-trace",
+  "year": "2021",
+  "paper": "GATE CS 2021 Set 1",
+  "question_ref": "Q.21 (GATE Overflow numbering; GeeksforGeeks lists the same question as Q.31)",
+  "type": "NAT",
+  "topic": "stack-adt-and-lifo",
+  "text": "Consider the following sequence of operations on an empty stack: push(54); push(52); pop(); push(55); push(62); s = pop(). Consider the following sequence of operations on an empty queue: enqueue(21); enqueue(24); dequeue(); enqueue(28); enqueue(32); q = dequeue(). The value of s + q is ______.",
+  "answer": "86",
+  "solution": "The stack ends 54, 55, 62, so s = 62. The queue loses 21 at the first dequeue and 24 at the second, so q = 24. Then s + q = 62 + 24 = 86.",
+  "source_url": "https://gateoverflow.in/357430/gate-cse-2021-set-1-question-21",
+  "source_label": "GATE Overflow question page - GATE CSE 2021 Set 1 Q.21 with community solutions (answer recorded as 86)",
+  "verification": "SOURCED",
+  "answer_evidence": "The page's accepted answer traces both structures to 62 + 24 = 86; scripts/validate.py replays both operation sequences and checks the sum."
+}
