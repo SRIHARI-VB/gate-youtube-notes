@@ -1,5 +1,124 @@
 # Run report
 
+## Run 11 - Trees and Binary Search Trees (2026-11-08)
+
+### The topic, and why it was next
+
+**Programming and Data Structures > Trees and Binary Search Trees** (`trees-and-binary-search-trees`), the fifth
+topic of the GATE 2027 Programming and Data Structures line: *"Programming in C. Recursion. Arrays, stacks, queues,
+linked lists, trees, binary search trees, binary heaps, graphs."*
+
+The cycle pointer was left by the previous run on `programming-and-data-structures/linked-lists`, and the first
+topic strictly after it in the enumerated syllabus order whose status is not `covered` is this one, which was
+`not_started`. Nothing was skipped: no topic sits between the pointer and this one, and no topic is `blocked`. The
+twenty `partial` topics earlier in the cycle were left alone because the second pass over `partial` topics starts
+only after a full pass finds no `not_started` topic left.
+
+### Subtopics enumerated before any source was chosen
+
+Eleven. The syllabus names the topic in three words, so the enumeration comes from the standard treatment (CLRS
+ch. 12 for the search tree, and the binary-tree material that precedes it), the GATE question record from 2004 to
+2026, and the shapes the sources teach: the vocabulary and the leaf identity; the level, height and Catalan counts;
+the linked and array representations; the three depth-first orders; level order and its queue; rebuilding a shape
+from traversals; the search-tree rule and search; insertion and the three deletion cases; the height bounds and
+operation costs; the inorder successor and predecessor plus the two ways to verify a tree; and expression trees as
+the application of the traversals. Threaded trees, AVL trees and multiway trees are outside the topic: the GATE 2027
+CS syllabus does not name them, and balanced search trees belong to no named topic of this paper.
+
+### Sources chosen, on merit
+
+Six readable sources from five different places, with no default to one channel and no default to what the
+repository already held:
+
+1. **NPTEL / Chennai Mathematical Institute, "Programming, Data Structures and Algorithms in Python", Week 7
+   Lecture 4 handout** (English, read in full) - the only candidate whose complete text could be read, and it
+   states every search-tree operation together with the three deletion cases and the height-bounded complexity.
+   It carries the deletion rule that the GATE questions depend on.
+2. **mycodeschool, "Data structures: Binary Search Tree"** (English, read in part) - the clearest beginner
+   explanation of why a search tree exists, with the cost comparison against arrays and lists and the skewed worst
+   case. The page extraction returned the lecture from its opening through the definition and the operation costs.
+3. **Wikipedia, "Binary tree"** (English, read in part) - the correctness anchor for full, complete and perfect,
+   which is where the GATE questions turn, and for the array representation of a complete tree.
+4. **Wikipedia, "Tree traversal"** (English, read in part) - the three orders, the stack and queue that defer nodes,
+   and the uniqueness statement that a pair containing inorder fixes a tree while preorder with postorder does not.
+5. **Wikipedia, "Binary expression tree"** (English, read in part) - the stack construction from a postfix string
+   with a worked example that can be recomputed, for the one applications card.
+6. **GATE Overflow** (English, read in part) - the Data Structures question index, which was used to check the
+   subtopic enumeration against the actual paper record, and ten question pages carrying statements, options and
+   accepted answers.
+
+Rejected with reasons in `sources.json`: the **Gate Smashers** Hindi Data Structures playlist, whose tree lectures
+(Lec-52 to Lec-61) match this enumeration almost one to one and would have been the best source here, but every
+watch page was blocked - `yt-dlp` answered "Sign in to confirm you're not a bot" for the caption track and the page
+extraction returned only the player chrome; **Neso Academy**'s tree lectures, equally unreadable and
+implementation-focused; **Paul Programming**'s sixteen-video C++ search-tree playlist, a full implementation with no
+complexity analysis, no traversal theory and no GATE questions, in the wrong language for this syllabus;
+**NPTEL IIT Kharagpur Lecture 29 "Binary Search Tree"**, aimed exactly at this topic but readable only through its
+opening sentence on the aggregator page that indexes it; the **NPTEL Haskell** lecture "Binary search trees: 1",
+readable in full and a good corroboration of the inorder-implies-search-tree argument, but framed as a functional
+set ADT rather than the GATE CSE data-structure treatment, so no card rests on it and it is not cited; the **NPTEL
+PDS 106106130** Lecture 17 index page, which lists the lecture without transcript text; **EduRev**, an aggregator
+that re-hosts other channels' lectures under its own numbering; **takeUforward's** placement-oriented binary-tree
+playlist; and **GeeksforGeeks**, whose general tutorial pages were superseded by the NPTEL handout.
+
+No card is translated: every source drawn on is English. The two Hindi candidates were rejected on accessibility,
+not on language.
+
+### What was created
+
+Eleven cards, one per enumerated subtopic, under
+`content/subjects/programming-and-data-structures/trees-and-binary-search-trees/`:
+`tree-and-binary-tree-terminology`, `binary-tree-node-and-height-bounds`, `binary-tree-representations`,
+`tree-traversals-and-their-orders`, `level-order-traversal-and-the-queue`,
+`reconstructing-a-tree-from-traversals`, `binary-search-tree-property-and-search`, `bst-insertion-and-deletion`,
+`bst-height-and-operation-costs`, `bst-inorder-successor-and-predecessor` and
+`expression-trees-and-traversal-applications`. Each carries the 5-second idea, remember items, a tiny worked
+example, the GATE angle, two labelled variations, one trap with a counterexample, a quick check and its source
+line. Ten PYQ records were added under `content/pyqs/`, each with a year, a question reference, a source URL and
+the evidence behind its answer, and `sources.json` records the chosen and rejected candidates.
+
+Two p5.js lessons under `visuals/programming-and-data-structures/trees-and-binary-search-trees/`:
+`traversal-orders`, seven steps that take the three orders on one seven-node search tree and then on a chain to show
+that two shapes can share a sequence; and `bst-insertion-and-deletion`, seven steps that insert the eight keys of
+GATE CSE 2025 Set 2 Q.25, mark the four-edge path to 19, then delete a two-child node by overwriting its key with
+its inorder successor. Both reuse the existing harness and the frozen lesson stylesheet.
+
+### Validation
+
+`scripts/build-index.py` regenerated the index (416 cards, 347 PYQs, 41 lessons) and `scripts/validate.py` passed
+with 0 failures and 8 warnings, all pre-existing and none in this topic. `node tests/visual-lessons.js` passed, with
+both new lessons drawing all seven steps at p = 0, 0.5 and 1. A new `check_trees_and_bsts()` recomputes every count,
+sequence, path length, successor and deletion trace published here: the three traversal orders on four shapes, the
+height bounds for n = 1 to 9999, all 5040 insertion orders of 1 to 7 (64 of which give height 6), the Catalan values
+1 to 429, both deletion traces, five successors, the array indices and the 1023-slot chain, the expression tree's
+three strings and its stack sizes, and the two lesson metadata files. It caught two drafting errors before delivery:
+a variation whose stated answer contradicted its own working, and a deletion variation that named a successor absent
+from the tree it described. Both cards were corrected rather than the checks. No frozen file was touched: no design
+token, no shell layout, no route, no navigation label and no shared component class changed.
+
+### Gaps (the topic stays `partial`)
+
+1. No lecture transcript was readable for this topic: the mycodeschool search-tree lecture was readable only through
+   its first half, and every Gate Smashers and Neso Academy lecture answered the caption request with a bot check.
+   The traversal, level-order and successor cards therefore rest on reference text plus recomputation rather than on
+   a lecture, and `videoRefs` is empty on all eleven cards.
+2. Level-order traversal has no verified previous-year question in the collected record, so its card carries practice
+   questions only.
+3. The expression-tree card has no verified previous-year question and rests on a single reference page.
+4. Every PYQ is `SOURCED`, not key-verified: no official key document was fetched, and no marks field is recorded on
+   any of the ten.
+5. Two questions carry a numbering disagreement rather than a pinned reference: GATE CSE 2025 Set 1 Q.16 is Q.36 on
+   a mirror that counts the GA section, and GATE CSE 2025 Set 2 Q.25 is Q.35 on one mirror.
+6. GATE Overflow lists further tree and search-tree questions from 1995 to 2026 that were not individually read;
+   only the ten recorded ones were verified.
+7. Questions belonging to neighbouring topics were routed away rather than absorbed: the binary-heap height question
+   of GATE CSE 2025 Set 1 Q.25, the memory-based 2026 tree questions, and the AVL and red-black material.
+
+### Next
+
+The cycle pointer now sits on `programming-and-data-structures/trees-and-binary-search-trees`, so the next topic is
+`programming-and-data-structures/binary-heaps`, the sixth `not_started` topic of the subject.
+
 ## Run 10 - Linked Lists (2026-11-08)
 
 ### The topic, and why it was next
