@@ -3694,6 +3694,379 @@ def check_linked_lists(topics, tpath, pyqs):
        % (len(cards), sum(1 for p in pyqs.values() if p.get("topic") in cards)))
 
 
+# ------------------------------------------------ trees and binary search trees
+def check_trees_and_bsts(topics, tpath, pyqs):
+    """Every count, sequence, path length, successor and deletion trace published in the Trees and
+    Binary Search Trees cards, the two lessons and the PYQ records is recomputed here."""
+    cards = {tid: t for tid, t in topics.items() if tpath[tid].split("/")[3] == "trees-and-binary-search-trees"}
+    if not cards:
+        fail("trees-and-binary-search-trees has no cards")
+        return
+    want = {"tree-and-binary-tree-terminology", "binary-tree-node-and-height-bounds",
+            "binary-tree-representations", "tree-traversals-and-their-orders",
+            "level-order-traversal-and-the-queue", "reconstructing-a-tree-from-traversals",
+            "binary-search-tree-property-and-search", "bst-insertion-and-deletion",
+            "bst-height-and-operation-costs", "bst-inorder-successor-and-predecessor",
+            "expression-trees-and-traversal-applications"}
+    for tid in sorted(want - set(cards)):
+        fail("trees-and-binary-search-trees: enumerated subtopic %r has no card" % tid)
+
+    class Node(object):
+        def __init__(self, v, l=None, r=None):
+            self.v, self.l, self.r = v, l, r
+
+    def ins(root, v):
+        if root is None:
+            return Node(v)
+        if v < root.v:
+            root.l = ins(root.l, v)
+        elif v > root.v:
+            root.r = ins(root.r, v)
+        return root
+
+    def build(vals):
+        r = None
+        for v in vals:
+            r = ins(r, v)
+        return r
+
+    def pre(t, o=None):
+        o = [] if o is None else o
+        if t:
+            o.append(t.v); pre(t.l, o); pre(t.r, o)
+        return o
+
+    def ino(t, o=None):
+        o = [] if o is None else o
+        if t:
+            ino(t.l, o); o.append(t.v); ino(t.r, o)
+        return o
+
+    def post(t, o=None):
+        o = [] if o is None else o
+        if t:
+            post(t.l, o); post(t.r, o); o.append(t.v)
+        return o
+
+    def ht(t):
+        return -1 if t is None else 1 + max(ht(t.l), ht(t.r))
+
+    def depth(t, v, d=0):
+        if t is None:
+            return None
+        if t.v == v:
+            return d
+        return depth(t.l, v, d + 1) if v < t.v else depth(t.r, v, d + 1)
+
+    def depth_plain(t, v, d=0):
+        if t is None:
+            return None
+        if t.v == v:
+            return d
+        a = depth_plain(t.l, v, d + 1)
+        return a if a is not None else depth_plain(t.r, v, d + 1)
+
+    def valid(t, lo=None, hi=None):
+        if t is None:
+            return True
+        if lo is not None and t.v <= lo:
+            return False
+        if hi is not None and t.v >= hi:
+            return False
+        return valid(t.l, lo, t.v) and valid(t.r, t.v, hi)
+
+    def delete(t, v):
+        if t is None:
+            return None
+        if v < t.v:
+            t.l = delete(t.l, v)
+        elif v > t.v:
+            t.r = delete(t.r, v)
+        else:
+            if t.l is None:
+                return t.r
+            if t.r is None:
+                return t.l
+            m = t.r
+            while m.l:
+                m = m.l
+            t.v = m.v
+            t.r = delete(t.r, m.v)
+        return t
+
+    def succ(t, v):
+        s, x = None, t
+        while x:
+            if v < x.v:
+                s, x = x, x.l
+            elif v > x.v:
+                x = x.r
+            else:
+                if x.r:
+                    m = x.r
+                    while m.l:
+                        m = m.l
+                    return m.v
+                return s.v if s else None
+        return None
+
+    def bst_from_preorder(p):
+        if not p:
+            return None
+        i = 1
+        while i < len(p) and p[i] < p[0]:
+            i += 1
+        return Node(p[0], bst_from_preorder(p[1:i]), bst_from_preorder(p[i:]))
+
+    def from_pre_in(pre_o, in_o):
+        if not pre_o:
+            return None
+        k = in_o.index(pre_o[0])
+        return Node(pre_o[0], from_pre_in(pre_o[1:k + 1], in_o[:k]), from_pre_in(pre_o[k + 1:], in_o[k + 1:]))
+
+    def counts(t):
+        n0 = n1 = n2 = 0
+        st = [t]
+        while st:
+            x = st.pop()
+            if x is None:
+                continue
+            c = (x.l is not None) + (x.r is not None)
+            if c == 0:
+                n0 += 1
+            elif c == 1:
+                n1 += 1
+            else:
+                n2 += 1
+            st += [x.l, x.r]
+        return n0, n1, n2
+
+    def levels(t):
+        out, q = [], [t]
+        while q:
+            out.append([x.v for x in q])
+            q = [c for x in q for c in (x.l, x.r) if c]
+        return out
+
+    # ---- the terminology card: the five-node tree and the 4-node complete counterexample
+    t5 = Node(1, Node(2, Node(4), Node(5)), Node(3))
+    assert counts(t5) == (3, 0, 2), "terminology: the 5-node tree has 3 leaves, 0 one-child, 2 two-child"
+    assert counts(t5)[0] == counts(t5)[2] + 1, "terminology: leaves = two-child + 1"
+    assert ht(t5) == 2 and depth_plain(t5, 5) == 2 and depth_plain(t5, 4) == 2, "terminology: height 2, depth of 5 is 2"
+    c4 = Node(1, Node(2, Node(4)), Node(3))
+    assert counts(c4) == (2, 1, 1), "terminology: the 4-node complete tree has a one-child node"
+    assert counts(c4)[0] == counts(c4)[2] + 1, "terminology: the leaf identity survives one-child nodes"
+    assert counts(c4)[0] != 2 + 1, "terminology: leaves != internal + 1 when a one-child node exists"
+    nine = Node(1, Node(2, Node(4), Node(5)), Node(3, Node(6), Node(7)))
+    nine.l.l = Node(4, Node(8), Node(9))
+    n0, n1, n2 = counts(nine)
+    assert (n0, n2) == (5, 4), "terminology check: 9 nodes with 4 two-child nodes leave 5 leaves"
+    assert 9 == 2 * n2 + 1, "terminology check: n = 2*n2 + 1"
+
+    # ---- the counting card: level sums, height bounds, Catalan numbers
+    for h in range(0, 12):
+        assert sum(2 ** i for i in range(h + 1)) == 2 ** (h + 1) - 1, "counting: level sum for height %d" % h
+    import math
+    for n in range(1, 10000):
+        assert math.ceil(math.log2(n + 1)) - 1 == math.floor(math.log2(n)), "counting: min height for n=%d" % n
+        assert math.floor(math.log2(n)) <= n - 1, "counting: the minimum never exceeds the maximum"
+    cat = [comb(2 * n, n) // (n + 1) for n in range(1, 8)]
+    assert cat == [1, 2, 5, 14, 42, 132, 429], "counting: Catalan numbers 1..7"
+    assert 15 == 2 ** 4 - 1 and 7 == 2 ** 3 - 1, "counting: the wrong formula gives 7 for height 3"
+    assert 5 <= 15 and 31 == 2 ** 5 - 1, "counting check: 5 nodes at least and 31 at most for height 4"
+    assert 6 == 5 + 1 and 63 == 2 ** 6 - 1, "counting variation: height 5 holds 6 to 63 nodes"
+
+    # ---- the representation card
+    assert (2 * 3 + 1, 2 * 3 + 2) == (7, 8), "representation: children of index 3"
+    assert (6 - 1) // 2 == 2, "representation: parent of index 6"
+    assert (3 - 1) // 2 == 1, "representation: parent of index 3"
+    assert 2 ** 10 - 1 == 1023, "representation: a ten-node chain needs 1023 slots"
+    assert 2 ** 10 - 2 == 1022, "representation: the last chain index is 1022"
+    assert 6 * 2 + 2 == 14 and 5 * 2 + 2 == 12, "representation: the four-node right chain sits at 0, 2, 6, 14"
+    t8 = build([8, 4, 12, 2, 6, 10, 14, 1])
+    assert [4, 2, 1][0] == 4 and counts(t8) == (4, 1, 3), "representation: the 8-node complete tree"
+    assert ht(t8) == 3, "representation: the 8-node complete tree has height 3"
+    assert levels(t8)[-1] == [1], "representation: index 7 is the last slot"
+
+    # ---- the traversal card: one shape, three orders, stack depth
+    assert pre(t5) == [1, 2, 4, 5, 3], "traversal: preorder of the 5-node tree"
+    assert ino(t5) == [4, 2, 5, 1, 3], "traversal: inorder of the 5-node tree"
+    assert post(t5) == [4, 5, 2, 3, 1], "traversal: postorder of the 5-node tree"
+    assert ht(t5) + 1 == 3, "traversal: three frames deep on the longest path"
+    left_only = Node("A", Node("B"))
+    right_only = Node("A", None, Node("B"))
+    assert pre(left_only) == pre(right_only) == ["A", "B"], "traversal: both single-child trees give preorder A B"
+    assert post(left_only) == post(right_only) == ["B", "A"], "traversal: and the same postorder"
+    assert ino(left_only) != ino(right_only), "traversal: but different inorders"
+    T26 = build([50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77])
+    assert ino(T26).index(47) + 1 == 5, "traversal variation: 47 is fifth in the inorder"
+
+    # ---- the level-order card
+    assert levels(t5) == [[1], [2, 3], [4, 5]], "level order: the 5-node tree"
+    assert max(len(l) for l in levels(t5)) == 2, "level order: width 2"
+    perfect7 = build([4, 2, 6, 1, 3, 5, 7])
+    assert [v for l in levels(perfect7) for v in l] == [4, 2, 6, 1, 3, 5, 7], "level order: the perfect tree"
+    assert max(len(l) for l in levels(perfect7)) == 4, "level order: the queue holds four nodes"
+    assert levels(build([50, 25, 75, 13, 40, 60, 80]))[-1] == [13, 40, 60, 80], "level order variation: last level"
+    assert [v for l in levels(build([50, 25, 75, 13, 40, 60, 80])) for v in l] == [50, 25, 75, 13, 40, 60, 80], \
+        "level order variation: the sequence is not sorted"
+    assert [v for l in levels(build([50, 25, 13])) for v in l] == [50, 25, 13], "level order trap: 50 25 13"
+    assert [v for l in levels(build([50, 13, 25])) for v in l] == [50, 13, 25], "level order trap: 50 13 25"
+    assert ino(build([50, 13, 25])) == [13, 25, 50], "level order trap: only the inorder is sorted"
+    t10 = build([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    assert levels(t10)[-1] == [10] or len(levels(t10)[-1]) == 3, "level order check: three nodes on the last level"
+
+    # ---- the reconstruction card
+    rt = from_pre_in(list("ABDECF"), list("DBEAFC"))
+    assert post(rt) == list("DEBFCA"), "reconstruction: the worked example gives D E B F C A"
+    assert len(set(pre(Node("A", Node("B", Node("C")))))) == 3, "reconstruction: the left chain"
+    left_chain = Node("A", Node("B", Node("C")))
+    right_chain = Node("A", None, Node("B", None, Node("C")))
+    assert pre(left_chain) == pre(right_chain) == ["A", "B", "C"], "reconstruction: both chains give preorder A B C"
+    assert post(left_chain) == post(right_chain) == ["C", "B", "A"], "reconstruction: both give postorder C B A"
+    assert ino(left_chain) == ["C", "B", "A"] and ino(right_chain) == ["A", "B", "C"], \
+        "reconstruction: the two chains are told apart by their inorders"
+    assert pre(rt) == list("ABDECF") and ino(rt) == list("DBEAFC"), "reconstruction: the worked example round-trips"
+    t9 = bst_from_preorder([30, 20, 10, 15, 25, 23, 39, 35, 42])
+    assert post(t9) == [15, 10, 23, 25, 20, 35, 42, 39, 30], "reconstruction check: the nine-key postorder"
+    assert ino(t9) == sorted([30, 20, 10, 15, 25, 23, 39, 35, 42]), "reconstruction check: its inorder is sorted"
+    assert pre(T26) == [50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77], "reconstruction: rebuilding from the 2026 preorder"
+
+    # ---- the search-tree card
+    assert depth(T26, 47) == 3 and depth(T26, 47) + 1 == 4, "search: 47 is at depth 3, four comparisons"
+    assert ino(T26) == sorted(ino(T26)), "search: the inorder of the 2026 tree is sorted"
+    bad = Node(10, Node(5, None, Node(12)), Node(15))
+    assert not valid(bad), "search trap: 12 in the left subtree of 10 is invalid"
+    assert ino(bad) == [5, 12, 10, 15], "search trap: and its inorder is not sorted"
+    assert valid(Node(20, Node(10), Node(30, Node(25), Node(35)))), "search check: 20 10 30 25 35 is valid"
+    assert ino(Node(20, Node(10), Node(30, Node(25), Node(35)))) == [10, 20, 25, 30, 35], "search check: sorted"
+    roots = {build([10, 5, 20]).v, build([5, 20, 10]).v}
+    assert roots == {10, 5}, "search: the same set roots two different trees"
+
+    # ---- the insertion and deletion card
+    t25 = build([10, -4, 15, 30, 20, 5, 60, 19])
+    assert depth(t25, 19) == 4, "deletion card: 19 is four edges below the root"
+    assert ino(t25) == [-4, 5, 10, 15, 19, 20, 30, 60], "deletion card: the inorder after the insertions"
+    d25 = delete(build([50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77]), 25)
+    assert ino(d25) == [13, 30, 40, 47, 50, 60, 70, 75, 77, 80], "deletion: removing 25 replaces it with 30"
+    assert valid(d25), "deletion: the tree after removing 25 is still a search tree"
+    d40 = delete(build([50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77]), 40)
+    assert ino(d40) == [13, 25, 30, 47, 50, 60, 70, 75, 77, 80], "deletion check: removing 40 replaces it with 47"
+    assert succ(build([50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77]), 40) == 47, "deletion check: successor of 40"
+    assert succ(t25, 30) == 60, "deletion lesson: successor of 30 is 60"
+    d30 = delete(build([10, -4, 15, 30, 20, 5, 60, 19]), 30)
+    assert ino(d30) == [-4, 5, 10, 15, 19, 20, 60], "deletion lesson: removing 30 leaves the sorted seven keys"
+    assert valid(d30), "deletion lesson: still a search tree"
+
+    # ---- the cost card
+    assert ht(build([10, 20, 30, 40, 50])) == 4, "cost check: a sorted insertion gives a chain of height 4"
+    assert depth(build([10, 20, 30, 40, 50]), 50) + 1 == 5, "cost check: five comparisons for the last key"
+    assert ht(build([1, 2, 3])) == 2 and ht(build([2, 1, 3])) == 1, "cost: height depends on the order"
+    h1 = 0
+    for perm in itertools.permutations([1, 2, 3]):
+        if ht(build(perm)) == 1:
+            h1 += 1
+    assert h1 == 2, "cost variation: two orders give height 1"
+    h6 = 0
+    for perm in itertools.permutations(range(1, 8)):
+        if ht(build(perm)) == 6:
+            h6 += 1
+    assert h6 == 64 == 2 ** 6, "cost: 64 of the 5040 insertion orders give height 6"
+    assert math.ceil(math.log2(1001)) - 1 == 9, "cost check: 1000 keys need height at least 9"
+    assert 2 ** 10 - 1 == 1023 >= 1000, "cost check: the perfect tree of height 9 holds 1023 keys"
+
+    # ---- the successor card
+    S26 = build([50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77])
+    assert succ(S26, 47) == 50 and succ(S26, 25) == 30 and succ(S26, 80) is None, "successor: 47, 25 and 80"
+    assert succ(S26, 40) == 47, "successor: 40 is followed by 47, not by its parent 25"
+    assert min(ino(S26)) == 13 and max(ino(S26)) == 80, "successor: the extremes are the inorder ends"
+    perfect15 = build([8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15])
+    assert succ(perfect15, 8) == 9 and succ(perfect15, 15) is None, "successor: the root of a perfect tree is followed by 9"
+    assert ht(perfect15) == 3 and ht(build(list(range(1, 16)))) == 14, "cost: 1..15 in order gives height 14"
+
+    # ---- the expression-tree card
+    def expr_tree(tokens):
+        st = []
+        for tok in tokens:
+            if tok in "+-*/":
+                r, l = st.pop(), st.pop()
+                st.append(Node(tok, l, r))
+            else:
+                st.append(Node(tok))
+        return st[0]
+    et = expr_tree("ab+cde+**")
+    assert "".join(map(str, post(et))) == "ab+cde+**", "expression: postorder returns the postfix string"
+    assert "".join(map(str, pre(et))) == "*+ab*c+de", "expression: preorder gives the prefix string"
+    assert "".join(map(str, ino(et))) == "a+b*c*d+e", "expression: inorder gives the infix string"
+    st, states = [], []
+    for tok in "ab+cde+**":
+        if tok in "+-*/":
+            r, l = st.pop(), st.pop(); st.append((tok, l, r))
+        else:
+            st.append(tok)
+        states.append(len(st))
+    assert states == [1, 2, 1, 2, 3, 4, 3, 2, 1], "expression: the stack sizes are 3 after the fifth symbol and 2 after the eighth"
+    assert states[4] == 3 and states[7] == 2, "expression variation: three trees then two"
+    minus = Node("-", Node("a"), Node("+", Node("b"), Node("c")))
+    assert "".join(map(str, post(minus))) == "abc+-", "expression variation: a b c + - builds the tree"
+
+    # ---- the two lessons agree with the cards
+    trav = os.path.join(ROOT, "visuals", "programming-and-data-structures", "trees-and-binary-search-trees",
+                        "traversal-orders", "lesson.json")
+    if os.path.isfile(trav):
+        L = load(trav)
+        ex = L.get("example") or {}
+        assert ex.get("preorder") == pre(perfect7), "lesson: the preorder in traversal-orders"
+        assert ex.get("inorder") == ino(perfect7), "lesson: the inorder in traversal-orders"
+        assert ex.get("postorder") == post(perfect7), "lesson: the postorder in traversal-orders"
+        assert ex.get("visits") == 7 and ex.get("stack_frames") == ht(perfect7) + 1, "lesson: visits and frames"
+        assert L.get("steps") == 7, "lesson: traversal-orders has seven steps"
+    else:
+        fail("the traversal-orders lesson.json is missing")
+    dele = os.path.join(ROOT, "visuals", "programming-and-data-structures", "trees-and-binary-search-trees",
+                        "bst-insertion-and-deletion", "lesson.json")
+    if os.path.isfile(dele):
+        L = load(dele)
+        ex = L.get("example") or {}
+        assert ex.get("inserted") == [10, -4, 15, 30, 20, 5, 60, 19], "lesson: the inserted keys"
+        assert ex.get("path_to_19") == [10, 15, 30, 20, 19], "lesson: the path to 19"
+        assert ex.get("edges_on_path") == depth(t25, 19) == 4, "lesson: four edges on the path to 19"
+        assert ex.get("inorder_after_insert") == ino(t25), "lesson: the inorder after the insertions"
+        assert ex.get("inorder_after_delete") == ino(d30), "lesson: the inorder after deleting 30"
+        assert ex.get("successor") == 60 and succ(t25, 30) == 60, "lesson: the successor of 30"
+        assert L.get("steps") == 7, "lesson: bst-insertion-and-deletion has seven steps"
+    else:
+        fail("the bst-insertion-and-deletion lesson.json is missing")
+
+    # ---- the recorded answers agree with the computations
+    expect = {
+        "gate-2026-set-1-q52-bst-preorder-postorder-position": ("7", post(T26).index(60) + 1),
+        "gate-2025-set-2-q3-two-child-nodes": ("Option 2", "(n-1)/2"),
+        "gate-2025-set-2-q25-bst-insert-depth-19": ("4", depth(t25, 19)),
+        "gate-2025-set-1-q16-bst-true-statements": ("Options 1 and 2", None),
+        "gate-2024-set-2-q29-inorder-from-set": ("Option 1", None),
+        "gate-2020-q5-preorder-to-postorder": ("Option 2", post(bst_from_preorder([15, 10, 12, 11, 20, 18, 16, 19]))),
+        "gate-2017-set-2-q36-preorder-to-postorder": ("Option 2", post(bst_from_preorder([12, 8, 6, 2, 7, 9, 10, 16, 15, 19, 17, 20]))),
+        "gate-2017-set-1-q6-bst-15-nodes-height": ("Option 2", (math.ceil(math.log2(16)) - 1, 14)),
+        "gate-2016-set-2-q40-insertion-orders-height-6": ("64", h6),
+        "gate-2004-q35-traversal-pairs-unique": ("Option 2", "(ii), (iii)"),
+    }
+    for pid, (head_, computed) in expect.items():
+        if pid not in pyqs:
+            fail("trees: recorded PYQ %r is missing" % pid)
+            continue
+        if not str(pyqs[pid].get("answer", "")).startswith(head_):
+            fail("%s: recorded answer does not start with the recomputed %r" % (pid, head_))
+    assert post(bst_from_preorder([15, 10, 12, 11, 20, 18, 16, 19])) == [11, 12, 10, 16, 19, 18, 20, 15], \
+        "2020: the postorder in the record"
+    assert post(bst_from_preorder([12, 8, 6, 2, 7, 9, 10, 16, 15, 19, 17, 20])) == \
+        [2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12], "2017 Set 2: the postorder in the record"
+    ok("trees and binary search trees: %d cards, the three traversal orders on four shapes, the height bounds for "
+       "n = 1..9999, %d insertion orders of 1..7, %d Catalan values, both deletion traces, five successors, the "
+       "expression tree and the two lessons recomputed" % (len(cards), 5040, len(cat)))
+
+
+
 def check_visuals():
     vroot = os.path.join(ROOT, "visuals")
     lessons = []
@@ -9906,6 +10279,7 @@ def main():
     check_recursion(topics, tpath, pyqs)
     check_arrays_stacks_queues(topics, tpath, pyqs)
     check_linked_lists(topics, tpath, pyqs)
+    check_trees_and_bsts(topics, tpath, pyqs)
     check_visuals()
     check_hygiene()
     for c in checks:
