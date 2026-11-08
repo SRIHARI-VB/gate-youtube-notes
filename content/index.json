@@ -29,8 +29,8 @@
   ],
   "counts": {
     "subjects": 7,
-    "topics": 395,
-    "pyqs": 326,
+    "topics": 405,
+    "pyqs": 337,
     "videos": 39,
     "playlists": 3
   },
@@ -5909,6 +5909,156 @@
       "videos": [],
       "pyqs": [
         "gate-2006-q49-queue-two-stacks"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "node-and-pointer-representation",
+      "title": "A Node, a Head Pointer and the NULL Terminator",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/node-and-pointer-representation.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "traversing-and-searching-a-singly-linked-list",
+      "title": "Traversal, Counting and Searching: Walking from head",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/traversing-and-searching-a-singly-linked-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2026-set-1-q29-getlistsize",
+        "gate-2008-q62-rearrange-pairwise-swap"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "insertion-in-a-singly-linked-list",
+      "title": "Insertion: Two Pointer Writes and One Walk",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/insertion-in-a-singly-linked-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2020-q16-sorted-insertion-cost",
+        "gate-2017-set-1-q08-join-two-lists"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "deleting-a-node-given-its-pointer",
+      "title": "Deletion: Why a Pointer to the Node Is Not Enough",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/deleting-a-node-given-its-pointer.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2023-q3-slldel-dlldel",
+        "gate-2025-set-1-q52-delete-values-in-l2"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "reversing-a-singly-linked-list",
+      "title": "Reversing a Singly Linked List in O(1) Space",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/linked-lists/reversing-a-singly-linked-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2022-q5-reverse-singly-linked-list",
+        "gate-2010-q36-move-last-to-front"
+      ],
+      "visual": "programming-and-data-structures/linked-lists/reversing-a-singly-linked-list",
+      "variations": 2
+    },
+    {
+      "topic": "doubly-linked-list",
+      "title": "The Doubly Linked List: prev Buys O(1) Deletion",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/doubly-linked-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2016-set-2-q15-decrease-key-sorted-doubly",
+        "gate-2023-q3-slldel-dlldel"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "circular-linked-list",
+      "title": "Circular Lists: No NULL, One Pointer, Two O(1) Ends",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/linked-lists/circular-linked-list.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2004-q36-circular-queue-single-pointer",
+        "gate-1997-q1-4-concatenation-o1"
+      ],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "list-operation-costs",
+      "title": "The Cost Table: Which Operation Needs a Walk",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P1",
+      "path": "subjects/programming-and-data-structures/linked-lists/list-operation-costs.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "two-pointer-techniques-and-cycle-detection",
+      "title": "Two Pointers: Middle, Cycles and the Meeting Node",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P2",
+      "path": "subjects/programming-and-data-structures/linked-lists/two-pointer-techniques-and-cycle-detection.json",
+      "videos": [],
+      "pyqs": [],
+      "visual": null,
+      "variations": 2
+    },
+    {
+      "topic": "linked-lists-for-stacks-queues-and-applications",
+      "title": "Linked Stacks, Linked Queues and What Lists Are For",
+      "subject": "programming-and-data-structures",
+      "group": "linked-lists",
+      "unit": "Linked Lists",
+      "priority": "P3",
+      "path": "subjects/programming-and-data-structures/linked-lists/linked-lists-for-stacks-queues-and-applications.json",
+      "videos": [],
+      "pyqs": [
+        "gate-2017-set-1-q08-join-two-lists"
       ],
       "visual": null,
       "variations": 2
