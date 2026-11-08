@@ -348,7 +348,7 @@ window.GATE_DATA = {
      {
       "slug": "linked-lists",
       "name": "Linked Lists",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "trees-and-binary-search-trees",
@@ -48321,6 +48321,804 @@ window.GATE_DATA = {
    "subject": "programming-and-data-structures",
    "topic": "arrays-stacks-queues",
    "path": "subjects/programming-and-data-structures/arrays-stacks-queues/deque-and-queue-from-two-stacks.json"
+  },
+  {
+   "id": "node-and-pointer-representation",
+   "title": "A Node, a Head Pointer and the NULL Terminator",
+   "priority": "P1",
+   "order": 595,
+   "quickIdea": "A linked list keeps each element in its own node and stores the address of the next node inside the current one, so the nodes can sit anywhere in memory and the list is reached only through the head pointer.",
+   "remember": [
+    "A node is a self-referential structure: struct node { int data; struct node *next; };. C allows the struct to hold a pointer to its own type because a pointer has a fixed size before the structure is complete.",
+    "The list is entered through one pointer, head. head == NULL is the empty list. The last node's next is NULL, which is the only end marker; no length and no index are stored.",
+    "Nodes are allocated one at a time (malloc), so their addresses are unrelated. Address arithmetic cannot reach the i-th node; only a walk from head can.",
+    "Trade-off against an array: an array gives O(1) random access but O(n) insert or delete from the middle (everything after the position shifts) and a fixed capacity; a list gives O(1) insert or delete once you hold the right pointer, but O(n) access and one extra pointer per element.",
+    "Memory: a node of an int list costs 4 bytes of data plus 8 bytes of pointer on a 64-bit machine, so 12n bytes against the array's 4n for the same n integers.",
+    "A list grows until the heap is exhausted. An array cannot exceed its declared size, and a doubling array pays an O(n) copy on some insertions."
+   ],
+   "example": {
+    "prompt": "Create the two-node list 10 -> 20 -> NULL in C and make head point at it.",
+    "work": "Allocate the first node and fill it: n1 = malloc(sizeof(struct node)); n1->data = 10;. Allocate the second the same way with 20. Then link them, last first: n1->next = n2; n2->next = NULL; head = n1;.",
+    "answer": "head -> [10|*] -> [20|NULL]. The order matters: n2 must exist before n1->next can point at it, and n2->next must be set to NULL or the walk from head runs into unallocated memory."
+   },
+   "gateAngle": "Representation is tested through code, not definitions. GATE CSE 2025 Set 1 hands you two lists built by malloc and asks how many nodes survive a deletion loop; GATE CSE 2026 Set 1 asks you to complete a recursive node count. Both are answered by knowing that next holds an address, that NULL ends the list, and that nothing else in the structure records the length.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "An array of n ints and a singly linked list of n ints store the same 4-byte values. On a machine with 8-byte pointers, how many bytes does each structure need for data and links alone?",
+     "answer": "The array needs 4n bytes; the list needs 12n bytes.",
+     "why": "Each node carries one 8-byte pointer in addition to its 4-byte value, so the list pays three times the data storage. That overhead is what buys the O(1) relinking, and it is the number a question about memory cost expects."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A structure is declared struct node { int data; struct node next; };. What is wrong with it?",
+     "answer": "It is rejected: a structure cannot contain an object of its own incomplete type, because the size of node would depend on the size of node.",
+     "why": "The pointer is what breaks the circularity, because a pointer's size is known before the struct is finished. Changing next to struct node *next makes the declaration legal, and that single character is the difference the exam tests."
+    }
+   ],
+   "trap": {
+    "what": "Reading next as if it held the element, or assuming the nodes of a list are next to each other in memory.",
+    "why": "next holds the address of another node. Two lists built in the same program interleave their nodes on the heap, so a list is a chain of addresses, not a block of memory.",
+    "counterexample": "In a three-node list the node holding 20 can have a lower address than the node holding 10 if the second was allocated first. Any reasoning that assumes node i sits at base + i*12 fails, which is exactly why a list has no O(1) access."
+   },
+   "check": {
+    "question": "A singly linked list of 4 nodes is built. How many next fields hold an address, and how many hold NULL?",
+    "answer": "Three hold an address and one holds NULL.",
+    "explanation": "Each of the first three nodes points at its successor; the fourth is the tail, so its next is the terminator. With a head pointer and no other bookkeeping, that single NULL is the whole record of where the list ends."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "pointers-address-and-indirection",
+    "structures-unions-and-padding",
+    "dynamic-memory-malloc-calloc-realloc-free"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "notes, read in part: the linked-list section's opening"
+    },
+    {
+     "kind": "text",
+     "title": "Wikipedia, Linked list",
+     "url": "https://en.wikipedia.org/wiki/Linked_list",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: definition, non-contiguous storage, access cost and cache locality"
+    }
+   ],
+   "sourceLine": "The node structure, the head pointer, the NULL terminator and the array-versus-list trade-off: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part) and Wikipedia, \"Linked list\" (English, read in part). The memory figures (4n against 12n) are recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/node-and-pointer-representation.json"
+  },
+  {
+   "id": "traversing-and-searching-a-singly-linked-list",
+   "title": "Traversal, Counting and Searching: Walking from head",
+   "priority": "P1",
+   "order": 596,
+   "quickIdea": "Every list operation begins with the same walk: a pointer starts at head and follows next until it reaches the node you want or hits NULL, which costs O(n) time.",
+   "remember": [
+    "The standard loop is for (p = head; p != NULL; p = p->next) visit(p);. Its body runs exactly n times for n nodes.",
+    "Test p, not p->next, unless the body needs the successor. A loop written while (p->next != NULL) stops one node early, and a body that dereferences p->next->next on the last node dereferences NULL.",
+    "Counting nodes and searching for a key are both Theta(n). In the worst case the key is absent or last, so n comparisons are needed; a binary search is impossible because the list has no O(1) midpoint.",
+    "Recursion over a list uses one frame per node. For a non-empty list, size(head) = 1 if head->next == NULL, else 1 + size(head->next); the depth equals n.",
+    "A pairwise walk uses two pointers: p = q->next; q = p ? p->next : 0; advances two nodes per iteration, which lets a swap of adjacent values touch each node once.",
+    "The traversal must be restarted from head for every new search. Nothing is cached, and there is no way to resume a walk from a node you no longer hold."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2008 Q.62. The list holds 1,2,3,4,5,6,7. The function swaps p->value with q->value, then sets p = q->next and q = p ? p->next : 0, with p starting at the first node and q at the second. What is the list afterwards?",
+    "work": "Round 1 swaps nodes 1 and 2, giving 2,1,3,4,5,6,7, then moves p to node 3 and q to node 4. Round 2 gives 2,1,4,3,5,6,7 and moves p to node 5, q to node 6. Round 3 gives 2,1,4,3,6,5,7 and moves p to node 7; q becomes p->next, which is NULL, so the loop ends.",
+    "answer": "2, 1, 4, 3, 6, 5, 7. The seventh value is untouched because the loop pairs nodes two at a time."
+   },
+   "gateAngle": "Traces are the cheapest marks in this topic. GATE CSE 2008 Q.62 pairs adjacent values, GATE CSE 2026 Set 1 asks for the base case and the recursive step of a node count, and GATE CSE 2025 Set 1 hides a deletion inside a walk. In each case you write the pointer values after every iteration instead of guessing the final list.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1. getListSize(head) returns 1 if E1, else returns E2, for a non-empty singly linked list. Which E1 and E2 count the nodes?",
+     "answer": "E1: head->next == NULL and E2: 1 + getListSize(head->next).",
+     "why": "The list is guaranteed non-empty, so the base case is the single-node list, whose next is NULL. The recursive step must advance to head->next; calling getListSize(head) again never reaches the base case."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A list of 5 nodes is searched for a key that is not present. How many comparisons are made, and how many would a sorted array of 5 elements need in the worst case?",
+     "answer": "5 comparisons for the list; 3 for the sorted array.",
+     "why": "The list must visit every node to be sure the key is absent, so the cost is n. Binary search on 5 sorted elements compares against the middle and then at most two more, which is ceil(log2(6)) = 3."
+    }
+   ],
+   "trap": {
+    "what": "Advancing the pointer after a deletion inside the same loop, or writing the loop test as p->next != NULL and then reading p->next->next.",
+    "why": "After you unlink the node after p, p already points at the following node, so p = p->next skips one. And on the last node p->next is NULL, so p->next->next dereferences NULL.",
+    "counterexample": "Delete every node after the head from 1,2,3,4 using if (found) p->next = p->next->next; else p = p->next;. Advancing in both branches visits 2 and 4 but never 3, leaving 3 in the list. GATE CSE 2025 Set 1 is built on exactly this distinction."
+   },
+   "check": {
+    "question": "In the loop while (p->next != NULL) { p = p->next; } starting at head of a 4-node list, where does p finish and how many times does the body run?",
+    "answer": "p finishes on the last node and the body runs 3 times.",
+    "explanation": "The loop stops when p->next is NULL, which is true only at the tail. That is the correct way to reach the last node, and the wrong way to visit every node, which is why the condition must be chosen from the body's needs."
+   },
+   "pyqIds": [
+    "gate-2026-set-1-q29-getlistsize",
+    "gate-2008-q62-rearrange-pairwise-swap"
+   ],
+   "prereqs": [
+    "node-and-pointer-representation"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Overflow, Data Structures subject page (Volume 2 chapter)",
+     "url": "https://gateoverflow.in/subject/programming-in-c/data-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: syllabus line, pitfalls, complexity summary"
+    },
+    {
+     "kind": "text",
+     "title": "GeeksforGeeks, Linked List Data Structure",
+     "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: operation inventory"
+    }
+   ],
+   "sourceLine": "The traversal loop, the p against p->next distinction and the O(n) search cost: GATE Overflow, Data Structures chapter (English, read in part) and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). Both traces are recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/traversing-and-searching-a-singly-linked-list.json"
+  },
+  {
+   "id": "insertion-in-a-singly-linked-list",
+   "title": "Insertion: Two Pointer Writes and One Walk",
+   "priority": "P1",
+   "order": 597,
+   "quickIdea": "Insertion itself is a fixed pair of pointer writes, so it is O(1); what costs time is reaching the position, which is a walk from head unless you already hold the node.",
+   "remember": [
+    "At the head: new->next = head; head = new;. Two writes, O(1), and the order is not free: head = new first loses the whole list.",
+    "After a given node p: new->next = p->next; p->next = new;. O(1). Reversing the two lines makes the new node point at itself.",
+    "At the tail: you must walk to the last node, so O(n). Keeping a tail pointer makes the append O(1), but then the tail pointer must be maintained on every insert and delete.",
+    "At position i: the walk is O(i) and the relinking is O(1), so the operation is O(n).",
+    "Inserting n elements into an empty list that must stay sorted costs Theta(n^2) in the worst case: the i-th insertion walks up to i-1 nodes, and 0 + 1 + ... + (n-1) = n(n-1)/2.",
+    "Inserting n elements at the head is Theta(n) in total, because every insertion is O(1) and no walk is needed."
+   ],
+   "example": {
+    "prompt": "Insert 25 after the node holding 20 in the list 10 -> 20 -> 30 -> NULL.",
+    "work": "Hold p at the node 20. Set new->next = p->next, so the new node points at 30. Then set p->next = new, so 20 points at the new node. For 4 elements the walk from head to 20 is 2 steps.",
+    "answer": "10 -> 20 -> 25 -> 30 -> NULL, in two pointer writes plus the walk to find 20."
+   },
+   "gateAngle": "GATE asks for the cost of a sequence of insertions, not one insertion. GATE CSE 2020 Q.16 gives n elements into a sorted list and expects Theta(n^2) because each placement is a fresh walk; the same reasoning makes the sorted-insert variant of any 'n operations on a list' question quadratic.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2020 Q.16. What is the worst case time complexity of inserting n elements into an empty linked list if the list must be maintained in sorted order?",
+     "answer": "Theta(n^2).",
+     "why": "The worst case is input arriving already sorted, so every new element belongs at the end and each insertion scans the whole current list: 0 + 1 + 2 + ... + (n-1) = n(n-1)/2 comparisons, which is Theta(n^2)."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "The same n elements are inserted at the head of an empty list instead, with no order requirement. What is the total cost, and what is the resulting order?",
+     "answer": "Theta(n) total, and the list holds the input in reverse order.",
+     "why": "Each insertion is two pointer writes with no walk, so the total is n writes. The order reverses because every new node becomes the head, which is the same mechanism a stack uses."
+    }
+   ],
+   "trap": {
+    "what": "Saying 'insertion in a linked list is O(1)' with no qualifier.",
+    "why": "Only the relinking is O(1). The position has to be found first, and finding it is a walk, so the operation is O(1) only when you already hold the node you insert after.",
+    "counterexample": "Inserting at the end of a 1000-node singly linked list with only a head pointer walks 999 links before the two writes. The writes are constant; the operation is not."
+   },
+   "check": {
+    "question": "How many node visits are made in total when 5 elements arrive in sorted order and are inserted into a sorted linked list?",
+    "answer": "10 visits.",
+    "explanation": "The i-th insertion scans i-1 existing nodes, so the total is 0+1+2+3+4 = 10 = 5*4/2. That sum is the reason the cost is quadratic rather than linear."
+   },
+   "pyqIds": [
+    "gate-2020-q16-sorted-insertion-cost",
+    "gate-2017-set-1-q08-join-two-lists"
+   ],
+   "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "notes, read in part: linked-list insert costs"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2020 Q.16",
+     "url": "https://gateoverflow.in/333215/gate-cse-2020-question-16",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options and community derivations"
+    }
+   ],
+   "sourceLine": "The two-write insertions and the tail-pointer qualification: IAE Academy, \"Linear structures\" notes (English, read in part). The sorted-insertion cost and its sum: GATE Overflow question page for GATE CSE 2020 Q.16 (English, read in part), recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/insertion-in-a-singly-linked-list.json"
+  },
+  {
+   "id": "deleting-a-node-given-its-pointer",
+   "title": "Deletion: Why a Pointer to the Node Is Not Enough",
+   "priority": "P1",
+   "order": 598,
+   "quickIdea": "Unlinking a node means changing its predecessor, and a singly linked node does not know its predecessor, so deletion given only the node costs O(n) unless you use the data-copy trick or a doubly linked list.",
+   "remember": [
+    "The general unlink is prev->next = node->next, so the predecessor is essential. A singly linked node stores only its successor.",
+    "Given a pointer to the node, the worst case is the last node: the walk from head to its predecessor touches n-1 links, so SLLdel is O(n) (GATE CSE 2023 Q.3).",
+    "Deleting the head is O(1): head = head->next. Deleting the tail is O(n) in a singly linked list even with a tail pointer, because the second-last node must be found.",
+    "The O(1) data-copy trick works on a non-last node: copy the successor's data into the node, unlink the successor, free it. It fails on the tail because there is no successor to copy from, and it copies data rather than moving a node.",
+    "In a doubly linked list, deletion given the node is O(1): p->prev->next = p->next; p->next->prev = p->prev, with the head and tail cases guarded.",
+    "Deleting while traversing needs a trailing pointer, and after a successful unlink the trailing pointer must not advance, or the node after the deleted one is never examined."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2025 Set 1. L1 is 1,7,12,3,9,5,11,15,8 and L2 is 1,11,6,9,15,12,4. The loop sets query = ptr1->next->data and, if that value occurs in L2, does ptr1->next = ptr1->next->next, else advances ptr1. How many nodes remain in L1?",
+    "work": "The head is never tested, so 1 always stays. At 1 the next is 7, absent from L2, so advance. At 7 the next is 12, present, so 12 is bypassed and ptr1 stays at 7; now the next is 3, absent, advance. At 3 the next is 9, present, bypass; next is 5, absent, advance. At 5 the next is 11, present, bypass; next is 15, present, bypass; next is 8, absent, advance. ptr1->next is now NULL and the loop ends.",
+    "answer": "5 nodes: 1, 7, 3, 5, 8."
+   },
+   "gateAngle": "Deletion questions test two things: whether you know the predecessor is the real cost, and whether you advance the pointer correctly during a walk. GATE CSE 2023 Q.3 contrasts SLLdel with DLLdel for exactly the first reason; GATE CSE 2025 Set 1 embeds the second inside a program trace.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.3. Given a pointer to the node and a pointer to the head, what are the worst case complexities of SLLdel and DLLdel?",
+     "answer": "SLLdel is O(n) and DLLdel is O(1).",
+     "why": "The singly linked function must find the predecessor by walking from the head, which is n-1 links in the worst case. The doubly linked function reads it from node->prev and rewires both neighbours, which is a constant number of writes."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A pointer is given to the second node of the list 10 -> 20 -> 30. Delete 20 in O(1) without the head pointer. What does the list hold afterwards, and what would go wrong for the node 30?",
+     "answer": "Copy 30 into the node, bypass the old 30, and the list becomes 10 -> 30. For the node 30 the trick has no successor to copy from, so it cannot be applied.",
+     "why": "The trick trades identity for time: the node object that held 20 survives holding 30, and the last node's storage is freed. Because it needs a successor, the tail is excluded, which is why the general worst case stays O(n)."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a pointer to the node makes deletion O(1) in a singly linked list, or advancing the traversal pointer after unlinking a node.",
+    "why": "The predecessor still has to be located, which is a walk. And after p->next = p->next->next the node after p is a new one that has not been examined.",
+    "counterexample": "Deleting the last node of 1,2,3 given only its pointer needs a walk over both earlier nodes, so it is O(n) not O(1). In the GATE CSE 2025 loop, advancing after a bypass would skip the node that moved into the deleted one's place."
+   },
+   "check": {
+    "question": "A list has 6 nodes and you are given a pointer to the fifth. What is the worst case number of links walked to delete it in a singly linked list, and in a doubly linked list?",
+    "answer": "4 links in the singly linked list, 0 in the doubly linked list.",
+    "explanation": "The singly linked function walks from the head to the fourth node, which is 4 links for the fifth node. The doubly linked node carries prev, so the predecessor is one dereference away and no walk is needed."
+   },
+   "pyqIds": [
+    "gate-2023-q3-slldel-dlldel",
+    "gate-2025-set-1-q52-delete-values-in-l2"
+   ],
+   "prereqs": [
+    "insertion-in-a-singly-linked-list"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "notes, read in part: the O(1) data-copy deletion and its limitation"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question pages for GATE CSE 2023 Q.3 and GATE CSE 2025 Set 1 Q.52",
+     "url": "https://gateoverflow.in/399309/gate-cse-2023-question-3",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and traces"
+    }
+   ],
+   "sourceLine": "The predecessor argument, the data-copy trick and its last-node limit: IAE Academy, \"Linear structures\" notes (English, read in part). The two deletions: GATE Overflow question pages for GATE CSE 2023 Q.3 and GATE CSE 2025 Set 1 Q.52 (English, read in part). Both traces are recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/deleting-a-node-given-its-pointer.json"
+  },
+  {
+   "id": "reversing-a-singly-linked-list",
+   "title": "Reversing a Singly Linked List in O(1) Space",
+   "priority": "P2",
+   "order": 599,
+   "quickIdea": "Walk the list once with three pointers, pointing each node's next at the node before it; every node changes its link exactly once, so the time is Theta(n) and the extra space is O(1).",
+   "remember": [
+    "The in-place loop: prev = NULL; while (curr) { next = curr->next; curr->next = prev; prev = curr; curr = next; } return prev;. Three pointers, one pass, no allocation.",
+    "Time is Theta(n) and space is O(1). Every node's next must be rewritten, so Omega(n) is a lower bound and Theta(n) is optimal (GATE CSE 2022 Q.5).",
+    "A recursive reversal is also Theta(n) in time but Theta(n) in stack space, so it does not satisfy an O(1)-space requirement.",
+    "Copying the values into an array and writing them back is Theta(n) time and Theta(n) space, and it reverses the data rather than the links; the nodes keep their addresses.",
+    "The save-next-first order is mandatory: curr->next = prev before next = curr->next loses the rest of the list.",
+    "Moving the last node to the front is the same walk with two pointers: stop with p on the last node and q on the second-last, then q->next = NULL; p->next = head; head = p (GATE CSE 2010 Q.36)."
+   ],
+   "example": {
+    "prompt": "Reverse the list 1 -> 2 -> 3 -> NULL with the three-pointer loop.",
+    "work": "Start prev = NULL, curr = 1. Save next = 2, set 1->next = NULL, prev = 1, curr = 2. Save next = 3, set 2->next = 1, prev = 2, curr = 3. Save next = NULL, set 3->next = 2, prev = 3, curr = NULL. The loop ends and prev is the new head.",
+    "answer": "3 -> 2 -> 1 -> NULL, after 3 iterations for 3 nodes."
+   },
+   "gateAngle": "GATE rarely asks you to write the loop; it asks what the loop costs, or which pointer assignment belongs in the blank. GATE CSE 2022 Q.5 is the cost question, GATE CSE 2010 Q.36 the blank-filling one. Both are settled by tracking prev, curr and next through two iterations.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2022 Q.5. Which statement is true about reversing a singly linked list in O(1) space?",
+     "answer": "The best algorithm takes Theta(n) time in the worst case.",
+     "why": "The three-pointer pass visits each node once, so O(n) is achieved; each node's link must change, so no algorithm does better than Omega(n). The other options claim n log n, n^2, or impossibility, and the third pointer pass shows it is possible."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "The same reversal is written recursively. What are its time and space costs, and does it meet an O(1)-space requirement?",
+     "answer": "Theta(n) time and Theta(n) stack space, so it does not meet O(1) space.",
+     "why": "The recursion holds one frame per node while unwinding, which is n frames. The time is unchanged because each node is still visited once, and the distinction between time and auxiliary space is what the requirement is testing."
+    }
+   ],
+   "trap": {
+    "what": "Overwriting curr->next before saving the old successor, or claiming the reversal is impossible in O(1) space.",
+    "why": "curr->next is the only route to the remaining nodes, so it must be copied into next first. And the three-pointer loop needs no extra structure at all, only two local pointers besides curr.",
+    "counterexample": "Writing curr->next = prev as the first statement of the body leaves curr = next reading the just-overwritten field, so the walk returns to the node it came from and loops forever on lists of three or more nodes."
+   },
+   "check": {
+    "question": "How many times is a node's next field written when a 5-node list is reversed in place?",
+    "answer": "5 times, once per node.",
+    "explanation": "Each iteration writes exactly one next field, and the loop runs once per node. That count is why the time is Theta(n) and why no correct algorithm can be asymptotically faster."
+   },
+   "pyqIds": [
+    "gate-2022-q5-reverse-singly-linked-list",
+    "gate-2010-q36-move-last-to-front"
+   ],
+   "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+   ],
+   "visual": "programming-and-data-structures/linked-lists/reversing-a-singly-linked-list",
+   "links": {
+    "visual": {
+     "slug": "reversing-a-singly-linked-list",
+     "title": "Reversing a Singly Linked List: Three Pointers",
+     "level": "subtopic-level",
+     "covers": [
+      "in-place reversal",
+      "prev/curr/next bookkeeping",
+      "Theta(n) time and O(1) space"
+     ],
+     "url": "visuals/programming-and-data-structures/linked-lists/reversing-a-singly-linked-list/index.html"
+    }
+   },
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Overflow question page for GATE CSE 2022 Q.5",
+     "url": "https://gateoverflow.in/371931/gate-cse-2022-question-5",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options, three-pointer solutions"
+    },
+    {
+     "kind": "text",
+     "title": "Wikipedia, Linked list",
+     "url": "https://en.wikipedia.org/wiki/Linked_list",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: relinking without reallocation"
+    }
+   ],
+   "sourceLine": "The three-pointer reversal, its Theta(n) time and O(1) space, and the recursive variant's stack cost: GATE Overflow question page for GATE CSE 2022 Q.5 (English, read in part). The relinking argument: Wikipedia, \"Linked list\" (English, read in part). The step trace and the five writes are recomputed in scripts/validate.py and animated in the lesson.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/reversing-a-singly-linked-list.json"
+  },
+  {
+   "id": "doubly-linked-list",
+   "title": "The Doubly Linked List: prev Buys O(1) Deletion",
+   "priority": "P1",
+   "order": 600,
+   "quickIdea": "A doubly linked node stores both neighbours, so it can be unlinked in O(1) given a pointer to it, at the cost of one extra pointer per node and two neighbour updates per change.",
+   "remember": [
+    "Node: struct node { int data; struct node *prev, *next; };. Three fields, and both ends of the list must be updated on every insertion and deletion.",
+    "Insert after p: n->next = p->next; n->prev = p; if (p->next) p->next->prev = n; p->next = n;. Four pointer writes, and the guard covers p being the tail.",
+    "Delete p: p->prev->next = p->next; p->next->prev = p->prev;. Two writes, O(1), with the head and tail cases guarded (GATE CSE 2023 Q.3 answer D).",
+    "The benefit is real but narrow: deletion given the node, insertion before a given node, and backward traversal. Search and access are still O(n).",
+    "Decrease-key in a sorted doubly linked list is still Theta(N) per operation, because the new position must be found by walking; Theta(N) such operations make Theta(N^2) (GATE CSE 2016 Set 2 Q.15).",
+    "Cost: 8 extra bytes per node on a 64-bit machine and more pointer writes per operation, so a doubly linked list is chosen for deletion-heavy work, not for memory."
+   ],
+   "example": {
+    "prompt": "GATE CSE 2016 Set 2 Q.15. N items sit in a sorted doubly linked list. An algorithm performs Theta(N) deletes, O(log N) inserts, O(log N) finds and Theta(N) decrease-keys, each given a pointer to the record. What is the total cost?",
+    "work": "Each delete is O(1) because prev is stored, so Theta(N) deletes cost O(N). Each insert or find walks the list, so each is O(N) and O(log N) of them cost O(N log N). A decrease-key is O(1) at the record but the list must stay sorted, so the new position costs O(N) per operation and Theta(N) of them cost Theta(N^2).",
+    "answer": "O(N^2). The decrease-key step dominates, and the pointer argument does not make it cheap."
+   },
+   "gateAngle": "The exam uses the doubly linked list to test whether you separate the cost of touching a node from the cost of finding where it belongs. GATE CSE 2023 Q.3 wants O(1) for DLLdel; GATE CSE 2016 Set 2 Q.15 wants you to see that a pointer does not remove the sorted-order walk.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.3. With a pointer to the node and a pointer to the head, what is the worst case cost of deleting that node from a doubly linked list?",
+     "answer": "O(1).",
+     "why": "The node holds prev, so the predecessor is available without a walk; two pointer writes unlink it. The head pointer is not needed at all when the node is not the head."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A doubly linked list holds 10, 20, 30 and you are given a pointer to 20. Delete it and state every pointer field that changed.",
+     "answer": "The list becomes 10 <-> 30, and four fields changed: 10->next, 30->prev, and the two fields of the freed node are irrelevant.",
+     "why": "Only the neighbours of the deleted node change. Counting the changed fields is how the pointer-write questions are marked, and it shows why a doubly linked list is more expensive per operation but cheaper per deletion."
+    }
+   ],
+   "trap": {
+    "what": "Updating next in both directions and forgetting prev, or writing the delete without guarding the head and tail.",
+    "why": "Every link is stored twice, once in each direction, so both copies must agree. If p is the head, p->prev is NULL and the first write crashes; if p is the tail, p->next is NULL and the second does.",
+    "counterexample": "Deleting the head of 10 <-> 20 with the unguarded two writes evaluates NULL->next, which is a crash. The guarded version sets head = p->next and fixes only the new head's prev."
+   },
+   "check": {
+    "question": "How many pointer fields must be written to insert a node between two existing nodes of a doubly linked list?",
+    "answer": "Four.",
+    "explanation": "The new node's next and prev, plus the successor's prev and the predecessor's next. The singly linked version needs two, which is exactly the trade: twice the writes, but O(1) deletion later."
+   },
+   "pyqIds": [
+    "gate-2016-set-2-q15-decrease-key-sorted-doubly",
+    "gate-2023-q3-slldel-dlldel"
+   ],
+   "prereqs": [
+    "deleting-a-node-given-its-pointer"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "Wikipedia, Linked list",
+     "url": "https://en.wikipedia.org/wiki/Linked_list",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: doubly linked variants and their trade-offs"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.15",
+     "url": "https://gateoverflow.in/39557/gate-cse-2016-set-2-question-15",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statement, options, cost derivations"
+    }
+   ],
+   "sourceLine": "The node layout and the trade-offs of a doubly linked list: Wikipedia, \"Linked list\" (English, read in part). The pointer updates and the decrease-key cost: GATE Overflow question page for GATE CSE 2016 Set 2 Q.15 (English, read in part). The write counts are recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/doubly-linked-list.json"
+  },
+  {
+   "id": "circular-linked-list",
+   "title": "Circular Lists: No NULL, One Pointer, Two O(1) Ends",
+   "priority": "P2",
+   "order": 601,
+   "quickIdea": "In a circular list the last node points back to the first, so a single pointer to the rear reaches both ends and a queue built this way enqueues and dequeues in O(1).",
+   "remember": [
+    "Circular singly linked: the last node's next is the head instead of NULL. There is no terminator, so every traversal needs a stopping rule such as returning to the start or counting n nodes.",
+    "A queue on a circular singly linked list needs one pointer to the rear. front is rear->next, enqueue inserts after rear and moves rear, dequeue removes rear->next (GATE CSE 2004 Q.36 answer: rear node).",
+    "Pointing the single pointer at the front instead makes dequeue O(1) but enqueue O(n), because the rear must be found by walking the whole circle. That asymmetry is the reason the answer is rear.",
+    "Circular doubly linked: the head's prev is the tail as well, so both ends are one dereference from the head. Concatenating two such lists is O(1) with four pointer writes (GATE CSE 1997 Q.1.4).",
+    "Singly and doubly linked lists with only a head pointer need O(n) to reach the tail before concatenating, and arrays need O(n+m) copying.",
+    "Circular lists fit anything that wraps: round-robin scheduling, ring buffers, and the last-player-first games of Josephus type."
+   ],
+   "example": {
+    "prompt": "A queue is a circular singly linked list holding 4, 7, 9 with p pointing at the rear 9. Enqueue 5, then dequeue once. What is the queue?",
+    "work": "front is p->next = 4. Enqueue: 5->next = p->next (4); p->next = 5; p = 5, so the circle is 4, 7, 9, 5 with rear 5. Dequeue: front = p->next = 4; p->next = front->next = 7; the circle is 7, 9, 5 with rear 5.",
+    "answer": "The queue holds 7, 9, 5 with front 7, after one enqueue and one dequeue, both O(1)."
+   },
+   "gateAngle": "Two questions carry this subtopic: GATE CSE 2004 Q.36 asks which node the single pointer must address, and GATE CSE 1997 Q.1.4 asks which list implementation concatenates in O(1). Both are answered by asking what each pointer gives you for free and what it forces you to walk.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2004 Q.36. A circularly linked list represents a queue and a single variable p accesses it. To which node should p point so that enqueue and dequeue are both O(1)?",
+     "answer": "The rear node.",
+     "why": "From the rear, the front is rear->next, so both ends are reachable in one dereference. From the front, the rear is n-1 links away, which makes enqueue O(n)."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 1997 Q.1.4. Concatenation of two lists must take O(1) time. Which implementation should be used?",
+     "answer": "A circular doubly linked list.",
+     "why": "Its head's prev is the tail, so the tail of each list is one dereference away and four pointer writes splice the two circles. A plain singly or doubly linked list must walk to its tail first, and an array must copy both blocks."
+    }
+   ],
+   "trap": {
+    "what": "Writing a traversal of a circular list with the same while (p != NULL) loop used for a NULL-terminated list.",
+    "why": "A circular list never reaches NULL, so that loop runs forever. The condition has to be do { ... } while (p != head); or a count of n nodes.",
+    "counterexample": "Counting the nodes of 4, 7, 9 with while (p != NULL) { count++; p = p->next; } never stops, and the counter keeps growing. The same list with do { count++; p = p->next; } while (p != head); returns 3."
+   },
+   "check": {
+    "question": "In a circular singly linked list of 6 nodes with the single pointer at the rear, how many links must be followed to reach the front?",
+    "answer": "One.",
+    "explanation": "The rear's next is the front by definition of the circle. That is why the rear pointer supports both ends, and why the front pointer would not."
+   },
+   "pyqIds": [
+    "gate-2004-q36-circular-queue-single-pointer",
+    "gate-1997-q1-4-concatenation-o1"
+   ],
+   "prereqs": [
+    "doubly-linked-list",
+    "queue-adt-and-linear-queue-limitation"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "notes, read in part: circular singly and circular doubly definitions"
+    },
+    {
+     "kind": "question-bank",
+     "title": "GATE Overflow question pages for GATE CSE 2004 Q.36 and GATE CSE 1997 Q.1.4",
+     "url": "https://gateoverflow.in/1033/gate-cse-2004-question-36",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and pointer-level answers"
+    }
+   ],
+   "sourceLine": "The circular definitions and their use for queues: IAE Academy, \"Linear structures\" notes (English, read in part). The two pointer arguments: GATE Overflow question pages for GATE CSE 2004 Q.36 and GATE CSE 1997 Q.1.4 (English, read in part). The queue trace is recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/circular-linked-list.json"
+  },
+  {
+   "id": "list-operation-costs",
+   "title": "The Cost Table: Which Operation Needs a Walk",
+   "priority": "P1",
+   "order": 602,
+   "quickIdea": "Every list cost follows from one question: does the operation already hold the pointer it needs? If not, it walks, and a walk is O(n).",
+   "remember": [
+    "Access the i-th node: O(n) in every linked variant. Search: O(n). Neither improves with a tail pointer or a second link.",
+    "Insert at head: O(1) everywhere. Insert at tail: O(n) with head only, O(1) with a tail pointer, O(1) in a doubly linked list that keeps a tail, O(1) in a circular list with a rear pointer.",
+    "Delete at head: O(1). Delete at tail: O(n) for singly linked even with a tail pointer, O(1) for doubly linked with a tail pointer.",
+    "Delete a node given only its pointer: O(n) singly (the predecessor walk), O(1) doubly, O(1) on a non-last node by the data-copy trick.",
+    "Concatenate two lists: O(1) for circular doubly linked lists, O(n) for singly or doubly linked lists that keep only a head, O(n+m) for arrays.",
+    "Bulk costs: n sorted insertions Theta(n^2); n insertions at the head Theta(n); merging two sorted lists of m and n nodes Theta(m+n).",
+    "No basic list operation is O(log n). A linked list has no index and no balance, so every position-dependent cost is linear."
+   ],
+   "example": {
+    "prompt": "A singly linked list keeps both a head and a tail pointer. Which of these is not O(1): insert at head, insert at tail, delete the head, delete the tail?",
+    "work": "Insert at head writes two links. Insert at tail writes tail->next and moves tail. Delete at head moves head. Delete at tail needs the second-last node, and the only route to it is a walk from head, because no node stores its predecessor.",
+    "answer": "Deleting the tail is O(n). The tail pointer points at the node to remove, not at the one before it."
+   },
+   "gateAngle": "Cost tables are the background of most list questions. GATE CSE 2020 Q.16 uses the sorted-insert row, GATE CSE 2023 Q.3 the delete-given-pointer row, GATE CSE 1997 Q.1.4 the concatenate row. Learn the table as reasons, not as entries.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why does a tail pointer make insertion at the tail O(1) but not deletion at the tail?",
+     "answer": "Insertion needs the current last node, which the tail pointer is. Deletion needs the node before it, which no pointer provides.",
+     "why": "The asymmetry is structural, not an implementation detail: links run forwards only. A doubly linked list or a circular doubly linked list removes the asymmetry, and that is the answer pattern the exam rewards."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Two sorted singly linked lists of m and n nodes are merged into one sorted list by relinking. What is the time, and how much extra space is needed?",
+     "answer": "Theta(m+n) time and O(1) extra space.",
+     "why": "Each comparison advances one pointer and consumes one node, so the walk touches every node once. No new nodes are allocated, which is why the merge is the usual example of a list beating an array on space."
+    }
+   ],
+   "trap": {
+    "what": "Assuming a tail pointer, or a doubly linked list, makes every operation O(1).",
+    "why": "Search and access still walk, because neither structure stores a position index. Only the ends and the given-node operations become constant.",
+    "counterexample": "Accessing the 500th node of a 1000-node doubly linked list with a tail pointer is still 499 links from the head or 500 from the tail. The second link halves nothing asymptotically."
+   },
+   "check": {
+    "question": "A doubly linked list keeps both a head and a tail pointer. What is the worst case cost of deleting the last node, and of deleting a node given only a pointer to it?",
+    "answer": "Both are O(1).",
+    "explanation": "The tail pointer gives the last node and its prev gives the second-last, so two writes remove it. A pointer to an interior node gives prev directly, so that deletion is two writes as well. The same two operations cost O(n) and O(n) in a singly linked list, which is the whole reason the second link exists."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "circular-linked-list"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GATE Overflow, Data Structures subject page (Volume 2 chapter)",
+     "url": "https://gateoverflow.in/subject/programming-in-c/data-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: published complexity summary for list operations"
+    },
+    {
+     "kind": "text",
+     "title": "GeeksforGeeks, Linked List Data Structure",
+     "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: operation inventory and array comparison"
+    }
+   ],
+   "sourceLine": "The operation costs and their justifications: GATE Overflow, Data Structures chapter (English, read in part) and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). Every cost row is exercised by one of the eleven PYQs on this topic, and the sums are recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/list-operation-costs.json"
+  },
+  {
+   "id": "two-pointer-techniques-and-cycle-detection",
+   "title": "Two Pointers: Middle, Cycles and the Meeting Node",
+   "priority": "P2",
+   "order": 603,
+   "quickIdea": "Running one pointer twice as fast as another finds the middle of a list and detects a cycle in O(n) time using O(1) space, and a second phase finds where the cycle begins.",
+   "remember": [
+    "Middle node: slow moves one link per step, fast moves two, and the loop runs while fast and fast->next are non-NULL. slow ends on position floor(n/2)+1, which is the exact middle for odd n and the second of the two middles for even n.",
+    "Cycle detection (Floyd): if the fast pointer ever reaches NULL the list is acyclic; if fast and slow land on the same node, there is a cycle. Time O(n), space O(1).",
+    "The meeting node is not the cycle entry. To find the entry, reset one pointer to head and advance both one link at a time; they meet at the first node of the cycle.",
+    "A hash set of visited nodes answers the same question in O(n) time and O(n) space, so Floyd is the answer whenever the space must be constant.",
+    "The two-pointer idea also gives the k-th node from the end: start a second pointer k nodes ahead, then move both until the leader hits NULL.",
+    "Both pointers only ever move forward, so the work is bounded by 2n link steps: the technique is linear by construction, not by accident."
+   ],
+   "example": {
+    "prompt": "The list 1 -> 2 -> 3 -> 4 -> 5 has its last node pointing back to 3. Where do the two pointers first meet, and where does the cycle start?",
+    "work": "slow and fast both start at 1. After one step slow = 2, fast = 3. After two, slow = 3, fast = 5. After three, slow = 4, fast = 3 then 4, so both are at 4 and they meet. Reset one pointer to 1 and advance both one link at a time: 1 and 4, then 2 and 5, then 3 and 3, which meet at 3.",
+    "answer": "They first meet at 4, and the cycle starts at 3."
+   },
+   "gateAngle": "This subtopic is the standard O(1)-space answer to 'find the middle', 'detect a cycle' and 'k-th from the end'. No verified GATE CSE paper question on cycle detection was located in this run, so treat the pattern as preparation rather than as a rehearsed paper question.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A list of 7 nodes is walked with slow and fast pointers. Which node does slow reach when the loop stops?",
+     "answer": "The 4th node, the exact middle.",
+     "why": "slow lands on floor(n/2)+1 = 4 for n = 7. For even n it lands on the second middle, which is why a question that wants the first middle uses a different loop condition."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Why can the meeting node not be reported as the cycle's first node?",
+     "answer": "Because the pointers meet somewhere inside the cycle, at a distance that depends on the length of the tail before the cycle.",
+     "why": "The fast pointer enters the cycle first and laps the slow one, so the meeting point shifts with the tail length. The reset phase is what removes that dependence, and skipping it is the most common error in this pattern."
+    }
+   ],
+   "trap": {
+    "what": "Reporting the meeting node as the start of the cycle, or using fast != NULL as the only loop condition.",
+    "why": "The meeting node depends on the tail length, so it is not the entry. And a two-step move from the last node needs fast->next to exist, so both conditions are required.",
+    "counterexample": "For 1 -> 2 -> 3 -> 4 -> 5 with 5 -> 3 the pointers meet at 4 while the cycle starts at 3. A loop testing only fast != NULL dereferences fast->next on the last node and crashes."
+   },
+   "check": {
+    "question": "In a list of 6 nodes, which node does the slow pointer hold when the two-pointer loop ends?",
+    "answer": "The 4th node.",
+    "explanation": "The loop stops when fast cannot make two steps. For 6 nodes the slow pointer has taken three steps, landing on floor(6/2)+1 = 4, which is the second of the two middle nodes."
+   },
+   "pyqIds": [],
+   "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+     "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "notes, read in part: the topic summary names Floyd's cycle detection and its meeting-point relation"
+    },
+    {
+     "kind": "text",
+     "title": "GeeksforGeeks, Linked List Data Structure",
+     "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: middle-node and loop-detection problem list"
+    }
+   ],
+   "sourceLine": "The two-pointer middle and cycle-detection patterns: IAE Academy, \"Linear structures\" notes (English, read in part), whose topic summary names Floyd's cycle detection with the meeting-point relation, and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). The meeting and entry nodes in the example are recomputed in scripts/validate.py; the notes' derivation itself could not be read.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/two-pointer-techniques-and-cycle-detection.json"
+  },
+  {
+   "id": "linked-lists-for-stacks-queues-and-applications",
+   "title": "Linked Stacks, Linked Queues and What Lists Are For",
+   "priority": "P3",
+   "order": 604,
+   "quickIdea": "A list removes the fixed capacity of an array and the shifting of its middle, which is why stacks, queues, polynomials and adjacency lists are all built on links when the size is unknown.",
+   "remember": [
+    "Linked stack: push inserts at the head and pop removes the head, both O(1), with no capacity limit and one pointer per element. An array stack is O(1) too but overflows when full.",
+    "Linked queue: enqueue at the tail and dequeue at the head, both O(1) with two pointers. With only a head pointer, dequeue stays O(1) but enqueue becomes O(n).",
+    "Polynomial addition: one node per term, ordered by exponent; walk both lists, add coefficients of equal exponents and copy the rest. Theta(m+n) time for m and n terms.",
+    "Sparse matrices, adjacency lists for graphs, and LRU caches (hash table plus doubly linked list) are the standard applications named in data-structure courses.",
+    "Lists are chosen when the size is unknown, when insertions and deletions happen at known positions, and when moving an element must not move the others.",
+    "Arrays are chosen when access by index dominates, because a list turns every indexed read into a walk and every node costs an extra pointer."
+   ],
+   "example": {
+    "prompt": "Add the polynomials 3x^2 + 2x + 1 and 5x + 4, each stored as a list of terms ordered by exponent.",
+    "work": "Compare the leading exponents: 2 against 1, so copy 3x^2. Now compare 2x with 5x, equal exponents, so add the coefficients: 7x. Then compare the constant terms 1 and 4: 5. No term is left over on either side.",
+    "answer": "3x^2 + 7x + 5, produced in 5 term operations for 3 and 2 terms."
+   },
+   "gateAngle": "Applications appear as 'which structure suits this sequence of operations', the shape used by GATE CSE 2015 Set 1 for a set of find, insert, delete and decrease-key operations. The answer follows from the cost table, not from the name of the application.",
+   "variations": [
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "A queue is needed whose size is unknown and which must never fail on a full array. Which implementation do you choose and what does it cost per operation?",
+     "answer": "A linked queue with head and tail pointers: O(1) enqueue and O(1) dequeue, bounded only by memory.",
+     "why": "The fixed capacity is what fails, so the array must go. Two pointers are needed because enqueue touches the tail and dequeue the head, and both must be constant."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Why is an array-based stack usually preferred to a linked one when the maximum depth is known?",
+     "answer": "Because it needs no per-element pointer and has better locality, so the same depth costs less memory and fewer cache misses.",
+     "why": "Both are O(1) per operation, so the choice is memory and locality, not asymptotics. A linked stack spends 8 bytes per element on links that the array does not need."
+    }
+   ],
+   "trap": {
+    "what": "Building a linked queue with only a head pointer and calling both operations O(1).",
+    "why": "Enqueue must reach the tail, and the only route is a walk, so it is O(n). The second pointer is not an optimisation, it is what makes the bound true.",
+    "counterexample": "Enqueueing 1000 items into a head-only linked queue walks 0 + 1 + ... + 999 links, which is 499500 link steps, the same quadratic total as sorted insertion."
+   },
+   "check": {
+    "question": "Two polynomials have 4 and 6 terms. How many term comparisons does the merge-style addition make in the worst case?",
+    "answer": "At most 9.",
+    "explanation": "Each comparison consumes one term from one of the two lists, and the walk ends when one list is empty, so at most m+n-1 = 9 comparisons are made before the remaining terms are copied."
+   },
+   "pyqIds": [
+    "gate-2017-set-1-q08-join-two-lists"
+   ],
+   "prereqs": [
+    "list-operation-costs",
+    "stack-adt-and-lifo"
+   ],
+   "sources": [
+    {
+     "kind": "text",
+     "title": "GeeksforGeeks, Linked List Data Structure",
+     "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: applications section and the array comparison"
+    },
+    {
+     "kind": "text",
+     "title": "Wikipedia, Linked list",
+     "url": "https://en.wikipedia.org/wiki/Linked_list",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: lists as the basis of stacks, queues and other ADTs"
+    }
+   ],
+   "sourceLine": "Lists as the basis of other abstract data types, and the applications: Wikipedia, \"Linked list\" (English, read in part) and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). The polynomial term count is recomputed in scripts/validate.py.",
+   "unit": "Linked Lists",
+   "videoRefs": [],
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "linked-lists",
+   "path": "subjects/programming-and-data-structures/linked-lists/linked-lists-for-stacks-queues-and-applications.json"
   }
  ],
  "pyqs": [
@@ -48753,6 +49551,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 1997 Q.6.3 with the accepted answer",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the GATE Overflow page states 15 (option A) and derives it from the Bell number B(4)."
+  },
+  {
+   "id": "gate-1997-q1-4-concatenation-o1",
+   "year": "1997",
+   "paper": "GATE CSE 1997",
+   "question_ref": "Q.1(4) on GATE Overflow",
+   "type": "MCQ",
+   "topic": "circular-linked-list",
+   "text": "The concatenation of two lists is to be performed in O(1) time. Which of the following implementations of a list should be used?",
+   "options": [
+    "Singly linked list",
+    "Doubly linked list",
+    "Circular doubly linked list",
+    "Array implementation of list"
+   ],
+   "answer": "Option 3 - Circular doubly linked list",
+   "solution": "Concatenation must reach the end of the first list and the start of the second without a walk. In a circular doubly linked list the head's prev is the tail, so both ends of both lists are one dereference away, and four pointer writes splice them: t1->next = h2, h2->prev = t1, t2->next = h1, h1->prev = t2. A singly or doubly linked list keeping only a head pointer must walk to its tail, which is O(n); an array must copy both blocks into a new one, which is O(n+m).",
+   "source_url": "https://gateoverflow.in/2220/gate-cse-1997-question-1-4",
+   "source_label": "GATE Overflow question page - GATE CSE 1997 Q.1(4), statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give the circular doubly linked list and list the four pointer writes. The paper and key were not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-1998-1-2-no-solution",
@@ -49581,6 +50400,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer begins 'Answer: (C) A displacement type addressing should be preferred. So, (I) is not the answer. Indirect Addressing leads to extra memory reference which is not preferable at run time.' Several answers on the page reach the same option by the base-register argument. Corroborated by the GeeksforGeeks GATE CS 2004 Question 20 page, which lists the same option set."
   },
   {
+   "id": "gate-2004-q36-circular-queue-single-pointer",
+   "year": "2004",
+   "paper": "GATE CSE 2004",
+   "question_ref": "Q.36 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "circular-linked-list",
+   "text": "A circularly linked list is used to represent a Queue. A single variable p is used to access the Queue. To which node should p point such that both the operations enQueue and deQueue can be performed in constant time?",
+   "options": [
+    "rear node",
+    "front node",
+    "not possible with a single pointer",
+    "node next to front"
+   ],
+   "answer": "Option 1 - the rear node",
+   "solution": "In a circular list the rear's next is the front, so one pointer at the rear reaches both ends. Enqueue inserts after the rear (item->next = p->next; p->next = item; p = item) and dequeue removes p->next and relinks it to p->next->next; each is a constant number of writes. With p at the front, dequeue is still constant but enqueue must find the rear, which is n-1 links away, so it is O(n).",
+   "source_url": "https://gateoverflow.in/1033/gate-cse-2004-question-36",
+   "source_label": "GATE Overflow question page - GATE CSE 2004 Q.36, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give the rear node and several show both operations in constant-time code. The paper and key were not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2004-satisfiable-but-not-valid",
    "year": "2004",
    "paper": "GATE CS 2004",
@@ -50047,6 +50887,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer concludes 'So, answer must be C only', with the argument that autoincrement works from an initial base address and so does not relocate, that an additional ALU is desirable but never a necessity, and that the increment matches the item size. Corroborated by the Solutions Adda GATE 2008 Question 33 page, which gives option C with the same three-way reasoning."
   },
   {
+   "id": "gate-2008-q62-rearrange-pairwise-swap",
+   "year": "2008",
+   "paper": "GATE CSE 2008",
+   "question_ref": "Q.62 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "traversing-and-searching-a-singly-linked-list",
+   "text": "The following C function takes a singly-linked list of integers as a parameter and rearranges the elements of the list. The function is called with the list containing the integers 1,2,3,4,5,6,7 in the given order. void rearrange(struct node *list) { struct node *p, *q; int temp; if (!list || !list->next) return; p = list; q = list->next; while (q) { temp = p->value; p->value = q->value; q->value = temp; p = q->next; q = p ? p->next : 0; } } What will be the contents of the list after the function completes execution?",
+   "options": [
+    "1,2,3,4,5,6,7",
+    "2,1,4,3,6,5,7",
+    "1,3,2,5,4,7,6",
+    "2,3,4,5,6,7,1"
+   ],
+   "answer": "Option 2 - 2,1,4,3,6,5,7",
+   "solution": "Each iteration swaps the values of p and its successor q, then jumps two nodes: p = q->next and q = p ? p->next : 0. So the pairs (1,2), (3,4) and (5,6) are swapped in turn, giving 2,1,4,3,6,5,7. After the third swap p is the node holding 7 and q becomes p->next, which is NULL, so the loop ends and the last value keeps its place.",
+   "source_url": "https://gateoverflow.in/485/gate-cse-2008-question-62",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.62, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers trace the three swaps and select option 2; the same question also appears as GATE IT 2005 with the same answer. The paper and key were not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2009-25-tan-half-angle-substitution",
    "year": "2009",
    "paper": "GATE CS 2009",
@@ -50088,6 +50949,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2009 Q.29 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow accepted answer reduces each set to its last four distinct accesses and concludes 216; a second answer traces the set table line by line with the same result. The official key was not opened this run. The full sequence is simulated in scripts/validate.py."
+  },
+  {
+   "id": "gate-2010-q36-move-last-to-front",
+   "year": "2010",
+   "paper": "GATE CSE 2010",
+   "question_ref": "Q.36 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "reversing-a-singly-linked-list",
+   "text": "The following C function takes a singly-linked list as input argument and modifies the list by moving the last element to the front of the list, returning the modified list. Node *move_to_front(Node *head) { Node *p, *q; if (head == NULL || head->next == NULL) return head; q = NULL; p = head; while (p->next != NULL) { q = p; p = p->next; } ______ return head; } Choose the correct alternative to replace the blank line.",
+   "options": [
+    "q = NULL; p->next = head; head = p;",
+    "q->next = NULL; head = p; p->next = head;",
+    "head = p; p->next = q; q->next = NULL;",
+    "q->next = NULL; p->next = head; head = p;"
+   ],
+   "answer": "Option 4 - q->next = NULL; p->next = head; head = p;",
+   "solution": "When the loop ends, p is the last node and q is the second-last. The last node must be cut off, so q->next = NULL; it must then point at the old first node, so p->next = head; and finally head must move to p. Option 2 assigns head = p before p->next is set, so p->next would point at itself and the list becomes a two-node cycle.",
+   "source_url": "https://gateoverflow.in/2337/gate-cse-2010-question-36",
+   "source_label": "GATE Overflow question page - GATE CSE 2010 Q.36, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answer page selects option 4 and points out the self-loop created by option 2. The paper and key were not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2011-11-highest-priority-interrupt-source",
@@ -51436,6 +52318,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer computes '6 + 2 x 5 = 16' bits used and '32 - 16 = 16' bits available. Corroborated by the Testbook page for the GATE CS 2016 Shift 2 paper, which gives 16, and by the ExamSIDE solution, which also gives 16."
   },
   {
+   "id": "gate-2016-set-2-q15-decrease-key-sorted-doubly",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 2",
+   "question_ref": "Q.15 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "doubly-linked-list",
+   "text": "N items are stored in a sorted doubly linked list. For a delete operation, a pointer is provided to the record to be deleted. For a decrease-key operation, a pointer is provided to the record on which the operation is to be performed. An algorithm performs the following operations on the list in this order: Theta(N) delete, O(log N) insert, O(log N) find, and Theta(N) decrease-key. What is the time complexity of all these operations put together?",
+   "options": [
+    "O(log^2 N)",
+    "O(N)",
+    "O(N^2)",
+    "Theta(N^2 log N)"
+   ],
+   "answer": "Option 3 - O(N^2)",
+   "solution": "A delete is O(1) because the doubly linked node stores its predecessor, so Theta(N) deletes cost O(N). An insert or a find must walk the list, so each is O(N) and O(log N) of them cost O(N log N). A decrease-key is O(1) at the record, but the list must remain sorted, so the new position costs a walk of O(N); Theta(N) such operations cost Theta(N^2), which dominates everything else.",
+   "source_url": "https://gateoverflow.in/39557/gate-cse-2016-set-2-question-15",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.15, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page is option 3 with the per-operation costs itemised, and an aggregator reproduces the same answer. The paper and key were not fetched, so the record stays SOURCED."
+  },
+  {
    "id": "gate-2016-set-2-q33-split-longest-stage-frequency",
    "year": "2016",
    "paper": "GATE CS 2016 Set 2",
@@ -51713,6 +52616,27 @@ window.GATE_DATA = {
    "source_url": "https://gateoverflow.in/118557/gate-cse-2017-set-2-question-42",
    "source_label": "GATE Overflow discussion of GATE CS 2017 Set 2 Q.42 (accepted answer option B)",
    "verification": "SOURCED"
+  },
+  {
+   "id": "gate-2017-set-1-q08-join-two-lists",
+   "year": "2017",
+   "paper": "GATE CSE 2017 Set 1",
+   "question_ref": "Q.08 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "insertion-in-a-singly-linked-list",
+   "text": "Consider the C code fragment typedef struct node { int data; node* next; } node; void join(node* m, node* n) { node* p = n; while (p->next != NULL) { p = p->next; } p->next = m; }. Assuming that m and n point to valid NULL-terminated linked lists, invocation of join will",
+   "options": [
+    "append list m to the end of list n for all inputs.",
+    "either cause a null pointer dereference or append list m to the end of list n.",
+    "cause a null pointer dereference for all inputs.",
+    "append list n to the end of list m for all inputs."
+   ],
+   "answer": "Option 2 - either a null pointer dereference or an append of m to the end of n",
+   "solution": "If n is non-empty, p walks to n's last node and p->next = m appends m after it, so the result is n followed by m. If n is the empty list, p = n = NULL and the first evaluation of p->next dereferences NULL, which is a run-time error. Both cases are possible for valid NULL-terminated inputs, so only option 2 covers the whole input space.",
+   "source_url": "https://gateoverflow.in/118711/gate-cse-2017-set-1-question-08",
+   "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.08, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answer page walks both the empty and the non-empty case and selects option 2. The paper and key were not fetched, so the record stays SOURCED."
   },
   {
    "id": "gate-2017-set-1-q11-struct-field-displacement",
@@ -52474,6 +53398,27 @@ window.GATE_DATA = {
    "answer_evidence": "All five answers on the GATE Overflow page conclude III only, four of them by differentiating each function and reading the sign. ExamSIDE's calculus bank lists the same question with the same options, and the EduRev GATE CSE calculus listing prints 'A: III only'. The values 2(0) - cos(0) = -1 and 2(1) - cos(1) = 1.4597 are recomputed in scripts/validate.py. GATE Overflow numbers this Q.1 and ExamSIDE numbers it 12, which is recorded rather than hidden; the official key was not fetched and no marks field is recorded."
   },
   {
+   "id": "gate-2020-q16-sorted-insertion-cost",
+   "year": "2020",
+   "paper": "GATE CSE 2020",
+   "question_ref": "Q.16 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "insertion-in-a-singly-linked-list",
+   "text": "What is the worst case time complexity of inserting n elements into an empty linked list, if the linked list needs to be maintained in sorted order?",
+   "options": [
+    "Theta(n)",
+    "Theta(n log n)",
+    "Theta(n^2)",
+    "Theta(1)"
+   ],
+   "answer": "Option 3 - Theta(n^2)",
+   "solution": "Inserting one element into a sorted linked list costs the walk to its position, which is Theta(n) in the worst case, plus O(1) for the relinking. Inserting n elements one at a time therefore costs the sum 0 + 1 + ... + (n-1) = n(n-1)/2 link steps, which is Theta(n^2). The worst case is input that arrives already sorted, so every new element belongs at the end and every walk is the longest possible.",
+   "source_url": "https://gateoverflow.in/333215/gate-cse-2020-question-16",
+   "source_label": "GATE Overflow question page - GATE CSE 2020 Q.16, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The accepted answer on the page is option 3 and several answers derive the n(n-1)/2 sum; the page also records the objection that if all n elements are given in advance the list could be built in Theta(n log n), which the official key did not allow. The paper and key were not fetched, so the record stays SOURCED and the ambiguity is noted rather than hidden."
+  },
+  {
    "id": "gate-2020-q43-speedup-pipelined-nonpipelined",
    "year": "2020",
    "paper": "GATE CS 2020",
@@ -53011,6 +53956,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer converts each option to decimal against the range -8..7 and picks B, with the same-sign rule as the cross-check. Recomputed here: 1100 + 1010 = 10110, kept as 0110 = +6, so same signs in and opposite sign out. Another site numbers this question Q.18."
   },
   {
+   "id": "gate-2022-q5-reverse-singly-linked-list",
+   "year": "2022",
+   "paper": "GATE CSE 2022",
+   "question_ref": "Q.5 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.15)",
+   "type": "MCQ",
+   "topic": "reversing-a-singly-linked-list",
+   "text": "Consider the problem of reversing a singly linked list. Which one of the following statements is TRUE about the time complexity of algorithms that solve the above problem in O(1) space?",
+   "options": [
+    "The best algorithm for the problem takes Theta(n) time in the worst case.",
+    "The best algorithm for the problem takes Theta(n log n) time in the worst case.",
+    "The best algorithm for the problem takes Theta(n^2) time in the worst case.",
+    "It is not possible to reverse a singly linked list in O(1) space."
+   ],
+   "answer": "Option 1 - The best algorithm takes Theta(n) time in the worst case",
+   "solution": "The three-pointer loop reverses the links in place: save the successor, point the current node at the previous one, then advance. Each node is visited once and no extra structure is allocated, so the time is O(n) with O(1) space. Every node's next pointer must change, so Omega(n) is a lower bound and Theta(n) is optimal, which rules out the quadratic option and the impossibility claim.",
+   "source_url": "https://gateoverflow.in/371931/gate-cse-2022-question-5",
+   "source_label": "GATE Overflow question page - GATE CSE 2022 Q.5, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers give option 1 with working three-pointer code, and a mirror site records it as the official 2022 final key. The paper and key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.5, mirrors Q.15."
+  },
+  {
    "id": "gate-2022-q61-branch-predictor-speedup",
    "year": "2022",
    "paper": "GATE CS 2022",
@@ -53221,6 +54187,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page for GATE CS 2023 Q.16 with two independent published solutions",
    "verification": "SOURCED",
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
+  },
+  {
+   "id": "gate-2023-q3-slldel-dlldel",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.3 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.13)",
+   "type": "MCQ",
+   "topic": "deleting-a-node-given-its-pointer",
+   "text": "Let SLLdel be a function that deletes a node in a singly-linked list given a pointer to the node and a pointer to the head of the list. Similarly, let DLLdel be another function that deletes a node in a doubly-linked list given a pointer to the node and a pointer to the head of the list. Let n denote the number of nodes in each of the linked lists. Which one of the following choices is TRUE about the worst-case time complexity of SLLdel and DLLdel?",
+   "options": [
+    "SLLdel is O(1) and DLLdel is O(n)",
+    "Both SLLdel and DLLdel are O(log(n))",
+    "Both SLLdel and DLLdel are O(1)",
+    "SLLdel is O(n) and DLLdel is O(1)"
+   ],
+   "answer": "Option 4 - SLLdel is O(n) and DLLdel is O(1)",
+   "solution": "Unlinking a node requires its predecessor. A singly linked node stores only its successor, so the predecessor must be found by walking from the head, which is n-1 links in the worst case: SLLdel is O(n). A doubly linked node stores prev, so the predecessor is one dereference away and two pointer writes unlink it: DLLdel is O(1). The head pointer passed to DLLdel is not used when the node is not the head.",
+   "source_url": "https://gateoverflow.in/399309/gate-cse-2023-question-3",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.3, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 4, and two mirror sites record it as the official 2023 final key. The paper and key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.3, mirrors Q.13."
   },
   {
    "id": "gate-2023-q43-independence-two-coins",
@@ -53884,6 +54871,21 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer gives '(B) 20' from '32 - (6 + 6) = 20'. Corroborated by iaeacademy, which cites the official GATE 2025 CS1 key (IIT Roorkee) as option B, and by GateAI, which records the official answer as 20. The question is numbered Q.27 on GATE Overflow and Q.37 in the paper listing."
   },
   {
+   "id": "gate-2025-set-1-q52-delete-values-in-l2",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Q.52 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.62)",
+   "type": "NAT",
+   "topic": "deleting-a-node-given-its-pointer",
+   "text": "LIST is typedef struct list { int data; struct list *next; } LIST. Two lists L1 (9 nodes: 1,7,12,3,9,5,11,15,8) and L2 (7 nodes: 1,11,6,9,15,12,4) are built. The segment ptr1=L1; ptr2=L2; while (ptr1->next != NULL) { query = ptr1->next->data; if (find(query, L2)) ptr1->next = ptr1->next->next; else ptr1 = ptr1->next; } modifies L1. The number of nodes in L1 after execution is ____ (answer in integer).",
+   "answer": "5",
+   "solution": "The head is never tested because the loop looks at ptr1->next. At 1 the successor 7 is not in L2, so ptr1 moves to 7; at 7 the successor 12 is in L2, so 12 is bypassed and ptr1 stays at 7; now the successor 3 is not in L2, so ptr1 moves to 3; at 3 the successor 9 is bypassed; the successor 5 is kept and ptr1 moves to 5; then 11 is bypassed, then 15 is bypassed, then 8 is kept and ptr1 moves to 8, whose next is NULL. The surviving list is 1,7,3,5,8, so five nodes remain.",
+   "source_url": "https://gateoverflow.in/460028/gate-cse-2025-set-1-question-52",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.52, statement and accepted answers",
+   "verification": "SOURCED",
+   "answer_evidence": "Several GATE Overflow answers reach 5 and one traces the loop node by node; a mirror site records 5 as the official 2025 final key value. The paper and key themselves were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.52, mirrors Q.62."
+  },
+  {
    "id": "gate-2025-set-2-q56-latch-delay-1000-instructions",
    "year": "2025",
    "paper": "GATE CS 2025 Set 2",
@@ -54253,6 +55255,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1, listed as Question: 6, with the accepted answer read-after-write",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer on the page states that read-after-write is the one that may introduce stalls and that read-after-read, write-after-read and write-after-write do not. The question text was matched against the official GATE 2026 CS1 paper (gate2026.iitg.ac.in), which numbers it Q.16 with the same four options; the numbering differs from GATE Overflow's."
+  },
+  {
+   "id": "gate-2026-set-1-q29-getlistsize",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Q.29 on GATE Overflow (mirrors that number the paper including the GA section list it as Q.39)",
+   "type": "MCQ",
+   "topic": "traversing-and-searching-a-singly-linked-list",
+   "text": "Consider the following code snippet in C language that computes the number of nodes in a non-empty singly linked list pointed to by the pointer variable head: struct node { int elt; struct node *next; }; int getListSize (struct node *head) { if ( E1 ) return 1; return E2 ; } Which one of the following options gives the correct replacements for the expressions E1 and E2?",
+   "options": [
+    "E1: head == NULL, E2: 1 + getListSize(head)",
+    "E1: head->next == NULL, E2: 1 + getListSize(head->next)",
+    "E1: head == NULL, E2: 1 + getListSize(head->next)",
+    "E1: head->next == NULL, E2: 1 + getListSize(head)"
+   ],
+   "answer": "Option 2 - E1: head->next == NULL and E2: 1 + getListSize(head->next)",
+   "solution": "The list is guaranteed non-empty, so the smallest case is a single node, whose next is NULL; that is the base case and it returns 1. Otherwise the count is the current node plus the count of the list starting at head->next, so E2 must recurse on head->next. Option 1 never advances, so it recurses forever; option 4 does the same; option 3 would add a node for the NULL that ends the list and return n+1.",
+   "source_url": "https://gateoverflow.in/523051/gate-cse-2026-set-1-question-29",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.29, statement, four options and the accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answer page states 'Answer is: Option B' and reasons through the single-node base case. The official 2026 paper and key were not fetched this run, so the record stays SOURCED. Numbering differs between mirrors: GATE Overflow labels it Q.29, two mirror sites label it Q.39 of the same paper."
   },
   {
    "id": "gate-2026-set-1-q4-mode-to-hll-matching",
