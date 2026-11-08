@@ -1,0 +1,75 @@
+{
+  "id": "node-and-pointer-representation",
+  "title": "A Node, a Head Pointer and the NULL Terminator",
+  "priority": "P1",
+  "order": 595,
+  "quickIdea": "A linked list keeps each element in its own node and stores the address of the next node inside the current one, so the nodes can sit anywhere in memory and the list is reached only through the head pointer.",
+  "remember": [
+    "A node is a self-referential structure: struct node { int data; struct node *next; };. C allows the struct to hold a pointer to its own type because a pointer has a fixed size before the structure is complete.",
+    "The list is entered through one pointer, head. head == NULL is the empty list. The last node's next is NULL, which is the only end marker; no length and no index are stored.",
+    "Nodes are allocated one at a time (malloc), so their addresses are unrelated. Address arithmetic cannot reach the i-th node; only a walk from head can.",
+    "Trade-off against an array: an array gives O(1) random access but O(n) insert or delete from the middle (everything after the position shifts) and a fixed capacity; a list gives O(1) insert or delete once you hold the right pointer, but O(n) access and one extra pointer per element.",
+    "Memory: a node of an int list costs 4 bytes of data plus 8 bytes of pointer on a 64-bit machine, so 12n bytes against the array's 4n for the same n integers.",
+    "A list grows until the heap is exhausted. An array cannot exceed its declared size, and a doubling array pays an O(n) copy on some insertions."
+  ],
+  "example": {
+    "prompt": "Create the two-node list 10 -> 20 -> NULL in C and make head point at it.",
+    "work": "Allocate the first node and fill it: n1 = malloc(sizeof(struct node)); n1->data = 10;. Allocate the second the same way with 20. Then link them, last first: n1->next = n2; n2->next = NULL; head = n1;.",
+    "answer": "head -> [10|*] -> [20|NULL]. The order matters: n2 must exist before n1->next can point at it, and n2->next must be set to NULL or the walk from head runs into unallocated memory."
+  },
+  "gateAngle": "Representation is tested through code, not definitions. GATE CSE 2025 Set 1 hands you two lists built by malloc and asks how many nodes survive a deletion loop; GATE CSE 2026 Set 1 asks you to complete a recursive node count. Both are answered by knowing that next holds an address, that NULL ends the list, and that nothing else in the structure records the length.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "An array of n ints and a singly linked list of n ints store the same 4-byte values. On a machine with 8-byte pointers, how many bytes does each structure need for data and links alone?",
+      "answer": "The array needs 4n bytes; the list needs 12n bytes.",
+      "why": "Each node carries one 8-byte pointer in addition to its 4-byte value, so the list pays three times the data storage. That overhead is what buys the O(1) relinking, and it is the number a question about memory cost expects."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "A structure is declared struct node { int data; struct node next; };. What is wrong with it?",
+      "answer": "It is rejected: a structure cannot contain an object of its own incomplete type, because the size of node would depend on the size of node.",
+      "why": "The pointer is what breaks the circularity, because a pointer's size is known before the struct is finished. Changing next to struct node *next makes the declaration legal, and that single character is the difference the exam tests."
+    }
+  ],
+  "trap": {
+    "what": "Reading next as if it held the element, or assuming the nodes of a list are next to each other in memory.",
+    "why": "next holds the address of another node. Two lists built in the same program interleave their nodes on the heap, so a list is a chain of addresses, not a block of memory.",
+    "counterexample": "In a three-node list the node holding 20 can have a lower address than the node holding 10 if the second was allocated first. Any reasoning that assumes node i sits at base + i*12 fails, which is exactly why a list has no O(1) access."
+  },
+  "check": {
+    "question": "A singly linked list of 4 nodes is built. How many next fields hold an address, and how many hold NULL?",
+    "answer": "Three hold an address and one holds NULL.",
+    "explanation": "Each of the first three nodes points at its successor; the fourth is the tail, so its next is the terminator. With a head pointer and no other bookkeeping, that single NULL is the whole record of where the list ends."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "pointers-address-and-indirection",
+    "structures-unions-and-padding",
+    "dynamic-memory-malloc-calloc-realloc-free"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "notes, read in part: the linked-list section's opening"
+    },
+    {
+      "kind": "text",
+      "title": "Wikipedia, Linked list",
+      "url": "https://en.wikipedia.org/wiki/Linked_list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: definition, non-contiguous storage, access cost and cache locality"
+    }
+  ],
+  "sourceLine": "The node structure, the head pointer, the NULL terminator and the array-versus-list trade-off: IAE Academy, \"Linear structures: GATE CS, DA Notes & Solved PYQs\" (English, read in part) and Wikipedia, \"Linked list\" (English, read in part). The memory figures (4n against 12n) are recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

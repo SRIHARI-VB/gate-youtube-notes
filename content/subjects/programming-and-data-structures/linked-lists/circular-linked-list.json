@@ -1,0 +1,77 @@
+{
+  "id": "circular-linked-list",
+  "title": "Circular Lists: No NULL, One Pointer, Two O(1) Ends",
+  "priority": "P2",
+  "order": 601,
+  "quickIdea": "In a circular list the last node points back to the first, so a single pointer to the rear reaches both ends and a queue built this way enqueues and dequeues in O(1).",
+  "remember": [
+    "Circular singly linked: the last node's next is the head instead of NULL. There is no terminator, so every traversal needs a stopping rule such as returning to the start or counting n nodes.",
+    "A queue on a circular singly linked list needs one pointer to the rear. front is rear->next, enqueue inserts after rear and moves rear, dequeue removes rear->next (GATE CSE 2004 Q.36 answer: rear node).",
+    "Pointing the single pointer at the front instead makes dequeue O(1) but enqueue O(n), because the rear must be found by walking the whole circle. That asymmetry is the reason the answer is rear.",
+    "Circular doubly linked: the head's prev is the tail as well, so both ends are one dereference from the head. Concatenating two such lists is O(1) with four pointer writes (GATE CSE 1997 Q.1.4).",
+    "Singly and doubly linked lists with only a head pointer need O(n) to reach the tail before concatenating, and arrays need O(n+m) copying.",
+    "Circular lists fit anything that wraps: round-robin scheduling, ring buffers, and the last-player-first games of Josephus type."
+  ],
+  "example": {
+    "prompt": "A queue is a circular singly linked list holding 4, 7, 9 with p pointing at the rear 9. Enqueue 5, then dequeue once. What is the queue?",
+    "work": "front is p->next = 4. Enqueue: 5->next = p->next (4); p->next = 5; p = 5, so the circle is 4, 7, 9, 5 with rear 5. Dequeue: front = p->next = 4; p->next = front->next = 7; the circle is 7, 9, 5 with rear 5.",
+    "answer": "The queue holds 7, 9, 5 with front 7, after one enqueue and one dequeue, both O(1)."
+  },
+  "gateAngle": "Two questions carry this subtopic: GATE CSE 2004 Q.36 asks which node the single pointer must address, and GATE CSE 1997 Q.1.4 asks which list implementation concatenates in O(1). Both are answered by asking what each pointer gives you for free and what it forces you to walk.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2004 Q.36. A circularly linked list represents a queue and a single variable p accesses it. To which node should p point so that enqueue and dequeue are both O(1)?",
+      "answer": "The rear node.",
+      "why": "From the rear, the front is rear->next, so both ends are reachable in one dereference. From the front, the rear is n-1 links away, which makes enqueue O(n)."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 1997 Q.1.4. Concatenation of two lists must take O(1) time. Which implementation should be used?",
+      "answer": "A circular doubly linked list.",
+      "why": "Its head's prev is the tail, so the tail of each list is one dereference away and four pointer writes splice the two circles. A plain singly or doubly linked list must walk to its tail first, and an array must copy both blocks."
+    }
+  ],
+  "trap": {
+    "what": "Writing a traversal of a circular list with the same while (p != NULL) loop used for a NULL-terminated list.",
+    "why": "A circular list never reaches NULL, so that loop runs forever. The condition has to be do { ... } while (p != head); or a count of n nodes.",
+    "counterexample": "Counting the nodes of 4, 7, 9 with while (p != NULL) { count++; p = p->next; } never stops, and the counter keeps growing. The same list with do { count++; p = p->next; } while (p != head); returns 3."
+  },
+  "check": {
+    "question": "In a circular singly linked list of 6 nodes with the single pointer at the rear, how many links must be followed to reach the front?",
+    "answer": "One.",
+    "explanation": "The rear's next is the front by definition of the circle. That is why the rear pointer supports both ends, and why the front pointer would not."
+  },
+  "pyqIds": [
+    "gate-2004-q36-circular-queue-single-pointer",
+    "gate-1997-q1-4-concatenation-o1"
+  ],
+  "prereqs": [
+    "doubly-linked-list",
+    "queue-adt-and-linear-queue-limitation"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "notes, read in part: circular singly and circular doubly definitions"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question pages for GATE CSE 2004 Q.36 and GATE CSE 1997 Q.1.4",
+      "url": "https://gateoverflow.in/1033/gate-cse-2004-question-36",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and pointer-level answers"
+    }
+  ],
+  "sourceLine": "The circular definitions and their use for queues: IAE Academy, \"Linear structures\" notes (English, read in part). The two pointer arguments: GATE Overflow question pages for GATE CSE 2004 Q.36 and GATE CSE 1997 Q.1.4 (English, read in part). The queue trace is recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

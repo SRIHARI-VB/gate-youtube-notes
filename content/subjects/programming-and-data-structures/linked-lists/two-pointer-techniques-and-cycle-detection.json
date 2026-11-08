@@ -1,0 +1,73 @@
+{
+  "id": "two-pointer-techniques-and-cycle-detection",
+  "title": "Two Pointers: Middle, Cycles and the Meeting Node",
+  "priority": "P2",
+  "order": 603,
+  "quickIdea": "Running one pointer twice as fast as another finds the middle of a list and detects a cycle in O(n) time using O(1) space, and a second phase finds where the cycle begins.",
+  "remember": [
+    "Middle node: slow moves one link per step, fast moves two, and the loop runs while fast and fast->next are non-NULL. slow ends on position floor(n/2)+1, which is the exact middle for odd n and the second of the two middles for even n.",
+    "Cycle detection (Floyd): if the fast pointer ever reaches NULL the list is acyclic; if fast and slow land on the same node, there is a cycle. Time O(n), space O(1).",
+    "The meeting node is not the cycle entry. To find the entry, reset one pointer to head and advance both one link at a time; they meet at the first node of the cycle.",
+    "A hash set of visited nodes answers the same question in O(n) time and O(n) space, so Floyd is the answer whenever the space must be constant.",
+    "The two-pointer idea also gives the k-th node from the end: start a second pointer k nodes ahead, then move both until the leader hits NULL.",
+    "Both pointers only ever move forward, so the work is bounded by 2n link steps: the technique is linear by construction, not by accident."
+  ],
+  "example": {
+    "prompt": "The list 1 -> 2 -> 3 -> 4 -> 5 has its last node pointing back to 3. Where do the two pointers first meet, and where does the cycle start?",
+    "work": "slow and fast both start at 1. After one step slow = 2, fast = 3. After two, slow = 3, fast = 5. After three, slow = 4, fast = 3 then 4, so both are at 4 and they meet. Reset one pointer to 1 and advance both one link at a time: 1 and 4, then 2 and 5, then 3 and 3, which meet at 3.",
+    "answer": "They first meet at 4, and the cycle starts at 3."
+  },
+  "gateAngle": "This subtopic is the standard O(1)-space answer to 'find the middle', 'detect a cycle' and 'k-th from the end'. No verified GATE CSE paper question on cycle detection was located in this run, so treat the pattern as preparation rather than as a rehearsed paper question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A list of 7 nodes is walked with slow and fast pointers. Which node does slow reach when the loop stops?",
+      "answer": "The 4th node, the exact middle.",
+      "why": "slow lands on floor(n/2)+1 = 4 for n = 7. For even n it lands on the second middle, which is why a question that wants the first middle uses a different loop condition."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Why can the meeting node not be reported as the cycle's first node?",
+      "answer": "Because the pointers meet somewhere inside the cycle, at a distance that depends on the length of the tail before the cycle.",
+      "why": "The fast pointer enters the cycle first and laps the slow one, so the meeting point shifts with the tail length. The reset phase is what removes that dependence, and skipping it is the most common error in this pattern."
+    }
+  ],
+  "trap": {
+    "what": "Reporting the meeting node as the start of the cycle, or using fast != NULL as the only loop condition.",
+    "why": "The meeting node depends on the tail length, so it is not the entry. And a two-step move from the last node needs fast->next to exist, so both conditions are required.",
+    "counterexample": "For 1 -> 2 -> 3 -> 4 -> 5 with 5 -> 3 the pointers meet at 4 while the cycle starts at 3. A loop testing only fast != NULL dereferences fast->next on the last node and crashes."
+  },
+  "check": {
+    "question": "In a list of 6 nodes, which node does the slow pointer hold when the two-pointer loop ends?",
+    "answer": "The 4th node.",
+    "explanation": "The loop stops when fast cannot make two steps. For 6 nodes the slow pointer has taken three steps, landing on floor(6/2)+1 = 4, which is the second of the two middle nodes."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "notes, read in part: the topic summary names Floyd's cycle detection and its meeting-point relation"
+    },
+    {
+      "kind": "text",
+      "title": "GeeksforGeeks, Linked List Data Structure",
+      "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: middle-node and loop-detection problem list"
+    }
+  ],
+  "sourceLine": "The two-pointer middle and cycle-detection patterns: IAE Academy, \"Linear structures\" notes (English, read in part), whose topic summary names Floyd's cycle detection with the meeting-point relation, and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). The meeting and entry nodes in the example are recomputed in scripts/validate.py; the notes' derivation itself could not be read.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

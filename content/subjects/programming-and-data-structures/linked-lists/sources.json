@@ -1,0 +1,163 @@
+{
+  "subject": "programming-and-data-structures",
+  "topic": "linked-lists",
+  "chosen": [
+    {
+      "id": "iaeacademy-linear-structures-notes",
+      "kind": "web-notes",
+      "channel": "IAE Academy (independent GATE CS/DA study-notes site)",
+      "title": "Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "singly, doubly and circular linked lists",
+        "O(1) data-copy deletion and its last-node limit",
+        "Floyd's cycle detection and its meeting-point relation",
+        "list operation costs"
+      ],
+      "why": "The only readable GATE-oriented note set found that treats linked lists at exam depth, states the O(1) data-copy deletion together with the reason it cannot delete the tail, and names the cycle-detection relation. Read in part: the extraction returned the page's opening and its linked-list summary lines, not the full section, so no card quotes it and the meeting-point derivation is not used."
+    },
+    {
+      "id": "wikipedia-linked-list",
+      "kind": "reference",
+      "channel": "Wikipedia",
+      "title": "Linked list",
+      "url": "https://en.wikipedia.org/wiki/Linked_list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "node and link definition",
+        "non-contiguous storage",
+        "array-versus-list trade-offs",
+        "doubly and circular variants",
+        "lists as the basis of stacks and queues"
+      ],
+      "why": "Used as the correctness anchor for every structural claim: the definition of a node, the absence of random access, the extra pointer per element and the variants. Read in part (the article's opening and history sections were returned), so it is cited for those claims only."
+    },
+    {
+      "id": "gateoverflow-data-structures-chapter",
+      "kind": "web-notes",
+      "channel": "GATE Overflow",
+      "title": "Data Structures subject page, Volume 2 chapter",
+      "url": "https://gateoverflow.in/subject/programming-in-c/data-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the syllabus line for this subject",
+        "published mark distribution",
+        "operation-cost summary",
+        "common pitfalls"
+      ],
+      "why": "Fixes the syllabus scope ('Arrays, Stacks, Queues, Linked lists, Trees, ...') and supplies the published per-year mark table that shows this topic is examined most years. Read in part: the chapter's AVL and ADT sections came back, the linked-list section did not, so only the scope and the cost summary are drawn on."
+    },
+    {
+      "id": "geeksforgeeks-linked-list-data-structure",
+      "kind": "web-notes",
+      "channel": "GeeksforGeeks",
+      "title": "Linked List Data Structure",
+      "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "array-versus-list comparison",
+        "the inventory of list operations",
+        "applications"
+      ],
+      "why": "A second readable source for the operation inventory and the applications, so no single site carries the whole topic. Read in part: the page's index and comparison table were returned, the individual problem pages were not opened."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "channel": "GATE Overflow",
+      "title": "Question pages for GATE CSE 1997 Q.1.4, 2004 Q.36, 2008 Q.62, 2010 Q.36, 2016 Set 2 Q.15, 2017 Set 1 Q.08, 2020 Q.16, 2022 Q.5, 2023 Q.3, 2025 Set 1 Q.52 and 2026 Set 1 Q.29",
+      "url": "https://gateoverflow.in/tag/linked-list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "verified question statements",
+        "options",
+        "community answers and traces",
+        "question numbering"
+      ],
+      "why": "The only repository where each question carries its year, its paper and set, its question number, its options and an answer that can be checked by recomputation. Every PYQ record here is SOURCED from it."
+    },
+    {
+      "id": "nptel-iitd-106102064",
+      "kind": "lecture-series",
+      "channel": "NPTEL, IIT Delhi (Prof. Naveen Garg)",
+      "title": "Data Structures and Algorithms, lectures covering lists, stacks and queues",
+      "url": "https://nptel.ac.in/courses/106102064",
+      "language": "en",
+      "transcript": "STRUCTURE_ONLY",
+      "translated": false,
+      "covers": [
+        "scope of the topic at first-principles level"
+      ],
+      "why": "Used only to fix the scope a beginner needs (list ADT, linked implementation of stack and queue). Recorded as structure-only: no caption track was retrievable, so no card quotes it and no claim rests on it."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "gate-smashers-dsa-playlist",
+      "kind": "playlist",
+      "channel": "Gate Smashers",
+      "language": "hi",
+      "why": "Its linked-list branch (Introduction, Traversal and Insertion, Deletion, Doubly Linked Lists and Cycle Detection) matches this topic almost line for line and is in Hindi, which is no obstacle. Rejected for this run only because the captions were not retrievable: the watch page for Lec-19 (0XKlbNJLvjs) carried no captionTracks and the player API answered LOGIN_REQUIRED. It remains the strongest candidate for a run with transcript access."
+    },
+    {
+      "id": "neso-academy-c-programming-data-structures",
+      "kind": "playlist",
+      "channel": "Neso Academy",
+      "language": "en",
+      "why": "About forty lectures on linked lists alone, from self-referential structures to polynomial arithmetic, which is the best subtopic coverage of any candidate. Rejected because its captions were equally unreadable in this run and because the sequence teaches implementation rather than GATE question patterns; the readable notes carry the exam framing."
+    },
+    {
+      "id": "unacademy-vinay-mishra-linked-list-pyqs",
+      "kind": "lesson-series",
+      "channel": "Unacademy (Vinay Mishra), in Hindi",
+      "language": "hi",
+      "why": "A 15-minute lesson dedicated to previous-year GATE questions on linked lists inside a Hindi DSA crash course, which is exactly the framing wanted. Rejected because the lesson sits behind the platform's login and no transcript or readable text was available."
+    },
+    {
+      "id": "go-classes-linked-list-dpp",
+      "kind": "practice-series",
+      "channel": "GO Classes (GATE Overflow DPP questions)",
+      "language": "en",
+      "why": "A large, recent and well-formed set of linked-list practice questions. Rejected as a PYQ source because they are coaching daily-practice problems, not GATE paper questions; presenting them as previous-year questions would be a fabrication. They are noted here as practice material, not used."
+    },
+    {
+      "id": "edurev-link-list-pyq-list",
+      "kind": "question-bank",
+      "channel": "EduRev",
+      "language": "en",
+      "why": "A single page listing 30 linked-list questions with answers, mixing GATE CSE with ISRO CSE and GATE IT papers and numbering them by its own sequence rather than by paper question. Used only as a checklist of which years to look for; no PYQ record is sourced from it."
+    },
+    {
+      "id": "byjus-data-structure-gate-questions",
+      "kind": "question-bank",
+      "channel": "BYJU'S Exam Prep",
+      "language": "en",
+      "why": "Reproduces the GATE CSE 2016 Set 2 Q.15 statement with answer (c), which agrees with the GATE Overflow page. Rejected as a source because an aggregator without a per-question reference adds nothing over the primary page, and previous runs found wrong claims on the same site."
+    },
+    {
+      "id": "computerbitsdaily-link-list-mcqs",
+      "kind": "blog",
+      "channel": "ComputerBitsDaily",
+      "language": "en",
+      "why": "A 2025 blog post collecting linked-list MCQs and GATE questions with explanations. Correct on the two questions sampled (2004 and 1997), but unsigned and unsourced, so it was not used for any claim that a primary page could support."
+    }
+  ],
+  "standard_refs": [
+    "CLRS, Introduction to Algorithms, ch. 10.2 (linked lists) and ch. 10.1 (stacks and queues built on lists)",
+    "The official GATE CSE syllabus line: Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs."
+  ],
+  "translated_material": "none - every source drawn on in this run is in English; the three Hindi candidates were rejected because no transcript was readable",
+  "retrieved_at": "2026-11-08",
+  "note": "Video captions were unavailable throughout this run: the watch pages carried no captionTracks and the YouTube player API answered LOGIN_REQUIRED for the one lecture tested (Gate Smashers Lec-19). Every card therefore rests on readable text, and the one lecture series is recorded as STRUCTURE_ONLY."
+}

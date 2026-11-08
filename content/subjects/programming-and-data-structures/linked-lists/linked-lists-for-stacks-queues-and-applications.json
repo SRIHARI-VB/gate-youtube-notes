@@ -1,0 +1,76 @@
+{
+  "id": "linked-lists-for-stacks-queues-and-applications",
+  "title": "Linked Stacks, Linked Queues and What Lists Are For",
+  "priority": "P3",
+  "order": 604,
+  "quickIdea": "A list removes the fixed capacity of an array and the shifting of its middle, which is why stacks, queues, polynomials and adjacency lists are all built on links when the size is unknown.",
+  "remember": [
+    "Linked stack: push inserts at the head and pop removes the head, both O(1), with no capacity limit and one pointer per element. An array stack is O(1) too but overflows when full.",
+    "Linked queue: enqueue at the tail and dequeue at the head, both O(1) with two pointers. With only a head pointer, dequeue stays O(1) but enqueue becomes O(n).",
+    "Polynomial addition: one node per term, ordered by exponent; walk both lists, add coefficients of equal exponents and copy the rest. Theta(m+n) time for m and n terms.",
+    "Sparse matrices, adjacency lists for graphs, and LRU caches (hash table plus doubly linked list) are the standard applications named in data-structure courses.",
+    "Lists are chosen when the size is unknown, when insertions and deletions happen at known positions, and when moving an element must not move the others.",
+    "Arrays are chosen when access by index dominates, because a list turns every indexed read into a walk and every node costs an extra pointer."
+  ],
+  "example": {
+    "prompt": "Add the polynomials 3x^2 + 2x + 1 and 5x + 4, each stored as a list of terms ordered by exponent.",
+    "work": "Compare the leading exponents: 2 against 1, so copy 3x^2. Now compare 2x with 5x, equal exponents, so add the coefficients: 7x. Then compare the constant terms 1 and 4: 5. No term is left over on either side.",
+    "answer": "3x^2 + 7x + 5, produced in 5 term operations for 3 and 2 terms."
+  },
+  "gateAngle": "Applications appear as 'which structure suits this sequence of operations', the shape used by GATE CSE 2015 Set 1 for a set of find, insert, delete and decrease-key operations. The answer follows from the cost table, not from the name of the application.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A queue is needed whose size is unknown and which must never fail on a full array. Which implementation do you choose and what does it cost per operation?",
+      "answer": "A linked queue with head and tail pointers: O(1) enqueue and O(1) dequeue, bounded only by memory.",
+      "why": "The fixed capacity is what fails, so the array must go. Two pointers are needed because enqueue touches the tail and dequeue the head, and both must be constant."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why is an array-based stack usually preferred to a linked one when the maximum depth is known?",
+      "answer": "Because it needs no per-element pointer and has better locality, so the same depth costs less memory and fewer cache misses.",
+      "why": "Both are O(1) per operation, so the choice is memory and locality, not asymptotics. A linked stack spends 8 bytes per element on links that the array does not need."
+    }
+  ],
+  "trap": {
+    "what": "Building a linked queue with only a head pointer and calling both operations O(1).",
+    "why": "Enqueue must reach the tail, and the only route is a walk, so it is O(n). The second pointer is not an optimisation, it is what makes the bound true.",
+    "counterexample": "Enqueueing 1000 items into a head-only linked queue walks 0 + 1 + ... + 999 links, which is 499500 link steps, the same quadratic total as sorted insertion."
+  },
+  "check": {
+    "question": "Two polynomials have 4 and 6 terms. How many term comparisons does the merge-style addition make in the worst case?",
+    "answer": "At most 9.",
+    "explanation": "Each comparison consumes one term from one of the two lists, and the walk ends when one list is empty, so at most m+n-1 = 9 comparisons are made before the remaining terms are copied."
+  },
+  "pyqIds": [
+    "gate-2017-set-1-q08-join-two-lists"
+  ],
+  "prereqs": [
+    "list-operation-costs",
+    "stack-adt-and-lifo"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "GeeksforGeeks, Linked List Data Structure",
+      "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: applications section and the array comparison"
+    },
+    {
+      "kind": "text",
+      "title": "Wikipedia, Linked list",
+      "url": "https://en.wikipedia.org/wiki/Linked_list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: lists as the basis of stacks, queues and other ADTs"
+    }
+  ],
+  "sourceLine": "Lists as the basis of other abstract data types, and the applications: Wikipedia, \"Linked list\" (English, read in part) and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). The polynomial term count is recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

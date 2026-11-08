@@ -1,0 +1,74 @@
+{
+  "id": "list-operation-costs",
+  "title": "The Cost Table: Which Operation Needs a Walk",
+  "priority": "P1",
+  "order": 602,
+  "quickIdea": "Every list cost follows from one question: does the operation already hold the pointer it needs? If not, it walks, and a walk is O(n).",
+  "remember": [
+    "Access the i-th node: O(n) in every linked variant. Search: O(n). Neither improves with a tail pointer or a second link.",
+    "Insert at head: O(1) everywhere. Insert at tail: O(n) with head only, O(1) with a tail pointer, O(1) in a doubly linked list that keeps a tail, O(1) in a circular list with a rear pointer.",
+    "Delete at head: O(1). Delete at tail: O(n) for singly linked even with a tail pointer, O(1) for doubly linked with a tail pointer.",
+    "Delete a node given only its pointer: O(n) singly (the predecessor walk), O(1) doubly, O(1) on a non-last node by the data-copy trick.",
+    "Concatenate two lists: O(1) for circular doubly linked lists, O(n) for singly or doubly linked lists that keep only a head, O(n+m) for arrays.",
+    "Bulk costs: n sorted insertions Theta(n^2); n insertions at the head Theta(n); merging two sorted lists of m and n nodes Theta(m+n).",
+    "No basic list operation is O(log n). A linked list has no index and no balance, so every position-dependent cost is linear."
+  ],
+  "example": {
+    "prompt": "A singly linked list keeps both a head and a tail pointer. Which of these is not O(1): insert at head, insert at tail, delete the head, delete the tail?",
+    "work": "Insert at head writes two links. Insert at tail writes tail->next and moves tail. Delete at head moves head. Delete at tail needs the second-last node, and the only route to it is a walk from head, because no node stores its predecessor.",
+    "answer": "Deleting the tail is O(n). The tail pointer points at the node to remove, not at the one before it."
+  },
+  "gateAngle": "Cost tables are the background of most list questions. GATE CSE 2020 Q.16 uses the sorted-insert row, GATE CSE 2023 Q.3 the delete-given-pointer row, GATE CSE 1997 Q.1.4 the concatenate row. Learn the table as reasons, not as entries.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "Why does a tail pointer make insertion at the tail O(1) but not deletion at the tail?",
+      "answer": "Insertion needs the current last node, which the tail pointer is. Deletion needs the node before it, which no pointer provides.",
+      "why": "The asymmetry is structural, not an implementation detail: links run forwards only. A doubly linked list or a circular doubly linked list removes the asymmetry, and that is the answer pattern the exam rewards."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "Two sorted singly linked lists of m and n nodes are merged into one sorted list by relinking. What is the time, and how much extra space is needed?",
+      "answer": "Theta(m+n) time and O(1) extra space.",
+      "why": "Each comparison advances one pointer and consumes one node, so the walk touches every node once. No new nodes are allocated, which is why the merge is the usual example of a list beating an array on space."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a tail pointer, or a doubly linked list, makes every operation O(1).",
+    "why": "Search and access still walk, because neither structure stores a position index. Only the ends and the given-node operations become constant.",
+    "counterexample": "Accessing the 500th node of a 1000-node doubly linked list with a tail pointer is still 499 links from the head or 500 from the tail. The second link halves nothing asymptotically."
+  },
+  "check": {
+    "question": "A doubly linked list keeps both a head and a tail pointer. What is the worst case cost of deleting the last node, and of deleting a node given only a pointer to it?",
+    "answer": "Both are O(1).",
+    "explanation": "The tail pointer gives the last node and its prev gives the second-last, so two writes remove it. A pointer to an interior node gives prev directly, so that deletion is two writes as well. The same two operations cost O(n) and O(n) in a singly linked list, which is the whole reason the second link exists."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "circular-linked-list"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "GATE Overflow, Data Structures subject page (Volume 2 chapter)",
+      "url": "https://gateoverflow.in/subject/programming-in-c/data-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: published complexity summary for list operations"
+    },
+    {
+      "kind": "text",
+      "title": "GeeksforGeeks, Linked List Data Structure",
+      "url": "https://www.geeksforgeeks.org/dsa/linked-list-data-structure/",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: operation inventory and array comparison"
+    }
+  ],
+  "sourceLine": "The operation costs and their justifications: GATE Overflow, Data Structures chapter (English, read in part) and GeeksforGeeks, \"Linked List Data Structure\" (English, read in part). Every cost row is exercised by one of the eleven PYQs on this topic, and the sums are recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

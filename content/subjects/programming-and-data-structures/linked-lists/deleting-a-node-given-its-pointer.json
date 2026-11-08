@@ -1,0 +1,76 @@
+{
+  "id": "deleting-a-node-given-its-pointer",
+  "title": "Deletion: Why a Pointer to the Node Is Not Enough",
+  "priority": "P1",
+  "order": 598,
+  "quickIdea": "Unlinking a node means changing its predecessor, and a singly linked node does not know its predecessor, so deletion given only the node costs O(n) unless you use the data-copy trick or a doubly linked list.",
+  "remember": [
+    "The general unlink is prev->next = node->next, so the predecessor is essential. A singly linked node stores only its successor.",
+    "Given a pointer to the node, the worst case is the last node: the walk from head to its predecessor touches n-1 links, so SLLdel is O(n) (GATE CSE 2023 Q.3).",
+    "Deleting the head is O(1): head = head->next. Deleting the tail is O(n) in a singly linked list even with a tail pointer, because the second-last node must be found.",
+    "The O(1) data-copy trick works on a non-last node: copy the successor's data into the node, unlink the successor, free it. It fails on the tail because there is no successor to copy from, and it copies data rather than moving a node.",
+    "In a doubly linked list, deletion given the node is O(1): p->prev->next = p->next; p->next->prev = p->prev, with the head and tail cases guarded.",
+    "Deleting while traversing needs a trailing pointer, and after a successful unlink the trailing pointer must not advance, or the node after the deleted one is never examined."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2025 Set 1. L1 is 1,7,12,3,9,5,11,15,8 and L2 is 1,11,6,9,15,12,4. The loop sets query = ptr1->next->data and, if that value occurs in L2, does ptr1->next = ptr1->next->next, else advances ptr1. How many nodes remain in L1?",
+    "work": "The head is never tested, so 1 always stays. At 1 the next is 7, absent from L2, so advance. At 7 the next is 12, present, so 12 is bypassed and ptr1 stays at 7; now the next is 3, absent, advance. At 3 the next is 9, present, bypass; next is 5, absent, advance. At 5 the next is 11, present, bypass; next is 15, present, bypass; next is 8, absent, advance. ptr1->next is now NULL and the loop ends.",
+    "answer": "5 nodes: 1, 7, 3, 5, 8."
+  },
+  "gateAngle": "Deletion questions test two things: whether you know the predecessor is the real cost, and whether you advance the pointer correctly during a walk. GATE CSE 2023 Q.3 contrasts SLLdel with DLLdel for exactly the first reason; GATE CSE 2025 Set 1 embeds the second inside a program trace.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.3. Given a pointer to the node and a pointer to the head, what are the worst case complexities of SLLdel and DLLdel?",
+      "answer": "SLLdel is O(n) and DLLdel is O(1).",
+      "why": "The singly linked function must find the predecessor by walking from the head, which is n-1 links in the worst case. The doubly linked function reads it from node->prev and rewires both neighbours, which is a constant number of writes."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A pointer is given to the second node of the list 10 -> 20 -> 30. Delete 20 in O(1) without the head pointer. What does the list hold afterwards, and what would go wrong for the node 30?",
+      "answer": "Copy 30 into the node, bypass the old 30, and the list becomes 10 -> 30. For the node 30 the trick has no successor to copy from, so it cannot be applied.",
+      "why": "The trick trades identity for time: the node object that held 20 survives holding 30, and the last node's storage is freed. Because it needs a successor, the tail is excluded, which is why the general worst case stays O(n)."
+    }
+  ],
+  "trap": {
+    "what": "Assuming a pointer to the node makes deletion O(1) in a singly linked list, or advancing the traversal pointer after unlinking a node.",
+    "why": "The predecessor still has to be located, which is a walk. And after p->next = p->next->next the node after p is a new one that has not been examined.",
+    "counterexample": "Deleting the last node of 1,2,3 given only its pointer needs a walk over both earlier nodes, so it is O(n) not O(1). In the GATE CSE 2025 loop, advancing after a bypass would skip the node that moved into the deleted one's place."
+  },
+  "check": {
+    "question": "A list has 6 nodes and you are given a pointer to the fifth. What is the worst case number of links walked to delete it in a singly linked list, and in a doubly linked list?",
+    "answer": "4 links in the singly linked list, 0 in the doubly linked list.",
+    "explanation": "The singly linked function walks from the head to the fourth node, which is 4 links for the fifth node. The doubly linked node carries prev, so the predecessor is one dereference away and no walk is needed."
+  },
+  "pyqIds": [
+    "gate-2023-q3-slldel-dlldel",
+    "gate-2025-set-1-q52-delete-values-in-l2"
+  ],
+  "prereqs": [
+    "insertion-in-a-singly-linked-list"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "notes, read in part: the O(1) data-copy deletion and its limitation"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question pages for GATE CSE 2023 Q.3 and GATE CSE 2025 Set 1 Q.52",
+      "url": "https://gateoverflow.in/399309/gate-cse-2023-question-3",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statements, options and traces"
+    }
+  ],
+  "sourceLine": "The predecessor argument, the data-copy trick and its last-node limit: IAE Academy, \"Linear structures\" notes (English, read in part). The two deletions: GATE Overflow question pages for GATE CSE 2023 Q.3 and GATE CSE 2025 Set 1 Q.52 (English, read in part). Both traces are recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

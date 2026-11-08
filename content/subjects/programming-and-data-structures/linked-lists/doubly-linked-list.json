@@ -1,0 +1,76 @@
+{
+  "id": "doubly-linked-list",
+  "title": "The Doubly Linked List: prev Buys O(1) Deletion",
+  "priority": "P1",
+  "order": 600,
+  "quickIdea": "A doubly linked node stores both neighbours, so it can be unlinked in O(1) given a pointer to it, at the cost of one extra pointer per node and two neighbour updates per change.",
+  "remember": [
+    "Node: struct node { int data; struct node *prev, *next; };. Three fields, and both ends of the list must be updated on every insertion and deletion.",
+    "Insert after p: n->next = p->next; n->prev = p; if (p->next) p->next->prev = n; p->next = n;. Four pointer writes, and the guard covers p being the tail.",
+    "Delete p: p->prev->next = p->next; p->next->prev = p->prev;. Two writes, O(1), with the head and tail cases guarded (GATE CSE 2023 Q.3 answer D).",
+    "The benefit is real but narrow: deletion given the node, insertion before a given node, and backward traversal. Search and access are still O(n).",
+    "Decrease-key in a sorted doubly linked list is still Theta(N) per operation, because the new position must be found by walking; Theta(N) such operations make Theta(N^2) (GATE CSE 2016 Set 2 Q.15).",
+    "Cost: 8 extra bytes per node on a 64-bit machine and more pointer writes per operation, so a doubly linked list is chosen for deletion-heavy work, not for memory."
+  ],
+  "example": {
+    "prompt": "GATE CSE 2016 Set 2 Q.15. N items sit in a sorted doubly linked list. An algorithm performs Theta(N) deletes, O(log N) inserts, O(log N) finds and Theta(N) decrease-keys, each given a pointer to the record. What is the total cost?",
+    "work": "Each delete is O(1) because prev is stored, so Theta(N) deletes cost O(N). Each insert or find walks the list, so each is O(N) and O(log N) of them cost O(N log N). A decrease-key is O(1) at the record but the list must stay sorted, so the new position costs O(N) per operation and Theta(N) of them cost Theta(N^2).",
+    "answer": "O(N^2). The decrease-key step dominates, and the pointer argument does not make it cheap."
+  },
+  "gateAngle": "The exam uses the doubly linked list to test whether you separate the cost of touching a node from the cost of finding where it belongs. GATE CSE 2023 Q.3 wants O(1) for DLLdel; GATE CSE 2016 Set 2 Q.15 wants you to see that a pointer does not remove the sorted-order walk.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2023 Q.3. With a pointer to the node and a pointer to the head, what is the worst case cost of deleting that node from a doubly linked list?",
+      "answer": "O(1).",
+      "why": "The node holds prev, so the predecessor is available without a walk; two pointer writes unlink it. The head pointer is not needed at all when the node is not the head."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A doubly linked list holds 10, 20, 30 and you are given a pointer to 20. Delete it and state every pointer field that changed.",
+      "answer": "The list becomes 10 <-> 30, and four fields changed: 10->next, 30->prev, and the two fields of the freed node are irrelevant.",
+      "why": "Only the neighbours of the deleted node change. Counting the changed fields is how the pointer-write questions are marked, and it shows why a doubly linked list is more expensive per operation but cheaper per deletion."
+    }
+  ],
+  "trap": {
+    "what": "Updating next in both directions and forgetting prev, or writing the delete without guarding the head and tail.",
+    "why": "Every link is stored twice, once in each direction, so both copies must agree. If p is the head, p->prev is NULL and the first write crashes; if p is the tail, p->next is NULL and the second does.",
+    "counterexample": "Deleting the head of 10 <-> 20 with the unguarded two writes evaluates NULL->next, which is a crash. The guarded version sets head = p->next and fixes only the new head's prev."
+  },
+  "check": {
+    "question": "How many pointer fields must be written to insert a node between two existing nodes of a doubly linked list?",
+    "answer": "Four.",
+    "explanation": "The new node's next and prev, plus the successor's prev and the predecessor's next. The singly linked version needs two, which is exactly the trade: twice the writes, but O(1) deletion later."
+  },
+  "pyqIds": [
+    "gate-2016-set-2-q15-decrease-key-sorted-doubly",
+    "gate-2023-q3-slldel-dlldel"
+  ],
+  "prereqs": [
+    "deleting-a-node-given-its-pointer"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "Wikipedia, Linked list",
+      "url": "https://en.wikipedia.org/wiki/Linked_list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: doubly linked variants and their trade-offs"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.15",
+      "url": "https://gateoverflow.in/39557/gate-cse-2016-set-2-question-15",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options, cost derivations"
+    }
+  ],
+  "sourceLine": "The node layout and the trade-offs of a doubly linked list: Wikipedia, \"Linked list\" (English, read in part). The pointer updates and the decrease-key cost: GATE Overflow question page for GATE CSE 2016 Set 2 Q.15 (English, read in part). The write counts are recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

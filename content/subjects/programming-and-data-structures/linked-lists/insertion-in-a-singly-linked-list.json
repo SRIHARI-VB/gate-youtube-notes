@@ -1,0 +1,76 @@
+{
+  "id": "insertion-in-a-singly-linked-list",
+  "title": "Insertion: Two Pointer Writes and One Walk",
+  "priority": "P1",
+  "order": 597,
+  "quickIdea": "Insertion itself is a fixed pair of pointer writes, so it is O(1); what costs time is reaching the position, which is a walk from head unless you already hold the node.",
+  "remember": [
+    "At the head: new->next = head; head = new;. Two writes, O(1), and the order is not free: head = new first loses the whole list.",
+    "After a given node p: new->next = p->next; p->next = new;. O(1). Reversing the two lines makes the new node point at itself.",
+    "At the tail: you must walk to the last node, so O(n). Keeping a tail pointer makes the append O(1), but then the tail pointer must be maintained on every insert and delete.",
+    "At position i: the walk is O(i) and the relinking is O(1), so the operation is O(n).",
+    "Inserting n elements into an empty list that must stay sorted costs Theta(n^2) in the worst case: the i-th insertion walks up to i-1 nodes, and 0 + 1 + ... + (n-1) = n(n-1)/2.",
+    "Inserting n elements at the head is Theta(n) in total, because every insertion is O(1) and no walk is needed."
+  ],
+  "example": {
+    "prompt": "Insert 25 after the node holding 20 in the list 10 -> 20 -> 30 -> NULL.",
+    "work": "Hold p at the node 20. Set new->next = p->next, so the new node points at 30. Then set p->next = new, so 20 points at the new node. For 4 elements the walk from head to 20 is 2 steps.",
+    "answer": "10 -> 20 -> 25 -> 30 -> NULL, in two pointer writes plus the walk to find 20."
+  },
+  "gateAngle": "GATE asks for the cost of a sequence of insertions, not one insertion. GATE CSE 2020 Q.16 gives n elements into a sorted list and expects Theta(n^2) because each placement is a fresh walk; the same reasoning makes the sorted-insert variant of any 'n operations on a list' question quadratic.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2020 Q.16. What is the worst case time complexity of inserting n elements into an empty linked list if the list must be maintained in sorted order?",
+      "answer": "Theta(n^2).",
+      "why": "The worst case is input arriving already sorted, so every new element belongs at the end and each insertion scans the whole current list: 0 + 1 + 2 + ... + (n-1) = n(n-1)/2 comparisons, which is Theta(n^2)."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The same n elements are inserted at the head of an empty list instead, with no order requirement. What is the total cost, and what is the resulting order?",
+      "answer": "Theta(n) total, and the list holds the input in reverse order.",
+      "why": "Each insertion is two pointer writes with no walk, so the total is n writes. The order reverses because every new node becomes the head, which is the same mechanism a stack uses."
+    }
+  ],
+  "trap": {
+    "what": "Saying 'insertion in a linked list is O(1)' with no qualifier.",
+    "why": "Only the relinking is O(1). The position has to be found first, and finding it is a walk, so the operation is O(1) only when you already hold the node you insert after.",
+    "counterexample": "Inserting at the end of a 1000-node singly linked list with only a head pointer walks 999 links before the two writes. The writes are constant; the operation is not."
+  },
+  "check": {
+    "question": "How many node visits are made in total when 5 elements arrive in sorted order and are inserted into a sorted linked list?",
+    "answer": "10 visits.",
+    "explanation": "The i-th insertion scans i-1 existing nodes, so the total is 0+1+2+3+4 = 10 = 5*4/2. That sum is the reason the cost is quadratic rather than linear."
+  },
+  "pyqIds": [
+    "gate-2020-q16-sorted-insertion-cost",
+    "gate-2017-set-1-q08-join-two-lists"
+  ],
+  "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+  ],
+  "sources": [
+    {
+      "kind": "text",
+      "title": "IAE Academy, Linear structures: arrays, stacks, queues and linked lists",
+      "url": "https://iaeacademy.in/study/data-structures-algorithms/linear-structures",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "notes, read in part: linked-list insert costs"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2020 Q.16",
+      "url": "https://gateoverflow.in/333215/gate-cse-2020-question-16",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and community derivations"
+    }
+  ],
+  "sourceLine": "The two-write insertions and the tail-pointer qualification: IAE Academy, \"Linear structures\" notes (English, read in part). The sorted-insertion cost and its sum: GATE Overflow question page for GATE CSE 2020 Q.16 (English, read in part), recomputed in scripts/validate.py.",
+  "unit": "Linked Lists",
+  "videoRefs": [],
+  "links": {}
+}

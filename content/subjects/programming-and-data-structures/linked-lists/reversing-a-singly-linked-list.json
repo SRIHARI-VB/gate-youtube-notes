@@ -1,0 +1,89 @@
+{
+  "id": "reversing-a-singly-linked-list",
+  "title": "Reversing a Singly Linked List in O(1) Space",
+  "priority": "P2",
+  "order": 599,
+  "quickIdea": "Walk the list once with three pointers, pointing each node's next at the node before it; every node changes its link exactly once, so the time is Theta(n) and the extra space is O(1).",
+  "remember": [
+    "The in-place loop: prev = NULL; while (curr) { next = curr->next; curr->next = prev; prev = curr; curr = next; } return prev;. Three pointers, one pass, no allocation.",
+    "Time is Theta(n) and space is O(1). Every node's next must be rewritten, so Omega(n) is a lower bound and Theta(n) is optimal (GATE CSE 2022 Q.5).",
+    "A recursive reversal is also Theta(n) in time but Theta(n) in stack space, so it does not satisfy an O(1)-space requirement.",
+    "Copying the values into an array and writing them back is Theta(n) time and Theta(n) space, and it reverses the data rather than the links; the nodes keep their addresses.",
+    "The save-next-first order is mandatory: curr->next = prev before next = curr->next loses the rest of the list.",
+    "Moving the last node to the front is the same walk with two pointers: stop with p on the last node and q on the second-last, then q->next = NULL; p->next = head; head = p (GATE CSE 2010 Q.36)."
+  ],
+  "example": {
+    "prompt": "Reverse the list 1 -> 2 -> 3 -> NULL with the three-pointer loop.",
+    "work": "Start prev = NULL, curr = 1. Save next = 2, set 1->next = NULL, prev = 1, curr = 2. Save next = 3, set 2->next = 1, prev = 2, curr = 3. Save next = NULL, set 3->next = 2, prev = 3, curr = NULL. The loop ends and prev is the new head.",
+    "answer": "3 -> 2 -> 1 -> NULL, after 3 iterations for 3 nodes."
+  },
+  "gateAngle": "GATE rarely asks you to write the loop; it asks what the loop costs, or which pointer assignment belongs in the blank. GATE CSE 2022 Q.5 is the cost question, GATE CSE 2010 Q.36 the blank-filling one. Both are settled by tracking prev, curr and next through two iterations.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2022 Q.5. Which statement is true about reversing a singly linked list in O(1) space?",
+      "answer": "The best algorithm takes Theta(n) time in the worst case.",
+      "why": "The three-pointer pass visits each node once, so O(n) is achieved; each node's link must change, so no algorithm does better than Omega(n). The other options claim n log n, n^2, or impossibility, and the third pointer pass shows it is possible."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The same reversal is written recursively. What are its time and space costs, and does it meet an O(1)-space requirement?",
+      "answer": "Theta(n) time and Theta(n) stack space, so it does not meet O(1) space.",
+      "why": "The recursion holds one frame per node while unwinding, which is n frames. The time is unchanged because each node is still visited once, and the distinction between time and auxiliary space is what the requirement is testing."
+    }
+  ],
+  "trap": {
+    "what": "Overwriting curr->next before saving the old successor, or claiming the reversal is impossible in O(1) space.",
+    "why": "curr->next is the only route to the remaining nodes, so it must be copied into next first. And the three-pointer loop needs no extra structure at all, only two local pointers besides curr.",
+    "counterexample": "Writing curr->next = prev as the first statement of the body leaves curr = next reading the just-overwritten field, so the walk returns to the node it came from and loops forever on lists of three or more nodes."
+  },
+  "check": {
+    "question": "How many times is a node's next field written when a 5-node list is reversed in place?",
+    "answer": "5 times, once per node.",
+    "explanation": "Each iteration writes exactly one next field, and the loop runs once per node. That count is why the time is Theta(n) and why no correct algorithm can be asymptotically faster."
+  },
+  "pyqIds": [
+    "gate-2022-q5-reverse-singly-linked-list",
+    "gate-2010-q36-move-last-to-front"
+  ],
+  "prereqs": [
+    "traversing-and-searching-a-singly-linked-list"
+  ],
+  "visual": "programming-and-data-structures/linked-lists/reversing-a-singly-linked-list",
+  "links": {
+    "visual": {
+      "slug": "reversing-a-singly-linked-list",
+      "title": "Reversing a Singly Linked List: Three Pointers",
+      "level": "subtopic-level",
+      "covers": [
+        "in-place reversal",
+        "prev/curr/next bookkeeping",
+        "Theta(n) time and O(1) space"
+      ],
+      "url": "visuals/programming-and-data-structures/linked-lists/reversing-a-singly-linked-list/index.html"
+    }
+  },
+  "sources": [
+    {
+      "kind": "text",
+      "title": "GATE Overflow question page for GATE CSE 2022 Q.5",
+      "url": "https://gateoverflow.in/371931/gate-cse-2022-question-5",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options, three-pointer solutions"
+    },
+    {
+      "kind": "text",
+      "title": "Wikipedia, Linked list",
+      "url": "https://en.wikipedia.org/wiki/Linked_list",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "read in part: relinking without reallocation"
+    }
+  ],
+  "sourceLine": "The three-pointer reversal, its Theta(n) time and O(1) space, and the recursive variant's stack cost: GATE Overflow question page for GATE CSE 2022 Q.5 (English, read in part). The relinking argument: Wikipedia, \"Linked list\" (English, read in part). The step trace and the five writes are recomputed in scripts/validate.py and animated in the lesson.",
+  "unit": "Linked Lists",
+  "videoRefs": []
+}
