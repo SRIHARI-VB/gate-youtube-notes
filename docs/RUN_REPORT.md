@@ -40,8 +40,8 @@ Four sources, from four different places, with no default to one channel:
    (English) - fixes the scope of the topic for a beginner; recorded as `STRUCTURE_ONLY` because no captions or
    transcript were retrievable, so no card quotes it.
 4. **GATE Overflow question pages** (English, read in part) - the year, question number, options and community
-   answer for ten of the eleven PYQs; the eleventh (GATE 2004, two stacks in one array) is sourced from the
-   GeeksforGeeks GATE 2004 listing, and the GATE 2004 postfix question from the Knowledge Gate AI MCQ page.
+   answer for ten of the twelve PYQs; the eleventh (GATE 2004, two stacks in one array) is sourced from the
+   GeeksforGeeks GATE 2004 listing, and the twelfth (GATE 2004, postfix of a + b x c - d ^ e ^ f) from the Knowledge Gate AI MCQ page.
 
 Rejected, with the reasons recorded in `content/subjects/programming-and-data-structures/arrays-stacks-queues/sources.json`:
 the Gate Smashers Hindi DSA playlist (its stack and queue branches work the GATE 2006 and GATE 2022 queue
@@ -63,7 +63,7 @@ matching; the queue ADT and the linear-queue defect; circular-queue full and emp
 queue-from-two-stacks. Each carries a trap with a counterexample, a quick check, and variations labelled
 `ORIGINAL PYQ-STYLE QUESTION`, `CONCEPTUAL PRACTICE QUESTION` or `PREDICTED VARIATION` - never as PYQs.
 
-Eleven PYQ records, each with a year, a question reference and a source URL: 1994 Q.1.14 (stack permutations,
+Twelve PYQ records, each with a year, a question reference and a source URL: 1994 Q.1.14 (stack permutations,
 answer B), 1998 Q.2.14 (row-major address, 15i + j + 84), 2002 Q.2.8 (char a[100][100], 4050), 2004 (two
 stacks in one array, top1 = top2 - 1), 2004 (postfix of a + b x c - d ^ e ^ f, option A), 2006 Q.49 (queue from
 two stacks, option A), 2012 Q.35 (circular queue full/empty, option A), 2015 Set 3 Q.12 (postfix evaluation,
@@ -98,7 +98,7 @@ token, no shell layout, no route, no navigation label and no shared component cl
    sources are recorded as `STRUCTURE_ONLY`.
 2. The Gate Smashers Hindi stack and queue lectures, which work the GATE 2006 and GATE 2022 queue questions,
    could not be read, so no card draws on them and their question treatments are not recorded.
-3. Every PYQ is `SOURCED`, not key-verified, and no marks field is recorded on any of the eleven.
+3. Every PYQ is `SOURCED`, not key-verified, and no marks field is recorded on any of the twelve.
 4. Two GATE 2004 questions carry a numbering gap: they are located in question banks but their own paper
    numbers are not confirmed.
 5. Two subtopics have no verified PYQ of their own: array operation costs, which GATE tests inside code
