@@ -1,0 +1,28 @@
+{
+  "slug": "reversing-a-singly-linked-list",
+  "topic": "reversing-a-singly-linked-list",
+  "engine": "p5.js",
+  "steps": 6,
+  "example": {
+    "n": 4,
+    "values": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "next_writes": 4,
+    "paper": "GATE CSE 2022 Q.5",
+    "final_order": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "quick_check": {
+      "question": "The same loop runs on a list of 7 nodes. How many times is a next field written, and what is the new head?",
+      "answer": "7 writes, and the new head is the old last node.",
+      "note": "One write per node, and prev ends on the last node visited, which becomes the head"
+    }
+  }
+}

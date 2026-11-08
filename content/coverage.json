@@ -3,7 +3,7 @@
  "updated_at": "2026-11-08",
  "cycle": {
   "last_subject": "programming-and-data-structures",
-  "last_topic": "arrays-stacks-queues",
+  "last_topic": "linked-lists",
   "updated_at": "2026-11-08"
  },
  "subjects": [
@@ -1062,10 +1062,32 @@
     {
      "slug": "linked-lists",
      "name": "Linked Lists",
-     "status": "not_started",
-     "coverage_note": "enumerated from the GATE 2027 CS syllabus; no card yet",
-     "runs": [],
-     "gaps": []
+     "status": "partial",
+     "coverage_note": "10 cards, one per enumerated subtopic (the node and head-pointer representation, traversal, counting and search, insertion and its walks, deletion given only the node and the O(1) data-copy trick, in-place reversal, the doubly linked list, the circular list and its single-pointer queue, the operation-cost table, two pointers and cycle detection, and linked stacks, queues and applications), 11 verified PYQs from GATE CSE 1997 to 2026 and 1 p5.js lesson. Partial because five gaps remain, named below.",
+     "runs": [
+      {
+       "date": "2026-11-08",
+       "sources": [
+        "iaeacademy-linear-structures-notes",
+        "wikipedia-linked-list",
+        "gateoverflow-data-structures-chapter",
+        "geeksforgeeks-linked-list-data-structure",
+        "gateoverflow-question-pages",
+        "nptel-iitd-106102064"
+       ],
+       "cards": 10,
+       "pyqs": 11,
+       "lesson": "programming-and-data-structures/linked-lists/reversing-a-singly-linked-list",
+       "note": "Sources chosen on merit across six sources and no channel default: an independent GATE-notes site (English, read in part) for the O(1) data-copy deletion, the circular list and the cycle-detection summary; Wikipedia 'Linked list' (English, read in part) as the correctness anchor for the node definition, the storage trade-off and the variants; the GATE Overflow Data Structures chapter (English, read in part) for the syllabus line and the published mark table; GeeksforGeeks 'Linked List Data Structure' (English, read in part) for the operation inventory and the applications; GATE Overflow question pages for all eleven PYQs; and NPTEL IIT Delhi 106102064 for scope only. Rejected with reasons in sources.json: the Gate Smashers Hindi DSA playlist (captions unavailable - the watch page carried no captionTracks and the player API answered LOGIN_REQUIRED), Neso Academy's forty linked-list lectures, the Unacademy Hindi linked-list PYQ lesson (login-walled), the GO Classes linked-list DPP set (practice questions, not paper questions), EduRev's mixed GATE/ISRO list, BYJU'S and a 2025 MCQ blog. No card is translated: every source drawn on is English."
+      }
+     ],
+     "gaps": [
+      "no video transcript was readable this run: the YouTube watch page for Gate Smashers Lec-19 (0XKlbNJLvjs) carried no captionTracks and the player API answered LOGIN_REQUIRED, so videoRefs is empty on all ten cards and the one lecture source is recorded as STRUCTURE_ONLY",
+      "every PYQ is SOURCED, not key-verified, and no marks field is recorded on any of the 11",
+      "four subtopics carry no verified GATE CSE PYQ of their own: the node representation, the operation-cost table, two-pointer cycle detection, and linked stacks, queues and applications",
+      "question numbering differs between mirrors for the 2022 to 2026 papers: GATE Overflow labels them ten lower than the mirrors that number the paper including its GA section (for example 2025 Set 1 Q.52 against Q.62), so each PYQ record states GATE Overflow's label and names the discrepancy rather than picking one silently",
+      "the Floyd meeting-point relation is stated only as 'the meeting node is not the cycle entry' plus the reset rule, because the notes' derivation (the a mod c relation) could not be read this run"
+     ]
     },
     {
      "slug": "trees-and-binary-search-trees",

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reversing a Singly Linked List: Three Pointers - Linked Lists visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Reversing a Singly Linked List: Three Pointers</h1>
+  <div class="objective"><strong>Objective.</strong> Watch the list 1, 2, 3, 4 turn into 4, 3, 2, 1 with no new nodes and no array. Each step saves the next node, points the current node backwards, then moves the two pointers one place. Every node's link is written exactly once, which is why the cost is Theta(n) time and O(1) extra space - the claim GATE CSE 2022 Q.5 asks you to accept or reject.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>The loop is five lines and three pointers. <code>next</code> holds the node after the current one, <code>curr</code> is the node being processed and <code>prev</code> is the node already reversed. Each iteration does the same three things in the same order: save <code>curr-&gt;next</code> into <code>next</code>, set <code>curr-&gt;next = prev</code>, then move <code>prev</code> to <code>curr</code> and <code>curr</code> to <code>next</code>.</p>
+  <p>The order is not a style choice. <code>curr-&gt;next</code> is the only route to the rest of the list, so it must be copied out before it is overwritten. Write <code>curr-&gt;next = prev</code> first and the walk has nowhere to go: on a list of three or more nodes it returns to the node it came from and the loop never ends.</p>
+  <p>Four nodes need four writes and four iterations, one per node. That is the whole cost: the walk touches each node once, and the only extra memory is the two local pointers, which do not grow with n. So the time is Theta(n) and the space is O(1). The lower bound is also Theta(n) - every node's link must change, so nothing can be asymptotically faster - which is exactly why the 2022 option that claims n log n, and the option that claims it is impossible, are both wrong.</p>
+  <p>Watch where the NULL markers go. At the start NULL sits at the right end, after node 4. After the first iteration node 1 points at NULL and the marker appears at the left end instead. That left NULL is the new tail of the list, and when the loop stops <code>prev</code> holds node 4, the old tail, which is returned as the new head.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That reversal needs a second list, an array or a stack. It needs none of them: the nodes never move and no node is allocated or freed. A second misconception is that the recursive version satisfies an O(1)-space requirement - it is Theta(n) time like this one, but it holds one stack frame per node, so its auxiliary space is Theta(n), not O(1).</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>The same loop runs on a list of 7 nodes. How many times is a <code>next</code> field written, and what does the function return?</p><details><summary>Answer</summary><p><strong>7 writes, and it returns the old last node as the new head.</strong> The loop body runs once per node, and each run writes exactly one <code>next</code> field. When <code>curr</code> becomes NULL the loop stops with <code>prev</code> on the last node visited, which is the old tail - the head of the reversed list.</p></details></div>
+
+  <p class="small">Topic: Linked Lists (Programming and Data Structures), subtopic reversing a singly linked list. The question, the four options and the accepted answer: GATE Overflow question page for GATE CSE 2022 Q.5 (English, read in part). The relinking argument - no reallocation, no random access, one pointer per node: Wikipedia, "Linked list" (English, read in part). The step count, the write count and the final order are recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>
