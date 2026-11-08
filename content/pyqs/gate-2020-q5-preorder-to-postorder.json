@@ -1,0 +1,21 @@
+{
+  "id": "gate-2020-q5-preorder-to-postorder",
+  "year": "2020",
+  "paper": "GATE CSE 2020",
+  "question_ref": "Q.5 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "tree-traversals-and-their-orders",
+  "text": "The preorder traversal of a binary search tree is 15, 10, 12, 11, 20, 18, 16, 19. Which one of the following is the postorder traversal of the tree?",
+  "options": [
+    "10, 11, 12, 15, 16, 18, 19, 20",
+    "11, 12, 10, 16, 19, 18, 20, 15",
+    "20, 19, 18, 16, 15, 12, 11, 10",
+    "19, 16, 18, 20, 11, 12, 10, 15"
+  ],
+  "answer": "Option 2 - 11, 12, 10, 16, 19, 18, 20, 15",
+  "solution": "The preorder's first key 15 is the root, so the postorder must end with 15. The keys 10, 12, 11 are below 15 and form the left subtree, whose own root is 10, with 12 as its right child and 11 the left child of 12, giving 11, 12, 10. The keys 20, 18, 16, 19 form the right subtree, rooted at 20, with 18 as its left child and 16 and 19 the children of 18, giving 16, 19, 18. The postorder is 11, 12, 10, 16, 19, 18, 20, 15.",
+  "source_url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+  "source_label": "GATE Overflow question page - GATE CSE 2020 Q.5, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 2, two of them by rebuilding the tree from the preorder and the sorted inorder. The paper and official key were not fetched, so the record stays SOURCED. The postorder is recomputed from the preorder in scripts/validate.py."
+}

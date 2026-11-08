@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert at a Leaf, Delete by Replacement - Trees visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Insert at a Leaf, Delete by Replacement</h1>
+  <div class="objective"><strong>Objective.</strong> Insert 10, -4, 15, 30, 20, 5, 60, 19 in that order and watch 19 land four edges below the root - the answer to GATE CSE 2025 Set 2 Q.25. Then delete a node with two children and see why the inorder successor, not a child, is what replaces it.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>Insertion is a search that fails. The new key is compared with the root, then with the next node on the chosen side, and so on until the comparison would step into an empty slot; the new node is hung there. A new key is therefore always a leaf, and existing keys never move. Because the path followed is the search path, the depth at which a key lands is fixed by the keys inserted before it - which is the whole content of the 2025 question.</p>
+  <p>The order 10, -4, 15, 30, 20, 5, 60, 19 gives 10 at the root; -4 and 15 as its children; 30 to the right of 15; 20 to the left of 30; 5 to the right of -4; 60 to the right of 30; and 19 to the left of 20. The path to 19 is 10, 15, 30, 20, 19: five nodes and four edges. Counting nodes instead of edges is the mistake the question is built to catch.</p>
+  <p>Deletion has three cases. A leaf is unlinked. A node with one child has that child spliced into its place, which is safe because the child's whole subtree lies on the same side of every ancestor as the deleted node did. A node with two children cannot be spliced at all, because two subtrees would have to occupy one slot, so its key is overwritten with its inorder successor - the minimum of its right subtree - and the node that held that successor is then deleted. That node has no left child, so its own deletion is one of the two easy cases.</p>
+  <p>Here the node 30 has children 20 and 60. The minimum of its right subtree is 60, so 30's key becomes 60 and the node that held 60 is removed. The result is a single key write and a single pointer change, and the inorder 19, 20, 60 is still sorted, so the tree is still a search tree.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That a two-child node is deleted by promoting one of its children. Promotion overwrites a pointer, so if the promoted child already has a subtree on that side, that subtree is silently lost and the tree no longer holds the same keys. The replacement must be the inorder successor or the inorder predecessor, and both are guaranteed to have at most one child.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>In the final tree, delete 20. Which key replaces it?</p><details><summary>Answer</summary><p><strong>None: 20 has only a left child, 19, so 19 is spliced into 20's place.</strong> Only the two-child case replaces a key. Splicing works because 19 and everything under it is smaller than 60 and larger than 15, exactly as 20 was, so no ancestor's ordering is disturbed.</p></details></div>
+
+  <p class="small">Topic: Trees and Binary Search Trees (Programming and Data Structures), subtopic search-tree insertion and deletion. Insertion at a leaf, the three deletion cases and the successor as the replacement: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The search cost and the shape following the insertion order: mycodeschool, "Data structures: Binary Search Tree" (English, read in part). The question: GATE Overflow question page for GATE CSE 2025 Set 2 Q.25 (English, read in part). Both trees and both inorder lists are recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

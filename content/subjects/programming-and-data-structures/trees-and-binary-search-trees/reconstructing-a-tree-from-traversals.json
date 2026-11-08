@@ -1,0 +1,93 @@
+{
+  "id": "reconstructing-a-tree-from-traversals",
+  "title": "Rebuilding the Shape from Traversals",
+  "priority": "P1",
+  "order": 610,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Inorder is the pivot: with preorder or postorder it fixes the tree uniquely, while preorder with postorder does not, and on a binary search tree the preorder alone is enough because the inorder is the sorted keys.",
+  "remember": [
+    "Preorder with inorder fixes a binary tree uniquely, and postorder with inorder does too, when the keys are distinct.",
+    "Preorder with postorder does not, for a general binary tree. The root is visible in both, but a single child is not: it looks the same whether it hangs left or right.",
+    "For a full binary tree, where every node has 0 or 2 children, preorder with postorder does determine the tree, because there is no single-child case to be ambiguous about.",
+    "Inorder alone never fixes a tree; on a binary search tree it is only the sorted key list.",
+    "On a binary search tree a single traversal is enough: the first key of the preorder is the root, everything smaller goes to its left and everything larger to its right, recursively. That is why GATE gives only a preorder and still expects the postorder.",
+    "The reconstruction splits at the root: take the root from the preorder, find it in the inorder, the keys to its left form the left subtree, and the two subtrees are rebuilt from the two remaining pieces."
+  ],
+  "example": {
+    "prompt": "A binary tree has preorder A B D E C F and inorder D B E A F C. Rebuild it and give the postorder.",
+    "work": "The root is A. In the inorder, A splits the keys into D B E on the left and F C on the right, so the left subtree takes preorder B D E and the right takes C F. Left: root B, and the inorder D B E puts D on the left and E on the right. Right: root C, and the inorder F C puts F on the left. Postorder reads D, E, B for the left, F, C for the right, then A.",
+    "answer": "Postorder D E B F C A."
+  },
+  "gateAngle": "GATE CSE 2004 Q.35 asks which pairs of traversals identify a tree uniquely, and answers preorder with inorder and postorder with inorder. The preorder-only questions - GATE CSE 2020 Q.5, 2017 Set 2 Q.36 and 2026 Set 1 Q.52 - are the same idea with the inorder supplied for free by the search-tree property.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2004 Q.35. Consider the pairs of traversals on a labelled binary tree: (i) preorder and postorder, (ii) inorder and postorder, (iii) preorder and inorder, (iv) level order and postorder. Which pairs identify a tree uniquely?",
+      "answer": "Option 2, (ii) and (iii).",
+      "why": "Inorder fixes which keys lie to the left and right of the root, so one more traversal that reveals the root order completes the shape. Preorder with postorder leaves the single-child case ambiguous, and level order with postorder does not separate left from right either."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "Two binary trees have preorder A B C and postorder C B A. How many different binary tree shapes fit both sequences, and what distinguishes them?",
+      "answer": "Two shapes: a chain leaning left and a chain leaning right.",
+      "why": "Every node has one child, so the choice at each of the two nodes is left or right, giving 2^2 = 4 chains; only the two straight chains give postorder C B A. Their inorders are C B A and A B C, so the pair of traversals cannot separate them."
+    }
+  ],
+  "trap": {
+    "what": "Assuming any two of the three traversals are enough, or that a binary search tree can be rebuilt from its inorder alone.",
+    "why": "Only a pair that contains the inorder, or a single traversal plus the search-tree ordering rule, carries enough information. The inorder of a search tree is just the sorted keys and says nothing about the shape.",
+    "counterexample": "The keys 1, 2, 3 in a search tree have inorder 1 2 3 whatever the insertion order: inserting 2, 1, 3 gives a root 2, while inserting 1, 2, 3 gives a chain, and both have the same inorder."
+  },
+  "check": {
+    "question": "A binary search tree has preorder 30, 20, 10, 15, 25, 23, 39, 35, 42. What is its postorder, and which traversal supplied the information that the preorder did not?",
+    "answer": "Postorder 15, 10, 23, 25, 20, 35, 42, 39, 30; the inorder, which is the sorted keys 10, 15, 20, 23, 25, 30, 35, 39, 42.",
+    "explanation": "The preorder gives the roots in order and the search-tree rule places each key left or right of its root, so the sorted key list acts as the inorder. The rebuild puts 30 at the root, 20 with children 10 (right child 15) and 25 (left child 23) on the left, and 39 with children 35 and 42 on the right."
+  },
+  "pyqIds": [
+    "gate-2004-q35-traversal-pairs-unique"
+  ],
+  "prereqs": [
+    "tree-traversals-and-their-orders"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+      "kind": "video",
+      "title": "mycodeschool, Data structures: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2004 Q.35",
+      "url": "https://gateoverflow.in/1032/gate-cse-2004-question-35",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2020 Q.5",
+      "url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    }
+  ],
+  "sourceLine": "The uniqueness statement for traversal pairs and the ambiguity of preorder with postorder: Wikipedia, \"Tree traversal\" (English, read in part). The search-tree rule that lets a preorder alone rebuild the tree: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The question: GATE Overflow question page for GATE CSE 2004 Q.35 (English, read in part), with the preorder-only pattern from the 2020 and 2017 pages. Both reconstructions in this card are recomputed in scripts/validate.py.",
+  "links": {}
+}

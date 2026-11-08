@@ -1,0 +1,95 @@
+{
+  "id": "bst-height-and-operation-costs",
+  "title": "What a Search Tree Costs, and When It Degrades",
+  "priority": "P1",
+  "order": 613,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Every search-tree operation walks one root-to-node path, so its cost is the height: between ceil(log2(n+1)) - 1 and n - 1 for n keys, which is why a sorted insertion order turns a search tree into a list.",
+  "remember": [
+    "Search, insert and delete are all Theta(h), where h is the height of the tree, because each of them follows at most one downward path.",
+    "For n keys the height is at least ceil(log2(n+1)) - 1 and at most n - 1. The minimum comes from packing the levels, the maximum from a chain.",
+    "So a search tree is O(log n) per operation when it is balanced and O(n) when it is not. Saying \"search in a BST is O(log n)\" without the word balanced is the standard error, and GATE CSE 2025 Set 1 Q.16 marks that option false.",
+    "Inserting keys in sorted order, ascending or descending, builds a chain: n keys, height n - 1, and every search degenerates to a linear scan.",
+    "An inorder traversal is Theta(n) whatever the shape, because it visits each node once and the recursion depth only changes the space, not the number of visits.",
+    "The number of insertion orders of n distinct keys that produce a chain of height n - 1 is 2^(n-1), because after the first key every insertion must take either the smallest or the largest key still unused. For n = 7 that is 2^6 = 64, which is what GATE CSE 2016 Set 2 Q.40 asks for."
+  ],
+  "example": {
+    "prompt": "A search tree holds 1000 keys. What are the best and worst heights, and how many comparisons does a search need in each case?",
+    "work": "Worst: a chain, height 999, so a search may compare with all 1000 keys. Best: pack the levels, ceil(log2(1001)) - 1 = 10 - 1 = 9, so at most 10 comparisons. The perfect tree of height 9 holds 2^10 - 1 = 1023 nodes, which is enough for 1000 keys.",
+    "answer": "Height between 9 and 999, and comparisons between 10 and 1000."
+  },
+  "gateAngle": "GATE CSE 2017 Set 1 Q.6 asks the height range for 15 keys, GATE CSE 2016 Set 2 Q.40 asks how many insertion orders of 1 to 7 give height 6, and GATE CSE 2025 Set 1 Q.16 asks whether the worst case is O(log n). All three are the same fact: the height is the cost and the insertion order sets the height.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2016 Set 2 Q.40. In how many ways can the numbers 1, 2, 3, 4, 5, 6, 7 be inserted into an empty binary search tree so that the resulting tree has height 6, where the height of a single node is 0?",
+      "answer": "64.",
+      "why": "A tree of height 6 on 7 keys is a chain, so no node has two children and every insertion after the first must take either the smallest or the largest key still unused. That is two choices for each of the first six insertions and one for the last, so 2^6 = 64."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many insertion orders of the keys 1, 2, 3 give a binary search tree of height 1?",
+      "answer": "2 orders: 2, 1, 3 and 2, 3, 1.",
+      "why": "Height 1 means the root has both children, so the root must be 2 and the keys 1 and 3 may arrive in either order. Inserting 1 or 3 first makes a chain of height 2, and the other four orders do that."
+    }
+  ],
+  "trap": {
+    "what": "Quoting O(log n) for search-tree operations without saying the tree is balanced, or reading the average case as a guarantee.",
+    "why": "The bound is Theta(h) and h can be n - 1. The logarithmic case needs a shape guarantee that the plain insertion algorithm does not provide.",
+    "counterexample": "Inserting 1, 2, 3, 4, 5 in that order gives a right chain of height 4, and finding 5 compares with all five keys, so the cost is n, not log n."
+  },
+  "check": {
+    "question": "A search tree is built by inserting 10, 20, 30, 40, 50 in that order. What is its height, and how many comparisons does searching for 50 take?",
+    "answer": "Height 4, and 5 comparisons.",
+    "explanation": "Every key is larger than the previous one, so each becomes the right child of the last and the tree is a chain of five nodes with height 4. Finding 50 compares with 10, 20, 30, 40 and 50, which is depth 4 plus one."
+  },
+  "pyqIds": [
+    "gate-2017-set-1-q6-bst-15-nodes-height",
+    "gate-2016-set-2-q40-insertion-orders-height-6",
+    "gate-2025-set-1-q16-bst-true-statements"
+  ],
+  "prereqs": [
+    "bst-insertion-and-deletion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "mycodeschool, Data structures: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2017 Set 1 Q.6",
+      "url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.40",
+      "url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement and the accepted count"
+    }
+  ],
+  "sourceLine": "The height-bounded complexity of search-tree operations and the balanced case: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The average and worst cases with the skewed example: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The questions: GATE Overflow question pages for GATE CSE 2017 Set 1 Q.6 and GATE CSE 2016 Set 2 Q.40 (English, read in part), with the O(log n) claim from GATE CSE 2025 Set 1 Q.16. The height bounds for n up to 9999 and the 64 orders are recomputed in scripts/validate.py.",
+  "links": {}
+}

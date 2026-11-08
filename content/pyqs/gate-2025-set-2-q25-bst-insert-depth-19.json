@@ -1,0 +1,15 @@
+{
+  "id": "gate-2025-set-2-q25-bst-insert-depth-19",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 2",
+  "question_ref": "Q.25 on GATE Overflow (a mirror site numbers it Q.35)",
+  "type": "NAT",
+  "topic": "bst-insertion-and-deletion",
+  "text": "Suppose the values 10, -4, 15, 30, 20, 5, 60, 19 are inserted in that order into an initially empty binary search tree. Let T be the resulting binary search tree. The number of edges in the path from the node containing 19 to the root node of T is ____ (answer in integer).",
+  "answer": "4",
+  "solution": "Insertion: 10 is the root; -4 is its left child; 15 its right child; 30 the right child of 15; 20 the left child of 30; 5 the right child of -4; 60 the right child of 30; 19 the left child of 20. The path is 19, 20, 30, 15, 10, which has four edges and five nodes.",
+  "source_url": "https://gateoverflow.in/460810/gate-cse-2025-set-2-question-25",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.25, statement and the traced insertion path",
+  "verification": "SOURCED",
+  "answer_evidence": "Three GATE Overflow answers trace the insertions and reach 4, and two mirror sites state 4 as the official 2025 final key value. The key document itself was not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.25, a mirror numbers it Q.35. The insertion path is recomputed in scripts/validate.py."
+}

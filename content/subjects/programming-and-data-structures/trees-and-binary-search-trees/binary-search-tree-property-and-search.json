@@ -1,0 +1,103 @@
+{
+  "id": "binary-search-tree-property-and-search",
+  "title": "The Search-Tree Rule and What It Buys",
+  "priority": "P1",
+  "order": 611,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "A binary search tree puts every key of the left subtree below the node and every key of the right subtree above it, so a search throws away one subtree per comparison and the inorder prints the keys sorted.",
+  "remember": [
+    "The rule is about whole subtrees, not about children: for every node, every key in its left subtree is smaller and every key in its right subtree is larger. Keys are usually distinct; if duplicates are allowed, the question must say where they go.",
+    "Search walks down one path: compare, go left if the key is smaller, right if it is larger, stop at a match or at NULL. The number of comparisons is the depth of the node plus one, or the height plus one when the key is absent.",
+    "Inorder prints the keys in ascending order, so the inorder of a search tree is the sorted key list whatever the shape. That is the fact GATE CSE 2024 Set 2 Q.29 is built on: from a set of keys alone only the inorder is determined, not the root and not the preorder or postorder.",
+    "The minimum is the leftmost node and the maximum is the rightmost node, each found in O(h) with no comparisons of keys beyond following the pointers.",
+    "A search tree is not a heap and not a sorted array: GATE CSE 2025 Set 1 Q.16 marks \"every BST is also a Min-Heap\" false, and marks the O(log n) worst case false because a chain gives O(n).",
+    "Searching costs Theta(h): Theta(log n) when the tree is balanced and Theta(n) when it degenerates, which is why the shape, not the rule, decides the cost."
+  ],
+  "example": {
+    "prompt": "Insert 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77 in that order into an empty binary search tree, then count the comparisons needed to find 47.",
+    "work": "50 is the root. 25 goes left of 50, 13 left of 25, 40 right of 25, 30 left of 40, 47 right of 40, 75 right of 50, 60 left of 75, 70 right of 60, 80 right of 75, 77 left of 80. Searching 47 compares with 50, then 25, then 40, then 47: four comparisons, and the node sits at depth 3.",
+    "answer": "Four comparisons, matching depth 3 plus one."
+  },
+  "gateAngle": "Two shapes of question. GATE CSE 2024 Set 2 Q.29 asks what a set of keys determines about a tree built from an unknown insertion order, and the answer is only the inorder. GATE CSE 2025 Set 1 Q.16 asks which statements hold for any search tree on n distinct keys, and only \"the longest root path is n-1\" and \"the inorder is sorted\" survive.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2024 Set 2 Q.29. A set V of distinct integers is inserted one by one, in an order you do not know, into a binary search tree T you cannot see, with all keys in the left subtree of a node smaller than the node. Which statement is TRUE?",
+      "answer": "Option 1, the inorder traversal of T can be determined from V.",
+      "why": "The inorder of a search tree is the sorted keys, which the set fixes. The root, the preorder and the postorder all depend on the insertion order, so none of them follows from V."
+    },
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 1 Q.16. For any binary search tree with n distinct integers, which statements are TRUE: (A) the maximum length of a path from the root to any other node is n-1, (B) an inorder traversal produces a sorted sequence, (C) finding an element takes O(log n) in the worst case, (D) every BST is also a Min-Heap?",
+      "answer": "Options A and B only.",
+      "why": "A chain gives a path of n-1 edges, and the inorder is sorted by the rule. The worst case is O(n), not O(log n), which is exactly the chain in A, so C contradicts A. A search tree is not a heap: its root need not be the smallest key."
+    }
+  ],
+  "trap": {
+    "what": "Checking only each parent against its children when deciding whether a tree is a search tree.",
+    "why": "The rule constrains every key in a subtree against the node, not just the two children, so a violation can sit two levels down and pass every parent-child test.",
+    "counterexample": "Root 10, left child 5, right child 15, and 5 has a right child 12. Every parent-child pair passes (5 < 10, 15 > 10, 12 > 5), yet 12 is greater than 10 and sits in 10's left subtree, so the tree is not a search tree. Its inorder 5, 12, 10, 15 is not sorted, which is the fastest test."
+  },
+  "check": {
+    "question": "Is the tree with root 20, left child 10, right child 30, and 30's children 25 and 35 a binary search tree?",
+    "answer": "Yes.",
+    "explanation": "Every key in 20's left subtree is 10, below 20; in the right subtree 30, 25 and 35 are all above 20; and under 30 the left key 25 is below 30 and the right key 35 above it. The inorder 10, 20, 25, 30, 35 is sorted."
+  },
+  "pyqIds": [
+    "gate-2024-set-2-q29-inorder-from-set",
+    "gate-2025-set-1-q16-bst-true-statements"
+  ],
+  "prereqs": [
+    "tree-traversals-and-their-orders"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "video",
+      "title": "mycodeschool, Data structures: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2024 Set 2 Q.29",
+      "url": "https://gateoverflow.in/422868/gate-cse-2024-set-2-question-29",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2025 Set 1 Q.16",
+      "url": "https://gateoverflow.in/460064/gate-cse-2025-set-1-question-16",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and the per-option verdicts"
+    }
+  ],
+  "sourceLine": "The search-tree rule, the comparison cost and the skewed worst case: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). Inorder as a sort, find, minimum and maximum: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Inorder on a search tree giving ascending keys: Wikipedia, \"Tree traversal\" (English, read in part). The two questions: GATE Overflow question pages for GATE CSE 2024 Set 2 Q.29 and GATE CSE 2025 Set 1 Q.16 (English, read in part). The insertion trace, the comparison count and the counterexample are recomputed in scripts/validate.py.",
+  "links": {}
+}

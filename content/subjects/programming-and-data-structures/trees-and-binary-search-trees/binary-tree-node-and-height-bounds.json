@@ -1,0 +1,94 @@
+{
+  "id": "binary-tree-node-and-height-bounds",
+  "title": "Counting Nodes: Level, Height and the Catalan Count",
+  "priority": "P1",
+  "order": 606,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Level i holds at most 2^i nodes, a tree of height h holds at most 2^(h+1) - 1 and at least h + 1, so n nodes force the height between ceil(log2(n+1)) - 1 and n - 1.",
+  "remember": [
+    "Level i holds at most 2^i nodes when the root is at level 0: 1, 2, 4, 8, and so on.",
+    "A binary tree of height h has at most 2^(h+1) - 1 nodes, reached by the perfect tree, and at least h + 1 nodes, reached by a chain.",
+    "Turned around: with n nodes the minimum height is ceil(log2(n+1)) - 1, which equals floor(log2 n), and the maximum height is n - 1.",
+    "A perfect tree of height h has 2^h leaves and 2^h - 1 internal nodes, so it has 2^(h+1) - 1 nodes in all.",
+    "The number of differently shaped binary trees on n nodes is the Catalan number C(2n, n)/(n+1): 1, 2, 5, 14, 42, 132, 429 for n = 1 to 7. The number of binary search trees on n distinct keys is the same count, because the shape fixes where each key goes.",
+    "The number of insertion orders that produce one particular tree shape is not the Catalan count; that is a separate question about permutations, and GATE CSE 2016 Set 2 Q.40 asks exactly it."
+  ],
+  "example": {
+    "prompt": "A binary search tree has 15 nodes. What are its smallest and largest possible heights, counting the height of a single node as 0?",
+    "work": "Largest: a chain of 15 nodes, 14 edges, so height 14. Smallest: pack the levels. Levels 0, 1, 2, 3 hold 1 + 2 + 4 + 8 = 15 nodes exactly, so height 3. The formula agrees: ceil(log2(16)) - 1 = 4 - 1 = 3.",
+    "answer": "Minimum height 3, maximum height 14."
+  },
+  "gateAngle": "GATE asks the bound in both directions: GATE CSE 2017 Set 1 Q.6 gives n = 15 and wants the height range, while GATE CSE 2016 Set 2 Q.40 fixes the height at 6 for seven keys and wants the number of insertion orders, which is 2^6 = 64 because each of the first six insertions must take an extreme of the keys still unused.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2017 Set 1 Q.6. Let T be a binary search tree with 15 nodes. The minimum and maximum possible heights of T are what, given that the height of a single node is 0?",
+      "answer": "Option 2, 3 and 14 respectively.",
+      "why": "A skewed chain of 15 nodes has 14 edges. A tree of height h holds at most 2^(h+1) - 1 nodes, so 15 nodes need 2^(h+1) >= 16, that is h >= 3, and the perfect tree of height 3 has exactly 15 nodes."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "How many nodes does a binary tree of height 5 have at the least, and at the most, counting the root as height 0?",
+      "answer": "At least 6 and at most 63.",
+      "why": "The minimum is one node per level, h + 1 = 6. The maximum is 2^(h+1) - 1 = 2^6 - 1 = 63, the perfect tree."
+    }
+  ],
+  "trap": {
+    "what": "Using 2^h - 1 as the maximum node count for height h, which is the count for h levels rather than h edges.",
+    "why": "Height counts edges, so a tree of height h has h + 1 levels and the level sum runs from 2^0 to 2^h, giving 2^(h+1) - 1.",
+    "counterexample": "For h = 3 the correct maximum is 2^4 - 1 = 15 nodes, as in the 2017 question. The wrong formula gives 2^3 - 1 = 7, which is the node count of a perfect tree of height 2."
+  },
+  "check": {
+    "question": "What is the minimum number of nodes in a binary tree of height 4, and the maximum?",
+    "answer": "5 nodes at least, 31 at most.",
+    "explanation": "A chain of 5 nodes has 4 edges, so height 4 with 5 nodes. A perfect tree of height 4 has 2^5 - 1 = 31 nodes, which is the largest any tree of height 4 can hold."
+  },
+  "pyqIds": [
+    "gate-2017-set-1-q6-bst-15-nodes-height",
+    "gate-2016-set-2-q40-insertion-orders-height-6"
+  ],
+  "prereqs": [
+    "tree-and-binary-tree-terminology"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Binary tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2017 Set 1 Q.6",
+      "url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2016 Set 2 Q.40",
+      "url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement and the accepted count"
+    }
+  ],
+  "sourceLine": "Level and height counts, and the perfect tree: Wikipedia, \"Binary tree\" (English, read in part). Height-bounded complexity of tree operations: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The two questions: GATE Overflow question pages for GATE CSE 2017 Set 1 Q.6 and GATE CSE 2016 Set 2 Q.40 (English, read in part). The Catalan values, the height bounds for n = 1 to 9999 and the 64 insertion orders of 1 to 7 are recomputed in scripts/validate.py.",
+  "links": {}
+}

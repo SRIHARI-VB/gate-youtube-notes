@@ -1,0 +1,72 @@
+{
+  "id": "expression-trees-and-traversal-applications",
+  "title": "Expression Trees: Where the Traversals Earn Their Keep",
+  "priority": "P3",
+  "order": 615,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Build an expression tree from a postfix string with a stack, and the three traversals then hand back the postfix, infix and prefix forms of the same expression without any parentheses.",
+  "remember": [
+    "Construction from postfix: an operand pushes a one-node tree; an operator pops two trees, makes them the right and left child of a new operator node, and pushes the result. Popping order matters: the first pop is the right operand.",
+    "The traversals read back the three notations: postorder gives the postfix string, preorder gives the prefix string, and inorder gives the infix string, which needs parentheses put back where the tree's grouping matters.",
+    "Operators sit at internal nodes and operands at leaves, so a valid postfix string has one more operand than operator and the stack ends holding exactly one tree.",
+    "Evaluation is the same shape as construction: run postorder and replace each operator node by the value of its two children. That is Theta(n) time and Theta(h) stack, and it is why postfix machine code needs no parentheses.",
+    "The same idea explains Huffman trees and syntax trees in a compiler: the shape carries the grouping, so the linear form does not have to."
+  ],
+  "example": {
+    "prompt": "Build the expression tree for the postfix string a b + c d e + * * and give its postfix, prefix and infix forms.",
+    "work": "Push a, push b, then + pops b then a and pushes the tree (a + b). Push c, d, e; + pops e then d and pushes (d + e); * pops (d + e) then c and pushes c * (d + e); the final * pops that then (a + b) and pushes (a + b) * (c * (d + e)). Postorder reads back a b + c d e + * *, preorder reads * + a b * c + d e, and inorder reads a + b * c * d + e, which as written is ambiguous without the tree.",
+    "answer": "Postfix a b + c d e + * *, prefix * + a b * c + d e, infix a + b * c * d + e with the grouping carried by the tree."
+  },
+  "gateAngle": "Expression trees reach GATE through stacks and through traversals: a postfix-to-prefix conversion, or a question that hands you a postfix string and asks which traversal returns which form. In the question record collected for this topic no paper question asked about expression trees directly, so this card is P3 and the questions below are labelled as practice rather than as previous-year questions.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The postfix string a b + c d e + * * is read left to right. How many trees sit on the stack after the fifth symbol, and after the eighth?",
+      "answer": "Three after the fifth symbol, and two after the eighth.",
+      "why": "After a b + the stack holds one tree. c, d and e each push one node, so after e the stack holds (a + b), c, d, e, which is four, and after the + that follows it holds (a + b), c, (d + e), which is three. The * then reduces to two: (a + b) and c * (d + e)."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "An expression tree has root - with left child a and right child + whose children are b and c. Which postfix string built it, and what does the inorder form need that the postfix form does not?",
+      "answer": "a b c + - builds it, and the inorder form a - b + c needs parentheses to stay unambiguous.",
+      "why": "Postorder reads a, b, c, +, - which is the string that built the tree. The inorder a - b + c reads as (a - b) + c if evaluated left to right, which is a different tree, so the tree's grouping has to be written as a - (b + c)."
+    }
+  ],
+  "trap": {
+    "what": "Popping the two operands of a binary operator in the wrong order when building the tree.",
+    "why": "The stack pops the most recent item first, which is the right operand, so writing the first pop as the left child reverses subtraction and division.",
+    "counterexample": "For a b -, the correct tree has a as the left child and b as the right child, giving a - b. Taking the first pop as the left child gives b - a, a different value for every a and b."
+  },
+  "check": {
+    "question": "What is the prefix form of the expression whose postfix form is a b + c d e + * *?",
+    "answer": "* + a b * c + d e.",
+    "explanation": "The preorder of the expression tree reads each operator before its two subtrees: the root * first, then the left subtree + a b, then the right subtree * c + d e. Because the tree fixes the grouping, the prefix string needs no parentheses."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "tree-traversals-and-their-orders"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Binary expression tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_expression_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the stack construction of an expression tree from a postfix string, with the worked example a b + c d e + * *"
+    },
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    }
+  ],
+  "sourceLine": "The stack construction of an expression tree from a postfix string, with the worked example a b + c d e + * *: Wikipedia, \"Binary expression tree\" (English, read in part). Postorder giving the postfix form of an expression tree: Wikipedia, \"Tree traversal\" (English, read in part). This card has no verified previous-year question and rests on one reference page, which is why it is P3 and why the topic stays partial. Every string in this card is rebuilt from the tree in scripts/validate.py.",
+  "links": {}
+}

@@ -1,0 +1,73 @@
+{
+  "id": "level-order-traversal-and-the-queue",
+  "title": "Level Order: The One Traversal That Needs a Queue",
+  "priority": "P2",
+  "order": 609,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Level order visits the tree breadth first with a FIFO queue: dequeue a node, print it, enqueue its left child then its right child, and the queue always holds one or two consecutive levels.",
+  "remember": [
+    "Algorithm: enqueue the root; while the queue is non-empty, dequeue a node, visit it, then enqueue its left child and then its right child. The FIFO order is what makes the visit level by level.",
+    "The queue holds at most the width of the tree, the largest number of nodes on one level, so the auxiliary space is Theta(w) rather than Theta(h).",
+    "To print level by level, record the queue length at the start of each round and dequeue exactly that many nodes.",
+    "Swapping the queue for a stack turns the same loop into a depth-first walk, which is the mistake to avoid.",
+    "Level order of a binary search tree is not sorted, and it is not the sorted order of anything; only the inorder is sorted.",
+    "Uses: the width of a tree, level sums, checking whether a tree is complete, and printing a tree row by row."
+  ],
+  "example": {
+    "prompt": "Run level order on the tree with root 1, children 2 and 3, and node 2 with children 4 and 5. Give the sequence, the queue state after each round and the width.",
+    "work": "Start with queue [1]. Round 1: dequeue 1, print 1, enqueue 2 and 3, queue [2, 3]. Round 2: dequeue 2 and 3, print 2 3, enqueue 4 and 5 from 2 and nothing from 3, queue [4, 5]. Round 3: dequeue 4 and 5, print 4 5, queue empty. The sequence is 1 2 3 4 5 and the widest round held two nodes.",
+    "answer": "1 2 3 4 5, with queue states [2,3] then [4,5], and width 2."
+  },
+  "gateAngle": "Level order is not the order GATE most often asks for, and in the questions collected for this topic no paper question asked for a level-order sequence on its own; the closest are the traversal-identification questions, which use preorder, inorder and postorder. Treat it as P2: know the algorithm and the queue, and expect it as a supporting fact inside a completeness or width question.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A perfect binary tree has 7 nodes. Give its level-order sequence and the largest number of nodes the queue ever holds.",
+      "answer": "1 2 3 4 5 6 7, and the queue holds at most 4 nodes.",
+      "why": "A perfect tree of height 2 fills levels 0, 1 and 2 with 1, 2 and 4 nodes. Level order prints the levels in turn, and when the last level is enqueued the queue holds all 4 of its nodes."
+    },
+    {
+      "label": "PREDICTED VARIATION",
+      "question": "The values 50, 25, 75, 13, 40, 60, 80 are inserted into an empty binary search tree in that order. Give the level-order sequence.",
+      "answer": "50 25 75 13 40 60 80.",
+      "why": "Each key is compared from the root: 25 and 75 become the children of 50, then 13 and 40 hang under 25 and 60 and 80 under 75. Reading the three levels gives exactly the sequence above, which is not sorted even though every key of the tree appears in it."
+    }
+  ],
+  "trap": {
+    "what": "Using a stack where the algorithm needs a queue, or reporting the level-order sequence of a search tree as if it were sorted.",
+    "why": "A stack visits the most recently seen node first, which walks down one branch; and the level order of a search tree follows the shape, which follows the insertion order.",
+    "counterexample": "Insert 50, 25, 13: the level order is 50 25 13, which is sorted, but insert 50, 13, 25 and the level order is 50 13 25 while the inorder is 13 25 50. Only the inorder is guaranteed sorted."
+  },
+  "check": {
+    "question": "How many nodes does the queue hold when level order reaches the last level of a complete binary tree with 10 nodes?",
+    "answer": "3 nodes.",
+    "explanation": "Levels 0, 1 and 2 hold 1, 2 and 4 nodes, seven in all, so the last level holds 10 - 7 = 3 nodes and the queue holds those three when they are dequeued."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "tree-traversals-and-their-orders"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+      "kind": "playlist",
+      "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+      "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+  ],
+  "sourceLine": "Breadth-first traversal with a queue and the stack-or-queue distinction: Wikipedia, \"Tree traversal\" (English, read in part). Scope of the level-order lecture: mycodeschool, \"Data structures\" playlist, which includes \"Binary tree: Level Order Traversal\" (English, titles only, no caption track retrievable). This card therefore rests on the reference text and on the recomputation in scripts/validate.py, not on a readable lecture.",
+  "links": {}
+}

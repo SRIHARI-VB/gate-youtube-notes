@@ -1,0 +1,195 @@
+{
+  "subject": "programming-and-data-structures",
+  "topic": "trees-and-binary-search-trees",
+  "chosen": [
+    {
+      "id": "mycodeschool-data-structures-binary-search-tree",
+      "kind": "video",
+      "channel": "mycodeschool",
+      "title": "Data structures: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the cost comparison against arrays and linked lists",
+        "the search-tree rule",
+        "search, insertion and deletion costs",
+        "the balanced average case and the skewed worst case"
+      ],
+      "why": "The clearest beginner explanation of why a search tree exists at all, and the only lecture whose text was readable here. Read in part: the page extraction returned the lecture from its opening through the definition, the search and the insertion and deletion costs, and stopped inside the discussion of large inputs, so the later balancing remarks are not used and no card quotes it."
+    },
+    {
+      "id": "nptel-cmi-python-week7-lecture4-bst-handout",
+      "kind": "lecture-handout",
+      "channel": "NPTEL / Chennai Mathematical Institute, Madhavan Mukund",
+      "title": "Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "covers": [
+        "the search-tree rule with no duplicates",
+        "inorder as a sort",
+        "find, minimum and maximum",
+        "insertion at a leaf",
+        "the three deletion cases with the left-subtree maximum as replacement",
+        "complexity equal to the height, O(log n) when balanced"
+      ],
+      "why": "An official NPTEL course handout, readable in full, that states every search-tree operation together with the deletion cases and the height-bounded complexity. It is the only candidate whose complete text could be read, and it supplies the deletion rule that the GATE questions depend on."
+    },
+    {
+      "id": "wikipedia-binary-tree",
+      "kind": "reference",
+      "channel": "Wikipedia",
+      "title": "Binary tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "at most two children",
+        "full, complete and perfect definitions",
+        "the array representation of a complete tree"
+      ],
+      "why": "The correctness anchor for the shape vocabulary, because GATE questions turn on the difference between full, complete and perfect. Read in part: the extraction returned the definitions section."
+    },
+    {
+      "id": "wikipedia-tree-traversal",
+      "kind": "reference",
+      "channel": "Wikipedia",
+      "title": "Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the three depth-first orders",
+        "stack for depth first and queue for breadth first",
+        "inorder on a search tree giving ascending keys",
+        "the statement that a pair including inorder fixes the tree and preorder with postorder does not"
+      ],
+      "why": "The only readable source found that states the uniqueness result for traversal pairs in the same place as the three orders, which is what the 2004 question tests. Read in part: the extraction returned the types and depth-first sections."
+    },
+    {
+      "id": "wikipedia-binary-expression-tree",
+      "kind": "reference",
+      "channel": "Wikipedia",
+      "title": "Binary expression tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_expression_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the stack construction from a postfix string",
+        "the worked example a b + c d e + * *"
+      ],
+      "why": "Used for the one applications card, because it gives the construction and a worked example that can be recomputed. It is a single source for that card, which is why the card is P3 and the topic stays partial."
+    },
+    {
+      "id": "gateoverflow-data-structures-chapter",
+      "kind": "reference",
+      "channel": "GATE Overflow",
+      "title": "Previous GATE questions in Data Structures",
+      "url": "https://gateoverflow.in/questions/programming-in-c/data-structures?sort=gate",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the list of GATE questions from 2025 and 2026 that fall in this topic"
+      ],
+      "why": "Used to fix the scope of the topic against the actual paper record: it shows which tree and search-tree questions the recent papers asked, which is how the subtopic enumeration was checked. Read in part: the extraction returned the index with question openings."
+    },
+    {
+      "id": "gateoverflow-question-pages",
+      "kind": "question-bank",
+      "channel": "GATE Overflow",
+      "title": "Question pages for GATE CSE 2004 Q.35, 2016 Set 2 Q.40, 2017 Set 1 Q.6, 2017 Set 2 Q.36, 2020 Q.5, 2024 Set 2 Q.29, 2025 Set 1 Q.16, 2025 Set 2 Q.3, 2025 Set 2 Q.25 and 2026 Set 1 Q.52",
+      "url": "https://gateoverflow.in/tag/binary-search-tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "covers": [
+        "the ten question statements, options and accepted answers"
+      ],
+      "why": "Each PYQ record cites its own page. Read in part: statement, options and the accepted answers were read; no official key document was fetched, so every record is labelled SOURCED rather than OFFICIAL_KEY."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "gatesmashers-data-structures-hindi",
+      "kind": "playlist",
+      "channel": "Gate Smashers",
+      "title": "Data Structures, 66 lectures in Hindi",
+      "url": "https://www.youtube.com/playlist?list=PLxCzCOWd7aiEwaANNt3OqJPVIxwp2ebiT",
+      "why": "The best subtopic match of any candidate: Lec-52 on full, complete and almost-complete trees, Lec-53 on insertion and traversal, Lec-54 on deletion, Lec-55 on finding the three orders of a search tree, Lec-56 on the traversal trick and Lec-57 on a GATE search-tree question map onto this enumeration almost one to one. Rejected on accessibility, not on language: every watch page was blocked, yt-dlp answered \"Sign in to confirm you're not a bot\" for the caption track and the page extraction returned only the player chrome, so no transcript could be read and no card could rest on it."
+    },
+    {
+      "id": "neso-academy-trees",
+      "kind": "playlist",
+      "channel": "Neso Academy",
+      "title": "Trees and binary search trees lectures",
+      "why": "Wide coverage and a slow pace, but the caption track was not retrievable by the same route, and the lectures are implementation walkthroughs with little exam framing, so nothing could be read and nothing added."
+    },
+    {
+      "id": "paul-programming-bst-cpp",
+      "kind": "playlist",
+      "channel": "Paul Programming",
+      "title": "Binary Search Trees, 16 videos in C++",
+      "url": "https://www.youtube.com/playlist?list=PLTxllHdfUq4d-DE16EDkpeb8Z68DU7Z_Q",
+      "why": "A complete C++ implementation from the constructor to the destructor, but no complexity analysis, no traversal theory and no GATE questions, and it is C++ rather than the C the syllabus names."
+    },
+    {
+      "id": "nptel-iitkgp-lecture-29-binary-search-tree",
+      "kind": "video",
+      "channel": "NPTEL IIT Kharagpur",
+      "title": "Lecture 29: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=Ky2HVQpd6NA",
+      "why": "Aimed exactly at this topic, but only the opening sentence of its transcript was retrievable through the aggregator page that indexes it, which is not enough to note from."
+    },
+    {
+      "id": "nptel-haskell-bst-1",
+      "kind": "video",
+      "channel": "NPTEL, IIT Madras (Haskell course)",
+      "title": "Binary search trees: 1",
+      "url": "https://www.youtube.com/watch?v=wB6coGYmuHc",
+      "why": "Readable in full, and its argument that inorder is sorted exactly when the tree is a search tree corroborates the validation card, but it teaches a Haskell set ADT rather than the GATE CSE data-structure treatment, so no card rests on it and it is not cited as a source."
+    },
+    {
+      "id": "nptel-pds-106106130-lecture-17",
+      "kind": "video",
+      "channel": "NPTEL, Programming and Data Structures",
+      "title": "Lecture 17: Binary Search Trees",
+      "url": "http://digimat.in/nptel/courses/video/106106130/L17.html",
+      "why": "The course index lists the lecture but the page carries no transcript text, and the NPTEL video itself was not readable by the caption route."
+    },
+    {
+      "id": "edurev-gate-binary-tree-videos",
+      "kind": "aggregator",
+      "channel": "EduRev",
+      "title": "Binary Tree, Programming and Data Structures video lectures for GATE CSE",
+      "url": "https://edurev.in/computer-science-engineering-exam/programming-and-data-structures-video-lectures/topic/binary-tree-77275",
+      "why": "An aggregator that re-hosts other channels' lectures under its own topic sequence, so the numbering and the attribution are not the paper's and no transcript is available."
+    },
+    {
+      "id": "striver-a2z-binary-trees",
+      "kind": "playlist",
+      "channel": "takeUforward",
+      "title": "Binary Trees and Binary Search Trees for placements",
+      "url": "https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk",
+      "why": "Strong on coding-interview patterns and weak on the exam framing: no traversal-pair uniqueness, no height-bound counting and no previous-year questions, and no caption track was retrievable."
+    },
+    {
+      "id": "geeksforgeeks-bst",
+      "kind": "reference",
+      "channel": "GeeksforGeeks",
+      "title": "Binary Search Tree tutorial pages",
+      "why": "General tutorial pages with correct definitions but no GATE framing and no derivation; the NPTEL handout covers the same ground in one readable document, so it was preferred and this was not used."
+    }
+  ],
+  "standard_refs": [
+    "CLRS, Introduction to Algorithms, ch. 12 (Binary Search Trees): the search-tree property, insertion, the three deletion cases and the height-bounded cost - used as the reference frame for correctness, not quoted",
+    "GATE 2027 CS syllabus, Section 4: \"Programming in C. Recursion. Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs.\" - the topic boundary"
+  ],
+  "retrieved_at": "2026-11-08"
+}

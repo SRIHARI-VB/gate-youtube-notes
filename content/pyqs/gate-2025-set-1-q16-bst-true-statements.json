@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-set-1-q16-bst-true-statements",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 1",
+  "question_ref": "Q.16 on GATE Overflow (a mirror that numbers the paper including the GA section lists it as Q.36)",
+  "type": "MSQ",
+  "topic": "binary-search-tree-property-and-search",
+  "text": "Which of the following statement(s) is/are TRUE for any binary search tree (BST) having n distinct integers?",
+  "options": [
+    "The maximum length of a path from the root node to any other node is (n-1).",
+    "An inorder traversal will always produce a sorted sequence of elements.",
+    "Finding an element takes O(log2 n) time in the worst case.",
+    "Every BST is also a Min-Heap."
+  ],
+  "answer": "Options 1 and 2",
+  "solution": "A search tree built by inserting keys in sorted order is a chain of n nodes, so some root-to-any-node path has n-1 edges and no path can be longer: statement 1 is true. The inorder of a search tree is the sorted key list by the defining rule: statement 2 is true. In that same chain a search compares with up to n keys, so the worst case is O(n), not O(log n): statement 3 is false, and it contradicts statement 1. A search tree is not a heap, since its root is not the smallest key in general: statement 4 is false.",
+  "source_url": "https://gateoverflow.in/460064/gate-cse-2025-set-1-question-16",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.16, statement, options and per-option verdicts",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers agree on options 1 and 2, and a mirror site records A and B with the same reasoning. The paper and official key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.16, the mirror Q.36."
+}

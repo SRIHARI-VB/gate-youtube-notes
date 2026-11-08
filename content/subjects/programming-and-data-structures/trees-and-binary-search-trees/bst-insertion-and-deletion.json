@@ -1,0 +1,85 @@
+{
+  "id": "bst-insertion-and-deletion",
+  "title": "Insert at a Leaf, Delete by Replacement",
+  "priority": "P2",
+  "order": 612,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "Insertion is a failed search that ends by hanging a new leaf; deletion has three cases, and the two-child case is handled by overwriting the key with its inorder successor or predecessor and then deleting that node, which is easy.",
+  "remember": [
+    "Insertion: search for the key from the root, and when the search falls off the tree, attach the new node there. A new key is always a leaf, never an internal node, so insertion never moves existing keys.",
+    "The shape after n insertions depends on the order, not on the set. That is why a set of keys does not fix the tree and why a sorted insertion order builds a chain.",
+    "Deletion, no children: remove the node and set its parent's pointer to NULL.",
+    "Deletion, one child: splice the child into the parent's pointer, so the child takes the deleted node's place. The search-tree rule survives because the child's whole subtree lies on the same side of every ancestor as the deleted node did.",
+    "Deletion, two children: overwrite the key with its inorder successor (the minimum of the right subtree) or its inorder predecessor (the maximum of the left subtree), then delete that node. It has no left child if it is the successor, so its own deletion is case 1 or case 2.",
+    "All three cases cost O(h): the search for the node, and the walk to the successor, each follow one downward path."
+  ],
+  "example": {
+    "prompt": "In the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77, delete 25, then delete 40.",
+    "work": "Node 25 has two children, 13 and 40. Its inorder successor is the minimum of its right subtree: descend 40, then 30, which has no left child, so the successor is 30. Overwrite 25 with 30, then delete the node that held 30, which is a leaf. The left subtree of 50 is now 30 with left child 13 and right child 40, and 40 keeps its right child 47. Next, 40 has left child nothing and right child 47, one child, so 47 is spliced into 40's place.",
+    "answer": "After the two deletions the keys are 13, 30, 47, 50, 60, 70, 75, 77, 80 in inorder, still a valid search tree."
+  },
+  "gateAngle": "GATE CSE 2025 Set 2 Q.25 asks only how deep one key lands after eight insertions, which is the insertion path, not the whole tree. Deletion questions ask which key replaces the deleted one, and the two acceptable answers are the inorder successor and the inorder predecessor - never an arbitrary child.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.25. The values 10, -4, 15, 30, 20, 5, 60, 19 are inserted in that order into an empty binary search tree. How many edges lie on the path from the node holding 19 to the root?",
+      "answer": "4 edges.",
+      "why": "10 is the root, -4 and 15 its children, 30 the right child of 15, 20 the left child of 30, 5 the right child of -4, 60 the right child of 30, and 19 the left child of 20. The path is 19 to 20 to 30 to 15 to 10, four edges and five nodes."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A search tree has root 50, a left subtree rooted at 20 whose right child is 45, and a right subtree rooted at 70 with left child 60. Delete 50 by promoting 20 to the root and hanging the right subtree under it. What goes wrong, and what should be done instead?",
+      "answer": "Promoting 20 overwrites its right child 45, so the key 45 is lost. Instead replace 50's key with the inorder successor 60, which is the minimum of the right subtree, and delete the node that held 60.",
+      "why": "20's right slot already holds 45, and the right subtree must attach somewhere, so a pointer is overwritten and a key disappears. The successor 60 is the leftmost node of the right subtree, it has no left child, and deleting it is a leaf removal, which changes no other pointer."
+    }
+  ],
+  "trap": {
+    "what": "Deleting a two-child node by promoting one of its children and reattaching the other subtree, or forgetting that a search tree insertion can never create an internal node.",
+    "why": "Promotion overwrites an existing pointer, so a subtree silently disappears; and a new key must reach an empty slot, which is always a leaf position.",
+    "counterexample": "Deleting 50 from a tree whose left child 20 already has a right child 45 and whose right child 70 has a left child 60: setting 20's right pointer to 70 discards 45, and the tree no longer holds the same keys. Replacing 50's key by the successor 60, then deleting the node 60, keeps every key."
+  },
+  "check": {
+    "question": "Delete 40 from the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77. Which key replaces it, and why is that node easy to remove?",
+    "answer": "47 replaces it, and the node 47 is a leaf.",
+    "explanation": "40 has children 30 and 47, so the two-child case applies. The inorder successor is the minimum of the right subtree, which is 47 itself, and 47 has no children, so removing it is the leaf case."
+  },
+  "pyqIds": [
+    "gate-2025-set-2-q25-bst-insert-depth-19"
+  ],
+  "prereqs": [
+    "binary-search-tree-property-and-search"
+  ],
+  "videoRefs": [],
+  "visual": "programming-and-data-structures/trees-and-binary-search-trees/bst-insertion-and-deletion",
+  "sources": [
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "video",
+      "title": "mycodeschool, Data structures: Binary Search Tree",
+      "url": "https://www.youtube.com/watch?v=pYT9F8_LFTM",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "lecture read in part: the cost comparison with arrays and lists, the BST definition, search, insertion and deletion costs, and the skewed worst case"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2025 Set 2 Q.25",
+      "url": "https://gateoverflow.in/460810/gate-cse-2025-set-2-question-25",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement and the traced insertion path"
+    }
+  ],
+  "sourceLine": "Insertion at a leaf, the three deletion cases and the choice of the left-subtree maximum as the replacement: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). The search cost and the shape depending on insertion order: mycodeschool, \"Data structures: Binary Search Tree\" (English, read in part). The question: GATE Overflow question page for GATE CSE 2025 Set 2 Q.25 (English, read in part). Both deletion traces and the successor walk are recomputed in scripts/validate.py.",
+  "links": {}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "gate-2026-set-1-q52-bst-preorder-postorder-position",
+  "year": "2026",
+  "paper": "GATE CSE 2026 Set 1",
+  "question_ref": "Q.52 on GATE Overflow",
+  "type": "NAT",
+  "topic": "tree-traversals-and-their-orders",
+  "text": "The following sequence corresponds to the preorder traversal of a binary search tree T: 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77. The position of the element 60 in the postorder traversal of T is ____ (answer in integer). Note: the position begins with 1.",
+  "answer": "7",
+  "solution": "Rebuilding the search tree from the preorder: 50 is the root; 25 is its left child; 13 the left child of 25; 40 the right child of 25; 30 the left child of 40; 47 the right child of 40; 75 the right child of 50; 60 the left child of 75; 70 the right child of 60; 80 the right child of 75; 77 the left child of 80. The postorder is 13, 30, 47, 40, 25, 70, 60, 77, 80, 75, 50, so 60 is the seventh element.",
+  "source_url": "https://gateoverflow.in/523028/gate-cse-2026-set-1-question-52",
+  "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.52, statement and accepted answers",
+  "verification": "SOURCED",
+  "answer_evidence": "Two GATE Overflow answers give 7 and one of them warns that indexing the node's own position gives 6 instead. The paper and the official key were not fetched, so the record stays SOURCED. The postorder in the solution is recomputed from the preorder in scripts/validate.py."
+}

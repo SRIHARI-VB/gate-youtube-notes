@@ -1,0 +1,73 @@
+{
+  "id": "binary-tree-representations",
+  "title": "Two Ways to Store a Binary Tree",
+  "priority": "P2",
+  "order": 607,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "A linked node carries two pointers; a complete tree can live in an array where the children of index i sit at 2i+1 and 2i+2, but a skewed tree then wastes exponentially many slots.",
+  "remember": [
+    "Linked form: struct node { int data; struct node *left, *right; } and a pointer to the root. Two pointers per node, and a missing child is NULL.",
+    "Array form with the root at index 0: the children of index i are 2i+1 and 2i+2, and the parent of index i is (i-1)/2 in integer division.",
+    "Some texts use the root at index 1, where the children of i are 2i and 2i+1 and the parent is i/2. Both conventions are common, so read the question before computing an index.",
+    "A complete binary tree of n nodes fills indices 0 to n-1 exactly, so an array of n slots is enough and no slot is wasted.",
+    "Any other shape wastes slots: a chain of h+1 nodes needs 2^(h+1) - 1 slots, so ten nodes in a chain need 1023 slots to store ten values.",
+    "The linked form needs the same number of nodes whatever the shape, which is why it is the default for general trees; the array form wins on locality and on parent lookup, which is what a heap needs."
+  ],
+  "example": {
+    "prompt": "A complete binary tree holds the values 8, 4, 12, 2, 6, 10, 14, 1 in level order. Give the array, the children of the node holding 12, and the parent of the node holding 1.",
+    "work": "Level order gives index 0 to 7: 8, 4, 12, 2, 6, 10, 14, 1. The value 12 is at index 2, so its children are at 2*2+1 = 5 and 2*2+2 = 6, holding 10 and 14. The value 1 is at index 7, so its parent is (7-1)/2 = 3, holding 2. All eight slots are used, so nothing is wasted.",
+    "answer": "Array 8, 4, 12, 2, 6, 10, 14, 1; 12's children are 10 and 14; 1's parent is 2."
+  },
+  "gateAngle": "Array questions ask for the index arithmetic or the number of slots a shape needs. GATE has asked the 2D array address form in the same subject, so the index formula is worth having automatic; the tree version is the same idea one level up.",
+  "variations": [
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A binary tree of height 9 is stored in an array using the root-at-0 convention, and every node has only a right child. How many slots must the array have, and how many of them are used?",
+      "answer": "1023 slots, 10 of them used.",
+      "why": "A chain of height 9 has 10 nodes, and the rightmost node sits at index 2^10 - 2 = 1022, so the array must be 1023 long. Only the 10 chain positions hold data."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "In the root-at-0 convention, what is the index of the parent of the leftmost leaf of a perfect binary tree of height 2, and how many slots does the array need?",
+      "answer": "Parent index 1, and the array needs 7 slots.",
+      "why": "A perfect tree of height 2 has 7 nodes at indices 0 to 6, so its leaves sit at 3, 4, 5 and 6 and the leftmost is index 3. The parent of index 3 is (3-1)/2 = 1, which holds the second level's left node."
+    }
+  ],
+  "trap": {
+    "what": "Assuming an array of n slots always stores a binary tree of n nodes.",
+    "why": "The packed indexing is exact only for complete trees. For any other shape the largest index can be far beyond n-1.",
+    "counterexample": "A chain 1 -> 2 -> 3 -> 4 descending to the right sits at indices 0, 2, 6, 14, so four nodes already need 15 slots, and the ten-node chain needs 1023."
+  },
+  "check": {
+    "question": "In the root-at-0 convention, a node sits at index 6. What is its parent index, and which of its children indices exist in a complete tree of 10 nodes?",
+    "answer": "Parent index 2; the left child index 13 does not exist, since the tree's indices stop at 9.",
+    "explanation": "(6-1)/2 = 2 in integer division. The children of 6 would be 13 and 14, both past the last index 9 of a 10-node complete tree, so index 6 is a leaf."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "binary-tree-node-and-height-bounds"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Binary tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+      "kind": "playlist",
+      "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+      "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+  ],
+  "sourceLine": "The array representation of a complete binary tree and the shapes it does and does not fit: Wikipedia, \"Binary tree\" (English, read in part). Lecture scope: mycodeschool, \"Data structures\" playlist, which includes the binary tree and its implementation (English, titles only, no caption track retrievable). The index arithmetic and the 1023-slot figure are recomputed in scripts/validate.py.",
+  "links": {}
+}

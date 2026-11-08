@@ -1,0 +1,15 @@
+{
+  "id": "gate-2016-set-2-q40-insertion-orders-height-6",
+  "year": "2016",
+  "paper": "GATE CSE 2016 Set 2",
+  "question_ref": "Q.40 on GATE Overflow",
+  "type": "NAT",
+  "topic": "binary-tree-node-and-height-bounds",
+  "text": "The number of ways in which the numbers 1, 2, 3, 4, 5, 6, 7 can be inserted in an empty binary search tree, such that the resulting tree has height 6, is ____. Note: The height of a tree with a single node is 0.",
+  "answer": "64",
+  "solution": "Seven keys at height 6 means every level holds exactly one key, so the tree is a chain and no node has two children. A node can have only one child only if its key is an extreme of the keys still to be placed, so after the first insertion each of the next six must take either the smallest or the largest remaining key: two choices for each of six levels, and the last key has no choice. The count is 2^6 = 64.",
+  "source_url": "https://gateoverflow.in/39586/gate-cse-2016-set-2-question-40",
+  "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.40, statement and accepted count",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on 64 through the 2^6 argument and the leaf count of a perfect tree of height 6. The paper and official key were not fetched, so the record stays SOURCED. All 5040 insertion orders of 1 to 7 are enumerated in scripts/validate.py and 64 of them give height 6."
+}

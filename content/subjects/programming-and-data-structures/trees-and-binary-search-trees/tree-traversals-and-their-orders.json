@@ -1,0 +1,114 @@
+{
+  "id": "tree-traversals-and-their-orders",
+  "title": "Preorder, Inorder, Postorder: Three Walks of One Shape",
+  "priority": "P1",
+  "order": 608,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "The three depth-first orders differ only in when the root is printed - before, between or after its subtrees - so each costs Theta(n) time and the recursion uses Theta(h) stack, not Theta(1).",
+  "remember": [
+    "Preorder is root, left, right. Inorder is left, root, right. Postorder is left, right, root. Each visits every node exactly once, so each is Theta(n) time.",
+    "The order depends on the shape alone, never on the values. Two trees with the same shape give the same sequences whatever keys they hold.",
+    "The recursion holds one frame per level, so the auxiliary space is Theta(h): Theta(log n) for a balanced tree and Theta(n) for a chain. An iterative version with an explicit stack has the same bound.",
+    "Inorder on a binary search tree prints the keys in ascending order. That single fact converts a traversal question into a sorting question.",
+    "Postorder is the order to use when children must be processed before the parent: freeing a tree, evaluating an expression tree, or computing a subtree size.",
+    "Preorder lists a parent before its children, so it is a topological order of the tree and is what a serialisation or a copy uses."
+  ],
+  "example": {
+    "prompt": "The tree has root 1, children 2 and 3, and node 2 has children 4 and 5. Write the three traversals.",
+    "work": "Preorder prints 1, then walks the left subtree 2 with children 4 and 5 giving 2, 4, 5, then the right subtree 3: 1 2 4 5 3. Inorder takes the left subtree first: 4, 2, 5, then the root 1, then 3: 4 2 5 1 3. Postorder finishes both subtrees before the root: 4, 5, 2, then 3, then 1: 4 5 2 3 1.",
+    "answer": "Preorder 1 2 4 5 3, inorder 4 2 5 1 3, postorder 4 5 2 3 1."
+  },
+  "gateAngle": "GATE mostly asks one traversal from another on a binary search tree, where the inorder is free because it is the sorted keys: GATE CSE 2020 Q.5 and GATE CSE 2017 Set 2 Q.36 give a preorder and want the postorder, and GATE CSE 2026 Set 1 Q.52 asks for the position of one key inside the postorder.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2020 Q.5. The preorder traversal of a binary search tree is 15, 10, 12, 11, 20, 18, 16, 19. Which one of the following is the postorder traversal of the tree?",
+      "answer": "Option 2, 11, 12, 10, 16, 19, 18, 20, 15.",
+      "why": "The root is 15, so the postorder must end with 15 and the left part 10, 12, 11 must come before the right part 20, 18, 16, 19. Inside the left part 10 is the root, so 11 and 12 come out before 10 as 11, 12, 10; inside the right part 20 is the root, and 18 with children 16 and 19 gives 16, 19, 18. The whole sequence is 11, 12, 10, 16, 19, 18, 20, 15."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "The binary search tree built by inserting 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77 in that order is traversed inorder. Which position does 47 occupy?",
+      "answer": "Position 5.",
+      "why": "The inorder of a binary search tree is the sorted keys: 13, 25, 30, 40, 47, 50, 60, 70, 75, 77, 80. The key 47 is the fifth element, and no traversal of the tree is needed to say so."
+    }
+  ],
+  "trap": {
+    "what": "Reading a traversal as a property of the keys, or assuming one traversal fixes the shape.",
+    "why": "The three orders are determined by the shape, and many shapes share one sequence. A single traversal therefore never determines a tree.",
+    "counterexample": "A root A with one child B on the left and a root A with one child B on the right both give preorder A B and postorder B A, but their inorders are B A and A B. The preorder and postorder pair cannot tell them apart."
+  },
+  "check": {
+    "question": "For the tree with root 1, left child 2 (children 4 and 5) and right child 3, what is the postorder, and how many stack frames does the recursive postorder hold at its deepest?",
+    "answer": "4 5 2 3 1, with at most 3 frames on the stack.",
+    "explanation": "Postorder finishes each subtree before its root. The deepest path is 1-2-4, three nodes, so the recursion is three frames deep: the height plus one."
+  },
+  "pyqIds": [
+    "gate-2020-q5-preorder-to-postorder",
+    "gate-2017-set-2-q36-preorder-to-postorder",
+    "gate-2026-set-1-q52-bst-preorder-postorder-position"
+  ],
+  "prereqs": [
+    "tree-and-binary-tree-terminology"
+  ],
+  "videoRefs": [],
+  "visual": "programming-and-data-structures/trees-and-binary-search-trees/traversal-orders",
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "playlist",
+      "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+      "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2020 Q.5",
+      "url": "https://gateoverflow.in/333226/gate-cse-2020-question-5",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2017 Set 2 Q.36",
+      "url": "https://gateoverflow.in/118378/gate-cse-2017-set-2-question-36",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options and accepted answer"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2026 Set 1 Q.52",
+      "url": "https://gateoverflow.in/523028/gate-cse-2026-set-1-question-52",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement and accepted answers"
+    }
+  ],
+  "sourceLine": "The three depth-first orders, the stack that defers nodes and the statement that no single traversal fixes a tree: Wikipedia, \"Tree traversal\" (English, read in part). Inorder as a sort on a search tree: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Lecture scope: mycodeschool, \"Data structures\" playlist, whose traversal and level-order videos are part of it (English, titles only, no caption track retrievable). The three questions: GATE Overflow question pages for GATE CSE 2020 Q.5, GATE CSE 2017 Set 2 Q.36 and GATE CSE 2026 Set 1 Q.52 (English, read in part). Every sequence in this card is recomputed in scripts/validate.py.",
+  "links": {}
+}

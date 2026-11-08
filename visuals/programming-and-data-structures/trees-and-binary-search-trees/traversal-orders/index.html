@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preorder, Inorder, Postorder: Three Walks of One Shape - Trees visual lesson</title>
+<link rel="stylesheet" href="../../../lesson.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <p class="small"><a href="../../../../index.html">&larr; back to the revision site</a></p>
+  <h1>Preorder, Inorder, Postorder: Three Walks of One Shape</h1>
+  <div class="objective"><strong>Objective.</strong> One tree, seven nodes, three orders. Watch the same shape produce 4 2 1 3 6 5 7, then 1 2 3 4 5 6 7, then 1 3 2 5 7 6 4, and see that the only thing that changes is where the root is printed. The tree is a binary search tree, which is why its inorder comes out sorted - the fact GATE CSE 2020 Q.5 and GATE CSE 2017 Set 2 Q.36 rely on when they hand you a preorder and ask for the postorder.</div>
+
+  <div class="canvas-wrap"><div id="canvas-holder"></div></div>
+  <div class="caption" id="caption" aria-live="polite"></div>
+
+  <div class="controls">
+    <button id="play" class="primary">Play</button>
+    <button id="prev">&larr; Prev</button>
+    <button id="next">Next &rarr;</button>
+    <button id="restart">Restart</button>
+    <span class="speed"><label for="speed">Speed</label>
+      <input id="speed" type="range" min="0.25" max="2" step="0.25" value="1">
+      <span id="speedLabel">1.00x</span></span>
+    <span class="counter" id="counter"></span>
+  </div>
+
+  <h2>Static explanation</h2>
+  <p>All three depth-first orders run the same recursion over the same tree. At each node they do three things in a different order: visit the node (N), walk the left subtree (L), walk the right subtree (R). Preorder is N L R, inorder is L N R, postorder is L R N.</p>
+  <p>Because every node is visited exactly once, each order costs Theta(n) time: seven nodes, seven visits. The recursion holds one frame per level, so the auxiliary space is the height plus one, which is 3 frames here for a tree of height 2. That does not change with the order.</p>
+  <p>Read the sequences as a single sentence about the root. Preorder prints a node before anything under it, which is why it is the order a copy or a serialisation uses. Postorder prints a node after everything under it, which is why it is the order that frees a tree or evaluates an expression tree. Inorder prints a node between its two subtrees, and on a binary search tree that places every key after all smaller keys and before all larger ones, so the sequence is sorted.</p>
+  <p>The last steps change the shape and keep the rules. On a chain 1 - 2 - 3 leaning right, the preorder and the inorder are both 1 2 3 while the postorder is 3 2 1. Two different shapes sharing a sequence is exactly why a single traversal never determines a tree, and why GATE CSE 2004 Q.35 rules out preorder with postorder as a unique pair.</p>
+
+  <div class="card warn"><div class="label">Common misconception</div><p>That the order depends on the values in the nodes. It does not: it depends on the shape. Two trees with the same shape give the same three sequences whatever keys they hold. The sorted inorder is a consequence of the search-tree rule, not of the traversal.</p></div>
+
+  <div class="card ok"><div class="label">Quick check</div><p>The same three orders are taken on a right-leaning chain 1 - 2 - 3. What are the sequences?</p><details><summary>Answer</summary><p><strong>Preorder 1 2 3, inorder 1 2 3, postorder 3 2 1.</strong> On a chain with no left child anywhere, L is empty at every node, so N L R and L N R collapse to the same sequence. That collapse is the reason preorder and inorder are not interchangeable evidence about a shape.</p></details></div>
+
+  <p class="small">Topic: Trees and Binary Search Trees (Programming and Data Structures), subtopic tree traversals and their orders. The three orders, the stack that defers nodes and the statement that one traversal never fixes a tree: Wikipedia, "Tree traversal" (English, read in part). Inorder as a sort on a search tree: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Every sequence here is recomputed in scripts/validate.py.</p>
+</div>
+<script src="../../../lesson.js"></script>
+<script src="sketch.js"></script>
+<script>
+/* p5.js is loaded from a CDN. If it is unreachable, say so plainly instead of showing an empty box. */
+window.addEventListener('load', function () {
+  if (window.p5) { return; }
+  var holder = document.getElementById('canvas-holder');
+  if (holder) {
+    holder.innerHTML = '<div style="padding:22px 18px;font-size:14.5px;color:#4a5260">' +
+      'The animation needs p5.js, which this page loads from a CDN, and the request failed (offline, or the CDN is blocked). ' +
+      'Everything below still works: the static explanation, the misconception and the quick check.</div>';
+  }
+  var cap = document.getElementById('caption');
+  if (cap && window.LESSON && window.LESSON.steps && window.LESSON.steps[0]) {
+    cap.innerHTML = window.LESSON.steps[0].caption;
+  }
+  ['play', 'prev', 'next', 'restart', 'speed'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.disabled = true; }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "id": "tree-and-binary-tree-terminology",
+  "title": "Trees and Binary Trees: The Words GATE Uses",
+  "priority": "P1",
+  "order": 605,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "A tree of n nodes has exactly n-1 edges and one path between any two nodes; a binary tree adds a left and a right position and caps a node at two children, and the leaf count follows from the degree count.",
+  "remember": [
+    "A tree on n nodes has exactly n-1 edges. Add an edge and a cycle appears; remove an edge and the structure splits into two trees.",
+    "Root, parent, child, sibling, leaf (no children), internal node (at least one child). The level of the root is 0, the depth of a node is its number of edges from the root, and the height of the tree is the largest depth in it.",
+    "In a binary tree each node has at most two children, and the left and right slots are different even when only one is filled. That is why the same preorder and postorder can come from two different binary trees.",
+    "Full (also called strict or proper) means every node has 0 or 2 children. Complete means every level except possibly the last is full and the last level is filled from the left. Perfect means full and all leaves at the same depth. Complete is not full, and perfect is both.",
+    "For any non-empty binary tree, leaves = nodes with two children + 1. The identity comes from counting edges two ways and needs no full-tree assumption: n = n0 + n1 + n2 and n - 1 = n1 + 2n2 give n0 = n2 + 1.",
+    "GATE states its own convention when it matters. Questions that say the height of a single node is 0 are counting edges, not levels."
+  ],
+  "example": {
+    "prompt": "A binary tree has root 1, children 2 and 3, and 2 has children 4 and 5. Count nodes, edges, leaves and two-child nodes, and give the height and the depth of node 5.",
+    "work": "Nodes: 1, 2, 3, 4, 5, so n = 5 and the edges are 1-2, 1-3, 2-4, 2-5, which is 4 = n - 1. Leaves: 3, 4, 5, so n0 = 3. Two-child nodes: 1 and 2, so n2 = 2, and n0 = n2 + 1 holds. The longest root-to-leaf path is 1-2-4, two edges, so the height is 2. Node 5 is reached by 1-2-5, also two edges, so its depth is 2.",
+    "answer": "n = 5, edges = 4, leaves = 3, two-child nodes = 2, height = 2, depth of node 5 = 2."
+  },
+  "gateAngle": "Terminology questions are usually a count: the leaf identity in GATE CSE 2025 Set 2 Q.3, the height convention in the note attached to GATE CSE 2017 Set 1 Q.6, and the full versus complete distinction that decides whether a node with one child is allowed.",
+  "variations": [
+    {
+      "label": "VERIFIED PYQ",
+      "question": "GATE CSE 2025 Set 2 Q.3. A binary tree T has n > 0 nodes and every node has either zero or two children. How many nodes have exactly two children?",
+      "answer": "Option 2, (n - 1)/2.",
+      "why": "Every node is a leaf or a two-child node, so n = n0 + n2, and the edge count gives n - 1 = 2n2. Dividing, n2 = (n - 1)/2. Equivalently n0 = n2 + 1, so n = 2n2 + 1."
+    },
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A binary tree has 5 nodes with two children and some leaves, and every other node is a leaf. How many leaves does it have, and how many nodes in total?",
+      "answer": "6 leaves and 11 nodes.",
+      "why": "n0 = n2 + 1 = 6, so n = n0 + n2 = 6 + 5 = 11. The identity holds because no node has exactly one child here, which is the case the formula is usually memorised for, but the edge-counting proof does not need it."
+    }
+  ],
+  "trap": {
+    "what": "Believing that leaves = internal nodes + 1 needs a full binary tree, or that a complete binary tree cannot contain a node with one child.",
+    "why": "The identity leaves = two-child nodes + 1 comes from counting edges, and it survives nodes with one child; what breaks it is replacing it by leaves = internal nodes + 1 when internal nodes include one-child nodes.",
+    "counterexample": "A complete binary tree on 4 nodes: root with left child and right child, and the left child has a left child. The node with one child exists, so the tree is not full, yet leaves = 2 and two-child nodes = 1, so leaves = two-child nodes + 1. Internal nodes number 2, and leaves = internal nodes + 1 would be false."
+  },
+  "check": {
+    "question": "A binary tree has 9 nodes and every internal node has exactly two children. How many leaves and how many internal nodes does it have?",
+    "answer": "5 leaves and 4 internal nodes.",
+    "explanation": "n = n0 + n2 and n0 = n2 + 1 give 9 = 2n2 + 1, so n2 = 4 and n0 = 5. The edge count agrees: 8 edges, and 4 two-child nodes produce 8 edges."
+  },
+  "pyqIds": [
+    "gate-2025-set-2-q3-two-child-nodes"
+  ],
+  "prereqs": [
+    "node-and-pointer-representation"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Binary tree",
+      "url": "https://en.wikipedia.org/wiki/Binary_tree",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "definitions of full, complete and perfect binary trees, and the array representation of a complete tree"
+    },
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "playlist",
+      "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+      "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    },
+    {
+      "kind": "question-bank",
+      "title": "GATE Overflow question page for GATE CSE 2025 Set 2 Q.3",
+      "url": "https://gateoverflow.in/460832/gate-cse-2025-set-2-question-3",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "statement, options, accepted answer and the two derivations"
+    }
+  ],
+  "sourceLine": "Full, complete and perfect, and the array view of a complete tree: Wikipedia, \"Binary tree\" (English, read in part). The height convention and the tree-to-BST bridge: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Scope of the tree lectures: mycodeschool, \"Data structures\" playlist (English, titles only, no caption track retrievable). The leaf identity: GATE Overflow question page for GATE CSE 2025 Set 2 Q.3 (English, read in part). Every count in this card is recomputed in scripts/validate.py.",
+  "links": {}
+}

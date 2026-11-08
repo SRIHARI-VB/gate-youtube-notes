@@ -1,0 +1,21 @@
+{
+  "id": "gate-2025-set-2-q3-two-child-nodes",
+  "year": "2025",
+  "paper": "GATE CSE 2025 Set 2",
+  "question_ref": "Q.3 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "tree-and-binary-tree-terminology",
+  "text": "Consider a binary tree T in which every node has either zero or two children. Let n > 0 be the number of nodes in T. Which ONE of the following is the number of nodes in T that have exactly two children?",
+  "options": [
+    "(n-2)/2",
+    "(n-1)/2",
+    "n/2",
+    "(n+1)/2"
+  ],
+  "answer": "Option 2 - (n-1)/2",
+  "solution": "Every node is a leaf or a two-child node, so n = n0 + n2. The tree has n - 1 edges, and only the two-child nodes produce edges, so n - 1 = 2n2. Hence n2 = (n-1)/2. The same result follows from the identity n0 = n2 + 1: n = 2n2 + 1. Small cases agree: n = 1 gives 0, n = 3 gives 1, n = 5 gives 2.",
+  "source_url": "https://gateoverflow.in/460832/gate-cse-2025-set-2-question-3",
+  "source_label": "GATE Overflow question page - GATE CSE 2025 Set 2 Q.3, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 2 with the edge-counting derivation. The paper and official key were not fetched, so the record stays SOURCED. The formula and its small cases are recomputed in scripts/validate.py."
+}

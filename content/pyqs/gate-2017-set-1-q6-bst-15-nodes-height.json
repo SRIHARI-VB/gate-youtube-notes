@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set-1-q6-bst-15-nodes-height",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 1",
+  "question_ref": "Q.6 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "binary-tree-node-and-height-bounds",
+  "text": "Let T be a binary search tree with 15 nodes. The minimum and maximum possible heights of T are: Note: The height of a tree with a single node is 0.",
+  "options": [
+    "4 and 15 respectively",
+    "3 and 14 respectively",
+    "4 and 14 respectively",
+    "3 and 15 respectively"
+  ],
+  "answer": "Option 2 - 3 and 14 respectively",
+  "solution": "Maximum: a chain of 15 nodes has 14 edges, so height 14. Minimum: a tree of height h holds at most 2^(h+1) - 1 nodes, and 15 nodes need 2^(h+1) >= 16, so h >= 3; the perfect tree of height 3 has exactly 1 + 2 + 4 + 8 = 15 nodes. The closed form ceil(log2(16)) - 1 also gives 3.",
+  "source_url": "https://gateoverflow.in/118286/gate-cse-2017-set-1-question-6",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 1 Q.6, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 2, and a mirror site reproduces the options with B marked. The paper and official key were not fetched, so the record stays SOURCED. The level sum and the bound for n = 15 are recomputed in scripts/validate.py."
+}

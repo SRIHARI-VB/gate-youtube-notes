@@ -1,0 +1,21 @@
+{
+  "id": "gate-2017-set-2-q36-preorder-to-postorder",
+  "year": "2017",
+  "paper": "GATE CSE 2017 Set 2",
+  "question_ref": "Q.36 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "tree-traversals-and-their-orders",
+  "text": "The pre-order traversal of a binary search tree is given by 12, 8, 6, 2, 7, 9, 10, 16, 15, 19, 17, 20. Then the post-order traversal of this tree is",
+  "options": [
+    "2, 6, 7, 8, 9, 10, 12, 15, 16, 17, 19, 20",
+    "2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12",
+    "7, 2, 6, 8, 9, 10, 20, 17, 19, 15, 16, 12",
+    "7, 6, 2, 10, 9, 8, 15, 16, 17, 20, 19, 12"
+  ],
+  "answer": "Option 2 - 2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12",
+  "solution": "The root is 12. Keys below 12 form the left subtree and keys above form the right subtree. Left: root 8, with 6 as its left child (children 2 and 7) and 9 as its right child with right child 10, giving 2, 7, 6, 10, 9, 8. Right: root 16, with 15 as its left child and 19 as its right child with children 17 and 20, giving 15, 17, 20, 19, 16. The postorder is 2, 7, 6, 10, 9, 8, 15, 17, 20, 19, 16, 12.",
+  "source_url": "https://gateoverflow.in/118378/gate-cse-2017-set-2-question-36",
+  "source_label": "GATE Overflow question page - GATE CSE 2017 Set 2 Q.36, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 2, one of them by taking the sorted keys as the inorder and rebuilding. The paper and official key were not fetched, so the record stays SOURCED. The postorder is recomputed from the preorder in scripts/validate.py."
+}

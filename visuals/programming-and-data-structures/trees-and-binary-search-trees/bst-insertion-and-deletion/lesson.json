@@ -1,0 +1,53 @@
+{
+  "slug": "bst-insertion-and-deletion",
+  "topic": "bst-insertion-and-deletion",
+  "engine": "p5.js",
+  "steps": 7,
+  "example": {
+    "inserted": [
+      10,
+      -4,
+      15,
+      30,
+      20,
+      5,
+      60,
+      19
+    ],
+    "path_to_19": [
+      10,
+      15,
+      30,
+      20,
+      19
+    ],
+    "edges_on_path": 4,
+    "deleted": 30,
+    "successor": 60,
+    "inorder_after_insert": [
+      -4,
+      5,
+      10,
+      15,
+      19,
+      20,
+      30,
+      60
+    ],
+    "inorder_after_delete": [
+      -4,
+      5,
+      10,
+      15,
+      19,
+      20,
+      60
+    ],
+    "paper": "GATE CSE 2025 Set 2 Q.25 is the insertion half of this lesson",
+    "quick_check": {
+      "question": "In the final tree, delete 20. Which key replaces it, and is the node easy to remove?",
+      "answer": "Nothing replaces it: 20 has only a left child, 19, so 19 is spliced into 20's place.",
+      "note": "One-child deletion changes a pointer, not a key"
+    }
+  }
+}

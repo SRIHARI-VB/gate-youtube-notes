@@ -1,0 +1,21 @@
+{
+  "id": "gate-2004-q35-traversal-pairs-unique",
+  "year": "2004",
+  "paper": "GATE CSE 2004",
+  "question_ref": "Q.35 on GATE Overflow",
+  "type": "MCQ",
+  "topic": "reconstructing-a-tree-from-traversals",
+  "text": "Consider the label sequences obtained by the following pairs of traversals on a labeled binary tree. Which of these pairs identify a tree uniquely? (i) preorder and postorder (ii) inorder and postorder (iii) preorder and inorder (iv) level order and postorder",
+  "options": [
+    "(i) only",
+    "(ii), (iii)",
+    "(iii) only",
+    "(iv) only"
+  ],
+  "answer": "Option 2 - (ii), (iii)",
+  "solution": "Inorder fixes, for every root, which keys lie to its left and which to its right, so one more traversal that reveals the root order rebuilds the tree: preorder with inorder and postorder with inorder both do. Preorder with postorder does not separate a single child's side, since a root A with one child B gives preorder A B and postorder B A whether B hangs left or right. Level order with postorder also fails to fix the sides.",
+  "source_url": "https://gateoverflow.in/1032/gate-cse-2004-question-35",
+  "source_label": "GATE Overflow question page - GATE CSE 2004 Q.35, statement, options and accepted answer",
+  "verification": "SOURCED",
+  "answer_evidence": "The GATE Overflow answers converge on option 2, with the left-child and right-child counterexample for preorder with postorder. The paper and official key were not fetched, so the record stays SOURCED. Both counterexample trees are constructed in scripts/validate.py."
+}

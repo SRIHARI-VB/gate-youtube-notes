@@ -1,0 +1,82 @@
+{
+  "id": "bst-inorder-successor-and-predecessor",
+  "title": "Successor, Predecessor and Proving the Rule Holds",
+  "priority": "P2",
+  "order": 614,
+  "unit": "Trees and Binary Search Trees",
+  "quickIdea": "The inorder successor of a node is the leftmost node of its right subtree when that subtree exists, and otherwise the lowest ancestor from which the node hangs on the left; the predecessor is the mirror image.",
+  "remember": [
+    "Successor with a right subtree: descend to the right once, then keep going left. The node reached is the next key in sorted order and it has no left child.",
+    "Successor without a right subtree: climb the ancestors until you come up from a left child; that ancestor is the successor. If no ancestor qualifies, the node holds the largest key and has no successor.",
+    "Predecessor is the mirror: the rightmost node of the left subtree, or the lowest ancestor reached from a right child.",
+    "Minimum is the leftmost node and maximum the rightmost, which are the two extremes of the same walk, both O(h).",
+    "These are exactly the nodes a two-child deletion uses as its replacement, so the successor and the deletion case are one fact, not two.",
+    "Two ways to verify a search tree: the inorder must be sorted (Theta(n) time and Theta(n) extra space if the keys are collected), or every node must satisfy a running (low, high) window passed down the recursion (Theta(n) time, Theta(h) stack). The window test catches violations without collecting anything."
+  ],
+  "example": {
+    "prompt": "In the tree built from 50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77, give the inorder successor of 40, of 47 and of 25, and of 80.",
+    "work": "40 has a right subtree containing 47, whose leftmost node is 47 itself, so the successor of 40 is 47. 47 has no right child, so climb: 47 is the right child of 40, not a left child; 40 is the right child of 25; 25 is the left child of 50, so the successor of 47 is 50. 25 has a right subtree rooted at 40, whose leftmost node is 30, so the successor is 30. 80 has no right child and is the right child of 75, which is the right child of 50, so there is no ancestor reached from a left child: 80 is the maximum and has no successor.",
+    "answer": "Successor of 40 is 47, of 47 is 50, of 25 is 30, and 80 has none."
+  },
+  "gateAngle": "Successor questions arrive either as \"the next key printed by an inorder walk\" or as part of a deletion. The trap is always the same: answering the parent. In the tree above the parent of 40 is 25, but its successor is 47.",
+  "variations": [
+    {
+      "label": "CONCEPTUAL PRACTICE QUESTION",
+      "question": "A node has a left child and no right child. Can its inorder successor be that left child?",
+      "answer": "No, never.",
+      "why": "The left subtree holds keys smaller than the node, so every key in it is printed before the node. The successor is either an ancestor or a node in the right subtree, and here there is no right subtree, so it is an ancestor."
+    },
+    {
+      "label": "ORIGINAL PYQ-STYLE QUESTION",
+      "question": "A search tree holds the 1023 keys 1 to 1023 in a perfect tree of height 9. How many left-child steps does finding the successor of the root take?",
+      "answer": "9 steps, ending at the smallest key of the right subtree.",
+      "why": "The root has a right subtree, so the successor is its minimum: one step right and then left until a node has no left child. A perfect tree of height 9 has 9 edges on every root-to-leaf path, so the descent takes 9 steps and lands on the smallest key above the root."
+    }
+  ],
+  "trap": {
+    "what": "Assuming the inorder successor of a node is always its parent.",
+    "why": "The parent is the successor only when the node is the parent's left child and the node has no right subtree. Otherwise the successor is inside the right subtree or higher up.",
+    "counterexample": "In the tree built from 50, 25, 13, 40, 30, 47, the parent of 40 is 25, but the inorder is 13, 25, 30, 40, 47, 50, so the successor of 40 is 47, its own right child."
+  },
+  "check": {
+    "question": "Using the window test, is a tree valid when the root is 10, its left child is 5 with a right child 12, and its right child is 15?",
+    "answer": "No.",
+    "explanation": "The window at the root is all keys. Going left to 5 narrows the window to below 10; the right child 12 of 5 must then be above 5 and below 10, and 12 fails. The inorder 5, 12, 10, 15 is not sorted, which is the same verdict."
+  },
+  "pyqIds": [],
+  "prereqs": [
+    "bst-insertion-and-deletion"
+  ],
+  "videoRefs": [],
+  "sources": [
+    {
+      "kind": "lecture-handout",
+      "title": "NPTEL / CMI, Programming, Data Structures and Algorithms in Python, Week 7 Lecture 4 handout: Dynamic sorted data and binary search trees",
+      "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week7-lecture4-handout.pdf",
+      "language": "en",
+      "transcript": "FULL",
+      "translated": false,
+      "note": "handout read in full: the BST property, inorder as a sort, find, minimum and maximum, insertion at a leaf, the three deletion cases with the left-subtree maximum as the replacement, and the height-bounded complexity"
+    },
+    {
+      "kind": "reference",
+      "title": "Wikipedia, Tree traversal",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal",
+      "language": "en",
+      "transcript": "PARTIAL",
+      "translated": false,
+      "note": "the three depth-first orders, the stack and queue used to defer nodes, and the uniqueness statement for traversal pairs"
+    },
+    {
+      "kind": "playlist",
+      "title": "mycodeschool, Data structures series (trees segment: Introduction to Trees, Binary Tree, Binary Search Tree, traversal, level order, delete a node, inorder successor)",
+      "url": "https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P",
+      "language": "en",
+      "transcript": "NONE",
+      "translated": false,
+      "note": "scope only: the playlist and its video titles were read, no caption track was retrievable, so no card rests on it"
+    }
+  ],
+  "sourceLine": "Minimum and maximum as the leftmost and rightmost nodes, and the deletion that uses the left-subtree maximum: NPTEL/CMI handout, Week 7 Lecture 4 (English, read in full). Inorder on a search tree giving ascending keys, which is what makes the successor the next key in that order: Wikipedia, \"Tree traversal\" (English, read in part). Scope of the successor lecture: mycodeschool, \"Data structures\" playlist, which includes \"Inorder Successor in a binary search tree\" (English, titles only, no caption track retrievable). Every successor in this card is recomputed in scripts/validate.py.",
+  "links": {}
+}
