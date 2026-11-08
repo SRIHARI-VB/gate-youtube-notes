@@ -358,7 +358,7 @@ window.GATE_DATA = {
      {
       "slug": "binary-heaps",
       "name": "Binary Heaps",
-      "material": "planned"
+      "material": "cards"
      },
      {
       "slug": "graphs-data-structure",
@@ -50129,6 +50129,924 @@ window.GATE_DATA = {
    "subject": "programming-and-data-structures",
    "topic": "trees-and-binary-search-trees",
    "path": "subjects/programming-and-data-structures/trees-and-binary-search-trees/expression-trees-and-traversal-applications.json"
+  },
+  {
+   "id": "heap-shape-and-heap-property",
+   "title": "A Heap Is a Shape and an Order, Not a Sorted Tree",
+   "priority": "P1",
+   "order": 701,
+   "unit": "Binary Heaps",
+   "quickIdea": "A binary heap is two requirements at once: a complete binary tree, with every level full except possibly the last and the last filled from the left, and a parent-child order, with every parent at least (max-heap) or at most (min-heap) each of its children. Either requirement alone is not a heap.",
+   "remember": [
+    "Shape: all levels are full except possibly the last, and the last level is filled from the left with no gap. That is why a heap is never a chain, and why its height is only floor(log2 n).",
+    "Order: in a max-heap every parent is at least its two children; in a min-heap at most. Only parent-child pairs are constrained, so siblings and the two subtrees are unordered among themselves.",
+    "The order is non-strict, so equal keys are allowed: a parent holding 5 above a child holding 5 satisfies a max-heap.",
+    "The two requirements are independent. A complete tree with unsorted keys breaks the order; a chain whose every parent beats its children breaks the shape.",
+    "The root holds the maximum of all keys (max-heap) or the minimum (min-heap), so find-max or find-min is O(1). Nothing else about the arrangement is promised: a heap is neither sorted nor a search tree.",
+    "Testing an array costs one comparison per edge: check A[i] against A[2i] and A[2i+1] for every i, which is n-1 comparisons in O(n)."
+   ],
+   "example": {
+    "prompt": "Is the array [23,17,14,7,13,10,1,5,6,12] a max-heap? Is [23,17,10,6,13,14,1,5,7,12]?",
+    "work": "Read the array as a complete tree with 1-based indices, so node i has children 2i and 2i+1. First array: 23 beats 17 and 14; 17 beats 7 and 13; 14 beats 10 and 1; 7 beats 5 and 6; 13 beats 12. Every edge holds, so it is a max-heap. Second array: node 3 holds 10 and its child at index 6 holds 14, so the edge (3,6) runs upward and the order fails.",
+    "answer": "The first is a max-heap. The second is not: the violation is the edge between index 3 (10) and index 6 (14)."
+   },
+   "gateAngle": "GATE CSE 2023 Q.2 and GATE CSE 2009 Q.59 are the same question in different clothes: four arrays, one of which is a heap. Test each array against A[2i] and A[2i+1], stop at the first violation, and the option that survives every edge is the answer. The shape never needs drawing, because level order already fixes it.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2023 Q.2. Which one of the following sequences, when stored in an array at locations A[1] to A[10], forms a max-heap? (1) 23,17,10,6,13,14,1,5,7,12 (2) 23,17,14,7,13,10,1,5,6,12 (3) 23,17,14,6,13,10,1,5,7,15 (4) 23,14,17,1,10,13,16,12,7,5",
+     "answer": "Option 2, 23,17,14,7,13,10,1,5,6,12.",
+     "why": "Option 1 fails at the edge (3,6): 10 is the parent of 14. Option 3 fails at (4,9): 6 is the parent of 15. Option 4 fails at (4,8): 1 is the parent of 12. Option 2 satisfies every edge: 23 over 17 and 14, 17 over 7 and 13, 14 over 10 and 1, 7 over 5 and 6, 13 over 12."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Is [50,30,40,10,20,35,25] a max-heap? What changes if the 30 is replaced by 55?",
+     "answer": "It is a max-heap. With 55 at index 2 it is not, because 55 sits above 50.",
+     "why": "Edges of the first array: 50 over 30 and 40, 30 over 10 and 20, 40 over 35 and 25, all satisfied. Replacing 30 by 55 breaks the single edge (1,2), since the parent 50 is then smaller than its child. One edge is enough to decide, which is why these questions are answered in seconds."
+    }
+   ],
+   "trap": {
+    "what": "Reading a heap as if it were a search tree or a sorted array.",
+    "why": "The heap order constrains parent-child pairs only, so an inorder walk of a heap is not sorted and a search for an arbitrary key has no single branch to follow. Any reasoning that assumes the left subtree holds smaller keys is wrong here.",
+    "counterexample": "[7,4,6,1,3,2,5] is a valid max-heap, yet its inorder traversal is 1,4,3,7,2,6,5, which is not sorted; the left subtree of the root contains 4 and 3, both larger than the 2 sitting in the right subtree. So a heap is not a binary search tree, whatever the picture suggests."
+   },
+   "check": {
+    "question": "Is [5,5,4,3,2,4,1] a max-heap?",
+    "answer": "Yes.",
+    "explanation": "Edges: 5 over 5 and 4; 5 over 3 and 2; 4 over 4 and 1. Every parent is at least each child, and equal keys are allowed because the order is non-strict. A common reflex is to reject the array because of the repeated 5 or the repeated 4; duplicates never violate a heap."
+   },
+   "pyqIds": [
+    "gate-2023-q2-array-that-is-max-heap",
+    "gate-2009-q59-which-array-is-max-heap"
+   ],
+   "prereqs": [
+    "tree-and-binary-tree-terminology"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The two requirements and the up-heap and down-heap procedures: Wikipedia, \"Binary heap\" (English, read in part). Delete-min, build-heap and the priority-queue comparison: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full). The two array questions: GATE Overflow pages for GATE CSE 2023 Q.2 and GATE CSE 2009 Q.59 (English, read in part). Every heap test in this card is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/heap-shape-and-heap-property.json"
+  },
+  {
+   "id": "array-representation-and-index-arithmetic",
+   "title": "One Array, No Pointers: Heap Index Arithmetic",
+   "priority": "P1",
+   "order": 702,
+   "unit": "Binary Heaps",
+   "quickIdea": "A complete binary tree in level order is an array with no holes, so a heap needs no pointers. With 1-based indices the children of i are 2i and 2i+1 and the parent is floor(i/2); with 0-based indices they are 2i+1 and 2i+2 and the parent is floor((i-1)/2).",
+   "remember": [
+    "1-based, the convention GATE usually states: root at 1, left child 2i, right child 2i+1, parent floor(i/2), last node at n.",
+    "0-based, the convention of C, Java and Python arrays: root at 0, left child 2i+1, right child 2i+2, parent floor((i-1)/2).",
+    "The mapping is exact only because the shape is complete: level order fills the array without gaps, so a node's index is decided by its place in the tree and nothing else.",
+    "Node i exists iff i <= n; its left child exists iff 2i <= n (1-based), so 'is this a leaf' is a comparison, not a walk.",
+    "The two conventions differ by one in the child indices and by a shift in the parent, and mixing them is the commonest arithmetic slip in heap questions.",
+    "Storage is Theta(n) cells with no per-node link, which is exactly what lets heapsort run in place."
+   ],
+   "example": {
+    "prompt": "With 1-based indices and n = 12, describe nodes 3 and 10 and name the leaves. Then give the same facts for 0-based indices.",
+    "work": "1-based: node 3 has children 6 and 7 and parent 1; node 10 has parent 5 and no children, because 2*10 = 20 exceeds 12; the internal nodes are 1 to floor(12/2) = 6, so the leaves are 7 to 12. 0-based: the same tree is stored at indices 0 to 11, node 3 has children 7 and 8 and parent 1, and the leaves are the indices i with 2i+1 > 11, that is 6 to 11.",
+    "answer": "1-based: children of 3 are 6 and 7, parent 1, leaves 7 to 12 (six leaves). 0-based: children of 3 are 7 and 8, parent 1, leaves 6 to 11 (six leaves)."
+   },
+   "gateAngle": "GATE CSE 2026 Set 1 Q.13 asks which of four index expressions cannot name a leaf of a heap with odd n > 100; GATE CSE 2024 Set 1 Q.33 asks how many indices the maximum of a 105-key min-heap can occupy. Both are answered by one fact: with 1-based indices the internal nodes are 1 to floor(n/2) and the leaves are floor(n/2)+1 to n.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2026 Set 1 Q.13. Let n be an odd number greater than 100. A binary min-heap with n elements is stored in an array P whose index starts from 1. Which of the following indices of P do/does NOT correspond to any leaf node of the min-heap? (1) (n+1)/2 (2) (n-1)/2 (3) (n-3)/2 (4) n",
+     "answer": "Options 2 and 3, that is (n-1)/2 and (n-3)/2.",
+     "why": "For odd n the internal nodes are 1 to (n-1)/2 and the leaves are (n+1)/2 to n. So (n+1)/2 is the first leaf and n is the last, while (n-1)/2 is the last internal node and (n-3)/2 = (n-1)/2 - 1 is internal too. At n = 101: leaves are 51 to 101, so 51 and 101 are leaves and 50 and 49 are internal nodes with children."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "With 0-based indices and n = 12, which indices are leaves?",
+     "answer": "Indices 6 to 11, six leaves.",
+     "why": "A node i has a left child at 2i+1, so it is internal exactly when 2i+1 <= 11, that is i <= 5. The internal nodes are 0 to 5 and the leaves are 6 to 11. The count agrees with the 1-based answer because the shape did not change, only the labels."
+    }
+   ],
+   "trap": {
+    "what": "Applying the 1-based formulas to a 0-based array, or the reverse.",
+    "why": "The parent of index 6 is 3 when the array starts at 1 and 2 when it starts at 0. Using the wrong one silently names the wrong node, and every later comparison in the trace is then about the wrong key.",
+    "counterexample": "In the 0-based array [10,8,5,3,2,1], index 4 holds 2 and its parent is floor((4-1)/2) = 1, holding 8. The 1-based formula floor(4/2) = 2 would name index 2, holding 5, which is not the parent of anything at index 4."
+   },
+   "check": {
+    "question": "With 1-based indices and n = 12, which indices are leaves and how many are there?",
+    "answer": "Indices 7 to 12, six leaves.",
+    "explanation": "Internal nodes are 1 to floor(12/2) = 6, so the leaves are 7 to 12. That is n - floor(n/2) = 12 - 6 = 6 = ceil(n/2) leaves, the count the next card uses."
+   },
+   "pyqIds": [
+    "gate-2026-set-1-q13-leaf-indices"
+   ],
+   "prereqs": [
+    "heap-shape-and-heap-property"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "gatehub-hindi-introduction-to-heap",
+     "kind": "video",
+     "title": "THE GATEHUB, 'Introduction to Heap || Heap Tree with examples || Heapsort || GATECSE || DAA'",
+     "url": "https://www.youtube.com/watch?v=wAiNNuf9wA0",
+     "language": "hi",
+     "transcript": "PARTIAL",
+     "translated": true,
+     "note": "Hindi (Devanagari) caption text, read in part and translated: the level-order array representation of a binary tree with blanks for missing children, the 1-based index formulas 2i, 2i+1 and floor(i/2), and their verification on two worked nodes. The extraction stopped inside the array-representation section, so no card rests on the later max-heap, build-heap or heapify sections",
+     "why": "The only lecture in another language whose text was readable in this run, and the clearest walk-through of the level-order array representation with blanks for missing children and of the 1-based formulas verified on two nodes. Hindi (Devanagari) captions read in part and translated; used by one card, marked as translated."
+    },
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The level-order array representation with blanks for missing children, and the 1-based formulas 2i, 2i+1 and floor(i/2) with their verification: THE GATEHUB, \"Introduction to Heap\" (Hindi, Devanagari captions read in part and translated into English for this card). The 0-based formulas and the operation table: Wikipedia, \"Binary heap\" (English, read in part). The index question: GATE Overflow page for GATE CSE 2026 Set 1 Q.13 (English, read in part). Every index and leaf count here is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/array-representation-and-index-arithmetic.json"
+  },
+  {
+   "id": "heap-height-leaves-and-node-counts",
+   "title": "Height, Leaves and Where the Leaves Begin",
+   "priority": "P1",
+   "order": 703,
+   "unit": "Binary Heaps",
+   "quickIdea": "A heap on n nodes is a complete tree, so its height is floor(log2 n) edges, its internal nodes occupy the first floor(n/2) positions, its leaves are the rest, which is ceil(n/2) of them, and level k holds at most 2^k nodes.",
+   "remember": [
+    "Height in edges, root at depth 0: floor(log2 n). The number of levels is floor(log2 n)+1, and the last level holds n - 2^floor(log2 n) + 1 nodes.",
+    "1-based indices: internal nodes 1 to floor(n/2), leaves floor(n/2)+1 to n, so the leaf count is n - floor(n/2) = ceil(n/2).",
+    "Level k holds at most 2^k nodes. Hence in a min-heap the k-th smallest key cannot lie deeper than depth k-1, and also not deeper than the height: its depth is at most min(k-1, floor(log2 n)).",
+    "Counting distinct heaps on a fixed set of keys: the shape is forced by completeness, the root is forced to be the smallest (or largest), then the count multiplies the choice of which keys go left by the count inside each subtree. For seven keys that is C(6,3) * 2 * 2 = 80.",
+    "Every fact here is about the shape, so it holds for a min-heap and a max-heap alike and none of it depends on the key values.",
+    "Two counts are easy to confuse: the number of internal nodes, floor(n/2), and the number of leaves, ceil(n/2); for even n they are equal, for odd n the leaves are one more."
+   ],
+   "example": {
+    "prompt": "A heap stores 105 keys. Give its height, the number of nodes on its last level, and its internal-node and leaf counts. Then do the same for 1000 keys.",
+    "work": "105 lies between 2^6 - 1 = 63 and 2^7 - 1 = 127, so the height is 6 and the levels are 0 to 6. The last level holds 105 - 2^6 + 1 = 42 nodes. Internal nodes are 1 to floor(105/2) = 52, so the leaves are 53 = ceil(105/2). For 1000 keys: floor(log2 1000) = 9, so the height is 9, the internal nodes are 500 and the leaves are 500.",
+    "answer": "105 keys: height 6, 42 nodes on the last level, 52 internal nodes, 53 leaves. 1000 keys: height 9, 500 internal nodes, 500 leaves."
+   },
+   "gateAngle": "Three shapes of question, one set of formulas. GATE CSE 2025 Set 1 Q.25 asks the height of a 32-key heap and the trap is answering 6 by counting nodes instead of edges. GATE CSE 2024 Set 1 Q.33 asks in how many index positions the maximum of a 105-key min-heap can sit, which is the leaf count. GATE CSE 2016 Set 2 Q.34 asks the deepest place for the key 9 in a 1023-key min-heap, which combines the rank bound with the height.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2025 Set 1 Q.25. The height of any rooted tree is defined as the maximum number of edges in the path from the root node to any leaf node. Suppose a Min-Heap T stores 32 keys. The height of T is ____. (Answer in integer)",
+     "answer": "5.",
+     "why": "A heap is complete, so its height is floor(log2 32) = 5 edges. Levels 0 to 4 hold 1+2+4+8+16 = 31 nodes, so the 32nd key opens level 5. Counting the nodes on the deepest path would give 6, which is the trap the question sets."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2018 Q.46. The number of possible min-heaps containing each value from {1,2,3,4,5,6,7} exactly once is ____. (Answer in integer)",
+     "answer": "80.",
+     "why": "Seven nodes fix the shape: a root, two children and four leaves, with the left subtree holding three nodes. The root must be 1. Choose which three of the remaining six keys go to the left subtree: C(6,3) = 20. Inside a three-node subtree the root is forced to be its smallest key and its two leaves can be ordered two ways, so each side contributes a factor 2. Total 20 * 2 * 2 = 80."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A heap stores 1000 keys. How many leaves does it have, and what is its height?",
+     "answer": "500 leaves and height 9.",
+     "why": "floor(1000/2) = 500 internal nodes, so 500 leaves; floor(log2 1000) = 9 because 2^9 = 512 <= 1000 < 1024 = 2^10. Here the internal-node and leaf counts coincide because n is even."
+    }
+   ],
+   "trap": {
+    "what": "Taking the height as ceil(log2(n+1)), or the leaf count as floor(n/2).",
+    "why": "The height counts edges, so a complete tree on 2^h nodes has height h and not h+1; and for odd n the leaves are one more than the internal nodes, so floor(n/2) names the internal nodes instead of the leaves.",
+    "counterexample": "n = 105: floor(log2 105) = 6 is the height, while ceil(log2 106) = 7 is not. The leaves are ceil(105/2) = 53, while floor(105/2) = 52 is the number of internal nodes. Both errors shift the answer by exactly one, which is what the distractors offer."
+   },
+   "check": {
+    "question": "A min-heap holds each key from 1 to 1023 exactly once. What is the greatest depth at which the key 9 can appear?",
+    "answer": "Depth 8.",
+    "explanation": "Every ancestor of 9 on the path from the root is a smaller key, and there are only eight of those (1 to 8), so a path of depth d needs d distinct smaller keys and d <= 8. The heap's height is floor(log2 1023) = 9, so depth 8 is available and the bound is attained: the chain 1,2,3,4,5,6,7,8,9 sits on a root-to-leaf path, and the remaining keys fill the rest of the complete shape."
+   },
+   "pyqIds": [
+    "gate-2025-set-1-q25-height-of-32-key-heap",
+    "gate-2024-set-1-q33-index-of-maximum",
+    "gate-2018-q46-number-of-min-heaps-seven",
+    "gate-2016-set-2-q34-max-depth-of-9"
+   ],
+   "prereqs": [
+    "array-representation-and-index-arithmetic"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+     "kind": "lecture-handout",
+     "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+     "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The shape, the height and the leaf count: Wikipedia, \"Binary heap\" (English, read in part) and the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The rank-versus-depth bound and the count of distinct heaps: GATE Overflow pages for GATE CSE 2016 Set 2 Q.34, GATE CSE 2018 Q.46, GATE CSE 2024 Set 1 Q.33 and GATE CSE 2025 Set 1 Q.25 (English, read in part). Every height, count and depth bound here is recomputed in scripts/validate.py, including the 80 by brute-force enumeration.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/heap-height-leaves-and-node-counts.json"
+  },
+  {
+   "id": "insertion-and-sift-up",
+   "title": "Insert: Append at the End, Then Climb",
+   "priority": "P1",
+   "order": 704,
+   "unit": "Binary Heaps",
+   "quickIdea": "Insert places the new key in the next free slot, which keeps the tree complete, then swaps it upward with its parent until the order holds. Each swap moves it one level, so the cost is the height: O(log n) worst case.",
+   "remember": [
+    "Two steps, in this order: append at index n+1, then sift up (also called bubble-up or percolate-up) while the key beats its parent.",
+    "Appending is what preserves the shape. Sift-up is the only repair needed, because every other parent-child edge was already valid and the new key sits below all of them.",
+    "Worst case floor(log2 n) swaps, so O(log n); the climb stops at the first parent that wins, and over random heaps it stops after O(1) steps on average.",
+    "The direction matters: insertion repairs upward, deletion repairs downward. Running heapify (sift-down) after an insert repairs the wrong direction and can leave the new key violating its parent edge.",
+    "n inserts into an empty heap cost O(n log n) this way. If all keys are available at once, build-heap does the same job in O(n).",
+    "The heap's size grows by one and the array needs no reallocation until it is full, which is why the amortised cost of a push into a growing heap array is still O(log n)."
+   ],
+   "example": {
+    "prompt": "Insert 10 into the max-heap [9,7,8,4,6,5] and give the array after each swap.",
+    "work": "Append 10 at index 7: [9,7,8,4,6,5,10]. Its parent is index 3, holding 8, and 10 > 8, so swap: [9,7,10,4,6,5,8]. Its parent is now index 1, holding 9, and 10 > 9, so swap: [10,7,9,4,6,5,8]. There is no parent above index 1, so the climb ends.",
+    "answer": "[10,7,9,4,6,5,8] after two swaps, which is two levels of climbing."
+   },
+   "gateAngle": "GATE CSE 2014 Set 2 Q.12 inserts 1 and then 7 into a max-heap given by its level order and asks for the new level order. Nothing but appending and climbing is needed, and the answer is decided by two comparisons. Any question that gives a heap and a key to insert is this trace.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2014 Set 2 Q.12. A priority queue is implemented as a max-heap. Initially it has 5 elements whose level-order traversal is 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted in that order. The level-order traversal after the insertions is (1) 10,8,7,3,2,1,5 (2) 10,8,7,2,3,1,5 (3) 10,8,7,1,2,3,5 (4) 10,8,7,5,3,2,1",
+     "answer": "Option 1, 10,8,7,3,2,1,5.",
+     "why": "Insert 1: append at index 6, parent is index 3 holding 5, and 1 < 5, so no swap: [10,8,5,3,2,1]. Insert 7: append at index 7, parent is index 3 holding 5, and 7 > 5, so swap: [10,8,7,3,2,1,5]; the new parent is index 1 holding 10, which wins, so the climb stops. The first insertion needs no swap at all, which is the step most traces get wrong."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "Insert 12 into the max-heap [15,10,11,4,9,3,8] and give the array.",
+     "answer": "[15,12,11,10,9,3,8,4].",
+     "why": "Append at index 8: [15,10,11,4,9,3,8,12]. Parent index 4 holds 4, so swap: [15,10,11,12,9,3,8,4]. Parent index 2 holds 10, so swap: [15,12,11,10,9,3,8,4]. Parent index 1 holds 15, which wins. Two swaps, two levels, and the shape is unchanged apart from the new leaf."
+    }
+   ],
+   "trap": {
+    "what": "Inserting the key and then calling heapify from the root, or placing the new key anywhere but the end.",
+    "why": "Sift-down repairs a node that is too small for its children; the newly appended key is too large for its parent, so only sift-up can fix it. And inserting anywhere but the end breaks the completeness that the array indices depend on.",
+    "counterexample": "The max-heap [10,8,5] with 9 appended gives [10,8,5,9]. Running heapify from the root does nothing, because 10 already beats 8 and 5, and the real violation, the edge (2,4) where 8 is the parent of 9, survives. Climbing from index 4 instead gives [10,9,5,8], which is a heap."
+   },
+   "check": {
+    "question": "Insert 1 into the min-heap [2,5,3,9,7,4] and give the array.",
+    "answer": "[1,5,2,9,7,4,3].",
+    "explanation": "Append at index 7: [2,5,3,9,7,4,1]. Parent index 3 holds 3, and 1 < 3, so swap: [2,5,1,9,7,4,3]. Parent index 1 holds 2, and 1 < 2, so swap: [1,5,2,9,7,4,3]. The climb reaches the root in two swaps, the height of this heap."
+   },
+   "pyqIds": [
+    "gate-2014-set-2-q12-priority-queue-insertions"
+   ],
+   "prereqs": [
+    "heap-shape-and-heap-property",
+    "array-representation-and-index-arithmetic"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+     "kind": "lecture-handout",
+     "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+     "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The up-heap procedure, its worst case and its average-case O(1) row: Wikipedia, \"Binary heap\" (English, read in part). Insert as a bubble-up from the leaf to the root, and the height bound behind it: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), with the same step in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The insertion trace: GATE Overflow page for GATE CSE 2014 Set 2 Q.12 (English, read in part). Every array here is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/insertion-and-sift-up.json"
+  },
+  {
+   "id": "extract-min-max-and-sift-down",
+   "title": "Extract: Move the Last Key to the Root and Sink It",
+   "priority": "P1",
+   "order": 705,
+   "unit": "Binary Heaps",
+   "quickIdea": "Delete the root, put the last key in its place, shrink the heap by one, then sink that key by swapping it with the winning child, the larger one in a max-heap and the smaller one in a min-heap, until the order holds. The cost is the height, O(log n).",
+   "remember": [
+    "Three steps: remember A[1]; move A[n] to A[1] and decrement the size; sift down while a child beats the key, each time swapping with the child that beats it most.",
+    "Choosing the winning child is not cosmetic. Swapping with the weaker child leaves the stronger child above its new parent, so the order is still broken.",
+    "Cost O(log n): at most one swap per level, and a complete tree has height floor(log2 n). Only the single root-to-leaf path the key travels is touched.",
+    "The shape survives because removing the last leaf of a complete tree leaves a complete tree; only the order needs repair.",
+    "In an array this is in place: the extracted key stays in the slot the heap has just given up, which is exactly what heapsort collects.",
+    "find-max or find-min is O(1) because the extreme is the root; the extract is what costs the sink. Decreasing a key is the mirror operation and climbs instead."
+   ],
+   "example": {
+    "prompt": "Extract the maximum from the max-heap [10,8,7,3,2,1,5] and give the array after each swap.",
+    "work": "Take 10 out. Move the last key, 5, to the root and shrink the size to 6: [5,8,7,3,2,1]. The root's children are 8 at index 2 and 7 at index 3; the larger is 8, so swap: [8,5,7,3,2,1]. At index 2 the children are 3 and 2, both below 5, so the sink stops.",
+    "answer": "One swap; the heap becomes [8,5,7,3,2,1] and the extracted maximum is 10."
+   },
+   "gateAngle": "Extraction traces appear inside larger questions rather than as questions of their own: the heapsort trace, the priority-queue insertion question, and the fourth statement of GATE CSE 2019 Q.40, which prices a heap-to-BST conversion at n log n precisely because it needs n extractions of this kind.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Extract the minimum from the min-heap [1,3,2,7,6,4,5] and give the array.",
+     "answer": "[2,3,4,7,6,5], after two swaps.",
+     "why": "Move the last key 5 to the root and shrink to size 6: [5,3,2,7,6,4]. The children of the root are 3 and 2; the smaller is 2, so swap: [2,3,5,7,6,4]. At index 3 the only child inside the heap is 4 at index 6, and 4 < 5, so swap again: [2,3,4,7,6,5]. A sink does not stop after one swap, which is the step that gets dropped."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "A max-heap on n keys has its largest key at the root and its second largest as a child of the root. How many comparisons does one extract-max need when the last key is already larger than both grandchildren?",
+     "answer": "Two comparisons and one swap: the answer is Theta(1) for that input, while the bound stays O(log n).",
+     "why": "The two comparisons pick the winning child, one swap installs it at the root, and the sink then stops at the first level. The worst case is unchanged: a key that is smaller than everything on its path sinks the full height. This is the same distinction GATE draws between the cost of one operation and the cost of n of them."
+    }
+   ],
+   "trap": {
+    "what": "Sinking by swapping with whichever child is at hand, or forgetting to shrink the size before sinking.",
+    "why": "The heap property is required on both child edges, so the swap must be with the child that wins; and if the size is not reduced first, the extracted key is still inside the heap and the sink can compare against it.",
+    "counterexample": "Max-heap [10,9,8,1,2,7]: extract 10 and move 7 to the root, giving [7,9,8,1,2]. Swapping with the smaller child 8 gives [8,9,7,1,2], where 9 is a child of 8 and the order is still broken. Swapping with the larger child 9 gives [9,7,8,1,2], which is a heap."
+   },
+   "check": {
+    "question": "Extract the maximum from the max-heap [4,4,3,1,2,1] and give the array.",
+    "answer": "[4,2,3,1,1].",
+    "explanation": "Move the last key 1 to the root and shrink to size 5: [1,4,3,1,2]. Children of the root are 4 and 3; swap with 4: [4,1,3,1,2]. At index 2 the children are 1 and 2, and 2 > 1, so swap: [4,2,3,1,1]. The duplicate 4 in the original heap is irrelevant: an extract removes one key, not every key of that value."
+   },
+   "pyqIds": [
+    "gate-2019-q40-heap-statements"
+   ],
+   "prereqs": [
+    "heap-shape-and-heap-property",
+    "insertion-and-sift-up"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+     "kind": "lecture-handout",
+     "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+     "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    }
+   ],
+   "sourceLine": "Delete-min as remove the root, move the last key up and heapify: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), and the same procedure in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The down-heap procedure and its winning-child rule: Wikipedia, \"Binary heap\" (English, read in part). The array costs behind GATE CSE 2019 Q.40 are those of the GATE Overflow page for that question (English, read in part). Every trace here is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/extract-min-max-and-sift-down.json"
+  },
+  {
+   "id": "build-heap-in-linear-time",
+   "title": "Build-Heap: Bottom-Up Sink-Down Is Linear",
+   "priority": "P1",
+   "order": 706,
+   "unit": "Binary Heaps",
+   "quickIdea": "Sift down every internal node from floor(n/2) down to 1 and the array becomes a heap in Theta(n), not Theta(n log n), because most nodes sit near the bottom where a sink is one or two steps.",
+   "remember": [
+    "The loop is for i = floor(n/2) down to 1: heapify(i). The leaves, floor(n/2)+1 to n, are skipped because a one-node tree is already a heap.",
+    "Bottom-up order is required for correctness: when i is processed, both of its subtrees are already heaps, which is exactly what sift-down assumes.",
+    "The cost is the sum of the nodes' heights, not n times log n. A node at height h can sink at most h steps, and there are about n/2^(h+1) nodes of height h, so the total is the sum of h*n/2^(h+1), which is less than 2n and in fact approaches n.",
+    "The heavy level is the bottom one, which sinks zero steps; the only node that can sink the full height is the root. That imbalance is the whole reason the bound is linear.",
+    "Building by n successive insertions costs Theta(n log n) in the worst case, so the two methods differ by a log factor. The linear one is Floyd's method.",
+    "The same argument answers the 'insert n more keys' question: append them and rebuild the 2n cells once, for Theta(n). No extra space is needed, because the build works in the array it is given."
+   ],
+   "example": {
+    "prompt": "Build a max-heap from [4,1,3,2,16,9,10,14,8,7] and say what each heapify call does.",
+    "work": "n = 10, so the calls run from i = 5 down to 1. i = 5 (key 16): its only child is 8, so no swap. i = 4 (key 2): children 14 and 8, swap with 14, giving [4,1,3,14,16,9,10,2,8,7]. i = 3 (key 3): children 9 and 10, swap with 10, giving [4,1,10,14,16,9,3,2,8,7]. i = 2 (key 1): children 16 and 9, swap with 16, then at index 5 its children 8 and 7 win over 1, swap with 7, giving [4,16,10,14,7,9,3,2,8,1]. i = 1 (key 4): children 16 and 10, swap with 16; then children 14 and 7, swap with 14; then children 8 and 1, swap with 8, giving [16,14,10,8,7,9,3,2,4,1].",
+    "answer": "[16,14,10,8,7,9,3,2,4,1] after seven swaps in five heapify calls: 0, 1, 1, 2 and 3 swaps respectively."
+   },
+   "gateAngle": "GATE CSE 2008 Q.47 and the third statement of GATE CSE 2019 Q.40 both turn on 'build-heap is linear'. A candidate who quotes n log n gets both wrong, and the 2008 question is deliberately phrased with Theta rather than O to reward the linear answer.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2008 Q.47. We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is (1) Theta(log n) (2) Theta(n) (3) Theta(n log n) (4) Theta(n^2)",
+     "answer": "Option 2, Theta(n).",
+     "why": "The phrase 'not necessarily one after another' is the permission to defer: append all n new keys to the array, then run one build-heap over the 2n cells. That costs Theta(2n) = Theta(n), against Theta(n log n) for n separate insertions. The Theta in the question, rather than O, is the hint that a linear method exists."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.40. Consider the statements: I. The smallest element in a max-heap is always at a leaf node. II. The second largest element in a max-heap is always a child of a root node. III. A max-heap can be constructed from a binary search tree in Theta(n) time. IV. A binary search tree can be constructed from a max-heap in Theta(n) time. Which are TRUE? (1) I, II and III (2) I, II and IV (3) I, III and IV (4) II, III and IV",
+     "answer": "Option 1, I, II and III.",
+     "why": "I holds because a parent is at least its children, so the minimum must be childless. II holds because every node other than the root lies under one of the root's children, and the larger child is larger than everything in the other subtree. III holds by walking the BST into an array and running build-heap, both linear. IV fails: a heap plus a linear conversion plus an inorder walk would sort in linear time, contradicting the comparison-sort lower bound."
+    },
+    {
+     "label": "ORIGINAL PYQ-STYLE QUESTION",
+     "question": "How many swaps does build-heap perform on the array [5,4,3,2,1]?",
+     "answer": "Zero, although the loop still runs at i = 2 and i = 1.",
+     "why": "The array is already a max-heap: 5 beats 4 and 3, and 4 beats 2 and 1. Each heapify call therefore stops on its first comparison. The cost is still Theta(n) work in the loop, which is the point: build-heap's bound does not depend on the input, only on the shape."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that build-heap is O(n log n) because heapify is O(log n) and there are about n/2 calls.",
+    "why": "That multiplies a worst case by a count that never attains it. Heapify costs the height of the subtree it is given, and the subtrees shrink geometrically as the loop climbs, so the product telescopes to a linear sum.",
+    "counterexample": "For n = 1023 the exact bound, the sum of h*n/2^(h+1), is 1017.006 steps, which is below 2n = 2046 and far below n log n = 10230. Half the nodes are leaves and sink nothing, and a quarter sink at most one step, so almost all of the theoretical n log n never happens."
+   },
+   "check": {
+    "question": "Build a max-heap from [1,2,3,4,5] and give the array.",
+    "answer": "[5,4,3,1,2].",
+    "explanation": "n = 5, so the calls run at i = 2 then i = 1. i = 2 (key 2): children 4 and 5, swap with 5, giving [1,5,3,4,2]. i = 1 (key 1): children 5 and 3, swap with 5, giving [5,1,3,4,2]; at index 2 its children 4 and 2 win over 1, swap with 4, giving [5,4,3,1,2]. Three swaps in two calls."
+   },
+   "pyqIds": [
+    "gate-2008-q47-insert-n-more-elements",
+    "gate-2019-q40-heap-statements"
+   ],
+   "prereqs": [
+    "extract-min-max-and-sift-down"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+     "kind": "lecture-handout",
+     "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+     "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+     "id": "clrs-chapter-6-heapsort",
+     "kind": "reference",
+     "title": "CLRS, Introduction to Algorithms, chapter 6 (Heapsort): MAX-HEAPIFY, BUILD-MAX-HEAP and its linear-time analysis, HEAPSORT, and exercise 6.4-5 on the best-case lower bound",
+     "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "standard reference used to check the build-heap sum and the heapsort bound; no text copied, and the worked array in the build-heap card is recomputed rather than quoted",
+     "why": "The standard reference behind the build-heap sum and the heapsort lower bound, including exercise 6.4-5 for the best case. Cited, not copied: the worked array in the build card is recomputed."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "Build-heap bottom up, the reason it is linear and the running-time comparison with repeated insertion: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), with the same O(N) argument in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The sum and the asymptotic analysis were checked against CLRS chapter 6 (standard reference, no text copied). The two questions: GATE Overflow pages for GATE CSE 2008 Q.47 and GATE CSE 2019 Q.40 (English, read in part). Every swap count here is recomputed in scripts/validate.py.",
+   "links": {},
+   "visual": "programming-and-data-structures/binary-heaps/build-heap-linear-time",
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/build-heap-in-linear-time.json"
+  },
+  {
+   "id": "heapsort-and-its-properties",
+   "title": "Heapsort: Build Once, Extract n-1 Times",
+   "priority": "P1",
+   "order": 707,
+   "unit": "Binary Heaps",
+   "quickIdea": "Heapsort builds a max-heap in place, then n-1 times swaps the root to the end of the shrinking heap and sinks the new root. It runs in Theta(n log n) time with Theta(1) extra space, and it is not stable.",
+   "remember": [
+    "Two phases: build-max-heap, Theta(n); then for i = n down to 2, swap A[1] with A[i], shrink the heap to i-1 and sift down at the root, each Theta(log i), so Theta(n log n) in total.",
+    "The output is ascending even though the heap is a max-heap, because each extracted maximum is parked at the far end of the array and never moves again.",
+    "Extra space is Theta(1): the heap lives inside the input array, and the extracted keys fill the slots the heap gives up. There is no second array.",
+    "It is not stable. The swap of the root with the last key jumps an element across the whole array, so equal keys can change their relative order.",
+    "No input makes it linear: every one of the n-1 extractions still walks a path of logarithmic length, and CLRS exercise 6.4-5 proves the best case on distinct keys is Omega(n log n).",
+    "It is the one common sort that is Theta(n log n) in the worst case with Theta(1) extra space: quicksort has the space but not the worst case, merge sort the worst case but not the space."
+   ],
+   "example": {
+    "prompt": "Sort [4,1,3,2,16,9,10,14,8,7] by heapsort and count the sink calls.",
+    "work": "Build-max-heap gives [16,14,10,8,7,9,3,2,4,1] (the previous card's trace). Then for i = 10 down to 2 the root is swapped with A[i], the heap shrinks by one and the new root sinks: nine swaps and nine sinks. The array ends as [1,2,3,4,7,8,9,10,14,16].",
+    "answer": "Sorted ascending as [1,2,3,4,7,8,9,10,14,16], with 9 = n-1 sink calls after the build."
+   },
+   "gateAngle": "No question in the collected record asks for heapsort's bound on its own, but the fourth statement of GATE CSE 2019 Q.40 uses the n log n price of repeated extraction as the reason a heap cannot become a BST in linear time. The stability and space facts are the parts most often assumed rather than checked.",
+   "variations": [
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Sort [5,4,3,2,1] by heapsort and count the sink calls.",
+     "answer": "Sorted as [1,2,3,4,5], with 4 = n-1 sink calls.",
+     "why": "The array is already a max-heap, so the build does nothing, but the extraction loop still runs four times: swap the root to the end, shrink, sink. Four sinks and a sorted array. The build being free does not make the sort linear."
+    },
+    {
+     "label": "PREDICTED VARIATION",
+     "question": "Heapsort is run on the already sorted array [1,2,3,4,5]. Does the sorted input make it faster in the asymptotic sense?",
+     "answer": "No. It is still Theta(n log n), here with four sink calls.",
+     "why": "A sorted ascending array is a min-heap, not a max-heap, so the build does real work and the four extractions each sink. On distinct keys the best case is Omega(n log n) (CLRS exercise 6.4-5), so no input order makes heapsort linear."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "Heapsort the three records (2,a), (1,b), (2,c) by their keys. Are the two records with key 2 in their original order?",
+     "answer": "No: they come out as (1,b), (2,c), (2,a), so the two 2s are reversed.",
+     "why": "The build leaves [2a,1,2b]. The first extraction swaps the root with the last key, giving [2b,1,2a], and the second finishes as [1,2b,2a]. The root-to-end swap is what breaks stability, and no comparison in the algorithm can restore the original order of equal keys."
+    }
+   ],
+   "trap": {
+    "what": "Concluding that heapsort is O(n) because build-heap is O(n), or that it is stable because the heap is an array.",
+    "why": "The extraction loop dominates: n-1 sinks of logarithmic depth, which is the n log n. Stability is about the relative order of equal keys, and the swap of the root with the last key moves keys across the array without any comparison of equals.",
+    "counterexample": "Heapsorting (2,a), (1,b), (2,c) yields (1,b), (2,c), (2,a): the two equal keys come out reversed, so heapsort is not stable. And on [4,1,3,2,16,9,10,14,8,7] the build costs Theta(n) while the nine sinks cost Theta(n log n), so the build is not the dominant term."
+   },
+   "check": {
+    "question": "Why does heapsort perform n-1 extractions rather than n?",
+    "answer": "Because after n-1 maxima have been parked at the end, the single remaining key is already in the first cell, so a final extraction would swap a cell with itself.",
+    "explanation": "The loop runs for i from n down to 2. After it ends the heap has size 1 and holds the minimum, which is exactly where the sorted array needs it. That is why the count is n-1, and why the cost is the sum of log i for i from n down to 2, which is Theta(n log n)."
+   },
+   "pyqIds": [
+    "gate-2019-q40-heap-statements"
+   ],
+   "prereqs": [
+    "build-heap-in-linear-time",
+    "extract-min-max-and-sift-down"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "nptel-cmi-python-week6-lecture5-heaps-handout",
+     "kind": "lecture-handout",
+     "title": "NPTEL / Chennai Mathematical Institute, Programming, Data Structures and Algorithms in Python, Week 6 Lecture 5 handout: priority queues and heaps",
+     "url": "https://www.cmi.ac.in/~madhavan/nptel-python-2016/python-week6-lecture5-handout.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: the heap property, the 0-based array indices, heapify, the bottom-up build with its O(N) argument, in-place heapsort, and the min-heap inversion",
+     "why": "An independent second text for the same facts, in a different notation (0-based arrays), which is exactly what the index card needs to show both conventions. Read in full."
+    },
+    {
+     "id": "clrs-chapter-6-heapsort",
+     "kind": "reference",
+     "title": "CLRS, Introduction to Algorithms, chapter 6 (Heapsort): MAX-HEAPIFY, BUILD-MAX-HEAP and its linear-time analysis, HEAPSORT, and exercise 6.4-5 on the best-case lower bound",
+     "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/",
+     "language": "en",
+     "transcript": "NONE",
+     "translated": false,
+     "note": "standard reference used to check the build-heap sum and the heapsort bound; no text copied, and the worked array in the build-heap card is recomputed rather than quoted",
+     "why": "The standard reference behind the build-heap sum and the heapsort lower bound, including exercise 6.4-5 for the best case. Cited, not copied: the worked array in the build card is recomputed."
+    },
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    }
+   ],
+   "sourceLine": "In-place heapsort built from delete-min, with the n log n accounting and the observation that the sorted order comes out reversed: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full), and the same two-phase summary in the NPTEL/CMI Week 6 Lecture 5 handout (English, read in full). The best-case lower bound is CLRS exercise 6.4-5 (standard reference, no text copied); the operation table is Wikipedia, \"Binary heap\" (English, read in part). Every sorted output and sink count here is recomputed in scripts/validate.py.",
+   "links": {},
+   "visual": "programming-and-data-structures/binary-heaps/sift-up-and-sift-down",
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/heapsort-and-its-properties.json"
+  },
+  {
+   "id": "priority-queue-operations-and-costs",
+   "title": "The Priority Queue Behind the Heap",
+   "priority": "P2",
+   "order": 708,
+   "unit": "Binary Heaps",
+   "quickIdea": "A binary heap is the standard implementation of a priority queue: the extreme is O(1) away, insert and delete-extreme are O(log n), but merging two heaps costs Theta(n) and deleting a key you can only name costs Theta(n) to find it first.",
+   "remember": [
+    "The abstract data type: insert(x), minimum or maximum, delete-min or delete-max, plus decrease-key, increase-key, delete(x) and merge.",
+    "Costs on a binary heap of n keys: find-extreme O(1); insert O(log n) worst case and O(1) average; delete-extreme O(log n); decrease-key O(log n) once the position is known; delete(x) O(log n) after an O(n) search; merge Theta(n); build Theta(n).",
+    "A key change is two different repairs by direction: toward the root (an increase in a max-heap, a decrease in a min-heap) needs sift-up, and away from the root needs sift-down. One name, two procedures.",
+    "decrease-key needs a handle to the position. A plain array heap has no map from key to slot, which is why the O(log n) figure is conditional and why Dijkstra's implementation stores the index of each vertex.",
+    "Against the alternatives: an unsorted list gives insert Theta(1) but delete-min Theta(n); a sorted list gives the reverse; the heap balances both at Theta(log n), which is why it is the default.",
+    "Conversions: any array becomes a heap in Theta(n), so a BST becomes a max-heap in Theta(n) by walking it and building. A heap does not become a BST in Theta(n), because that would sort in linear time."
+   ],
+   "example": {
+    "prompt": "A heap holds 1000 keys. Give the worst-case cost of find-max, insert, delete-max and merging it with another heap of 500 keys.",
+    "work": "The height is floor(log2 1000) = 9. find-max reads A[1], one step. insert appends and climbs at most 9 levels, so at most 9 swaps. delete-max moves the last key up and sinks at most 9 levels. Merging is not supported cheaply: the two arrays are concatenated, giving 1500 cells, and one build-heap runs over them, which is Theta(1500).",
+    "answer": "find-max O(1); insert O(log n); delete-max O(log n); merge Theta(n), here about 1500 steps against 500 * log(1500) for 500 separate insertions."
+   },
+   "gateAngle": "GATE CSE 2019 Q.40 is the operations-and-conversion question: it prices a heap build at Theta(n) and refuses the reverse conversion for exactly the reason given here. The two costs most often mis-stated are delete of a named key and merge.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2019 Q.40, statement IV. 'A binary search tree can be constructed from a max-heap in Theta(n) time.' Is it true?",
+     "answer": "False.",
+     "why": "Any array becomes a heap in Theta(n), so if a heap became a BST in Theta(n) as well, an inorder walk (Theta(n)) would sort n keys in Theta(n) with comparisons, contradicting the Omega(n log n) lower bound. Extracting the keys in sorted order costs Theta(n log n), and inserting them one by one into a BST costs Theta(n log n) on average and Theta(n^2) in the worst case."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "You hold two binary heaps of 500 keys each and must produce one heap. What is the cheapest correct cost?",
+     "answer": "Theta(n) for n = 1000: append the two arrays and run one build-heap.",
+     "why": "A binary heap has no cheap merge: inserting the 500 keys of one heap into the other costs 500 * O(log 1000). Concatenating the arrays gives 1000 cells that are not a heap, but build-heap makes them one in Theta(1000). Merging is Theta(n), which is why meldable heaps exist for the applications that need it."
+    }
+   ],
+   "trap": {
+    "what": "Quoting the deletion of an arbitrary key as O(log n) in a plain array heap.",
+    "why": "The sink after the removal is O(log n), but only once the position is known. Nothing in the array maps a key to its index, so locating the key is a scan of the whole array, and the operation as a whole is Theta(n).",
+    "counterexample": "In a 1000-key heap you are told to delete the key 37. The search for 37 is Theta(n) in the worst case, and only then does the O(log n) repair begin, so the total is Theta(n). The O(log n) figure belongs to the case where the position was handed to you, as Dijkstra's algorithm arranges."
+   },
+   "check": {
+    "question": "Which priority-queue operation is Theta(n) on a binary heap even when the element's position is known in advance?",
+    "answer": "Merge.",
+    "explanation": "Merging two binary heaps means concatenating the arrays and rebuilding, which is Theta(n) because build-heap is Theta(n). delete-min is O(log n) when the position is known, insert is O(log n), and find-min is O(1). Melding in O(log n) needs a different structure, such as a binomial or Fibonacci heap, and those are outside the GATE CSE syllabus line."
+   },
+   "pyqIds": [
+    "gate-2019-q40-heap-statements"
+   ],
+   "prereqs": [
+    "extract-min-max-and-sift-down",
+    "build-heap-in-linear-time"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "nptel-iitd-106102064-lec20-priority-queues",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Lecture 20 'Priority Queues' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec20.pdf",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "read in part: the priority-queue ADT (insert, minimum, delete-min), the shortest-remaining-processing-time motivation and the total order required on priorities; the extraction stopped before the heap procedures themselves",
+     "why": "The only readable source for the priority-queue abstract data type and the total order it requires on priorities, which the operations card needs before any cost table makes sense. Read in part: the extraction stopped before the heap procedures, so no card takes a procedure from it."
+    },
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The priority-queue ADT, its three basic operations and the total order required on priorities: NPTEL IIT Delhi Lecture 20, Prof. Naveen Garg (English, transcript read in part). The comparison of heap, sorted list and unsorted list, and the costs of insert, find and delete-min: NPTEL IIT Delhi Lecture 21 (English, transcript read in full). The operation table including decrease-key and merge: Wikipedia, \"Binary heap\" (English, read in part). The conversion statements: GATE Overflow page for GATE CSE 2019 Q.40 (English, read in part). The costs quoted here are checked against the same table in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/priority-queue-operations-and-costs.json"
+  },
+  {
+   "id": "what-the-heap-order-does-not-give",
+   "title": "What the Heap Order Does Not Give You",
+   "priority": "P2",
+   "order": 709,
+   "unit": "Binary Heaps",
+   "quickIdea": "The heap order constrains parent-child pairs only, so a heap cannot be searched, its inorder walk is not sorted, and the maximum of a min-heap is somewhere among its leaves, which is Theta(n) away.",
+   "remember": [
+    "Only parent-child pairs are ordered; siblings and the two subtrees are free, so there is no branch to follow when looking for an arbitrary key. A search is Theta(n).",
+    "The maximum of a min-heap, and the minimum of a max-heap, lies on a leaf. There are ceil(n/2) leaves, so finding it costs Theta(n), and it cannot be done faster because the leaves are unordered among themselves.",
+    "Rank bounds that do hold: in a max-heap the k-th largest sits at depth at most k-1, so it lies among the first 2^k - 1 positions; in particular the second largest is a child of the root.",
+    "An inorder walk of a heap is not sorted, so a heap is not a BST. A BST becomes a heap in Theta(n); a heap becomes a BST only by paying a sort, Theta(n log n).",
+    "Uses that need the extreme over and over: Dijkstra and Prim, Huffman coding, k-way merge, top-k with a heap of size k (Theta(n log k)), median maintenance with one max-heap and one min-heap, and event simulation.",
+    "Sorted output costs the sort: n extractions are Theta(n log n), which is the comparison-sort lower bound, so no heap trick beats it."
+   ],
+   "example": {
+    "prompt": "A min-heap holds 1000 distinct keys. What is the cost of finding the minimum, of finding the maximum, and of finding the third largest of a max-heap on the same keys?",
+    "work": "The minimum is A[1], one step. The maximum is one of the leaves: there are 500 of them, and they are in no order among themselves, so a scan of 499 comparisons is needed in the worst case, which is Theta(n). For the third largest of a max-heap, the rank bound says its depth is at most 2, so it is among indices 1 to 7, and six comparisons settle it.",
+    "answer": "Minimum O(1); maximum Theta(n); third largest O(1), because only the first seven positions can hold it."
+   },
+   "gateAngle": "GATE CSE 2006 Q.10 and GATE CSE 2021 Set 2 Q.2 ask the same fact from opposite sides: the smallest key of a max-heap, and the largest key of a min-heap. In both the distractor is O(log n), which would be right only if the order constrained more than parent-child pairs.",
+   "variations": [
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2006 Q.10. In a binary max heap containing n numbers, the smallest element can be found in time (1) O(n) (2) O(log n) (3) O(log log n) (4) O(1)",
+     "answer": "Option 1, O(n).",
+     "why": "In a max-heap every parent is at least its children, so the smallest key must be a leaf: if it had a child, that child would be smaller. There are up to ceil(n/2) leaves, unordered among themselves, so every one must be inspected, which is Theta(n). Converting the max-heap into a min-heap first would cost Theta(n) as well and buys nothing."
+    },
+    {
+     "label": "VERIFIED PYQ",
+     "question": "GATE CSE 2021 Set 2 Q.2. Let H be a binary min-heap consisting of n elements implemented as an array. What is the worst case time complexity of an optimal algorithm to find the maximum element in H? (1) Theta(1) (2) Theta(log n) (3) Theta(n) (4) Theta(n log n)",
+     "answer": "Option 3, Theta(n).",
+     "why": "The maximum of a min-heap is a leaf, and with 1-based indices the leaves are floor(n/2)+1 to n. Scanning those about n/2 cells is Theta(n), and it is optimal because the leaves carry no order among themselves. Binary search over the leaves is not available: they are not sorted."
+    },
+    {
+     "label": "CONCEPTUAL PRACTICE QUESTION",
+     "question": "A max-heap holds 1000 distinct keys. How many array positions can hold the third largest key?",
+     "answer": "Seven: indices 1 to 7.",
+     "why": "The k-th largest key has at most k-1 ancestors, all larger than it, so its depth is at most k-1. For k = 3 the depth is at most 2, and the positions at depth 0, 1 and 2 are indices 1, 2-3 and 4-7, seven in all. Reading those seven and taking the third largest is O(1) work, which is why top-k questions on a heap are cheap while an arbitrary search is not."
+    }
+   ],
+   "trap": {
+    "what": "Assuming the second largest key is the right child of the root, or that a heap supports O(log n) search because it looks like a tree.",
+    "why": "The order says nothing about which child is larger, and nothing about cousins. The second largest is one of the root's children but not a named one, and an arbitrary key has no ordered path to follow.",
+    "counterexample": "[9,8,4,7,6,1,3] is a max-heap whose second largest key, 8, is the left child; the right child holds 4. And the smallest key, 1, sits at index 6, deeper than the larger key 3 at index 7, so no downward rule finds it."
+   },
+   "check": {
+    "question": "A max-heap holds 1000 distinct keys. What is the worst-case cost of finding the smallest key, and of finding the third largest?",
+    "answer": "Theta(n) for the smallest, O(1) for the third largest.",
+    "explanation": "The smallest is a leaf, and there are 500 leaves in no order, so the scan is Theta(n). The third largest lies at depth at most 2, hence among indices 1 to 7, so seven reads decide it. The gap between these two answers is the whole content of the heap's partial order."
+   },
+   "pyqIds": [
+    "gate-2006-q10-smallest-in-max-heap",
+    "gate-2021-set-2-q2-max-in-min-heap"
+   ],
+   "prereqs": [
+    "heap-height-leaves-and-node-counts",
+    "extract-min-max-and-sift-down"
+   ],
+   "videoRefs": [],
+   "sources": [
+    {
+     "id": "wikipedia-binary-heap",
+     "kind": "reference",
+     "title": "Wikipedia, Binary heap",
+     "url": "https://en.wikipedia.org/wiki/Binary_heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "shape and heap property, the up-heap and down-heap procedures, the operation table with decrease-key O(log n) and merge O(n), and the average O(1) insert",
+     "why": "The clearest statement of the two requirements, and the only source that gives the whole operation table including the conditional decrease-key O(log n) and the Theta(n) merge, which two cards need. Read in part: the definition, the insert and extract procedures and the complexity table."
+    },
+    {
+     "id": "nptel-iitd-106102064-lec21-binary-heaps",
+     "kind": "lecture-transcript",
+     "title": "NPTEL IIT Delhi 106102064, Data Structures and Algorithms, Lecture 21 'Binary Heaps' (Prof. Naveen Garg), transcript",
+     "url": "http://www.digimat.in/nptel/courses/video/106102064/lec21.pdf",
+     "language": "en",
+     "transcript": "FULL",
+     "translated": false,
+     "note": "read in full: delete-min, build-heap bottom up with the sum argument, in-place heapsort, and the comparison of heap, sorted list and unsorted list for a priority queue",
+     "why": "The best teaching of this topic that was readable at all: one lecture that derives the linear build-heap bound with the sum of heights, shows delete-min and in-place heapsort, and compares the heap against sorted and unsorted lists for a priority queue. Chosen over every video candidate because its full transcript could be read, and every claim taken from it is checkable against CLRS."
+    },
+    {
+     "id": "gateoverflow-question-pages",
+     "kind": "question-bank",
+     "title": "GATE Overflow, question pages for the twelve recorded previous-year questions and the 'binary-heap' tag index",
+     "url": "https://gateoverflow.in/tag/binary-heap",
+     "language": "en",
+     "transcript": "PARTIAL",
+     "translated": false,
+     "note": "statements, options and accepted answers for each recorded question; the tag index was used to check the subtopic enumeration against the paper record from 2004 to 2026",
+     "why": "The only place where the twelve questions could be read with their statements, options and accepted answers in one place. Used for every PYQ record and to check the subtopic enumeration against the paper record from 2004 to 2026."
+    }
+   ],
+   "sourceLine": "The partial order, the leaf argument and the operation table: Wikipedia, \"Binary heap\" (English, read in part). The comparison of a heap against sorted and unsorted lists, which is the same point about what the order buys: NPTEL IIT Delhi Lecture 21, Prof. Naveen Garg (English, transcript read in full). The two questions: GATE Overflow pages for GATE CSE 2006 Q.10 and GATE CSE 2021 Set 2 Q.2 (English, read in part). Every count and depth bound here is recomputed in scripts/validate.py.",
+   "links": {},
+   "subject": "programming-and-data-structures",
+   "topic": "binary-heaps",
+   "path": "subjects/programming-and-data-structures/binary-heaps/what-the-heap-order-does-not-give.json"
   }
  ],
  "pyqs": [
@@ -51728,6 +52646,27 @@ window.GATE_DATA = {
    "answer_evidence": "Two independent answers on the question page reach option (A) by the same argument: the count of favourable sequences C(2n, n) over the 4^n equally likely sequences. Recomputed here for n = 1 to 8 against the binomial PMF."
   },
   {
+   "id": "gate-2006-q10-smallest-in-max-heap",
+   "year": "2006",
+   "paper": "GATE CSE 2006",
+   "question_ref": "Q.10 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "what-the-heap-order-does-not-give",
+   "text": "In a binary max heap containing n numbers, the smallest element can be found in time",
+   "options": [
+    "O(n)",
+    "O(log n)",
+    "O(log log n)",
+    "O(1)"
+   ],
+   "answer": "Option 1 - O(n)",
+   "solution": "In a max-heap a parent is at least each child, so the smallest key has no children and must be a leaf. A complete tree on n nodes has ceil(n/2) leaves, unordered among themselves, so all of them must be inspected: Theta(n), and no better, since no ordering exists among the leaves. Turning the max-heap into a min-heap first also costs Theta(n).",
+   "source_url": "https://gateoverflow.in/889/gate-cse-2006-question-10",
+   "source_label": "GATE Overflow question page - GATE CSE 2006 Q.10, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "The GATE Overflow answers converge on option 1 with the leaf argument. The paper and the official key were not fetched, so the record stays SOURCED. The leaf count ceil(n/2) is recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2006-q49-queue-two-stacks",
    "year": "2006",
    "paper": "GATE CS 2006",
@@ -51918,6 +52857,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted answer concludes 'So, answer must be C only', with the argument that autoincrement works from an initial base address and so does not relocate, that an additional ALU is desirable but never a necessity, and that the increment matches the item size. Corroborated by the Solutions Adda GATE 2008 Question 33 page, which gives option C with the same three-way reasoning."
   },
   {
+   "id": "gate-2008-q47-insert-n-more-elements",
+   "year": "2008",
+   "paper": "GATE CSE 2008",
+   "question_ref": "Q.47 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "build-heap-in-linear-time",
+   "text": "We have a binary heap on n elements and wish to insert n more elements (not necessarily one after another) into this heap. The total time required for this is",
+   "options": [
+    "Theta(log n)",
+    "Theta(n)",
+    "Theta(n log n)",
+    "Theta(n^2)"
+   ],
+   "answer": "Option 2 - Theta(n)",
+   "solution": "Append the n new keys to the array, giving 2n cells, then run one build-heap over them. Build-heap is Theta(2n) = Theta(n) by the sum of heights. Inserting the keys one at a time would cost Theta(n log n), which is why the question says 'not necessarily one after another': the work may be deferred.",
+   "source_url": "https://gateoverflow.in/459/gate-cse-2008-question-47",
+   "source_label": "GATE Overflow question page - GATE CSE 2008 Q.47, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 2, with several answers noting that the Theta in the question is itself the hint that a linear method exists. The paper and key were not fetched, so the record stays SOURCED. The build-heap bound is recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2008-q62-rearrange-pairwise-swap",
    "year": "2008",
    "paper": "GATE CSE 2008",
@@ -51980,6 +52940,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2009 Q.29 with the accepted answer (option D)",
    "verification": "SOURCED",
    "answer_evidence": "The GATE Overflow accepted answer reduces each set to its last four distinct accesses and concludes 216; a second answer traces the set table line by line with the same result. The official key was not opened this run. The full sequence is simulated in scripts/validate.py."
+  },
+  {
+   "id": "gate-2009-q59-which-array-is-max-heap",
+   "year": "2009",
+   "paper": "GATE CSE 2009",
+   "question_ref": "Q.59 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "heap-shape-and-heap-property",
+   "text": "Consider a binary max-heap implemented using an array. Which one of the following array represents a binary max-heap?",
+   "options": [
+    "{25,12,16,13,10,8,14}",
+    "{25,14,13,16,10,8,12}",
+    "{25,14,16,13,10,8,12}",
+    "{25,14,12,13,10,8,16}"
+   ],
+   "answer": "Option 3 - {25,14,16,13,10,8,12}",
+   "solution": "With 1-based indices, check each parent against 2i and 2i+1. Option 1 fails at (2,4): 12 is the parent of 13. Option 2 fails at (2,4): 14 is the parent of 16. Option 4 fails at (3,7): 12 is the parent of 16. Option 3 satisfies every edge: 25 over 14 and 16, 14 over 13 and 10, 16 over 8 and 12.",
+   "source_url": "https://gateoverflow.in/1341/gate-cse-2009-question-59",
+   "source_label": "GATE Overflow question page - GATE CSE 2009 Q.59, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 3, and the accepted answer walks the four arrays as level order. The paper and key were not fetched, so the record stays SOURCED. All four arrays are re-tested edge by edge in scripts/validate.py."
   },
   {
    "id": "gate-2010-q36-move-last-to-front",
@@ -52503,6 +53484,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.7 with the accepted answer (option C)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer states that one of the 2^n decoder lines is activated for each counter value, so the arrangement behaves as a 2^n-bit ring counter, option C. Recomputed here: the decoder has k outputs and exactly one is high at any time, which is the definition of a one-hot k-state sequence."
+  },
+  {
+   "id": "gate-2014-set-2-q12-priority-queue-insertions",
+   "year": "2014",
+   "paper": "GATE CSE 2014 Set 2",
+   "question_ref": "Q.12 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "insertion-and-sift-up",
+   "text": "A priority queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is: 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted into the heap in that order. The level-order traversal of the heap after the insertion of the elements is:",
+   "options": [
+    "10, 8, 7, 3, 2, 1, 5",
+    "10, 8, 7, 2, 3, 1, 5",
+    "10, 8, 7, 1, 2, 3, 5",
+    "10, 8, 7, 5, 3, 2, 1"
+   ],
+   "answer": "Option 1 - 10, 8, 7, 3, 2, 1, 5",
+   "solution": "Insert 1: append at index 6, its parent is index 3 holding 5, and 1 < 5, so no swap: 10,8,5,3,2,1. Insert 7: append at index 7, its parent is index 3 holding 5, and 7 > 5, so swap: 10,8,7,3,2,1,5; the new parent is index 1 holding 10, which wins, so the climb stops.",
+   "source_url": "https://gateoverflow.in/1967/gate-cse-2014-set-2-question-12",
+   "source_label": "GATE Overflow question page - GATE CSE 2014 Set 2 Q.12, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 1 with the two insertions traced. The paper and key were not fetched, so the record stays SOURCED. Both insertions are simulated in scripts/validate.py."
   },
   {
    "id": "gate-2014-set1-47-ivt-difference",
@@ -53386,6 +54388,21 @@ window.GATE_DATA = {
    "answer_evidence": "Several answers on the page set tau1 = 6x and obtain 4 GHz, and one states the answer in words as 'Answer is 4 GHz'."
   },
   {
+   "id": "gate-2016-set-2-q34-max-depth-of-9",
+   "year": "2016",
+   "paper": "GATE CSE 2016 Set 2",
+   "question_ref": "Q.34 on GATE Overflow",
+   "type": "NAT",
+   "topic": "heap-height-leaves-and-node-counts",
+   "text": "A complete binary min-heap is made by including each integer in [1, 1023] exactly once. The depth of a node in the heap is the length of the path from the root of the heap to that node. Thus, the root is at depth 0. The maximum depth at which integer 9 can appear is ____.",
+   "answer": "8",
+   "solution": "Every ancestor of 9 on its root path holds a smaller key, and only 1 to 8 are smaller, so a path of depth d needs d distinct smaller keys and d <= 8. The heap on 1023 keys has height floor(log2 1023) = 9, so depth 8 is reachable: put 1,2,...,9 on one root-to-leaf chain and fill the rest of the complete shape with the remaining keys. The bound is min(k-1, height) = min(8, 9) = 8.",
+   "source_url": "https://gateoverflow.in/39585/gate-cse-2016-set-2-question-34",
+   "source_label": "GATE Overflow question page - GATE CSE 2016 Set 2 Q.34, statement and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records 8, with the accepted answer giving both the chain argument and the complete-shape check. The paper and key were not fetched, so the record stays SOURCED. The bound min(k-1, floor(log2 n)) is recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2016-set-2-q40-insertion-orders-height-6",
    "year": "2016",
    "paper": "GATE CSE 2016 Set 2",
@@ -54156,6 +55173,21 @@ window.GATE_DATA = {
    "verification": "SOURCED"
   },
   {
+   "id": "gate-2018-q46-number-of-min-heaps-seven",
+   "year": "2018",
+   "paper": "GATE CSE 2018",
+   "question_ref": "Q.46 on GATE Overflow",
+   "type": "NAT",
+   "topic": "heap-height-leaves-and-node-counts",
+   "text": "The number of possible min-heaps containing each value from {1,2,3,4,5,6,7} exactly once is ____.",
+   "answer": "80",
+   "solution": "Seven nodes force the shape: root, two children, four leaves, with three nodes in each subtree. The root must be 1. Choose which three of the remaining six keys go left: C(6,3) = 20. Inside a three-node subtree the root is its smallest key and the two leaves can be ordered two ways, so each side multiplies by 2. Total 20 * 2 * 2 = 80.",
+   "source_url": "https://gateoverflow.in/204121/gate-cse-2018-question-46",
+   "source_label": "GATE Overflow question page - GATE CSE 2018 Q.46, statement and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records 80 with several independent derivations. The paper and key were not fetched, so the record stays SOURCED. The count is also obtained by brute-force enumeration of all 5040 permutations in scripts/validate.py."
+  },
+  {
    "id": "gate-2018-q49-number-of-essential-prime-implicants",
    "year": "2018",
    "paper": "GATE CS 2018",
@@ -54308,6 +55340,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2019 Q.47 with the accepted answer (0.8)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer reduces the discriminant to (Y-2)(Y+1) >= 0 and measures the favourable length 4 against the total 5; Testbook's page for the same GATE CS 2019 paper and the Knowledge Gate walkthrough both give 0.8. Recomputed here, including the double root at Y = 2."
+  },
+  {
+   "id": "gate-2019-q40-heap-statements",
+   "year": "2019",
+   "paper": "GATE CSE 2019",
+   "question_ref": "Q.40 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "build-heap-in-linear-time",
+   "text": "Consider the following statements: I. The smallest element in a max-heap is always at a leaf node. II. The second largest element in a max-heap is always a child of a root node. III. A max-heap can be constructed from a binary search tree in Theta(n) time. IV. A binary search tree can be constructed from a max-heap in Theta(n) time. Which of the above statements are TRUE?",
+   "options": [
+    "I, II and III",
+    "I, II and IV",
+    "I, III and IV",
+    "II, III and IV"
+   ],
+   "answer": "Option 1 - I, II and III",
+   "solution": "I: a parent is at least its children, so the minimum has no child and is a leaf. II: every node except the root lies under one of the two children of the root, and the larger child exceeds everything in the other subtree. III: walk the BST into an array and build-heap, both Theta(n). IV is false: a heap plus a Theta(n) conversion plus an inorder walk would sort n keys in Theta(n) comparisons, contradicting the Omega(n log n) lower bound.",
+   "source_url": "https://gateoverflow.in/302808/gate-cse-2019-question-40",
+   "source_label": "GATE Overflow question page - GATE CSE 2019 Q.40, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 1. The paper and key were not fetched, so the record stays SOURCED. Statements I and II are re-tested on explicit heaps and statement III's cost is recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2019-q6-not-a-valid-identity",
@@ -54610,6 +55663,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.5 with the accepted answer (option A)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer builds the table of minterms against the four select codes and reads I0 = 1, I1 = 1, I2 = x, I3 = x', concluding option A; several other answers agree. Recomputed here by enumeration over all eight assignments: the multiplexer with those data inputs is 1 exactly at minterms 0, 1, 3, 4, 5 and 6."
+  },
+  {
+   "id": "gate-2021-set-2-q2-max-in-min-heap",
+   "year": "2021",
+   "paper": "GATE CSE 2021 Set 2",
+   "question_ref": "Q.2 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "what-the-heap-order-does-not-give",
+   "text": "Let H be a binary min-heap consisting of n elements implemented as an array. What is the worst case time complexity of an optimal algorithm to find the maximum element in H?",
+   "options": [
+    "Theta(1)",
+    "Theta(log n)",
+    "Theta(n)",
+    "Theta(n log n)"
+   ],
+   "answer": "Option 3 - Theta(n)",
+   "solution": "The maximum of a min-heap is a leaf, since any internal node has a child that is at most it. With 1-based indices the leaves are floor(n/2)+1 to n, so scanning those ceil(n/2) cells costs Theta(n). It is optimal because the leaves are unordered among themselves, so no leaf can be excluded without reading it, and binary search is unavailable.",
+   "source_url": "https://gateoverflow.in/357538/gate-cse-2021-set-2-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2021 Set 2 Q.2, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 3, with the leaf-scan argument accepted. The paper and key were not fetched, so the record stays SOURCED. The leaf index range is recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2021-set1-18-exponential-exceeds-mean",
@@ -55298,6 +56372,27 @@ window.GATE_DATA = {
    "answer_evidence": "The accepted solutions conclude (B) and (C), using for all x for all y Q implies the conjecture, and there exists y for all x R implies for all x there exists y R."
   },
   {
+   "id": "gate-2023-q2-array-that-is-max-heap",
+   "year": "2023",
+   "paper": "GATE CSE 2023",
+   "question_ref": "Q.2 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "heap-shape-and-heap-property",
+   "text": "Which one of the following sequences when stored in an array at locations A[1], ..., A[10] forms a max-heap?",
+   "options": [
+    "23, 17, 10, 6, 13, 14, 1, 5, 7, 12",
+    "23, 17, 14, 7, 13, 10, 1, 5, 6, 12",
+    "23, 17, 14, 6, 13, 10, 1, 5, 7, 15",
+    "23, 14, 17, 1, 10, 13, 16, 12, 7, 5"
+   ],
+   "answer": "Option 2 - 23, 17, 14, 7, 13, 10, 1, 5, 6, 12",
+   "solution": "Test each parent against its children. Option 1 fails at (3,6): 10 is the parent of 14. Option 3 fails at (4,9): 6 is the parent of 15. Option 4 fails at (4,8): 1 is the parent of 12. Option 2 satisfies every edge: 23 over 17 and 14, 17 over 7 and 13, 14 over 10 and 1, 7 over 5 and 6, 13 over 12.",
+   "source_url": "https://gateoverflow.in/399310/gate-cse-2023-question-2",
+   "source_label": "GATE Overflow question page - GATE CSE 2023 Q.2, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 2, with the three failing edges named. The paper and key were not fetched, so the record stays SOURCED. All four arrays are re-tested edge by edge in scripts/validate.py."
+  },
+  {
    "id": "gate-2023-q3-slldel-dlldel",
    "year": "2023",
    "paper": "GATE CSE 2023",
@@ -55410,6 +56505,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1, listed as Question: 20, with the accepted answer A, B and C",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answers on the page mark statements 1, 2 and 3 correct and 4 incorrect. The official GATE 2024 CS paper (gate2024.iisc.ac.in, CS1 set) prints the same four statements at Q.30."
+  },
+  {
+   "id": "gate-2024-set-1-q33-index-of-maximum",
+   "year": "2024",
+   "paper": "GATE CSE 2024 Set 1",
+   "question_ref": "Q.33 on GATE Overflow",
+   "type": "MCQ",
+   "topic": "heap-height-leaves-and-node-counts",
+   "text": "Consider a binary min-heap containing 105 distinct elements. Let k be the index (in the underlying array) of the maximum element stored in the heap. The number of possible values of k is",
+   "options": [
+    "53",
+    "52",
+    "27",
+    "1"
+   ],
+   "answer": "Option 1 - 53",
+   "solution": "The maximum of a min-heap is a leaf, so the possible indices of k are exactly the leaf indices. With 1-based indices the internal nodes are 1 to floor(105/2) = 52 and the leaves are 53 to 105, which is 105 - 52 = 53 = ceil(105/2) positions. The second distractor, 52, is the number of internal nodes.",
+   "source_url": "https://gateoverflow.in/422809/gate-cse-2024-set-1-question-33",
+   "source_label": "GATE Overflow question page - GATE CSE 2024 Set 1 Q.33, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records option 1, with both the floor(n/2) argument and the level-count argument given. The paper and key were not fetched, so the record stays SOURCED. The counts 52 and 53 are recomputed in scripts/validate.py."
   },
   {
    "id": "gate-2024-set-2-q29-inorder-from-set",
@@ -56001,6 +57117,21 @@ window.GATE_DATA = {
    "answer_evidence": "The GATE Overflow answers agree on options 1 and 2, and a mirror site records A and B with the same reasoning. The paper and official key were not fetched, so the record stays SOURCED. GATE Overflow numbers it Q.16, the mirror Q.36."
   },
   {
+   "id": "gate-2025-set-1-q25-height-of-32-key-heap",
+   "year": "2025",
+   "paper": "GATE CSE 2025 Set 1",
+   "question_ref": "Q.25 on GATE Overflow",
+   "type": "NAT",
+   "topic": "heap-height-leaves-and-node-counts",
+   "text": "The height of any rooted tree is defined as the maximum number of edges in the path from the root node to any leaf node. Suppose a Min-Heap T stores 32 keys. The height of T is ____. (Answer in integer)",
+   "answer": "5",
+   "solution": "A heap is a complete binary tree, so its height is floor(log2 n) = floor(log2 32) = 5 edges. Levels 0 to 4 hold 1+2+4+8+16 = 31 nodes, so the 32nd key opens level 5 and the deepest leaf is 5 edges from the root. Answering 6 counts the nodes on that path instead of the edges.",
+   "source_url": "https://gateoverflow.in/460055/gate-cse-2025-set-1-question-25",
+   "source_label": "GATE Overflow question page - GATE CSE 2025 Set 1 Q.25, statement and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records 5, and the level-by-level count agrees. The paper and key were not fetched, so the record stays SOURCED. The height and the level sums are recomputed in scripts/validate.py."
+  },
+  {
    "id": "gate-2025-set-1-q27-immediate-field",
    "year": "2025",
    "paper": "GATE CSE 2025 Set 1",
@@ -56420,6 +57551,27 @@ window.GATE_DATA = {
    "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.26 with the accepted answer (option C)",
    "verification": "SOURCED",
    "answer_evidence": "The accepted answer decodes both operands, aligns Y to exponent -20 and reaches 0x35E80000, option C. Recomputed here: 1.5 x 2^-20 + 1.25 x 2^-22 = 1.8125 x 2^-20, which encodes to 0x35e80000. Another site numbers this question Q.36."
+  },
+  {
+   "id": "gate-2026-set-1-q13-leaf-indices",
+   "year": "2026",
+   "paper": "GATE CSE 2026 Set 1",
+   "question_ref": "Question 13 on GATE Overflow (one paper-listing site numbers the same question Q.23; see answer_evidence)",
+   "type": "MSQ",
+   "topic": "array-representation-and-index-arithmetic",
+   "text": "Let n be an odd number greater than 100. Consider a binary min-heap with n elements stored in an array P whose index starts from 1. Which of the following indices of P do/does NOT correspond to any leaf node of the min-heap?",
+   "options": [
+    "(n+1)/2",
+    "(n-1)/2",
+    "(n-3)/2",
+    "n"
+   ],
+   "answer": "Options 2 and 3 - (n-1)/2 and (n-3)/2",
+   "solution": "For odd n with 1-based indices the internal nodes are 1 to (n-1)/2 and the leaves are (n+1)/2 to n. So (n+1)/2 is the first leaf and n the last, while (n-1)/2 is the last internal node and (n-3)/2 = (n-1)/2 - 1 is internal too. At n = 101: internal nodes 1 to 50, leaves 51 to 101, so 51 and 101 are leaves and 50 and 49 are not.",
+   "source_url": "https://gateoverflow.in/523067/gate-cse-2026-set-1-question-13",
+   "source_label": "GATE Overflow question page - GATE CSE 2026 Set 1 Q.13, statement, options and accepted answer",
+   "verification": "SOURCED",
+   "answer_evidence": "GATE Overflow records 'B and C'. A second site listing the GATE 2026 Set 1 paper prints the identical statement and options but numbers it Q.23, so the question reference records the disagreement rather than pinning a number. The paper and key were not fetched, so the record stays SOURCED. The internal-node boundary is recomputed for n = 101, 103 and 105 in scripts/validate.py."
   },
   {
    "id": "gate-2026-set-1-q16-read-after-write-hazard",
